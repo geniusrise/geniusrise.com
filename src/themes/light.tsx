@@ -1,0 +1,25 @@
+const light = {
+  "dark-text-color": "#4d4d4c",
+  "dark-scrollbar-color": "#d0d0d0",
+  "dark-background-color": "#fafafa",
+  "dark-border-color": "#d0d0d0",
+  "dark-modal-background": "#ffffffe0",
+  "dark-input-color": "#cccccc",
+  "dark-card-color": "#ffffff",
+  "dark-card-shadow": "#e0e0e0",
+  "dark-gradient-1": "#f9ebd2",
+  "dark-gradient-2": "#f5f5f5",
+  "dark-table-head": "#e0e0e0",
+  "dark-table-hover": "#e0e0e070",
+  "dark-neon-color-1": "#ab4642",
+  "dark-neon-color-2": "#f7ca88",
+  "dark-pricing-color-1": "#a16946",
+  "dark-pricing-color-2": "#89bd9e",
+  "dark-pricing-color-1-tr": "#a1694620",
+  "dark-pricing-color-2-tr": "#89bd9e20",
+  "dark-candle-up": "#a2c680",
+  "dark-candle-down": "#ba8baf",
+  "dark-separator": "#d8d8d8",
+}
+
+export default light

@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: "Fira Sans";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: none;
+}
+/* Works on Firefox */
+* {
+  scrollbar-width: thick;
+  scrollbar-color: var(--dark-scrollbar-color) #02020c;
+}
+/* Works on Chrome, Edge, and Safari */
+@media (min-width: 481px) {
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+}
+@media (max-width: 481px) {
+  *::-webkit-scrollbar {
+    width: 0px;
+  }
+}
+*::-webkit-scrollbar-track {
+  background: #d4d4d4;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--dark-scrollbar-color);
+  border-radius: 10px;
+  border: 3px solid #d4d4d4;
+}
+.everything {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  text-align: center;
+  /* background-image: url('../assets/background2.jpg'); */
+  /* background: linear-gradient(90deg, rgba(131,58,180,1) 2%, rgba(253,29,9,1) 71%, rgba(252,176,69,1) 100%); */
+  /* background: radial-gradient(circle, rgba(195,34,145,1) 0%, rgba(253,114,45,1) 100%); */
+  background-image: url(../../assets/login-page/lol-20020e97-e56d-4ce9-b370-d0583dac0885.jpg);
+  background-size: 100% 100%;
+  padding: 0px;
+  font-size: 10pt;
+  color: var(--dark-text-color);
+}
+@media (min-width: 1100px) {
+  .something {
+    background-color: var(--dark-background-color);
+    height: calc(100vh - 0px);
+    overflow: hidden;
+  }
+  .content {
+    margin-right: 50px;
+  }
+}
+@media (min-width: 481px) and (max-width: 1100px) {
+  .something {
+    background-color: var(--dark-background-color);
+    height: calc(100vh - 0px);
+    overflow: hidden;
+  }
+  .content {
+    margin-right: 20px;
+  }
+}
+@media (max-width: 481px) {
+  .everything {
+    padding: 0px;
+  }
+  .something {
+    background-color: var(--dark-background-color);
+    height: calc(100vh - 0px);
+    overflow: auto;
+  }
+}
+/*# sourceMappingURL=everything.module.css.map */

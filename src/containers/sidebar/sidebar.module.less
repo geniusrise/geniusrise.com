@@ -1,0 +1,135 @@
+@import "../../index.less";
+
+.container {
+  height: calc(100vh - 60px);
+  background-image: url(../../assets/sidebar1.png);
+  background-position: center;
+  background-size: auto;
+  background-repeat: none;
+  position: fixed;
+  top: 30px;
+}
+
+.sidebar {
+  height: 100%;
+  color: var(--dark-text-color);
+
+  text-align: left;
+  // border-right: 0.1px solid var(--dark-border-color);
+
+  overflow-y: auto;
+}
+
+.logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.sidebarLink {
+  padding: 4px !important;
+  font-size: 12pt;
+  color: var(--dark-text-color);
+  height: 100%;
+  text-align: center;
+}
+
+.sidebarLink:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  color: var(--dark-text-color);
+}
+
+.sidebarLinkName {
+  display: block;
+  animation: fadeIn 0.5s;
+  text-align: center;
+
+  word-wrap: break-word;
+  font-size: 0.7rem;
+  max-width: inherit;
+  color: var(--dark-text-color);
+}
+
+.sidebarLink:hover .sidebarLinkName {
+  animation: fadeIn 0.5s;
+
+  color: var(--dark-text-color);
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1100px) {
+  .container {
+    border-radius: 2rem;
+    left: 2rem;
+  }
+  .sidebar {
+    min-width: 200px;
+    width: 20vw;
+
+    padding: 1rem;
+    background-color: var(--dark-modal-background);
+    border-radius: 1.8rem;
+  }
+
+  .logo {
+    height: 150px;
+    color: var(--dark-text-color);
+    font-size: 1.3rem;
+    padding: 10px;
+  }
+
+  .sidebarLink {
+    padding: 0.8rem !important;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1100px) {
+  .container {
+    border-radius: 2rem;
+    left: 2rem;
+  }
+  .sidebar {
+    min-width: 200px;
+    width: 20vw;
+
+    padding: 1rem;
+    background-color: var(--dark-modal-background);
+    border-radius: 1.8rem;
+  }
+  .logo {
+    height: 100px;
+    color: var(--dark-text-color);
+    font-size: 0pt;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 481px) {
+  .sidebar {
+    min-width: 70px;
+    max-width: 15vw;
+  }
+  .logo {
+    height: 35px;
+    color: var(--dark-text-color);
+    font-size: 0pt;
+    margin-bottom: 10px;
+  }
+}

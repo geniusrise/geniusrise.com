@@ -1,0 +1,28 @@
+const dark = {
+  "dark-text-color": "#ffffff",
+  "dark-scrollbar-color": "#19191b",
+  "dark-background-color": "#252525",
+  "dark-border-color": "#17171d",
+  "dark-modal-background": "#222222e0",
+  "dark-input-color": "#4c4c70",
+  "dark-card-color": "#b4b4b4",
+  "dark-card-shadow": "rgba(0, 0, 0, 0.2)",
+  "dark-gradient-1": "#67b657",
+  "dark-gradient-2": "#5d73f0",
+  "dark-table-head": "#201e1e",
+  "dark-table-hover": "rgba(50, 0, 200, 0.4)",
+  "dark-neon-color-1": "#4D96FF",
+  "dark-neon-color-2": "#FFD93D",
+  "dark-pricing-color-1": "#FF8AAE",
+  "dark-pricing-color-2": "#6BCB77",
+  "dark-pricing-color-1-tr": "#FF8AAE20",
+  "dark-pricing-color-2-tr": "#6BCB7720",
+  "dark-candle-up": "#6BCB77",
+  "dark-candle-down": "#ff009f",
+  "dark-separator": "#f6f5e7",
+  "dark-background-histogram": "#9090ff40",
+  "dark-background-histogram2": "#60ff9050",
+  "dark-background-histogram3": "#ffa00050",
+}
+
+export default dark
