@@ -2,7 +2,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 
-import { Button } from "react-bulma-components"
+import { Button, Tabs } from "react-bulma-components"
 import { Grid, Cell } from "styled-css-grid"
 
 import { device, is4K } from "../../utils"
@@ -14,6 +14,8 @@ import dark from "../../themes/dark"
 import light from "../../themes/light"
 import darkBlue from "../../themes/darkBlue"
 import purple from "../../themes/purple"
+import darkBlueN from "../../themes/darkBlueN"
+import purpleN from "../../themes/purpleN"
 
 function useTheme(theme: number) {
   var t: any = darkBlue
@@ -25,6 +27,10 @@ function useTheme(theme: number) {
     t = dark
   } else if (theme === 3) {
     t = purple
+  } else if (theme === 4) {
+    t = darkBlueN
+  } else if (theme === 5) {
+    t = purpleN
   }
 
   for (const key in t) {
@@ -34,8 +40,35 @@ function useTheme(theme: number) {
 }
 
 const Sidebar = () => {
-  const [theme, setTheme] = useState(3)
+  const [theme, setTheme] = useState(2)
   useTheme(theme)
+
+  const [activeTab, setActiveTab] = useState("text") // Default tab is 'text'
+
+  const renderFunctions = (category: string) => {
+    return (
+      <Grid columns={device === "smartphone" ? 1 : 2}>
+        {functions[category].map((d: any) => {
+          return (
+            <Cell center middle>
+              <Link className={styles.sidebarLink} to={d.link}>
+                {d.function_name}
+                {device === "smartphone" ? (
+                  <></>
+                ) : device === "tablet" ? (
+                  <></>
+                ) : device === "desktop" && is4K ? (
+                  <div className={styles.sidebarLinkName}>{d.name}</div>
+                ) : (
+                  <div className={styles.sidebarLinkName}>{d.name}</div>
+                )}
+              </Link>
+            </Cell>
+          )
+        })}
+      </Grid>
+    )
+  }
 
   return (
     <div className={styles.container}>
@@ -43,25 +76,55 @@ const Sidebar = () => {
         <div className={styles.logo}>
           <img src={logo} alt="logo"></img>
         </div>
-        <Grid columns={device === "smartphone" ? 1 : 2}>
-          {functions.map(d => {
-            return (
-              <Cell center middle>
-                <Link className={styles.sidebarLink} to={d.link}>
-                  {d.function_name}
-                  {device === "smartphone" ? (
-                    <></>
-                  ) : device === "tablet" ? (
-                    <></>
-                  ) : device === "desktop" && is4K ? (
-                    <div className={styles.sidebarLinkName}>{d.name}</div>
-                  ) : (
-                    <div className={styles.sidebarLinkName}>{d.name}</div>
-                  )}
-                </Link>
-              </Cell>
-            )
-          })}
+        <Grid columns={1}>
+          <Cell center middle>
+            <Link className={styles.commonLinks} to="/">
+              Dashboard <span className={styles.rightAlign}>🢧</span>
+            </Link>
+          </Cell>
+        </Grid>
+        <div className={styles.tabs}>
+          <Grid className={styles.tabGrid} columns={3}>
+            <Cell onClick={() => setActiveTab("text")} className={activeTab === "text" ? styles.activeTab : ""} center middle>
+              Text
+            </Cell>
+            <Cell onClick={() => setActiveTab("vision")} className={activeTab === "vision" ? styles.activeTab : ""} center middle>
+              Vision
+            </Cell>
+            <Cell onClick={() => setActiveTab("audio")} className={activeTab === "audio" ? styles.activeTab : ""} center middle>
+              Audio
+            </Cell>
+          </Grid>
+          {renderFunctions(activeTab)}
+        </div>
+        <Grid columns={4} className={styles.footer}>
+          <Cell center middle>
+            <div className={styles.themeSwitcher} onClick={() => setTheme(theme < 5 ? theme + 1 : 0)}>
+              <p>🥸</p>
+            </div>
+            <p>Theme</p>
+          </Cell>
+          <Cell center middle>
+            <div className={styles.themeSwitcher} onClick={() => setTheme(theme < 5 ? theme + 1 : 0)}>
+              <Link to="/account">😎</Link>
+            </div>
+            <p>Account</p>
+          </Cell>
+          <Cell center middle>
+            <div className={styles.themeSwitcher} onClick={() => setTheme(theme < 5 ? theme + 1 : 0)}>
+              <Link to="/billing">🤑</Link>
+            </div>
+            <p>Billing</p>
+          </Cell>
+          <Cell center middle>
+            <div className={styles.themeSwitcher} onClick={() => setTheme(theme < 5 ? theme + 1 : 0)}>
+              <Link to="/logoug">😴</Link>
+            </div>
+            <p>Logout</p>
+          </Cell>
+          <Cell></Cell>
+          <Cell></Cell>
+          <Cell></Cell>
         </Grid>
       </div>
     </div>

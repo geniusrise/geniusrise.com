@@ -8,6 +8,7 @@ import { Modal, Form } from "react-bulma-components"
 import { device, is4K } from "../../utils"
 
 import Sidebar from "../sidebar/sidebar"
+import { Support } from "../../support/support"
 import { functions } from "../../config/navigation"
 // import { Autocomplete } from "../../components/autocomplete/autocomplete"
 
@@ -46,6 +47,7 @@ const Everything = () => {
             <Routes>{/* <Route path="/" element={<Cashflow></Cashflow>} /> */}</Routes>
           </Cell>
         </Grid>
+        <Support></Support>
         <SearchModal></SearchModal>
       </div>
     </div>
