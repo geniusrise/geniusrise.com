@@ -1,18 +1,4 @@
 export const functions: any = {
-  me: [
-    {
-      function_name: "DASH",
-      name: "Dashboard",
-      description: "A consolidated dashboard.",
-      link: "/",
-    },
-    {
-      function_name: "BILL",
-      name: "Billing",
-      description: "Billing dashboard.",
-      link: "/",
-    },
-  ],
   text: [
     {
       function_name: "TXTCLASS",
