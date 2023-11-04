@@ -36,8 +36,8 @@ export const functions: any = {
       link: "/CHAT",
     },
     {
-      function_name: "SENSE",
-      name: "Commonsense Reasoning",
+      function_name: "NLI",
+      name: "Natural Language Inference",
       description:
         "Inferring general knowledge from text. Used to understand implications, assumptions. Enhances NLP applications with real-world understanding.",
       link: "/SENSE",

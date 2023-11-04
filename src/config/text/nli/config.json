@@ -1,0 +1,167 @@
+[
+  {
+    "name": "Multilingual DeBERTa",
+    "model_name": "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
+    "description": "The Multilingual DeBERTa model is engineered for Natural Language Inference (NLI) tasks across multiple languages. This model, by learning from a vast dataset of 2 million examples, has honed its capabilities to discern the relationships between premises and hypotheses in text. It operates effectively across various languages, making it a versatile tool for multilingual NLI tasks. The model's performance is particularly robust in scenarios that require understanding subtle nuances in text to ascertain the logical coherence or contradiction among statements. Its multilingual nature makes it a reliable choice in global settings, providing consistency in NLI tasks across diverse linguistic landscapes.",
+    "examples": [
+      "Determining if a hypothesis is supported by a given premise in English",
+      "Checking for contradiction between statements in French",
+      "Analyzing logical coherence of text snippets in Spanish"
+    ],
+    "usecases": ["Cross-lingual text analysis", "Multilingual content moderation", "Global customer support systems"]
+  },
+  {
+    "name": "T5 XXL True NLI",
+    "model_name": "google/t5_xxl_true_nli_mixture",
+    "description": "The T5 XXL True NLI model is built to excel in Natural Language Inference tasks, leveraging a large-scale mixture of diverse NLI datasets for training. This model embodies the strength of Transformer architecture to analyze and infer relationships between text snippets. It's designed to ascertain whether a hypothesis is entailed, contradicted, or neutrally related to a given premise. The model's large scale ensures a deep understanding of textual nuances, aiding in accurate inference across a range of domains. T5 XXL True NLI model is a powerful asset for applications that demand high-precision understanding and inference from text data.",
+    "examples": [
+      "Identifying if a hypothesis is supported by a premise",
+      "Detecting contradictions in text",
+      "Evaluating logical relationships between statements"
+    ],
+    "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"]
+  },
+  {
+    "name": "BART Large MNLI",
+    "model_name": "facebook/bart-large-mnli",
+    "description": "The BART Large MNLI model is fine-tuned specifically for the MultiNLI (MNLI) dataset to perform Natural Language Inference (NLI) tasks. It leverages the BART (Bidirectional and Auto-Regressive Transformers) architecture to analyze the relationship between a premise and a hypothesis. By evaluating whether the hypothesis is entailed, contradicted, or unrelated to the premise, it provides valuable insights into the logical coherence of text. This model's fine-tuning on the MNLI dataset, which encompasses a variety of genres and topics, ensures a broad understanding and robust performance across diverse textual scenarios. BART Large MNLI model is a solid choice for applications that require accurate inference and understanding of textual relationships.",
+    "examples": [
+      "Checking if a statement is logically supported by another",
+      "Identifying contradictions between two text snippets",
+      "Evaluating neutral relationships in text"
+    ],
+    "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"]
+  },
+  {
+    "name": "DeBERTa V2 Xlarge MNLI",
+    "model_name": "microsoft/deberta-v2-xlarge-mnli",
+    "description": "The DeBERTa V2 Xlarge MNLI model is an iteration of the DeBERTa architecture, specifically fine-tuned on the MultiNLI (MNLI) dataset for excelling in Natural Language Inference (NLI) tasks. The model is designed to analyze and understand the relationship between a premise and a hypothesis, categorizing them as entailment, contradiction, or neutral. The fine-tuning on the MNLI dataset ensures that the model is well-versed with a variety of text genres and topics, thus making it adept at handling diverse textual scenarios. The DeBERTa V2 Xlarge MNLI model is a robust choice for applications requiring a deep understanding and inference of textual relationships, backed by a large-scale and diverse training dataset.",
+    "examples": [
+      "Determining if a hypothesis is supported by a given premise",
+      "Checking for contradiction between statements",
+      "Analyzing logical coherence of text snippets"
+    ],
+    "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"]
+  },
+  {
+    "name": "DeBERTa V3 Large MNLI",
+    "model_name": "khalidalt/DeBERTa-v3-large-mnli",
+    "description": "The DeBERTa V3 Large MNLI model is a refined version of the DeBERTa architecture, specifically tailored for Natural Language Inference (NLI) tasks through fine-tuning on the MultiNLI (MNLI) dataset. This model is adept at understanding the logical relationships between a premise and a hypothesis, categorizing them as entailment, contradiction, or neutral. The specialized training on the MNLI dataset enables the model to have a broad understanding of various text genres and topics, ensuring robust performance across different textual scenarios. The DeBERTa V3 Large MNLI model is an excellent choice for applications that demand accurate inference and understanding of textual relationships, leveraging the power of the DeBERTa architecture and a diverse training dataset.",
+    "examples": [
+      "Identifying if a hypothesis is supported by a premise",
+      "Detecting contradictions in text",
+      "Evaluating logical relationships between statements"
+    ],
+    "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"]
+  },
+  {
+    "name": "DistilBERT MNLI",
+    "model_name": "typeform/distilbert-base-uncased-mnli",
+    "description": "The DistilBERT MNLI model is a distilled version of the BERT model, specifically fine-tuned on the MultiNLI (MNLI) dataset for Natural Language Inference (NLI) tasks. It aims to analyze the relationship between a premise and a hypothesis, categorizing them as entailment, contradiction, or neutral. Despite being a lighter model, DistilBERT MNLI does not compromise on performance and provides accurate inferences across a variety of textual scenarios. Its training on the MNLI dataset ensures a broad understanding of different text genres and topics. The DistilBERT MNLI model is a compact and efficient choice for applications requiring accurate textual inference while being resource-conscious.",
+    "examples": [
+      "Checking if a statement is logically supported by another",
+      "Identifying contradictions between two text snippets",
+      "Evaluating neutral relationships in text"
+    ],
+    "usecases": ["Resource-efficient textual inference", "Content moderation", "Automated reasoning systems"]
+  },
+  {
+    "name": "RoBERTa Large MNLI",
+    "model_name": "roberta-large-mnli",
+    "description": "The RoBERTa Large MNLI model is a variation of the RoBERTa model, tailored for the Natural Language Inference (NLI) tasks by being fine-tuned on the MultiNLI (MNLI) dataset. It examines the relationship between a premise and a hypothesis and categorizes them as entailment, contradiction, or neutral. The fine-tuning on the MNLI dataset endows the model with a broad understanding of various textual scenarios across different genres and topics. RoBERTa Large MNLI is a robust choice for applications necessitating a deep understanding of textual relationships, leveraging the power of the RoBERTa architecture along with a diverse training dataset.",
+    "examples": [
+      "Determining if a hypothesis is supported by a given premise",
+      "Detecting contradictions between statements",
+      "Analyzing logical coherence between text snippets"
+    ],
+    "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"]
+  },
+  {
+    "name": "DeBERTa V2 XXLarge MNLI",
+    "model_name": "microsoft/deberta-v2-xxlarge-mnli",
+    "description": "The DeBERTa V2 XXLarge MNLI model is an advanced iteration of the DeBERTa model, particularly fine-tuned on the MultiNLI (MNLI) dataset for excelling in Natural Language Inference (NLI) tasks. The model is adept at understanding the logical relationships between a premise and a hypothesis, categorizing them as entailment, contradiction, or neutral. With the fine-tuning on the MNLI dataset, the model gains a wide understanding of various text genres and topics, ensuring a robust performance across diverse textual scenarios. The DeBERTa V2 XXLarge MNLI model is a potent choice for applications requiring a profound understanding and inference of textual relationships, backed by the powerful DeBERTa architecture and a diverse training dataset.",
+    "examples": [
+      "Identifying if a hypothesis is supported by a premise",
+      "Detecting contradictions in text",
+      "Evaluating logical relationships between statements"
+    ],
+    "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"]
+  },
+  {
+    "name": "DeBERTa V3 Large TaskSource NLI",
+    "model_name": "sileod/deberta-v3-large-tasksource-nli",
+    "description": "The DeBERTa V3 Large TaskSource NLI model is a refined version of the DeBERTa architecture, specifically tailored for Natural Language Inference (NLI) tasks. This model is adept at understanding the logical relationships between a premise and a hypothesis, categorizing them as entailment, contradiction, or neutral. The specialized training on a variety of NLI tasks ensures the model's robustness and wide understanding across different textual scenarios. The DeBERTa V3 Large TaskSource NLI model is an excellent choice for applications that demand accurate inference and understanding of textual relationships, leveraging the power of the DeBERTa architecture and a diverse training background.",
+    "examples": [
+      "Identifying if a hypothesis is supported by a premise",
+      "Detecting contradictions in text",
+      "Evaluating logical relationships between statements"
+    ],
+    "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"]
+  },
+  {
+    "name": "NLI DeBERTa V3 Small",
+    "model_name": "cross-encoder/nli-deberta-v3-small",
+    "description": "The NLI DeBERTa V3 Small model is a more compact variant of the DeBERTa model series, fine-tuned for Natural Language Inference (NLI) tasks. It analyzes the relationship between a premise and a hypothesis, classifying them into categories such as entailment, contradiction, or neutral. Despite its smaller size, this model provides a quick yet effective solution for understanding textual relationships. It's an excellent choice for applications with limited computational resources while still requiring reliable NLI capabilities.",
+    "examples": [
+      "Checking if a statement is entailed by a given text",
+      "Identifying contradictions between two text segments",
+      "Classifying text pairs into entailment, contradiction, or neutral"
+    ],
+    "usecases": ["Real-time text analysis platforms", "Content moderation", "Automated reasoning systems"]
+  },
+  {
+    "name": "NLI DeBERTa V3 Base",
+    "model_name": "cross-encoder/nli-deberta-v3-base",
+    "description": "The NLI DeBERTa V3 Base model, part of the DeBERTa model series, is fine-tuned specifically for Natural Language Inference (NLI) tasks. It assesses the relationship between a premise and a hypothesis, classifying them into categories like entailment, contradiction, or neutral. The fine-tuning process empowers the model to have a good understanding of textual relationships across a variety of contexts. It's a strong choice for applications that require a balance between computational efficiency and reliable NLI performance.",
+    "examples": [
+      "Determining if a hypothesis is supported by a premise",
+      "Detecting contradictions between two text segments",
+      "Classifying text pairs into entailment, contradiction, or neutral"
+    ],
+    "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"]
+  },
+  {
+    "name": "NLI DeBERTa V3 Large",
+    "model_name": "cross-encoder/nli-deberta-v3-large",
+    "description": "The NLI DeBERTa V3 Large model is a robust version within the DeBERTa model series, fine-tuned particularly for Natural Language Inference (NLI) tasks. It meticulously analyzes the relationship between a premise and a hypothesis, classifying them into entailment, contradiction, or neutral. The model's large architecture and fine-tuning process on NLI tasks provide it with a deep understanding of textual relationships across various contexts. It is a solid choice for applications that require high-level NLI performance and are equipped to handle the computational demands of a large model.",
+    "examples": [
+      "Evaluating if a hypothesis is supported by a premise",
+      "Identifying contradictions between text segments",
+      "Classifying text pairs into entailment, contradiction, or neutral"
+    ],
+    "usecases": ["Advanced textual logic verification", "Content moderation", "Automated reasoning systems"]
+  },
+  {
+    "name": "NLI RoBERTa Base",
+    "model_name": "cross-encoder/nli-roberta-base",
+    "description": "The NLI RoBERTa Base model is a variant of the original RoBERTa model, fine-tuned specifically for Natural Language Inference (NLI) tasks. It analyzes the relationship between a premise and a hypothesis, aiming to determine whether the hypothesis is entailed, contradicted, or neutrally related to the premise. The model leverages the robustness of the RoBERTa architecture to effectively understand and categorize textual relationships. It's a reliable choice for various applications requiring a solid understanding of text relationships without the computational demand of larger models.",
+    "examples": [
+      "Assessing if a statement is supported by a given text",
+      "Detecting contradictions between two text segments",
+      "Classifying textual relationships into entailment, contradiction, or neutral"
+    ],
+    "usecases": ["Content moderation", "Automated reasoning systems", "Real-time text analysis platforms"]
+  },
+  {
+    "name": "NLI DeBERTa V3 Large",
+    "model_name": "cross-encoder/nli-deberta-v3-large",
+    "description": "The NLI DeBERTa V3 Large model is another large-scale model within the DeBERTa series, fine-tuned for Natural Language Inference (NLI) tasks. It examines the relationship between a premise and a hypothesis, categorizing them into either entailment, contradiction, or neutral. Due to its large architecture, the model provides a deeper understanding of textual relationships, making it an excellent choice for applications requiring high-accuracy NLI performance. However, the computational requirements for this model are higher, making it suitable for well-resourced environments.",
+    "examples": [
+      "Evaluating if a hypothesis is supported by a premise",
+      "Identifying contradictions between text segments",
+      "Classifying text pairs into entailment, contradiction, or neutral"
+    ],
+    "usecases": ["Advanced textual logic verification", "Content moderation", "Automated reasoning systems"]
+  },
+  {
+    "name": "NLI DistilRoBERTa Base",
+    "model_name": "cross-encoder/nli-distilroberta-base",
+    "description": "The NLI DistilRoBERTa Base model is a distilled version of the RoBERTa model, fine-tuned for Natural Language Inference (NLI) tasks. It aims to analyze the relationship between a premise and a hypothesis, categorizing them into entailment, contradiction, or neutral. The distillation process makes this model lighter and faster, while still retaining a good level of performance on NLI tasks. It's a great choice for applications with limited computational resources but still requiring reliable NLI capabilities.",
+    "examples": [
+      "Determining if a hypothesis is supported by a premise",
+      "Detecting contradictions between two text segments",
+      "Classifying text pairs into entailment, contradiction, or neutral"
+    ],
+    "usecases": ["Real-time text analysis platforms", "Content moderation", "Knowledge verification"]
+  }
+]

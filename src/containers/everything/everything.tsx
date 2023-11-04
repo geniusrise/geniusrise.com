@@ -10,6 +10,7 @@ import { device, is4K } from "../../utils"
 import Sidebar from "../sidebar/sidebar"
 import { Support } from "../../support/support"
 import { functions } from "../../config/navigation"
+import config from "../../config"
 // import { Autocomplete } from "../../components/autocomplete/autocomplete"
 
 const Everything = () => {
@@ -37,6 +38,8 @@ const Everything = () => {
   //   })
   //   return () => {}
   // }, [])
+
+  console.log(config)
 
   return (
     <div className={styles.everything}>

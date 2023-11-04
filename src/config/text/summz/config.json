@@ -1,0 +1,260 @@
+[
+  {
+    "name": "BART Large CNN Summarization",
+    "model_name": "facebook/bart-large-cnn",
+    "description": "The BART Large CNN Summarization model is a highly efficient text summarization tool. It leverages the BART (Bidirectional and Auto-Regressive Transformers) architecture which is pre-trained on a diverse range of internet text and fine-tuned on CNN/Daily Mail dataset for summarization tasks. This model is adept at generating coherent and concise summaries while retaining the critical information from the original text. The usage of the BART architecture allows for better understanding and representation of the input text, which in turn leads to more accurate and informative summaries. Its capability to condense long pieces of text into shorter, human-readable summaries can be a boon for various industries dealing with large volumes of text data.",
+    "examples": [
+      "Summarizing news articles for quick reading",
+      "Summarizing long reports or documents for easy understanding",
+      "Summarizing customer reviews for product analysis"
+    ],
+    "usecases": ["News aggregation platforms", "Research analysis", "Customer feedback analysis"]
+  },
+  {
+    "name": "DistilBART CNN Summarization",
+    "model_name": "sshleifer/distilbart-cnn-12-6",
+    "description": "The DistilBART CNN Summarization model is a lighter and faster variant of the BART Large CNN Summarization model. It retains the essential summarization capabilities of BART while being more resource-efficient, making it suitable for environments with constrained computational resources. This model is trained to provide accurate and concise summaries of the input text, aiding in faster information retrieval and understanding. The DistilBART CNN Summarization model can be a valuable tool for various applications where quick and precise summarization is necessary without the overhead of larger models.",
+    "examples": [
+      "Summarizing online articles for mobile reading",
+      "Summarizing emails for quick overview",
+      "Summarizing user-generated content for moderation"
+    ],
+    "usecases": ["Mobile news applications", "Email management systems", "Online content moderation"]
+  },
+  {
+    "name": "BART Large CNN Summarization",
+    "model_name": "facebook/bart-large-cnn",
+    "description": "The BART Large CNN Summarization model is a highly efficient text summarization tool. It leverages the BART (Bidirectional and Auto-Regressive Transformers) architecture which is pre-trained on a diverse range of internet text and fine-tuned on CNN/Daily Mail dataset for summarization tasks. This model is adept at generating coherent and concise summaries while retaining the critical information from the original text. The usage of the BART architecture allows for better understanding and representation of the input text, which in turn leads to more accurate and informative summaries. Its capability to condense long pieces of text into shorter, human-readable summaries can be a boon for various industries dealing with large volumes of text data.",
+    "examples": [
+      "Summarizing news articles for quick reading",
+      "Summarizing long reports or documents for easy understanding",
+      "Summarizing customer reviews for product analysis"
+    ],
+    "usecases": ["News aggregation platforms", "Research analysis", "Customer feedback analysis"]
+  },
+  {
+    "name": "DistilBART CNN Summarization",
+    "model_name": "sshleifer/distilbart-cnn-12-6",
+    "description": "The DistilBART CNN Summarization model is a lighter and faster variant of the BART Large CNN Summarization model. It retains the essential summarization capabilities of BART while being more resource-efficient, making it suitable for environments with constrained computational resources. This model is trained to provide accurate and concise summaries of the input text, aiding in faster information retrieval and understanding. The DistilBART CNN Summarization model can be a valuable tool for various applications where quick and precise summarization is necessary without the overhead of larger models.",
+    "examples": [
+      "Summarizing online articles for mobile reading",
+      "Summarizing emails for quick overview",
+      "Summarizing user-generated content for moderation"
+    ],
+    "usecases": ["Mobile news applications", "Email management systems", "Online content moderation"]
+  },
+  {
+    "name": "LED Large Book Summary",
+    "model_name": "pszemraj/led-large-book-summary",
+    "description": "The LED (Longformer-Encoder-Decoder) Large Book Summary model is built to handle long-form text summarization, making it particularly suitable for summarizing books or lengthy documents. The model employs the LED architecture which incorporates a Longformer encoder and a standard transformer decoder. This design enables the model to efficiently process and summarize long texts while retaining key information. Through summarization, the LED Large Book Summary model aids in extracting essential insights from lengthy documents which could be beneficial for readers looking to understand the core content without going through the entire text.",
+    "examples": ["Summarizing lengthy academic papers", "Summarizing books for quick review", "Summarizing legal documents"],
+    "usecases": ["Academic research", "Book review platforms", "Legal analysis"]
+  },
+  {
+    "name": "Meeting Summary Bart Large XSum SAMSum DialogSum AMI",
+    "model_name": "knkarthick/MEETING-SUMMARY-BART-LARGE-XSUM-SAMSUM-DIALOGSUM-AMI",
+    "description": "The Meeting Summary Bart Large XSum SAMSum DialogSum AMI model is a comprehensive tool designed for summarizing meetings. It is fine-tuned on a diverse set of datasets including XSum, SAMSum, DialogSum, and AMI, which equip it with the capability to understand and summarize spoken discourse effectively. This model can process dialogues from meetings, identify key points, decisions, and action items, and generate concise summaries. It is highly beneficial for professionals and teams looking to document meeting outcomes without having to go through the entire conversation, thus saving time and ensuring that crucial information is captured.",
+    "examples": ["Summarizing corporate meetings", "Summarizing conferences or panel discussions", "Summarizing educational lectures or discussions"],
+    "usecases": ["Corporate documentation", "Educational platforms", "Event documentation"]
+  },
+  {
+    "name": "KoBART News Summarization",
+    "model_name": "ainize/kobart-news",
+    "description": "The KoBART News Summarization model is adept at summarizing news articles into concise summaries. Utilizing the BART (Bidirectional and Auto-Regressive Transformers) architecture, this model has been fine-tuned specifically for Korean text, making it highly effective for Korean news summarization. By summarizing news articles, KoBART aids users in quickly understanding the key points of news stories without having to read the entire text. This is especially useful in today's fast-paced world where time is of the essence and staying updated with current events is crucial.",
+    "examples": ["Summarizing daily news articles", "Summarizing editorial pieces", "Summarizing press releases"],
+    "usecases": ["News aggregation platforms", "Editorial teams", "Public relations agencies"]
+  },
+  {
+    "name": "Financial Summarization Pegasus",
+    "model_name": "human-centered-summarization/financial-summarization-pegasus",
+    "description": "The Financial Summarization Pegasus model is engineered to summarize financial texts into clear, concise summaries. Leveraging the Pegasus architecture, it has been fine-tuned for the financial domain, making it adept at understanding financial terminology and context. The model can help users quickly grasp the essential information from lengthy financial documents, reports, or articles. This is particularly beneficial for financial analysts, investors, and other stakeholders who require a quick understanding of financial texts to make informed decisions.",
+    "examples": ["Summarizing quarterly financial reports", "Summarizing financial news articles", "Summarizing investment analyses"],
+    "usecases": ["Financial analysis", "Investment platforms", "Business intelligence"]
+  },
+  {
+    "name": "Arxiv Title Generation Bert2Bert",
+    "model_name": "Callidior/bert2bert-base-arxiv-titlegen",
+    "description": "The Arxiv Title Generation Bert2Bert model is specialized in generating titles for academic papers, particularly those submitted to Arxiv. Built upon the Bert2Bert framework, this model can process the abstract or the content of a paper and generate a fitting title. This is extremely useful for researchers and academics looking to aptly title their work for submission to conferences or journals. By providing a succinct yet descriptive title, this model helps in accurately representing the core focus of the paper, thus aiding in reaching the right audience and making a meaningful impact in the academic community.",
+    "examples": ["Generating titles for research papers", "Generating titles for conference submissions", "Generating titles for journal articles"],
+    "usecases": ["Academic research", "Conference submissions", "Journal publications"]
+  },
+  {
+    "name": "Long T5 Book Summary",
+    "model_name": "pszemraj/long-t5-tglobal-base-16384-book-summary",
+    "description": "The Long T5 Book Summary model is developed to generate summaries for books, making it easier for readers to understand the core narrative or key points without going through the entire text. Utilizing the T5 (Text-To-Text Transfer Transformer) architecture, this model has been fine-tuned to handle longer text sequences, which is essential for summarizing lengthy books. Whether it's summarizing fiction or non-fiction, the model provides a concise summary, allowing readers to decide whether they would like to read the full book or understand the gist for various purposes.",
+    "examples": ["Summarizing fiction books", "Summarizing non-fiction books", "Summarizing textbooks"],
+    "usecases": ["Book review platforms", "Educational platforms", "Reading clubs"]
+  },
+  {
+    "name": "Easy Terms Summarizer",
+    "model_name": "Quake24/easyTermsSummerizer",
+    "description": "The Easy Terms Summarizer model is designed to provide summaries of text in simple, easy-to-understand terms. This is particularly useful for complex or technical texts where a simplified summary can aid in comprehension. The model is well-suited for educational purposes, where it can help students grasp the essentials of complex topics quickly. By translating complex ideas into simpler terms, this model acts as a bridge to better understanding, making information more accessible to a broader audience.",
+    "examples": [
+      "Simplifying technical documents",
+      "Summarizing complex articles in simple terms",
+      "Providing easy-to-understand summaries for educational materials"
+    ],
+    "usecases": ["Educational platforms", "Technical documentation", "Learning and development"]
+  },
+  {
+    "name": "CNN News Summarization Bart",
+    "model_name": "facebook/bart-large-cnn",
+    "description": "The CNN News Summarization Bart model is tailored to generate summaries for news articles, especially from CNN. Employing the BART (Bidirectional and Auto-Regressive Transformers) framework, this model condenses news articles into concise summaries, capturing the essential information. This is valuable for individuals looking to stay updated with current events but have limited time to read full-length articles. By providing quick, accurate summaries, this model facilitates a better understanding of ongoing societal and global issues.",
+    "examples": ["Summarizing CNN news articles", "Summarizing editorial pieces from CNN", "Summarizing press releases featured on CNN"],
+    "usecases": ["News aggregation platforms", "Media monitoring services", "Current affairs education"]
+  },
+  {
+    "name": "BigBird Pegasus Arxiv Summarization",
+    "model_name": "google/bigbird-pegasus-large-arxiv",
+    "description": "The BigBird Pegasus Arxiv Summarization model is a state-of-the-art model trained for summarizing scientific papers from the Arxiv dataset. The model is capable of handling long-form text, making it suitable for condensing extensive scientific literature into more digestible summaries. This is particularly useful for researchers and practitioners who need to keep up with the vast amount of literature in their field. By providing a succinct summary, the model helps in understanding the core contributions of the papers quickly.",
+    "examples": ["Summarizing scientific papers", "Creating abstracts for long-form articles", "Providing quick overviews of technical reports"],
+    "usecases": ["Research literature review", "Academic paper writing", "Content curation for scientific databases"]
+  },
+  {
+    "name": "BigBird Pegasus BigPatent Summarization",
+    "model_name": "google/bigbird-pegasus-large-bigpatent",
+    "description": "The BigBird Pegasus BigPatent Summarization model is designed to summarize patent documents. It's trained on the BigPatent dataset, which comprises a vast collection of patent documents. The model excels in distilling lengthy and complex patent descriptions into concise summaries, enabling quicker understanding and analysis of the patent content. This is crucial for patent examiners, legal professionals, and inventors who need to sift through a multitude of patent documents.",
+    "examples": ["Summarizing patent descriptions", "Generating abstracts for patent filings", "Quickly reviewing patent portfolios"],
+    "usecases": ["Patent examination", "Legal research", "Innovation management"]
+  },
+  {
+    "name": "BigBird Pegasus PubMed Summarization",
+    "model_name": "google/bigbird-pegasus-large-pubmed",
+    "description": "The BigBird Pegasus PubMed Summarization model is adept at summarizing medical literature from the PubMed database. It's particularly useful for medical professionals, researchers, and academics looking to quickly grasp the essence of lengthy medical papers. By producing accurate and concise summaries, the model saves time and accelerates the research process. The summaries can serve as a starting point for deeper exploration of the medical topics discussed.",
+    "examples": ["Summarizing medical research papers", "Generating abstracts for clinical studies", "Providing overviews of medical case reports"],
+    "usecases": ["Medical literature review", "Clinical research", "Healthcare knowledge management"]
+  },
+  {
+    "name": "Flan T5 Base Summarization",
+    "model_name": "google/flan-t5-base",
+    "description": "The Flan T5 Base Summarization model is a transformer-based model tailored for summarization tasks. It leverages the T5 (Text-To-Text Transfer Transformer) architecture, which is designed to handle various text-to-text tasks. In the domain of summarization, this model can condense long pieces of text into shorter, coherent summaries while retaining the crucial information from the original text. The Flan T5 Base model is versatile and can be used for summarizing articles, reports, and other forms of text documents, aiding in quicker information retrieval and understanding.",
+    "examples": ["Summarizing news articles", "Generating abstracts for reports", "Condensing long-form content into shorter summaries"],
+    "usecases": ["News aggregation", "Content curation", "Academic research"]
+  },
+  {
+    "name": "Flan T5 Large Summarization",
+    "model_name": "google/flan-t5-large",
+    "description": "The Flan T5 Large Summarization model is a more powerful version of the Flan T5 Base model, with a larger number of parameters enabling better summarization performance. Similar to its base counterpart, this model leverages the T5 architecture for summarization tasks. It's capable of processing and summarizing long texts, making it highly useful in scenarios where quick understanding of large documents is necessary. The model's high summarization quality makes it a valuable tool for professionals and researchers across various fields.",
+    "examples": ["Summarizing academic papers", "Generating abstracts for technical documents", "Condensing long discussions into summaries"],
+    "usecases": ["Literature review", "Technical documentation", "Discussion summarization"]
+  },
+  {
+    "name": "Flan T5 XL Summarization",
+    "model_name": "google/flan-t5-xl",
+    "description": "The Flan T5 XL Summarization model is an extended version of the Flan T5 models with an even larger number of parameters, offering enhanced summarization capabilities. It's adept at summarizing lengthy and complex texts, catering to the needs of professionals who require quick insights from extensive documents. The model maintains a high level of summarization quality, ensuring that the core information is accurately represented in the generated summaries. Its robust summarization performance is beneficial for various text condensation tasks across multiple domains.",
+    "examples": [
+      "Summarizing complex technical documents",
+      "Generating abstracts for research papers",
+      "Condensing extensive reports into summaries"
+    ],
+    "usecases": ["Research literature review", "Technical documentation", "Corporate report summarization"]
+  },
+  {
+    "name": "Flan T5 XXL Summarization",
+    "model_name": "google/flan-t5-xxl",
+    "description": "The Flan T5 XXL Summarization model is the most extensive variant among the Flan T5 models, possessing a significantly higher number of parameters which translates to superior summarization performance. This model thrives in scenarios where highly accurate summarization is imperative, especially in professional or academic settings. It can handle very long and complex texts, making it an exceptional tool for generating concise and informative summaries. The Flan T5 XXL model is a powerhouse for summarization tasks, providing high-quality summaries while saving time and effort.",
+    "examples": [
+      "Summarizing extensive research papers",
+      "Generating summaries for long technical manuals",
+      "Condensing lengthy legal documents into summaries"
+    ],
+    "usecases": ["Academic research", "Technical documentation", "Legal document summarization"]
+  },
+  {
+    "name": "T5 Base Version 1.1",
+    "model_name": "google/t5-v1_1-base",
+    "description": "The T5 Base Version 1.1 model is a part of the T5 (Text-To-Text Transfer Transformer) family, designed to handle a variety of text-to-text tasks including summarization. It has a balanced number of parameters making it a good fit for a range of summarization tasks without being too computationally intensive. This model can be employed to summarize texts of moderate length, providing a quick overview of the content. Its versatility makes it suitable for summarizing different types of text documents, aiding in faster information extraction and comprehension.",
+    "examples": ["Summarizing news articles", "Generating abstracts for reports", "Condensing blog posts into summaries"],
+    "usecases": ["News aggregation", "Content curation", "Academic research"]
+  },
+  {
+    "name": "T5 Large Version 1.1",
+    "model_name": "google/t5-v1_1-large",
+    "description": "The T5 Large Version 1.1 model, being a more powerful version of the T5 Base model, is equipped with a higher number of parameters for better summarization performance. It's well-suited for summarizing long and complex texts, making it a valuable tool for professionals and researchers who require quick insights from extensive documents. The model's ability to generate high-quality summaries helps in better understanding and quicker decision-making. It's a robust tool for a variety of summarization tasks across multiple domains.",
+    "examples": ["Summarizing academic papers", "Generating summaries for technical documents", "Condensing lengthy discussions into summaries"],
+    "usecases": ["Literature review", "Technical documentation", "Corporate report summarization"]
+  },
+  {
+    "name": "T5 XL Version 1.1",
+    "model_name": "google/t5-v1_1-xl",
+    "description": "The T5 XL Version 1.1 is an extended version of the T5 Large model, with more parameters, hence capable of handling more complex summarization tasks. This model excels at providing concise summaries for longer or more complex texts. Its enhanced summarization ability makes it a handy tool for professionals and researchers dealing with extensive documents. The T5 XL model is designed to save time and effort while ensuring the key points in the text are captured accurately in the summaries.",
+    "examples": [
+      "Summarizing lengthy research papers",
+      "Generating summaries for complex technical manuals",
+      "Condensing exhaustive legal documents into summaries"
+    ],
+    "usecases": ["Academic research", "Technical documentation", "Legal document summarization"]
+  },
+  {
+    "name": "T5 XXL Version 1.1",
+    "model_name": "google/t5-v1_1-xxl",
+    "description": "The T5 XXL Version 1.1 is the largest and the most powerful model in the T5 family, designed for the most demanding summarization tasks. It's equipped with a vast number of parameters, enabling it to handle extremely long and complex texts with ease. This model is particularly useful in professional or academic environments where high-quality summarization is crucial. The T5 XXL model is a top-tier tool for generating precise and informative summaries, making it an invaluable asset for saving time and extracting key information.",
+    "examples": [
+      "Summarizing extensive scientific papers",
+      "Generating summaries for very long technical manuals",
+      "Condensing very lengthy legal documents into summaries"
+    ],
+    "usecases": ["Academic research", "Technical documentation", "Legal document summarization"]
+  },
+  {
+    "name": "uMT5 Base",
+    "model_name": "google/umt5-base",
+    "description": "The uMT5 Base model is a part of the uMT5 family which is designed to handle a myriad of text-to-text tasks. This base version is a balanced choice for summarization tasks, capable of handling a wide variety of texts. It's a flexible model that can adapt to different summarization needs, providing concise summaries that capture the essence of the original text. The uMT5 Base model is a reliable choice for both professionals and casual users in need of quick and accurate summarization.",
+    "examples": ["Summarizing news articles", "Generating abstracts for reports", "Condensing blog posts into summaries"],
+    "usecases": ["News aggregation", "Content curation", "Academic research"]
+  },
+  {
+    "name": "uMT5 XL",
+    "model_name": "google/umt5-xl",
+    "description": "The uMT5 XL model is a larger variant in the uMT5 family, designed to provide more accurate summarization for complex or extensive texts. With its increased parameter size, it is capable of understanding nuanced details and delivering concise, informative summaries. Whether dealing with technical documents, academic papers, or lengthy reports, the uMT5 XL model is well-suited to handle various summarization tasks. Its ability to condense vital information accurately makes it a reliable tool for professionals and researchers.",
+    "examples": ["Summarizing technical documents", "Generating abstracts for academic papers", "Condensing lengthy reports into summaries"],
+    "usecases": ["Technical documentation", "Academic research", "Report summarization"]
+  },
+  {
+    "name": "uMT5 XXL",
+    "model_name": "google/umt5-xxl",
+    "description": "The uMT5 XXL model stands as the largest variant in the uMT5 family, offering the highest summarization accuracy for exceedingly complex or long texts. Its vast number of parameters allow for a deep understanding and precise summarization of intricate details found in technical or academic documents. The uMT5 XXL is an invaluable asset for professionals and researchers dealing with extensive texts, providing them with accurate, concise summaries and saving significant time and effort.",
+    "examples": [
+      "Summarizing extensive technical manuals",
+      "Generating abstracts for lengthy academic papers",
+      "Condensing very long reports into summaries"
+    ],
+    "usecases": ["Technical documentation", "Academic research", "Report summarization"]
+  },
+  {
+    "name": "Pegasus Base",
+    "model_name": "google/pegasus-x-base",
+    "description": "The Pegasus Base model is part of the Pegasus family which is known for its effectiveness in summarization tasks. This base version is balanced in terms of parameter size, making it a versatile choice for a wide range of summarization tasks. Whether it's news articles, reports, or other types of texts, the Pegasus Base model can provide concise and accurate summaries. It's a reliable tool for individuals and professionals who need quick summarizations without compromising on quality.",
+    "examples": ["Summarizing news articles", "Generating abstracts for reports", "Condensing blog posts into summaries"],
+    "usecases": ["News aggregation", "Content curation", "Academic research"]
+  },
+  {
+    "name": "Pegasus Large",
+    "model_name": "google/pegasus-large",
+    "description": "The Pegasus Large model is a more robust version within the Pegasus family, tailored for highly accurate summarization. Its enhanced capacity allows for a deeper understanding of complex texts, making it ideal for summarizing technical documents, academic papers, or lengthy reports. The Pegasus Large model is a reliable tool for professionals and researchers, providing them with concise, informative summaries, and aiding in quicker information retrieval and decision-making.",
+    "examples": ["Summarizing technical documents", "Generating abstracts for academic papers", "Condensing lengthy reports into summaries"],
+    "usecases": ["Technical documentation", "Academic research", "Report summarization"]
+  },
+  {
+    "name": "Pegasus X-Large",
+    "model_name": "google/pegasus-x-large",
+    "description": "The Pegasus X-Large model is one of the advanced versions in the Pegasus family, designed to provide highly accurate summarization for complex or extensive texts. It's capable of understanding nuanced details and delivering concise, informative summaries, making it well-suited for technical documents, academic papers, or lengthy reports. The Pegasus X-Large model is an invaluable asset for professionals and researchers needing to distill vital information from large volumes of text.",
+    "examples": [
+      "Summarizing extensive technical manuals",
+      "Generating abstracts for lengthy academic papers",
+      "Condensing very long reports into summaries"
+    ],
+    "usecases": ["Technical documentation", "Academic research", "Report summarization"]
+  },
+  {
+    "name": "Pegasus Multi-News",
+    "model_name": "google/pegasus-multi_news",
+    "description": "The Pegasus Multi-News model is a specialized variant in the Pegasus family, designed to provide summarization for multiple news articles on a given topic. By analyzing and aggregating information from multiple sources, it generates a comprehensive summary that provides a well-rounded understanding of the topic. It's an excellent tool for news aggregation, content curation, and any scenario where understanding the broader narrative from multiple perspectives is crucial.",
+    "examples": [
+      "Aggregating multiple news articles on a single event",
+      "Generating comprehensive summaries for a series of related news stories",
+      "Creating a summary report from various news sources"
+    ],
+    "usecases": ["News aggregation", "Content curation", "Media monitoring"]
+  }
+]
