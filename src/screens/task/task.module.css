@@ -6,29 +6,28 @@
   overflow: none;
 }
 .modelCard {
-  padding: 1rem;
+  padding: 0.1rem;
   background-image: url(../../assets/model.png);
   background-size: contain;
 }
 .card {
   height: 100%;
   background-color: transparent;
+  background-color: var(--dark-background-color);
 }
 .card h2,
 div,
 strong {
   color: var(--dark-text-color);
 }
-.cardHeader {
-  background-color: var(--dark-modal-background);
-}
 .cardContent {
   padding: 0.5rem;
-  background-color: var(--dark-modal-background);
 }
 .cardFooter {
-  background-color: var(--dark-modal-background);
   cursor: pointer;
+}
+.cardFooter div:hover {
+  background-color: var(--dark-background-histogram);
 }
 .modelCard li {
   text-align: left;
