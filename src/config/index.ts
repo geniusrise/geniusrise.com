@@ -10,15 +10,34 @@ import txtqaConfig from './text/txtqa/config.json';
 
 const _config = textConfig
 
+interface Model {
+    name: string
+    description: string
+    model_name: string
+    examples: string[]
+    usecases: string[]
+}
+
+interface Config {
+    short_name: string
+    long_name: string
+    description: string
+    examples: string[]
+    usecases: string[]
+    models: Model[]
+}
+
 const config = {
-  chat: {models: chatConfig, ..._config.chat},
-  entity: entityConfig,
-  lm: {models: lmConfig, ..._config.lm},
-  nli: {models: nliConfig, ..._config.nli},
-  summz: {models: summzConfig, ..._config.summz},
-  trans: {models: transConfig, ..._config.trans},
-  txtclass: {models: txtclassConfig, ..._config.txtclass},
-  txtqa: {models: txtqaConfig, ..._config.txtqa},
+  chat: {models: chatConfig, ..._config.chat} as Config,
+  entity: {models: entityConfig, ..._config.entity} as Config,
+  lm: {models: lmConfig, ..._config.lm} as Config,
+  nli: {models: nliConfig, ..._config.nli} as Config,
+  summz: {models: summzConfig, ..._config.summz} as Config,
+  trans: {models: transConfig, ..._config.trans} as Config,
+  txtclass: {models: txtclassConfig, ..._config.txtclass} as Config,
+  txtqa: {models: txtqaConfig, ..._config.txtqa} as Config,
 };
 
-export default config;
+export { config };
+
+export type {Config, Model}

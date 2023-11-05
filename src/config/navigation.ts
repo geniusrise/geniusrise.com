@@ -26,7 +26,7 @@ export const functions: any = {
       name: "Named Entity Recogniton",
       description:
         "Categorizing tokens into predefined classes of entities. Used for identifying specific terms like places, time, or types of terms like diseases and symptoms.",
-      link: "/CLASS",
+      link: "/ENTITY",
     },
     {
       function_name: "CHAT",
@@ -40,7 +40,7 @@ export const functions: any = {
       name: "Natural Language Inference",
       description:
         "Inferring general knowledge from text. Used to understand implications, assumptions. Enhances NLP applications with real-world understanding.",
-      link: "/SENSE",
+      link: "/NLI",
     },
     {
       function_name: "EMBED",
@@ -54,7 +54,7 @@ export const functions: any = {
       name: "Sentiment Analysis",
       description:
         "Determines sentiment of text. Used in customer feedback, social media monitoring. Categorizes text as positive, negative, or neutral.",
-      link: "/EMOTION",
+      link: "/TXTCLASS",
     },
     {
       function_name: "SUMMZ",
