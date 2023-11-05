@@ -28,14 +28,14 @@ interface Config {
 }
 
 const config = {
-  chat: {models: chatConfig, ..._config.chat} as Config,
-  entity: {models: entityConfig, ..._config.entity} as Config,
-  lm: {models: lmConfig, ..._config.lm} as Config,
-  nli: {models: nliConfig, ..._config.nli} as Config,
-  summz: {models: summzConfig, ..._config.summz} as Config,
-  trans: {models: transConfig, ..._config.trans} as Config,
-  txtclass: {models: txtclassConfig, ..._config.txtclass} as Config,
-  txtqa: {models: txtqaConfig, ..._config.txtqa} as Config,
+  CHAT: {models: chatConfig, ..._config.chat} as Config,
+  ENTITY: {models: entityConfig, ..._config.entity} as Config,
+  LM: {models: lmConfig, ..._config.lm} as Config,
+  NLI: {models: nliConfig, ..._config.nli} as Config,
+  SUMMZ: {models: summzConfig, ..._config.summz} as Config,
+  TRANS: {models: transConfig, ..._config.trans} as Config,
+  TXTCLASS: {models: txtclassConfig, ..._config.txtclass} as Config,
+  TXTQA: {models: txtqaConfig, ..._config.txtqa} as Config,
 };
 
 export { config };

@@ -2,6 +2,19 @@
   height: 80%;
   overflow: auto;
 }
+.searchContainer {
+  margin-bottom: 2em;
+  background-image: url(../../assets/model.png);
+  padding: 0.1em;
+}
+.searchInput {
+  background-color: var(--dark-background-color);
+  color: var(--dark-text-color);
+  border: none;
+}
+.searchInput::placeholder {
+  color: var(--dark-text-color);
+}
 .taskGrid {
   overflow: none;
 }
