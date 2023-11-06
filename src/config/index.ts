@@ -12,6 +12,7 @@ const _config = textConfig
 
 interface Model {
     name: string
+    inputs: Array<{name:string, type:string}>
     description: string
     model_name: string
     examples: string[]

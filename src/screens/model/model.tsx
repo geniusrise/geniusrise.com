@@ -5,6 +5,7 @@ import { Model as ModelType } from "../../config"
 import styles from "./model.module.css"
 import { Cell, Grid } from "styled-css-grid"
 import { l, xl } from "../../utils"
+import { type } from "os"
 
 interface Props {
     model: ModelType
@@ -19,16 +20,29 @@ function Model({ model }: Props) {
                 </Content>
             </div>
             <div className={styles.content}>
-                <Content>
-                    <p>{model.description}</p>
-                    <div className={styles.modelName}>
-                        {model.model_name}
-                        <span>📋</span>
-                    </div>
-                </Content>
+                <Grid columns={10}>
+                    <Cell width={10}>
+                        <Content>
+                            <p>{model.description}</p>
+                            <div className={styles.modelName}>
+                                <Grid columns={20}>
+                                    <Cell width={19}>
+                                        <p>{model.model_name}</p>
+                                    </Cell>
+                                    <Cell width={1}>
+                                        <span>📋</span>
+                                    </Cell>
+                                </Grid>
+                            </div>
+                        </Content>
+                    </Cell>
+                </Grid>
                 <Grid columns={xl ? 2 : 1}>
                     <Cell height={2} className={styles.tryForm}>
-                        <Form.Textarea placeholder="Enter text here"></Form.Textarea>
+                        <h2>Try it out</h2>
+                        {model.inputs.map((input: { name: string; type: string }) => {
+                            if (input.type === "text") return <Form.Textarea placeholder={`Enter ${input.name} here`}></Form.Textarea>
+                        })}
                         <Form.Control className={styles.tryFormButton}>
                             <Button>Submit</Button>
                         </Form.Control>
@@ -56,6 +70,17 @@ function Model({ model }: Props) {
                                 ))}
                             </ul>
                         </Content>
+                    </Cell>
+                </Grid>
+                <Grid columns={3} className={styles.actions}>
+                    <Cell>
+                        <Button>One-time Bulk Job</Button>
+                    </Cell>
+                    <Cell>
+                        <Button>Deploy API on autoscale</Button>
+                    </Cell>
+                    <Cell>
+                        <Button>Fine Tune with your data</Button>
                     </Cell>
                 </Grid>
             </div>

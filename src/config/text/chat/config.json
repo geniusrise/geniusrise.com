@@ -1,6 +1,7 @@
 [
     {
         "name": "StarChat Beta",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "HuggingFaceH4/starchat-beta",
         "description": "StarChat Beta is a conversational model trained by HuggingFaceH4. It's designed to provide engaging and coherent responses in a conversational setting. This model is a part of the Mistral lineage which emphasizes on delivering superior conversational experiences. Whether you are looking to build a friendly chatbot or an interactive virtual assistant, StarChat Beta is equipped to handle a variety of conversational scenarios. Its training on diverse data equips it to understand and respond to a wide range of topics.",
         "examples": [
@@ -12,6 +13,7 @@
     },
     {
         "name": "Mistral 7B Instruct",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "mistralai/Mistral-7B-Instruct-v0.1",
         "description": "Mistral 7B Instruct is a model tailored for instructional responses. Developed by MistralAI, this model leverages the Mistral lineage's strong foundation in delivering precise and informative replies. Whether it's explaining complex concepts or providing step-by-step guides, Mistral 7B Instruct excels in making information accessible. Its ability to break down instructions into understandable steps makes it a valuable asset for educational platforms, DIY forums, and customer support channels.",
         "examples": [
@@ -22,6 +24,7 @@
     },
     {
         "name": "StarChat Beta GPTQ 4bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/starchat-beta-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "StarChat Beta GPTQ 4bit, curated by TheBloke, is a model that combines the conversational aptitude of StarChat Beta with the efficient quantization of GPTQ. This 4bit version is designed for optimized performance while maintaining satisfactory conversational quality. It inherits the conversational prowess of Mistral lineage and is ideal for environments where resource utilization is a concern. From personal chatbots to automated customer service, this model balances performance with conversational competency.",
         "examples": [
@@ -32,6 +35,7 @@
     },
     {
         "name": "StarChat Beta GPTQ 8bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/starchat-beta-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "StarChat Beta GPTQ 8bit is a variant of StarChat Beta, fine-tuned by TheBloke to facilitate an 8bit quantized version for enhanced performance. This model retains the conversational prowess of the Mistral lineage while benefiting from GPTQ's efficient quantization. It's an excellent choice for applications requiring a balance of performance, resource efficiency, and conversational ability. From engaging chatbots to interactive voice response systems, StarChat Beta GPTQ 8bit can handle diverse conversational scenarios.",
         "examples": [
@@ -42,6 +46,7 @@
     },
     {
         "name": "Mistral 7B Code GPTQ 4bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/Mistral-7B-Code-16K-qlora-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "Mistral 7B Code GPTQ 4bit, fine-tuned by TheBloke, is engineered for code generation and programming help. This model merges the coding expertise of Mistral lineage with GPTQ's 4bit quantization for better efficiency. It's adept at understanding programming queries, generating code snippets, and offering debugging advice. Whether you're looking for help with coding homework or need assistance in professional projects, Mistral 7B Code GPTQ 4bit is designed to be a reliable programming companion.",
         "examples": [
@@ -52,6 +57,7 @@
     },
     {
         "name": "Mistral 7B Phibrarian GPTQ",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/Mistral-7B-Phibrarian-32K-GPTQ",
         "description": "Mistral 7B Phibrarian GPTQ, curated by TheBloke, is tailored for bibliographic and literary queries. It combines the rich knowledge base of Mistral lineage with GPTQ's efficiency. Whether you're searching for book recommendations, author biographies, or literary analysis, Mistral 7B Phibrarian GPTQ is adept at providing insightful responses. Its comprehensive understanding of literary domains makes it an invaluable resource for readers, scholars, and anyone with a penchant for literature.",
         "examples": [
@@ -62,6 +68,7 @@
     },
     {
         "name": "Mistral 7B Instruct GPTQ 4bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/Mistral-7B-Instruct-v0.1-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "Mistral 7B Instruct GPTQ 4bit, developed by TheBloke, is devised to provide detailed instructions on various topics. This model amalgamates the instructional expertise of Mistral lineage with GPTQ's 4bit quantization for efficiency. From DIY projects to complex problem-solving scenarios, Mistral 7B Instruct GPTQ 4bit offers step-by-step guidance. It's an excellent choice for platforms requiring clear, concise instructional content to assist users in accomplishing their goals.",
         "examples": [
@@ -72,6 +79,7 @@
     },
     {
         "name": "Mistral 7B Instruct GPTQ 8bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/Mistral-7B-Instruct-v0.1-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "Mistral 7B Instruct GPTQ 8bit, curated by TheBloke, extends the instructional capabilities of its 4bit sibling with an 8bit quantized version. It retains the step-by-step instructional proficiency of Mistral lineage while leveraging GPTQ's efficient quantization. Mistral 7B Instruct GPTQ 8bit is well-suited for platforms seeking detailed instructional content with a bit more computational flexibility. From cooking recipes to complex troubleshooting, this model can deliver clear, structured guidance to users.",
         "examples": [
@@ -82,6 +90,7 @@
     },
     {
         "name": "Llama 7B Chat",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "meta-llama/Llama-2-7b-chat-hf",
         "description": "Llama 7B Chat, from meta-llama, is a conversational model honed for engaging and informative dialogues. This model embodies the fine conversational balance of Llama lineage, making it an excellent companion for diverse chat applications. Llama 7B Chat can converse on a myriad of topics with a focus on providing accurate and relevant information. Its prowess lies in understanding user queries and responding in a friendly, conversational manner, making it a go-to choice for chatbots and virtual assistants.",
         "examples": [
@@ -92,6 +101,7 @@
     },
     {
         "name": "Llama 13B Chat",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "meta-llama/Llama-2-13b-chat-hf",
         "description": "Llama 13B Chat is an expansion of the Llama 7B Chat, retaining the conversational finesse while enhancing the model's understanding and response generation with a larger parameter size. It excels in providing detailed and informative responses in a conversational manner, making it a superior choice for more complex dialogue scenarios or platforms requiring a higher degree of conversational depth and accuracy.",
         "examples": [
@@ -102,6 +112,7 @@
     },
     {
         "name": "Llama 70B Chat",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "meta-llama/Llama-2-70b-chat-hf",
         "description": "Llama 70B Chat is the epitome of conversational excellence in the Llama lineage. With a massive 70 billion parameters, this model can handle highly complex and nuanced conversations, providing accurate, detailed, and contextually rich responses. It's the pinnacle choice for platforms seeking the highest level of conversational AI performance, be it for customer support, virtual assistance, or engaging users in sophisticated dialogues across a multitude of topics.",
         "examples": [
@@ -112,6 +123,7 @@
     },
     {
         "name": "CodeLlama 7B Instruct",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "codellama/CodeLlama-7b-Instruct-hf",
         "description": "CodeLlama 7B Instruct, part of the codellama lineage, is a model engineered for instruction but with a knack for code. It’s an ideal choice for platforms seeking to provide instructional content with a focus on coding and programming. Whether it's explaining code syntax, offering debugging tips, or guiding through a programming project, CodeLlama 7B Instruct is adept at delivering clear, accurate, and instructive responses.",
         "examples": [
@@ -122,6 +134,7 @@
     },
     {
         "name": "CodeLlama 13B Instruct",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "codellama/CodeLlama-13b-Instruct-hf",
         "description": "CodeLlama 13B Instruct elevates the instructional prowess of its 7B predecessor, offering more depth and precision in its responses about coding and programming. Its larger parameter size equips it to handle more complex queries and provide detailed instructional content. The model is ideal for advanced coding tutorial platforms, online bootcamps, and technical support services that require a high level of expertise and instructional clarity.",
         "examples": [
@@ -132,6 +145,7 @@
     },
     {
         "name": "CodeLlama 34B Instruct",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "codellama/CodeLlama-34b-Instruct-hf",
         "description": "With an impressive 34 billion parameters, CodeLlama 34B Instruct stands as a colossal repository of programming knowledge and instructional expertise. It can delve deep into complex programming topics, provide extensive code examples, and guide users through intricate programming challenges. This model is a prime choice for high-level instructional platforms, online education services, and technical support platforms catering to a professional audience.",
         "examples": [
@@ -142,6 +156,7 @@
     },
     {
         "name": "WizardCoder Python 7B",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "WizardLM/WizardCoder-Python-7B-V1.0",
         "description": "WizardCoder Python 7B is a specially designed model for code generation in Python. It encapsulates a wide spectrum of programming knowledge and is proficient in generating, explaining, and debugging Python code. With its ability to understand natural language queries and translate them into code, it's a powerful tool for developers, educators, and students alike. Whether it's creating new code, explaining complex programming concepts, or helping debug existing code, WizardCoder Python 7B is up to the task.",
         "examples": [
@@ -152,6 +167,7 @@
     },
     {
         "name": "WizardCoder Python 13B",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "WizardLM/WizardCoder-Python-13B-V1.0",
         "description": "WizardCoder Python 13B is a substantial upgrade from its 7B counterpart, offering a deeper understanding and generation of Python code. The model can handle more complex coding tasks, provide extensive code snippets, and offer a more nuanced understanding of Python and programming principles. It's an indispensable asset for professional developers, coding bootcamps, and advanced educational platforms focusing on Python programming.",
         "examples": [
@@ -162,6 +178,7 @@
     },
     {
         "name": "WizardMath 7B",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "WizardLM/WizardMath-7B-V1.0",
         "description": "WizardMath 7B is a dedicated model for tackling mathematical problems and explaining mathematical concepts. Its expertise spans from basic arithmetic to advanced calculus and linear algebra. The model can provide step-by-step solutions to math problems, explain mathematical theories, and even help with math homework. It's a valuable resource for students, educators, and anyone looking to enhance their mathematical understanding.",
         "examples": [
@@ -172,6 +189,7 @@
     },
     {
         "name": "WizardMath 13B",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "WizardLM/WizardMath-13B-V1.0",
         "description": "Building upon the foundation of WizardMath 7B, the 13B version delves deeper into mathematical realms, offering more precise explanations and solving more complex problems. Its extensive knowledge allows for a thorough exploration of mathematical topics, making it a prime choice for higher education, advanced tutoring services, and professional environments requiring a deep understanding of mathematical concepts.",
         "examples": [
@@ -182,6 +200,7 @@
     },
     {
         "name": "WizardMath 70B",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "WizardLM/WizardMath-70B-V1.0",
         "description": "WizardMath 70B is the zenith of mathematical comprehension and problem-solving in the WizardMath lineup. It handles the most complex mathematical challenges with ease, providing highly accurate solutions and deep insights into advanced mathematical theories. This model is the go-to resource for researchers, engineers, and other professionals who require a profound understanding of mathematics to tackle real-world challenges.",
         "examples": [
@@ -192,6 +211,7 @@
     },
     {
         "name": "Llama Chat 7B GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke-llama/Llama-2-7b-chat-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "Llama Chat 7B GPTQ 4-bit model enhances the conversational capabilities of the original Llama Chat 7B while being optimized for size and speed, thanks to the GPTQ 4-bit quantization. This model maintains a fluent and engaging conversational style while being more resource-efficient. It's an ideal choice for developers looking to integrate high-quality conversational AI in applications where resource constraints are a consideration.",
         "examples": [
@@ -202,6 +222,7 @@
     },
     {
         "name": "Llama Chat 7B GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke-llama/Llama-2-7b-chat-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "Llama Chat 7B GPTQ 8-bit model provides a balance between the conversational fluency of Llama Chat 7B and the resource efficiency brought by GPTQ 8-bit quantization. This model is suitable for developers who require a slightly more robust conversational AI solution without a significant compromise on resource efficiency. It's a solid choice for a wide range of conversational applications across various platforms.",
         "examples": [
@@ -212,6 +233,7 @@
     },
     {
         "name": "Llama Chat 13B GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke-llama/Llama-2-13b-chat-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "Llama Chat 13B GPTQ 4-bit model takes the conversational capabilities of Llama Chat 13B to new horizons while being optimized for size and speed. The GPTQ 4-bit quantization allows this model to retain a high level of conversational fluency while being more resource-efficient. It's an excellent choice for developers seeking to integrate high-quality conversational AI in applications where both performance and resource efficiency are crucial.",
         "examples": [
@@ -222,6 +244,7 @@
     },
     {
         "name": "Llama Chat 13B GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke-llama/Llama-2-13b-chat-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "Llama Chat 13B GPTQ 8-bit model is a balance between the robust conversational capabilities of Llama Chat 13B and the resource efficiency provided by GPTQ 8-bit quantization. This model is suitable for developers who need a robust conversational AI solution without a significant compromise on resource efficiency. It's well-suited for a wide range of conversational applications across various platforms.",
         "examples": [
@@ -232,6 +255,7 @@
     },
     {
         "name": "Llama Chat 70B GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke-llama/Llama-2-70b-chat-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "Llama Chat 70B GPTQ 4-bit model is the epitome of conversational excellence in the Llama lineup, now optimized for size and speed with GPTQ 4-bit quantization. This model handles complex queries with ease, providing detailed and coherent responses. It's the choice for developers in need of a highly capable conversational AI, where performance and resource efficiency are of paramount importance.",
         "examples": [
@@ -242,6 +266,7 @@
     },
     {
         "name": "Llama Chat 70B GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke-llama/Llama-2-70b-chat-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "Llama Chat 70B GPTQ 8-bit model encapsulates the conversational prowess of the original Llama Chat 70B model while being optimized for a smaller memory footprint and faster inference through GPTQ 8-bit quantization. This model serves as a powerhouse for handling intricate conversations, making it a prime choice for developers aiming for high-level conversational AI with improved efficiency.",
         "examples": [
@@ -252,6 +277,7 @@
     },
     {
         "name": "CodeLlama 7B Instruct GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/CodeLlama-7b-Instruct-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "CodeLlama 7B Instruct GPTQ 4-bit model combines the instructional capabilities of CodeLlama 7B with the resource efficiency provided by GPTQ 4-bit quantization. This model is capable of providing detailed instructions on a wide range of topics while being highly efficient in terms of memory and compute resources. It's an excellent choice for developers seeking to build instructional or tutorial-based applications.",
         "examples": [
@@ -262,6 +288,7 @@
     },
     {
         "name": "CodeLlama 7B Instruct GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/CodeLlama-7b-Instruct-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "CodeLlama 7B Instruct GPTQ 8-bit model encapsulates the instructional essence of CodeLlama 7B while being optimized for better efficiency through GPTQ 8-bit quantization. This model stands as a robust solution for providing clear and detailed instructions across a multitude of domains. It's well-suited for developers aiming to integrate instructional capabilities in their applications without a significant compromise on efficiency.",
         "examples": [
@@ -272,6 +299,7 @@
     },
     {
         "name": "CodeLlama 13B Instruct GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/CodeLlama-13b-Instruct-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "CodeLlama 13B Instruct GPTQ 4-bit model is a refined version of the CodeLlama 7B with an extended knowledge base and instructional capacity, further optimized for resource efficiency through GPTQ 4-bit quantization. This model is adept at providing in-depth instructions across a broader range of topics, making it a superior choice for applications requiring detailed instructional guidance.",
         "examples": [
@@ -282,6 +310,7 @@
     },
     {
         "name": "CodeLlama 13B Instruct GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/CodeLlama-13b-Instruct-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "CodeLlama 13B Instruct GPTQ 8-bit model retains the instructional prowess of CodeLlama 13B while benefitting from GPTQ 8-bit quantization for enhanced efficiency. With its capability to provide detailed instructions on complex topics, this model serves as a robust solution for developers looking to incorporate instructional AI in their applications while maintaining a balance between performance and resource utilization.",
         "examples": [
@@ -292,6 +321,7 @@
     },
     {
         "name": "CodeLlama 34B Instruct GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/CodeLlama-34b-Instruct-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "CodeLlama 34B Instruct GPTQ 4-bit model is the epitome of instructional AI within the CodeLlama lineage, with GPTQ 4-bit quantization ensuring resource efficiency. Its vast knowledge base and superior instructional capabilities make it a powerhouse for providing detailed guidance on a myriad of complex topics. This model is a prime choice for developers aiming for top-tier instructional AI in their applications.",
         "examples": [
@@ -306,6 +336,7 @@
     },
     {
         "name": "CodeLlama 34B Instruct GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/CodeLlama-34b-Instruct-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "CodeLlama 34B Instruct GPTQ 8-bit model encapsulates the pinnacle of instructional capabilities with GPTQ 8-bit quantization for a balance of performance and efficiency. This model excels in delivering in-depth, precise instructions across a multitude of complex topics, solidifying its position as a top choice for developers in need of high-quality instructional AI for their platforms.",
         "examples": [
@@ -320,6 +351,7 @@
     },
     {
         "name": "WizardCoder Python 7B GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardCoder-Python-7B-V1.0-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "WizardCoder Python 7B GPTQ 4-bit model is a specialized tool designed for code generation in Python, with GPTQ 4-bit quantization enabling efficient performance. This model is adept at understanding coding queries, generating accurate code snippets, and providing programming solutions, making it an invaluable asset for developers and programmers working in Python environment.",
         "examples": [
@@ -334,6 +366,7 @@
     },
     {
         "name": "WizardCoder Python 7B GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardCoder-Python-7B-V1.0-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "WizardCoder Python 7B GPTQ 8-bit model retains the code generation capabilities of its 4-bit counterpart while benefiting from GPTQ 8-bit quantization for enhanced efficiency. This model is highly proficient in crafting precise Python code in response to a variety of programming queries, making it a robust tool for developers and educators in the Python community.",
         "examples": [
@@ -348,6 +381,7 @@
     },
     {
         "name": "WizardCoder Python 13B GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardCoder-Python-13B-V1.0-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "WizardCoder Python 13B GPTQ 4-bit model, with its advanced code generation capabilities and GPTQ 4-bit quantization, stands as a premier choice for developers seeking efficient and accurate code generation in Python. This model meticulously crafts code snippets, providing solutions to a wide array of programming challenges.",
         "examples": [
@@ -362,6 +396,7 @@
     },
     {
         "name": "WizardCoder Python 13B GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardCoder-Python-13B-V1.0-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "The WizardCoder Python 13B GPTQ 8-bit model exemplifies a seamless blend of code generation efficiency and accuracy, thanks to GPTQ 8-bit quantization. This model is engineered to generate precise and optimized code in Python, making it a highly reliable tool for developers and educators alike.",
         "examples": [
@@ -376,6 +411,7 @@
     },
     {
         "name": "WizardMath 7B GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardMath-7B-V1.0-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "WizardMath 7B GPTQ 4-bit model is a specialized AI for solving complex mathematical problems and queries. With GPTQ 4-bit quantization, this model demonstrates an impressive balance of computational efficiency and accuracy, making it a reliable choice for educational platforms and mathematical computation applications.",
         "examples": [
@@ -390,6 +426,7 @@
     },
     {
         "name": "WizardMath 7B GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardMath-7B-V1.0-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "The WizardMath 7B GPTQ 8-bit model is proficient in tackling intricate mathematical problems. It's enhanced by GPTQ 8-bit quantization for efficient mathematical computation while maintaining high accuracy. This model serves as a robust tool for both learning and solving complex mathematical problems.",
         "examples": [
@@ -400,6 +437,7 @@
     },
     {
         "name": "WizardMath 13B GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardMath-13B-V1.0-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "WizardMath 13B GPTQ 4-bit model is a highly specialized mathematical solver, empowered by GPTQ 4-bit quantization for efficient computations. It's adept at handling complex mathematical queries, making it an indispensable tool for students, educators, and professionals in need of automated mathematical solutions.",
         "examples": [
@@ -414,6 +452,7 @@
     },
     {
         "name": "WizardMath 13B GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardMath-13B-V1.0-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "The WizardMath 13B GPTQ 8-bit model, with its GPTQ 8-bit quantization, stands as a pinnacle of computational efficiency and mathematical accuracy. It's engineered for solving advanced mathematical problems, making it a reliable companion for academic and professional mathematical endeavors.",
         "examples": [
@@ -424,6 +463,7 @@
     },
     {
         "name": "WizardMath 70B GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardMath-70B-V1.0-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "The WizardMath 70B GPTQ 4-bit model is a highly advanced mathematical model designed for tackling the most complex mathematical problems. With its GPTQ 4-bit quantization, it achieves a balance between computational efficiency and precision, making it a valuable tool for high-level mathematical computations.",
         "examples": [
@@ -438,6 +478,7 @@
     },
     {
         "name": "WizardMath 70B GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardMath-70B-V1.0-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "WizardMath 70B GPTQ 8-bit model is a top-tier mathematical solver with GPTQ 8-bit quantization ensuring both computational efficiency and high precision. This model excels in solving extremely complex mathematical problems, making it an indispensable tool for academic, research, and professional mathematical applications.",
         "examples": [

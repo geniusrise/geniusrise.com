@@ -115,12 +115,10 @@ body {
 .themeSwitcher {
   width: 50px;
   height: 50px;
-  background: radial-gradient(circle, var(--dark-background-histogram) 50%, var(--dark-background-histogram2) 50%, var(--dark-background-histogram2) 100%);
-  margin-left: 1rem;
-  border-radius: 25px;
-  font-size: 2.2rem;
   text-align: center;
   cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.8rem;
 }
 @keyframes gradient-animation {
   0% {
@@ -133,6 +131,7 @@ body {
 .footer {
   position: absolute;
   bottom: 1rem;
+  width: 100%;
 }
 .footer div {
   text-align: center;

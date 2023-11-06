@@ -1,6 +1,7 @@
 [
     {
         "name": "Zephyr 7B Beta",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "HuggingFaceH4/zephyr-7b-beta",
         "description": "Zephyr 7B Beta is a powerful language model designed to understand and generate human-like text. It's adept at various NLP tasks including translation, summarization, and conversation. The '7B' in its name denotes the number of parameters, making it a large model capable of understanding complex contexts and generating coherent responses.",
         "examples": [
@@ -13,6 +14,7 @@
     },
     {
         "name": "OpenChat 3.5",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "openchat/openchat_3.5",
         "description": "OpenChat 3.5 is engineered to engage in meaningful conversations with users. Its primary function is to provide a human-like chatting experience. Given the name, it's tailored for open-domain chat applications. This model can handle a variety of topics and provide relevant, context-aware responses.",
         "examples": ["Engaging in casual conversation", "Providing information on general topics", "Answering open-domain questions"],
@@ -20,6 +22,7 @@
     },
     {
         "name": "Mistral 7B v0.1",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "mistralai/Mistral-7B-v0.1",
         "description": "Mistral 7B v0.1 is a robust language model adept at understanding and generating text. With '7B' denoting the number of parameters, it's large and capable of tackling a variety of NLP tasks. The model excels in translation, summarization, and conversation, providing accurate and coherent outputs.",
         "examples": ["Translating text between languages", "Summarizing long documents", "Engaging in conversation with users"],
@@ -27,6 +30,7 @@
     },
     {
         "name": "MistralLite",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "amazon/MistralLite",
         "description": "MistralLite is a lighter version of the Mistral series, optimized for quicker responses and lower resource utilization while maintaining a high level of understanding and text generation capabilities. This model is versatile across various NLP tasks such as summarization, translation, and conversation.",
         "examples": ["Quick summarization of texts", "Real-time translation", "Interactive conversation with users"],
@@ -34,6 +38,7 @@
     },
     {
         "name": "CodeLlama 7B",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "codellama/CodeLlama-7b-hf",
         "description": "CodeLlama 7B is a language model with a focus on code generation and understanding programming contexts. It's adept at autocompleting code, bug detection, and generating code based on natural language descriptions. The '7B' denotes the size of the model indicating its ability to handle complex code-related tasks.",
         "examples": ["Code generation from descriptions", "Code autocomplete", "Bug detection and suggestions"],
@@ -41,6 +46,7 @@
     },
     {
         "name": "CodeLlama 7B Python",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "codellama/CodeLlama-7b-Python-hf",
         "description": "CodeLlama 7B Python is tailored for handling Python programming tasks. It's capable of generating Python code, detecting bugs, and providing coding solutions. Its understanding of Python programming paradigms makes it a reliable tool for developers seeking to automate code-related tasks.",
         "examples": ["Python code generation", "Python code autocomplete", "Python bug detection"],
@@ -48,6 +54,7 @@
     },
     {
         "name": "CodeLlama 13B",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "codellama/CodeLlama-13b-hf",
         "description": "CodeLlama 13B is engineered for superior code generation and understanding complex programming contexts. It excels at autocompleting code, bug detection, and generating code based on natural language descriptions. The '13B' denotes a larger model size, enabling more sophisticated code-related tasks.",
         "examples": ["Advanced code generation", "Code autocomplete", "Bug detection and suggestions"],
@@ -55,6 +62,7 @@
     },
     {
         "name": "CodeLlama 13B Python",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "codellama/CodeLlama-13b-Python-hf",
         "description": "CodeLlama 13B Python is specialized for handling Python programming tasks with a higher degree of complexity. It's proficient in generating Python code, detecting bugs, and providing advanced coding solutions. Its nuanced understanding of Python programming makes it an invaluable tool for seasoned developers.",
         "examples": ["Complex Python code generation", "Python code autocomplete", "Python bug detection"],
@@ -62,6 +70,7 @@
     },
     {
         "name": "CodeLlama 34B",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "codellama/CodeLlama-34b-hf",
         "description": "CodeLlama 34B is a highly sophisticated model designed for advanced code generation and comprehension across multiple programming languages. It thrives in complex coding environments, delivering precise code solutions and bug identification. Its superior model size '34B' facilitates handling intricate coding scenarios.",
         "examples": ["Multi-language code generation", "Code analysis", "Bug identification"],
@@ -69,6 +78,7 @@
     },
     {
         "name": "CodeLlama 34B Python",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "codellama/CodeLlama-34b-Python-hf",
         "description": "CodeLlama 34B Python is tailored for Python programming, excelling in generating, analyzing, and troubleshooting Python code. It’s adept at creating optimized code, identifying bugs, and providing insightful coding solutions. The model's vast knowledge base makes it an asset for complex Python-centric projects.",
         "examples": ["Python code generation", "Python code analysis", "Python bug identification"],
@@ -76,6 +86,7 @@
     },
     {
         "name": "Llama 2 7B",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "meta-llama/Llama-2-7b-hf",
         "description": "Llama 2 7B, with its 7 billion parameters, is a versatile language model proficient in a range of text processing tasks. It processes and generates human-like text, making it a valuable tool for applications like chatbots, text summarization, and translation.",
         "examples": ["Text summarization", "Language translation", "Question Answering"],
@@ -83,6 +94,7 @@
     },
     {
         "name": "Llama 2 13B",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "meta-llama/Llama-2-13b-hf",
         "description": "Llama 2 13B, equipped with 13 billion parameters, is an advanced language model adept at handling more complex text processing tasks. Its heightened capacity enables deeper understanding and better text generation, suited for professional-grade applications in text summarization, language translation, and content creation.",
         "examples": ["Advanced text summarization", "Multilingual translation", "Creative writing"],
@@ -90,6 +102,7 @@
     },
     {
         "name": "Llama 2 70B",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "meta-llama/Llama-2-70b-hf",
         "description": "Llama 2 70B stands among the titans of language models with a colossal 70 billion parameters. This model excels in understanding and generating text for high-complexity tasks. It's ideal for research, complex content creation, and advanced natural language understanding applications.",
         "examples": ["Research paper summarization", "Technical text generation", "Complex question answering"],
@@ -97,6 +110,7 @@
     },
     {
         "name": "Mistral 7B GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/Mistral-7B-v0.1-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "Mistral 7B GPTQ 4-bit is a highly optimized version of the Mistral 7B model, engineered for reduced size without compromising on performance. With GPTQ 4-bit quantization, it is suited for environments where memory and computational resources are limited, making it a go-to model for on-edge deployments and real-time applications.",
         "examples": ["Real-time text generation", "On-edge NLP tasks", "Resource-constrained environments"],
@@ -104,6 +118,7 @@
     },
     {
         "name": "Mistral 7B GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/Mistral-7B-v0.1-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "Mistral 7B GPTQ 8-bit brings the balance of performance and size optimization. With GPTQ 8-bit quantization, it provides a level of precision closer to the original Mistral 7B while still being more resource-efficient. It's well-suited for applications requiring a blend of performance and efficiency.",
         "examples": ["Efficient text generation", "Low-latency NLP tasks", "Performance-sensitive environments"],
@@ -111,6 +126,7 @@
     },
     {
         "name": "OpenChat 3.5 GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/openchat_3.5-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "OpenChat 3.5 GPTQ 4-bit is a lean version of the original OpenChat 3.5 model. With 4-bit quantization, it's engineered for environments with limited computational resources while still retaining decent performance for chat and dialog related tasks. It's a prime choice for real-time chat applications on edge devices.",
         "examples": ["Real-time chat generation", "On-edge dialog systems", "Resource-constrained environments"],
@@ -118,6 +134,7 @@
     },
     {
         "name": "OpenChat 3.5 GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/openchat_3.5-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "OpenChat 3.5 GPTQ 8-bit stands as a balance between the original model and the 4-bit quantized version, providing better precision while still being resource-efficient. It's suitable for dialog systems and chat applications where a blend of performance and efficiency is crucial.",
         "examples": ["Efficient chat generation", "Low-latency dialog systems", "Performance-sensitive environments"],
@@ -125,6 +142,7 @@
     },
     {
         "name": "Zephyr 7B Beta GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/zephyr-7b-beta-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "Zephyr 7B Beta GPTQ 4-bit is a streamlined version of the Zephyr 7B Beta, optimized for resource-constrained environments. This model is adept at a variety of language tasks while being computationally economical, making it a suitable choice for on-edge deployments.",
         "examples": ["Text generation", "Translation", "Summarization"],
@@ -132,6 +150,7 @@
     },
     {
         "name": "Zephyr 7B Beta GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/zephyr-7b-beta-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "Zephyr 7B Beta GPTQ 8-bit offers a good balance between performance and efficiency compared to its 4-bit counterpart. This model excels in language tasks while being relatively resource-efficient, making it adaptable to a range of computational settings.",
         "examples": ["Efficient text generation", "On-demand translation", "Quick summarization"],
@@ -139,6 +158,7 @@
     },
     {
         "name": "CodeLlama 7B HF GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/CodeLlama-7b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "CodeLlama 7B HF GPTQ 4-bit is a precision-reduced version of CodeLlama 7B HF tailored for code generation tasks. Its 4-bit quantization ensures resource efficiency making it ideal for constrained environments where code generation on the fly is needed.",
         "examples": ["Generating code snippets", "Translating pseudocode to code", "Automating code documentation"],
@@ -146,6 +166,7 @@
     },
     {
         "name": "CodeLlama 7B HF GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/CodeLlama-7b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "CodeLlama 7B HF GPTQ 8-bit is designed for efficient code generation while providing higher precision than its 4-bit variant. It caters to on-the-fly code generation needs in environments where both efficiency and accuracy are crucial.",
         "examples": ["Generating complex code structures", "Automating code refactoring", "Creating code from specifications"],
@@ -153,6 +174,7 @@
     },
     {
         "name": "CodeLlama 13B HF GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/CodeLlama-13b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "CodeLlama 13B HF GPTQ 4-bit, with its larger model size, is adept at tackling more complex code generation tasks. The 4-bit quantization retains efficiency, making it a balanced choice for sophisticated code generation in resource-constrained environments.",
         "examples": ["Generating multi-file code projects", "Creating code from complex specifications", "Automated code refactoring"],
@@ -160,6 +182,7 @@
     },
     {
         "name": "CodeLlama 13B HF GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/CodeLlama-13b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "CodeLlama 13B HF GPTQ 8-bit offers a blend of enhanced precision and sophisticated code generation capabilities. The 8-bit quantization provides a higher accuracy, making it suitable for intricate code generation tasks where precision is paramount.",
         "examples": ["Generating complex algorithms", "Translating high-level designs to code", "Automated error detection and correction"],
@@ -167,6 +190,7 @@
     },
     {
         "name": "CodeLlama 34B HF GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/CodeLlama-34b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "CodeLlama 34B HF GPTQ 4-bit is a powerhouse for complex code generation with its expansive model size. The 4-bit quantization ensures operational efficiency, making it a top choice for intricate code generation tasks in resource-constrained settings.",
         "examples": ["Generating extensive codebases", "Automated system architecture design", "Real-time code translation"],
@@ -174,6 +198,7 @@
     },
     {
         "name": "CodeLlama 34B HF GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/CodeLlama-34b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "CodeLlama 34B HF GPTQ 8-bit stands as a pinnacle of precise and advanced code generation. The 8-bit quantization allows for higher accuracy, rendering it ideal for the most challenging code generation tasks where precision is crucial.",
         "examples": ["Creating complex algorithms", "Translating intricate designs to code", "Automated high-precision error correction"],
@@ -181,6 +206,7 @@
     },
     {
         "name": "Llama 2 7B HF GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/Llama-2-7b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "Llama 2 7B HF GPTQ 4-bit is tailored for swift language processing and interpretation. The 4-bit quantization optimizes performance, making it a reliable choice for real-time language understanding and interaction.",
         "examples": ["Real-time conversation analysis", "Automated content summarization", "Language translation"],
@@ -188,6 +214,7 @@
     },
     {
         "name": "Llama 2 7B HF GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/Llama-2-7b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "Llama 2 7B HF GPTQ 8-bit excels in delivering precise language understanding and generation. The 8-bit quantization ensures higher accuracy, making it ideal for applications requiring nuanced language processing.",
         "examples": ["Sentiment analysis", "Text generation", "Semantic text similarity"],
@@ -195,6 +222,7 @@
     },
     {
         "name": "Llama 2 13B HF GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/Llama-2-13b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "Llama 2 13B HF GPTQ 4-bit is optimized for fast language processing while ensuring a reasonable level of accuracy. The 4-bit quantization facilitates rapid analysis and interpretation, making it suitable for real-time applications.",
         "examples": ["Real-time conversation analysis", "Automated content summarization", "Language translation"],
@@ -202,6 +230,7 @@
     },
     {
         "name": "Llama 2 13B HF GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/Llama-2-13b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "Llama 2 13B HF GPTQ 8-bit is designed for accurate and nuanced language processing. The 8-bit quantization provides a balance between precision and performance, making it a go-to choice for complex language tasks.",
         "examples": ["Sentiment analysis", "Text generation", "Semantic text similarity"],
@@ -209,6 +238,7 @@
     },
     {
         "name": "Llama 2 70B HF GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/Llama-2-70b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "description": "Llama 2 70B HF GPTQ 4-bit is a highly optimized model engineered for swift language processing tasks. The 4-bit quantization boosts its speed, making it a prime choice for real-time applications that require a swift response.",
         "examples": ["Real-time dialogue systems", "Instant language translation", "Automated real-time captioning"],
@@ -216,6 +246,7 @@
     },
     {
         "name": "Llama 2 70B HF GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/Llama-2-70b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "description": "Llama 2 70B HF GPTQ 8-bit stands out for its precision in handling intricate language processing tasks. With 8-bit quantization, it strikes a balance between accuracy and performance, rendering it suitable for demanding linguistic challenges.",
         "examples": ["Deep semantic analysis", "Complex text generation", "Advanced language translation"],
@@ -223,6 +254,7 @@
     },
     {
         "name": "WizardCoder Python 7B V1.0",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "WizardLM/WizardCoder-Python-7B-V1.0",
         "description": "WizardCoder Python 7B V1.0 is a specialized language model tailored for code generation in Python. Its vast training on diverse coding datasets makes it a robust model for transforming natural language descriptions into accurate Python code.",
         "examples": ["Code snippet generation", "Bug fixing", "Code refactoring"],
@@ -230,6 +262,7 @@
     },
     {
         "name": "WizardCoder Python 13B V1.0",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "WizardLM/WizardCoder-Python-13B-V1.0",
         "description": "WizardCoder Python 13B V1.0 excels in creating complex code structures in Python. Its extensive understanding of programming paradigms makes it an invaluable asset for professional developers aiming for optimized, well-structured code.",
         "examples": ["Advanced code generation", "Algorithm optimization", "Complex system design"],
@@ -237,6 +270,7 @@
     },
     {
         "name": "WizardCoder Python 34B V1.0",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "WizardLM/WizardCoder-Python-34B-V1.0",
         "description": "The WizardCoder Python 34B V1.0 model is built to handle sophisticated code generation and manipulation tasks. Its enormous parameter size ensures a deep understanding of complex coding requirements, making it ideal for large-scale software development and computational problem solving.",
         "examples": ["Large-scale code generation", "Software architecture design", "Automated code refactoring"],
@@ -244,6 +278,7 @@
     },
     {
         "name": "WizardLM 13B V1.0",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "WizardLMTeam/WizardLM-13B-V1.0",
         "description": "The WizardLM 13B V1.0 is engineered for a broad spectrum of natural language processing tasks. It has a profound comprehension of contextual relationships within text, which is instrumental in various NLP applications.",
         "examples": ["Text summarization", "Sentiment analysis", "Named entity recognition"],
@@ -251,6 +286,7 @@
     },
     {
         "name": "WizardLM 70B V1.0",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "WizardLM/WizardLM-70B-V1.0",
         "description": "The WizardLM 70B V1.0 model, with its massive parameter count, is at the forefront of tackling intricate language tasks. It excels in text generation, translation, and complex linguistic problem solving.",
         "examples": ["Long-form text generation", "High-fidelity translation", "Advanced language analysis"],
@@ -258,6 +294,7 @@
     },
     {
         "name": "WizardCoder Python 7B V1.0 GPTQ",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardCoder-Python-7B-V1.0-GPTQ",
         "description": "The WizardCoder Python 7B V1.0 GPTQ model is a specialized tool for code generation, honed to deliver quality code across diverse programming paradigms. The GPTQ optimization enables faster performance with lower resource requirements.",
         "examples": ["Optimized code generation", "Algorithm development", "Code review automation"],
@@ -265,6 +302,7 @@
     },
     {
         "name": "WizardCoder Python 13B V1.0 GPTQ",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardCoder-Python-13B-V1.0-GPTQ",
         "description": "The WizardCoder Python 13B V1.0 GPTQ model is engineered for superior code generation and review. With an enhanced parameter count, it delivers more nuanced code structures while the GPTQ optimization ensures efficient performance.",
         "examples": ["Advanced code generation", "Algorithm optimization", "Code review enhancement"],
@@ -272,6 +310,7 @@
     },
     {
         "name": "WizardCoder Python 34B V1.0 GPTQ",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardCoder-Python-34B-V1.0-GPTQ",
         "description": "The WizardCoder Python 34B V1.0 GPTQ model stands as a pinnacle in automated code generation and analysis. Its vast parameter count facilitates intricate code structures and sophisticated algorithm designs, optimized for performance by GPTQ.",
         "examples": ["Sophisticated code generation", "Complex algorithm development", "Automated code optimization"],
@@ -279,6 +318,7 @@
     },
     {
         "name": "WizardLM 13B V1.0 GPTQ",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardLM-13B-V1.0-GPTQ",
         "description": "The WizardLM 13B V1.0 GPTQ model excels in diverse language processing tasks. Its GPTQ optimization ensures it performs efficiently even in resource-constrained environments, making it a reliable choice for real-time language analysis and generation.",
         "examples": ["Real-time text generation", "On-the-fly translation", "Instantaneous language analysis"],
@@ -286,6 +326,7 @@
     },
     {
         "name": "WizardLM 70B V1.0 GPTQ",
+        "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "TheBloke/WizardLM-70B-V1.0-GPTQ",
         "description": "The WizardLM 70B V1.0 GPTQ model is a giant in the realm of language processing. Its colossal parameter count, paired with GPTQ optimization, makes it a powerhouse for any high-level language task, delivering unparalleled performance.",
         "examples": ["High-level text generation", "Complex translation tasks", "Advanced linguistic analysis"],

@@ -100,27 +100,23 @@ const Sidebar = () => {
                 <Grid columns={4} className={styles.footer}>
                     <Cell center middle>
                         <div className={styles.themeSwitcher}>
-                            <Link to="/logout">🔴</Link>
+                            <Link to="/logout">Logout</Link>
                         </div>
-                        <p>Logout</p>
                     </Cell>
                     <Cell center middle>
                         <div className={styles.themeSwitcher}>
-                            <Link to="/account">🤠</Link>
+                            <Link to="/account">Account</Link>
                         </div>
-                        <p>Account</p>
                     </Cell>
                     <Cell center middle>
                         <div className={styles.themeSwitcher}>
-                            <Link to="/billing">💵</Link>
+                            <Link to="/billing">Billing</Link>
                         </div>
-                        <p>Billing</p>
                     </Cell>
                     <Cell center middle>
                         <div className={styles.themeSwitcher} onClick={() => setTheme(theme < 5 ? theme + 1 : 0)}>
-                            <p>🖌️</p>
+                            <p>Theme</p>
                         </div>
-                        <p>Theme</p>
                     </Cell>
                 </Grid>
             </div>

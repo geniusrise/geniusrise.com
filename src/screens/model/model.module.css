@@ -23,24 +23,30 @@ div {
 }
 .modelName {
   border: 1px solid var(--dark-border-color);
-  text-align: center;
   border-radius: 1rem;
   padding: 0.5rem;
   margin: 1rem;
 }
+.modelName p {
+  text-align: center;
+}
 .modelName span {
-  position: absolute;
-  right: 2rem;
   cursor: pointer;
   font-size: 1.2rem;
 }
+.modelImage {
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+  background-image: url(../../assets/login-page/lol-de9e79c5-2e9b-4742-9b7b-afa97c21f881.jpg);
+}
 .examples {
   padding-left: 1rem;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 .usecases {
   padding-left: 1rem;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 .tryForm {
   margin-left: 1rem;
@@ -49,6 +55,9 @@ div {
 .tryForm textarea {
   background-color: transparent;
   color: var(--dark-text-color);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  min-height: 5rem !important;
 }
 .tryForm textarea::placeholder {
   color: var(--dark-text-color);
@@ -69,9 +78,19 @@ div {
 .tryFormContent code {
   display: inline-block;
   width: 100%;
-  height: 10rem;
+  min-height: 3rem;
   background-color: transparent;
   color: var(--dark-text-color);
+}
+.actions button {
+  background-color: var(--dark-modal-background);
+  color: var(--dark-text-color);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.actions button:hover {
+  color: var(--dark-neon-color-1);
 }
 @media (min-width: 1100px) {
   .container {
