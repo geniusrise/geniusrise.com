@@ -5,12 +5,15 @@
 
 .searchContainer {
     margin-bottom: 2em;
-    background-image: url(../../assets/model.png);
+    // background-image: url(../../assets/model.png);
+    // background-color: var(--dark-table-head);
+    border-radius: 0.5rem;
     padding: 0.1em;
 }
 
 .searchInput {
-    background-color: var(--dark-background-color);
+    background-color: var(--dark-table-head);
+    // background-color: transparent;
     color: var(--dark-text-color);
     border: none;
 }
@@ -25,17 +28,23 @@
 
 .modelCard {
     padding: 0.1rem;
-    background-image: url(../../assets/model.png);
+    // background-image: url(../../assets/model.png);
+    background-color: var(--dark-table-head);
+    border-radius: 1rem;
     background-size: contain;
+}
+
+.modelCard li {
+    text-align: left;
 }
 
 .card {
     height: 100%;
     background-color: transparent;
     // box-shadow: var(--dark-card-shadow) 0px 2px 8px 0px;
-    background-color: var(--dark-background-color);
+    // background-color: var(--dark-background-color);
 }
-.card h2, div, strong {
+.card h2, div, a, a:hover, strong {
     color: var(--dark-text-color);
 }
 
@@ -54,8 +63,9 @@
     background-color: var(--dark-background-histogram);
 }
 
-.modelCard li {
-    text-align: left;
+.cardFooter a {
+    height: 100%;
+    width: 100%;
 }
 
 @media (min-width: 1100px) {

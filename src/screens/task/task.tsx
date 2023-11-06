@@ -2,11 +2,12 @@ import React, { useCallback, useEffect } from "react"
 import PropTypes from "prop-types"
 import { Cell, Grid } from "styled-css-grid"
 import { Config, Model } from "../../config"
-import { is4K, l } from "../../utils"
+import { is4K, l, xl } from "../../utils"
 import { useState } from "react"
 
 import styles from "./task.module.css"
 import { Button, Card, Content, Form } from "react-bulma-components"
+import { Link } from "react-router-dom"
 
 function Task(props: Config) {
     const models: Model[] = props.models
@@ -31,7 +32,7 @@ function Task(props: Config) {
             <div className={styles.searchContainer}>
                 <Form.Input value={searchTerm} onChange={handleSearchChange} className={styles.searchInput} placeholder="Search models..." />
             </div>
-            <Grid columns={is4K ? 8 : l ? 3 : 1} gap="20px" className={styles.taskGrid}>
+            <Grid columns={is4K ? 8 : xl ? 3 : 1} gap="20px" className={styles.taskGrid}>
                 {" "}
                 {/* Adjust the number of columns and gap as needed */}
                 {filteredList.map((model, index) => (
@@ -58,8 +59,12 @@ function Task(props: Config) {
                                 </Content>
                             </Card.Content>
                             <Card.Footer className={styles.cardFooter}>
-                                <Card.Footer.Item>Explore</Card.Footer.Item>
-                                <Card.Footer.Item>Deploy</Card.Footer.Item>
+                                <Card.Footer.Item>
+                                    <Link to={`/model/${model.name}`}>Explore</Link>
+                                </Card.Footer.Item>
+                                <Card.Footer.Item>
+                                    <Link to={`/model/deploy/${model.name}`}>Deploy</Link>
+                                </Card.Footer.Item>
                             </Card.Footer>
                         </Card>
                     </Cell>

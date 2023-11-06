@@ -12,6 +12,7 @@ import { Support } from "../../support/support"
 import { functions } from "../../config/navigation"
 import { config } from "../../config"
 import Task from "../../screens/task/task"
+import Model from "../../screens/model/model"
 // import { Autocomplete } from "../../components/autocomplete/autocomplete"
 
 const Everything = () => {
@@ -50,6 +51,11 @@ const Everything = () => {
                             {Object.entries(config).map(([taskKey, taskConfig], index) => (
                                 <Route key={index} path={`/${taskKey}`} element={<Task {...taskConfig} />} />
                             ))}
+                            {Object.entries(config).map(([taskKey, taskConfig], index) =>
+                                taskConfig.models.map((model, index) => (
+                                    <Route key={index} path={`/model/${model.name}`} element={<Model model={model} />} />
+                                ))
+                            )}
                         </Routes>
                     </Cell>
                 </Grid>
