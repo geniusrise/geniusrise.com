@@ -54,7 +54,7 @@ export const functions: any = {
       name: "Sentiment Analysis",
       description:
         "Determines sentiment of text. Used in customer feedback, social media monitoring. Categorizes text as positive, negative, or neutral.",
-      link: "/TXTCLASS",
+      link: "/EMOTION",
     },
     {
       function_name: "SUMMZ",

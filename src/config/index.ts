@@ -7,6 +7,7 @@ import summzConfig from './text/summz/config.json';
 import transConfig from './text/trans/config.json';
 import txtclassConfig from './text/txtclass/config.json';
 import txtqaConfig from './text/txtqa/config.json';
+import emotionConfig from './text/emotion/config.json';
 
 const _config = textConfig
 
@@ -36,7 +37,8 @@ const config = {
   SUMMZ: {models: summzConfig, ..._config.summz} as Config,
   TRANS: {models: transConfig, ..._config.trans} as Config,
   TXTCLASS: {models: txtclassConfig, ..._config.txtclass} as Config,
-  TXTQA: {models: txtqaConfig, ..._config.txtqa} as Config,
+  TXTQA: { models: txtqaConfig, ..._config.txtqa } as Config,
+  EMOTION: {models: emotionConfig, ..._config.emotion} as Config,
 };
 
 export { config };

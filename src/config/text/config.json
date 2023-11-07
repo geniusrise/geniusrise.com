@@ -10,6 +10,17 @@
             "Assigning topics or tags to news articles based on their content"
         ]
     },
+    "emotion": {
+        "short_name": "emotion",
+        "long_name": "Emotion and Sentiment Classification",
+        "description": "Emotion and Sentiment Classification is a specialized area of Text Classification that focuses on detecting and categorizing affective states and subjective information. Sentiment classification typically involves categorizing text by the polarity of opinion it expresses (positive, negative, neutral), while emotion classification may identify specific emotional states such as happiness, sadness, anger, or surprise. These tasks require models to understand nuances in language that convey sentiment and emotion, often through the use of lexicons or deep learning techniques. The output of such models is instrumental in gauging public sentiment, automating customer service, personalizing user experiences, and monitoring mental health through text.",
+        "examples": ["Opinion Mining", "Mood Detection", "Attitude Analysis"],
+        "usecases": [
+            "Analyzing social media to gauge public sentiment towards products or events",
+            "Detecting mood in customer feedback to improve customer service",
+            "Monitoring mental health by analyzing patterns in personal communication"
+        ]
+    },
     "lm": {
         "short_name": "lm",
         "long_name": "Language Modeling",

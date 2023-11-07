@@ -1,0 +1,86 @@
+[
+    {
+        "name": "Sentiment Analysis",
+        "inputs": [{ "type": "text", "name": "input" }],
+        "description": "The model is proficient in analyzing the sentiment conveyed in text data, predominantly focusing on tweets. It employs the XLM-RoBERTa base model architecture and is trained to discern between positive, negative, and neutral sentiments. This model provides a nuanced understanding of the emotions and opinions expressed within text, making it a valuable asset for various applications. It's widely used in customer feedback analysis, market research, and social media monitoring to gauge public sentiment. By utilizing this model, businesses and platforms can obtain insightful data regarding user satisfaction, public opinion, and overall sentiment towards specific topics or products.",
+        "model_name": "cardiffnlp/twitter-xlm-roberta-base-sentiment",
+        "examples": [
+            "Analyzing sentiment in customer reviews",
+            "Determining public sentiment towards a product on social media",
+            "Evaluating the sentiment of comments in online discussions"
+        ],
+        "usecases": ["Customer feedback analysis", "Market research", "Social media monitoring"]
+    },
+    {
+        "name": "Emotion Analysis",
+        "inputs": [{ "type": "text", "name": "input" }],
+        "description": "The model is skillfully engineered to analyze a spectrum of emotions in text data, especially focusing on tweets. Leveraging the robust RoBERTa base model architecture, it discerns emotions such as joy, optimism, anger, and sadness, among others. This model provides a deeper insight into the emotional tone of the text, enabling a more nuanced understanding of the user-generated content. It's a powerful tool for various domains including customer feedback analysis, social media monitoring, and mental health studies. By employing this model, platforms and researchers can automate the process of emotion analysis, gaining valuable data regarding the emotional context and sentiment of the text.",
+        "model_name": "cardiffnlp/twitter-roberta-base-emotion",
+        "examples": [
+            "Analyzing emotional tone in customer reviews",
+            "Determining emotional context of social media posts",
+            "Evaluating emotions in user-generated content on forums"
+        ],
+        "usecases": ["Customer feedback analysis", "Social media monitoring", "Mental health studies"]
+    },
+    {
+        "name": "Multilingual Sentiment Analysis",
+        "inputs": [{ "type": "text", "name": "input" }],
+        "description": "The model is adept at analyzing sentiment in text data across multiple languages, focusing primarily on tweets. Harnessing the XLM-RoBERTa base model architecture, it can discern between positive, negative, and neutral sentiments. This multilingual capability makes it a versatile tool for global platforms and businesses operating across different linguistic regions. It is particularly useful in customer feedback analysis, market research, and social media monitoring on a global scale. By employing this model, organizations can obtain a holistic view of public sentiment across different languages and regions, aiding in informed decision-making and global market analysis.",
+        "model_name": "cardiffnlp/twitter-xlm-roberta-base-sentiment-multilingual",
+        "examples": [
+            "Analyzing sentiment in customer reviews across multiple languages",
+            "Determining public sentiment towards a global campaign on social media",
+            "Evaluating the sentiment of multilingual comments in online discussions"
+        ],
+        "usecases": ["Customer feedback analysis", "Global market research", "Social media monitoring"]
+    },
+    {
+        "name": "Financial Sentiment Analysis with RoBERTa",
+        "inputs": [{ "type": "text", "name": "input" }],
+        "description": "The model is specialized for analyzing financial text data to determine its sentiment as neutral, negative, or positive. Utilizing the RoBERTa architecture, this model has been fine-tuned on financial domain data, making it adept at understanding the nuances and terminology of financial text. This sentiment analysis can be crucial for various financial applications such as market analysis, investment strategy development, and monitoring financial news. By employing this model, financial analysts and investors can gain a more nuanced understanding of the market sentiment, aiding in more informed decision-making.",
+        "model_name": "soleimanian/financial-roberta-large-sentiment",
+        "examples": [
+            "Analyzing sentiment of financial news articles",
+            "Determining market sentiment from investor discussions",
+            "Evaluating sentiment of financial reports"
+        ],
+        "usecases": ["Market analysis", "Investment strategy development", "Financial news monitoring"]
+    },
+    {
+        "name": "Financial News Sentiment Analysis with DistilRoBERTa",
+        "inputs": [{ "type": "text", "name": "input" }],
+        "description": "The model is tailored for sentiment analysis of financial news, categorizing sentiment as negative, neutral, or positive. Built on the DistilRoBERTa architecture and fine-tuned on financial news data, this model provides a nuanced understanding of financial text sentiment. Sentiment analysis of financial news is crucial for investors, analysts, and financial institutions to gauge market sentiment and make informed decisions. By utilizing this model, users can automate the analysis of financial news sentiment, aiding in market analysis and investment strategy development.",
+        "model_name": "mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis",
+        "examples": [
+            "Analyzing sentiment of financial news articles",
+            "Determining market sentiment from financial reports",
+            "Evaluating investor sentiment from online discussions"
+        ],
+        "usecases": ["Market sentiment analysis", "Investment strategy development", "Financial market monitoring"]
+    },
+    {
+        "name": "Multi-class Emotion Classification",
+        "inputs": [{ "type": "text", "name": "input" }],
+        "description": "The model is built to classify a variety of emotions from text. It can identify a wide range of emotions like disappointment, sadness, annoyance, joy, anger, and many more, making it a highly versatile tool for understanding human emotions in textual data. This model could be employed in numerous applications like monitoring social media, analyzing customer feedback, or understanding human interactions in various contexts. By leveraging this model, organizations can gain deeper insights into how people feel and react to different topics or products, which can be instrumental in making informed business decisions.",
+        "model_name": "SamLowe/roberta-base-go_emotions",
+        "examples": [
+            "Analyzing emotions in customer reviews",
+            "Identifying emotions in social media posts",
+            "Understanding emotional responses in therapy sessions"
+        ],
+        "usecases": ["Customer feedback analysis", "Social media monitoring", "Therapeutic interaction analysis"]
+    },
+    {
+        "name": "Financial Sentiment Analysis with BERT",
+        "inputs": [{ "type": "text", "name": "input" }],
+        "description": "The model is designed to classify the sentiment of financial text into three categories: positive, neutral, and negative. This model can be a crucial tool for financial analysts, traders, and investors who need to gauge market sentiment to make informed decisions. By analyzing news articles, investor reports, and financial statements, this model can help uncover the prevailing sentiment in the financial market. Additionally, it can be used to monitor social media and forums to understand retail investor sentiment, which has become increasingly influential in the financial markets.",
+        "model_name": "ProsusAI/finbert",
+        "examples": [
+            "Analyzing sentiment of financial news articles",
+            "Determining investor sentiment from online forums",
+            "Evaluating company sentiment from financial reports"
+        ],
+        "usecases": ["Market sentiment analysis", "Investor sentiment analysis", "Corporate sentiment analysis"]
+    }
+]
