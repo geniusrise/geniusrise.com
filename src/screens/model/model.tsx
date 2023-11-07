@@ -6,6 +6,7 @@ import styles from "./model.module.css"
 import { Cell, Grid } from "styled-css-grid"
 import { l, xl } from "../../utils"
 import { type } from "os"
+import { Link } from "react-router-dom"
 
 interface Props {
     model: ModelType
@@ -26,10 +27,10 @@ function Model({ model }: Props) {
                             <p>{model.description}</p>
                             <div className={styles.modelName}>
                                 <Grid columns={20}>
-                                    <Cell width={19}>
+                                    <Cell width={19} center middle>
                                         <p>{model.model_name}</p>
                                     </Cell>
-                                    <Cell width={1}>
+                                    <Cell width={1} center middle>
                                         <span>📋</span>
                                     </Cell>
                                 </Grid>
@@ -74,13 +75,19 @@ function Model({ model }: Props) {
                 </Grid>
                 <Grid columns={3} className={styles.actions}>
                     <Cell>
-                        <Button>One-time Bulk Job</Button>
+                        <Button>
+                            <Link to={`/model/${model.name}/bulk`}>One-time Bulk Job</Link>
+                        </Button>
                     </Cell>
                     <Cell>
-                        <Button>Deploy API on autoscale</Button>
+                        <Button>
+                            <Link to={`/model/${model.name}/api`}>Deploy API on autoscale</Link>
+                        </Button>
                     </Cell>
                     <Cell>
-                        <Button>Fine Tune with your data</Button>
+                        <Button>
+                            <Link to={`/model/${model.name}/fineTune`}>Fine Tune with your data</Link>
+                        </Button>
                     </Cell>
                 </Grid>
             </div>
