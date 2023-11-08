@@ -14,6 +14,7 @@ import { config } from "../../config"
 import Task from "../../screens/task/task"
 import Model from "../../screens/model/model"
 import Bulk from "../../screens/bulk/bulk"
+import FineTune from "../../screens/fineTune/fineTune"
 // import { Autocomplete } from "../../components/autocomplete/autocomplete"
 
 const Everything = () => {
@@ -55,6 +56,11 @@ const Everything = () => {
                             {Object.entries(config).map(([taskKey, taskConfig], index) =>
                                 taskConfig.models.map((model, index) => (
                                     <Route key={index} path={`/model/${model.name}/bulk`} element={<Bulk model={model} />} />
+                                ))
+                            )}
+                            {Object.entries(config).map(([taskKey, taskConfig], index) =>
+                                taskConfig.models.map((model, index) => (
+                                    <Route key={index} path={`/model/${model.name}/fineTune`} element={<FineTune model={model} />} />
                                 ))
                             )}
                             {Object.entries(config).map(([taskKey, taskConfig], index) =>
