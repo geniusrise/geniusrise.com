@@ -18,6 +18,7 @@ interface Model {
     model_name: string
     examples: string[]
     usecases: string[]
+    bulk_formats: string[]
 }
 
 interface Config {

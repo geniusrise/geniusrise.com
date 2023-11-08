@@ -7,8 +7,8 @@ import styles from "./bulk.module.css"
 import { Model } from "../../config"
 import { Cell, Grid } from "styled-css-grid"
 import SyntaxHighlighter from "react-syntax-highlighter"
-import { hopscotch } from "react-syntax-highlighter/dist/esm/styles/hljs"
-import { Content } from "react-bulma-components"
+import { solarizedDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { Button, Content } from "react-bulma-components"
 
 interface BulkProps {
     model: Model
@@ -43,11 +43,27 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
 
     return (
         <div className={styles.container}>
-            <Content className={styles.contentHeading}>
-                <h2>Bulk inference</h2>
-                Upload data to run a inference using a model as a bulk job.
-                <p>You may upload a bunch of files:</p>
-            </Content>
+            <Grid columns={2}>
+                <Cell>
+                    <Content className={styles.contentHeading}>
+                        <h2>Bulk inference</h2>
+                        Upload data to run a inference using a model as a bulk job.
+                        <p>You may upload a bunch of files:</p>
+                    </Content>
+                </Cell>
+                <Cell className={styles.supportedFormats}>
+                    <p>Supported formats</p>
+                    <Grid columns={3}>
+                        {model.bulk_formats.map(b => {
+                            return (
+                                <Cell center middle>
+                                    {b}
+                                </Cell>
+                            )
+                        })}
+                    </Grid>
+                </Cell>
+            </Grid>
             <div {...getRootProps()} className={styles.filesDrop}>
                 <input {...getInputProps()} />
                 {isDragActive ? <p>Drop the files here ...</p> : <button>Click to select files or folders or drag them here</button>}
@@ -64,10 +80,18 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                 </Cell>
             </Grid>
             <div className={styles.s3Code}>
-                <SyntaxHighlighter language="bash" style={hopscotch} wrapLines={true} showLineNumbers={true}>
-                    {`aws s3 cp --recursive ./local ${s3BucketUrl}`}
+                <SyntaxHighlighter language="bash" style={solarizedDark} wrapLines={true} showLineNumbers={true}>
+                    {`aws s3 cp \\\n  --recursive\\\n  ./<YOUR_DATA>\\\n  ${s3BucketUrl}`}
                 </SyntaxHighlighter>
             </div>
+            <Grid columns={2} className={styles.action}>
+                <Cell>
+                    <Button>Configure Settings</Button>
+                </Cell>
+                <Cell>
+                    <Button>Submit Job</Button>
+                </Cell>
+            </Grid>
         </div>
     )
 }
