@@ -9,6 +9,7 @@ import { Cell, Grid } from "styled-css-grid"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { solarizedDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
+import Settings from "../settings/settings"
 
 interface BulkProps {
     model: Model
@@ -17,6 +18,7 @@ interface BulkProps {
 const Bulk: React.FC<BulkProps> = ({ model }) => {
     const [files, setFiles] = useState<File[]>([])
     const [s3BucketUrl, setS3BucketUrl] = useState<string>("")
+    const [settingsVisible, setSettingsVisibile] = useState(false)
 
     // Generate the S3 bucket URL
     const generateS3BucketUrl = useCallback(() => {
@@ -42,7 +44,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} hidden={settingsVisible}>
             <Grid columns={2}>
                 <Cell>
                     <Content className={styles.contentHeading}>
@@ -86,12 +88,25 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
             </div>
             <Grid columns={2} className={styles.action}>
                 <Cell>
-                    <Button>Configure Settings</Button>
+                    <Button
+                        onClick={(e: any) => {
+                            setSettingsVisibile(!settingsVisible)
+                        }}
+                    >
+                        Configure Settings
+                    </Button>
                 </Cell>
                 <Cell>
                     <Button>Submit Job</Button>
                 </Cell>
             </Grid>
+            <Settings
+                taskType="bulk"
+                callback={x => {
+                    console.log(x)
+                }}
+                visible={settingsVisible}
+            ></Settings>
         </div>
     )
 }

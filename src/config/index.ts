@@ -1,13 +1,17 @@
-import textConfig from './text/config.json';
-import chatConfig from './text/chat/config.json';
-import entityConfig from './text/entity/config.json';
-import lmConfig from './text/lm/config.json';
-import nliConfig from './text/nli/config.json';
-import summzConfig from './text/summz/config.json';
-import transConfig from './text/trans/config.json';
-import txtclassConfig from './text/txtclass/config.json';
-import txtqaConfig from './text/txtqa/config.json';
-import emotionConfig from './text/emotion/config.json';
+import textConfig from './text/config.json'
+import chatConfig from './text/chat/config.json'
+import entityConfig from './text/entity/config.json'
+import lmConfig from './text/lm/config.json'
+import nliConfig from './text/nli/config.json'
+import summzConfig from './text/summz/config.json'
+import transConfig from './text/trans/config.json'
+import txtclassConfig from './text/txtclass/config.json'
+import txtqaConfig from './text/txtqa/config.json'
+import emotionConfig from './text/emotion/config.json'
+
+import api from './tasks/api.json'
+import bulk from './tasks/bulk.json'
+import fineTune from './tasks/fine_tune.json'
 
 const _config = textConfig
 
@@ -30,6 +34,12 @@ interface Config {
     models: Model[]
 }
 
+const taskConfig = {
+  api: api,
+  bulk: bulk,
+  fine_tune: fineTune
+}
+
 const config = {
   CHAT: {models: chatConfig, ..._config.chat} as Config,
   ENTITY: {models: entityConfig, ..._config.entity} as Config,
@@ -42,6 +52,6 @@ const config = {
   EMOTION: {models: emotionConfig, ..._config.emotion} as Config,
 };
 
-export { config };
+export { config, taskConfig };
 
 export type {Config, Model}

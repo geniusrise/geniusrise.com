@@ -1,6 +1,14 @@
 import React from "react"
 
-const Settings = () => {
+interface Props {
+    taskType: string
+    callback: (obj: any) => void
+    visible: boolean
+}
+
+// hidden={!props.visible}
+
+const Settings = (props: Props) => {
     return <div>Settings</div>
 }
 
