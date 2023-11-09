@@ -44,62 +44,64 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
     return (
-        <div className={styles.container} hidden={settingsVisible}>
-            <Grid columns={2}>
-                <Cell>
-                    <Content className={styles.contentHeading}>
-                        <h2>Bulk inference</h2>
-                        Upload data to run a inference using a model as a bulk job.
-                        <p>You may upload a bunch of files:</p>
-                    </Content>
-                </Cell>
-                <Cell className={styles.supportedFormats}>
-                    <p>Supported formats</p>
-                    <Grid columns={3}>
-                        {model.bulk_formats.map(b => {
-                            return (
-                                <Cell center middle>
-                                    {b}
-                                </Cell>
-                            )
-                        })}
-                    </Grid>
-                </Cell>
-            </Grid>
-            <div {...getRootProps()} className={styles.filesDrop}>
-                <input {...getInputProps()} />
-                {isDragActive ? <p>Drop the files here ...</p> : <button>Click to select files or folders or drag them here</button>}
+        <>
+            <div className={styles.container} hidden={settingsVisible}>
+                <Grid columns={2}>
+                    <Cell>
+                        <Content className={styles.contentHeading}>
+                            <h2>Bulk inference</h2>
+                            Upload data to run a inference using a model as a bulk job.
+                            <p>You may upload a bunch of files:</p>
+                        </Content>
+                    </Cell>
+                    <Cell className={styles.supportedFormats}>
+                        <p>Supported formats</p>
+                        <Grid columns={3}>
+                            {model.bulk_formats.map(b => {
+                                return (
+                                    <Cell center middle>
+                                        {b}
+                                    </Cell>
+                                )
+                            })}
+                        </Grid>
+                    </Cell>
+                </Grid>
+                <div {...getRootProps()} className={styles.filesDrop}>
+                    <input {...getInputProps()} />
+                    {isDragActive ? <p>Drop the files here ...</p> : <button>Click to select files or folders or drag them here</button>}
+                </div>
+                <div className={styles.s3Drop}>
+                    <p>Alternatively, you can upload files directly to the following S3 bucket:</p>
+                </div>
+                <Grid columns={20} className={styles.s3Location}>
+                    <Cell width={19} center middle>
+                        <p>{s3BucketUrl}</p>
+                    </Cell>
+                    <Cell width={1} center middle>
+                        <span>📋</span>
+                    </Cell>
+                </Grid>
+                <div className={styles.s3Code}>
+                    <SyntaxHighlighter language="bash" style={solarizedDark} wrapLines={true} showLineNumbers={true}>
+                        {`aws s3 cp \\\n  --recursive\\\n  ./<YOUR_DATA>\\\n  ${s3BucketUrl}`}
+                    </SyntaxHighlighter>
+                </div>
+                <Grid columns={2} className={styles.action}>
+                    <Cell>
+                        <Button
+                            onClick={(e: any) => {
+                                setSettingsVisibile(!settingsVisible)
+                            }}
+                        >
+                            Configure Settings
+                        </Button>
+                    </Cell>
+                    <Cell>
+                        <Button>Submit Job</Button>
+                    </Cell>
+                </Grid>
             </div>
-            <div className={styles.s3Drop}>
-                <p>Alternatively, you can upload files directly to the following S3 bucket:</p>
-            </div>
-            <Grid columns={20} className={styles.s3Location}>
-                <Cell width={19} center middle>
-                    <p>{s3BucketUrl}</p>
-                </Cell>
-                <Cell width={1} center middle>
-                    <span>📋</span>
-                </Cell>
-            </Grid>
-            <div className={styles.s3Code}>
-                <SyntaxHighlighter language="bash" style={solarizedDark} wrapLines={true} showLineNumbers={true}>
-                    {`aws s3 cp \\\n  --recursive\\\n  ./<YOUR_DATA>\\\n  ${s3BucketUrl}`}
-                </SyntaxHighlighter>
-            </div>
-            <Grid columns={2} className={styles.action}>
-                <Cell>
-                    <Button
-                        onClick={(e: any) => {
-                            setSettingsVisibile(!settingsVisible)
-                        }}
-                    >
-                        Configure Settings
-                    </Button>
-                </Cell>
-                <Cell>
-                    <Button>Submit Job</Button>
-                </Cell>
-            </Grid>
             <Settings
                 taskType="bulk"
                 callback={x => {
@@ -107,7 +109,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                 }}
                 visible={settingsVisible}
             ></Settings>
-        </div>
+        </>
     )
 }
 
