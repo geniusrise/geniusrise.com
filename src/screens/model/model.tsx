@@ -74,17 +74,17 @@ function Model({ model }: Props) {
                     </Cell>
                 </Grid>
                 <Grid columns={3} className={styles.actions}>
-                    <Cell>
+                    <Cell center middle>
                         <Button>
                             <Link to={`/model/${model.name}/bulk`}>One-time Bulk Job</Link>
                         </Button>
                     </Cell>
-                    <Cell>
+                    <Cell center middle>
                         <Button>
                             <Link to={`/model/${model.name}/api`}>Deploy API on autoscale</Link>
                         </Button>
                     </Cell>
-                    <Cell>
+                    <Cell center middle>
                         <Button>
                             <Link to={`/model/${model.name}/fineTune`}>Fine Tune with your data</Link>
                         </Button>

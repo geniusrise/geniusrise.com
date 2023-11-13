@@ -105,6 +105,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
             <Settings
                 taskType="bulk"
                 callback={x => {
+                    setSettingsVisibile(!settingsVisible)
                     console.log(x)
                 }}
                 visible={settingsVisible}

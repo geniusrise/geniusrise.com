@@ -47,7 +47,7 @@ const API: React.FC<APIProps> = ({ model }) => {
             <Settings
                 taskType="api"
                 callback={x => {
-                    console.log(x)
+                    setSettingsVisibile(!settingsVisible)
                 }}
                 visible={settingsVisible}
             ></Settings>
