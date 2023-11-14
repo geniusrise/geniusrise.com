@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react"
 import { v4 as uuidv4 } from "uuid"
 import axios from "axios"
 import { useDropzone } from "react-dropzone"
+import { withAuthenticator } from "@aws-amplify/ui-react"
 
 import styles from "./fineTune.module.css"
 import { Model } from "../../config"
@@ -109,4 +110,4 @@ const FineTune: React.FC<FineTuneProps> = ({ model }) => {
     )
 }
 
-export default FineTune
+export default withAuthenticator(FineTune)

@@ -10,6 +10,7 @@ import SyntaxHighlighter from "react-syntax-highlighter"
 import { solarizedDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
 import Settings from "../settings/settings"
+import { withAuthenticator } from "@aws-amplify/ui-react"
 
 interface BulkProps {
     model: Model
@@ -114,4 +115,4 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     )
 }
 
-export default Bulk
+export default withAuthenticator(Bulk)

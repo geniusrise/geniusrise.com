@@ -4,11 +4,8 @@ import "@fontsource/fira-sans"
 
 import { Amplify } from "aws-amplify"
 
-import { withAuthenticator } from "@aws-amplify/ui-react"
 import "./login.css"
-
 import Everything from "./containers/everything/everything"
-
 import config from "./aws-exports"
 
 const updatedAwsConfig = {
@@ -33,5 +30,4 @@ function App() {
     )
 }
 
-export default withAuthenticator(App)
-// export default App
+export default App

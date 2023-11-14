@@ -10,6 +10,7 @@ import SyntaxHighlighter from "react-syntax-highlighter"
 import { solarizedDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
 import Settings from "../settings/settings"
+import { withAuthenticator } from "@aws-amplify/ui-react"
 
 interface APIProps {
     model: Model
@@ -55,4 +56,4 @@ const API: React.FC<APIProps> = ({ model }) => {
     )
 }
 
-export default API
+export default withAuthenticator(API)
