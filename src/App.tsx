@@ -15,9 +15,9 @@ const updatedAwsConfig = {
     ...config,
     oauth: {
         ...config.oauth,
-        domain: process.env.REACT_APP_AWS_COGNITO_URL,
-        redirectSignIn: process.env.REACT_APP_BASE_URL,
-        redirectSignOut: process.env.REACT_APP_BASE_URL,
+        domain: process.env.REACT_APP_AWS_COGNITO_URL || "login.geniusrise.com",
+        redirectSignIn: process.env.REACT_APP_BASE_URL || "https://cloud.geniusrise.com/",
+        redirectSignOut: process.env.REACT_APP_BASE_URL || "https://cloud.geniusrise.com/",
     },
 }
 
