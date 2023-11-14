@@ -1,0 +1,42 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cloud-dev-145306-authRole",
+      "UnauthRoleArn": "arn:aws:iam::143601010266:role/amplify-cloud-dev-145306-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::143601010266:role/amplify-cloud-dev-145306-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-cloud-dev-145306-deployment",
+      "UnauthRoleName": "amplify-cloud-dev-145306-unauthRole",
+      "StackName": "amplify-cloud-dev-145306",
+      "StackId": "arn:aws:cloudformation:ap-south-1:143601010266:stack/amplify-cloud-dev-145306/6db2ce60-82cf-11ee-a7f3-0af8a266aa4a",
+      "AmplifyAppId": "d25xt3wfdw7v64",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-cloud-dev-145306-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "cloudb85ae616": {}
+      },
+      "function": {
+        "cloudb85ae616CustomMessage": {
+          "REDIRECTURL": "https://cloud.geniusrise.com",
+          "EMAILSUBJECT": "Welcome to geniusrise: email verification",
+          "EMAILMESSAGE": "Welcome to geniusrise!",
+          "deploymentBucketName": "amplify-cloud-dev-145306-deployment",
+          "s3Key": "amplify-builds/cloudb85ae616CustomMessage-2f342f792b43627a4d2b-build.zip"
+        },
+        "cloudb85ae616PostConfirmation": {
+          "GROUP": "google",
+          "deploymentBucketName": "amplify-cloud-dev-145306-deployment",
+          "s3Key": "amplify-builds/cloudb85ae616PostConfirmation-44665641774750544473-build.zip"
+        },
+        "AdminQueries2712c564": {
+          "deploymentBucketName": "amplify-cloud-dev-145306-deployment",
+          "s3Key": "amplify-builds/AdminQueries2712c564-71504d6d345337344269-build.zip"
+        }
+      },
+      "api": {
+        "AdminQueries": {}
+      }
+    }
+  }
+}
