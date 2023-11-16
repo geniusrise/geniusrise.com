@@ -3,6 +3,8 @@ import "./App.css"
 import "@fontsource/fira-sans"
 
 import { Amplify } from "aws-amplify"
+import { listener, start } from "./data/login/login"
+import { Hub } from "aws-amplify"
 
 import "./login.css"
 import Everything from "./containers/everything/everything"
@@ -19,8 +21,11 @@ const updatedAwsConfig = {
 }
 
 Amplify.configure(updatedAwsConfig)
+Hub.listen("auth", listener)
 
 function App() {
+    start()
+
     return (
         <div className="App">
             <div className="appContent">
