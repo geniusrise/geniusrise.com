@@ -2,6 +2,14 @@
   height: 80%;
   overflow: auto;
 }
+.headerImage {
+  height: 8rem;
+  margin-bottom: 1.5rem;
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+  border-bottom-right-radius: 0rem;
+  border-bottom-left-radius: 0rem;
+}
 .contentHeading {
   font-size: 1rem;
 }

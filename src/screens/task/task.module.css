@@ -1,6 +1,7 @@
 .container {
   height: 80%;
   overflow: auto;
+  padding: 1rem;
 }
 .searchContainer {
   margin-bottom: 2em;
@@ -19,9 +20,6 @@
   overflow: none;
 }
 .modelCard {
-  padding: 0.1rem;
-  background-color: var(--dark-table-head);
-  border-radius: 1rem;
   background-size: contain;
 }
 .modelCard li {
@@ -30,6 +28,7 @@
 .card {
   height: 100%;
   background-color: transparent;
+  background-color: var(--dark-modal-background);
 }
 .card h2,
 div,
@@ -37,6 +36,13 @@ a,
 a:hover,
 strong {
   color: var(--dark-text-color);
+}
+.cardHeader {
+  border: none !important;
+  height: 6rem;
+}
+.cardHeader > div {
+  background-color: var(--dark-modal-background);
 }
 .cardContent {
   padding: 0.5rem;

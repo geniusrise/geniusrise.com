@@ -12,8 +12,15 @@ import { Button, Content } from "react-bulma-components"
 import Settings from "../settings/settings"
 import { withAuthenticator } from "@aws-amplify/ui-react"
 
+import banners from "../../data/banners.json"
+
 interface APIProps {
     model: Model
+}
+
+const getRandomImage = () => {
+    const randomIndex = Math.floor(Math.random() * banners.length)
+    return banners[randomIndex]
 }
 
 const API: React.FC<APIProps> = ({ model }) => {
@@ -22,6 +29,10 @@ const API: React.FC<APIProps> = ({ model }) => {
     return (
         <>
             <div className={styles.container} hidden={settingsVisible}>
+                <div
+                    className={styles.headerImage}
+                    style={{ backgroundImage: `url(../../vector-autumn-foliage-banner/${getRandomImage()})`, backgroundSize: "cover" }}
+                ></div>
                 <Grid columns={2}>
                     <Cell>
                         <Content className={styles.contentHeading}>

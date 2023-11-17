@@ -3,7 +3,7 @@ const darkBlue = {
     "dark-scrollbar-color": "#02020c",
     "dark-background-color": "#151525",
     "dark-border-color": "#50507050",
-    "dark-modal-background": "#222232b0",
+    "dark-modal-background": "#222232e0",
     "dark-input-color": "#4c4c70",
     "dark-card-color": "#b4b4b4",
     "dark-card-shadow": "rgba(0, 0, 0, 0.5)",

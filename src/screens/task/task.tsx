@@ -10,6 +10,13 @@ import { Button, Card, Content, Form } from "react-bulma-components"
 import { Link } from "react-router-dom"
 import { SupportContentContext } from "../../support/support"
 
+import banners from "../../data/banners.json"
+
+const getRandomImage = () => {
+    const randomIndex = Math.floor(Math.random() * banners.length)
+    return banners[randomIndex]
+}
+
 function Task(props: Config) {
     const models: Model[] = props.models
     const [searchTerm, setSearchTerm] = useState("")
@@ -50,7 +57,10 @@ function Task(props: Config) {
                 {filteredList.map((model, index) => (
                     <Cell key={index} className={styles.modelCard}>
                         <Card className={styles.card}>
-                            <Card.Header className={styles.cardHeader}>
+                            <Card.Header
+                                className={styles.cardHeader}
+                                style={{ backgroundImage: `url(vector-autumn-foliage-banner/${getRandomImage()})`, backgroundSize: "cover" }}
+                            >
                                 <Card.Header.Title>
                                     <Content>
                                         <h2>{model.name}</h2>

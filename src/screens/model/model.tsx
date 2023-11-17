@@ -9,8 +9,15 @@ import { type } from "os"
 import { Link } from "react-router-dom"
 import { SupportContentContext } from "../../support/support"
 
+import banners from "../../data/banners.json"
+
 interface Props {
     model: ModelType
+}
+
+const getRandomImage = () => {
+    const randomIndex = Math.floor(Math.random() * banners.length)
+    return banners[randomIndex]
 }
 
 function Model({ model }: Props) {
@@ -22,6 +29,10 @@ function Model({ model }: Props) {
 
     return (
         <div className={styles.container}>
+            <div
+                className={styles.headerImage}
+                style={{ backgroundImage: `url(../vector-autumn-foliage-banner/${getRandomImage()})`, backgroundSize: "cover" }}
+            ></div>
             <div className={styles.modelTitle}>
                 <Content>
                     <h1>{model.name}</h1>
