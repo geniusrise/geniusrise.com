@@ -1,20 +1,68 @@
+import React, { useState, createContext, useContext, ReactNode } from "react"
 import { Button, Content } from "react-bulma-components"
 import styles from "./support.module.css"
 
-const Support = () => {
-  return (
-    <div className={styles.container}>
-      <div className={styles.supportContent}>
-        <div className={styles.supportHeader}>
-          <h1>SUPPORT</h1>
-        </div>
-        <Content className={styles.content}> Hello! 👋</Content>
-        <Button onSubmit={(x: any) => console.log(x)} className={styles.openTicket}>
-          Open a ticket
-        </Button>
-      </div>
-    </div>
-  )
+type SupportContent = {
+    heading: string
+    content: string
+    examples?: string[]
+    useCases?: string[]
 }
 
-export { Support }
+type SupportContentContextType = {
+    supportContent: SupportContent
+    setSupportContent: (content: SupportContent) => void
+}
+
+const defaultSupportContent: SupportContent = {
+    heading: "Support",
+    content: "Hello! 👋",
+    examples: [],
+    useCases: [],
+}
+
+const defaultContextValue: SupportContentContextType = {
+    supportContent: defaultSupportContent,
+    setSupportContent: () => {},
+}
+
+const SupportContentContext = createContext<SupportContentContextType>(defaultContextValue)
+
+type SupportContentProviderProps = {
+    children: ReactNode
+}
+
+const SupportContentProvider: React.FC<SupportContentProviderProps> = ({ children }) => {
+    const [supportContent, setSupportContent] = useState<SupportContent>(defaultSupportContent)
+
+    return <SupportContentContext.Provider value={{ supportContent, setSupportContent }}>{children}</SupportContentContext.Provider>
+}
+
+const Support = () => {
+    const { supportContent } = useContext(SupportContentContext)
+
+    return (
+        <div className={styles.container}>
+            <div className={styles.supportContent}>
+                <Content className={styles.content}>
+                    <h1>{supportContent.heading}</h1>
+                    <p>{supportContent.content}</p>
+                    {supportContent.examples ? <h2>Examples</h2> : <></>}
+                    <ul>
+                        {supportContent.examples?.map((example, index) => (
+                            <li key={index}>{example}</li>
+                        ))}
+                    </ul>
+                    {supportContent.useCases ? <h2>Use Cases</h2> : <></>}
+                    <ul>
+                        {supportContent.useCases?.map((useCase, index) => (
+                            <li key={index}>{useCase}</li>
+                        ))}
+                    </ul>
+                </Content>
+            </div>
+        </div>
+    )
+}
+
+export { Support, SupportContentContext, SupportContentProvider }

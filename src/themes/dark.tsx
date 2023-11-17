@@ -3,7 +3,7 @@ const dark = {
     "dark-scrollbar-color": "#333333",
     "dark-background-color": "#1a1a1a",
     "dark-border-color": "#333333",
-    "dark-modal-background": "#2a2a2ab9",
+    "dark-modal-background": "#2a2a2ae0",
     "dark-input-color": "#333333",
     "dark-card-color": "#212121",
     "dark-card-shadow": "rgba(0, 0, 0, 0.5)",

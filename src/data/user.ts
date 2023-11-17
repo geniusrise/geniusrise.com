@@ -35,7 +35,7 @@ const apiClient = () => axios.create({
 // List Users
 async function getUser(username:string): Promise<AxiosResponse<User[]>> {
     try {
-        const response = await apiClient().get<User[]>(`/user/${username}`);
+        const response = await apiClient().get<User[]>(`/${username}`);
         console.debug('getUser response:', response);
         return response;
     } catch (error) {
@@ -47,7 +47,7 @@ async function getUser(username:string): Promise<AxiosResponse<User[]>> {
 // Create User
 async function createUser(userData: User): Promise<AxiosResponse<User>> {
     try {
-        const response = await apiClient().post<User>('/user', userData);
+        const response = await apiClient().post<User>('/', userData);
         console.debug('createUser response:', response);
         return response;
     } catch (error) {
@@ -59,7 +59,7 @@ async function createUser(userData: User): Promise<AxiosResponse<User>> {
 // Update User
 async function updateUser(userData: User): Promise<AxiosResponse<User>> {
     try {
-        const response = await apiClient().put<User>('/user', userData);
+        const response = await apiClient().put<User>('/', userData);
         console.debug('updateUser response:', response);
         return response;
     } catch (error) {
@@ -71,7 +71,7 @@ async function updateUser(userData: User): Promise<AxiosResponse<User>> {
 // Delete User
 async function deleteUser(userData: UserDelete): Promise<AxiosResponse<void>> {
     try {
-        const response = await apiClient().delete<void>('/user', { data: userData });
+        const response = await apiClient().delete<void>('/', { data: userData });
         console.debug('deleteUser response:', response);
         return response;
     } catch (error) {

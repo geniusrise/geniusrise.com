@@ -9,38 +9,51 @@
     position: fixed;
     top: 0px;
     right: 0rem;
+    overflow-y: scroll;
 }
 
 .supportContent {
-    min-width: 20rem;
-    padding: 1rem;
     background-color: var(--dark-modal-background);
     height: 100%;
-}
-
-.supportHeader {
-    font-size: 1.5em;
+    padding-top: 2rem;
 }
 
 .content {
     min-height: 15em;
-    background-color: var(--dark-modal-background);
     border-radius: 1rem;
-    margin-top: 2rem;
-    padding: 1rem;
-    font-size: 1rem;
-}
-
-.openTicket {
-    font-size: 1.3em;
-    padding: 1.3em;
-    width: 100%;
+    padding: 1.5rem;
     color: var(--dark-text-color);
-    background-color: rgba(0, 0, 0, 0.3);
-    border: none;
 }
 
-.openTicket:hover {
+.content h1, h2 {
     color: var(--dark-text-color) !important;
-    background-color: rgba(0, 0, 0, 0.6);
 }
+
+// .openTicket {
+//     font-size: 1.3em;
+//     padding: 1.3em;
+//     width: 100%;
+//     color: var(--dark-text-color);
+//     background-color: rgba(0, 0, 0, 0.3);
+//     border: none;
+// }
+
+// .openTicket:hover {
+//     color: var(--dark-text-color) !important;
+//     background-color: rgba(0, 0, 0, 0.6);
+// }
+
+
+@media (min-width: 1100px) {
+    .container {
+        width: 22rem;
+    }
+
+    .content {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 1100px) {}
+
+@media (max-width: 481px) {}

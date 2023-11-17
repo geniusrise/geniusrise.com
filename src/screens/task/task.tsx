@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react"
+import React, { useCallback, useContext, useEffect } from "react"
 import PropTypes from "prop-types"
 import { Cell, Grid } from "styled-css-grid"
 import { Config, Model } from "../../config"
@@ -8,11 +8,23 @@ import { useState } from "react"
 import styles from "./task.module.css"
 import { Button, Card, Content, Form } from "react-bulma-components"
 import { Link } from "react-router-dom"
+import { SupportContentContext } from "../../support/support"
 
 function Task(props: Config) {
     const models: Model[] = props.models
     const [searchTerm, setSearchTerm] = useState("")
     const [filteredList, setFilteredList] = useState<Model[]>(models)
+
+    const { setSupportContent } = useContext(SupportContentContext)
+
+    useEffect(() => {
+        setSupportContent({
+            heading: props.long_name,
+            content: props.description,
+            examples: props.examples,
+            useCases: props.usecases,
+        })
+    }, [props.long_name, props.description, setSupportContent])
 
     useEffect(() => {
         if (searchTerm === "") {

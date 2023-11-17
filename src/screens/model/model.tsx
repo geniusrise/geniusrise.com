@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import { Button, Card, Container, Content, Form } from "react-bulma-components"
 import { Model as ModelType } from "../../config"
 
@@ -7,12 +7,19 @@ import { Cell, Grid } from "styled-css-grid"
 import { l, xl } from "../../utils"
 import { type } from "os"
 import { Link } from "react-router-dom"
+import { SupportContentContext } from "../../support/support"
 
 interface Props {
     model: ModelType
 }
 
 function Model({ model }: Props) {
+    const { setSupportContent } = useContext(SupportContentContext)
+
+    useEffect(() => {
+        setSupportContent({ heading: model.name, content: model.description })
+    }, [model.name, model.description])
+
     return (
         <div className={styles.container}>
             <div className={styles.modelTitle}>

@@ -9,6 +9,7 @@ import { Hub } from "aws-amplify"
 import "./login.css"
 import Everything from "./containers/everything/everything"
 import config from "./aws-exports"
+import { SupportContentProvider } from "./support/support"
 
 const updatedAwsConfig = {
     ...config,
@@ -28,9 +29,11 @@ function App() {
 
     return (
         <div className="App">
-            <div className="appContent">
-                <Everything></Everything>
-            </div>
+            <SupportContentProvider>
+                <div className="appContent">
+                    <Everything></Everything>
+                </div>
+            </SupportContentProvider>
         </div>
     )
 }
