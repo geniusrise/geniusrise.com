@@ -1,9 +1,9 @@
 const dark = {
     "dark-text-color": "#ffffff",
     "dark-scrollbar-color": "#333333",
-    "dark-background-color": "#1a1a1a",
+    "dark-background-color": "#101010",
     "dark-border-color": "#333333",
-    "dark-modal-background": "#1f1f1fe0",
+    "dark-modal-background": "#191919e0",
     "dark-input-color": "#333333",
     "dark-card-color": "#212121",
     "dark-card-shadow": "rgba(0, 0, 0, 0.5)",
