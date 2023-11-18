@@ -22,6 +22,7 @@ interface Model {
     model_name: string
     examples: string[]
     usecases: string[]
+    input_examples?: string[]
     bulk_formats: string[]
 }
 
@@ -50,7 +51,9 @@ const config = {
   TXTCLASS: {models: txtclassConfig, ..._config.txtclass} as Config,
   TXTQA: { models: txtqaConfig, ..._config.txtqa } as Config,
   EMOTION: {models: emotionConfig, ..._config.emotion} as Config,
-};
+}
+
+globalThis.config = config
 
 export { config, taskConfig };
 

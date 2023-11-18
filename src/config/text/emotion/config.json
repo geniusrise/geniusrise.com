@@ -8,7 +8,27 @@
         "examples": [
             "Analyzing sentiment in customer reviews",
             "Determining public sentiment towards a product on social media",
-            "Evaluating the sentiment of comments in online discussions"
+            "Evaluating the sentiment of comments in online discussions",
+            "Assessing public opinion on political issues",
+            "Monitoring brand sentiment over time",
+            "Analyzing sentiment in blog posts and articles",
+            "Understanding customer reactions to new product launches",
+            "Gauging sentiment of customer service interactions",
+            "Measuring sentiment in press releases",
+            "Evaluating sentiment in user-generated content on e-commerce sites",
+            "Analyzing public sentiment during crisis events"
+        ],
+        "input_examples": [
+            "I absolutely love the new update on the app. Great job!",
+            "Very disappointed with the service, won't be returning.",
+            "This is an average product, nothing too exciting about it.",
+            "Their customer support was surprisingly helpful and understanding.",
+            "I'm not sure how I feel about the latest episode of the series.",
+            "This is the worst experience I've ever had with a company!",
+            "The movie was good, but I expected a better ending.",
+            "Neutral about the new policy changes, waiting to see the impact.",
+            "Finally, a software update that fixes the major issues!",
+            "Their response to the issue was lackluster and unsatisfactory."
         ],
         "usecases": ["Customer feedback analysis", "Market research", "Social media monitoring"]
     },
@@ -21,7 +41,27 @@
         "examples": [
             "Analyzing emotional tone in customer reviews",
             "Determining emotional context of social media posts",
-            "Evaluating emotions in user-generated content on forums"
+            "Evaluating emotions in user-generated content on forums",
+            "Understanding emotional responses to news articles",
+            "Analyzing viewer emotions in response to movie trailers",
+            "Assessing emotions in customer service chat logs",
+            "Monitoring emotional reactions to product announcements",
+            "Evaluating emotional responses to marketing campaigns",
+            "Understanding audience emotions in reaction to public speeches",
+            "Analyzing emotions in literary works",
+            "Monitoring emotional trends on social issues over time"
+        ],
+        "input_examples": [
+            "Feeling overjoyed with my exam results!",
+            "I'm so frustrated with the traffic today.",
+            "The news about the event cancellation left me feeling sad.",
+            "Absolutely thrilled to hear about your engagement!",
+            "This situation is making me very anxious and worried.",
+            "Angry and upset about the poor customer service.",
+            "Feeling hopeful after the inspiring speech at the conference.",
+            "I'm indifferent to the new policy changes at work.",
+            "The movie was hilarious, laughed throughout!",
+            "Felt nostalgic revisiting my old college campus."
         ],
         "usecases": ["Customer feedback analysis", "Social media monitoring", "Mental health studies"]
     },
@@ -34,7 +74,27 @@
         "examples": [
             "Analyzing sentiment in customer reviews across multiple languages",
             "Determining public sentiment towards a global campaign on social media",
-            "Evaluating the sentiment of multilingual comments in online discussions"
+            "Evaluating the sentiment of multilingual comments in online discussions",
+            "Assessing cross-cultural reactions to international events",
+            "Monitoring global brand sentiment in different languages",
+            "Analyzing sentiment in multilingual news articles",
+            "Understanding sentiment in bilingual customer feedback",
+            "Gauging public opinion on international policies",
+            "Evaluating sentiment in user-generated content on global platforms",
+            "Measuring sentiment shifts in multilingual forums",
+            "Analyzing sentiment in international market research"
+        ],
+        "input_examples": [
+            "[Spanish] \"Estoy muy contento con el servicio recibido.",
+            "[French] \"Je suis déçu de la qualité de ce produit.",
+            "[German] \"Das Essen war in Ordnung, aber nichts Besonderes.",
+            "[Italian] \"Sorpreso in modo positivo dal nuovo design.",
+            "[Japanese] \"このアプリの更新には満足しています。",
+            "[Russian] \"Не уверен, что думать о последних новостях.",
+            "[Portuguese] \"O filme foi bom, mas esperava mais do final.",
+            "[Arabic] \"خدمة العملاء كانت متوسطة وليست الأفضل.",
+            "[Chinese] \"這次的軟件更新解決了許多問題，很滿意。",
+            "[Korean] \"이번 회사의 대응은 실망스럽고 만족스럽지 못했습니다."
         ],
         "usecases": ["Customer feedback analysis", "Global market research", "Social media monitoring"]
     },
@@ -47,7 +107,26 @@
         "examples": [
             "Analyzing sentiment of financial news articles",
             "Determining market sentiment from investor discussions",
-            "Evaluating sentiment of financial reports"
+            "Evaluating sentiment of financial reports",
+            "Assessing investor sentiment in stock market forums",
+            "Monitoring sentiment in financial analyst reports",
+            "Analyzing sentiment trends in economic forecasts",
+            "Evaluating sentiment in corporate earnings calls",
+            "Monitoring sentiment in financial blog posts",
+            "Analyzing sentiment in central bank announcements",
+            "Evaluating sentiment in financial podcasts and interviews"
+        ],
+        "input_examples": [
+            "The company's stock soared after the successful product launch.",
+            "Investors are concerned about the potential market downturn.",
+            "Earnings report shows a decline in revenue, causing some alarm.",
+            "The merger between the two companies has been positively received.",
+            "Analysts are skeptical about the new CEO's turnaround plan.",
+            "New government regulations could impact the sector negatively.",
+            "Positive outlook for the tech industry with rising innovation.",
+            "Uncertainty around the trade deal has made investors nervous.",
+            "Market volatility is expected to continue in the coming months.",
+            "Financial analysts remain bullish on renewable energy stocks."
         ],
         "usecases": ["Market analysis", "Investment strategy development", "Financial news monitoring"]
     },
@@ -60,7 +139,27 @@
         "examples": [
             "Analyzing sentiment of financial news articles",
             "Determining market sentiment from financial reports",
-            "Evaluating investor sentiment from online discussions"
+            "Evaluating investor sentiment from online discussions",
+            "Assessing sentiment in economic analysis blogs",
+            "Monitoring sentiment trends in stock market reports",
+            "Analyzing sentiment in financial expert columns",
+            "Evaluating sentiment in investment strategy articles",
+            "Assessing sentiment in news about mergers and acquisitions",
+            "Monitoring sentiment in regulatory and compliance news",
+            "Analyzing sentiment in market prediction articles",
+            "Evaluating investor reactions to corporate scandals"
+        ],
+        "input_examples": [
+            "Tech giants lead the rally in the stock market today.",
+            "Concerns over rising inflation impact investor sentiment.",
+            "The recent IPO has garnered mixed reactions from analysts.",
+            "Banks report better-than-expected earnings this quarter.",
+            "New cryptocurrency regulations spark debate among investors.",
+            "Renewed trade tensions lead to a drop in market confidence.",
+            "Positive growth in the retail sector boosts market sentiment.",
+            "Investor fears over debt crisis trigger sell-off in bonds.",
+            "Market optimism grows with the announcement of the vaccine rollout.",
+            "Uncertainty about the future of oil prices affects energy stocks."
         ],
         "usecases": ["Market sentiment analysis", "Investment strategy development", "Financial market monitoring"]
     },
@@ -73,7 +172,27 @@
         "examples": [
             "Analyzing emotions in customer reviews",
             "Identifying emotions in social media posts",
-            "Understanding emotional responses in therapy sessions"
+            "Understanding emotional responses in therapy sessions",
+            "Monitoring emotional responses to political speeches",
+            "Evaluating emotional tones in film and book reviews",
+            "Analyzing emotional reactions to advertising campaigns",
+            "Understanding audience emotions in reaction to news events",
+            "Evaluating emotions in user comments on online articles",
+            "Analyzing emotional trends in customer feedback surveys",
+            "Monitoring emotional responses in crisis communication",
+            "Understanding emotional reactions in educational content"
+        ],
+        "input_examples": [
+            "I'm feeling really proud of my team's accomplishments.",
+            "Disappointed by the cancellation of the event last minute.",
+            "The support I've received from friends has filled me with gratitude.",
+            "I'm anxious about the upcoming job interview.",
+            "Feeling utterly confused by the new software update.",
+            "Enraged by the unfair treatment in the workplace.",
+            "Amazed by the breathtaking views on my hike today.",
+            "Feeling indifferent about the choices for dinner tonight.",
+            "Excited about the holiday plans we've just made!",
+            "Nervous about the first day at school tomorrow."
         ],
         "usecases": ["Customer feedback analysis", "Social media monitoring", "Therapeutic interaction analysis"]
     },
@@ -86,7 +205,27 @@
         "examples": [
             "Analyzing sentiment of financial news articles",
             "Determining investor sentiment from online forums",
-            "Evaluating company sentiment from financial reports"
+            "Evaluating company sentiment from financial reports",
+            "Assessing market sentiment in trading community discussions",
+            "Monitoring sentiment in financial influencer blogs",
+            "Analyzing sentiment in economic policy announcements",
+            "Evaluating sentiment in investor newsletters",
+            "Assessing sentiment in analyst ratings and reports",
+            "Monitoring sentiment in interviews with financial experts",
+            "Analyzing sentiment in commentary on market trends",
+            "Evaluating sentiment in discussions about financial regulations"
+        ],
+        "input_examples": [
+            "The central bank's decision boosted confidence in the economy.",
+            "Fears of a housing bubble have alarmed many investors.",
+            "Strong job growth indicators have positively impacted the market.",
+            "Controversy over CEO's statement led to a drop in stock value.",
+            "Positive feedback on the new budget proposal from various sectors.",
+            "Concerns about potential interest rate hikes by the Fed.",
+            "Investors show optimism after the trade agreement announcement.",
+            "Worries about the impact of climate change on insurance companies.",
+            "Enthusiasm in the market as tech stocks hit a new high.",
+            "Uncertainty prevails amidst mixed economic signals."
         ],
         "usecases": ["Market sentiment analysis", "Investor sentiment analysis", "Corporate sentiment analysis"]
     }

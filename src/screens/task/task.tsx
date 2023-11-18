@@ -54,43 +54,45 @@ function Task(props: Config) {
             <Grid columns={is4K ? 8 : xl ? 3 : 1} gap="20px" className={styles.taskGrid}>
                 {" "}
                 {/* Adjust the number of columns and gap as needed */}
-                {filteredList.map((model, index) => (
-                    <Cell key={index} className={styles.modelCard}>
-                        <Card className={styles.card}>
-                            <Card.Header
-                                className={styles.cardHeader}
-                                style={{ backgroundImage: `url(vector-autumn-foliage-banner/${getRandomImage()})`, backgroundSize: "cover" }}
-                            >
-                                <Card.Header.Title>
-                                    <Content>
-                                        <h2>{model.name}</h2>
-                                    </Content>
-                                </Card.Header.Title>
-                            </Card.Header>
-                            <Card.Content className={styles.cardContent}>
-                                <Content>
-                                    {/* <h2>{model.name}</h2> */}
-                                    {/* <div> */}
-                                    <strong>Use Cases:</strong>
-                                    <ul>
-                                        {model.usecases.map((usecase, idx) => (
-                                            <li key={idx}>{usecase}</li>
-                                        ))}
-                                    </ul>
-                                    {/* </div> */}
-                                </Content>
-                            </Card.Content>
-                            <Card.Footer className={styles.cardFooter}>
-                                <Card.Footer.Item>
-                                    <Link to={`/model/${model.name}`}>Explore</Link>
-                                </Card.Footer.Item>
-                                <Card.Footer.Item>
-                                    <Link to={`/model/deploy/${model.name}`}>Deploy</Link>
-                                </Card.Footer.Item>
-                            </Card.Footer>
-                        </Card>
-                    </Cell>
-                ))}
+                {filteredList.map((model, index) => {
+                    const bgImage = getRandomImage()
+
+                    return (
+                        <Cell key={index} className={styles.modelCard}>
+                            <Link to={`/model/${model.name}`}>
+                                <Card className={styles.card}>
+                                    <Card.Header
+                                        className={styles.cardHeader}
+                                        style={{ backgroundImage: `url(vector-autumn-foliage-banner/${bgImage})`, backgroundSize: "cover" }}
+                                    >
+                                        <Card.Header.Title>
+                                            <Content>
+                                                <h2>{model.name}</h2>
+                                            </Content>
+                                        </Card.Header.Title>
+                                    </Card.Header>
+                                    <Card.Content className={styles.cardContent}>
+                                        <Content>
+                                            {/* <h2>{model.name}</h2> */}
+                                            {/* <div> */}
+                                            <strong>Use Cases:</strong>
+                                            <ul>
+                                                {model.usecases.map((usecase, idx) => (
+                                                    <li key={idx}>{usecase}</li>
+                                                ))}
+                                            </ul>
+                                            {/* </div> */}
+                                        </Content>
+                                    </Card.Content>
+                                    <Card.Footer
+                                        className={styles.cardFooter}
+                                        style={{ backgroundImage: `url(vector-autumn-foliage-banner/${bgImage})`, backgroundSize: "cover" }}
+                                    ></Card.Footer>
+                                </Card>
+                            </Link>
+                        </Cell>
+                    )
+                })}
             </Grid>
         </div>
     )

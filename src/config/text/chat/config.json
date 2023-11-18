@@ -6,9 +6,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "StarChat Beta is a conversational model trained by HuggingFaceH4. It's designed to provide engaging and coherent responses in a conversational setting. This model is a part of the Mistral lineage which emphasizes on delivering superior conversational experiences. Whether you are looking to build a friendly chatbot or an interactive virtual assistant, StarChat Beta is equipped to handle a variety of conversational scenarios. Its training on diverse data equips it to understand and respond to a wide range of topics.",
         "examples": [
-            "User: Tell me a joke. StarChat Beta: Why did the scarecrow win an award? Because he was outstanding in his field!",
-            "User: What's the weather like today? StarChat Beta: I can look that up for you. Where are you located?",
-            "User: Recommend me a good book. StarChat Beta: Sure, have you read 'To Kill a Mockingbird' by Harper Lee?"
+            "Casual conversations",
+            "Providing recommendations (movies, books, etc.)",
+            "Answering general knowledge questions",
+            "Role-playing games",
+            "Customer support simulations",
+            "Interactive storytelling",
+            "Language learning assistance",
+            "Daily planning and reminders",
+            "Trivia games",
+            "Mental health support"
+        ],
+        "input_examples": [
+            "Tell me a joke about cats.",
+            "What's the weather like in Paris?",
+            "Can you recommend a good science fiction book?",
+            "Let's play a game. I'm a detective, and you're my assistant.",
+            "I need help with my laptop; it won't start.",
+            "Tell me a story about a dragon and a lost kingdom.",
+            "How do you say 'Thank you' in Spanish?",
+            "Remind me to call John tomorrow at 9 AM.",
+            "Let's play trivia: What's the largest ocean on Earth?",
+            "I'm feeling anxious today. Can you help me relax?"
         ],
         "usecases": ["Customer service chatbots", "Virtual personal assistants", "Interactive voice response systems"]
     },
@@ -19,10 +38,30 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Mistral 7B Instruct is a model tailored for instructional responses. Developed by MistralAI, this model leverages the Mistral lineage's strong foundation in delivering precise and informative replies. Whether it's explaining complex concepts or providing step-by-step guides, Mistral 7B Instruct excels in making information accessible. Its ability to break down instructions into understandable steps makes it a valuable asset for educational platforms, DIY forums, and customer support channels.",
         "examples": [
-            "User: How do I reset my router? Mistral 7B Instruct: To reset your router, locate the reset button usually found at the back. Press and hold it for about 10 seconds until the lights start flashing, then release it.",
-            "User: Explain photosynthesis. Mistral 7B Instruct: Photosynthesis is a process used by plants to convert light energy, usually from the sun, into chemical energy that can be later released to fuel the organisms' activities."
+            "Step-by-step DIY project instructions",
+            "Cooking recipe walkthroughs",
+            "Technical troubleshooting guides",
+            "Fitness and exercise routines",
+            "Crafting tutorials",
+            "Gardening advice",
+            "Educational material explanations",
+            "Language learning tips",
+            "Career advice and resume building",
+            "Meditation and mindfulness guides"
         ],
-        "usecases": ["Educational platforms", "DIY instruction forums", "Customer support channels"]
+        "usecases": ["Educational platforms", "DIY instruction forums", "Customer support channels"],
+        "input_examples": [
+            "How do I fix a leaky faucet?",
+            "Provide a recipe for vegan lasagna.",
+            "Steps to troubleshoot a PC that won't boot.",
+            "Create a beginner yoga routine for me.",
+            "How to knit a scarf for beginners.",
+            "Guide me on planting tomatoes in my garden.",
+            "Explain Newton's laws of motion.",
+            "Tips for learning German as a beginner.",
+            "How do I write an effective cover letter?",
+            "Teach me a 5-minute meditation routine."
+        ]
     },
     {
         "name": "StarChat Beta GPTQ 4bit",
@@ -31,10 +70,30 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "StarChat Beta GPTQ 4bit, curated by TheBloke, is a model that combines the conversational aptitude of StarChat Beta with the efficient quantization of GPTQ. This 4bit version is designed for optimized performance while maintaining satisfactory conversational quality. It inherits the conversational prowess of Mistral lineage and is ideal for environments where resource utilization is a concern. From personal chatbots to automated customer service, this model balances performance with conversational competency.",
         "examples": [
-            "User: Tell me a joke. StarChat Beta GPTQ 4bit: Why did the chicken cross the road? To get to the other side!",
-            "User: What's the capital of France? StarChat Beta GPTQ 4bit: The capital of France is Paris."
+            "Efficient text-based chatting",
+            "Streamlined customer service interactions",
+            "Lightweight virtual assistant capabilities",
+            "Mobile chatbot integration",
+            "Resource-efficient conversation simulations",
+            "Quick response generation for FAQs",
+            "Chat support for low-bandwidth environments",
+            "Integration with IoT devices for basic interactions",
+            "Simplified language translation",
+            "Automated responses for social media inquiries"
         ],
-        "usecases": ["Resource-constrained chatbot deployments", "Automated customer service", "Personal virtual assistants"]
+        "usecases": ["Resource-constrained chatbot deployments", "Automated customer service", "Personal virtual assistants"],
+        "input_examples": [
+            "What's a good movie to watch tonight?",
+            "How do I reset my password?",
+            "Set an alarm for 7 AM tomorrow.",
+            "Tell me a quick recipe for a breakfast smoothie.",
+            "Role-play a salesperson for training.",
+            "What's the capital of Canada?",
+            "Provide a brief overview of World War II.",
+            "How can I improve my Wi-Fi signal at home?",
+            "Translate 'Thank you' to French.",
+            "Suggest a reply to a customer asking about delivery times."
+        ]
     },
     {
         "name": "StarChat Beta GPTQ 8bit",
@@ -43,10 +102,30 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "StarChat Beta GPTQ 8bit is a variant of StarChat Beta, fine-tuned by TheBloke to facilitate an 8bit quantized version for enhanced performance. This model retains the conversational prowess of the Mistral lineage while benefiting from GPTQ's efficient quantization. It's an excellent choice for applications requiring a balance of performance, resource efficiency, and conversational ability. From engaging chatbots to interactive voice response systems, StarChat Beta GPTQ 8bit can handle diverse conversational scenarios.",
         "examples": [
-            "User: Tell me a fun fact. StarChat Beta GPTQ 8bit: Did you know that octopuses have three hearts?",
-            "User: How do I bake a cake? StarChat Beta GPTQ 8bit: To bake a cake, you'll need to gather your ingredients, mix them according to the recipe, pour the batter into a cake pan, and bake in a preheated oven."
+            "Facilitating engaging conversations with improved efficiency",
+            "Providing customer support for a range of queries",
+            "Assisting with educational topics and homework questions",
+            "Offering travel tips and destination recommendations",
+            "Engaging in trivia games and quizzes",
+            "Providing advice on wellness and self-care",
+            "Helping with language learning and practice",
+            "Guiding users through basic technical troubleshooting",
+            "Offering creative writing prompts and ideas",
+            "Assisting in planning events and activities"
         ],
-        "usecases": ["Performance-optimized chatbots", "Voice-activated virtual assistants", "Automated customer support"]
+        "usecases": ["Performance-optimized chatbots", "Voice-activated virtual assistants", "Automated customer support"],
+        "input_examples": [
+            "Can you help me plan a trip to New York?",
+            "What are some effective stress relief techniques?",
+            "How do I write a cover letter for a job application?",
+            "Can you suggest some healthy meal ideas?",
+            "How can I improve my public speaking skills?",
+            "What are the main points of the latest environmental policy?",
+            "How do I fix a slow computer?",
+            "What are some interesting facts about the ocean?",
+            "Can you help me with my algebra homework?",
+            "What are some fun activities for a weekend?"
+        ]
     },
     {
         "name": "Mistral 7B Code GPTQ 4bit",
@@ -55,10 +134,30 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Mistral 7B Code GPTQ 4bit, fine-tuned by TheBloke, is engineered for code generation and programming help. This model merges the coding expertise of Mistral lineage with GPTQ's 4bit quantization for better efficiency. It's adept at understanding programming queries, generating code snippets, and offering debugging advice. Whether you're looking for help with coding homework or need assistance in professional projects, Mistral 7B Code GPTQ 4bit is designed to be a reliable programming companion.",
         "examples": [
-            "User: How do I write a for loop in Python? Mistral 7B Code GPTQ 4bit: In Python, a for loop can be written as follows: for i in range(10): print(i).",
-            "User: I'm getting a null pointer exception in Java. Mistral 7B Code GPTQ 4bit: Null pointer exceptions occur when you try to access a method or field of an object that is null. Check your code to ensure objects are properly initialized before use."
+            "Generating code snippets for various programming languages",
+            "Assisting with debugging and code optimization",
+            "Explaining programming concepts and algorithms",
+            "Guiding through the development of small projects",
+            "Offering tips for best coding practices",
+            "Helping understand and fix error messages",
+            "Assisting with database queries and management",
+            "Guiding through API integration and usage",
+            "Providing insights on software design patterns",
+            "Assisting with version control and Git commands"
         ],
-        "usecases": ["Online coding help platforms", "Automated code review systems", "Programming education and tutorials"]
+        "usecases": ["Online coding help platforms", "Automated code review systems", "Programming education and tutorials"],
+        "input_examples": [
+            "How do I create a REST API with Flask?",
+            "Can you help me debug this JavaScript code?",
+            "Explain the concept of recursion in Python",
+            "What's the best way to manage state in React?",
+            "How can I optimize this SQL query?",
+            "Why am I getting a 'null pointer exception' in Java?",
+            "How do I implement authentication in my web app?",
+            "What are some common design patterns in software engineering?",
+            "How can I merge branches in Git without conflicts?",
+            "What's the difference between synchronous and asynchronous programming?"
+        ]
     },
     {
         "name": "Mistral 7B Phibrarian GPTQ",
@@ -67,10 +166,30 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Mistral 7B Phibrarian GPTQ, curated by TheBloke, is tailored for bibliographic and literary queries. It combines the rich knowledge base of Mistral lineage with GPTQ's efficiency. Whether you're searching for book recommendations, author biographies, or literary analysis, Mistral 7B Phibrarian GPTQ is adept at providing insightful responses. Its comprehensive understanding of literary domains makes it an invaluable resource for readers, scholars, and anyone with a penchant for literature.",
         "examples": [
-            "User: Tell me about Charles Dickens. Mistral 7B Phibrarian GPTQ: Charles Dickens was a renowned English novelist and social critic known for his vivid characters and depictions of Victorian society.",
-            "User: Recommend a mystery novel. Mistral 7B Phibrarian GPTQ: If you enjoy mystery novels, you might like 'The Girl with the Dragon Tattoo' by Stieg Larsson."
+            "Providing book recommendations based on user preferences",
+            "Offering summaries and analyses of literary works",
+            "Assisting in research by finding relevant literature and articles",
+            "Answering questions about authors and their biographies",
+            "Guiding users to resources for literary studies",
+            "Helping with citation and referencing for academic papers",
+            "Suggesting reading materials for specific topics or genres",
+            "Assisting in organizing book clubs and reading groups",
+            "Offering insights into literary themes and motifs",
+            "Providing information on historical literary movements"
         ],
-        "usecases": ["Literary recommendation systems", "Online book clubs", "Educational platforms focusing on literature"]
+        "usecases": ["Literary recommendation systems", "Online book clubs", "Educational platforms focusing on literature"],
+        "input_examples": [
+            "Can you recommend a mystery novel set in Victorian England?",
+            "What are the main themes in 'To Kill a Mockingbird'?",
+            "Find me research papers on Shakespearean tragedies",
+            "Tell me about Virginia Woolf's writing style",
+            "Suggest some resources for studying postcolonial literature",
+            "How do I cite a book in APA format?",
+            "What are some must-read books in magical realism?",
+            "How do I start a book club for classic literature?",
+            "Explain the concept of existentialism in literature",
+            "What was the significance of the Harlem Renaissance?"
+        ]
     },
     {
         "name": "Mistral 7B Instruct GPTQ 4bit",
@@ -79,10 +198,30 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Mistral 7B Instruct GPTQ 4bit, developed by TheBloke, is devised to provide detailed instructions on various topics. This model amalgamates the instructional expertise of Mistral lineage with GPTQ's 4bit quantization for efficiency. From DIY projects to complex problem-solving scenarios, Mistral 7B Instruct GPTQ 4bit offers step-by-step guidance. It's an excellent choice for platforms requiring clear, concise instructional content to assist users in accomplishing their goals.",
         "examples": [
-            "User: How do I change a tire? Mistral 7B Instruct GPTQ 4bit: First, ensure your car is in park and the emergency brake is engaged...",
-            "User: What are the steps to bake a cake? Mistral 7B Instruct GPTQ 4bit: Begin by preheating your oven to 350°F (175°C), then..."
+            "Providing clear instructions for cooking recipes",
+            "Guiding users through technical setup processes",
+            "Offering advice on home improvement and DIY projects",
+            "Explaining complex concepts in an easy-to-understand manner",
+            "Providing guidance for fitness routines and exercises",
+            "Helping with language learning and grammar rules",
+            "Giving tips on effective communication and presentation skills",
+            "Assisting in planning and organizing events",
+            "Offering travel planning advice and itineraries",
+            "Providing basic medical advice and first aid instructions"
         ],
-        "usecases": ["Instructional platforms", "DIY project websites", "Customer support and troubleshooting guides"]
+        "usecases": ["Instructional platforms", "DIY project websites", "Customer support and troubleshooting guides"],
+        "input_examples": [
+            "How do I bake a chocolate cake from scratch?",
+            "What are the steps to install Linux on my computer?",
+            "How can I build a bookshelf at home?",
+            "Can you explain quantum mechanics in simple terms?",
+            "What's a good workout routine for beginners?",
+            "What are the rules for using commas in English?",
+            "How do I improve my public speaking?",
+            "What should I consider when planning a wedding?",
+            "How do I plan a budget trip to Europe?",
+            "What should I do in case of a minor burn?"
+        ]
     },
     {
         "name": "Mistral 7B Instruct GPTQ 8bit",
@@ -91,10 +230,30 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Mistral 7B Instruct GPTQ 8bit, curated by TheBloke, extends the instructional capabilities of its 4bit sibling with an 8bit quantized version. It retains the step-by-step instructional proficiency of Mistral lineage while leveraging GPTQ's efficient quantization. Mistral 7B Instruct GPTQ 8bit is well-suited for platforms seeking detailed instructional content with a bit more computational flexibility. From cooking recipes to complex troubleshooting, this model can deliver clear, structured guidance to users.",
         "examples": [
-            "User: How can I set up a home network? Mistral 7B Instruct GPTQ 8bit: Setting up a home network involves several steps...",
-            "User: How to troubleshoot a printer? Mistral 7B Instruct GPTQ 8bit: To troubleshoot a printer, start by checking..."
+            "Creating detailed lesson plans for various subjects",
+            "Guiding through complex software troubleshooting steps",
+            "Offering in-depth tutorials on photography and videography",
+            "Providing comprehensive fitness and nutrition plans",
+            "Explaining advanced scientific and mathematical concepts",
+            "Assisting in the creation of business plans and strategies",
+            "Guiding through advanced DIY and craft projects",
+            "Offering in-depth travel guides and cultural insights",
+            "Teaching advanced language and writing skills",
+            "Providing detailed gardening and landscaping advice"
         ],
-        "usecases": ["Technical support platforms", "Educational websites", "Online tutorial and course platforms"]
+        "usecases": ["Technical support platforms", "Educational websites", "Online tutorial and course platforms"],
+        "input_examples": [
+            "How do I create a lesson plan for teaching algebra?",
+            "What are the steps to resolve network connectivity issues?",
+            "Can you guide me on taking professional portrait photos?",
+            "What is an effective diet plan for muscle building?",
+            "Explain the principles of quantum physics",
+            "How do I write a business plan for a startup?",
+            "How can I make a handmade wooden table?",
+            "What should I know before traveling to Japan?",
+            "How can I improve my academic writing skills?",
+            "What are some tips for growing an herb garden?"
+        ]
     },
     {
         "name": "Llama 7B Chat",
@@ -103,10 +262,30 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 7B Chat, from meta-llama, is a conversational model honed for engaging and informative dialogues. This model embodies the fine conversational balance of Llama lineage, making it an excellent companion for diverse chat applications. Llama 7B Chat can converse on a myriad of topics with a focus on providing accurate and relevant information. Its prowess lies in understanding user queries and responding in a friendly, conversational manner, making it a go-to choice for chatbots and virtual assistants.",
         "examples": [
-            "User: Tell me a joke. Llama 7B Chat: Why did the scarecrow win an award? Because he was outstanding in his field!",
-            "User: What's the capital of France? Llama 7B Chat: The capital of France is Paris."
+            "Engaging in friendly and informative conversations on various topics",
+            "Providing suggestions and recommendations for entertainment and leisure",
+            "Answering general knowledge and trivia questions",
+            "Assisting with simple problem-solving and decision-making",
+            "Offering language learning support and practice",
+            "Providing tips on health, fitness, and lifestyle",
+            "Discussing current events and news in an informative manner",
+            "Guiding through basic tech support and troubleshooting",
+            "Offering creative ideas for writing, art, and hobbies",
+            "Providing emotional support and encouragement"
         ],
-        "usecases": ["Interactive chatbots", "Virtual assistants", "Customer engagement platforms"]
+        "usecases": ["Interactive chatbots", "Virtual assistants", "Customer engagement platforms"],
+        "input_examples": [
+            "What are some good places to visit in New York City?",
+            "Can you recommend a movie to watch tonight?",
+            "Who was the first person to climb Mount Everest?",
+            "What should I consider when buying a new laptop?",
+            "How can I practice conversational Spanish?",
+            "What are some effective weight loss exercises?",
+            "What's happening in the world of tech this week?",
+            "How do I fix a frozen computer?",
+            "I need ideas for a short story, can you help?",
+            "I'm feeling down today, can you cheer me up?"
+        ]
     },
     {
         "name": "Llama 13B Chat",
@@ -127,10 +306,30 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 70B Chat is the epitome of conversational excellence in the Llama lineage. With a massive 70 billion parameters, this model can handle highly complex and nuanced conversations, providing accurate, detailed, and contextually rich responses. It's the pinnacle choice for platforms seeking the highest level of conversational AI performance, be it for customer support, virtual assistance, or engaging users in sophisticated dialogues across a multitude of topics.",
         "examples": [
-            "User: Can you delve into the intricacies of quantum mechanics? Llama 70B Chat: Quantum mechanics is a fundamental theory in physics...",
-            "User: What are the implications of AI in modern healthcare? Llama 70B Chat: AI has a transformative impact on modern healthcare..."
+            "Conducting in-depth discussions on a wide range of topics",
+            "Providing detailed information on historical events and figures",
+            "Assisting with complex problem-solving in various domains",
+            "Offering in-depth travel advice and cultural insights",
+            "Engaging in advanced language learning conversations",
+            "Discussing and analyzing literary works and films",
+            "Guiding through complex technical issues and solutions",
+            "Offering comprehensive health and wellness advice",
+            "Facilitating brainstorming sessions for creative projects",
+            "Providing support and guidance for personal development"
         ],
-        "usecases": ["High-end virtual assistants", "Sophisticated educational platforms", "Enterprise-level customer support"]
+        "usecases": ["High-end virtual assistants", "Sophisticated educational platforms", "Enterprise-level customer support"],
+        "input_examples": [
+            "Can you explain the causes of World War II in detail?",
+            "What are some hidden gems to visit in Italy?",
+            "How can I improve my critical thinking skills?",
+            "Can we discuss the themes in George Orwell's '1984'?",
+            "I need help with an advanced JavaScript coding problem",
+            "What are some effective techniques for stress management?",
+            "Can you give me tips for writing a compelling novel?",
+            "How do I prepare for a management role in my company?",
+            "What are the best strategies for learning advanced French?",
+            "Can you help me plan a fitness routine tailored to my needs?"
+        ]
     },
     {
         "name": "CodeLlama 7B Instruct",
@@ -139,10 +338,30 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 7B Instruct, part of the codellama lineage, is a model engineered for instruction but with a knack for code. It’s an ideal choice for platforms seeking to provide instructional content with a focus on coding and programming. Whether it's explaining code syntax, offering debugging tips, or guiding through a programming project, CodeLlama 7B Instruct is adept at delivering clear, accurate, and instructive responses.",
         "examples": [
-            "User: How do I write a function in Python? CodeLlama 7B Instruct: In Python, a function is defined using the def keyword...",
-            "User: How to fix a null pointer exception in Java? CodeLlama 7B Instruct: A null pointer exception occurs when..."
+            "Engaging in highly sophisticated and nuanced conversations",
+            "Providing expert-level advice on a wide range of professional topics",
+            "Offering in-depth analysis of complex political and economic issues",
+            "Assisting in research and academic endeavors with comprehensive insights",
+            "Facilitating advanced language learning and linguistic analysis",
+            "Guiding through intricate technical problems and cutting-edge technologies",
+            "Offering specialized advice in fields like law, medicine, and engineering",
+            "Conducting deep discussions on philosophy, ethics, and psychology",
+            "Providing strategic guidance for business and entrepreneurial ventures",
+            "Offering personalized coaching for career and personal development"
         ],
-        "usecases": ["Coding tutorial platforms", "Online coding bootcamps", "Technical support for programming"]
+        "usecases": ["Coding tutorial platforms", "Online coding bootcamps", "Technical support for programming"],
+        "input_examples": [
+            "Can you provide an analysis of the current global economic trends?",
+            "What are the ethical implications of artificial intelligence in healthcare?",
+            "Can we discuss the philosophical ideas behind existentialism?",
+            "I need guidance on a complex data science project involving machine learning",
+            "What are the latest developments in renewable energy technologies?",
+            "How can I prepare for a career in international diplomacy?",
+            "Can you explain the intricacies of quantum computing?",
+            "What are some strategies for effective leadership in high-pressure environments?",
+            "How can I balance a successful career with personal fulfillment?",
+            "Can you help me understand advanced concepts in astrophysics?"
+        ]
     },
     {
         "name": "CodeLlama 13B Instruct",
@@ -151,10 +370,30 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 13B Instruct elevates the instructional prowess of its 7B predecessor, offering more depth and precision in its responses about coding and programming. Its larger parameter size equips it to handle more complex queries and provide detailed instructional content. The model is ideal for advanced coding tutorial platforms, online bootcamps, and technical support services that require a high level of expertise and instructional clarity.",
         "examples": [
-            "User: Can you explain the concept of recursion in programming? CodeLlama 13B Instruct: Recursion is a technique...",
-            "User: How do I optimize a SQL query? CodeLlama 13B Instruct: Optimizing a SQL query involves several steps..."
+            "Providing step-by-step coding tutorials for various programming languages",
+            "Offering guidance on software development best practices",
+            "Explaining complex coding concepts in simple terms",
+            "Assisting with code debugging and error resolution",
+            "Guiding through the creation of web and mobile applications",
+            "Providing tips for effective database design and management",
+            "Helping understand and implement algorithms",
+            "Offering insights into software testing and quality assurance",
+            "Guiding through the use of different programming frameworks and libraries",
+            "Providing advice on career development in software engineering"
         ],
-        "usecases": ["Advanced coding tutorial platforms", "Online coding bootcamps", "Technical support for programming"]
+        "usecases": ["Advanced coding tutorial platforms", "Online coding bootcamps", "Technical support for programming"],
+        "input_examples": [
+            "How do I create a responsive website using HTML and CSS?",
+            "Can you explain object-oriented programming in Python?",
+            "What are the best practices for writing clean and efficient Java code?",
+            "How can I fix this SQL query error?",
+            "Can you guide me through building a simple Android app?",
+            "What's the best way to design a relational database for an e-commerce site?",
+            "How do I implement a binary search algorithm in C++?",
+            "What are some common software testing techniques?",
+            "How do I use React Hooks in a new project?",
+            "What skills should I focus on to become a full-stack developer?"
+        ]
     },
     {
         "name": "CodeLlama 34B Instruct",
@@ -163,8 +402,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "With an impressive 34 billion parameters, CodeLlama 34B Instruct stands as a colossal repository of programming knowledge and instructional expertise. It can delve deep into complex programming topics, provide extensive code examples, and guide users through intricate programming challenges. This model is a prime choice for high-level instructional platforms, online education services, and technical support platforms catering to a professional audience.",
         "examples": [
-            "User: Can you guide me through building a full-stack application? CodeLlama 34B Instruct: Certainly! Building a full-stack application involves...",
-            "User: How can I implement machine learning algorithms in Python? CodeLlama 34B Instruct: Implementing machine learning algorithms..."
+            "Generating advanced machine learning algorithms",
+            "Optimizing multi-threaded processes in Java",
+            "Automating data analysis with Python scripts",
+            "Developing AI-driven customer service chatbots",
+            "Creating responsive web designs using CSS and JavaScript",
+            "Building and querying SQL and NoSQL databases",
+            "Developing secure APIs for e-commerce platforms",
+            "Automating infrastructure deployment using Terraform",
+            "Writing efficient algorithms for data encryption and decryption",
+            "Debugging and performance tuning of large-scale distributed systems"
+        ],
+        "input_examples": [
+            "Write a Python script to automate data cleaning and preprocessing.",
+            "How to optimize a C++ program for lower memory usage?",
+            "Develop a REST API in Node.js for a task management application.",
+            "Create a dynamic web application using React and Redux.",
+            "Design a database schema for a social media analytics tool.",
+            "Implement machine learning model for real-time fraud detection.",
+            "Automate the deployment of microservices using Docker and Kubernetes.",
+            "Generate a script for processing and visualizing big data in real-time.",
+            "Develop an algorithm for efficient route optimization in logistics.",
+            "Write a script to automate testing and deployment in a CI/CD pipeline."
         ],
         "usecases": ["High-level instructional platforms", "Online professional education services", "Technical support for professional programmers"]
     },
@@ -175,8 +434,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "WizardCoder Python 7B is a specially designed model for code generation in Python. It encapsulates a wide spectrum of programming knowledge and is proficient in generating, explaining, and debugging Python code. With its ability to understand natural language queries and translate them into code, it's a powerful tool for developers, educators, and students alike. Whether it's creating new code, explaining complex programming concepts, or helping debug existing code, WizardCoder Python 7B is up to the task.",
         "examples": [
-            "User: How do I create a class in Python? WizardCoder Python 7B: To create a class in Python, you use the class keyword...",
-            "User: Can you help me fix this code error? WizardCoder Python 7B: Certainly! Please provide the code and the error message..."
+            "Automating Python code generation for data analysis",
+            "Explaining Python programming concepts to beginners",
+            "Debugging Python scripts for common errors",
+            "Generating Python code for web scraping tasks",
+            "Creating Python scripts for file management",
+            "Developing data visualization scripts in Python",
+            "Writing Python code for machine learning models",
+            "Automating testing of Python applications",
+            "Converting pseudocode into Python code",
+            "Optimizing Python code for performance"
+        ],
+        "input_examples": [
+            "Generate a Python script for analyzing CSV data",
+            "Explain the concept of decorators in Python",
+            "Debug a Python script that's not running correctly",
+            "Write a Python script to scrape data from a website",
+            "Create a Python script to organize files in a directory",
+            "Develop a Python script to visualize sales data",
+            "Write a Python script for a basic neural network",
+            "Automate unit tests for a Python web application",
+            "Convert this algorithm pseudocode into Python",
+            "Optimize this Python function for faster execution"
         ],
         "usecases": ["Code generation platforms", "Educational platforms for learning Python", "Debugging and code review platforms"]
     },
@@ -187,8 +466,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "WizardCoder Python 13B is a substantial upgrade from its 7B counterpart, offering a deeper understanding and generation of Python code. The model can handle more complex coding tasks, provide extensive code snippets, and offer a more nuanced understanding of Python and programming principles. It's an indispensable asset for professional developers, coding bootcamps, and advanced educational platforms focusing on Python programming.",
         "examples": [
-            "User: How do I implement a binary search algorithm in Python? WizardCoder Python 13B: Implementing a binary search requires...",
-            "User: Can you help me optimize this Python code for better performance? WizardCoder Python 13B: Certainly! There are several steps..."
+            "Advanced Python code generation for specialized tasks",
+            "In-depth explanation of complex Python concepts",
+            "Automating sophisticated data science workflows in Python",
+            "Optimizing Python code for high performance and efficiency",
+            "Building comprehensive Python applications for various needs",
+            "Guiding through complex Python machine learning projects",
+            "Python coding for advanced scientific and research purposes",
+            "Mastering Python web development with modern frameworks",
+            "Leveraging Python for IoT and network programming",
+            "Exploring cutting-edge Python libraries for AI and ML"
+        ],
+        "input_examples": [
+            "Develop a Python script for advanced natural language processing",
+            "Explain asynchronous programming in Python with asyncio",
+            "Automate a complex data pipeline using Python",
+            "Optimize a Python script for faster execution with large datasets",
+            "Create a full-fledged Python software for business management",
+            "Build a convolutional neural network in Python for image classification",
+            "Use Python for complex numerical simulations in engineering",
+            "Develop a scalable web service with Python and FastAPI",
+            "Program a network of IoT devices using Python",
+            "Implement advanced machine learning techniques with Python's scikit-learn"
         ],
         "usecases": ["Professional development platforms", "Advanced coding bootcamps", "High-level educational platforms for Python programming"]
     },
@@ -199,8 +498,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "WizardMath 7B is a dedicated model for tackling mathematical problems and explaining mathematical concepts. Its expertise spans from basic arithmetic to advanced calculus and linear algebra. The model can provide step-by-step solutions to math problems, explain mathematical theories, and even help with math homework. It's a valuable resource for students, educators, and anyone looking to enhance their mathematical understanding.",
         "examples": [
-            "User: Can you solve this quadratic equation for me? WizardMath 7B: Certainly! To solve a quadratic equation...",
-            "User: I need help understanding the concept of derivatives. WizardMath 7B: Derivatives are a fundamental concept in calculus..."
+            "Solving complex calculus problems",
+            "Explaining algebraic concepts and theories",
+            "Providing step-by-step solutions to geometry problems",
+            "Assisting in statistical data analysis",
+            "Solving advanced linear algebra problems",
+            "Helping with trigonometry homework",
+            "Explaining mathematical proofs and theorems",
+            "Providing solutions to differential equations",
+            "Helping understand mathematical concepts in physics",
+            "Guiding through financial mathematics calculations"
+        ],
+        "input_examples": [
+            "Solve this integral calculus problem",
+            "Explain the theory behind quadratic equations",
+            "Provide a step-by-step solution for this geometry problem",
+            "Analyze this set of statistical data",
+            "Solve these linear algebra matrix problems",
+            "Help me with this trigonometry homework question",
+            "Explain the proof of Pythagoras' theorem",
+            "Solve this differential equation",
+            "Explain how calculus is used in physics",
+            "Calculate the compound interest for this investment"
         ],
         "usecases": ["Educational platforms for math learning", "Homework help services", "Online tutoring platforms"]
     },
@@ -211,8 +530,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Building upon the foundation of WizardMath 7B, the 13B version delves deeper into mathematical realms, offering more precise explanations and solving more complex problems. Its extensive knowledge allows for a thorough exploration of mathematical topics, making it a prime choice for higher education, advanced tutoring services, and professional environments requiring a deep understanding of mathematical concepts.",
         "examples": [
-            "User: Can you explain the concept of matrix multiplication? WizardMath 13B: Matrix multiplication is a binary operation...",
-            "User: I need help solving this complex integral. WizardMath 13B: Sure! To solve complex integrals, it's essential to..."
+            "Advanced mathematical problem solving in various fields",
+            "Complex algebraic equation solving and analysis",
+            "In-depth calculus concepts and application assistance",
+            "Statistical analysis and hypothesis testing",
+            "Advanced geometry problem solving and theory explanation",
+            "Complex trigonometry and its practical applications",
+            "Detailed mathematical proofs for higher mathematics",
+            "Advanced differential and integral equation solving",
+            "Mathematical modeling for physics and engineering problems",
+            "Financial mathematics for complex calculations and predictions"
+        ],
+        "input_examples": [
+            "Solve these complex algebraic equations",
+            "Assist with this calculus application problem",
+            "Perform a statistical analysis on this dataset",
+            "Solve these geometry problems involving curves",
+            "Provide trigonometry solutions for spherical problems",
+            "Explain the proof of Fermat's Last Theorem",
+            "Solve these complex differential equations",
+            "Assist in mathematical modeling for a physics problem",
+            "Calculate the risk analysis for this investment portfolio",
+            "Explain the mathematics behind machine learning algorithms"
         ],
         "usecases": ["Higher education platforms", "Advanced tutoring services", "Professional environments requiring mathematical expertise"]
     },
@@ -223,8 +562,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "WizardMath 70B is the zenith of mathematical comprehension and problem-solving in the WizardMath lineup. It handles the most complex mathematical challenges with ease, providing highly accurate solutions and deep insights into advanced mathematical theories. This model is the go-to resource for researchers, engineers, and other professionals who require a profound understanding of mathematics to tackle real-world challenges.",
         "examples": [
-            "User: Can you solve this system of differential equations? WizardMath 70B: Certainly! To solve this system...",
-            "User: I need help understanding the proof of this theorem. WizardMath 70B: Of course! The proof of this theorem begins with..."
+            "Solving highly complex and abstract mathematical problems",
+            "In-depth analysis of theoretical mathematical concepts",
+            "Advanced calculus problems involving multiple variables",
+            "Complex statistical modeling and prediction",
+            "Solving intricate geometry problems with high precision",
+            "Advanced trigonometric applications in real-world scenarios",
+            "Proving or disproving complex mathematical theorems",
+            "Handling sophisticated differential equations in engineering",
+            "Advanced financial modeling for market analysis",
+            "Complex mathematical simulations for scientific research"
+        ],
+        "input_examples": [
+            "Solve this multi-variable calculus problem",
+            "Provide an in-depth analysis of group theory concepts",
+            "Perform statistical modeling for this predictive analysis",
+            "Solve these complex geometry problems involving fractals",
+            "Provide solutions to these advanced trigonometric functions",
+            "Prove the Riemann Hypothesis",
+            "Solve this complex differential equation for fluid dynamics",
+            "Develop a financial model for predicting stock market trends",
+            "Explain the mathematics behind quantum computing algorithms",
+            "Conduct a mathematical simulation for this climate change model"
         ],
         "usecases": ["Research institutions", "Engineering firms", "Advanced mathematical consultancy"]
     },
@@ -235,8 +594,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama Chat 7B GPTQ 4-bit model enhances the conversational capabilities of the original Llama Chat 7B while being optimized for size and speed, thanks to the GPTQ 4-bit quantization. This model maintains a fluent and engaging conversational style while being more resource-efficient. It's an ideal choice for developers looking to integrate high-quality conversational AI in applications where resource constraints are a consideration.",
         "examples": [
-            "User: Can you tell me a joke? Llama Chat 7B GPTQ 4-bit: Why did the scarecrow win an award? Because he was outstanding in his field!",
-            "User: Can you help me with some information about black holes? Llama Chat 7B GPTQ 4-bit: Certainly! Black holes are regions in space..."
+            "Handling casual conversations on various topics",
+            "Providing information and answers to common queries",
+            "Chatting about news, sports, and entertainment",
+            "Offering travel advice and recommendations",
+            "Assisting with basic customer service inquiries",
+            "Chatting about hobbies and personal interests",
+            "Providing educational information in a conversational tone",
+            "Interacting in social media-like environments",
+            "Offering motivational and wellness advice",
+            "Conversing in multiple languages for basic communication"
+        ],
+        "input_examples": [
+            "Tell me about the latest news in technology",
+            "What are some good restaurants in Paris?",
+            "Discuss the rules of football",
+            "Provide customer support for an online store",
+            "Chat about gardening and plant care",
+            "Explain a scientific concept in simple terms",
+            "Engage in a casual conversation about movies",
+            "Offer advice on maintaining a healthy lifestyle",
+            "How do I say 'thank you' in Spanish?",
+            "Provide tips for photography beginners"
         ],
         "usecases": ["Resource-constrained conversational applications", "Mobile-based chatbots", "Interactive voice response systems"]
     },
@@ -247,8 +626,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama Chat 7B GPTQ 8-bit model provides a balance between the conversational fluency of Llama Chat 7B and the resource efficiency brought by GPTQ 8-bit quantization. This model is suitable for developers who require a slightly more robust conversational AI solution without a significant compromise on resource efficiency. It's a solid choice for a wide range of conversational applications across various platforms.",
         "examples": [
-            "User: What's the weather like today? Llama Chat 7B GPTQ 8-bit: I can look up the current weather conditions for you...",
-            "User: Tell me a fun fact. Llama Chat 7B GPTQ 8-bit: Did you know that octopuses have three hearts?"
+            "Engaging in detailed conversations on a wide range of topics",
+            "Providing thorough responses to user inquiries",
+            "Discussing current events and global news",
+            "Giving detailed travel advice and cultural insights",
+            "Handling complex customer service scenarios",
+            "Having in-depth discussions about various hobbies",
+            "Educational conversations with a focus on detail",
+            "Social media engagement and content discussion",
+            "Offering comprehensive health and wellness advice",
+            "Multilingual conversations with a focus on depth"
+        ],
+        "input_examples": [
+            "Discuss the impact of recent economic policies",
+            "Recommend historical landmarks to visit in Rome",
+            "Debate the benefits of renewable energy sources",
+            "Help resolve a technical issue with a software product",
+            "Discuss the intricacies of gourmet cooking",
+            "Explain quantum mechanics in an understandable way",
+            "Chat about recent developments in space exploration",
+            "Advise on balancing work and personal life",
+            "Have a conversation in French about regional cuisines",
+            "Give tips for advanced photography techniques"
         ],
         "usecases": ["Cross-platform conversational applications", "Web-based chatbots", "Customer service automation"]
     },
@@ -259,8 +658,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama Chat 13B GPTQ 4-bit model takes the conversational capabilities of Llama Chat 13B to new horizons while being optimized for size and speed. The GPTQ 4-bit quantization allows this model to retain a high level of conversational fluency while being more resource-efficient. It's an excellent choice for developers seeking to integrate high-quality conversational AI in applications where both performance and resource efficiency are crucial.",
         "examples": [
-            "User: Can you recommend a good book? Llama Chat 13B GPTQ 4-bit: Certainly! If you're interested in science fiction, I'd recommend...",
-            "User: I need help with my homework. Llama Chat 13B GPTQ 4-bit: Of course! What do you need help with?"
+            "Advanced conversational AI for complex dialogues",
+            "In-depth discussions on technical and scientific topics",
+            "Debating on philosophical and ethical issues",
+            "Providing expert-level travel guidance",
+            "Handling sophisticated customer service interactions",
+            "Deep conversations about arts, literature, and culture",
+            "Educational dialogues on advanced topics",
+            "Engaging in detailed social media interactions",
+            "Offering specialized advice on health and fitness",
+            "Conducting detailed conversations in multiple languages"
+        ],
+        "input_examples": [
+            "Debate the ethics of artificial intelligence",
+            "Suggest a travel itinerary for Japan focusing on cultural sites",
+            "Discuss the latest advancements in biotechnology",
+            "Provide in-depth support for a high-end tech product",
+            "Analyze a classic piece of literature",
+            "Explain advanced astrophysics concepts",
+            "Chat about the impact of social media on society",
+            "Offer advice on advanced strength training routines",
+            "Converse in German about European politics",
+            "Discuss advanced film-making techniques"
         ],
         "usecases": ["Resource-optimized conversational applications", "Educational chatbots", "Information retrieval systems"]
     },
@@ -271,8 +690,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama Chat 13B GPTQ 8-bit model is a balance between the robust conversational capabilities of Llama Chat 13B and the resource efficiency provided by GPTQ 8-bit quantization. This model is suitable for developers who need a robust conversational AI solution without a significant compromise on resource efficiency. It's well-suited for a wide range of conversational applications across various platforms.",
         "examples": [
-            "User: Tell me a historical fact. Llama Chat 13B GPTQ 8-bit: Did you know that Cleopatra lived closer in time to the moon landing than to the construction of the Great Pyramid of Giza?",
-            "User: Can you help me plan a trip? Llama Chat 13B GPTQ 8-bit: I'd be happy to help! Where would you like to go?"
+            "Conversing on complex topics with detailed understanding",
+            "Engaging in intellectual debates on various subjects",
+            "Providing in-depth analysis of current world events",
+            "Expert travel advice including off-the-beaten-path destinations",
+            "High-level customer support for complex issues",
+            "Deep discussions on hobbies like astronomy or classical music",
+            "Detailed educational dialogues in various fields",
+            "Managing sophisticated social media conversations",
+            "Providing expert health and nutritional guidance",
+            "Fluent multilingual conversations on specialized topics"
+        ],
+        "input_examples": [
+            "Discuss the philosophical implications of virtual reality",
+            "Plan a travel itinerary focusing on wildlife conservation in Africa",
+            "Debate the future of renewable energy",
+            "Resolve a complex issue in advanced software programming",
+            "Discuss the evolution of jazz music",
+            "Explain the complexities of human psychology",
+            "Chat about the role of AI in modern art creation",
+            "Give detailed advice on a vegan diet and fitness",
+            "Engage in a discussion in Mandarin about traditional Chinese medicine",
+            "Talk about the advancements in robotics"
         ],
         "usecases": ["Cross-platform conversational applications", "Travel planning chatbots", "Customer service automation"]
     },
@@ -283,8 +722,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama Chat 70B GPTQ 4-bit model is the epitome of conversational excellence in the Llama lineup, now optimized for size and speed with GPTQ 4-bit quantization. This model handles complex queries with ease, providing detailed and coherent responses. It's the choice for developers in need of a highly capable conversational AI, where performance and resource efficiency are of paramount importance.",
         "examples": [
-            "User: Explain the theory of relativity. Llama Chat 70B GPTQ 4-bit: The theory of relativity, developed by Albert Einstein...",
-            "User: Can you help me understand this complex algorithm? Llama Chat 70B GPTQ 4-bit: Certainly! Let's break down the algorithm step by step..."
+            "Sophisticated and nuanced conversations on a vast array of topics",
+            "Deep analysis and discussion on complex scientific subjects",
+            "Philosophical and ethical debates with detailed arguments",
+            "Expert-level advice and insights on global travel",
+            "Advanced customer support for highly technical products",
+            "In-depth discussions on fine arts, music, and literature",
+            "Comprehensive educational dialogues across diverse disciplines",
+            "Highly engaging social media conversation management",
+            "Expert health, wellness, and lifestyle coaching",
+            "Fluent and complex multilingual conversations on specialized topics"
+        ],
+        "input_examples": [
+            "Engage in a detailed discussion about quantum computing",
+            "Debate the moral implications of genetic engineering",
+            "Provide a travel guide for exploring the Amazon rainforest",
+            "Offer advanced troubleshooting for a network security system",
+            "Analyze the symbolism in a modern art piece",
+            "Explain the theories of relativity in a conversational manner",
+            "Discuss the influence of digital technology on education",
+            "Craft a social media strategy for an environmental campaign",
+            "Provide a comprehensive guide to holistic health practices",
+            "Conduct a technical conversation in Japanese about robotics"
         ],
         "usecases": ["Highly interactive conversational applications", "Educational platforms", "Advanced information retrieval systems"]
     },
@@ -295,8 +754,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama Chat 70B GPTQ 8-bit model encapsulates the conversational prowess of the original Llama Chat 70B model while being optimized for a smaller memory footprint and faster inference through GPTQ 8-bit quantization. This model serves as a powerhouse for handling intricate conversations, making it a prime choice for developers aiming for high-level conversational AI with improved efficiency.",
         "examples": [
-            "User: Tell me about the implications of quantum mechanics. Llama Chat 70B GPTQ 8-bit: Quantum mechanics has far-reaching implications...",
-            "User: Can you provide a summary of this scientific paper? Llama Chat 70B GPTQ 8-bit: Sure! This paper discusses..."
+            "Engaging in highly complex dialogues across various subjects",
+            "Providing in-depth analysis of technical and scientific topics",
+            "Conducting philosophical discussions with nuanced perspectives",
+            "Offering expert travel advice for unique and exotic locations",
+            "Handling intricate customer service issues in technical domains",
+            "Discussing advanced topics in arts, culture, and humanities",
+            "Delivering detailed educational content in various academic fields",
+            "Managing sophisticated interactions on social media platforms",
+            "Giving specialized advice on advanced health and fitness topics",
+            "Fluently conversing in multiple languages on technical subjects"
+        ],
+        "input_examples": [
+            "Discuss the advancements in artificial intelligence research",
+            "Debate the ethics of space exploration",
+            "Craft a detailed itinerary for an Antarctic expedition",
+            "Solve a complex technical issue in advanced software development",
+            "Discuss the evolution of classical music through the centuries",
+            "Break down complex economic theories in simple terms",
+            "Analyze the effects of social media on political movements",
+            "Develop a fitness plan based on advanced sports science",
+            "Have a technical discussion in Russian about aerospace engineering",
+            "Explore the intricacies of molecular gastronomy"
         ],
         "usecases": ["Sophisticated conversational applications", "Research assistance bots", "High-end customer service chatbots"]
     },
@@ -307,8 +786,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 7B Instruct GPTQ 4-bit model combines the instructional capabilities of CodeLlama 7B with the resource efficiency provided by GPTQ 4-bit quantization. This model is capable of providing detailed instructions on a wide range of topics while being highly efficient in terms of memory and compute resources. It's an excellent choice for developers seeking to build instructional or tutorial-based applications.",
         "examples": [
-            "User: How do I set up a VPN? CodeLlama 7B Instruct GPTQ 4-bit: To set up a VPN, you'll need to...",
-            "User: Can you guide me through this coding problem? CodeLlama 7B Instruct GPTQ 4-bit: Absolutely! Let's start by..."
+            "Providing detailed coding instructions and guidelines",
+            "Explaining complex programming concepts in a clear manner",
+            "Generating efficient and optimized code snippets",
+            "Assisting in debugging and troubleshooting code",
+            "Guiding through software development best practices",
+            "Offering advice on data structures and algorithms",
+            "Providing insights into software architecture design",
+            "Explaining database management and optimization techniques",
+            "Guiding on integrating APIs and external services",
+            "Offering tips on improving coding skills and practices"
+        ],
+        "input_examples": [
+            "How can I optimize this Python function for better performance?",
+            "Explain the concept of object-oriented programming in Java",
+            "Generate a SQL query to efficiently retrieve data",
+            "Help debug this JavaScript code for a web application",
+            "What are the best practices for version control with Git?",
+            "Explain the use of binary trees in algorithm design",
+            "How to design a scalable microservices architecture?",
+            "Best methods for optimizing a PostgreSQL database",
+            "Guide on integrating a third-party API in a Node.js app",
+            "Tips for writing clean and maintainable C++ code"
         ],
         "usecases": ["Tutorial and instructional applications", "Code assistance platforms", "DIY guide chatbots"]
     },
@@ -319,8 +818,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 7B Instruct GPTQ 8-bit model encapsulates the instructional essence of CodeLlama 7B while being optimized for better efficiency through GPTQ 8-bit quantization. This model stands as a robust solution for providing clear and detailed instructions across a multitude of domains. It's well-suited for developers aiming to integrate instructional capabilities in their applications without a significant compromise on efficiency.",
         "examples": [
-            "User: How do I bake a cake? CodeLlama 7B Instruct GPTQ 8-bit: Baking a cake involves several steps...",
-            "User: Can you help me understand this math concept? CodeLlama 7B Instruct GPTQ 8-bit: Of course! Let's break down the concept..."
+            "Creating clear and concise code for various programming languages",
+            "Assisting with complex coding problems and offering solutions",
+            "Guiding through advanced software development techniques",
+            "Providing expert advice on database optimization",
+            "Generating code for data analysis and machine learning tasks",
+            "Helping with understanding and implementing algorithms",
+            "Explaining modern web development practices",
+            "Offering guidance on system design and architecture",
+            "Helping integrate various APIs and microservices",
+            "Assisting in code refactoring for better efficiency"
+        ],
+        "input_examples": [
+            "Write a script in Python to automate data processing",
+            "Explain the MVC architecture in web development",
+            "Generate a machine learning model using TensorFlow",
+            "Provide a solution for optimizing database queries in SQL",
+            "Help understand the working of sorting algorithms",
+            "Guide on creating a responsive web design using React",
+            "Advise on best practices for security in application development",
+            "Explain how to use Docker for application deployment",
+            "Assist in integrating a payment gateway in an e-commerce site",
+            "Offer tips for clean and efficient C# coding"
         ],
         "usecases": ["Educational platforms", "Tutorial creation tools", "Instructional chatbots for various domains"]
     },
@@ -331,8 +850,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 13B Instruct GPTQ 4-bit model is a refined version of the CodeLlama 7B with an extended knowledge base and instructional capacity, further optimized for resource efficiency through GPTQ 4-bit quantization. This model is adept at providing in-depth instructions across a broader range of topics, making it a superior choice for applications requiring detailed instructional guidance.",
         "examples": [
-            "User: How can I optimize my website's SEO? CodeLlama 13B Instruct GPTQ 4-bit: Optimizing SEO involves...",
-            "User: Can you provide a walkthrough for setting up a home network? CodeLlama 13B Instruct GPTQ 4-bit: Certainly! Setting up a home network requires..."
+            "Generating advanced code solutions for complex problems",
+            "Explaining high-level programming concepts",
+            "Assisting in the development of large-scale software projects",
+            "Providing expert advice on high-performance computing",
+            "Guiding through the intricacies of machine learning algorithms",
+            "Helping understand and implement cloud computing solutions",
+            "Advising on advanced database management techniques",
+            "Explaining best practices in cybersecurity",
+            "Offering insights into efficient software testing strategies",
+            "Guiding on the integration of cutting-edge technologies"
+        ],
+        "input_examples": [
+            "Develop a complex algorithm in Java for data analysis",
+            "Explain asynchronous programming in JavaScript",
+            "Guide through the setup of a cloud-based server infrastructure",
+            "Advise on optimizing Python code for machine learning",
+            "Help with designing a NoSQL database for scalability",
+            "Explain the principles of secure software development",
+            "Provide a strategy for comprehensive software testing",
+            "Offer guidance on AI and machine learning integration in apps",
+            "Assist in developing a blockchain-based application",
+            "Explain the use of Kubernetes in managing containerized applications"
         ],
         "usecases": ["Advanced tutorial and instructional applications", "Technical assistance platforms", "Educational chatbots for complex topics"]
     },
@@ -343,8 +882,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 13B Instruct GPTQ 8-bit model retains the instructional prowess of CodeLlama 13B while benefitting from GPTQ 8-bit quantization for enhanced efficiency. With its capability to provide detailed instructions on complex topics, this model serves as a robust solution for developers looking to incorporate instructional AI in their applications while maintaining a balance between performance and resource utilization.",
         "examples": [
-            "User: Explain the process of setting up a database. CodeLlama 13B Instruct GPTQ 8-bit: Setting up a database involves...",
-            "User: Can you help me troubleshoot this coding error? CodeLlama 13B Instruct GPTQ 8-bit: Absolutely! Let's start by identifying..."
+            "Developing complex coding solutions across various domains",
+            "Providing in-depth explanations of advanced programming topics",
+            "Guiding the development of high-performance software systems",
+            "Offering insights into cloud infrastructure and services",
+            "Assisting with sophisticated machine learning projects",
+            "Advising on modern web development frameworks and techniques",
+            "Explaining advanced database architectures and optimization",
+            "Guiding on implementing robust cybersecurity measures",
+            "Providing strategies for efficient and effective software testing",
+            "Helping integrate emerging technologies in software projects"
+        ],
+        "input_examples": [
+            "Create a scalable web application backend in Node.js",
+            "Explain functional programming in Scala",
+            "Guide on setting up a distributed computing system",
+            "Develop an efficient algorithm for real-time data processing",
+            "Help with a deep learning project using PyTorch",
+            "Explain the use of Angular for frontend development",
+            "Advise on optimizing performance in a MongoDB database",
+            "Discuss methods to ensure software security and data privacy",
+            "Provide best practices for automated testing in software development",
+            "Assist in the integration of IoT devices in a smart home system"
         ],
         "usecases": ["Advanced educational platforms", "Technical support chatbots", "Instructional tools for complex domains"]
     },
@@ -355,8 +914,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 34B Instruct GPTQ 4-bit model is the epitome of instructional AI within the CodeLlama lineage, with GPTQ 4-bit quantization ensuring resource efficiency. Its vast knowledge base and superior instructional capabilities make it a powerhouse for providing detailed guidance on a myriad of complex topics. This model is a prime choice for developers aiming for top-tier instructional AI in their applications.",
         "examples": [
-            "User: How can I configure a secure server? CodeLlama 34B Instruct GPTQ 4-bit: Configuring a secure server entails...",
-            "User: Provide a step-by-step guide on building a mobile app. CodeLlama 34B Instruct GPTQ 4-bit: Building a mobile app involves..."
+            "Handling highly complex coding projects across diverse languages",
+            "Providing expert-level guidance on algorithm design",
+            "Assisting in the development of sophisticated AI models",
+            "Offering advanced insights into cloud-based architectures",
+            "Guiding through the development of scalable systems",
+            "Advising on cutting-edge web and mobile development practices",
+            "Explaining intricate database design and optimization",
+            "Discussing in-depth cybersecurity strategies",
+            "Designing and implementing robust software testing frameworks",
+            "Integrating and managing large-scale IoT networks"
+        ],
+        "input_examples": [
+            "Develop a robust AI system for natural language processing",
+            "Explain graph algorithms and their applications",
+            "Guide on creating a microservices architecture for a large application",
+            "Discuss advanced techniques in cloud computing and storage",
+            "Design a scalable and efficient data pipeline",
+            "Develop a cross-platform mobile application using Flutter",
+            "Optimize a complex SQL database for high-performance queries",
+            "Discuss advanced techniques in preventing cyber attacks",
+            "Create a comprehensive automated testing strategy for a web application",
+            "Integrate multiple IoT devices in a smart city infrastructure"
         ],
         "usecases": [
             "Elite educational and tutorial platforms",
@@ -371,8 +950,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 34B Instruct GPTQ 8-bit model encapsulates the pinnacle of instructional capabilities with GPTQ 8-bit quantization for a balance of performance and efficiency. This model excels in delivering in-depth, precise instructions across a multitude of complex topics, solidifying its position as a top choice for developers in need of high-quality instructional AI for their platforms.",
         "examples": [
-            "User: How do I set up a VPN? CodeLlama 34B Instruct GPTQ 8-bit: Setting up a VPN involves...",
-            "User: Can you guide me through creating a budget? CodeLlama 34B Instruct GPTQ 8-bit: Certainly! Creating a budget requires..."
+            "Developing extensive coding solutions for enterprise-level applications",
+            "Explaining complex programming methodologies and paradigms",
+            "Guiding the creation of large and intricate software systems",
+            "Providing advanced knowledge on distributed computing and storage",
+            "Assisting in building AI and machine learning applications",
+            "Advising on the latest in web development and design trends",
+            "Offering expert tips on database scalability and management",
+            "Discussing comprehensive cybersecurity and data protection methods",
+            "Designing exhaustive software testing and QA processes",
+            "Managing and integrating large-scale, complex IoT ecosystems"
+        ],
+        "input_examples": [
+            "Create an advanced algorithm for predictive analytics",
+            "Explain concurrency models in modern programming languages",
+            "Design a high-load, distributed software architecture",
+            "Offer insights into managing big data in cloud environments",
+            "Develop a machine learning model for image recognition",
+            "Build a dynamic single-page application using React and Redux",
+            "Provide best practices for managing a distributed database system",
+            "Develop a plan for enhancing enterprise cybersecurity",
+            "Outline a strategy for comprehensive UI/UX testing",
+            "Integrate a network of smart devices in an industrial setting"
         ],
         "usecases": [
             "Premium educational and instructional platforms",
@@ -387,8 +986,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "WizardCoder Python 7B GPTQ 4-bit model is a specialized tool designed for code generation in Python, with GPTQ 4-bit quantization enabling efficient performance. This model is adept at understanding coding queries, generating accurate code snippets, and providing programming solutions, making it an invaluable asset for developers and programmers working in Python environment.",
         "examples": [
-            "User: Generate a function to find factorial of a number. WizardCoder Python 7B GPTQ 4-bit: def factorial(n):...",
-            "User: Write a script to parse JSON data. WizardCoder Python 7B GPTQ 4-bit: import json..."
+            "Automating complex Python coding tasks for efficiency",
+            "Explaining intricate Python programming concepts",
+            "Generating Python code for data science and analytics",
+            "Debugging and optimizing Python code for performance",
+            "Creating Python scripts for automation and task management",
+            "Developing Python applications for web and data processing",
+            "Guiding through Python-based machine learning projects",
+            "Assisting with Python code in scientific computing",
+            "Offering insights into Python web frameworks like Django and Flask",
+            "Exploring advanced Python features and libraries"
+        ],
+        "input_examples": [
+            "Automate a data cleaning process in Python",
+            "Explain the concept of generators in Python",
+            "Write a Python script to analyze social media data",
+            "Debug a Python Flask web application",
+            "Create a Python script to automate file organization",
+            "Develop a Python web scraper for gathering data",
+            "Guide on building a neural network with TensorFlow in Python",
+            "Assist in a Python-based computational physics simulation",
+            "Develop a full-stack web application using Django",
+            "Utilize advanced Python libraries for data visualization"
         ],
         "usecases": [
             "Automated code generation and scripting",
@@ -403,8 +1022,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "WizardCoder Python 7B GPTQ 8-bit model retains the code generation capabilities of its 4-bit counterpart while benefiting from GPTQ 8-bit quantization for enhanced efficiency. This model is highly proficient in crafting precise Python code in response to a variety of programming queries, making it a robust tool for developers and educators in the Python community.",
         "examples": [
-            "User: How can I sort a list in Python? WizardCoder Python 7B GPTQ 8-bit: You can use the sorted() function...",
-            "User: Provide code to connect to a database using SQLAlchemy. WizardCoder Python 7B GPTQ 8-bit: from sqlalchemy import create_engine..."
+            "Generating efficient Python code for complex programming tasks",
+            "Explaining advanced Python programming techniques",
+            "Automating data analysis and processing with Python",
+            "Debugging and enhancing Python applications",
+            "Developing Python scripts for system automation",
+            "Building Python applications for web and data services",
+            "Creating machine learning models in Python",
+            "Utilizing Python in scientific research and computations",
+            "Developing web applications with Python frameworks",
+            "Exploring the full potential of Python libraries and modules"
+        ],
+        "input_examples": [
+            "Write an efficient Python script for parsing large JSON files",
+            "Explain how to use context managers in Python",
+            "Automate data extraction and processing from a database using Python",
+            "Debug a Python script that processes real-time data streams",
+            "Create a Python script for managing network operations",
+            "Build a RESTful API with Python and Flask",
+            "Design a Python-based algorithm for sentiment analysis",
+            "Develop a Python simulation for a physics experiment",
+            "Create a web app using the Django framework",
+            "Explore data visualization using Python's Matplotlib and Seaborn"
         ],
         "usecases": [
             "Automated code review and error checking",
@@ -419,8 +1058,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "WizardCoder Python 13B GPTQ 4-bit model, with its advanced code generation capabilities and GPTQ 4-bit quantization, stands as a premier choice for developers seeking efficient and accurate code generation in Python. This model meticulously crafts code snippets, providing solutions to a wide array of programming challenges.",
         "examples": [
-            "User: Create a Python script to handle exceptions. WizardCoder Python 13B GPTQ 4-bit: try:...",
-            "User: Write a function to calculate the area of a circle. WizardCoder Python 13B GPTQ 4-bit: def calculate_area(radius):..."
+            "Advanced Python code generation for specialized tasks",
+            "In-depth explanation of complex Python concepts",
+            "Automating sophisticated data science workflows in Python",
+            "Optimizing Python code for high performance and efficiency",
+            "Building comprehensive Python applications for various needs",
+            "Guiding through complex Python machine learning projects",
+            "Python coding for advanced scientific and research purposes",
+            "Mastering Python web development with modern frameworks",
+            "Leveraging Python for IoT and network programming",
+            "Exploring cutting-edge Python libraries for AI and ML"
+        ],
+        "input_examples": [
+            "Develop a Python script for advanced natural language processing",
+            "Explain asynchronous programming in Python with asyncio",
+            "Automate a complex data pipeline using Python",
+            "Optimize a Python script for faster execution with large datasets",
+            "Create a full-fledged Python software for business management",
+            "Build a convolutional neural network in Python for image classification",
+            "Use Python for complex numerical simulations in engineering",
+            "Develop a scalable web service with Python and FastAPI",
+            "Program a network of IoT devices using Python",
+            "Implement advanced machine learning techniques with Python's scikit-learn"
         ],
         "usecases": [
             "Automated code snippet generation",
@@ -435,8 +1094,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardCoder Python 13B GPTQ 8-bit model exemplifies a seamless blend of code generation efficiency and accuracy, thanks to GPTQ 8-bit quantization. This model is engineered to generate precise and optimized code in Python, making it a highly reliable tool for developers and educators alike.",
         "examples": [
-            "User: How do I create a class in Python? WizardCoder Python 13B GPTQ 8-bit: class Myclass:...",
-            "User: Generate code to read a file in Python. WizardCoder Python 13B GPTQ 8-bit: with open('file.txt', 'r') as file:..."
+            "Creating advanced Python code for high-level programming challenges",
+            "Explaining intricate Python concepts and best practices",
+            "Automating complex data science and analytics tasks in Python",
+            "Enhancing and optimizing Python applications for scalability",
+            "Scripting comprehensive solutions for automation in Python",
+            "Developing Python-based solutions for web and cloud applications",
+            "Guiding through Python in advanced machine learning and AI projects",
+            "Applying Python in scientific research and complex computations",
+            "Mastering web development with Python's powerful frameworks",
+            "Utilizing Python for advanced IoT and embedded systems programming"
+        ],
+        "input_examples": [
+            "Write a Python script for automated stock market analysis",
+            "Explain the use of decorators and metaclasses in Python",
+            "Develop an automated data visualization tool in Python",
+            "Optimize a Python API for handling thousands of requests per minute",
+            "Automate a complex workflow using Python scripts",
+            "Create a cloud-based Python application for data storage",
+            "Design a deep learning model in Python for voice recognition",
+            "Conduct a scientific analysis using Python's NumPy and SciPy libraries",
+            "Develop a dynamic website using Python and Tornado",
+            "Program a network of smart home devices using Python"
         ],
         "usecases": [
             "Code generation for advanced programming projects",
@@ -451,8 +1130,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "WizardMath 7B GPTQ 4-bit model is a specialized AI for solving complex mathematical problems and queries. With GPTQ 4-bit quantization, this model demonstrates an impressive balance of computational efficiency and accuracy, making it a reliable choice for educational platforms and mathematical computation applications.",
         "examples": [
-            "User: Solve the quadratic equation 3x^2 + 4x - 5 = 0. WizardMath 7B GPTQ 4-bit: The solutions are...",
-            "User: Calculate the area under the curve y = x^2 from x = 0 to x = 3. WizardMath 7B GPTQ 4-bit: The area is..."
+            "Solving advanced mathematical problems efficiently",
+            "Explaining complex mathematical theories and concepts",
+            "Assisting with statistical analysis and data interpretation",
+            "Providing step-by-step solutions to calculus problems",
+            "Helping with algebraic equations and graphing",
+            "Guiding through advanced geometry and trigonometry problems",
+            "Explaining mathematical principles in physics and engineering",
+            "Assisting in financial mathematics and economic modeling",
+            "Providing solutions and explanations for linear algebra problems",
+            "Helping understand and solve differential equations"
+        ],
+        "input_examples": [
+            "Solve this complex integration problem",
+            "Explain the concept of eigenvalues and eigenvectors",
+            "Perform a regression analysis on this dataset",
+            "Provide a solution for this differential calculus problem",
+            "Help solve this system of linear equations",
+            "Explain the principles of non-Euclidean geometry",
+            "Solve this trigonometric identity problem",
+            "Discuss the applications of probability in finance",
+            "Explain the Fourier transform and its applications",
+            "Provide a step-by-step solution to this partial differential equation"
         ],
         "usecases": [
             "Mathematical problem solving platforms",
@@ -467,8 +1166,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardMath 7B GPTQ 8-bit model is proficient in tackling intricate mathematical problems. It's enhanced by GPTQ 8-bit quantization for efficient mathematical computation while maintaining high accuracy. This model serves as a robust tool for both learning and solving complex mathematical problems.",
         "examples": [
-            "User: Solve for x in the equation 2x + 3 = 7. WizardMath 7B GPTQ 8-bit: x = 2.",
-            "User: What's the derivative of x^3? WizardMath 7B GPTQ 8-bit: The derivative is 3x^2."
+            "Efficiently solving intricate mathematical problems",
+            "In-depth explanations of complex mathematical topics",
+            "Advanced statistical data analysis and modeling",
+            "Detailed solutions for challenging calculus questions",
+            "Algebraic problem solving with graph theory applications",
+            "Guidance on high-level geometry and trigonometry",
+            "Explaining advanced concepts in mathematical physics",
+            "Sophisticated financial and economic mathematical modeling",
+            "Linear algebra solutions with real-world applications",
+            "Expertise in solving complex differential equations"
+        ],
+        "input_examples": [
+            "Solve a complex number theory problem",
+            "Explain the applications of group theory in cryptography",
+            "Analyze this large dataset using advanced statistical methods",
+            "Provide solutions for multivariable calculus problems",
+            "Solve algebraic problems involving polynomial functions",
+            "Guide through a complex geometric proof",
+            "Discuss the mathematical basis of quantum mechanics",
+            "Model a financial market using stochastic processes",
+            "Explain tensor operations in linear algebra",
+            "Solve this non-linear differential equation"
         ],
         "usecases": ["Advanced mathematical problem solving", "Educational platforms for mathematics", "Automated computation in scientific research"]
     },
@@ -479,8 +1198,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "WizardMath 13B GPTQ 4-bit model is a highly specialized mathematical solver, empowered by GPTQ 4-bit quantization for efficient computations. It's adept at handling complex mathematical queries, making it an indispensable tool for students, educators, and professionals in need of automated mathematical solutions.",
         "examples": [
-            "User: Integrate x^2 from 0 to 1. WizardMath 13B GPTQ 4-bit: The integral is 1/3.",
-            "User: Find the limit of (x^2 - 1)/(x - 1) as x approaches 1. WizardMath 13B GPTQ 4-bit: The limit is 2."
+            "Tackling highly complex mathematical problems and theories",
+            "Providing expert-level explanations in advanced mathematics",
+            "Sophisticated statistical analyses for research and business",
+            "Comprehensive solutions to high-level calculus challenges",
+            "Advanced algebraic theories and their practical applications",
+            "In-depth guidance on complex geometry and topology",
+            "Elucidating advanced principles in mathematical physics",
+            "Highly detailed economic and financial mathematical analyses",
+            "Complex linear algebra and matrix theory explanations",
+            "Expert problem-solving in higher order differential equations"
+        ],
+        "input_examples": [
+            "Provide a solution to this advanced combinatorics problem",
+            "Explain the concept of Riemann surfaces in complex analysis",
+            "Perform a multivariate statistical analysis on this data",
+            "Solve advanced integrals involving hyperbolic functions",
+            "Discuss the applications of ring theory in abstract algebra",
+            "Guide through a topology problem involving manifolds",
+            "Explain the math behind string theory in physics",
+            "Analyze a financial time series using advanced mathematics",
+            "Discuss the applications of eigen decomposition in machine learning",
+            "Solve a partial differential equation in fluid dynamics"
         ],
         "usecases": [
             "Mathematical analysis and problem solving",
@@ -495,8 +1234,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardMath 13B GPTQ 8-bit model, with its GPTQ 8-bit quantization, stands as a pinnacle of computational efficiency and mathematical accuracy. It's engineered for solving advanced mathematical problems, making it a reliable companion for academic and professional mathematical endeavors.",
         "examples": [
-            "User: Solve the system of equations 2x + 3y = 7 and x - y = 1. WizardMath 13B GPTQ 8-bit: The solution is x = 2, y = 1.",
-            "User: Calculate the determinant of a 3x3 matrix. WizardMath 13B GPTQ 8-bit: The determinant is..."
+            "Solving exceptionally complex mathematical problems",
+            "Deep exploration of advanced mathematical theories",
+            "Advanced statistical analysis for complex datasets",
+            "Multivariable calculus and its applications in real-world problems",
+            "Exploring high-level algebraic structures and their uses",
+            "Comprehensive understanding of geometry, including non-Euclidean spaces",
+            "In-depth discussions of mathematical physics concepts",
+            "Sophisticated financial modeling and econometrics",
+            "Exploring the depths of linear algebra and its applications in technology",
+            "Expert solving of nonlinear differential equations"
+        ],
+        "input_examples": [
+            "Tackle this complex topology problem involving knot theory",
+            "Explain advanced concepts in number theory",
+            "Conduct a principal component analysis on a complex dataset",
+            "Provide a solution for this advanced vector calculus problem",
+            "Discuss the role of algebraic topology in modern mathematics",
+            "Solve a challenging geometry problem involving Riemannian metrics",
+            "Explain the mathematical foundations of general relativity",
+            "Model a complex financial system using stochastic differential equations",
+            "Discuss the role of linear algebra in quantum computing",
+            "Solve a set of nonlinear partial differential equations in engineering"
         ],
         "usecases": ["Advanced mathematical analysis", "Educational platforms for mathematics", "Research and engineering computations"]
     },
@@ -507,8 +1266,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardMath 70B GPTQ 4-bit model is a highly advanced mathematical model designed for tackling the most complex mathematical problems. With its GPTQ 4-bit quantization, it achieves a balance between computational efficiency and precision, making it a valuable tool for high-level mathematical computations.",
         "examples": [
-            "User: Solve the differential equation dy/dx = y. WizardMath 70B GPTQ 4-bit: The solution is y = Ce^x, where C is a constant.",
-            "User: Evaluate the integral of x^2 from 0 to 1. WizardMath 70B GPTQ 4-bit: The integral is 1/3."
+            "Addressing highly advanced and abstract mathematical challenges",
+            "Explaining intricate concepts in higher mathematics",
+            "Conducting complex statistical analyses for scientific research",
+            "Offering solutions for challenging problems in advanced calculus",
+            "Deep dives into complex algebraic theories and applications",
+            "Exploring the frontier of geometry and its applications",
+            "Discussing the mathematical underpinnings of cutting-edge physics theories",
+            "Advanced modeling in finance and economics using mathematical techniques",
+            "Exploring the vast applications of linear algebra in modern technologies",
+            "Solving intricate and complex differential equations"
+        ],
+        "input_examples": [
+            "Solve a challenging problem in abstract algebra",
+            "Explain the intricacies of chaos theory",
+            "Perform an advanced statistical analysis for a scientific experiment",
+            "Solve a complex problem in multivariable calculus",
+            "Discuss the applications of Galois theory in modern mathematics",
+            "Explain advanced concepts in differential geometry",
+            "Discuss the mathematics behind superstring theory",
+            "Create a mathematical model for predicting stock market trends",
+            "Explain the use of spectral theory in engineering",
+            "Solve a set of complex differential equations in thermodynamics"
         ],
         "usecases": [
             "Solving complex mathematical problems",
@@ -523,8 +1302,28 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "WizardMath 70B GPTQ 8-bit model is a top-tier mathematical solver with GPTQ 8-bit quantization ensuring both computational efficiency and high precision. This model excels in solving extremely complex mathematical problems, making it an indispensable tool for academic, research, and professional mathematical applications.",
         "examples": [
-            "User: Find the eigenvalues of a 3x3 matrix. WizardMath 70B GPTQ 8-bit: The eigenvalues are...",
-            "User: Calculate the double integral of x*y over the region [0,1]x[0,1]. WizardMath 70B GPTQ 8-bit: The double integral is 1/4."
+            "Addressing the most complex and abstract mathematical queries",
+            "Deep explorations into advanced mathematical concepts and theories",
+            "Conducting highly sophisticated statistical analyses",
+            "Providing comprehensive solutions to complex calculus problems",
+            "Exploring the depths of algebra and its advanced applications",
+            "Offering in-depth understanding and solutions in geometry",
+            "Delving into the complex mathematics of theoretical physics",
+            "Creating advanced models for financial and economic analysis",
+            "Investigating the role of linear algebra in advanced technology",
+            "Expertly solving highly complex differential equations"
+        ],
+        "input_examples": [
+            "Solve an advanced mathematical problem in set theory",
+            "Explain the higher-dimensional geometry concepts",
+            "Conduct a complex statistical analysis on big data",
+            "Provide a solution to a challenging integral in calculus",
+            "Discuss the latest developments in algebraic geometry",
+            "Solve a geometric problem involving complex shapes",
+            "Explain the mathematics used in advanced particle physics",
+            "Develop a model for risk assessment in high-frequency trading",
+            "Discuss how linear algebra is used in machine learning algorithms",
+            "Solve a complex system of differential equations in astrophysics"
         ],
         "usecases": [
             "Advanced mathematical analysis",

@@ -9,7 +9,27 @@
             "Translation of languages",
             "Generating human-like text",
             "Answering questions based on a given context",
-            "Summarizing long texts"
+            "Summarizing long texts",
+            "Creating content for articles",
+            "Composing creative stories",
+            "Generating informative answers",
+            "Drafting emails",
+            "Creating dialogue for chatbots",
+            "Translating technical documents",
+            "Summarizing news articles"
+        ],
+        "input_examples": [
+            "Translate 'Hello, how are you?' to Spanish.",
+            "Generate a short story about a lost kitten.",
+            "Summarize the article about climate change.",
+            "What is the capital of France?",
+            "Compose an email to schedule a meeting.",
+            "Create a dialogue between a customer and a support agent.",
+            "Explain the process of photosynthesis.",
+            "Translate a user manual from German to English.",
+            "Draft a blog post about healthy eating.",
+            "Summarize the key points of the recent tech conference.",
+            "Generate a description for a fantasy novel."
         ],
         "usecases": ["Customer support automation", "Content creation", "Language translation services"]
     },
@@ -19,7 +39,32 @@
         "model_name": "openchat/openchat_3.5",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "OpenChat 3.5 is engineered to engage in meaningful conversations with users. Its primary function is to provide a human-like chatting experience. Given the name, it's tailored for open-domain chat applications. This model can handle a variety of topics and provide relevant, context-aware responses.",
-        "examples": ["Engaging in casual conversation", "Providing information on general topics", "Answering open-domain questions"],
+        "examples": [
+            "Engaging in casual conversation",
+            "Providing information on general topics",
+            "Answering open-domain questions",
+            "Discussing current events",
+            "Chatting about hobbies",
+            "Offering travel advice",
+            "Helping with basic customer queries",
+            "Talking about sports",
+            "Discussing movies and books",
+            "Providing general knowledge",
+            "Chatting about technology trends"
+        ],
+        "input_examples": [
+            "How's the weather today?",
+            "Can you recommend a good Italian restaurant?",
+            "What's the latest news on the Mars rover?",
+            "Tell me more about gardening.",
+            "What are some tourist attractions in Paris?",
+            "Can you help me with my phone issue?",
+            "Who won the football match yesterday?",
+            "Suggest some good science fiction movies.",
+            "How does a computer work?",
+            "Tell me a joke.",
+            "What are the benefits of meditation?"
+        ],
         "usecases": ["Virtual assistants", "Chatbots for websites", "Social media chatbots"]
     },
     {
@@ -28,7 +73,32 @@
         "model_name": "mistralai/Mistral-7B-v0.1",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Mistral 7B v0.1 is a robust language model adept at understanding and generating text. With '7B' denoting the number of parameters, it's large and capable of tackling a variety of NLP tasks. The model excels in translation, summarization, and conversation, providing accurate and coherent outputs.",
-        "examples": ["Translating text between languages", "Summarizing long documents", "Engaging in conversation with users"],
+        "examples": [
+            "Translating text between languages",
+            "Summarizing long documents",
+            "Engaging in conversation with users",
+            "Writing articles on specific topics",
+            "Creating engaging social media posts",
+            "Generating technical reports",
+            "Drafting professional emails",
+            "Writing creative fiction",
+            "Providing educational content",
+            "Answering complex questions",
+            "Creating marketing content"
+        ],
+        "input_examples": [
+            "Translate this paragraph from English to French.",
+            "Summarize the key points of this research paper.",
+            "Write an article about renewable energy.",
+            "Create a social media post about healthy living.",
+            "Generate a report on the recent market trends.",
+            "Draft an email to a client about the meeting schedule.",
+            "Write a short story about a space adventure.",
+            "Explain the basics of quantum computing.",
+            "Answer the question: Why is the sky blue?",
+            "Create a catchy slogan for a new fitness app.",
+            "Write a brief on the importance of cybersecurity."
+        ],
         "usecases": ["Automated translation services", "Content summarization tools", "Conversational agents"]
     },
     {
@@ -37,7 +107,32 @@
         "model_name": "amazon/MistralLite",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "MistralLite is a lighter version of the Mistral series, optimized for quicker responses and lower resource utilization while maintaining a high level of understanding and text generation capabilities. This model is versatile across various NLP tasks such as summarization, translation, and conversation.",
-        "examples": ["Quick summarization of texts", "Real-time translation", "Interactive conversation with users"],
+        "examples": [
+            "Quick summarization of texts",
+            "Real-time translation",
+            "Interactive conversation with users",
+            "Generating brief news summaries",
+            "Translating customer feedback",
+            "Providing quick responses in chatbots",
+            "Summarizing emails",
+            "Real-time language interpretation",
+            "Creating short product descriptions",
+            "Generating quick answers for FAQs",
+            "Conversational AI for mobile apps"
+        ],
+        "input_examples": [
+            "Summarize this article about space exploration.",
+            "Translate 'Where is the nearest hotel?' to German.",
+            "Respond to a customer asking about return policies.",
+            "Provide a summary of today's top news.",
+            "Translate a Spanish review to English.",
+            "Reply to a query about store opening hours.",
+            "Summarize the main points of this email about project deadlines.",
+            "Interpret 'Quel temps fait-il aujourd'hui?' in English.",
+            "Create a brief description for a wireless speaker.",
+            "Answer: What is your refund policy?",
+            "Converse about weekend plans."
+        ],
         "usecases": ["Real-time chat translation", "Customer service chatbots", "Quick information retrieval"]
     },
     {
@@ -46,7 +141,32 @@
         "model_name": "codellama/CodeLlama-7b-hf",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 7B is a language model with a focus on code generation and understanding programming contexts. It's adept at autocompleting code, bug detection, and generating code based on natural language descriptions. The '7B' denotes the size of the model indicating its ability to handle complex code-related tasks.",
-        "examples": ["Code generation from descriptions", "Code autocomplete", "Bug detection and suggestions"],
+        "examples": [
+            "Code generation from descriptions",
+            "Code autocomplete",
+            "Bug detection and suggestions",
+            "Writing scripts based on requirements",
+            "Refactoring existing code",
+            "Generating code comments",
+            "Creating coding tutorials",
+            "Developing algorithms from specifications",
+            "Optimizing code performance",
+            "Converting pseudocode to actual code",
+            "Creating unit tests for existing code"
+        ],
+        "input_examples": [
+            "Generate a Python function to calculate Fibonacci numbers.",
+            "Complete the following JavaScript code: function add(a, b) { ...",
+            "Find and suggest fixes for bugs in this Java snippet.",
+            "Write a Python script to scrape data from a website.",
+            "Refactor this C++ code for better readability.",
+            "Generate comments for this SQL query.",
+            "Create a beginner tutorial for Ruby loops.",
+            "Develop a sorting algorithm based on the given requirements.",
+            "Optimize this Python code for faster execution.",
+            "Convert this pseudocode into Python code.",
+            "Write unit tests for this JavaScript function."
+        ],
         "usecases": ["Automated code review", "Code generation platforms", "Educational platforms for programming"]
     },
     {
@@ -55,7 +175,32 @@
         "model_name": "codellama/CodeLlama-7b-Python-hf",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 7B Python is tailored for handling Python programming tasks. It's capable of generating Python code, detecting bugs, and providing coding solutions. Its understanding of Python programming paradigms makes it a reliable tool for developers seeking to automate code-related tasks.",
-        "examples": ["Python code generation", "Python code autocomplete", "Python bug detection"],
+        "examples": [
+            "Python code generation",
+            "Python code autocomplete",
+            "Python bug detection",
+            "Creating Python scripts for data analysis",
+            "Automating tasks with Python",
+            "Developing Python web applications",
+            "Optimizing Python code",
+            "Writing Python tutorials",
+            "Converting algorithms to Python",
+            "Generating Python code from natural language",
+            "Creating Python-based AI models"
+        ],
+        "input_examples": [
+            "Generate Python code to sort a list of numbers.",
+            "Auto-complete the following Python function: def multiply(x, y): ...",
+            "Detect and fix errors in this Python script.",
+            "Write a Python script to visualize sales data.",
+            "Automate file organization using Python.",
+            "Develop a Flask web app for user registration.",
+            "Optimize this Python code for memory usage.",
+            "Create a tutorial on Python exception handling.",
+            "Convert this C algorithm to Python.",
+            "Generate Python code from 'Create a program to analyze text files'.",
+            "Write a Python script using TensorFlow for image recognition."
+        ],
         "usecases": ["Automated Python code review", "Python code generation platforms", "Educational platforms for Python programming"]
     },
     {
@@ -64,7 +209,32 @@
         "model_name": "codellama/CodeLlama-13b-hf",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 13B is engineered for superior code generation and understanding complex programming contexts. It excels at autocompleting code, bug detection, and generating code based on natural language descriptions. The '13B' denotes a larger model size, enabling more sophisticated code-related tasks.",
-        "examples": ["Advanced code generation", "Code autocomplete", "Bug detection and suggestions"],
+        "examples": [
+            "Advanced code generation",
+            "Code autocomplete",
+            "Bug detection and suggestions",
+            "Creating complex software modules",
+            "Developing APIs and frameworks",
+            "Automating database queries",
+            "Building machine learning models",
+            "Integrating third-party services",
+            "Scripting for automation tasks",
+            "Refactoring for performance optimization",
+            "Designing user interfaces"
+        ],
+        "input_examples": [
+            "Generate a RESTful API in Node.js for user management.",
+            "Complete the Python function for image processing: def process_image(image): ...",
+            "Identify and correct errors in this C# code snippet.",
+            "Write a Java module to handle multi-threaded operations.",
+            "Develop a Python Flask API to interact with a SQL database.",
+            "Automate data extraction from various file formats using Python.",
+            "Build a regression model with TensorFlow.",
+            "Integrate AWS services into an existing Python application.",
+            "Script to automate server deployment using Bash.",
+            "Optimize this JavaScript code for speed and efficiency.",
+            "Design a responsive UI with React."
+        ],
         "usecases": ["Automated code review", "Code generation platforms", "Educational platforms for advanced programming"]
     },
     {
@@ -73,7 +243,32 @@
         "model_name": "codellama/CodeLlama-13b-Python-hf",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 13B Python is specialized for handling Python programming tasks with a higher degree of complexity. It's proficient in generating Python code, detecting bugs, and providing advanced coding solutions. Its nuanced understanding of Python programming makes it an invaluable tool for seasoned developers.",
-        "examples": ["Complex Python code generation", "Python code autocomplete", "Python bug detection"],
+        "examples": [
+            "Complex Python code generation",
+            "Python code autocomplete",
+            "Python bug detection",
+            "Developing advanced Python applications",
+            "Machine learning model creation",
+            "Data analysis and visualization",
+            "Automating network configurations",
+            "Web scraping and data extraction",
+            "Integrating Python with databases",
+            "Optimizing Python code for performance",
+            "Building GUI applications in Python"
+        ],
+        "input_examples": [
+            "Generate a Python script for a neural network using Keras.",
+            "Auto-complete this Python function for parsing JSON: def parse_json(json_data): ...",
+            "Detect and fix issues in this Python Django application code.",
+            "Create a Python application for real-time stock market analysis.",
+            "Write a Python script using scikit-learn for clustering analysis.",
+            "Visualize time-series data using Python's matplotlib library.",
+            "Automate Cisco router configuration using Python.",
+            "Develop a Python script to scrape web pages for data.",
+            "Integrate a MySQL database with a Python application.",
+            "Optimize this Python script for faster execution with NumPy.",
+            "Build a desktop calculator using Python's Tkinter library."
+        ],
         "usecases": ["Automated Python code review", "Python code generation platforms", "Educational platforms for advanced Python programming"]
     },
     {
@@ -82,7 +277,32 @@
         "model_name": "codellama/CodeLlama-34b-hf",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 34B is a highly sophisticated model designed for advanced code generation and comprehension across multiple programming languages. It thrives in complex coding environments, delivering precise code solutions and bug identification. Its superior model size '34B' facilitates handling intricate coding scenarios.",
-        "examples": ["Multi-language code generation", "Code analysis", "Bug identification"],
+        "examples": [
+            "Multi-language code generation",
+            "Code analysis",
+            "Bug identification",
+            "Building complex software architectures",
+            "Developing cross-platform applications",
+            "Large-scale data processing",
+            "Advanced machine learning solutions",
+            "High-performance computing scripts",
+            "Cloud infrastructure automation",
+            "Creating custom programming languages",
+            "Security code analysis and patching"
+        ],
+        "input_examples": [
+            "Generate a microservices architecture in Go.",
+            "Analyze this Ruby code for potential security vulnerabilities.",
+            "Identify and resolve concurrency issues in this Java program.",
+            "Develop a cross-platform mobile app using Flutter.",
+            "Create a distributed data processing system in Scala.",
+            "Build an AI model for natural language understanding.",
+            "Write a Python script for GPU-accelerated computations.",
+            "Automate AWS cloud setup using Terraform.",
+            "Design a domain-specific language for financial modeling.",
+            "Perform static code analysis on a large C++ codebase.",
+            "Patch security vulnerabilities in a PHP web application."
+        ],
         "usecases": ["Cross-language code generation platforms", "Automated code review systems", "Software development assisting tools"]
     },
     {
@@ -91,7 +311,32 @@
         "model_name": "codellama/CodeLlama-34b-Python-hf",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 34B Python is tailored for Python programming, excelling in generating, analyzing, and troubleshooting Python code. It’s adept at creating optimized code, identifying bugs, and providing insightful coding solutions. The model's vast knowledge base makes it an asset for complex Python-centric projects.",
-        "examples": ["Python code generation", "Python code analysis", "Python bug identification"],
+        "examples": [
+            "Python code generation",
+            "Python code analysis",
+            "Python bug identification",
+            "Creating advanced Python libraries",
+            "Developing high-performance Python applications",
+            "Python-based data science solutions",
+            "Building complex machine learning models in Python",
+            "Scripting for system administration in Python",
+            "Integrating Python with big data technologies",
+            "Optimizing Python code for scalability",
+            "Developing scientific computing applications in Python"
+        ],
+        "input_examples": [
+            "Generate a Python library for handling geospatial data.",
+            "Analyze this Python script for memory leaks.",
+            "Identify and fix threading issues in this Python application.",
+            "Create a Python module for real-time video processing.",
+            "Develop a Python-based analytics dashboard for business insights.",
+            "Write a Python script for predictive modeling using pandas.",
+            "Build a deep learning model with PyTorch for image classification.",
+            "Script a Python utility for automating server backups.",
+            "Integrate Apache Kafka with a Python application for real-time data streaming.",
+            "Optimize this Python web application for handling millions of requests.",
+            "Develop a Python application for simulating quantum computing algorithms."
+        ],
         "usecases": ["Python code generation platforms", "Automated Python code review systems", "Advanced Python programming educational platforms"]
     },
     {
@@ -100,7 +345,32 @@
         "model_name": "meta-llama/Llama-2-7b-hf",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 7B, with its 7 billion parameters, is a versatile language model proficient in a range of text processing tasks. It processes and generates human-like text, making it a valuable tool for applications like chatbots, text summarization, and translation.",
-        "examples": ["Text summarization", "Language translation", "Question Answering"],
+        "examples": [
+            "Text summarization",
+            "Language translation",
+            "Question Answering",
+            "Generating articles on various topics",
+            "Creating engaging social media content",
+            "Developing educational materials",
+            "Composing emails and letters",
+            "Scriptwriting for videos",
+            "Drafting technical reports",
+            "Writing creative fiction",
+            "Generating product descriptions"
+        ],
+        "input_examples": [
+            "Summarize the latest scientific research on climate change.",
+            "Translate a poem from Spanish to English.",
+            "Answer: What is the theory of relativity?",
+            "Write an article about the benefits of meditation.",
+            "Create a social media post about healthy eating habits.",
+            "Develop a lesson plan for teaching basic algebra.",
+            "Compose an email to a colleague about the project update.",
+            "Script a short video on the history of the internet.",
+            "Draft a report on the current trends in renewable energy.",
+            "Write a short story set in a futuristic world.",
+            "Generate a description for an eco-friendly backpack."
+        ],
         "usecases": ["Chatbots", "Automated customer service", "Content creation platforms"]
     },
     {
@@ -109,7 +379,32 @@
         "model_name": "meta-llama/Llama-2-13b-hf",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 13B, equipped with 13 billion parameters, is an advanced language model adept at handling more complex text processing tasks. Its heightened capacity enables deeper understanding and better text generation, suited for professional-grade applications in text summarization, language translation, and content creation.",
-        "examples": ["Advanced text summarization", "Multilingual translation", "Creative writing"],
+        "examples": [
+            "Advanced text summarization",
+            "Multilingual translation",
+            "Creative writing",
+            "Developing comprehensive research papers",
+            "Writing detailed product reviews",
+            "Creating in-depth guides and manuals",
+            "Scripting for documentaries",
+            "Composing professional business proposals",
+            "Drafting scientific articles",
+            "Generating complex legal documents",
+            "Creating educational content for advanced topics"
+        ],
+        "input_examples": [
+            "Summarize the main arguments of this political science thesis.",
+            "Translate a technical manual from Japanese to English.",
+            "Write a short play about a historical event.",
+            "Develop a research paper on advancements in artificial intelligence.",
+            "Write a detailed review of the latest smartphone model.",
+            "Create a step-by-step guide on building a website.",
+            "Script a documentary on wildlife conservation efforts.",
+            "Compose a business proposal for a new technology startup.",
+            "Draft an article on recent discoveries in astrophysics.",
+            "Generate a legal brief for a landmark court case.",
+            "Create an educational module on advanced calculus."
+        ],
         "usecases": ["Professional writing aids", "Advanced chatbots", "Automated translation services"]
     },
     {
@@ -118,7 +413,32 @@
         "model_name": "meta-llama/Llama-2-70b-hf",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 70B stands among the titans of language models with a colossal 70 billion parameters. This model excels in understanding and generating text for high-complexity tasks. It's ideal for research, complex content creation, and advanced natural language understanding applications.",
-        "examples": ["Research paper summarization", "Technical text generation", "Complex question answering"],
+        "examples": [
+            "Research paper summarization",
+            "Technical text generation",
+            "Complex question answering",
+            "Writing academic theses",
+            "Creating comprehensive market analyses",
+            "Developing advanced AI algorithms",
+            "Composing scientific reviews",
+            "Drafting legal arguments",
+            "Generating in-depth technical guides",
+            "Creating policy briefs",
+            "Formulating complex business strategies"
+        ],
+        "input_examples": [
+            "Summarize a research paper on quantum computing advancements.",
+            "Generate a report on the impact of AI in healthcare.",
+            "Answer: What are the implications of the recent Mars mission findings?",
+            "Write a thesis abstract on renewable energy sources.",
+            "Create a detailed analysis of the current global economic situation.",
+            "Develop an algorithm for predictive analytics in retail.",
+            "Compose a review of the latest advancements in biotechnology.",
+            "Draft a legal argument for a groundbreaking environmental case.",
+            "Generate a technical guide on blockchain implementation.",
+            "Create a policy brief on data privacy regulations.",
+            "Formulate a business strategy for entering emerging markets."
+        ],
         "usecases": ["Academic research", "Advanced AI applications", "High-level content creation"]
     },
     {
@@ -127,7 +447,32 @@
         "model_name": "TheBloke/Mistral-7B-v0.1-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Mistral 7B GPTQ 4-bit is a highly optimized version of the Mistral 7B model, engineered for reduced size without compromising on performance. With GPTQ 4-bit quantization, it is suited for environments where memory and computational resources are limited, making it a go-to model for on-edge deployments and real-time applications.",
-        "examples": ["Real-time text generation", "On-edge NLP tasks", "Resource-constrained environments"],
+        "examples": [
+            "Real-time text generation",
+            "On-edge NLP tasks",
+            "Resource-constrained environments",
+            "Generating quick responses for chatbots",
+            "Summarizing texts in real-time",
+            "Translating short phrases on the fly",
+            "Creating concise content summaries",
+            "Providing instant answers to queries",
+            "Generating headlines for news articles",
+            "Drafting quick emails",
+            "Creating SMS responses for customer service"
+        ],
+        "input_examples": [
+            "Generate a response to a customer asking about shipping times.",
+            "Summarize a news article about a recent sports event.",
+            "Translate 'Where is the nearest ATM?' to French.",
+            "Create a summary of a product description.",
+            "Answer: What is the tallest mountain in the world?",
+            "Generate a headline for an article about renewable energy.",
+            "Draft a short email apologizing for a service outage.",
+            "Create a quick reply to a frequently asked question about store hours.",
+            "Generate a tweet about a new technology product.",
+            "Compose a short message to confirm an appointment.",
+            "Create a customer service response for a refund request."
+        ],
         "usecases": ["Mobile applications", "Embedded systems", "Real-time chatbots"]
     },
     {
@@ -136,7 +481,32 @@
         "model_name": "TheBloke/Mistral-7B-v0.1-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Mistral 7B GPTQ 8-bit brings the balance of performance and size optimization. With GPTQ 8-bit quantization, it provides a level of precision closer to the original Mistral 7B while still being more resource-efficient. It's well-suited for applications requiring a blend of performance and efficiency.",
-        "examples": ["Efficient text generation", "Low-latency NLP tasks", "Performance-sensitive environments"],
+        "examples": [
+            "Efficient text generation",
+            "Low-latency NLP tasks",
+            "Performance-sensitive environments",
+            "Generating concise article summaries",
+            "Quick translation for short texts",
+            "Fast response generation for chatbots",
+            "Creating brief product descriptions",
+            "Drafting efficient customer responses",
+            "Generating social media posts",
+            "Composing quick notification messages",
+            "Creating short instructional texts"
+        ],
+        "input_examples": [
+            "Summarize the key points of a tech product launch.",
+            "Translate 'How much does it cost?' to Spanish.",
+            "Generate a quick reply for a customer support chat.",
+            "Create a brief description of a new fashion line.",
+            "Draft a response for a query about laptop specifications.",
+            "Generate a Facebook post about a local event.",
+            "Compose a notification about a scheduled system maintenance.",
+            "Create an instructional text on how to reset a password.",
+            "Summarize a short health advisory.",
+            "Translate 'I need help with my order' to Italian.",
+            "Generate an email response for a flight booking inquiry."
+        ],
         "usecases": ["Efficient chatbots", "Performance-oriented applications", "Resource-optimized NLP tasks"]
     },
     {
@@ -145,7 +515,32 @@
         "model_name": "TheBloke/openchat_3.5-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "OpenChat 3.5 GPTQ 4-bit is a lean version of the original OpenChat 3.5 model. With 4-bit quantization, it's engineered for environments with limited computational resources while still retaining decent performance for chat and dialog related tasks. It's a prime choice for real-time chat applications on edge devices.",
-        "examples": ["Real-time chat generation", "On-edge dialog systems", "Resource-constrained environments"],
+        "examples": [
+            "Real-time chat generation",
+            "On-edge dialog systems",
+            "Resource-constrained environments",
+            "Creating instant chatbot replies",
+            "Generating short, engaging dialogues",
+            "Answering quick customer inquiries",
+            "Producing brief informational responses",
+            "Chatting about day-to-day topics",
+            "Providing quick travel recommendations",
+            "Creating responses for interactive games",
+            "Handling simple Q&A for websites"
+        ],
+        "input_examples": [
+            "Respond to 'What's your favorite food?'",
+            "Generate a quick reply to 'How can I reset my password?'",
+            "Chat about 'What movies do you recommend?'",
+            "Suggest a quick response to 'Tell me a fun fact.'",
+            "Create a chatbot response to 'What's the weather like?'",
+            "Answer 'Can you recommend a good book to read?'",
+            "Generate a quick dialogue for a coffee ordering scenario.",
+            "Respond to 'How do I get to the nearest subway station?'",
+            "Create a quick reply for a game character saying 'Hello!'",
+            "Answer a website visitor's question 'What are your opening hours?'",
+            "Respond to 'Can you help me with my homework?'"
+        ],
         "usecases": ["Mobile chat applications", "Embedded dialog systems", "Real-time chatbots"]
     },
     {
@@ -154,7 +549,32 @@
         "model_name": "TheBloke/openchat_3.5-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "OpenChat 3.5 GPTQ 8-bit stands as a balance between the original model and the 4-bit quantized version, providing better precision while still being resource-efficient. It's suitable for dialog systems and chat applications where a blend of performance and efficiency is crucial.",
-        "examples": ["Efficient chat generation", "Low-latency dialog systems", "Performance-sensitive environments"],
+        "examples": [
+            "Efficient chat generation",
+            "Low-latency dialog systems",
+            "Performance-sensitive environments",
+            "Generating interactive chatbot conversations",
+            "Creating quick responses for social media engagement",
+            "Answering diverse customer service questions",
+            "Generating witty and engaging dialogues",
+            "Chatting about current events",
+            "Providing quick suggestions and advice",
+            "Handling customer feedback",
+            "Creating engaging content for virtual assistants"
+        ],
+        "input_examples": [
+            "Respond to a user asking about the latest news.",
+            "Generate a quick reply to 'What's your favorite music genre?'",
+            "Chat about 'Any good restaurant recommendations?'",
+            "Create a response to 'How can I improve my fitness?'",
+            "Respond to a tweet asking 'What's happening in tech?'",
+            "Answer 'How can I exchange this product?'",
+            "Generate a dialogue for a virtual assistant helping with cooking.",
+            "Respond to 'What are some good weekend getaway spots?'",
+            "Create a friendly greeting for a hotel chatbot.",
+            "Handle a query about store return policies.",
+            "Generate a conversation about favorite hobbies."
+        ],
         "usecases": ["Efficient chatbots", "Performance-oriented dialog systems", "Resource-optimized chat applications"]
     },
     {
@@ -163,7 +583,32 @@
         "model_name": "TheBloke/zephyr-7b-beta-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Zephyr 7B Beta GPTQ 4-bit is a streamlined version of the Zephyr 7B Beta, optimized for resource-constrained environments. This model is adept at a variety of language tasks while being computationally economical, making it a suitable choice for on-edge deployments.",
-        "examples": ["Text generation", "Translation", "Summarization"],
+        "examples": [
+            "Text generation",
+            "Translation",
+            "Summarization",
+            "Generating quick news updates",
+            "Translating user queries in real-time",
+            "Summarizing customer feedback",
+            "Generating brief product descriptions",
+            "Creating concise report summaries",
+            "Translating short instructional texts",
+            "Providing quick answers to questions",
+            "Creating social media content"
+        ],
+        "input_examples": [
+            "Generate a summary of today's health news.",
+            "Translate 'Where can I find a taxi?' to Japanese.",
+            "Summarize this customer review of a smartphone.",
+            "Write a short description for a new coffee blend.",
+            "Summarize the main points of a sales report.",
+            "Translate a recipe from French to English.",
+            "Answer 'What are the benefits of yoga?'",
+            "Generate a tweet about sustainable living.",
+            "Translate 'How do I use this app?' to Spanish.",
+            "Summarize the features of the latest software update.",
+            "Create a brief intro for a travel blog post."
+        ],
         "usecases": ["On-edge language processing", "Real-time text applications", "Resource-constrained language tasks"]
     },
     {
@@ -172,7 +617,32 @@
         "model_name": "TheBloke/zephyr-7b-beta-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Zephyr 7B Beta GPTQ 8-bit offers a good balance between performance and efficiency compared to its 4-bit counterpart. This model excels in language tasks while being relatively resource-efficient, making it adaptable to a range of computational settings.",
-        "examples": ["Efficient text generation", "On-demand translation", "Quick summarization"],
+        "examples": [
+            "Efficient text generation",
+            "On-demand translation",
+            "Quick summarization",
+            "Creating instant responses for customer inquiries",
+            "Generating brief news blurbs",
+            "Translating short texts for communication",
+            "Summarizing technical documents succinctly",
+            "Quickly answering trivia questions",
+            "Generating social media captions",
+            "Creating summaries for blog posts",
+            "Producing concise instructions"
+        ],
+        "input_examples": [
+            "Write a quick summary of the latest sports game.",
+            "Translate 'Can you help me?' into German.",
+            "Summarize a user manual for a digital camera.",
+            "Respond to a customer asking about delivery times.",
+            "Generate a news headline about a recent scientific discovery.",
+            "Translate a restaurant menu from Italian to English.",
+            "Answer the question 'Who was the first person on the moon?'",
+            "Create a caption for an Instagram post about a beach vacation.",
+            "Summarize a blog post about healthy eating.",
+            "Write brief instructions for setting up a home Wi-Fi network.",
+            "Generate a quick overview of a mobile app's features."
+        ],
         "usecases": ["On-edge language processing", "Performance-sensitive text applications", "Efficiency-oriented language tasks"]
     },
     {
@@ -181,7 +651,32 @@
         "model_name": "TheBloke/CodeLlama-7b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 7B HF GPTQ 4-bit is a precision-reduced version of CodeLlama 7B HF tailored for code generation tasks. Its 4-bit quantization ensures resource efficiency making it ideal for constrained environments where code generation on the fly is needed.",
-        "examples": ["Generating code snippets", "Translating pseudocode to code", "Automating code documentation"],
+        "examples": [
+            "Generating code snippets",
+            "Translating pseudocode to code",
+            "Automating code documentation",
+            "Creating scripts for data manipulation",
+            "Developing small utility programs",
+            "Generating SQL queries from descriptions",
+            "Automating routine coding tasks",
+            "Generating regular expressions from examples",
+            "Creating simple game mechanics",
+            "Developing chatbot scripts",
+            "Writing code for basic web components"
+        ],
+        "input_examples": [
+            "Generate a Python function to calculate square roots.",
+            "Translate this pseudocode into a Java function.",
+            "Automatically generate documentation for this JavaScript function.",
+            "Write a script to extract data from CSV files.",
+            "Develop a Python script to resize images in a folder.",
+            "Create a SQL query to find top-selling products.",
+            "Automate the generation of HTML templates from design specs.",
+            "Generate a regex to validate email addresses.",
+            "Create a simple JavaScript game loop.",
+            "Develop a Python script for a chatbot to greet users.",
+            "Write HTML and CSS for a responsive navigation bar."
+        ],
         "usecases": ["On-the-edge code generation", "Real-time coding assistance", "Automated code review and documentation"]
     },
     {
@@ -190,7 +685,32 @@
         "model_name": "TheBloke/CodeLlama-7b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 7B HF GPTQ 8-bit is designed for efficient code generation while providing higher precision than its 4-bit variant. It caters to on-the-fly code generation needs in environments where both efficiency and accuracy are crucial.",
-        "examples": ["Generating complex code structures", "Automating code refactoring", "Creating code from specifications"],
+        "examples": [
+            "Generating complex code structures",
+            "Automating code refactoring",
+            "Creating code from specifications",
+            "Developing interactive web applications",
+            "Building data analysis scripts",
+            "Creating APIs from natural language descriptions",
+            "Automating testing scripts",
+            "Developing mobile app functionalities",
+            "Writing advanced database queries",
+            "Optimizing existing code for performance",
+            "Generating machine learning model code"
+        ],
+        "input_examples": [
+            "Generate an object-oriented design in Java based on these requirements.",
+            "Automatically refactor this Python script for better efficiency.",
+            "Create a REST API in Node.js from this list of requirements.",
+            "Develop an interactive React component for user profiles.",
+            "Write a Python script for analyzing stock market data.",
+            "Translate this description into a functional Express.js endpoint.",
+            "Create automated unit tests for this C# application.",
+            "Develop a feature for a mobile app that tracks fitness activities.",
+            "Write an advanced SQL query to analyze customer data.",
+            "Optimize this Ruby on Rails application for faster load times.",
+            "Generate Python code for a logistic regression model."
+        ],
         "usecases": ["Efficient on-the-edge code generation", "Real-time coding assistance", "Automated code review and documentation"]
     },
     {
@@ -199,7 +719,32 @@
         "model_name": "TheBloke/CodeLlama-13b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 13B HF GPTQ 4-bit, with its larger model size, is adept at tackling more complex code generation tasks. The 4-bit quantization retains efficiency, making it a balanced choice for sophisticated code generation in resource-constrained environments.",
-        "examples": ["Generating multi-file code projects", "Creating code from complex specifications", "Automated code refactoring"],
+        "examples": [
+            "Generating multi-file code projects",
+            "Creating code from complex specifications",
+            "Automated code refactoring",
+            "Developing full-stack applications",
+            "Writing advanced data processing scripts",
+            "Building comprehensive machine learning models",
+            "Creating custom middleware for web applications",
+            "Automating deployment scripts",
+            "Developing intricate algorithms",
+            "Optimizing large codebases",
+            "Generating sophisticated API endpoints"
+        ],
+        "input_examples": [
+            "Generate a complete Python project for data visualization.",
+            "Create a set of interconnected Java classes based on UML diagrams.",
+            "Automatically refactor a large JavaScript codebase for modularity.",
+            "Develop a full-stack web application using the MERN stack.",
+            "Write an advanced Python script for real-time data streaming.",
+            "Build a neural network in TensorFlow for image classification.",
+            "Create Express.js middleware for user authentication.",
+            "Automate the deployment process of a Node.js application to AWS.",
+            "Develop a complex sorting algorithm in C++.",
+            "Optimize a Django application for high-traffic scenarios.",
+            "Generate a GraphQL API endpoint for a social media platform."
+        ],
         "usecases": ["On-the-edge complex code generation", "Advanced real-time coding assistance", "Automated code maintenance"]
     },
     {
@@ -208,7 +753,32 @@
         "model_name": "TheBloke/CodeLlama-13b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 13B HF GPTQ 8-bit offers a blend of enhanced precision and sophisticated code generation capabilities. The 8-bit quantization provides a higher accuracy, making it suitable for intricate code generation tasks where precision is paramount.",
-        "examples": ["Generating complex algorithms", "Translating high-level designs to code", "Automated error detection and correction"],
+        "examples": [
+            "Advanced code generation",
+            "Algorithm optimization",
+            "Code review enhancement",
+            "Building enterprise-level software",
+            "Creating complex cloud-based solutions",
+            "Developing AI-driven applications",
+            "Automating data science workflows",
+            "Creating robust cybersecurity solutions",
+            "Developing custom data visualization tools",
+            "Writing code for IoT devices",
+            "Optimizing real-time streaming applications"
+        ],
+        "input_examples": [
+            "Generate a scalable microservices architecture in Go.",
+            "Optimize this Python algorithm for faster execution.",
+            "Review and enhance the security of this PHP web application.",
+            "Develop a large-scale CRM system in .NET.",
+            "Create a cloud-based data warehousing solution using AWS services.",
+            "Build an AI chatbot for customer service in Python.",
+            "Automate a Jupyter Notebook data analysis pipeline.",
+            "Develop a cybersecurity application for threat detection.",
+            "Create an interactive dashboard for financial data in JavaScript.",
+            "Write C code for a smart home temperature sensor.",
+            "Optimize a Kafka-based streaming application for lower latency."
+        ],
         "usecases": ["High-precision code generation", "Real-time complex coding assistance", "Automated code analysis and refactoring"]
     },
     {
@@ -217,7 +787,32 @@
         "model_name": "TheBloke/CodeLlama-34b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 34B HF GPTQ 4-bit is a powerhouse for complex code generation with its expansive model size. The 4-bit quantization ensures operational efficiency, making it a top choice for intricate code generation tasks in resource-constrained settings.",
-        "examples": ["Generating extensive codebases", "Automated system architecture design", "Real-time code translation"],
+        "examples": [
+            "Generating extensive codebases",
+            "Automated system architecture design",
+            "Real-time code translation",
+            "Developing complex simulation software",
+            "Building scalable cloud infrastructures",
+            "Creating advanced AI algorithms",
+            "Automating complex data pipelines",
+            "Developing high-performance gaming engines",
+            "Creating large-scale ETL processes",
+            "Writing code for autonomous systems",
+            "Optimizing data-intensive applications"
+        ],
+        "input_examples": [
+            "Generate a complete e-commerce platform codebase in Java.",
+            "Design a system architecture for a high-traffic social media app.",
+            "Translate this C++ game engine code to Rust in real-time.",
+            "Develop simulation software for environmental modeling.",
+            "Build a scalable AWS cloud infrastructure for a fintech application.",
+            "Create a deep reinforcement learning algorithm for robotics.",
+            "Automate a complex data pipeline for a healthcare analytics system.",
+            "Develop a 3D game engine in Unity.",
+            "Create an ETL process for processing terabytes of data.",
+            "Write software for a self-driving car system.",
+            "Optimize a Python application for processing large datasets."
+        ],
         "usecases": ["Large-scale code generation", "Advanced automated code design", "High-efficiency real-time coding assistance"]
     },
     {
@@ -226,7 +821,32 @@
         "model_name": "TheBloke/CodeLlama-34b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 34B HF GPTQ 8-bit stands as a pinnacle of precise and advanced code generation. The 8-bit quantization allows for higher accuracy, rendering it ideal for the most challenging code generation tasks where precision is crucial.",
-        "examples": ["Creating complex algorithms", "Translating intricate designs to code", "Automated high-precision error correction"],
+        "examples": [
+            "Precision-focused code generation",
+            "Real-time sophisticated coding assistance",
+            "Automated code analysis and optimization",
+            "Developing advanced computational models",
+            "Building high-capacity data storage solutions",
+            "Creating complex AI-driven analytics platforms",
+            "Automating large-scale cloud deployments",
+            "Developing cutting-edge virtual reality applications",
+            "Writing efficient algorithms for quantum computing",
+            "Creating custom programming tools",
+            "Optimizing algorithms for energy-efficient computing"
+        ],
+        "input_examples": [
+            "Generate code for a precision engineering simulation tool.",
+            "Provide real-time coding assistance for a blockchain project.",
+            "Optimize a SQL database for faster query execution.",
+            "Develop a computational model for climate change predictions.",
+            "Build a high-capacity data lake solution in Azure.",
+            "Create an AI platform for predictive maintenance in manufacturing.",
+            "Automate the deployment of a Kubernetes cluster.",
+            "Develop a VR application for architectural visualization.",
+            "Write a quantum algorithm for cryptography.",
+            "Create a suite of tools for automated code refactoring.",
+            "Optimize a machine learning algorithm for low-power devices."
+        ],
         "usecases": ["Precision-focused code generation", "Real-time sophisticated coding assistance", "Automated code analysis and optimization"]
     },
     {
@@ -235,7 +855,32 @@
         "model_name": "TheBloke/Llama-2-7b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 7B HF GPTQ 4-bit is tailored for swift language processing and interpretation. The 4-bit quantization optimizes performance, making it a reliable choice for real-time language understanding and interaction.",
-        "examples": ["Real-time conversation analysis", "Automated content summarization", "Language translation"],
+        "examples": [
+            "Real-time text generation",
+            "On-the-fly translation",
+            "Instantaneous language analysis",
+            "Generating quick social media posts",
+            "Creating brief news summaries",
+            "Translating customer queries in real-time",
+            "Summarizing short articles",
+            "Providing instant customer support responses",
+            "Writing quick email replies",
+            "Generating catchy slogans",
+            "Creating short, informative blurbs"
+        ],
+        "input_examples": [
+            "Generate a tweet about healthy eating.",
+            "Translate 'Where is the nearest hotel?' into Spanish.",
+            "Summarize a short article about renewable energy.",
+            "Respond to a customer asking about store hours.",
+            "Write a brief summary of today's weather forecast.",
+            "Translate a customer's feedback from French to English.",
+            "Generate an Instagram caption for a travel photo.",
+            "Provide a quick response to a product inquiry.",
+            "Compose a concise email about meeting rescheduling.",
+            "Create a slogan for an eco-friendly product.",
+            "Write a short description for a new podcast episode."
+        ],
         "usecases": ["Real-time communication platforms", "Automated summarization tools", "Language translation services"]
     },
     {
@@ -244,7 +889,32 @@
         "model_name": "TheBloke/Llama-2-7b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 7B HF GPTQ 8-bit excels in delivering precise language understanding and generation. The 8-bit quantization ensures higher accuracy, making it ideal for applications requiring nuanced language processing.",
-        "examples": ["Sentiment analysis", "Text generation", "Semantic text similarity"],
+        "examples": [
+            "Sentiment analysis",
+            "Text generation",
+            "Semantic text similarity",
+            "Analyzing customer reviews for sentiment",
+            "Generating creative blog content",
+            "Comparing document similarities",
+            "Creating engaging email marketing content",
+            "Writing product descriptions",
+            "Developing educational content",
+            "Generating news articles",
+            "Creating scripts for video content"
+        ],
+        "input_examples": [
+            "Analyze the sentiment of this product review.",
+            "Write a blog post about the benefits of meditation.",
+            "Compare the similarity of these two news articles.",
+            "Create an email for a holiday sale campaign.",
+            "Generate a description for an adventure travel package.",
+            "Develop an educational article about solar energy.",
+            "Write a news piece about a recent technological advancement.",
+            "Create a script for a YouTube video about healthy eating.",
+            "Summarize the key points of a business report.",
+            "Translate a technical manual from English to German.",
+            "Write a fictional story based on a given prompt."
+        ],
         "usecases": ["Advanced sentiment analysis platforms", "Automated content generation", "Semantic search engines"]
     },
     {
@@ -253,7 +923,32 @@
         "model_name": "TheBloke/Llama-2-13b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 13B HF GPTQ 4-bit is optimized for fast language processing while ensuring a reasonable level of accuracy. The 4-bit quantization facilitates rapid analysis and interpretation, making it suitable for real-time applications.",
-        "examples": ["Real-time conversation analysis", "Automated content summarization", "Language translation"],
+        "examples": [
+            "Real-time conversation analysis",
+            "Automated content summarization",
+            "Language translation",
+            "Analyzing online customer interactions",
+            "Summarizing scientific research papers",
+            "Translating technical documents",
+            "Writing detailed product reviews",
+            "Creating educational materials",
+            "Generating scripts for educational videos",
+            "Composing detailed technical guides",
+            "Writing creative stories"
+        ],
+        "input_examples": [
+            "Analyze the sentiment of this customer chat.",
+            "Summarize the findings of this medical research paper.",
+            "Translate an engineering paper abstract from Russian to English.",
+            "Write a comprehensive review of a new smartphone.",
+            "Create an educational article on environmental conservation.",
+            "Generate a script for an educational video on space exploration.",
+            "Compose a step-by-step guide for using a new software.",
+            "Write a short story based on the theme of adventure.",
+            "Create a summary of a financial report.",
+            "Translate a user guide for a kitchen appliance from Italian to English.",
+            "Write an article about recent advancements in artificial intelligence."
+        ],
         "usecases": ["Real-time communication platforms", "Automated summarization tools", "Language translation services"]
     },
     {
@@ -262,7 +957,32 @@
         "model_name": "TheBloke/Llama-2-13b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 13B HF GPTQ 8-bit is designed for accurate and nuanced language processing. The 8-bit quantization provides a balance between precision and performance, making it a go-to choice for complex language tasks.",
-        "examples": ["Sentiment analysis", "Text generation", "Semantic text similarity"],
+        "examples": [
+            "Advanced language processing",
+            "High-quality text generation",
+            "Sophisticated language translation",
+            "Creating in-depth market research reports",
+            "Writing extensive literature reviews",
+            "Translating complex academic papers",
+            "Generating comprehensive business plans",
+            "Creating scripts for professional training videos",
+            "Developing detailed technical documentation",
+            "Writing elaborate fictional novels",
+            "Crafting persuasive marketing copy"
+        ],
+        "input_examples": [
+            "Generate an in-depth report on current market trends.",
+            "Write a review of literature on renewable energy technologies.",
+            "Translate a research paper on machine learning from Chinese to English.",
+            "Create a business plan for a tech startup.",
+            "Generate a script for a corporate training video on leadership.",
+            "Compose a detailed user manual for a new software.",
+            "Write a novel with a plot revolving around a historical event.",
+            "Craft a marketing copy for a luxury travel agency.",
+            "Summarize a technical whitepaper on blockchain technology.",
+            "Translate a legal document from Spanish to English.",
+            "Write an article on the future of artificial intelligence in healthcare."
+        ],
         "usecases": ["Advanced sentiment analysis platforms", "Automated content generation", "Semantic search engines"]
     },
     {
@@ -271,7 +991,31 @@
         "model_name": "TheBloke/Llama-2-70b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 70B HF GPTQ 4-bit is a highly optimized model engineered for swift language processing tasks. The 4-bit quantization boosts its speed, making it a prime choice for real-time applications that require a swift response.",
-        "examples": ["Real-time dialogue systems", "Instant language translation", "Automated real-time captioning"],
+        "examples": [
+            "Real-time dialogue systems",
+            "Instant language translation",
+            "Automated real-time captioning",
+            "Generating instant responses for social media",
+            "Quickly summarizing live news broadcasts",
+            "Translating customer service interactions in real time",
+            "Creating subtitles for live streams",
+            "Writing brief summaries of podcasts",
+            "Generating quick responses for virtual assistants",
+            "Automated transcription of meetings",
+            "Real-time analysis of customer feedback"
+        ],
+        "input_examples": [
+            "Generate a response for a live chat about travel recommendations.",
+            "Translate a customer’s question from German to English in real-time.",
+            "Caption a live speech about climate change.",
+            "Summarize key points from a live sports commentary.",
+            "Create a tweet in response to a user's question about tech products.",
+            "Generate subtitles for a live cooking show on YouTube.",
+            "Write a brief summary of a business podcast episode.",
+            "Compose a quick reply for a smart home assistant about weather forecasts.",
+            "Transcribe key points from a corporate webinar.",
+            "Analyze customer feedback from a live survey about a new product."
+        ],
         "usecases": ["Live customer support", "Real-time communication platforms", "Live event captioning services"]
     },
     {
@@ -280,7 +1024,32 @@
         "model_name": "TheBloke/Llama-2-70b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 70B HF GPTQ 8-bit stands out for its precision in handling intricate language processing tasks. With 8-bit quantization, it strikes a balance between accuracy and performance, rendering it suitable for demanding linguistic challenges.",
-        "examples": ["Deep semantic analysis", "Complex text generation", "Advanced language translation"],
+        "examples": [
+            "Deep semantic analysis",
+            "Complex text generation",
+            "Advanced language translation",
+            "Generating in-depth research summaries",
+            "Writing complex technical documents",
+            "Translating scientific papers accurately",
+            "Creating comprehensive reports from data",
+            "Drafting detailed business strategies",
+            "Generating content for specialized fields",
+            "Automated scriptwriting for documentaries",
+            "Crafting persuasive and nuanced editorials"
+        ],
+        "input_examples": [
+            "Analyze the semantic nuances in a political speech.",
+            "Generate a detailed report on artificial intelligence advancements.",
+            "Translate a technical medical journal from French to English.",
+            "Summarize a comprehensive study on environmental sustainability.",
+            "Write a technical guide on blockchain technology applications.",
+            "Translate a research paper on quantum computing from Japanese to English.",
+            "Create a data-driven report on consumer behavior trends.",
+            "Draft a strategy document for a new marketing campaign.",
+            "Generate an educational article on astrophysics.",
+            "Write a script for a documentary about ancient civilizations.",
+            "Compose an editorial on the impact of technology on society."
+        ],
         "usecases": ["Research and academia", "Automated content creation", "Professional translation services"]
     },
     {
@@ -298,7 +1067,32 @@
         "model_name": "WizardLM/WizardCoder-Python-13B-V1.0",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "WizardCoder Python 13B V1.0 excels in creating complex code structures in Python. Its extensive understanding of programming paradigms makes it an invaluable asset for professional developers aiming for optimized, well-structured code.",
-        "examples": ["Advanced code generation", "Algorithm optimization", "Complex system design"],
+        "examples": [
+            "Optimized code generation",
+            "Algorithm development",
+            "Code review automation",
+            "Automating repetitive coding tasks",
+            "Generating Python scripts for data analysis",
+            "Creating Python-based automation tools",
+            "Developing web scraping scripts",
+            "Writing optimized machine learning models",
+            "Refactoring existing Python code for efficiency",
+            "Developing custom Python libraries",
+            "Automating testing for Python applications"
+        ],
+        "input_examples": [
+            "Generate a Python script to automate file organization.",
+            "Develop an algorithm to sort data efficiently.",
+            "Automate code review for a Python web application.",
+            "Create a script to automate data entry tasks.",
+            "Write a Python script for analyzing social media data.",
+            "Develop a tool for automating system health checks.",
+            "Write a web scraping script to gather stock market data.",
+            "Optimize a Python machine learning model for image recognition.",
+            "Refactor a Python script for better memory management.",
+            "Develop a custom Python library for handling geospatial data.",
+            "Create automated tests for a Python e-commerce platform."
+        ],
         "usecases": ["Software development", "Algorithm design", "Code review and optimization"]
     },
     {
@@ -307,7 +1101,32 @@
         "model_name": "WizardLM/WizardCoder-Python-34B-V1.0",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardCoder Python 34B V1.0 model is built to handle sophisticated code generation and manipulation tasks. Its enormous parameter size ensures a deep understanding of complex coding requirements, making it ideal for large-scale software development and computational problem solving.",
-        "examples": ["Large-scale code generation", "Software architecture design", "Automated code refactoring"],
+        "examples": [
+            "Sophisticated code generation",
+            "Complex algorithm development",
+            "Automated high-precision error correction",
+            "Building large-scale Python applications",
+            "Generating Python code for advanced AI models",
+            "Creating comprehensive data analytics tools",
+            "Developing Python-based simulation software",
+            "Optimizing Python code for distributed systems",
+            "Automating complex Python-based workflows",
+            "Developing Python SDKs for various APIs",
+            "Writing Python scripts for scientific research"
+        ],
+        "input_examples": [
+            "Generate a Python-based platform for real-time data analytics.",
+            "Develop a complex genetic algorithm in Python for optimization tasks.",
+            "Automatically correct errors in a large Python codebase.",
+            "Create a scalable Python web application for e-commerce.",
+            "Write a Python script for a convolutional neural network.",
+            "Develop a comprehensive tool for financial data analysis in Python.",
+            "Create a simulation program in Python for environmental modeling.",
+            "Optimize a Python script for parallel execution in cloud environments.",
+            "Automate data processing and visualization for scientific research.",
+            "Develop a Python SDK for integrating with a RESTful API.",
+            "Write a Python script for analyzing astronomical data."
+        ],
         "usecases": ["Enterprise-level software development", "Algorithm design and optimization", "Automated coding solutions"]
     },
     {
@@ -316,7 +1135,32 @@
         "model_name": "WizardLMTeam/WizardLM-13B-V1.0",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardLM 13B V1.0 is engineered for a broad spectrum of natural language processing tasks. It has a profound comprehension of contextual relationships within text, which is instrumental in various NLP applications.",
-        "examples": ["Text summarization", "Sentiment analysis", "Named entity recognition"],
+        "examples": [
+            "Real-time text generation",
+            "On-the-fly translation",
+            "Instantaneous language analysis",
+            "Generating dynamic content for websites",
+            "Creating summaries for technical documents",
+            "Translating educational materials",
+            "Writing engaging blog posts",
+            "Generating scripts for video content",
+            "Creating personalized email campaigns",
+            "Developing content for social media",
+            "Writing interactive storylines for games"
+        ],
+        "input_examples": [
+            "Generate a blog post about the latest trends in AI.",
+            "Translate an academic paper summary from Spanish to English.",
+            "Analyze the sentiment of user reviews for a product.",
+            "Create a script for a marketing video on eco-friendly products.",
+            "Summarize a technical whitepaper on blockchain technology.",
+            "Translate a set of educational slides about history into French.",
+            "Write a compelling story for an adventure game.",
+            "Develop a series of tweets for a health and wellness campaign.",
+            "Create a personalized email for a customer loyalty program.",
+            "Generate a news article about recent advancements in renewable energy.",
+            "Write a script for an educational YouTube video on space exploration."
+        ],
         "usecases": ["Content generation", "Data mining", "Semantic analysis"]
     },
     {
@@ -325,7 +1169,32 @@
         "model_name": "WizardLM/WizardLM-70B-V1.0",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardLM 70B V1.0 model, with its massive parameter count, is at the forefront of tackling intricate language tasks. It excels in text generation, translation, and complex linguistic problem solving.",
-        "examples": ["Long-form text generation", "High-fidelity translation", "Advanced language analysis"],
+        "examples": [
+            "High-level text generation",
+            "Complex translation tasks",
+            "Advanced linguistic analysis",
+            "Creating in-depth research articles",
+            "Writing extensive reviews of scientific studies",
+            "Translating complex legal documents",
+            "Developing scripts for documentary films",
+            "Generating academic papers in various fields",
+            "Creating detailed reports for industry analysis",
+            "Writing comprehensive guides for technical topics",
+            "Developing narrative content for immersive games"
+        ],
+        "input_examples": [
+            "Generate a detailed research article on climate change impacts.",
+            "Translate a legal contract from English to Japanese with high accuracy.",
+            "Analyze the linguistic structure of a classic literary work.",
+            "Write a comprehensive review of recent medical research on vaccines.",
+            "Develop a script for a documentary on ancient civilizations.",
+            "Create an academic paper on advancements in quantum computing.",
+            "Generate a thorough industry analysis report on electric vehicles.",
+            "Write a comprehensive user manual for advanced software.",
+            "Develop a narrative storyline for an open-world RPG game.",
+            "Create an in-depth guide on sustainable farming practices.",
+            "Write a detailed analysis of economic trends in the past decade."
+        ],
         "usecases": ["Research in linguistics", "Automated content creation", "Language-based AI development"]
     },
     {
@@ -334,7 +1203,32 @@
         "model_name": "TheBloke/WizardCoder-Python-7B-V1.0-GPTQ",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardCoder Python 7B V1.0 GPTQ model is a specialized tool for code generation, honed to deliver quality code across diverse programming paradigms. The GPTQ optimization enables faster performance with lower resource requirements.",
-        "examples": ["Optimized code generation", "Algorithm development", "Code review automation"],
+        "examples": [
+            "Optimized code generation",
+            "Algorithm development",
+            "Code review automation",
+            "Automating repetitive coding tasks",
+            "Generating Python scripts for data analysis",
+            "Creating Python-based automation tools",
+            "Developing web scraping scripts",
+            "Writing optimized machine learning models",
+            "Refactoring existing Python code for efficiency",
+            "Developing custom Python libraries",
+            "Automating testing for Python applications"
+        ],
+        "input_examples": [
+            "Generate a Python script to automate file organization.",
+            "Develop an algorithm to sort data efficiently.",
+            "Automate code review for a Python web application.",
+            "Create a script to automate data entry tasks.",
+            "Write a Python script for analyzing social media data.",
+            "Develop a tool for automating system health checks.",
+            "Write a web scraping script to gather stock market data.",
+            "Optimize a Python machine learning model for image recognition.",
+            "Refactor a Python script for better memory management.",
+            "Develop a custom Python library for handling geospatial data.",
+            "Create automated tests for a Python e-commerce platform."
+        ],
         "usecases": ["Software engineering", "Code optimization", "Automated debugging"]
     },
     {
@@ -343,7 +1237,32 @@
         "model_name": "TheBloke/WizardCoder-Python-13B-V1.0-GPTQ",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardCoder Python 13B V1.0 GPTQ model is engineered for superior code generation and review. With an enhanced parameter count, it delivers more nuanced code structures while the GPTQ optimization ensures efficient performance.",
-        "examples": ["Advanced code generation", "Algorithm optimization", "Code review enhancement"],
+        "examples": [
+            "Advanced code generation",
+            "Algorithm optimization",
+            "Code review enhancement",
+            "Developing complex Python applications",
+            "Creating Python tools for data science",
+            "Writing high-performance Python code",
+            "Automating Python-based data pipelines",
+            "Developing AI algorithms in Python",
+            "Python code optimization for large datasets",
+            "Building Python frameworks for specific domains",
+            "Creating Python packages for specialized tasks"
+        ],
+        "input_examples": [
+            "Generate a Python application for managing IoT devices.",
+            "Optimize a sorting algorithm in Python for large datasets.",
+            "Enhance the security features of a Python web service.",
+            "Develop a data science tool for predictive analytics in Python.",
+            "Write a high-performance Python script for real-time data processing.",
+            "Automate a data pipeline for financial modeling in Python.",
+            "Create a deep learning algorithm for natural language processing in Python.",
+            "Optimize Python code for handling big data in cloud environments.",
+            "Build a custom Python framework for biomedical data analysis.",
+            "Develop a Python package for blockchain-based applications.",
+            "Create a Python library for augmented reality app development."
+        ],
         "usecases": ["Software development", "Automated code reviewing", "Algorithm design"]
     },
     {
@@ -352,7 +1271,32 @@
         "model_name": "TheBloke/WizardCoder-Python-34B-V1.0-GPTQ",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardCoder Python 34B V1.0 GPTQ model stands as a pinnacle in automated code generation and analysis. Its vast parameter count facilitates intricate code structures and sophisticated algorithm designs, optimized for performance by GPTQ.",
-        "examples": ["Sophisticated code generation", "Complex algorithm development", "Automated code optimization"],
+        "examples": [
+            "Sophisticated code generation",
+            "Complex algorithm development",
+            "Automated high-precision error correction",
+            "Building large-scale Python applications",
+            "Generating Python code for advanced AI models",
+            "Creating comprehensive data analytics tools",
+            "Developing Python-based simulation software",
+            "Optimizing Python code for distributed systems",
+            "Automating complex Python-based workflows",
+            "Developing Python SDKs for various APIs",
+            "Writing Python scripts for scientific research"
+        ],
+        "input_examples": [
+            "Generate a Python-based platform for real-time data analytics.",
+            "Develop a complex genetic algorithm in Python for optimization tasks.",
+            "Automatically correct errors in a large Python codebase.",
+            "Create a scalable Python web application for e-commerce.",
+            "Write a Python script for a convolutional neural network.",
+            "Develop a comprehensive tool for financial data analysis in Python.",
+            "Create a simulation program in Python for environmental modeling.",
+            "Optimize a Python script for parallel execution in cloud environments.",
+            "Automate data processing and visualization for scientific research.",
+            "Develop a Python SDK for integrating with a RESTful API.",
+            "Write a Python script for analyzing astronomical data."
+        ],
         "usecases": ["High-level software engineering", "Algorithm research", "Code performance optimization"]
     },
     {
@@ -361,7 +1305,32 @@
         "model_name": "TheBloke/WizardLM-13B-V1.0-GPTQ",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardLM 13B V1.0 GPTQ model excels in diverse language processing tasks. Its GPTQ optimization ensures it performs efficiently even in resource-constrained environments, making it a reliable choice for real-time language analysis and generation.",
-        "examples": ["Real-time text generation", "On-the-fly translation", "Instantaneous language analysis"],
+        "examples": [
+            "Real-time text generation",
+            "On-the-fly translation",
+            "Instantaneous language analysis",
+            "Generating dynamic content for websites",
+            "Creating summaries for technical documents",
+            "Translating educational materials",
+            "Writing engaging blog posts",
+            "Generating scripts for video content",
+            "Creating personalized email campaigns",
+            "Developing content for social media",
+            "Writing interactive storylines for games"
+        ],
+        "input_examples": [
+            "Generate a blog post about the latest trends in AI.",
+            "Translate an academic paper summary from Spanish to English.",
+            "Analyze the sentiment of user reviews for a product.",
+            "Create a script for a marketing video on eco-friendly products.",
+            "Summarize a technical whitepaper on blockchain technology.",
+            "Translate a set of educational slides about history into French.",
+            "Write a compelling story for an adventure game.",
+            "Develop a series of tweets for a health and wellness campaign.",
+            "Create a personalized email for a customer loyalty program.",
+            "Generate a news article about recent advancements in renewable energy.",
+            "Write a script for an educational YouTube video on space exploration."
+        ],
         "usecases": ["Live language processing", "Real-time communication platforms", "Automated content creation"]
     },
     {
@@ -370,7 +1339,32 @@
         "model_name": "TheBloke/WizardLM-70B-V1.0-GPTQ",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardLM 70B V1.0 GPTQ model is a giant in the realm of language processing. Its colossal parameter count, paired with GPTQ optimization, makes it a powerhouse for any high-level language task, delivering unparalleled performance.",
-        "examples": ["High-level text generation", "Complex translation tasks", "Advanced linguistic analysis"],
+        "examples": [
+            "High-level text generation",
+            "Complex translation tasks",
+            "Advanced linguistic analysis",
+            "Creating in-depth research articles",
+            "Writing extensive reviews of scientific studies",
+            "Translating complex legal documents",
+            "Developing scripts for documentary films",
+            "Generating academic papers in various fields",
+            "Creating detailed reports for industry analysis",
+            "Writing comprehensive guides for technical topics",
+            "Developing narrative content for immersive games"
+        ],
+        "input_examples": [
+            "Generate a detailed research article on climate change impacts.",
+            "Translate a legal contract from English to Japanese with high accuracy.",
+            "Analyze the linguistic structure of a classic literary work.",
+            "Write a comprehensive review of recent medical research on vaccines.",
+            "Develop a script for a documentary on ancient civilizations.",
+            "Create an academic paper on advancements in quantum computing.",
+            "Generate a thorough industry analysis report on electric vehicles.",
+            "Write a comprehensive user manual for advanced software.",
+            "Develop a narrative storyline for an open-world RPG game.",
+            "Create an in-depth guide on sustainable farming practices.",
+            "Write a detailed analysis of economic trends in the past decade."
+        ],
         "usecases": ["Language research", "Automated authoring systems", "High-performance language-based applications"]
     }
 ]

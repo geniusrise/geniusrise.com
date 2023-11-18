@@ -24,7 +24,16 @@ function Model({ model }: Props) {
     const { setSupportContent } = useContext(SupportContentContext)
 
     useEffect(() => {
-        setSupportContent({ heading: model.name, content: model.description })
+        setSupportContent({
+            heading: model.name,
+            content: "",
+            examples: model.input_examples,
+            useCases: [
+                "Bulk job: upload a bunch of documents and perform inference on them. This option has the lowest cost and ideal for workloads that are not real-time.",
+                "API: create an auto-scalable set of pods running this model, exposing an API. Ideal for integrating this model with your product on sandbox or production.",
+                "Fine-tune: use your data to fine-tune a model for better and more relevant and customised performance for your tasks. We run the process end to end and ensure it is secure and cost effective.",
+            ],
+        })
     }, [model.name, model.description])
 
     return (
@@ -43,7 +52,7 @@ function Model({ model }: Props) {
                     <Cell width={10}>
                         <Content>
                             <p>{model.description}</p>
-                            <div className={styles.modelName}>
+                            {/* <div className={styles.modelName}>
                                 <Grid columns={20}>
                                     <Cell width={19} center middle>
                                         <p>{model.model_name}</p>
@@ -52,7 +61,7 @@ function Model({ model }: Props) {
                                         <span>📋</span>
                                     </Cell>
                                 </Grid>
-                            </div>
+                            </div> */}
                         </Content>
                     </Cell>
                 </Grid>
@@ -72,15 +81,18 @@ function Model({ model }: Props) {
                     </Cell>
                     <Cell>
                         <Content className={styles.examples}>
-                            <strong>Examples:</strong>
+                            <strong>Example Tasks:</strong>
                             <ul>
                                 {model.examples.map((example, idx) => (
                                     <li key={idx}>{example}</li>
                                 ))}
+                                {model.usecases.map((usecase, idx) => (
+                                    <li key={idx}>{usecase}</li>
+                                ))}
                             </ul>
                         </Content>
                     </Cell>
-                    <Cell>
+                    {/* <Cell>
                         <Content className={styles.usecases}>
                             <strong>Use Cases:</strong>
                             <ul>
@@ -89,7 +101,7 @@ function Model({ model }: Props) {
                                 ))}
                             </ul>
                         </Content>
-                    </Cell>
+                    </Cell> */}
                 </Grid>
                 <Grid columns={3} className={styles.actions}>
                     <Cell center middle>
