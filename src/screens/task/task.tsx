@@ -84,10 +84,10 @@ function Task(props: Config) {
                                             {/* </div> */}
                                         </Content>
                                     </Card.Content>
-                                    <Card.Footer
+                                    {/* <Card.Footer
                                         className={styles.cardFooter}
                                         style={{ backgroundImage: `url(vector-autumn-foliage-banner/${bgImage})`, backgroundSize: "cover" }}
-                                    ></Card.Footer>
+                                    ></Card.Footer> */}
                                 </Card>
                             </Link>
                         </Cell>
