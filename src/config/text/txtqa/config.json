@@ -1,11 +1,34 @@
 [
     {
         "name": "TaPEx Base WikiSQL",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "microsoft/tapex-base-finetuned-wikisql",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "TaPEx Base WikiSQL is a conversational model specialized in understanding and generating SQL queries based on natural language inputs. Trained on the WikiSQL dataset, it has learned the structure and semantics of SQL queries in relation to textual questions. The generic name of the model refers to its ability to 'tape' together textual inputs with executable SQL commands. It excels in parsing questions to form accurate SQL statements, enabling seamless interaction with databases through conversation.",
-        "examples": ["Converting natural language questions to SQL queries.", "Interpreting complex question intents to generate accurate SQL code."],
+        "examples": [
+            "Creating SQL queries for database reporting.",
+            "Automated query generation for data analysis.",
+            "Interpreting user queries in natural language for SQL conversion.",
+            "Generating dynamic SQL commands from user inputs.",
+            "SQL query formulation from conversational data requests.",
+            "Translating complex business requirements into SQL queries.",
+            "Converting data exploration queries into SQL statements."
+        ],
+        "input_examples": [
+            "context: Database of employee records question: Which employees joined after 2010?",
+            "context: Sales data for the last quarter question: What were the total sales in each region?",
+            "context: Customer transaction table question: List all transactions over $500.",
+            "context: Inventory database question: Show items with less than 100 units in stock.",
+            "context: Table of project deadlines question: Which projects are due this month?",
+            "context: Employee skills database question: Find employees proficient in Python.",
+            "context: List of conference attendees question: Who attended both the 2018 and 2019 conferences?",
+            "context: Order history table question: Display orders that were delayed.",
+            "context: Database of flight schedules question: What are the flights from New York to London?",
+            "context: Product feedback data question: What are the common issues reported in feedback?"
+        ],
         "usecases": [
             "Building chatbots that interact with database-driven applications.",
             "Automating report generation from databases using conversational interfaces."
@@ -13,11 +36,34 @@
     },
     {
         "name": "TAPAS Tiny WTQ",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "google/tapas-tiny-finetuned-wtq",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The TAPAS Tiny WTQ model is a compact and efficient version of the TAPAS series, fine-tuned on the WikiTableQuestions (WTQ) dataset. Despite its small size, this model retains a robust understanding of tabular data and natural language queries. The generic model name highlights its strength in analyzing and answering questions based on structured tables. It is particularly adept at handling questions that require comprehension of smaller, nuanced datasets.",
-        "examples": ["Answering questions from small tabular datasets.", "Interpreting simple queries to retrieve information from tables."],
+        "examples": [
+            "Querying small datasets for specific facts.",
+            "Answering straightforward questions from structured data.",
+            "Simple data extraction from tables.",
+            "Retrieving key information from compact datasets.",
+            "Generating insights from simple tabular data.",
+            "Providing quick answers to data-related queries.",
+            "Interpreting and responding to basic data questions."
+        ],
+        "input_examples": [
+            "context: Table of book titles and authors question: Who wrote '1984'?",
+            "context: Weather data for the week question: What was the highest temperature on Monday?",
+            "context: List of students and their grades question: Who scored the highest in math?",
+            "context: Product price list question: What is the price of the iPhone 12?",
+            "context: Schedule of sports events question: When is the next soccer match?",
+            "context: Nutritional information of fruits question: How many calories are in an apple?",
+            "context: Employee directory with roles question: Who is the marketing manager?",
+            "context: Flight arrival times question: When did flight AA123 land?",
+            "context: List of countries and capitals question: What is the capital of Japan?",
+            "context: Menu items and prices question: How much does a cheeseburger cost?"
+        ],
         "usecases": [
             "Integrating into mobile applications for on-the-go data analysis.",
             "Developing lightweight chatbots for querying tabular information."
@@ -25,11 +71,34 @@
     },
     {
         "name": "TAPAS Large WTQ",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "google/tapas-large-finetuned-wtq",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The TAPAS Large WTQ model is a powerful variant within the TAPAS family, fine-tuned on the WikiTableQuestions dataset for optimal performance in understanding complex table-based queries. Its large architecture allows it to process a wide range of tabular data and nuanced natural language questions. The generic model name signifies its capacity for deep semantic understanding and its prowess in providing detailed answers from extensive datasets.",
-        "examples": ["Handling multifaceted queries on large tables.", "Performing in-depth data analysis through natural language interactions."],
+        "examples": [
+            "Complex data analysis through natural language queries.",
+            "Deep insights extraction from large-scale tabular data.",
+            "Comprehensive responses to multi-faceted data questions.",
+            "Advanced querying of extensive datasets.",
+            "Interpreting complex questions to generate detailed data insights.",
+            "Multidimensional data analysis from conversational queries.",
+            "Generating elaborate answers from extensive tables."
+        ],
+        "input_examples": [
+            "context: Financial records over several years question: What was the total revenue in Q2 for the last 5 years?",
+            "context: Detailed medical patient records question: List patients diagnosed with diabetes in 2020.",
+            "context: Comprehensive inventory data question: Which products have less than 20 units and are priced over $100?",
+            "context: Employee performance metrics question: Who exceeded their sales targets every quarter last year?",
+            "context: Extensive real estate listings question: Show all properties in Miami with at least 3 bedrooms under $500k.",
+            "context: Multiple years of academic results question: Which department had the highest average grades in 2019?",
+            "context: Global sales data question: What were the top 3 selling products in Europe last year?",
+            "context: Long-term weather data question: When was the last time the temperature exceeded 100°F in July?",
+            "context: Comprehensive database of car models question: List all electric cars with a range of more than 300 miles.",
+            "context: Detailed customer feedback for products question: What are the main complaints about product X in the last quarter?"
+        ],
         "usecases": [
             "Creating sophisticated data analysis tools with conversational interfaces.",
             "Deploying in enterprise environments for complex data retrieval tasks."
@@ -37,11 +106,34 @@
     },
     {
         "name": "TAPAS Base WTQ",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "google/tapas-base-finetuned-wtq",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "TAPAS Base WTQ is a model from the TAPAS project, optimized for a balance between performance and efficiency. This model has been fine-tuned on the WikiTableQuestions dataset to interpret and respond to queries about structured data in tables. Its base size makes it versatile for various applications, with a generic model name that encapsulates its foundational capabilities in processing table-related questions.",
-        "examples": ["Querying structured data for specific information.", "Extracting and summarizing data from tables based on user inquiries."],
+        "examples": [
+            "General data queries from structured tables.",
+            "Summarizing key information from tabular datasets.",
+            "Natural language querying for basic data retrieval.",
+            "Efficient extraction of facts from tables.",
+            "Simplifying data analysis with conversational interfaces.",
+            "User-friendly data lookup from structured sources.",
+            "Converting table data queries into understandable responses."
+        ],
+        "input_examples": [
+            "context: Team sports statistics table question: Who has the most goals?",
+            "context: Daily sales report question: What was the total sale on Wednesday?",
+            "context: List of national holidays question: When is Independence Day?",
+            "context: Product inventory question: Which items are out of stock?",
+            "context: Employee attendance record question: Who was absent more than 5 times last month?",
+            "context: Movie release dates question: When was 'Inception' released?",
+            "context: Restaurant menu with calorie information question: What is the least caloric dish?",
+            "context: Flight durations between cities question: How long is the flight from London to Tokyo?",
+            "context: University course offerings question: Which courses are available this semester?",
+            "context: Monthly utility bills question: What was the highest electricity bill this year?"
+        ],
         "usecases": [
             "Implementing conversational bots for data-driven websites.",
             "Enhancing business intelligence tools with natural language querying features."
@@ -49,13 +141,33 @@
     },
     {
         "name": "TAPAS Small SQA",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "google/tapas-small-finetuned-sqa",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The TAPAS Small SQA model is designed to be a lightweight solution for conversational interfaces dealing with Sequential Question Answering (SQA). Trained on the respective SQA dataset, it specializes in understanding sequences of questions that build upon each other. The generic name of the model reflects its targeted efficiency and sequence handling ability, making it ideal for conversational systems that require quick and coherent follow-up question answering.",
         "examples": [
-            "Interpreting sequences of questions with contextual awareness.",
-            "Providing coherent answers in a conversational sequence involving table data."
+            "Sequencing multiple related questions for data tables.",
+            "Extracting sequential insights from tabular data.",
+            "Responding to follow-up queries in a data-driven conversation.",
+            "Understanding context in a series of related data questions.",
+            "Providing consistent answers in a sequence of table-based inquiries.",
+            "Navigating through sequential data queries efficiently.",
+            "Handling a chain of questions about structured data."
+        ],
+        "input_examples": [
+            "context: Annual company financials question: What was the revenue in 2018? Follow-up: How does that compare to 2017?",
+            "context: Employee database question: List employees in the marketing department. Follow-up: Who among them has been with the company longest?",
+            "context: Schedule of weekly meetings question: What meetings are on Monday? Follow-up: Which of these are before noon?",
+            "context: Restaurant menu question: Show vegetarian dishes. Follow-up: Which of these are under 500 calories?",
+            "context: Student grades table question: Who scored above 90 in Math? Follow-up: Did any of them score below 60 in Science?",
+            "context: Hotel room availability question: Which rooms have sea views? Follow-up: Are any of them suites?",
+            "context: Flight schedule question: List flights to New York. Follow-up: Which of these are direct flights?",
+            "context: Conference speakers list question: Who is speaking on the first day? Follow-up: Are any of them authors of best-selling books?",
+            "context: Car dealership inventory question: Which cars are from 2020? Follow-up: Do any have less than 10,000 miles?",
+            "context: Library book catalog question: Find all novels by J.K. Rowling. Follow-up: Are any of them currently available?"
         ],
         "usecases": [
             "Developing interactive FAQ systems for financial or statistical data.",
@@ -64,13 +176,33 @@
     },
     {
         "name": "TAPAS Base SQA",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "google/tapas-base-finetuned-sqa",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "TAPAS Base SQA stands as a robust conversational model trained on the Sequential Question Answering dataset, balancing comprehensive linguistic understanding with a focus on sequence-based questioning. It provides nuanced responses in dialogues where each question relates to the previous one, typically involving tabular data. The model's generic name underscores its foundational approach to sequence learning and its ability to handle a series of related queries effectively.",
         "examples": [
-            "Maintaining context across a series of data-related questions.",
-            "Generating accurate responses in multi-turn data-driven conversations."
+            "Conversational sequence querying in data tables.",
+            "Maintaining context in sequential data inquiries.",
+            "Answering a series of related questions from structured data.",
+            "Providing consistent responses in data-driven dialogues.",
+            "Interpreting chained queries in a tabular context.",
+            "Responding to multi-turn questions about data tables.",
+            "Handling contextually linked inquiries in table-based conversations."
+        ],
+        "input_examples": [
+            "context: School timetable question: What classes are on Friday? Follow-up: Which of these are in the morning?",
+            "context: Grocery store inventory question: Show all dairy products. Follow-up: Which of these are organic?",
+            "context: Employee skillset database question: Find employees skilled in Python. Follow-up: Do any of them have project management experience?",
+            "context: City population data question: List cities with a population over a million. Follow-up: How many of these are coastal?",
+            "context: Movie database question: Which movies were released in 2020? Follow-up: Are any of them comedies?",
+            "context: Hospital patient records question: Identify patients admitted in June. Follow-up: How many of them are still hospitalized?",
+            "context: List of courses at a university question: Which courses are offered by the Computer Science department? Follow-up: Are any of these online?",
+            "context: Restaurant reservations question: Which reservations are for Friday night? Follow-up: How many are for more than 4 people?",
+            "context: Travel itinerary question: What are the destinations on this itinerary? Follow-up: Which of these are international flights?",
+            "context: Workshop attendee list question: List attendees for the Machine Learning workshop. Follow-up: Are any of them speakers at the event?"
         ],
         "usecases": [
             "Enhancing customer support bots with context-aware data retrieval.",
@@ -79,13 +211,33 @@
     },
     {
         "name": "TAPAS Large SQA",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "google/tapas-large-finetuned-sqa",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The TAPAS Large SQA model is the more extensive and sophisticated sibling in the TAPAS SQA lineup, fine-tuned for Sequential Question Answering tasks. Its large-scale architecture affords it the ability to comprehend and process intricate question sequences, particularly in dialogues that involve complex table-based data. The generic model name conveys its strength in handling detailed conversational contexts and its adeptness in providing contextually relevant answers over multi-turn interactions.",
         "examples": [
-            "Resolving intricate question sequences with high contextual dependency.",
-            "Engaging in detailed analytical conversations based on table data."
+            "Analyzing intricate question sequences for detailed data insights.",
+            "In-depth conversational analysis of complex table data.",
+            "Sophisticated sequence handling for structured data queries.",
+            "Providing comprehensive responses in multi-step data conversations.",
+            "Interpreting and responding to complex sequential queries on tables.",
+            "Engaging in elaborate data-driven conversational sequences.",
+            "Advanced data interpretation in a series of related questions"
+        ],
+        "input_examples": [
+            "context: Global sales report question: Which region had the highest sales last quarter? Follow-up: What was the top-selling product in that region?",
+            "context: International flight schedules question: List all flights to Tokyo. Follow-up: Which of these have a layover in Europe?",
+            "context: University research publications question: Show publications in AI from 2018 to 2020. Follow-up: How many of these have won awards?",
+            "context: Hospital treatment records question: Find all cases treated with the new drug protocol. Follow-up: What were the recovery rates?",
+            "context: E-commerce transaction history question: What were the top-selling categories during the holiday season? Follow-up: Which products had the highest return rates?",
+            "context: Marathon participant data question: Identify runners who completed the race under 4 hours. Follow-up: How many of them were first-time participants?",
+            "context: Real estate market trends question: Which cities had the most property sales? Follow-up: What was the average sale price in these cities?",
+            "context: Corporate training programs question: List all training sessions on cybersecurity. Follow-up: Which sessions had full attendance?",
+            "context: Museum exhibition schedule question: What exhibitions are scheduled for next month? Follow-up: Are there any featuring contemporary artists?",
+            "context: Annual tech conference agenda question: Show the topics covered on Day 2. Follow-up: Which of these sessions have interactive workshops?"
         ],
         "usecases": [
             "Deploying in corporate settings for advanced data exploration via natural language.",
@@ -94,13 +246,33 @@
     },
     {
         "name": "TaPEx Base WTQ",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "microsoft/tapex-base-finetuned-wtq",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "TaPEx Base WTQ by Microsoft leverages the WikiTableQuestions dataset to fine-tune its performance, enabling the model to field questions and generate responses based on tabular data. This base version of the TaPEx family is designed to be versatile and efficient, capable of understanding and interacting with a wide variety of table formats and contents. The generic name highlights its role as a foundational tool for developing conversational agents that can navigate database queries intuitively.",
         "examples": [
-            "Interpreting table-based questions for accurate data retrieval.",
-            "Converting natural language questions into table lookups and responses."
+            "Transforming queries into structured database retrievals.",
+            "Interfacing conversational questions with database systems.",
+            "Facilitating database interactions through natural language inputs.",
+            "Converting user inquiries into effective database queries.",
+            "Bridging conversational AI with structured data access.",
+            "Enabling intuitive database querying through natural language.",
+            "Simplifying data extraction from databases using conversational inputs."
+        ],
+        "input_examples": [
+            "context: Database of university courses question: Find all courses offered in the fall semester.",
+            "context: Customer purchase history question: Which customers made purchases over $100 last month?",
+            "context: Employee attendance records question: Show employees with perfect attendance this year.",
+            "context: Library book inventory question: List all books published before 2000.",
+            "context: Restaurant menu items question: Which dishes contain seafood?",
+            "context: Real estate listings question: Show properties listed above $500,000.",
+            "context: Film festival schedule question: What movies are showing on Saturday?",
+            "context: Retail store inventory question: Identify items that are out of stock.",
+            "context: Gym class schedule question: Find morning yoga classes.",
+            "context: Public transportation timetables question: List all buses to downtown during rush hour."
         ],
         "usecases": [
             "Integrating into customer service bots for data lookup tasks.",
@@ -109,13 +281,33 @@
     },
     {
         "name": "TaPEx Large WTQ",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "microsoft/tapex-large-finetuned-wtq",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The TaPEx Large WTQ model represents the higher end of Microsoft's TaPEx series, boasting enhanced capabilities due to its large model architecture. Fine-tuned on the WikiTableQuestions dataset, it brings a depth of knowledge and a nuanced understanding of table-related questioning to conversational AI. The generic model name underlines its broad utility and advanced analytical prowess in processing and responding to complex natural language queries about data in tables.",
         "examples": [
-            "Deciphering complex questions to extract information from extensive tables.",
-            "Providing comprehensive answers from data in response to elaborate inquiries."
+            "Handling complex database queries through natural language.",
+            "Analyzing and responding to sophisticated data inquiries.",
+            "Advanced conversational interfacing with large-scale databases.",
+            "Delivering precise database responses to complex questions.",
+            "Navigating intricate database structures through conversation.",
+            "Comprehensively understanding and querying extensive databases.",
+            "Interpreting detailed inquiries for effective database retrieval."
+        ],
+        "input_examples": [
+            "context: Nationwide real estate database question: Which cities have the highest number of listings with pools?",
+            "context: Extensive product catalog question: List products discontinued in the last 5 years.",
+            "context: Detailed employee performance data question: Identify employees with a promotion in the past 2 years.",
+            "context: Comprehensive medical research database question: Show studies related to diabetes published after 2010.",
+            "context: Extensive library archive question: Find books by Nobel laureates in Literature.",
+            "context: Global flight database question: Which airlines have direct flights to Tokyo?",
+            "context: Large-scale event ticketing system question: List concerts with over 10,000 tickets sold.",
+            "context: Corporate financial records question: Show quarterly revenue trends for the last 5 years.",
+            "context: Nationwide school district data question: Which districts have the highest student-teacher ratio?",
+            "context: Extensive historical weather records question: Identify years with record-breaking temperatures."
         ],
         "usecases": [
             "Enhancing data analytics platforms with a sophisticated natural language interface.",
@@ -124,13 +316,33 @@
     },
     {
         "name": "TaPEx Base WikiSQL Reiteration",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "microsoft/tapex-base-finetuned-wikisql",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "TaPEx Base WikiSQL Reiteration is a retrained variant of Microsoft's original TaPEx Base model specifically on the WikiSQL dataset, improving its capability to translate natural language questions into SQL queries. This model maintains the balance between size and performance, aimed at developers looking for an efficient SQL query generation tool. The generic model name emphasizes its specialized function in bridging natural language and SQL for seamless database querying.",
         "examples": [
-            "Translating user queries into SQL commands for database interaction.",
-            "Enhancing applications with the ability to understand and process user questions into SQL."
+            "Enhancing SQL query generation from conversational inputs.",
+            "Streamlining natural language to SQL translation.",
+            "Facilitating user-friendly database querying interfaces.",
+            "Optimizing conversational AI for efficient SQL generation.",
+            "Improving database accessibility through natural language processing.",
+            "Advancing conversational interfaces for database interaction.",
+            "Refining AI-driven SQL query construction from user questions."
+        ],
+        "input_examples": [
+            "context: School enrollment database question: Find the total number of students enrolled this year.",
+            "context: Car dealership inventory question: Which cars are available in red color?",
+            "context: Online book store question: List all books by author J.K. Rowling.",
+            "context: Hospital patient records question: Show patients admitted for surgery last month.",
+            "context: Airline flight information question: Identify flights to New York on Fridays.",
+            "context: E-commerce order history question: What were the top-selling items last Christmas?",
+            "context: Movie database question: List movies released after 2015 with a rating above 8.",
+            "context: Corporate employee directory question: Find employees who joined in the last 6 months.",
+            "context: Hotel reservation system question: Show available rooms for next weekend.",
+            "context: Public library catalog question: Which books are available in the science fiction genre?"
         ],
         "usecases": [
             "Developing conversational interfaces for database management systems.",
@@ -139,13 +351,33 @@
     },
     {
         "name": "TaPEx Large WikiSQL",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "microsoft/tapex-large-finetuned-wikisql",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The TaPEx Large WikiSQL model is Microsoft's expansive conversational model that excels in generating SQL queries from natural language questions, trained on the WikiSQL dataset. Its extensive architecture allows for sophisticated understanding and generation of SQL, suitable for complex database querying. The generic model name reflects its large-scale capacity and its expertise in facilitating direct interactions with databases through conversational means.",
         "examples": [
-            "Creating SQL queries from detailed natural language descriptions.",
-            "Facilitating in-depth data retrieval and management via conversational inputs."
+            "Generating complex SQL queries from detailed user queries.",
+            "Conversational interaction with large databases for SQL creation.",
+            "Advanced natural language processing for database querying.",
+            "Sophisticated SQL generation from conversational inputs.",
+            "Efficiently translating detailed questions into SQL commands.",
+            "Enhancing data retrieval capabilities through natural language.",
+            "Elevating database interfaces with AI-driven SQL query formation."
+        ],
+        "input_examples": [
+            "context: National demographic database question: Find the average age in each state.",
+            "context: Comprehensive movie database question: List movies directed by Christopher Nolan with a rating above 7.",
+            "context: Detailed stock market data question: Show companies with a market cap over $50 billion.",
+            "context: Extensive academic publication records question: Identify papers in quantum physics published by MIT researchers.",
+            "context: Large-scale retail sales data question: Which products had the highest sales in the last quarter?",
+            "context: Global environmental dataset question: Find countries with the highest carbon emissions last year.",
+            "context: National crime statistics question: Show the crime rate trends in major cities over the past decade.",
+            "context: Comprehensive travel records question: Identify the most visited tourist destinations last summer.",
+            "context: Extensive sports game statistics question: List soccer players with more than 10 goals in the last season.",
+            "context: Detailed historical weather data question: Show the average rainfall in tropical regions in the past 5 years."
         ],
         "usecases": [
             "Building advanced data exploration bots for enterprise databases.",
@@ -154,13 +386,33 @@
     },
     {
         "name": "TAPAS Small WikiSQL Supervised",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "google/tapas-small-finetuned-wikisql-supervised",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Google's TAPAS Small WikiSQL Supervised model offers a streamlined approach to parsing and answering questions related to structured tabular data, having been supervised on the WikiSQL dataset. This small model variant prioritizes speed and efficiency, making it suitable for environments where rapid query processing is crucial. The generic model name highlights its precise focus on supervised learning from tabular data and its capability to provide quick, accurate responses.",
         "examples": [
-            "Rapidly generating query responses for small to medium-sized tables.",
-            "Providing quick insights from data tables through natural language questions."
+            "Rapid response generation for tabular data queries.",
+            "Efficient table-based question answering.",
+            "Quick and accurate data retrieval from structured tables.",
+            "Streamlined interaction with tabular data through natural language.",
+            "Fast and effective table query processing in conversational AI.",
+            "Optimized natural language interpretation for table-based data.",
+            "Agile and precise data extraction from tables using conversational queries."
+        ],
+        "input_examples": [
+            "context: Small business financial records question: What were the total expenses last quarter?",
+            "context: Local library book inventory question: List all books published in the last 5 years.",
+            "context: Café menu items question: Which dishes are vegan-friendly?",
+            "context: Small clinic patient records question: Show the number of new patients this month.",
+            "context: Local sports team statistics question: Identify players with the highest scoring average.",
+            "context: Community event calendar question: What events are scheduled for the weekend?",
+            "context: Independent bookstore sales data question: List the bestselling genres last month.",
+            "context: Local gym membership records question: Find the total number of active members.",
+            "context: Neighborhood crime reports question: Show incidents reported in the last week.",
+            "context: Art gallery exhibition history question: Identify artists featured more than twice."
         ],
         "usecases": [
             "Implementing into mobile applications for fast data lookup features.",
@@ -169,13 +421,33 @@
     },
     {
         "name": "TAPAS Base WikiSQL Supervised",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "google/tapas-base-finetuned-wikisql-supervised",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The TAPAS Base WikiSQL Supervised model from Google strikes a balance between computational demands and the depth of learning, trained under supervision on the WikiSQL dataset. It stands as a versatile conversational AI agent that can effectively parse and interact with various tabular data formats through natural language. The generic model name underlines its foundational application in supervised table-question scenarios and its adaptability to a broad range of data interrogation tasks.",
         "examples": [
-            "Interacting with tabular data to answer user questions with context.",
-            "Transforming natural language queries into actionable data insights."
+            "Balanced table-based question answering and interpretation.",
+            "Conversational AI for interactive tabular data analysis.",
+            "Adaptable data querying from structured tables through natural language.",
+            "Effective table-data retrieval in conversational formats.",
+            "Versatile table query understanding and response generation.",
+            "Efficient handling of diverse tabular datasets in natural language interactions.",
+            "Skillful extraction and analysis of table-based information via AI conversations."
+        ],
+        "input_examples": [
+            "context: University course catalog question: Which courses offer 3 credits?",
+            "context: Fitness center class schedule question: List morning yoga sessions for next week.",
+            "context: Small restaurant's order log question: Find the most ordered dish last month.",
+            "context: Local wildlife observation records question: Show bird species spotted this spring.",
+            "context: Community center activity roster question: Identify activities for children under 10.",
+            "context: Local market's product inventory question: Which products are sourced locally?",
+            "context: Museum visitor statistics question: Show the number of visitors during holidays.",
+            "context: City park usage data question: Find the most visited parks last year.",
+            "context: Local theatre showtimes question: List evening shows for the upcoming weekend.",
+            "context: Town's historical landmarks question: Identify landmarks built before 1900."
         ],
         "usecases": [
             "Incorporating into analytical tools for streamlined data querying.",
@@ -184,13 +456,33 @@
     },
     {
         "name": "TAPAS Large WikiSQL Supervised",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "google/tapas-large-finetuned-wikisql-supervised",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Google's TAPAS Large WikiSQL Supervised model epitomizes the upper tier of table-question AI, offering extensive understanding and detailed response generation, fine-tuned on the WikiSQL dataset. This model's large framework is tailored for deep analysis and interaction with complex table-based queries. The generic model name accentuates its supremacy in supervised learning from tabular content and its proficiency in managing elaborate conversational data exploration.",
         "examples": [
-            "Extracting and synthesizing information from vast tables in response to intricate questions.",
-            "Conducting deep and meaningful dialogues around data-centric topics."
+            "Advanced analysis of complex queries on large tables.",
+            "Deep conversational understanding of extensive tabular data.",
+            "Sophisticated natural language interaction with detailed datasets.",
+            "Comprehensive and detailed answers from complex tables.",
+            "High-level tabular data interpretation and response generation.",
+            "Elaborate and nuanced question handling in table-based AI.",
+            "Expert-level conversational analysis for extensive data tables."
+        ],
+        "input_examples": [
+            "context: National health statistics database question: Show the regions with the highest healthcare spending.",
+            "context: Global economic indicators question: Identify countries with a GDP growth rate above 5%.",
+            "context: Large corporation's employee database question: List departments with more than 100 employees.",
+            "context: Comprehensive environmental data question: Find countries with the largest forest area coverage.",
+            "context: International flight information question: Show all flights from London to Tokyo last month.",
+            "context: Nationwide real estate listings question: Identify properties with a price above $1 million.",
+            "context: Extensive academic research papers question: List papers on renewable energy published in 2020.",
+            "context: Major league sports statistics question: Show players with over 20 goals in the last season.",
+            "context: Comprehensive movie database question: Find movies with both a sequel and a prequel.",
+            "context: Extensive historical weather records question: Identify years with record-breaking temperatures."
         ],
         "usecases": [
             "Advancing AI-driven research tools for data scientists and analysts.",
@@ -199,13 +491,33 @@
     },
     {
         "name": "DistilBERT Base Uncased SQuAD",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "distilbert-base-uncased-distilled-squad",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The DistilBERT Base Uncased SQuAD model is a distilled version of the BERT model, maintaining strong performance on the Stanford Question Answering Dataset (SQuAD) while being more lightweight. The distillation process ensures that it retains a significant amount of the original BERT's abilities, making it ideal for environments where resources are limited. The generic model name reflects its efficiency and efficacy in question-answering tasks, providing a balanced option for developers.",
         "examples": [
-            "Answering questions from a given passage with high accuracy.",
-            "Operating in resource-constrained environments while maintaining good performance."
+            "Efficient question answering from textual content.",
+            "Distilled model for rapid and accurate information retrieval.",
+            "Lightweight AI for extracting answers from passages.",
+            "Optimized conversational agent for question-answering tasks.",
+            "Streamlined response generation for diverse queries.",
+            "Resource-efficient model for text-based question answering.",
+            "High-performance, compact AI for reading comprehension."
+        ],
+        "input_examples": [
+            "context: The history of ancient Rome question: Who founded Rome?",
+            "context: Overview of photosynthesis process question: What is the primary purpose of photosynthesis?",
+            "context: Article about the solar system question: Which planet is closest to the sun?",
+            "context: Biography of Marie Curie question: What did Marie Curie discover?",
+            "context: Description of the Internet question: When was the Internet invented?",
+            "context: Guide on healthy eating question: What are the benefits of a balanced diet?",
+            "context: Document on World War II question: What caused World War II?",
+            "context: Text about renewable energy sources question: What is the most efficient renewable energy source?",
+            "context: Passage on human evolution question: Where did humans first appear?",
+            "context: Article on global warming question: What are the primary causes of global warming?"
         ],
         "usecases": [
             "Developing cost-effective educational bots for tutoring and training.",
@@ -214,13 +526,33 @@
     },
     {
         "name": "Deepset BERT Base SQuAD2",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "deepset/bert-base-cased-squad2",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Deepset's BERT Base Cased SQuAD2 model is fine-tuned on the second version of the Stanford Question Answering Dataset, which includes unanswerable questions, making it robust in discriminating between answerable and unanswerable queries. This model provides a solid foundation for conversational agents tasked with a high level of comprehension and judgment. The generic model name encapsulates its core functionality in answering complex questions with precision.",
         "examples": [
-            "Distinguishing between answerable and unanswerable questions.",
-            "Delivering precise answers to questions based on given contexts."
+            "Advanced answering of complex and nuanced queries.",
+            "Highly accurate responses to challenging questions.",
+            "BERT-based sophisticated question-answering ability.",
+            "Expert handling of unanswerable queries within texts.",
+            "Deep contextual understanding for precise answers.",
+            "Distinguishing between answerable and tricky questions.",
+            "Enhanced AI for comprehensive reading comprehension."
+        ],
+        "input_examples": [
+            "context: Details about the Apollo moon missions question: Who was the first person to walk on the moon?",
+            "context: Information on the Great Wall of China question: How long is the Great Wall of China?",
+            "context: Document on the invention of the telephone question: Who is credited with inventing the telephone?",
+            "context: Article on the structure of DNA question: Who discovered the double helix structure of DNA?",
+            "context: Overview of the French Revolution question: When did the French Revolution begin?",
+            "context: Passage about the Amazon Rainforest question: What is the size of the Amazon Rainforest?",
+            "context: Text on the theory of relativity question: Who formulated the theory of relativity?",
+            "context: Description of the Internet's evolution question: What was the first message sent over the Internet?",
+            "context: Insights on black holes question: What happens to matter in a black hole?",
+            "context: Information on the human brain question: How many neurons are in the human brain?"
         ],
         "usecases": [
             "Crafting intelligent virtual assistants for professional services.",
@@ -229,13 +561,33 @@
     },
     {
         "name": "Deepset RoBERTa Base SQuAD2",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "deepset/roberta-base-squad2",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The Deepset RoBERTa Base SQuAD2 model is fine-tuned on the SQuAD2.0 dataset and is built upon the RoBERTa architecture, which is optimized for more dynamic masking patterns and larger mini-batches during pre-training. This model excels at understanding complex questions and providing accurate answers, even when the questions are deliberately tricky or misleading. The generic model name signifies its expertise in delivering high-fidelity responses in a conversational context.",
         "examples": [
-            "Navigating through complex question patterns to find relevant answers.",
-            "Handling deceptive or ambiguous queries with nuanced understanding."
+            "Handling complex, ambiguous, or misleading queries.",
+            "Robust and nuanced question answering from textual data.",
+            "Advanced comprehension for detailed response generation.",
+            "Accurate answering of intricate or deceptive questions.",
+            "High-fidelity responses in conversational question-answering.",
+            "Context-aware and insightful extraction of information.",
+            "Precision in distinguishing subtle nuances in questions."
+        ],
+        "input_examples": [
+            "context: Article about the human circulatory system question: How does the heart pump blood?",
+            "context: Text on the discovery of gravity question: Who is known for formulating the law of gravity?",
+            "context: Passage on the evolution of computers question: What was the first mechanical computer?",
+            "context: Overview of the Renaissance period question: What was the Renaissance a rebirth of?",
+            "context: Information on the world's oceans question: Which is the largest ocean on Earth?",
+            "context: Description of the Egyptian pyramids question: How were the pyramids built?",
+            "context: Article on the lifecycle of stars question: What causes a star to form?",
+            "context: Details about the Internet's creation question: Who is considered the father of the Internet?",
+            "context: Insights into the human genome question: What is the primary function of DNA?",
+            "context: Document on climate change question: What are the main effects of climate change?"
         ],
         "usecases": [
             "Implementing into customer support bots to provide detailed product information.",
@@ -244,13 +596,33 @@
     },
     {
         "name": "Deepset DeBERTa V3 Base SQuAD2",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "deepset/deberta-v3-base-squad2",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The Deepset DeBERTa V3 Base SQuAD2 model leverages the DeBERTa (Decoding-enhanced BERT with disentangled attention) V3 architecture, providing improved performance on the SQuAD2.0 dataset. It stands out for its ability to disentangle the attention mechanism, offering finer interpretation of question contexts. The generic model name underscores its advanced capabilities in processing and answering questions with high accuracy and context sensitivity.",
         "examples": [
-            "Achieving state-of-the-art results on challenging question answering benchmarks.",
-            "Providing context-aware answers that understand the subtleties of natural language."
+            "Achieving top results in challenging question answering tasks.",
+            "Context-aware answering with a deep understanding of language.",
+            "Sophisticated interpretation of complex question contexts.",
+            "State-of-the-art performance in reading comprehension.",
+            "Handling intricate queries with high accuracy and detail.",
+            "Advanced conversational intelligence for nuanced question-answering.",
+            "Expertise in processing and responding to complex textual data."
+        ],
+        "input_examples": [
+            "context: Report on the solar system's formation question: How did the solar system form?",
+            "context: Biography of Leonardo da Vinci question: What is Leonardo da Vinci known for?",
+            "context: Description of quantum mechanics question: What is the principle of superposition?",
+            "context: Article on the Great Barrier Reef question: What threats does the Great Barrier Reef face?",
+            "context: Overview of the internet's impact question: How has the internet changed communication?",
+            "context: Information on the structure of atoms question: What are the main components of an atom?",
+            "context: Text about the concept of time question: What is the theory of spacetime?",
+            "context: Passage on renewable energy sources question: What are the advantages of solar energy?",
+            "context: Details about the human immune system question: How does the immune system fight viruses?",
+            "context: Insights into the causes of earthquakes question: What triggers an earthquake?"
         ],
         "usecases": [
             "Augmenting research tools for data analysis with sophisticated question-answering features.",
@@ -259,13 +631,33 @@
     },
     {
         "name": "Deepset ELECTRA Base SQuAD2",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "deepset/electra-base-squad2",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The Deepset ELECTRA Base SQuAD2 model utilizes the ELECTRA training approach, which is more sample-efficient than traditional BERT pre-training. Fine-tuned on SQuAD2.0, it has a high aptitude for understanding complex and nuanced queries. The generic model name indicates its proficiency in leveraging the discriminator-generator setup to provide accurate and detailed answers in a conversational interface.",
         "examples": [
-            "Responding effectively to nuanced questions in a given context.",
-            "Improving sample efficiency in the pre-training stage for better performance."
+            "Efficient answering of nuanced queries in text.",
+            "Rapid response generation for complex questions.",
+            "Sample-efficient pre-training for enhanced performance.",
+            "Accurate information retrieval from detailed contexts.",
+            "ELECTRA-based AI for sophisticated question answering.",
+            "Handling a wide range of customer inquiries effectively.",
+            "Proficient AI assistant for professional and educational use."
+        ],
+        "input_examples": [
+            "context: A study on global climate change question: What are the main causes of climate change?",
+            "context: Overview of the human digestive system question: How does the stomach break down food?",
+            "context: Biography of Albert Einstein question: What is Einstein famous for?",
+            "context: Details about the Internet's development question: Who played a key role in developing the Internet?",
+            "context: Article on the principles of economics question: What is the law of supply and demand?",
+            "context: Text about the evolution of languages question: How do languages evolve over time?",
+            "context: Information on renewable energy question: Why is renewable energy important?",
+            "context: Passage on the effects of pollution question: What are the health impacts of air pollution?",
+            "context: Insights into the structure of galaxies question: What is at the center of a galaxy?",
+            "context: Report on advancements in artificial intelligence question: What are the latest breakthroughs in AI?"
         ],
         "usecases": [
             "Building responsive chatbots that can handle a wide range of customer inquiries.",
@@ -274,13 +666,33 @@
     },
     {
         "name": "Deepset DeBERTa V3 Large SQuAD2",
-        "inputs": [{ "type": "text", "name": "input" }],
+        "inputs": [
+            { "type": "text", "name": "context" },
+            { "type": "text", "name": "question" }
+        ],
         "model_name": "deepset/deberta-v3-large-squad2",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The Deepset DeBERTa V3 Large SQuAD2 model represents an upscaled version of its base model with a larger capacity for handling complex language understanding tasks. Fine-tuned on SQuAD2.0, it demonstrates excellent performance in discerning relevant information from passages to answer questions accurately. The generic model name is a testament to its capability to manage and analyze extensive datasets for detailed question answering.",
         "examples": [
-            "Providing comprehensive answers to intricate questions from extensive passages.",
-            "Understanding and responding to context-heavy questions with higher accuracy."
+            "Comprehensive answers to complex questions.",
+            "High-accuracy responses for detailed inquiries.",
+            "Advanced language processing for challenging questions.",
+            "In-depth analysis and interpretation of textual data.",
+            "Sophisticated AI for nuanced understanding of contexts.",
+            "High-level performance in conversational question-answering.",
+            "Expertise in delivering contextually relevant and detailed answers."
+        ],
+        "input_examples": [
+            "context: An article on Mars exploration missions question: What is the main goal of Mars missions?",
+            "context: Text about the history of the Internet question: Who were the pioneers of the Internet?",
+            "context: Overview of quantum computing question: What makes quantum computing unique?",
+            "context: Report on the effects of deforestation question: What are the environmental impacts of deforestation?",
+            "context: Information on the laws of thermodynamics question: What is the second law of thermodynamics?",
+            "context: Biography of Nikola Tesla question: What were Tesla's major contributions to electricity?",
+            "context: Passage about the human brain's capabilities question: How does the brain process information?",
+            "context: Article on the conservation of wildlife question: Why is wildlife conservation important?",
+            "context: Insights into the mechanisms of climate change question: What are the scientific indicators of climate change?",
+            "context: Description of the workings of the stock market question: How does the stock market operate?"
         ],
         "usecases": [
             "Deploying in AI-driven analysis tools for complex document review tasks.",

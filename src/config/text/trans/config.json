@@ -12,7 +12,26 @@
         "examples": [
             "Translating customer reviews from various languages to English",
             "Translating product descriptions to multiple languages for a global marketplace",
-            "Real-time translation of multilingual meetings"
+            "Real-time translation of multilingual meetings",
+            "Translating business communications for multinational companies",
+            "Translating travel guides for global tourists",
+            "Translating international legal documents",
+            "Translating medical documents for global healthcare providers",
+            "Translating educational materials for international students",
+            "Translating technical manuals for global engineering firms",
+            "Translating entertainment content for a worldwide audience"
+        ],
+        "input_examples": [
+            "input: English health advisory on pandemic precautions, source: English, target: Spanish",
+            "input: English research paper on climate change, source: English, target: French",
+            "input: English website content for an international e-commerce platform, source: English, target: German",
+            "input: English travel guide for a global audience, source: English, target: Italian",
+            "input: English technical manual for software, source: English, target: Russian",
+            "input: English business proposal for international stakeholders, source: English, target: Japanese",
+            "input: English report on international economic trends, source: English, target: Arabic",
+            "input: English article on global health issues, source: English, target: Chinese",
+            "input: English press release for an international event, source: English, target: Portuguese",
+            "input: English product catalog for a multinational company, source: English, target: Hindi"
         ],
         "usecases": ["Global customer support", "Multilingual content creation", "International business communication"]
     },
@@ -29,7 +48,26 @@
         "examples": [
             "Translating foreign news articles to English",
             "Translating user-generated content to English for moderation",
-            "Translating business documents to English for centralized analysis"
+            "Translating business documents to English for centralized analysis",
+            "Translating scientific research papers to English",
+            "Translating international news articles to English",
+            "Translating literary works from various languages to English",
+            "Translating technical specifications to English for international projects",
+            "Translating cultural content to English for educational purposes",
+            "Translating social media content from multiple languages to English",
+            "Translating international market research data to English"
+        ],
+        "input_examples": [
+            "input: Speech at an international tech conference, source: English, target: Spanish",
+            "input: Presentation in a global business meeting, source: French, target: English",
+            "input: Lecture in a multilingual educational webinar, source: German, target: Chinese",
+            "input: Diplomatic speech at an international summit, source: Japanese, target: Russian",
+            "input: Product launch presentation for a global audience, source: Italian, target: Arabic",
+            "input: Keynote speech at an international medical conference, source: Chinese, target: English",
+            "input: Technical talk in an engineering symposium, source: Russian, target: French",
+            "input: Cultural exchange event speech, source: Portuguese, target: German",
+            "input: International sports event commentary, source: Spanish, target: Italian",
+            "input: Multinational corporate policy announcement, source: English, target: Hindi"
         ],
         "usecases": ["Multilingual content moderation", "Global news monitoring", "International business documentation"]
     },
@@ -46,7 +84,26 @@
         "examples": [
             "Translating English marketing material to multiple languages",
             "Translating English educational content to multiple languages for a diverse student base",
-            "Translating English legal documents to multiple languages for international compliance"
+            "Translating English legal documents to multiple languages for international compliance",
+            "Translating NGO communications to multiple languages",
+            "Translating international policy documents from English",
+            "Translating tourism promotional material to various languages",
+            "Translating English educational courses for global access",
+            "Translating public health advisories from English to multiple languages",
+            "Translating tech product descriptions from English to global markets",
+            "Translating English media content for international broadcasting"
+        ],
+        "input_examples": [
+            "input: Product listing for a new electronic gadget, source: English, target: Japanese",
+            "input: Customer review of a fashion product, source: Spanish, target: English",
+            "input: E-commerce marketing content for a holiday sale, source: French, target: German",
+            "input: Product description for home appliances, source: Chinese, target: Russian",
+            "input: Customer query on an international e-commerce platform, source: Italian, target: English",
+            "input: Marketing material for a global fashion brand, source: English, target: Arabic",
+            "input: User manual for a tech product in a global market, source: German, target: Portuguese",
+            "input: Customer feedback on a beauty product, source: Russian, target: French",
+            "input: Product specifications for an automotive part, source: Japanese, target: Spanish",
+            "input: E-commerce platform's policy updates, source: English, target: Chinese"
         ],
         "usecases": ["Global marketing campaigns", "Multilingual educational platforms", "International legal compliance"]
     }

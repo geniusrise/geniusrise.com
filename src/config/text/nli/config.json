@@ -18,16 +18,16 @@
             "Understanding user opinions in product reviews across languages"
         ],
         "input_examples": [
-            "{ \"premise\": \"The phone has an excellent battery life.\", \"hypothesis\": \"The phone needs frequent charging.",
-            "{ \"premise\": \"He won the tennis match.\", \"hypothesis\": \"He was victorious in the sports competition.",
-            "{ \"premise\": \"The museum is closed on Mondays.\", \"hypothesis\": \"People can visit the museum on Tuesday.",
-            "{ \"premise\": \"The cat is sleeping under the tree.\", \"hypothesis\": \"The animal is resting outdoors.",
-            "{ \"premise\": \"It's raining heavily in Paris.\", \"hypothesis\": \"The weather in Paris is sunny.",
-            "{ \"premise\": \"The new policy will be implemented next year.\", \"hypothesis\": \"The current policy is still in effect.",
-            "{ \"premise\": \"The chef added too much salt to the dish.\", \"hypothesis\": \"The food prepared by the chef is bland.",
-            "{ \"premise\": \"They are building a new library in the city.\", \"hypothesis\": \"The city will have more educational resources.",
-            "{ \"premise\": \"The company's profits have doubled.\", \"hypothesis\": \"The company is facing financial losses.",
-            "{ \"premise\": \"The vaccine is effective against the virus.\", \"hypothesis\": \"The virus can be prevented with the vaccine."
+            " \"premise\": \"The phone has an excellent battery life.\", \"hypothesis\": \"The phone needs frequent charging.",
+            " \"premise\": \"He won the tennis match.\", \"hypothesis\": \"He was victorious in the sports competition.",
+            " \"premise\": \"The museum is closed on Mondays.\", \"hypothesis\": \"People can visit the museum on Tuesday.",
+            " \"premise\": \"The cat is sleeping under the tree.\", \"hypothesis\": \"The animal is resting outdoors.",
+            " \"premise\": \"It's raining heavily in Paris.\", \"hypothesis\": \"The weather in Paris is sunny.",
+            " \"premise\": \"The new policy will be implemented next year.\", \"hypothesis\": \"The current policy is still in effect.",
+            " \"premise\": \"The chef added too much salt to the dish.\", \"hypothesis\": \"The food prepared by the chef is bland.",
+            " \"premise\": \"They are building a new library in the city.\", \"hypothesis\": \"The city will have more educational resources.",
+            " \"premise\": \"The company's profits have doubled.\", \"hypothesis\": \"The company is facing financial losses.",
+            " \"premise\": \"The vaccine is effective against the virus.\", \"hypothesis\": \"The virus can be prevented with the vaccine."
         ],
         "usecases": ["Cross-lingual text analysis", "Multilingual content moderation", "Global customer support systems"]
     },
@@ -50,16 +50,16 @@
             "Evaluating scientific claims in academic papers"
         ],
         "input_examples": [
-            "{ \"premise\": \"The Earth revolves around the Sun.\", \"hypothesis\": \"The Sun orbits the Earth.",
-            "{ \"premise\": \"Water freezes at 0 degrees Celsius.\", \"hypothesis\": \"Ice melts at 0 degrees Celsius.",
-            "{ \"premise\": \"The car is parked in the garage.\", \"hypothesis\": \"The garage is empty.",
-            "{ \"premise\": \"She graduated from Harvard University.\", \"hypothesis\": \"She is an alumnus of a prestigious university.",
-            "{ \"premise\": \"The book was published in 1950.\", \"hypothesis\": \"The publication date of the book is in the 20th century.",
-            "{ \"premise\": \"The concert was postponed due to rain.\", \"hypothesis\": \"The concert took place as scheduled.",
-            "{ \"premise\": \"The store offers a discount on all items.\", \"hypothesis\": \"Some items in the store are not discounted.",
-            "{ \"premise\": \"The athlete won three gold medals.\", \"hypothesis\": \"The athlete was unsuccessful in the competition.",
-            "{ \"premise\": \"The painting is a work of Vincent van Gogh.\", \"hypothesis\": \"The artwork was created by a famous Dutch painter.",
-            "{ \"premise\": \"The medication is taken once a day.\", \"hypothesis\": \"Patients need to take the medication multiple times a day."
+            " \"premise\": \"The Earth revolves around the Sun.\", \"hypothesis\": \"The Sun orbits the Earth.",
+            " \"premise\": \"Water freezes at 0 degrees Celsius.\", \"hypothesis\": \"Ice melts at 0 degrees Celsius.",
+            " \"premise\": \"The car is parked in the garage.\", \"hypothesis\": \"The garage is empty.",
+            " \"premise\": \"She graduated from Harvard University.\", \"hypothesis\": \"She is an alumnus of a prestigious university.",
+            " \"premise\": \"The book was published in 1950.\", \"hypothesis\": \"The publication date of the book is in the 20th century.",
+            " \"premise\": \"The concert was postponed due to rain.\", \"hypothesis\": \"The concert took place as scheduled.",
+            " \"premise\": \"The store offers a discount on all items.\", \"hypothesis\": \"Some items in the store are not discounted.",
+            " \"premise\": \"The athlete won three gold medals.\", \"hypothesis\": \"The athlete was unsuccessful in the competition.",
+            " \"premise\": \"The painting is a work of Vincent van Gogh.\", \"hypothesis\": \"The artwork was created by a famous Dutch painter.",
+            " \"premise\": \"The medication is taken once a day.\", \"hypothesis\": \"Patients need to take the medication multiple times a day."
         ],
         "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"]
     },
@@ -82,16 +82,16 @@
             "Comparing movie plots to book narratives for adaptation accuracy"
         ],
         "input_examples": [
-            "{ \"premise\": \"The restaurant received a Michelin star.\", \"hypothesis\": \"The restaurant is highly rated.",
-            "{ \"premise\": \"The flight was cancelled due to bad weather.\", \"hypothesis\": \"Passengers boarded the flight on time.",
-            "{ \"premise\": \"The novel is set in the 18th century.\", \"hypothesis\": \"The story takes place in modern times.",
-            "{ \"premise\": \"The company announced a new product launch.\", \"hypothesis\": \"The company is reducing its product range.",
-            "{ \"premise\": \"The movie won several Academy Awards.\", \"hypothesis\": \"The movie was critically acclaimed.",
-            "{ \"premise\": \"The athlete broke the world record.\", \"hypothesis\": \"The athlete performed poorly in the event.",
-            "{ \"premise\": \"The scientist presented her research at the conference.\", \"hypothesis\": \"The research was not shared publicly.",
-            "{ \"premise\": \"The painting is displayed in the Louvre Museum.\", \"hypothesis\": \"The artwork is not available for public viewing.",
-            "{ \"premise\": \"The technology company is valued at a billion dollars.\", \"hypothesis\": \"The company is struggling financially.",
-            "{ \"premise\": \"The new law was passed by the senate.\", \"hypothesis\": \"The legislative process is at a standstill."
+            " \"premise\": \"The restaurant received a Michelin star.\", \"hypothesis\": \"The restaurant is highly rated.",
+            " \"premise\": \"The flight was cancelled due to bad weather.\", \"hypothesis\": \"Passengers boarded the flight on time.",
+            " \"premise\": \"The novel is set in the 18th century.\", \"hypothesis\": \"The story takes place in modern times.",
+            " \"premise\": \"The company announced a new product launch.\", \"hypothesis\": \"The company is reducing its product range.",
+            " \"premise\": \"The movie won several Academy Awards.\", \"hypothesis\": \"The movie was critically acclaimed.",
+            " \"premise\": \"The athlete broke the world record.\", \"hypothesis\": \"The athlete performed poorly in the event.",
+            " \"premise\": \"The scientist presented her research at the conference.\", \"hypothesis\": \"The research was not shared publicly.",
+            " \"premise\": \"The painting is displayed in the Louvre Museum.\", \"hypothesis\": \"The artwork is not available for public viewing.",
+            " \"premise\": \"The technology company is valued at a billion dollars.\", \"hypothesis\": \"The company is struggling financially.",
+            " \"premise\": \"The new law was passed by the senate.\", \"hypothesis\": \"The legislative process is at a standstill."
         ],
         "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"]
     },
@@ -114,16 +114,16 @@
             "Assessing user statements in online forums for factual accuracy"
         ],
         "input_examples": [
-            "{ \"premise\": \"The smartphone has a 48MP camera.\", \"hypothesis\": \"The camera quality of the smartphone is low.",
-            "{ \"premise\": \"The author has won the Pulitzer Prize.\", \"hypothesis\": \"The writer is unrecognized in their field.",
-            "{ \"premise\": \"The plant is toxic to animals.\", \"hypothesis\": \"Pets can safely eat the plant.",
-            "{ \"premise\": \"The car runs on electric power.\", \"hypothesis\": \"The vehicle requires gasoline to operate.",
-            "{ \"premise\": \"The city is known for its historic architecture.\", \"hypothesis\": \"Modern buildings dominate the city's skyline.",
-            "{ \"premise\": \"The company operates globally.\", \"hypothesis\": \"The business is restricted to local operations.",
-            "{ \"premise\": \"The conference will be held virtually.\", \"hypothesis\": \"Attendees will meet in person at the conference.",
-            "{ \"premise\": \"The software update includes new features.\", \"hypothesis\": \"The update removes several existing functionalities.",
-            "{ \"premise\": \"The musician performed at the concert last night.\", \"hypothesis\": \"The concert was cancelled.",
-            "{ \"premise\": \"The book covers the topic of climate change.\", \"hypothesis\": \"The book is about ancient civilizations."
+            " \"premise\": \"The smartphone has a 48MP camera.\", \"hypothesis\": \"The camera quality of the smartphone is low.",
+            " \"premise\": \"The author has won the Pulitzer Prize.\", \"hypothesis\": \"The writer is unrecognized in their field.",
+            " \"premise\": \"The plant is toxic to animals.\", \"hypothesis\": \"Pets can safely eat the plant.",
+            " \"premise\": \"The car runs on electric power.\", \"hypothesis\": \"The vehicle requires gasoline to operate.",
+            " \"premise\": \"The city is known for its historic architecture.\", \"hypothesis\": \"Modern buildings dominate the city's skyline.",
+            " \"premise\": \"The company operates globally.\", \"hypothesis\": \"The business is restricted to local operations.",
+            " \"premise\": \"The conference will be held virtually.\", \"hypothesis\": \"Attendees will meet in person at the conference.",
+            " \"premise\": \"The software update includes new features.\", \"hypothesis\": \"The update removes several existing functionalities.",
+            " \"premise\": \"The musician performed at the concert last night.\", \"hypothesis\": \"The concert was cancelled.",
+            " \"premise\": \"The book covers the topic of climate change.\", \"hypothesis\": \"The book is about ancient civilizations."
         ],
         "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"]
     },
@@ -146,16 +146,16 @@
             "Analyzing statements in corporate earnings calls for accuracy"
         ],
         "input_examples": [
-            "{ \"premise\": \"The laptop has a 10-hour battery life.\", \"hypothesis\": \"The laptop needs to be charged frequently.",
-            "{ \"premise\": \"The artwork dates back to the Renaissance period.\", \"hypothesis\": \"The painting is a modern art piece.",
-            "{ \"premise\": \"The team won the championship game.\", \"hypothesis\": \"The team suffered a defeat in the final match.",
-            "{ \"premise\": \"The medication is approved by the FDA.\", \"hypothesis\": \"The drug is not safe for use.",
-            "{ \"premise\": \"The film is based on a true story.\", \"hypothesis\": \"The movie is a work of fiction.",
-            "{ \"premise\": \"The device connects via Bluetooth technology.\", \"hypothesis\": \"The gadget requires a wired connection.",
-            "{ \"premise\": \"The festival celebrates traditional cuisine.\", \"hypothesis\": \"The event focuses on contemporary art.",
-            "{ \"premise\": \"The building was constructed in the 19th century.\", \"hypothesis\": \"The construction is a recent development.",
-            "{ \"premise\": \"The experiment was conducted in a controlled environment.\", \"hypothesis\": \"The research lacked proper experimental conditions.",
-            "{ \"premise\": \"The lecture covered the topic of renewable energy.\", \"hypothesis\": \"The talk focused on fossil fuels."
+            " \"premise\": \"The laptop has a 10-hour battery life.\", \"hypothesis\": \"The laptop needs to be charged frequently.",
+            " \"premise\": \"The artwork dates back to the Renaissance period.\", \"hypothesis\": \"The painting is a modern art piece.",
+            " \"premise\": \"The team won the championship game.\", \"hypothesis\": \"The team suffered a defeat in the final match.",
+            " \"premise\": \"The medication is approved by the FDA.\", \"hypothesis\": \"The drug is not safe for use.",
+            " \"premise\": \"The film is based on a true story.\", \"hypothesis\": \"The movie is a work of fiction.",
+            " \"premise\": \"The device connects via Bluetooth technology.\", \"hypothesis\": \"The gadget requires a wired connection.",
+            " \"premise\": \"The festival celebrates traditional cuisine.\", \"hypothesis\": \"The event focuses on contemporary art.",
+            " \"premise\": \"The building was constructed in the 19th century.\", \"hypothesis\": \"The construction is a recent development.",
+            " \"premise\": \"The experiment was conducted in a controlled environment.\", \"hypothesis\": \"The research lacked proper experimental conditions.",
+            " \"premise\": \"The lecture covered the topic of renewable energy.\", \"hypothesis\": \"The talk focused on fossil fuels."
         ],
         "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"]
     },
@@ -178,16 +178,16 @@
             "Assessing consistency in testimonials"
         ],
         "input_examples": [
-            "{ \"premise\": \"The restaurant is known for its excellent seafood.\", \"hypothesis\": \"The restaurant specializes in vegetarian cuisine.",
-            "{ \"premise\": \"The smartphone is water-resistant.\", \"hypothesis\": \"The phone is damaged by exposure to water.",
-            "{ \"premise\": \"The athlete set a new Olympic record.\", \"hypothesis\": \"The performance was below average at the Olympics.",
-            "{ \"premise\": \"The novel was a bestseller.\", \"hypothesis\": \"The book was not popular among readers.",
-            "{ \"premise\": \"The project received federal funding.\", \"hypothesis\": \"The initiative is privately financed.",
-            "{ \"premise\": \"The machine is operated by voice commands.\", \"hypothesis\": \"The device cannot be controlled through speech.",
-            "{ \"premise\": \"The city is known for its mild winters.\", \"hypothesis\": \"Winters in the city are extremely harsh.",
-            "{ \"premise\": \"The course is offered online.\", \"hypothesis\": \"Students must attend the course in person.",
-            "{ \"premise\": \"The treatment is effective in reducing symptoms.\", \"hypothesis\": \"Patients reported no improvement after the treatment.",
-            "{ \"premise\": \"The film was awarded at several international festivals.\", \"hypothesis\": \"The movie failed to receive any recognition."
+            " \"premise\": \"The restaurant is known for its excellent seafood.\", \"hypothesis\": \"The restaurant specializes in vegetarian cuisine.",
+            " \"premise\": \"The smartphone is water-resistant.\", \"hypothesis\": \"The phone is damaged by exposure to water.",
+            " \"premise\": \"The athlete set a new Olympic record.\", \"hypothesis\": \"The performance was below average at the Olympics.",
+            " \"premise\": \"The novel was a bestseller.\", \"hypothesis\": \"The book was not popular among readers.",
+            " \"premise\": \"The project received federal funding.\", \"hypothesis\": \"The initiative is privately financed.",
+            " \"premise\": \"The machine is operated by voice commands.\", \"hypothesis\": \"The device cannot be controlled through speech.",
+            " \"premise\": \"The city is known for its mild winters.\", \"hypothesis\": \"Winters in the city are extremely harsh.",
+            " \"premise\": \"The course is offered online.\", \"hypothesis\": \"Students must attend the course in person.",
+            " \"premise\": \"The treatment is effective in reducing symptoms.\", \"hypothesis\": \"Patients reported no improvement after the treatment.",
+            " \"premise\": \"The film was awarded at several international festivals.\", \"hypothesis\": \"The movie failed to receive any recognition."
         ],
         "usecases": ["Resource-efficient textual inference", "Content moderation", "Automated reasoning systems"]
     },
@@ -210,16 +210,16 @@
             "Evaluating consistency in historical accounts"
         ],
         "input_examples": [
-            "{ \"premise\": \"The vehicle is an all-electric model.\", \"hypothesis\": \"The car is powered by a combustion engine.",
-            "{ \"premise\": \"The painting is from the Baroque period.\", \"hypothesis\": \"The artwork represents contemporary art.",
-            "{ \"premise\": \"The company announced a merger.\", \"hypothesis\": \"The business is closing down.",
-            "{ \"premise\": \"The product is made from sustainable materials.\", \"hypothesis\": \"The item uses non-renewable resources.",
-            "{ \"premise\": \"The play received critical acclaim.\", \"hypothesis\": \"The theatrical performance was poorly received.",
-            "{ \"premise\": \"The scientist was awarded a Nobel Prize.\", \"hypothesis\": \"The researcher's work went unrecognized.",
-            "{ \"premise\": \"The event is scheduled for the summer.\", \"hypothesis\": \"The occasion will take place in winter.",
-            "{ \"premise\": \"The film is a documentary.\", \"hypothesis\": \"The movie is a work of science fiction.",
-            "{ \"premise\": \"The building is a preserved historical site.\", \"hypothesis\": \"The structure was recently constructed.",
-            "{ \"premise\": \"The article discusses climate change.\", \"hypothesis\": \"The piece is about urban development."
+            " \"premise\": \"The vehicle is an all-electric model.\", \"hypothesis\": \"The car is powered by a combustion engine.",
+            " \"premise\": \"The painting is from the Baroque period.\", \"hypothesis\": \"The artwork represents contemporary art.",
+            " \"premise\": \"The company announced a merger.\", \"hypothesis\": \"The business is closing down.",
+            " \"premise\": \"The product is made from sustainable materials.\", \"hypothesis\": \"The item uses non-renewable resources.",
+            " \"premise\": \"The play received critical acclaim.\", \"hypothesis\": \"The theatrical performance was poorly received.",
+            " \"premise\": \"The scientist was awarded a Nobel Prize.\", \"hypothesis\": \"The researcher's work went unrecognized.",
+            " \"premise\": \"The event is scheduled for the summer.\", \"hypothesis\": \"The occasion will take place in winter.",
+            " \"premise\": \"The film is a documentary.\", \"hypothesis\": \"The movie is a work of science fiction.",
+            " \"premise\": \"The building is a preserved historical site.\", \"hypothesis\": \"The structure was recently constructed.",
+            " \"premise\": \"The article discusses climate change.\", \"hypothesis\": \"The piece is about urban development."
         ],
         "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"]
     },
@@ -233,16 +233,16 @@
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The DeBERTa V2 XXLarge MNLI model is an advanced iteration of the DeBERTa model, particularly fine-tuned on the MultiNLI (MNLI) dataset for excelling in Natural Language Inference (NLI) tasks. The model is adept at understanding the logical relationships between a premise and a hypothesis, categorizing them as entailment, contradiction, or neutral. With the fine-tuning on the MNLI dataset, the model gains a wide understanding of various text genres and topics, ensuring a robust performance across diverse textual scenarios. The DeBERTa V2 XXLarge MNLI model is a potent choice for applications requiring a profound understanding and inference of textual relationships, backed by the powerful DeBERTa architecture and a diverse training dataset.",
         "input_examples": [
-            "{ \"premise\": \"The city is expanding its public transport system.\", \"hypothesis\": \"Public transportation options are being reduced.",
-            "{ \"premise\": \"The company launched a new sustainability initiative.\", \"hypothesis\": \"The firm is ignoring environmental concerns.",
-            "{ \"premise\": \"The temperature is expected to rise significantly.\", \"hypothesis\": \"A decrease in temperature is forecasted.",
-            "{ \"premise\": \"The artist's exhibition attracted a large audience.\", \"hypothesis\": \"The exhibition was poorly attended.",
-            "{ \"premise\": \"The university is offering more online courses.\", \"hypothesis\": \"There are fewer remote learning options available.",
-            "{ \"premise\": \"The policy aims to reduce carbon emissions.\", \"hypothesis\": \"The plan will increase carbon emissions.",
-            "{ \"premise\": \"The technology is patented.\", \"hypothesis\": \"The tech is in the public domain.",
-            "{ \"premise\": \"The medication is approved for use.\", \"hypothesis\": \"The drug is not yet authorized.",
-            "{ \"premise\": \"The species is considered endangered.\", \"hypothesis\": \"The species has a stable population.",
-            "{ \"premise\": \"The book is set in the 19th century.\", \"hypothesis\": \"The story takes place in the modern day."
+            " \"premise\": \"The city is expanding its public transport system.\", \"hypothesis\": \"Public transportation options are being reduced.",
+            " \"premise\": \"The company launched a new sustainability initiative.\", \"hypothesis\": \"The firm is ignoring environmental concerns.",
+            " \"premise\": \"The temperature is expected to rise significantly.\", \"hypothesis\": \"A decrease in temperature is forecasted.",
+            " \"premise\": \"The artist's exhibition attracted a large audience.\", \"hypothesis\": \"The exhibition was poorly attended.",
+            " \"premise\": \"The university is offering more online courses.\", \"hypothesis\": \"There are fewer remote learning options available.",
+            " \"premise\": \"The policy aims to reduce carbon emissions.\", \"hypothesis\": \"The plan will increase carbon emissions.",
+            " \"premise\": \"The technology is patented.\", \"hypothesis\": \"The tech is in the public domain.",
+            " \"premise\": \"The medication is approved for use.\", \"hypothesis\": \"The drug is not yet authorized.",
+            " \"premise\": \"The species is considered endangered.\", \"hypothesis\": \"The species has a stable population.",
+            " \"premise\": \"The book is set in the 19th century.\", \"hypothesis\": \"The story takes place in the modern day."
         ],
         "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"]
     },
@@ -265,16 +265,16 @@
             "Evaluating argument validity in philosophical texts"
         ],
         "input_examples": [
-            "{ \"premise\": \"The festival celebrates local culture.\", \"hypothesis\": \"The event ignores cultural traditions.",
-            "{ \"premise\": \"The device operates on solar energy.\", \"hypothesis\": \"The gadget requires electrical power.",
-            "{ \"premise\": \"The team won the championship.\", \"hypothesis\": \"The group was defeated in the final.",
-            "{ \"premise\": \"The plant is toxic to animals.\", \"hypothesis\": \"The vegetation is safe for animal consumption.",
-            "{ \"premise\": \"The astronaut completed a spacewalk.\", \"hypothesis\": \"The space mission did not include a spacewalk.",
-            "{ \"premise\": \"The novel is set in the future.\", \"hypothesis\": \"The story is based in historical times.",
-            "{ \"premise\": \"The recipe requires baking.\", \"hypothesis\": \"The dish is prepared without any cooking.",
-            "{ \"premise\": \"The country is experiencing economic growth.\", \"hypothesis\": \"The nation's economy is declining.",
-            "{ \"premise\": \"The movie is based on a true story.\", \"hypothesis\": \"The film is a work of pure fiction.",
-            "{ \"premise\": \"The research focuses on renewable energy.\", \"hypothesis\": \"The study is about fossil fuels."
+            " \"premise\": \"The festival celebrates local culture.\", \"hypothesis\": \"The event ignores cultural traditions.",
+            " \"premise\": \"The device operates on solar energy.\", \"hypothesis\": \"The gadget requires electrical power.",
+            " \"premise\": \"The team won the championship.\", \"hypothesis\": \"The group was defeated in the final.",
+            " \"premise\": \"The plant is toxic to animals.\", \"hypothesis\": \"The vegetation is safe for animal consumption.",
+            " \"premise\": \"The astronaut completed a spacewalk.\", \"hypothesis\": \"The space mission did not include a spacewalk.",
+            " \"premise\": \"The novel is set in the future.\", \"hypothesis\": \"The story is based in historical times.",
+            " \"premise\": \"The recipe requires baking.\", \"hypothesis\": \"The dish is prepared without any cooking.",
+            " \"premise\": \"The country is experiencing economic growth.\", \"hypothesis\": \"The nation's economy is declining.",
+            " \"premise\": \"The movie is based on a true story.\", \"hypothesis\": \"The film is a work of pure fiction.",
+            " \"premise\": \"The research focuses on renewable energy.\", \"hypothesis\": \"The study is about fossil fuels."
         ],
         "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"]
     },
@@ -297,16 +297,16 @@
             "Assessing alignment in scientific conclusions"
         ],
         "input_examples": [
-            "{ \"premise\": \"The software is open source.\", \"hypothesis\": \"The program is proprietary.",
-            "{ \"premise\": \"The bird is known for its long migration.\", \"hypothesis\": \"The species is sedentary.",
-            "{ \"premise\": \"The museum features ancient artifacts.\", \"hypothesis\": \"The collection includes modern art.",
-            "{ \"premise\": \"The course is intended for beginners.\", \"hypothesis\": \"The program is advanced level.",
-            "{ \"premise\": \"The area is prone to earthquakes.\", \"hypothesis\": \"The region is seismically stable.",
-            "{ \"premise\": \"The book covers World War II.\", \"hypothesis\": \"The publication is about the Cold War.",
-            "{ \"premise\": \"The car is electrically powered.\", \"hypothesis\": \"The vehicle uses a diesel engine.",
-            "{ \"premise\": \"The actor received an award.\", \"hypothesis\": \"The performer was not recognized.",
-            "{ \"premise\": \"The lake is a popular tourist spot.\", \"hypothesis\": \"The site is rarely visited.",
-            "{ \"premise\": \"The conference focuses on environmental issues.\", \"hypothesis\": \"The seminar is about technology advancements."
+            " \"premise\": \"The software is open source.\", \"hypothesis\": \"The program is proprietary.",
+            " \"premise\": \"The bird is known for its long migration.\", \"hypothesis\": \"The species is sedentary.",
+            " \"premise\": \"The museum features ancient artifacts.\", \"hypothesis\": \"The collection includes modern art.",
+            " \"premise\": \"The course is intended for beginners.\", \"hypothesis\": \"The program is advanced level.",
+            " \"premise\": \"The area is prone to earthquakes.\", \"hypothesis\": \"The region is seismically stable.",
+            " \"premise\": \"The book covers World War II.\", \"hypothesis\": \"The publication is about the Cold War.",
+            " \"premise\": \"The car is electrically powered.\", \"hypothesis\": \"The vehicle uses a diesel engine.",
+            " \"premise\": \"The actor received an award.\", \"hypothesis\": \"The performer was not recognized.",
+            " \"premise\": \"The lake is a popular tourist spot.\", \"hypothesis\": \"The site is rarely visited.",
+            " \"premise\": \"The conference focuses on environmental issues.\", \"hypothesis\": \"The seminar is about technology advancements."
         ],
         "usecases": ["Real-time text analysis platforms", "Content moderation", "Automated reasoning systems"]
     },
@@ -329,16 +329,16 @@
             "Evaluating hypothesis support in scientific research"
         ],
         "input_examples": [
-            "{ \"premise\": \"The plant thrives in cold climates.\", \"hypothesis\": \"The species prefers warm weather.",
-            "{ \"premise\": \"The technology is cutting-edge.\", \"hypothesis\": \"The tech is outdated.",
-            "{ \"premise\": \"The treaty promotes international cooperation.\", \"hypothesis\": \"The agreement encourages isolationism.",
-            "{ \"premise\": \"The artwork is a sculpture.\", \"hypothesis\": \"The piece is a painting.",
-            "{ \"premise\": \"The medication treats heart conditions.\", \"hypothesis\": \"The drug is ineffective for cardiac issues.",
-            "{ \"premise\": \"The building is a modern architecture marvel.\", \"hypothesis\": \"The structure is of historical significance.",
-            "{ \"premise\": \"The chef specializes in Italian cuisine.\", \"hypothesis\": \"The cook is known for French dishes.",
-            "{ \"premise\": \"The athlete won several medals.\", \"hypothesis\": \"The sportsperson has no accolades.",
-            "{ \"premise\": \"The climate in the region is arid.\", \"hypothesis\": \"The area has a tropical climate.",
-            "{ \"premise\": \"The law is newly enacted.\", \"hypothesis\": \"The regulation has been long established."
+            " \"premise\": \"The plant thrives in cold climates.\", \"hypothesis\": \"The species prefers warm weather.",
+            " \"premise\": \"The technology is cutting-edge.\", \"hypothesis\": \"The tech is outdated.",
+            " \"premise\": \"The treaty promotes international cooperation.\", \"hypothesis\": \"The agreement encourages isolationism.",
+            " \"premise\": \"The artwork is a sculpture.\", \"hypothesis\": \"The piece is a painting.",
+            " \"premise\": \"The medication treats heart conditions.\", \"hypothesis\": \"The drug is ineffective for cardiac issues.",
+            " \"premise\": \"The building is a modern architecture marvel.\", \"hypothesis\": \"The structure is of historical significance.",
+            " \"premise\": \"The chef specializes in Italian cuisine.\", \"hypothesis\": \"The cook is known for French dishes.",
+            " \"premise\": \"The athlete won several medals.\", \"hypothesis\": \"The sportsperson has no accolades.",
+            " \"premise\": \"The climate in the region is arid.\", \"hypothesis\": \"The area has a tropical climate.",
+            " \"premise\": \"The law is newly enacted.\", \"hypothesis\": \"The regulation has been long established."
         ],
         "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"]
     },
@@ -361,16 +361,16 @@
             "Analyzing argument structure in legal cases"
         ],
         "input_examples": [
-            "{ \"premise\": \"The company is launching a new product.\", \"hypothesis\": \"The firm is discontinuing its line.",
-            "{ \"premise\": \"The city is expanding public transportation.\", \"hypothesis\": \"The urban area is reducing transit options.",
-            "{ \"premise\": \"The animal is nocturnal.\", \"hypothesis\": \"The creature is active during the day.",
-            "{ \"premise\": \"The novel features a female protagonist.\", \"hypothesis\": \"The main character is male.",
-            "{ \"premise\": \"The government is increasing healthcare funding.\", \"hypothesis\": \"The state is cutting health budgets.",
-            "{ \"premise\": \"The sculpture is from the Renaissance period.\", \"hypothesis\": \"The artwork is a contemporary piece.",
-            "{ \"premise\": \"The project is completed ahead of schedule.\", \"hypothesis\": \"The initiative is delayed.",
-            "{ \"premise\": \"The team is implementing new strategies.\", \"hypothesis\": \"The group is maintaining its old methods.",
-            "{ \"premise\": \"The food is organic.\", \"hypothesis\": \"The produce is genetically modified.",
-            "{ \"premise\": \"The movie is a romantic comedy.\", \"hypothesis\": \"The film is a thriller."
+            " \"premise\": \"The company is launching a new product.\", \"hypothesis\": \"The firm is discontinuing its line.",
+            " \"premise\": \"The city is expanding public transportation.\", \"hypothesis\": \"The urban area is reducing transit options.",
+            " \"premise\": \"The animal is nocturnal.\", \"hypothesis\": \"The creature is active during the day.",
+            " \"premise\": \"The novel features a female protagonist.\", \"hypothesis\": \"The main character is male.",
+            " \"premise\": \"The government is increasing healthcare funding.\", \"hypothesis\": \"The state is cutting health budgets.",
+            " \"premise\": \"The sculpture is from the Renaissance period.\", \"hypothesis\": \"The artwork is a contemporary piece.",
+            " \"premise\": \"The project is completed ahead of schedule.\", \"hypothesis\": \"The initiative is delayed.",
+            " \"premise\": \"The team is implementing new strategies.\", \"hypothesis\": \"The group is maintaining its old methods.",
+            " \"premise\": \"The food is organic.\", \"hypothesis\": \"The produce is genetically modified.",
+            " \"premise\": \"The movie is a romantic comedy.\", \"hypothesis\": \"The film is a thriller."
         ],
         "usecases": ["Advanced textual logic verification", "Content moderation", "Automated reasoning systems"]
     },
@@ -393,16 +393,16 @@
             "Evaluating claim support in scientific publications"
         ],
         "input_examples": [
-            "{ \"premise\": \"The forest is a habitat for many species.\", \"hypothesis\": \"The woodland is barren of life.",
-            "{ \"premise\": \"The economy is in a recession.\", \"hypothesis\": \"The financial situation is booming.",
-            "{ \"premise\": \"The artist is known for abstract work.\", \"hypothesis\": \"The painter focuses on realistic art.",
-            "{ \"premise\": \"The vehicle is powered by electricity.\", \"hypothesis\": \"The car runs on gasoline.",
-            "{ \"premise\": \"The festival is held annually.\", \"hypothesis\": \"The event occurs once every few years.",
-            "{ \"premise\": \"The procedure is minimally invasive.\", \"hypothesis\": \"The operation is highly intrusive.",
-            "{ \"premise\": \"The policy promotes renewable energy.\", \"hypothesis\": \"The regulation discourages clean energy use.",
-            "{ \"premise\": \"The play is a tragedy.\", \"hypothesis\": \"The drama is comedic.",
-            "{ \"premise\": \"The organization is non-profit.\", \"hypothesis\": \"The group operates for profit.",
-            "{ \"premise\": \"The climate is humid.\", \"hypothesis\": \"The environment is arid."
+            " \"premise\": \"The forest is a habitat for many species.\", \"hypothesis\": \"The woodland is barren of life.",
+            " \"premise\": \"The economy is in a recession.\", \"hypothesis\": \"The financial situation is booming.",
+            " \"premise\": \"The artist is known for abstract work.\", \"hypothesis\": \"The painter focuses on realistic art.",
+            " \"premise\": \"The vehicle is powered by electricity.\", \"hypothesis\": \"The car runs on gasoline.",
+            " \"premise\": \"The festival is held annually.\", \"hypothesis\": \"The event occurs once every few years.",
+            " \"premise\": \"The procedure is minimally invasive.\", \"hypothesis\": \"The operation is highly intrusive.",
+            " \"premise\": \"The policy promotes renewable energy.\", \"hypothesis\": \"The regulation discourages clean energy use.",
+            " \"premise\": \"The play is a tragedy.\", \"hypothesis\": \"The drama is comedic.",
+            " \"premise\": \"The organization is non-profit.\", \"hypothesis\": \"The group operates for profit.",
+            " \"premise\": \"The climate is humid.\", \"hypothesis\": \"The environment is arid."
         ],
         "usecases": ["Content moderation", "Automated reasoning systems", "Real-time text analysis platforms"]
     },
@@ -425,16 +425,16 @@
             "Evaluating argumentative validity in public speeches"
         ],
         "input_examples": [
-            "{ \"premise\": \"The restaurant is known for its excellent service.\", \"hypothesis\": \"Customers often complain about the service.",
-            "{ \"premise\": \"The team is working on environmental conservation.\", \"hypothesis\": \"The group's efforts harm the environment.",
-            "{ \"premise\": \"The device operates completely wirelessly.\", \"hypothesis\": \"The gadget requires a constant power supply.",
-            "{ \"premise\": \"The city is famous for its historical architecture.\", \"hypothesis\": \"Modern buildings dominate the city's skyline.",
-            "{ \"premise\": \"The course offers an in-depth study of marine biology.\", \"hypothesis\": \"The program briefly touches on marine life.",
-            "{ \"premise\": \"The novel is set in the 19th century.\", \"hypothesis\": \"The story takes place in the future.",
-            "{ \"premise\": \"The policy aims to reduce carbon emissions.\", \"hypothesis\": \"The initiative increases the carbon footprint.",
-            "{ \"premise\": \"The film was a box office success.\", \"hypothesis\": \"The movie performed poorly in theaters.",
-            "{ \"premise\": \"The software enhances data security.\", \"hypothesis\": \"Using the software poses a risk to data safety.",
-            "{ \"premise\": \"The athlete won multiple gold medals.\", \"hypothesis\": \"The sportsperson has never won a major competition."
+            " \"premise\": \"The restaurant is known for its excellent service.\", \"hypothesis\": \"Customers often complain about the service.",
+            " \"premise\": \"The team is working on environmental conservation.\", \"hypothesis\": \"The group's efforts harm the environment.",
+            " \"premise\": \"The device operates completely wirelessly.\", \"hypothesis\": \"The gadget requires a constant power supply.",
+            " \"premise\": \"The city is famous for its historical architecture.\", \"hypothesis\": \"Modern buildings dominate the city's skyline.",
+            " \"premise\": \"The course offers an in-depth study of marine biology.\", \"hypothesis\": \"The program briefly touches on marine life.",
+            " \"premise\": \"The novel is set in the 19th century.\", \"hypothesis\": \"The story takes place in the future.",
+            " \"premise\": \"The policy aims to reduce carbon emissions.\", \"hypothesis\": \"The initiative increases the carbon footprint.",
+            " \"premise\": \"The film was a box office success.\", \"hypothesis\": \"The movie performed poorly in theaters.",
+            " \"premise\": \"The software enhances data security.\", \"hypothesis\": \"Using the software poses a risk to data safety.",
+            " \"premise\": \"The athlete won multiple gold medals.\", \"hypothesis\": \"The sportsperson has never won a major competition."
         ],
         "usecases": ["Advanced textual logic verification", "Content moderation", "Automated reasoning systems"]
     },
@@ -457,16 +457,16 @@
             "Verifying factual alignment in documentary scripts"
         ],
         "input_examples": [
-            "{ \"premise\": \"The company announced a new sustainability initiative.\", \"hypothesis\": \"The firm is indifferent to environmental concerns.",
-            "{ \"premise\": \"The technology is patented and unique.\", \"hypothesis\": \"The tech is widely available and generic.",
-            "{ \"premise\": \"The training program is intensive and rigorous.\", \"hypothesis\": \"The course is light and easy.",
-            "{ \"premise\": \"The garden is renowned for its variety of flowers.\", \"hypothesis\": \"The garden lacks floral diversity.",
-            "{ \"premise\": \"The painting was sold at a record price.\", \"hypothesis\": \"The artwork is unsold and remains in the gallery.",
-            "{ \"premise\": \"The medication is effective against the disease.\", \"hypothesis\": \"The treatment has no impact on the illness.",
-            "{ \"premise\": \"The movie is based on a true story.\", \"hypothesis\": \"The film is entirely fictional.",
-            "{ \"premise\": \"The building is a preserved historical landmark.\", \"hypothesis\": \"The structure is recently constructed.",
-            "{ \"premise\": \"The experiment yielded significant results.\", \"hypothesis\": \"The study's findings were inconclusive.",
-            "{ \"premise\": \"The vehicle is equipped with advanced safety features.\", \"hypothesis\": \"The car lacks modern safety mechanisms."
+            " \"premise\": \"The company announced a new sustainability initiative.\", \"hypothesis\": \"The firm is indifferent to environmental concerns.",
+            " \"premise\": \"The technology is patented and unique.\", \"hypothesis\": \"The tech is widely available and generic.",
+            " \"premise\": \"The training program is intensive and rigorous.\", \"hypothesis\": \"The course is light and easy.",
+            " \"premise\": \"The garden is renowned for its variety of flowers.\", \"hypothesis\": \"The garden lacks floral diversity.",
+            " \"premise\": \"The painting was sold at a record price.\", \"hypothesis\": \"The artwork is unsold and remains in the gallery.",
+            " \"premise\": \"The medication is effective against the disease.\", \"hypothesis\": \"The treatment has no impact on the illness.",
+            " \"premise\": \"The movie is based on a true story.\", \"hypothesis\": \"The film is entirely fictional.",
+            " \"premise\": \"The building is a preserved historical landmark.\", \"hypothesis\": \"The structure is recently constructed.",
+            " \"premise\": \"The experiment yielded significant results.\", \"hypothesis\": \"The study's findings were inconclusive.",
+            " \"premise\": \"The vehicle is equipped with advanced safety features.\", \"hypothesis\": \"The car lacks modern safety mechanisms."
         ],
         "usecases": ["Real-time text analysis platforms", "Content moderation", "Knowledge verification"]
     }

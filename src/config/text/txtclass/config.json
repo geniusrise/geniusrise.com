@@ -6,9 +6,22 @@
         "model_name": "cardiffnlp/twitter-roberta-base-hate-multiclass-latest",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Identifying sexism in a tweet",
-            "Detecting racism in online comments",
-            "Classifying hateful language based on religious bigotry in a forum post"
+            "Detecting gender-based hate speech in online articles",
+            "Analyzing hate speech trends on social media platforms",
+            "Identifying hate speech in political discourse",
+            "Monitoring hate speech in online gaming communities",
+            "Detecting hate speech in movie reviews",
+            "Analyzing hate speech in celebrity tweets",
+            "Monitoring hate speech in news comment sections"
+        ],
+        "input_examples": [
+            "This is a clear example of misogyny.",
+            "I cannot believe the level of racism in this comment.",
+            "Such comments are full of religious intolerance.",
+            "This tweet is promoting violence against a specific group.",
+            "Hateful language targeting someone's sexual orientation.",
+            "This user is spreading hateful ideologies.",
+            "Derogatory language used to belittle a certain ethnicity."
         ],
         "usecases": ["Online community moderation", "Social media monitoring", "Automated reporting systems for hateful content"]
     },
@@ -19,9 +32,22 @@
         "model_name": "cardiffnlp/twitter-roberta-base-hate-latest",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Detecting hate speech in a tweet",
-            "Identifying hateful comments in a discussion thread",
-            "Classifying user-generated content as hateful or not"
+            "Filtering hate speech in online forums",
+            "Detecting hate speech in user comments",
+            "Monitoring hate speech in social media posts",
+            "Identifying hate speech in blog comments",
+            "Automated hate speech detection in online platforms",
+            "Analyzing hate speech in news article comments",
+            "Monitoring hate speech in video platform comments"
+        ],
+        "input_examples": [
+            "This statement is spreading hate!",
+            "I find this tweet to be completely harmless.",
+            "This could be considered as a hate speech.",
+            "This message does not contain any hate speech elements.",
+            "Is this comment crossing the line into hate speech?",
+            "I'm unsure if this should be classified as hate speech.",
+            "This post seems to be free from hate speech."
         ],
         "usecases": ["Online community moderation", "Social media content filtering", "Automated hate speech detection systems"]
     },
@@ -32,9 +58,22 @@
         "model_name": "cardiffnlp/twitter-roberta-base-offensive",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Identifying offensive language in a tweet",
-            "Detecting offensive comments in online discussions",
-            "Classifying text data as offensive or non-offensive in user-generated content"
+            "Identifying offensive language in chat messages",
+            "Detecting offensive language in social media content",
+            "Filtering offensive language in user-generated content",
+            "Monitoring offensive language in forum discussions",
+            "Classifying text as offensive or not in online interactions",
+            "Detecting offensive language in customer feedback",
+            "Identifying offensive language in online game chats"
+        ],
+        "input_examples": [
+            "This comment is outright offensive.",
+            "Such an offensive statement should not be tolerated.",
+            "This doesn't seem offensive to me.",
+            "Is this type of language considered offensive?",
+            "I don't find anything offensive in this message.",
+            "This tweet could be offensive to some people.",
+            "Some might find this language offensive."
         ],
         "usecases": ["Online community moderation", "Social media content filtering", "Automated offensive language detection systems"]
     },
@@ -45,9 +84,22 @@
         "model_name": "cardiffnlp/twitter-roberta-base-irony",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Detecting irony in social media posts",
-            "Identifying ironic expressions in online discussions",
-            "Analyzing irony in customer feedback"
+            "Detecting irony in online article headlines",
+            "Identifying irony in social media posts",
+            "Analyzing irony in customer reviews",
+            "Monitoring irony in news commentary",
+            "Detecting ironic statements in online debates",
+            "Identifying irony in blog posts",
+            "Analyzing irony in user comments on forums"
+        ],
+        "input_examples": [
+            "What a wonderful day to have a flat tire!",
+            "I just love getting stuck in traffic.",
+            "Absolutely thrilled to be working overtime!",
+            "So excited to be paying taxes.",
+            "Great, another email from my boss!",
+            "Just what I needed, another Monday.",
+            "Can't wait to start my diet tomorrow."
         ],
         "usecases": ["Sentiment analysis", "Social media monitoring", "Linguistic research"]
     },
@@ -58,9 +110,22 @@
         "model_name": "tomh/toxigen_roberta",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Identifying toxic language in online comments",
-            "Detecting toxic expressions in social media posts",
-            "Classifying text data as toxic or non-toxic in user-generated content"
+            "Evaluating toxicity in online community forums",
+            "Monitoring toxicity in social media interactions",
+            "Detecting toxic language in customer service chats",
+            "Identifying toxic comments in online discussions",
+            "Automated moderation of toxic content in user forums",
+            "Analyzing toxicity in blog post comments",
+            "Filtering toxic language in online gaming chats"
+        ],
+        "input_examples": [
+            "This comment is toxic and harmful.",
+            "This doesn't look like a toxic statement to me.",
+            "Can this be classified as toxic language?",
+            "I don't see any toxicity in this post.",
+            "This message might be harmful or toxic.",
+            "This text does not contain any toxic elements.",
+            "Some may find this comment to be toxic."
         ],
         "usecases": ["Online community moderation", "Social media content filtering", "Automated toxicity detection systems"]
     },
@@ -71,9 +136,22 @@
         "model_name": "cointegrated/rubert-tiny-toxicity",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Filtering toxic comments in an online discussion forum",
-            "Analyzing the degree of toxicity in social media posts",
-            "Moderating user-generated content on a community platform"
+            "Classifying levels of toxicity in online comments",
+            "Detecting varying degrees of toxicity in social media posts",
+            "Monitoring toxicity in user forum discussions",
+            "Automated analysis of toxicity in online articles",
+            "Filtering out toxic content in customer feedback",
+            "Evaluating the intensity of toxicity in user interactions",
+            "Identifying and categorizing toxic language in chats"
+        ],
+        "input_examples": [
+            "This is a clear insult to someone.",
+            "Such obscenity should not be tolerated.",
+            "This could be classified as a threat.",
+            "The language used here is dangerous.",
+            "This comment is mildly toxic.",
+            "I don't find any obscenity in this text.",
+            "This post contains dangerous language."
         ],
         "usecases": ["Online community moderation", "Social media monitoring", "Content filtering systems"]
     },
@@ -84,9 +162,22 @@
         "model_name": "michellejieli/NSFW_text_classifier",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Identifying NSFW text in social media posts",
             "Filtering NSFW content in online community forums",
-            "Automated moderation of text content in workplace communication platforms"
+            "Identifying NSFW language in social media posts",
+            "Automated moderation of NSFW text in user forums",
+            "Detecting NSFW content in customer reviews",
+            "Monitoring NSFW language in online discussions",
+            "Classifying text as safe or NSFW in messaging apps",
+            "Evaluating NSFW content in user-generated articles"
+        ],
+        "input_examples": [
+            "This text is definitely not safe for work.",
+            "This message seems safe for a workplace.",
+            "Could this text be considered NSFW?",
+            "I find this content to be NSFW.",
+            "This doesn't seem inappropriate for work.",
+            "This content might be unsafe for a professional setting.",
+            "Is this text appropriate for a workplace?"
         ],
         "usecases": ["Content moderation", "Social media monitoring", "Workplace communication moderation"]
     },
@@ -97,9 +188,22 @@
         "model_name": "bvanaken/clinical-assertion-negation-bert",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Identifying assertions in clinical notes",
-            "Detecting negations in medical reports",
-            "Automated analysis of clinical text for research purposes"
+            "Identifying clinical assertions in medical records",
+            "Detecting negation statements in health reports",
+            "Automated analysis of clinical text in patient histories",
+            "Evaluating clinical assertions in research papers",
+            "Monitoring clinical negations in electronic health records",
+            "Classifying clinical statements in medical transcripts",
+            "Analyzing clinical text for assertion and negation"
+        ],
+        "input_examples": [
+            "The patient does not have symptoms of the disease.",
+            "Symptoms are possibly related to the condition.",
+            "There is no indication of the disease in the patient.",
+            "The symptoms are definitely present in the patient.",
+            "The disease is absent in this case.",
+            "It is possible that the patient has the disease.",
+            "The patient shows no symptoms of the condition."
         ],
         "usecases": ["Medical research", "Clinical data management", "Healthcare service improvement"]
     },
@@ -110,9 +214,22 @@
         "model_name": "bucketresearch/politicalBiasBERT",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Analyzing political bias in news articles",
-            "Identifying political inclination in social media posts",
-            "Researching political bias in online discussions"
+            "Analyzing political bias in news editorials",
+            "Classifying political leanings in blog posts",
+            "Detecting political inclinations in social media content",
+            "Evaluating political bias in online articles",
+            "Monitoring political perspectives in journalistic reports",
+            "Identifying political alignment in opinion pieces",
+            "Categorizing political stance in public statements"
+        ],
+        "input_examples": [
+            "This statement leans towards left-wing ideology.",
+            "The content seems to have a right-wing bias.",
+            "This article appears to be politically neutral.",
+            "The text displays a clear left political bias.",
+            "This message does not show any political bias.",
+            "The political inclination here is right-leaning.",
+            "Is this text biased towards a certain political viewpoint?"
         ],
         "usecases": ["News analysis", "Social media monitoring", "Academic research on political discourse"]
     },
@@ -123,9 +240,22 @@
         "model_name": "jpwahle/longformer-base-plagiarism-detection",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Detecting plagiarism in student assignments",
-            "Identifying copied content in academic papers",
-            "Verifying originality of content in publishing"
+            "Identifying plagiarism in academic essays",
+            "Detecting copied content in research papers",
+            "Analyzing text for plagiarism in articles",
+            "Evaluating originality in student assignments",
+            "Monitoring for plagiarism in online publications",
+            "Classifying text as original or plagiarized in journals",
+            "Detecting duplication in scholarly manuscripts"
+        ],
+        "input_examples": [
+            "This paragraph seems to be copied from a source.",
+            "The text appears to be original and not plagiarized.",
+            "Could this section be plagiarized?",
+            "This document does not show signs of plagiarism.",
+            "The content might be a case of plagiarism.",
+            "This seems to be an original piece of writing.",
+            "Is this text copied or original?"
         ],
         "usecases": ["Educational integrity maintenance", "Academic publishing", "Content creation and verification"]
     },
@@ -136,9 +266,22 @@
         "model_name": "lxyuan/distilbert-base-multilingual-cased-sentiments-student",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Analyzing customer feedback in multiple languages",
-            "Determining global market sentiment from multilingual news articles",
-            "Evaluating public opinion on social issues across different regions"
+            "Analyzing customer feedback sentiment in multiple languages",
+            "Evaluating global market sentiment from multilingual news",
+            "Detecting sentiment in social media posts across different languages",
+            "Classifying multilingual product reviews by sentiment",
+            "Monitoring sentiment in multilingual user-generated content",
+            "Assessing public opinion sentiment in various languages",
+            "Evaluating cross-cultural sentiment in online forums"
+        ],
+        "input_examples": [
+            "I am extremely happy with this product!",
+            "This service is just okay, nothing special.",
+            "I am very disappointed with the results.",
+            "The experience was rather neutral.",
+            "I absolutely love this app!",
+            "This is the worst experience I've ever had.",
+            "The quality of the product is average."
         ],
         "usecases": ["Global market sentiment analysis", "Multilingual customer feedback analysis", "Cross-regional public opinion analysis"]
     },
@@ -149,9 +292,22 @@
         "model_name": "Sigma/financial-sentiment-analysis",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Analyzing investor sentiment from financial forums",
-            "Determining market sentiment from financial news articles",
-            "Evaluating customer sentiment from reviews of financial products"
+            "Evaluating customer feedback for sentiment analysis",
+            "Analyzing sentiment in social media posts",
+            "Detecting sentiment in online reviews",
+            "Classifying text sentiment in user comments",
+            "Monitoring sentiment in blog post discussions",
+            "Assessing public opinion sentiment in forums",
+            "Evaluating sentiment in online news articles"
+        ],
+        "input_examples": [
+            "I am feeling very positive about this.",
+            "This situation is somewhat neutral.",
+            "I have a negative view of this matter.",
+            "The overall sentiment here is quite positive.",
+            "This does not evoke any strong feelings.",
+            "The sentiment expressed here is quite negative.",
+            "This statement seems to be neutral."
         ],
         "usecases": ["Market sentiment analysis", "Investor sentiment analysis", "Financial product review analysis"]
     },
@@ -162,9 +318,22 @@
         "model_name": "cardiffnlp/tweet-topic-21-multi",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Categorizing tweets during a major sporting event",
-            "Analyzing public opinion on a political event through tweets",
-            "Understanding market trends by classifying tweets related to certain products"
+            "Categorizing sports-related tweets in multiple languages",
+            "Classifying news-related tweets from different regions",
+            "Analyzing tweets about science in various languages",
+            "Detecting celebrity culture topics in multilingual tweets",
+            "Monitoring tweets about health in different languages",
+            "Classifying entertainment-related tweets across languages",
+            "Analyzing tweets on environmental issues in multiple languages"
+        ],
+        "input_examples": [
+            "Exciting game last night! #sports",
+            "Breaking news: major political event!",
+            "New discoveries in science today.",
+            "Celebrity news: latest Hollywood gossip!",
+            "Exciting breakthrough in technology!",
+            "Check out this amazing travel destination.",
+            "In-depth analysis of current economic trends."
         ],
         "usecases": ["Social media analysis", "Market trend analysis", "Public opinion analysis"]
     },
@@ -175,9 +344,22 @@
         "model_name": "padmajabfrl/Gender-Classification",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Analyzing gender-specific preferences in product reviews",
-            "Understanding gender-based discussions in online forums",
-            "Evaluating gender representation in textual data"
+            "Classifying gender perspective in product reviews",
+            "Analyzing gender-specific language in social media posts",
+            "Detecting gender-related patterns in online discussions",
+            "Evaluating gender representation in user-generated content",
+            "Monitoring gender-specific preferences in forum posts",
+            "Classifying gender-based expressions in blog comments",
+            "Analyzing gender-specific language in customer feedback"
+        ],
+        "input_examples": [
+            "I bought a new dress today.",
+            "Watching the football game with the guys.",
+            "I love doing my makeup.",
+            "Just fixed my car's engine.",
+            "Going to the barbershop for a haircut.",
+            "I'm attending a knitting class.",
+            "Working on building a new bookshelf."
         ],
         "usecases": ["Gender-based market analysis", "Online community analysis", "Gender representation analysis"]
     },
@@ -188,9 +370,22 @@
         "model_name": "yiyanghkust/finbert-tone",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Evaluating the tone of analyst reports",
-            "Determining the sentiment in shareholder letters",
-            "Analyzing the tone of financial news headlines"
+            "Analyzing the tone of financial market reports",
+            "Evaluating the sentiment in financial news articles",
+            "Detecting positive or negative tones in stock analysis",
+            "Classifying the tone of investor communications",
+            "Monitoring the sentiment of economic forecasts",
+            "Analyzing the tone of financial analyst opinions",
+            "Detecting sentiment in financial product reviews"
+        ],
+        "input_examples": [
+            "The company's financial outlook is optimistic.",
+            "Investors are wary of the current market volatility.",
+            "The economic report presented a neutral perspective.",
+            "Positive growth is expected in the next quarter.",
+            "The financial forecast shows potential risks.",
+            "Market sentiment remains uncertain amid changes.",
+            "Economic indicators suggest a stable future."
         ],
         "usecases": ["Investment analysis", "Regulatory compliance", "Market sentiment analysis"]
     },
@@ -201,9 +396,22 @@
         "model_name": "wajidlinux99/gibberish-text-detector",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Filtering out spam comments on a blog",
-            "Identifying gibberish reviews on a product page",
-            "Detecting nonsensical answers on a Q&A platform"
+            "Filtering nonsensical text in online forums",
+            "Identifying gibberish in social media posts",
+            "Classifying user comments for coherence",
+            "Detecting spam-like text in blogs",
+            "Evaluating the quality of text in reviews",
+            "Monitoring for coherent content in online discussions",
+            "Analyzing text for readability in customer feedback"
+        ],
+        "input_examples": [
+            "This text makes absolutely no sense.",
+            "The sentence structure here is coherent.",
+            "Is this text just random gibberish?",
+            "This paragraph is clear and understandable.",
+            "This seems like a jumble of words with no meaning.",
+            "The content here is well-structured and logical.",
+            "Can this text be classified as gibberish?"
         ],
         "usecases": ["Spam filtering", "Content moderation", "Data cleaning"]
     },
@@ -214,9 +422,22 @@
         "model_name": "cnut1648/biolinkbert-large-mnli-snli",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
-            "Identifying relationships between genes and diseases",
-            "Understanding interactions between different biological processes",
-            "Evaluating hypotheses in biological research"
+            "Identifying relationships in biological research texts",
+            "Analyzing gene-disease associations in medical literature",
+            "Classifying biological text for relational understanding",
+            "Detecting interactions between biological entities in academic papers",
+            "Evaluating biological hypotheses in research articles",
+            "Monitoring trends in biological relationship studies",
+            "Analyzing cause-effect relationships in clinical reports"
+        ],
+        "input_examples": [
+            "Gene X is implicated in Disease Y.",
+            "No connection between Protein A and Symptom B.",
+            "Possible link between Diet C and Health Condition D.",
+            "Drug E shows no effect on Condition F.",
+            "Vitamin G may benefit patients with Illness H.",
+            "No evidence supporting the role of Nutrient I in Disease J.",
+            "Research suggests a correlation between Lifestyle K and Disease L."
         ],
         "usecases": ["Biological research", "Drug discovery", "Genetic research"]
     }

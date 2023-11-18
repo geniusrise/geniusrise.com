@@ -43,7 +43,7 @@ body {
   background-image: url(../../assets/login-page/lol-20020e97-e56d-4ce9-b370-d0583dac0885.jpg);
   background-size: 100% 100%;
   padding: 0px;
-  font-size: 10pt;
+  font-size: 1rem;
   color: var(--dark-text-color);
 }
 @media (min-width: 1100px) {

@@ -5,13 +5,14 @@
 }
 .searchContainer {
   margin-bottom: 2em;
+  background-color: var(--dark-table-head);
   border-radius: 0.5rem;
-  padding: 0.1em;
 }
 .searchInput {
-  background-color: var(--dark-table-head);
+  background-color: rgba(0, 0, 0, 0.1);
   color: var(--dark-text-color);
   border: none;
+  padding: 0.5rem;
 }
 .searchInput::placeholder {
   color: var(--dark-text-color);
