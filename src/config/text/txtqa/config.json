@@ -1,40 +1,5 @@
 [
     {
-        "name": "TaPEx Base WikiSQL",
-        "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
-        ],
-        "model_name": "microsoft/tapex-base-finetuned-wikisql",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
-        "description": "TaPEx Base WikiSQL is a conversational model specialized in understanding and generating SQL queries based on natural language inputs. Trained on the WikiSQL dataset, it has learned the structure and semantics of SQL queries in relation to textual questions. The generic name of the model refers to its ability to 'tape' together textual inputs with executable SQL commands. It excels in parsing questions to form accurate SQL statements, enabling seamless interaction with databases through conversation.",
-        "examples": [
-            "Creating SQL queries for database reporting.",
-            "Automated query generation for data analysis.",
-            "Interpreting user queries in natural language for SQL conversion.",
-            "Generating dynamic SQL commands from user inputs.",
-            "SQL query formulation from conversational data requests.",
-            "Translating complex business requirements into SQL queries.",
-            "Converting data exploration queries into SQL statements."
-        ],
-        "input_examples": [
-            "context: Database of employee records question: Which employees joined after 2010?",
-            "context: Sales data for the last quarter question: What were the total sales in each region?",
-            "context: Customer transaction table question: List all transactions over $500.",
-            "context: Inventory database question: Show items with less than 100 units in stock.",
-            "context: Table of project deadlines question: Which projects are due this month?",
-            "context: Employee skills database question: Find employees proficient in Python.",
-            "context: List of conference attendees question: Who attended both the 2018 and 2019 conferences?",
-            "context: Order history table question: Display orders that were delayed.",
-            "context: Database of flight schedules question: What are the flights from New York to London?",
-            "context: Product feedback data question: What are the common issues reported in feedback?"
-        ],
-        "usecases": [
-            "Building chatbots that interact with database-driven applications.",
-            "Automating report generation from databases using conversational interfaces."
-        ]
-    },
-    {
         "name": "TAPAS Tiny WTQ",
         "inputs": [
             { "type": "text", "name": "context" },

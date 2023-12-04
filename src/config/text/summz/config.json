@@ -220,31 +220,6 @@
         "usecases": ["Educational platforms", "Technical documentation", "Learning and development"]
     },
     {
-        "name": "CNN News Summarization Bart",
-        "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "facebook/bart-large-cnn",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
-        "description": "The CNN News Summarization Bart model is tailored to generate summaries for news articles, especially from CNN. Employing the BART (Bidirectional and Auto-Regressive Transformers) framework, this model condenses news articles into concise summaries, capturing the essential information. This is valuable for individuals looking to stay updated with current events but have limited time to read full-length articles. By providing quick, accurate summaries, this model facilitates a better understanding of ongoing societal and global issues.",
-        "examples": [
-            "Summarizing breaking news stories for quick updates",
-            "Creating briefs of in-depth investigative reports",
-            "Condensing opinion pieces for an overview of viewpoints"
-        ],
-        "input_examples": [
-            "An in-depth CNN report on a major political event.",
-            "A CNN analysis of recent economic trends.",
-            "A breaking news story on CNN about a natural disaster.",
-            "An investigative piece by CNN on a global health issue.",
-            "An opinion editorial from CNN on foreign policy.",
-            "A CNN sports news article on a major championship.",
-            "A technology update from CNN on the latest innovations.",
-            "An environmental piece by CNN on climate change impacts.",
-            "A CNN cultural report on a significant arts festival.",
-            "A CNN travel feature on exotic destinations around the world."
-        ],
-        "usecases": ["News aggregation platforms", "Media monitoring services", "Current affairs education"]
-    },
-    {
         "name": "BigBird Pegasus Arxiv Summarization",
         "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "google/bigbird-pegasus-large-arxiv",
