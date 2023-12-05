@@ -29,7 +29,32 @@
             "Let's play trivia: What's the largest ocean on Earth?",
             "I'm feeling anxious today. Can you help me relax?"
         ],
-        "usecases": ["Customer service chatbots", "Virtual personal assistants", "Interactive voice response systems"]
+        "usecases": ["Customer service chatbots", "Virtual personal assistants", "Interactive voice response systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n<|end|>\n<|user|>\nHow do I sort a list in Python?<|end|>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "temperature": 0.2,
+            "top_k": 50,
+            "top_p": 0.95,
+            "eos_token_id": 49155
+        }
     },
     {
         "name": "Zephyr 7B Beta",
@@ -63,7 +88,29 @@
             "Summarize the key points of the recent tech conference.",
             "Generate a description for a fantasy novel."
         ],
-        "usecases": ["Customer support automation", "Content creation", "Language translation services"]
+        "usecases": ["Customer support automation", "Content creation", "Language translation services"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n<|end|>\n<|user|>\nHow do I sort a list in Python?<|end|>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "temperature": 0.2
+        }
     },
     {
         "name": "Mistral 7B Instruct",
@@ -95,7 +142,28 @@
             "Tips for learning German as a beginner.",
             "How do I write an effective cover letter?",
             "Teach me a 5-minute meditation routine."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "bfloat16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
     },
     {
         "name": "StarChat Beta GPTQ 4bit",
@@ -127,7 +195,32 @@
             "How can I improve my Wi-Fi signal at home?",
             "Translate 'Thank you' to French.",
             "Suggest a reply to a customer asking about delivery times."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n<|end|>\n<|user|>\nHow do I sort a list in Python?<|end|>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "temperature": 0.2,
+            "top_k": 50,
+            "top_p": 0.95,
+            "eos_token_id": 49155
+        }
     },
     {
         "name": "Mistral 7B Code GPTQ 4bit",
@@ -159,7 +252,28 @@
             "What are some common design patterns in software engineering?",
             "How can I merge branches in Git without conflicts?",
             "What's the difference between synchronous and asynchronous programming?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
     },
     {
         "name": "Mistral 7B Phibrarian GPTQ",
@@ -191,7 +305,32 @@
             "How do I start a book club for classic literature?",
             "Explain the concept of existentialism in literature",
             "What was the significance of the Harlem Renaissance?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n<|end|>\n<|user|>\nHow do I sort a list in Python?<|end|>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "temperature": 0.7,
+            "top_k": 40,
+            "top_p": 0.95,
+            "repetition_penalty": 1.1
+        }
     },
     {
         "name": "Mistral 7B Instruct GPTQ 4bit",
@@ -223,7 +362,28 @@
             "What should I consider when planning a wedding?",
             "How do I plan a budget trip to Europe?",
             "What should I do in case of a minor burn?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
     },
     {
         "name": "Mistral 7B Instruct GPTQ 8bit",
@@ -255,7 +415,28 @@
             "What should I know before traveling to Japan?",
             "How can I improve my academic writing skills?",
             "What are some tips for growing an herb garden?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
     },
     {
         "name": "OpenChat 3.5 GPTQ 4-bit",
@@ -289,7 +470,28 @@
             "Answer a website visitor's question 'What are your opening hours?'",
             "Respond to 'Can you help me with my homework?'"
         ],
-        "usecases": ["Mobile chat applications", "Embedded dialog systems", "Real-time chatbots"]
+        "usecases": ["Mobile chat applications", "Embedded dialog systems", "Real-time chatbots"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
     },
     {
         "name": "OpenChat 3.5 GPTQ 8-bit",
@@ -323,7 +525,28 @@
             "Handle a query about store return policies.",
             "Generate a conversation about favorite hobbies."
         ],
-        "usecases": ["Efficient chatbots", "Performance-oriented dialog systems", "Resource-optimized chat applications"]
+        "usecases": ["Efficient chatbots", "Performance-oriented dialog systems", "Resource-optimized chat applications"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
     },
     {
         "name": "Zephyr 7B Beta GPTQ 4-bit",
@@ -357,7 +580,28 @@
             "Summarize the features of the latest software update.",
             "Create a brief intro for a travel blog post."
         ],
-        "usecases": ["On-edge language processing", "Real-time text applications", "Resource-constrained language tasks"]
+        "usecases": ["On-edge language processing", "Real-time text applications", "Resource-constrained language tasks"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
     },
     {
         "name": "Zephyr 7B Beta GPTQ 8-bit",
@@ -391,7 +635,28 @@
             "Write brief instructions for setting up a home Wi-Fi network.",
             "Generate a quick overview of a mobile app's features."
         ],
-        "usecases": ["On-edge language processing", "Performance-sensitive text applications", "Efficiency-oriented language tasks"]
+        "usecases": ["On-edge language processing", "Performance-sensitive text applications", "Efficiency-oriented language tasks"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
     },
     {
         "name": "Llama 7B Chat",
@@ -423,7 +688,33 @@
             "How do I fix a frozen computer?",
             "I need ideas for a short story, can you help?",
             "I'm feeling down today, can you cheer me up?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "temperature": 0.6,
+            "top_k": 50,
+            "top_p": 0.9,
+            "bos_token_id": 1,
+            "eos_token_id": 2
+        }
     },
     {
         "name": "Llama 13B Chat",
@@ -435,7 +726,33 @@
             "User: Can you explain the theory of relativity? Llama 13B Chat: Certainly! The theory of relativity, developed by Albert Einstein...",
             "User: What are the benefits of a balanced diet? Llama 13B Chat: A balanced diet is crucial for maintaining good health..."
         ],
-        "usecases": ["Advanced virtual assistants", "Educational chatbots", "Customer service platforms with complex queries"]
+        "usecases": ["Advanced virtual assistants", "Educational chatbots", "Customer service platforms with complex queries"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "temperature": 0.6,
+            "top_k": 50,
+            "top_p": 0.9,
+            "bos_token_id": 1,
+            "eos_token_id": 2
+        }
     },
     {
         "name": "Llama 70B Chat",
@@ -467,7 +784,33 @@
             "How do I prepare for a management role in my company?",
             "What are the best strategies for learning advanced French?",
             "Can you help me plan a fitness routine tailored to my needs?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "temperature": 0.6,
+            "top_k": 50,
+            "top_p": 0.9,
+            "bos_token_id": 1,
+            "eos_token_id": 2
+        }
     },
     {
         "name": "CodeLlama 7B Instruct",
@@ -499,7 +842,27 @@
             "What are some strategies for effective leadership in high-pressure environments?",
             "How can I balance a successful career with personal fulfillment?",
             "Can you help me understand advanced concepts in astrophysics?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 13B Instruct",
@@ -531,7 +894,27 @@
             "What are some common software testing techniques?",
             "How do I use React Hooks in a new project?",
             "What skills should I focus on to become a full-stack developer?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 34B Instruct",
@@ -563,7 +946,27 @@
             "Develop an algorithm for efficient route optimization in logistics.",
             "Write a script to automate testing and deployment in a CI/CD pipeline."
         ],
-        "usecases": ["High-level instructional platforms", "Online professional education services", "Technical support for professional programmers"]
+        "usecases": ["High-level instructional platforms", "Online professional education services", "Technical support for professional programmers"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardCoder Python 7B",
@@ -595,7 +998,27 @@
             "Convert this algorithm pseudocode into Python",
             "Optimize this Python function for faster execution"
         ],
-        "usecases": ["Code generation platforms", "Educational platforms for learning Python", "Debugging and code review platforms"]
+        "usecases": ["Code generation platforms", "Educational platforms for learning Python", "Debugging and code review platforms"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardCoder Python 13B",
@@ -627,7 +1050,27 @@
             "Program a network of IoT devices using Python",
             "Implement advanced machine learning techniques with Python's scikit-learn"
         ],
-        "usecases": ["Professional development platforms", "Advanced coding bootcamps", "High-level educational platforms for Python programming"]
+        "usecases": ["Professional development platforms", "Advanced coding bootcamps", "High-level educational platforms for Python programming"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 7B",
@@ -659,7 +1102,27 @@
             "Explain how calculus is used in physics",
             "Calculate the compound interest for this investment"
         ],
-        "usecases": ["Educational platforms for math learning", "Homework help services", "Online tutoring platforms"]
+        "usecases": ["Educational platforms for math learning", "Homework help services", "Online tutoring platforms"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 13B",
@@ -691,7 +1154,27 @@
             "Calculate the risk analysis for this investment portfolio",
             "Explain the mathematics behind machine learning algorithms"
         ],
-        "usecases": ["Higher education platforms", "Advanced tutoring services", "Professional environments requiring mathematical expertise"]
+        "usecases": ["Higher education platforms", "Advanced tutoring services", "Professional environments requiring mathematical expertise"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 70B",
@@ -723,7 +1206,27 @@
             "Explain the mathematics behind quantum computing algorithms",
             "Conduct a mathematical simulation for this climate change model"
         ],
-        "usecases": ["Research institutions", "Engineering firms", "Advanced mathematical consultancy"]
+        "usecases": ["Research institutions", "Engineering firms", "Advanced mathematical consultancy"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "Llama Chat 7B GPTQ 4-bit",
@@ -755,7 +1258,27 @@
             "How do I say 'thank you' in Spanish?",
             "Provide tips for photography beginners"
         ],
-        "usecases": ["Resource-constrained conversational applications", "Mobile-based chatbots", "Interactive voice response systems"]
+        "usecases": ["Resource-constrained conversational applications", "Mobile-based chatbots", "Interactive voice response systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "Llama Chat 7B GPTQ 8-bit",
@@ -787,7 +1310,27 @@
             "Have a conversation in French about regional cuisines",
             "Give tips for advanced photography techniques"
         ],
-        "usecases": ["Cross-platform conversational applications", "Web-based chatbots", "Customer service automation"]
+        "usecases": ["Cross-platform conversational applications", "Web-based chatbots", "Customer service automation"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "Llama Chat 13B GPTQ 4-bit",
@@ -819,7 +1362,27 @@
             "Converse in German about European politics",
             "Discuss advanced film-making techniques"
         ],
-        "usecases": ["Resource-optimized conversational applications", "Educational chatbots", "Information retrieval systems"]
+        "usecases": ["Resource-optimized conversational applications", "Educational chatbots", "Information retrieval systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "Llama Chat 13B GPTQ 8-bit",
@@ -851,7 +1414,27 @@
             "Engage in a discussion in Mandarin about traditional Chinese medicine",
             "Talk about the advancements in robotics"
         ],
-        "usecases": ["Cross-platform conversational applications", "Travel planning chatbots", "Customer service automation"]
+        "usecases": ["Cross-platform conversational applications", "Travel planning chatbots", "Customer service automation"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "Llama Chat 70B GPTQ 4-bit",
@@ -883,7 +1466,27 @@
             "Provide a comprehensive guide to holistic health practices",
             "Conduct a technical conversation in Japanese about robotics"
         ],
-        "usecases": ["Highly interactive conversational applications", "Educational platforms", "Advanced information retrieval systems"]
+        "usecases": ["Highly interactive conversational applications", "Educational platforms", "Advanced information retrieval systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "Llama Chat 70B GPTQ 8-bit",
@@ -915,7 +1518,27 @@
             "Have a technical discussion in Russian about aerospace engineering",
             "Explore the intricacies of molecular gastronomy"
         ],
-        "usecases": ["Sophisticated conversational applications", "Research assistance bots", "High-end customer service chatbots"]
+        "usecases": ["Sophisticated conversational applications", "Research assistance bots", "High-end customer service chatbots"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 7B Instruct GPTQ 4-bit",
@@ -947,7 +1570,27 @@
             "Guide on integrating a third-party API in a Node.js app",
             "Tips for writing clean and maintainable C++ code"
         ],
-        "usecases": ["Tutorial and instructional applications", "Code assistance platforms", "DIY guide chatbots"]
+        "usecases": ["Tutorial and instructional applications", "Code assistance platforms", "DIY guide chatbots"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 7B Instruct GPTQ 8-bit",
@@ -979,7 +1622,27 @@
             "Assist in integrating a payment gateway in an e-commerce site",
             "Offer tips for clean and efficient C# coding"
         ],
-        "usecases": ["Educational platforms", "Tutorial creation tools", "Instructional chatbots for various domains"]
+        "usecases": ["Educational platforms", "Tutorial creation tools", "Instructional chatbots for various domains"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 13B Instruct GPTQ 4-bit",
@@ -1011,7 +1674,27 @@
             "Assist in developing a blockchain-based application",
             "Explain the use of Kubernetes in managing containerized applications"
         ],
-        "usecases": ["Advanced tutorial and instructional applications", "Technical assistance platforms", "Educational chatbots for complex topics"]
+        "usecases": ["Advanced tutorial and instructional applications", "Technical assistance platforms", "Educational chatbots for complex topics"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 13B Instruct GPTQ 8-bit",
@@ -1043,7 +1726,27 @@
             "Provide best practices for automated testing in software development",
             "Assist in the integration of IoT devices in a smart home system"
         ],
-        "usecases": ["Advanced educational platforms", "Technical support chatbots", "Instructional tools for complex domains"]
+        "usecases": ["Advanced educational platforms", "Technical support chatbots", "Instructional tools for complex domains"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 34B Instruct GPTQ 4-bit",
@@ -1079,7 +1782,27 @@
             "Elite educational and tutorial platforms",
             "Technical and professional training applications",
             "Sophisticated instructional chatbots"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 34B Instruct GPTQ 8-bit",
@@ -1115,7 +1838,27 @@
             "Premium educational and instructional platforms",
             "Advanced technical support and troubleshooting applications",
             "Sophisticated knowledge sharing and guidance systems"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardCoder Python 7B GPTQ 4-bit",
@@ -1151,7 +1894,27 @@
             "Automated code generation and scripting",
             "Programming tutorial and guidance platforms",
             "Technical interview preparation tools"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardCoder Python 7B GPTQ 8-bit",
@@ -1187,7 +1950,27 @@
             "Automated code review and error checking",
             "Interactive programming learning platforms",
             "Code snippet generation for project acceleration"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardCoder Python 13B GPTQ 4-bit",
@@ -1223,7 +2006,27 @@
             "Automated code snippet generation",
             "Interactive programming education platforms",
             "Technical documentation and code review systems"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardCoder Python 13B GPTQ 8-bit",
@@ -1259,7 +2062,27 @@
             "Code generation for advanced programming projects",
             "Automated code review and optimization",
             "Interactive coding tutorials and exercises"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 7B GPTQ 4-bit",
@@ -1295,7 +2118,27 @@
             "Mathematical problem solving platforms",
             "Educational apps for advanced math learning",
             "Automated computation for engineering and scientific research"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 7B GPTQ 8-bit",
@@ -1327,7 +2170,27 @@
             "Explain tensor operations in linear algebra",
             "Solve this non-linear differential equation"
         ],
-        "usecases": ["Advanced mathematical problem solving", "Educational platforms for mathematics", "Automated computation in scientific research"]
+        "usecases": ["Advanced mathematical problem solving", "Educational platforms for mathematics", "Automated computation in scientific research"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 13B GPTQ 4-bit",
@@ -1363,7 +2226,27 @@
             "Mathematical analysis and problem solving",
             "Educational tools for higher-level math",
             "Automated computation for research and engineering"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 13B GPTQ 8-bit",
@@ -1395,7 +2278,27 @@
             "Discuss the role of linear algebra in quantum computing",
             "Solve a set of nonlinear partial differential equations in engineering"
         ],
-        "usecases": ["Advanced mathematical analysis", "Educational platforms for mathematics", "Research and engineering computations"]
+        "usecases": ["Advanced mathematical analysis", "Educational platforms for mathematics", "Research and engineering computations"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 70B GPTQ 4-bit",
@@ -1431,7 +2334,27 @@
             "Solving complex mathematical problems",
             "Educational platforms for advanced mathematics",
             "Research and engineering computations"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 70B GPTQ 8-bit",
@@ -1467,6 +2390,26 @@
             "Advanced mathematical analysis",
             "Educational platforms for high-level math",
             "Automated computation for research and engineering"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     }
 ]

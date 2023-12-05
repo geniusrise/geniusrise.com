@@ -33,7 +33,35 @@
             "input: English press release for an international event, source: English, target: Portuguese",
             "input: English product catalog for a multinational company, source: English, target: Hindi"
         ],
-        "usecases": ["Global customer support", "Multilingual content creation", "International business communication"]
+        "usecases": ["Global customer support", "Multilingual content creation", "International business communication"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSeq2SeqLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "संयुक्त राष्ट्र के प्रमुख का कहना है कि सीरिया में कोई सैन्य समाधान नहीं है",
+            "source_lang": "hi_IN",
+            "target_lang": "en_XX",
+            "decoding_strategy": "generate",
+            "decoder_start_token_id": 2,
+            "early_stopping": true,
+            "eos_token_id": 2,
+            "forced_eos_token_id": 2,
+            "max_length": 200,
+            "num_beams": 5,
+            "pad_token_id": 1
+        }
     },
     {
         "name": "Dense Multilingual Translation to English",
@@ -69,7 +97,35 @@
             "input: International sports event commentary, source: Spanish, target: Italian",
             "input: Multinational corporate policy announcement, source: English, target: Hindi"
         ],
-        "usecases": ["Multilingual content moderation", "Global news monitoring", "International business documentation"]
+        "usecases": ["Multilingual content moderation", "Global news monitoring", "International business documentation"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSeq2SeqLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "संयुक्त राष्ट्र के प्रमुख का कहना है कि सीरिया में कोई सैन्य समाधान नहीं है",
+            "source_lang": "hi_IN",
+            "target_lang": "en_XX",
+            "decoding_strategy": "generate",
+            "decoder_start_token_id": 2,
+            "early_stopping": true,
+            "eos_token_id": 2,
+            "forced_eos_token_id": 2,
+            "max_length": 200,
+            "num_beams": 5,
+            "pad_token_id": 1
+        }
     },
     {
         "name": "Dense Multilingual Translation from English",
@@ -105,6 +161,34 @@
             "input: Product specifications for an automotive part, source: Japanese, target: Spanish",
             "input: E-commerce platform's policy updates, source: English, target: Chinese"
         ],
-        "usecases": ["Global marketing campaigns", "Multilingual educational platforms", "International legal compliance"]
+        "usecases": ["Global marketing campaigns", "Multilingual educational platforms", "International legal compliance"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSeq2SeqLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "संयुक्त राष्ट्र के प्रमुख का कहना है कि सीरिया में कोई सैन्य समाधान नहीं है",
+            "source_lang": "hi_IN",
+            "target_lang": "en_XX",
+            "decoding_strategy": "generate",
+            "decoder_start_token_id": 2,
+            "early_stopping": true,
+            "eos_token_id": 2,
+            "forced_eos_token_id": 2,
+            "max_length": 200,
+            "num_beams": 5,
+            "pad_token_id": 1
+        }
     }
 ]

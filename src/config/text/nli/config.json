@@ -29,7 +29,26 @@
             " \"premise\": \"The company's profits have doubled.\", \"hypothesis\": \"The company is facing financial losses.",
             " \"premise\": \"The vaccine is effective against the virus.\", \"hypothesis\": \"The virus can be prevented with the vaccine."
         ],
-        "usecases": ["Cross-lingual text analysis", "Multilingual content moderation", "Global customer support systems"]
+        "usecases": ["Cross-lingual text analysis", "Multilingual content moderation", "Global customer support systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     },
     {
         "name": "T5 XXL True NLI",
@@ -61,7 +80,26 @@
             " \"premise\": \"The painting is a work of Vincent van Gogh.\", \"hypothesis\": \"The artwork was created by a famous Dutch painter.",
             " \"premise\": \"The medication is taken once a day.\", \"hypothesis\": \"Patients need to take the medication multiple times a day."
         ],
-        "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"]
+        "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     },
     {
         "name": "BART Large MNLI",
@@ -93,7 +131,26 @@
             " \"premise\": \"The technology company is valued at a billion dollars.\", \"hypothesis\": \"The company is struggling financially.",
             " \"premise\": \"The new law was passed by the senate.\", \"hypothesis\": \"The legislative process is at a standstill."
         ],
-        "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"]
+        "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     },
     {
         "name": "DeBERTa V2 Xlarge MNLI",
@@ -125,7 +182,26 @@
             " \"premise\": \"The musician performed at the concert last night.\", \"hypothesis\": \"The concert was cancelled.",
             " \"premise\": \"The book covers the topic of climate change.\", \"hypothesis\": \"The book is about ancient civilizations."
         ],
-        "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"]
+        "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     },
     {
         "name": "DeBERTa V3 Large MNLI",
@@ -157,7 +233,26 @@
             " \"premise\": \"The experiment was conducted in a controlled environment.\", \"hypothesis\": \"The research lacked proper experimental conditions.",
             " \"premise\": \"The lecture covered the topic of renewable energy.\", \"hypothesis\": \"The talk focused on fossil fuels."
         ],
-        "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"]
+        "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     },
     {
         "name": "DistilBERT MNLI",
@@ -189,7 +284,26 @@
             " \"premise\": \"The treatment is effective in reducing symptoms.\", \"hypothesis\": \"Patients reported no improvement after the treatment.",
             " \"premise\": \"The film was awarded at several international festivals.\", \"hypothesis\": \"The movie failed to receive any recognition."
         ],
-        "usecases": ["Resource-efficient textual inference", "Content moderation", "Automated reasoning systems"]
+        "usecases": ["Resource-efficient textual inference", "Content moderation", "Automated reasoning systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     },
     {
         "name": "RoBERTa Large MNLI",
@@ -221,7 +335,26 @@
             " \"premise\": \"The building is a preserved historical site.\", \"hypothesis\": \"The structure was recently constructed.",
             " \"premise\": \"The article discusses climate change.\", \"hypothesis\": \"The piece is about urban development."
         ],
-        "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"]
+        "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     },
     {
         "name": "DeBERTa V2 XXLarge MNLI",
@@ -244,7 +377,26 @@
             " \"premise\": \"The species is considered endangered.\", \"hypothesis\": \"The species has a stable population.",
             " \"premise\": \"The book is set in the 19th century.\", \"hypothesis\": \"The story takes place in the modern day."
         ],
-        "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"]
+        "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     },
     {
         "name": "DeBERTa V3 Large TaskSource NLI",
@@ -276,7 +428,26 @@
             " \"premise\": \"The movie is based on a true story.\", \"hypothesis\": \"The film is a work of pure fiction.",
             " \"premise\": \"The research focuses on renewable energy.\", \"hypothesis\": \"The study is about fossil fuels."
         ],
-        "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"]
+        "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     },
     {
         "name": "NLI DeBERTa V3 Small",
@@ -308,7 +479,26 @@
             " \"premise\": \"The lake is a popular tourist spot.\", \"hypothesis\": \"The site is rarely visited.",
             " \"premise\": \"The conference focuses on environmental issues.\", \"hypothesis\": \"The seminar is about technology advancements."
         ],
-        "usecases": ["Real-time text analysis platforms", "Content moderation", "Automated reasoning systems"]
+        "usecases": ["Real-time text analysis platforms", "Content moderation", "Automated reasoning systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     },
     {
         "name": "NLI DeBERTa V3 Base",
@@ -340,7 +530,26 @@
             " \"premise\": \"The climate in the region is arid.\", \"hypothesis\": \"The area has a tropical climate.",
             " \"premise\": \"The law is newly enacted.\", \"hypothesis\": \"The regulation has been long established."
         ],
-        "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"]
+        "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     },
     {
         "name": "NLI DeBERTa V3 Large",
@@ -372,7 +581,26 @@
             " \"premise\": \"The food is organic.\", \"hypothesis\": \"The produce is genetically modified.",
             " \"premise\": \"The movie is a romantic comedy.\", \"hypothesis\": \"The film is a thriller."
         ],
-        "usecases": ["Advanced textual logic verification", "Content moderation", "Automated reasoning systems"]
+        "usecases": ["Advanced textual logic verification", "Content moderation", "Automated reasoning systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     },
     {
         "name": "NLI RoBERTa Base",
@@ -404,7 +632,26 @@
             " \"premise\": \"The organization is non-profit.\", \"hypothesis\": \"The group operates for profit.",
             " \"premise\": \"The climate is humid.\", \"hypothesis\": \"The environment is arid."
         ],
-        "usecases": ["Content moderation", "Automated reasoning systems", "Real-time text analysis platforms"]
+        "usecases": ["Content moderation", "Automated reasoning systems", "Real-time text analysis platforms"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     },
     {
         "name": "NLI DeBERTa V3 Large",
@@ -436,7 +683,26 @@
             " \"premise\": \"The software enhances data security.\", \"hypothesis\": \"Using the software poses a risk to data safety.",
             " \"premise\": \"The athlete won multiple gold medals.\", \"hypothesis\": \"The sportsperson has never won a major competition."
         ],
-        "usecases": ["Advanced textual logic verification", "Content moderation", "Automated reasoning systems"]
+        "usecases": ["Advanced textual logic verification", "Content moderation", "Automated reasoning systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     },
     {
         "name": "NLI DistilRoBERTa Base",
@@ -468,6 +734,25 @@
             " \"premise\": \"The experiment yielded significant results.\", \"hypothesis\": \"The study's findings were inconclusive.",
             " \"premise\": \"The vehicle is equipped with advanced safety features.\", \"hypothesis\": \"The car lacks modern safety mechanisms."
         ],
-        "usecases": ["Real-time text analysis platforms", "Content moderation", "Knowledge verification"]
+        "usecases": ["Real-time text analysis platforms", "Content moderation", "Knowledge verification"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
+            "hypothesis": "the phone has an awesome battery life"
+        }
     }
 ]

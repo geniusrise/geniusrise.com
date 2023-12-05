@@ -31,7 +31,25 @@
             "The Starry Night is one of Van Gogh's most famous paintings.",
             "A study on the effects of climate change on polar bears."
         ],
-        "usecases": ["Information Extraction", "Data Mining", "Knowledge Graph Construction"]
+        "usecases": ["Information Extraction", "Data Mining", "Knowledge Graph Construction"],
+        "apiDeploy": {
+            "model_class": "AutoModelForTokenClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "My name is Clara and I live in Berkeley, California."
+        }
     },
     {
         "name": "WikiNeural Multilingual NER",
@@ -64,7 +82,25 @@
             "[Italian] Leonardo da Vinci è famoso per il dipinto della Gioconda.",
             "[Portuguese] O Rio Amazonas é o maior rio do mundo em volume de água."
         ],
-        "usecases": ["Multilingual Information Extraction", "Cross-border Market Research", "Global Sentiment Analysis"]
+        "usecases": ["Multilingual Information Extraction", "Cross-border Market Research", "Global Sentiment Analysis"],
+        "apiDeploy": {
+            "model_class": "AutoModelForTokenClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "My name is Clara and I live in Berkeley, California."
+        }
     },
     {
         "name": "Biomedical NER All",
@@ -98,7 +134,25 @@
             "The anatomy book covers the structure of the human heart.",
             "Discussions on treatments for chronic kidney disease."
         ],
-        "usecases": ["Biomedical Research", "Clinical Trial Analysis", "Pharmacovigilance"]
+        "usecases": ["Biomedical Research", "Clinical Trial Analysis", "Pharmacovigilance"],
+        "apiDeploy": {
+            "model_class": "AutoModelForTokenClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "My name is Clara and I live in Berkeley, California."
+        }
     },
     {
         "name": "BioBERT Chemical NER",
@@ -132,7 +186,25 @@
             "Shampoo ingredients include sodium lauryl sulfate.",
             "Analysis of the chemical composition of minerals."
         ],
-        "usecases": ["Chemical Research", "Pharmaceutical Development", "Toxicology Studies"]
+        "usecases": ["Chemical Research", "Pharmaceutical Development", "Toxicology Studies"],
+        "apiDeploy": {
+            "model_class": "AutoModelForTokenClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "My name is Clara and I live in Berkeley, California."
+        }
     },
     {
         "name": "BENT PubMedBERT NER Gene",
@@ -165,7 +237,25 @@
             "Genetic testing for the HTT gene can predict Huntington's disease.",
             "The role of BDNF gene in neurology and brain function."
         ],
-        "usecases": ["Genomic Research", "Molecular Biology Studies", "Genetic Disease Analysis"]
+        "usecases": ["Genomic Research", "Molecular Biology Studies", "Genetic Disease Analysis"],
+        "apiDeploy": {
+            "model_class": "AutoModelForTokenClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "My name is Clara and I live in Berkeley, California."
+        }
     },
     {
         "name": "FoodBaseBERT NER",
@@ -198,7 +288,25 @@
             "The shopping list includes eggs, milk, and bread.",
             "Article on the cultivation of organic heirloom tomatoes."
         ],
-        "usecases": ["Recipe Analysis", "Nutritional Research", "Food Trend Analysis"]
+        "usecases": ["Recipe Analysis", "Nutritional Research", "Food Trend Analysis"],
+        "apiDeploy": {
+            "model_class": "AutoModelForTokenClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "My name is Clara and I live in Berkeley, California."
+        }
     },
     {
         "name": "Disease Entity Recognition Model",
@@ -234,6 +342,24 @@
         ],
         "usecases": [
             "Automating the extraction of disease-related information from medical literature, enhancing information retrieval systems in the biomedical domain, and supporting data curation tasks for medical databases."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForTokenClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "My name is Clara and I live in Berkeley, California."
+        }
     }
 ]

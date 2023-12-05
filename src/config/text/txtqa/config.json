@@ -32,7 +32,35 @@
         "usecases": [
             "Integrating into mobile applications for on-the-go data analysis.",
             "Developing lightweight chatbots for querying tabular information."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForTableQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": [
+                {
+                    "Name": "Alice",
+                    "Age": "30"
+                },
+                {
+                    "Name": "Bob",
+                    "Age": "25"
+                }
+            ],
+            "question": "what is their total age?"
+        }
     },
     {
         "name": "TAPAS Large WTQ",
@@ -67,7 +95,35 @@
         "usecases": [
             "Creating sophisticated data analysis tools with conversational interfaces.",
             "Deploying in enterprise environments for complex data retrieval tasks."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForTableQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": [
+                {
+                    "Name": "Alice",
+                    "Age": "30"
+                },
+                {
+                    "Name": "Bob",
+                    "Age": "25"
+                }
+            ],
+            "question": "what is their total age?"
+        }
     },
     {
         "name": "TAPAS Base WTQ",
@@ -102,7 +158,35 @@
         "usecases": [
             "Implementing conversational bots for data-driven websites.",
             "Enhancing business intelligence tools with natural language querying features."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForTableQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": [
+                {
+                    "Name": "Alice",
+                    "Age": "30"
+                },
+                {
+                    "Name": "Bob",
+                    "Age": "25"
+                }
+            ],
+            "question": "what is their total age?"
+        }
     },
     {
         "name": "TAPAS Small SQA",
@@ -137,7 +221,35 @@
         "usecases": [
             "Developing interactive FAQ systems for financial or statistical data.",
             "Building educational bots that guide users through data with sequential questioning."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForTableQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": [
+                {
+                    "Name": "Alice",
+                    "Age": "30"
+                },
+                {
+                    "Name": "Bob",
+                    "Age": "25"
+                }
+            ],
+            "question": "what is their total age?"
+        }
     },
     {
         "name": "TAPAS Base SQA",
@@ -172,7 +284,35 @@
         "usecases": [
             "Enhancing customer support bots with context-aware data retrieval.",
             "Powering analytics platforms with conversational sequence querying capabilities."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForTableQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": [
+                {
+                    "Name": "Alice",
+                    "Age": "30"
+                },
+                {
+                    "Name": "Bob",
+                    "Age": "25"
+                }
+            ],
+            "question": "what is their total age?"
+        }
     },
     {
         "name": "TAPAS Large SQA",
@@ -207,7 +347,35 @@
         "usecases": [
             "Deploying in corporate settings for advanced data exploration via natural language.",
             "Building educational tech that can navigate detailed data discussions."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForTableQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": [
+                {
+                    "Name": "Alice",
+                    "Age": "30"
+                },
+                {
+                    "Name": "Bob",
+                    "Age": "25"
+                }
+            ],
+            "question": "what is their total age?"
+        }
     },
     {
         "name": "TaPEx Base WTQ",
@@ -242,7 +410,37 @@
         "usecases": [
             "Integrating into customer service bots for data lookup tasks.",
             "Supporting decision-making processes with interactive data querying."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForSeq2SeqLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": {
+                "Actors": [
+                    "Brad Pitt",
+                    "Leonardo Di Caprio",
+                    "George Clooney"
+                ],
+                "Number of movies": [
+                    "87",
+                    "53",
+                    "69"
+                ]
+            },
+            "question": "how many movies does Leonardo Di Caprio have?"
+        }
     },
     {
         "name": "TaPEx Large WTQ",
@@ -277,7 +475,37 @@
         "usecases": [
             "Enhancing data analytics platforms with a sophisticated natural language interface.",
             "Building complex chatbots for industries relying on large-scale data analysis."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForSeq2SeqLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": {
+                "Actors": [
+                    "Brad Pitt",
+                    "Leonardo Di Caprio",
+                    "George Clooney"
+                ],
+                "Number of movies": [
+                    "87",
+                    "53",
+                    "69"
+                ]
+            },
+            "question": "how many movies does Leonardo Di Caprio have?"
+        }
     },
     {
         "name": "TaPEx Base WikiSQL Reiteration",
@@ -312,7 +540,37 @@
         "usecases": [
             "Developing conversational interfaces for database management systems.",
             "Automating query generation for reporting tools with natural language input."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForSeq2SeqLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": {
+                "Actors": [
+                    "Brad Pitt",
+                    "Leonardo Di Caprio",
+                    "George Clooney"
+                ],
+                "Number of movies": [
+                    "87",
+                    "53",
+                    "69"
+                ]
+            },
+            "question": "how many movies does Leonardo Di Caprio have?"
+        }
     },
     {
         "name": "TaPEx Large WikiSQL",
@@ -347,7 +605,37 @@
         "usecases": [
             "Building advanced data exploration bots for enterprise databases.",
             "Streamlining data operations in business intelligence tools through natural language."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForSeq2SeqLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": {
+                "Actors": [
+                    "Brad Pitt",
+                    "Leonardo Di Caprio",
+                    "George Clooney"
+                ],
+                "Number of movies": [
+                    "87",
+                    "53",
+                    "69"
+                ]
+            },
+            "question": "how many movies does Leonardo Di Caprio have?"
+        }
     },
     {
         "name": "TAPAS Small WikiSQL Supervised",
@@ -382,7 +670,35 @@
         "usecases": [
             "Implementing into mobile applications for fast data lookup features.",
             "Enhancing web services with instant data question answering capabilities."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForTableQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": [
+                {
+                    "Name": "Alice",
+                    "Age": "30"
+                },
+                {
+                    "Name": "Bob",
+                    "Age": "25"
+                }
+            ],
+            "question": "what is their total age?"
+        }
     },
     {
         "name": "TAPAS Base WikiSQL Supervised",
@@ -417,7 +733,35 @@
         "usecases": [
             "Incorporating into analytical tools for streamlined data querying.",
             "Designing interactive bots for educational platforms focusing on data literacy."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForTableQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": [
+                {
+                    "Name": "Alice",
+                    "Age": "30"
+                },
+                {
+                    "Name": "Bob",
+                    "Age": "25"
+                }
+            ],
+            "question": "what is their total age?"
+        }
     },
     {
         "name": "TAPAS Large WikiSQL Supervised",
@@ -452,7 +796,35 @@
         "usecases": [
             "Advancing AI-driven research tools for data scientists and analysts.",
             "Enhancing enterprise-level business intelligence solutions with powerful natural language processing."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForTableQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": [
+                {
+                    "Name": "Alice",
+                    "Age": "30"
+                },
+                {
+                    "Name": "Bob",
+                    "Age": "25"
+                }
+            ],
+            "question": "what is their total age?"
+        }
     },
     {
         "name": "DistilBERT Base Uncased SQuAD",
@@ -487,7 +859,26 @@
         "usecases": [
             "Developing cost-effective educational bots for tutoring and training.",
             "Integrating into mobile applications for on-the-go question answering."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": "Theres something magical about Recurrent Neural Networks (RNNs). I still remember when I trained my first recurrent network for Image Captioning. Within a few dozen minutes of training my first baby model (with rather arbitrarily-chosen hyperparameters) started to generate very nice looking descriptions of images that were on the edge of making sense. Sometimes the ratio of how simple your model is to the quality of the results you get out of it blows past your expectations, and this was one of those times. What made this result so shocking at the time was that the common wisdom was that RNNs were supposed to be difficult to train (with more experience Ive in fact reached the opposite conclusion). Fast forward about a year: Im training RNNs all the time and Ive witnessed their power and robustness many times, and yet their magical outputs still find ways of amusing me.",
+            "question": "What is the common wisdom about RNNs?"
+        }
     },
     {
         "name": "Deepset BERT Base SQuAD2",
@@ -522,7 +913,26 @@
         "usecases": [
             "Crafting intelligent virtual assistants for professional services.",
             "Enhancing search engines with the ability to handle nuanced user queries."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": "Theres something magical about Recurrent Neural Networks (RNNs). I still remember when I trained my first recurrent network for Image Captioning. Within a few dozen minutes of training my first baby model (with rather arbitrarily-chosen hyperparameters) started to generate very nice looking descriptions of images that were on the edge of making sense. Sometimes the ratio of how simple your model is to the quality of the results you get out of it blows past your expectations, and this was one of those times. What made this result so shocking at the time was that the common wisdom was that RNNs were supposed to be difficult to train (with more experience Ive in fact reached the opposite conclusion). Fast forward about a year: Im training RNNs all the time and Ive witnessed their power and robustness many times, and yet their magical outputs still find ways of amusing me.",
+            "question": "What is the common wisdom about RNNs?"
+        }
     },
     {
         "name": "Deepset RoBERTa Base SQuAD2",
@@ -557,7 +967,26 @@
         "usecases": [
             "Implementing into customer support bots to provide detailed product information.",
             "Utilizing in academic settings to assist students with learning materials."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": "Theres something magical about Recurrent Neural Networks (RNNs). I still remember when I trained my first recurrent network for Image Captioning. Within a few dozen minutes of training my first baby model (with rather arbitrarily-chosen hyperparameters) started to generate very nice looking descriptions of images that were on the edge of making sense. Sometimes the ratio of how simple your model is to the quality of the results you get out of it blows past your expectations, and this was one of those times. What made this result so shocking at the time was that the common wisdom was that RNNs were supposed to be difficult to train (with more experience Ive in fact reached the opposite conclusion). Fast forward about a year: Im training RNNs all the time and Ive witnessed their power and robustness many times, and yet their magical outputs still find ways of amusing me.",
+            "question": "What is the common wisdom about RNNs?"
+        }
     },
     {
         "name": "Deepset DeBERTa V3 Base SQuAD2",
@@ -592,7 +1021,26 @@
         "usecases": [
             "Augmenting research tools for data analysis with sophisticated question-answering features.",
             "Enriching interactive learning platforms with an advanced AI tutor."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": "Theres something magical about Recurrent Neural Networks (RNNs). I still remember when I trained my first recurrent network for Image Captioning. Within a few dozen minutes of training my first baby model (with rather arbitrarily-chosen hyperparameters) started to generate very nice looking descriptions of images that were on the edge of making sense. Sometimes the ratio of how simple your model is to the quality of the results you get out of it blows past your expectations, and this was one of those times. What made this result so shocking at the time was that the common wisdom was that RNNs were supposed to be difficult to train (with more experience Ive in fact reached the opposite conclusion). Fast forward about a year: Im training RNNs all the time and Ive witnessed their power and robustness many times, and yet their magical outputs still find ways of amusing me.",
+            "question": "What is the common wisdom about RNNs?"
+        }
     },
     {
         "name": "Deepset ELECTRA Base SQuAD2",
@@ -627,7 +1075,26 @@
         "usecases": [
             "Building responsive chatbots that can handle a wide range of customer inquiries.",
             "Creating efficient AI assistants for professional and educational use."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": "Theres something magical about Recurrent Neural Networks (RNNs). I still remember when I trained my first recurrent network for Image Captioning. Within a few dozen minutes of training my first baby model (with rather arbitrarily-chosen hyperparameters) started to generate very nice looking descriptions of images that were on the edge of making sense. Sometimes the ratio of how simple your model is to the quality of the results you get out of it blows past your expectations, and this was one of those times. What made this result so shocking at the time was that the common wisdom was that RNNs were supposed to be difficult to train (with more experience Ive in fact reached the opposite conclusion). Fast forward about a year: Im training RNNs all the time and Ive witnessed their power and robustness many times, and yet their magical outputs still find ways of amusing me.",
+            "question": "What is the common wisdom about RNNs?"
+        }
     },
     {
         "name": "Deepset DeBERTa V3 Large SQuAD2",
@@ -662,6 +1129,25 @@
         "usecases": [
             "Deploying in AI-driven analysis tools for complex document review tasks.",
             "Integrating into enterprise-grade virtual assistants for detailed customer interactions."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": "Theres something magical about Recurrent Neural Networks (RNNs). I still remember when I trained my first recurrent network for Image Captioning. Within a few dozen minutes of training my first baby model (with rather arbitrarily-chosen hyperparameters) started to generate very nice looking descriptions of images that were on the edge of making sense. Sometimes the ratio of how simple your model is to the quality of the results you get out of it blows past your expectations, and this was one of those times. What made this result so shocking at the time was that the common wisdom was that RNNs were supposed to be difficult to train (with more experience Ive in fact reached the opposite conclusion). Fast forward about a year: Im training RNNs all the time and Ive witnessed their power and robustness many times, and yet their magical outputs still find ways of amusing me.",
+            "question": "What is the common wisdom about RNNs?"
+        }
     }
 ]
