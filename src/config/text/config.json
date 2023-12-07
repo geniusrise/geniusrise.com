@@ -28,7 +28,16 @@
             "Analyzing customer feedback to identify common concerns or praises",
             "Classifying legal documents for easier retrieval and analysis",
             "Categorizing medical records for faster access and improved patient care"
-        ]
+        ],
+        "endpoint": "/api/v1/classify",
+        "config": {
+            "cloud": "AWS",
+            "input_type": "batch",
+            "input_config": {},
+            "output_type": "batch",
+            "output_config": {},
+            "deployment_type": "k8s"
+        }
     },
     "emotion": {
         "short_name": "emotion",
@@ -59,7 +68,16 @@
             "Interpreting user experience feedback for app or website improvements",
             "Assessing patient sentiment in healthcare communications for better care",
             "Analyzing emotions in political speeches for campaign strategy development"
-        ]
+        ],
+        "endpoint": "/api/v1/classify",
+        "config": {
+            "cloud": "AWS",
+            "input_type": "batch",
+            "input_config": {},
+            "output_type": "batch",
+            "output_config": {},
+            "deployment_type": "k8s"
+        }
     },
     "lm": {
         "short_name": "lm",
@@ -90,7 +108,16 @@
             "Personalizing news feed content based on user's reading preferences",
             "Developing interactive and engaging text-based games",
             "Assisting developers with code suggestions in integrated development environments"
-        ]
+        ],
+        "endpoint": "/api/v1/complete",
+        "config": {
+            "cloud": "AWS",
+            "input_type": "batch",
+            "input_config": {},
+            "output_type": "batch",
+            "output_config": {},
+            "deployment_type": "k8s"
+        }
     },
     "txtqa": {
         "short_name": "txtqa",
@@ -121,7 +148,16 @@
             "Finding relevant clauses or information in lengthy legal documents",
             "Clarifying product features or specifications for customers on e-commerce sites",
             "Assisting in technical support by providing solutions to common issues"
-        ]
+        ],
+        "endpoint": "/api/v1/answer",
+        "config": {
+            "cloud": "AWS",
+            "input_type": "batch",
+            "input_config": {},
+            "output_type": "batch",
+            "output_config": {},
+            "deployment_type": "k8s"
+        }
     },
     "entity": {
         "short_name": "entity",
@@ -152,7 +188,16 @@
             "Extracting scientific terms from academic papers for indexing",
             "Identifying historical figures in textbooks for educational purposes",
             "Extracting financial terms from market reports for investment analysis"
-        ]
+        ],
+        "endpoint": "/api/v1/recognize_entities",
+        "config": {
+            "cloud": "AWS",
+            "input_type": "batch",
+            "input_config": {},
+            "output_type": "batch",
+            "output_config": {},
+            "deployment_type": "k8s"
+        }
     },
     "chat": {
         "short_name": "chat",
@@ -183,7 +228,16 @@
             "Offering fitness advice and workout plans based on user goals",
             "Assisting in recipe selection and cooking instructions",
             "Offering troubleshooting solutions and technical assistance"
-        ]
+        ],
+        "endpoint": "/api/v1/complete",
+        "config": {
+            "cloud": "AWS",
+            "input_type": "batch",
+            "input_config": {},
+            "output_type": "batch",
+            "output_config": {},
+            "deployment_type": "k8s"
+        }
     },
     "nli": {
         "short_name": "nli",
@@ -214,7 +268,16 @@
             "Understanding nuances in dialogues for improved human-computer interaction",
             "Checking for sentiment alignment in customer reviews",
             "Interpreting cultural references in literature or social media for localization"
-        ]
+        ],
+        "endpoint": "/api/v1/entailment",
+        "config": {
+            "cloud": "AWS",
+            "input_type": "batch",
+            "input_config": {},
+            "output_type": "batch",
+            "output_config": {},
+            "deployment_type": "k8s"
+        }
     },
     "summz": {
         "short_name": "summz",
@@ -245,7 +308,16 @@
             "Condensing lengthy email threads into brief summaries for quick understanding",
             "Summarizing social media posts for trends analysis or content curation",
             "Creating summaries of literature reviews for academic or research purposes"
-        ]
+        ],
+        "endpoint": "/api/v1/summarize",
+        "config": {
+            "cloud": "AWS",
+            "input_type": "batch",
+            "input_config": {},
+            "output_type": "batch",
+            "output_config": {},
+            "deployment_type": "k8s"
+        }
     },
     "trans": {
         "short_name": "trans",
@@ -276,6 +348,15 @@
             "Translating legal documents for international law practice",
             "Translating educational resources for students in different languages",
             "Converting spoken language into text in another language in real-time"
-        ]
+        ],
+        "endpoint": "/api/v1/translate",
+        "config": {
+            "cloud": "AWS",
+            "input_type": "batch",
+            "input_config": {},
+            "output_type": "batch",
+            "output_config": {},
+            "deployment_type": "k8s"
+        }
     }
 }

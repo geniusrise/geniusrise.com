@@ -3,8 +3,8 @@
         "name": "StarChat Beta",
         "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "HuggingFaceH4/starchat-beta",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "StarChat Beta is a conversational model trained by HuggingFaceH4. It's designed to provide engaging and coherent responses in a conversational setting. This model is a part of the Mistral lineage which emphasizes on delivering superior conversational experiences. Whether you are looking to build a friendly chatbot or an interactive virtual assistant, StarChat Beta is equipped to handle a variety of conversational scenarios. Its training on diverse data equips it to understand and respond to a wide range of topics.",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Casual conversations",
             "Providing recommendations (movies, books, etc.)",
@@ -29,7 +29,88 @@
             "Let's play trivia: What's the largest ocean on Earth?",
             "I'm feeling anxious today. Can you help me relax?"
         ],
-        "usecases": ["Customer service chatbots", "Virtual personal assistants", "Interactive voice response systems"]
+        "usecases": ["Customer service chatbots", "Virtual personal assistants", "Interactive voice response systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n<|end|>\n<|user|>\nHow do I sort a list in Python?<|end|>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "temperature": 0.2,
+            "top_k": 50,
+            "top_p": 0.95,
+            "eos_token_id": 49155
+        }
+    },
+    {
+        "name": "Zephyr 7B Beta",
+        "inputs": [{ "type": "text", "name": "input" }],
+        "model_name": "HuggingFaceH4/zephyr-7b-beta",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "description": "Zephyr 7B Beta is a powerful language model designed to understand and generate human-like text. It's adept at various NLP tasks including translation, summarization, and conversation. The '7B' in its name denotes the number of parameters, making it a large model capable of understanding complex contexts and generating coherent responses.",
+        "examples": [
+            "Translation of languages",
+            "Generating human-like text",
+            "Answering questions based on a given context",
+            "Summarizing long texts",
+            "Creating content for articles",
+            "Composing creative stories",
+            "Generating informative answers",
+            "Drafting emails",
+            "Creating dialogue for chatbots",
+            "Translating technical documents",
+            "Summarizing news articles"
+        ],
+        "input_examples": [
+            "Translate 'Hello, how are you?' to Spanish.",
+            "Generate a short story about a lost kitten.",
+            "Summarize the article about climate change.",
+            "What is the capital of France?",
+            "Compose an email to schedule a meeting.",
+            "Create a dialogue between a customer and a support agent.",
+            "Explain the process of photosynthesis.",
+            "Translate a user manual from German to English.",
+            "Draft a blog post about healthy eating.",
+            "Summarize the key points of the recent tech conference.",
+            "Generate a description for a fantasy novel."
+        ],
+        "usecases": ["Customer support automation", "Content creation", "Language translation services"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n<|end|>\n<|user|>\nHow do I sort a list in Python?<|end|>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "temperature": 0.2
+        }
     },
     {
         "name": "Mistral 7B Instruct",
@@ -61,12 +142,33 @@
             "Tips for learning German as a beginner.",
             "How do I write an effective cover letter?",
             "Teach me a 5-minute meditation routine."
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "bfloat16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
     },
     {
         "name": "StarChat Beta GPTQ 4bit",
         "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke/starchat-beta-GPTQ:gptq-4bit-32g-actorder_True",
+        "model_name": "TheBloke/starchat-beta-GPTQ",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "StarChat Beta GPTQ 4bit, curated by TheBloke, is a model that combines the conversational aptitude of StarChat Beta with the efficient quantization of GPTQ. This 4bit version is designed for optimized performance while maintaining satisfactory conversational quality. It inherits the conversational prowess of Mistral lineage and is ideal for environments where resource utilization is a concern. From personal chatbots to automated customer service, this model balances performance with conversational competency.",
         "examples": [
@@ -93,39 +195,32 @@
             "How can I improve my Wi-Fi signal at home?",
             "Translate 'Thank you' to French.",
             "Suggest a reply to a customer asking about delivery times."
-        ]
-    },
-    {
-        "name": "StarChat Beta GPTQ 8bit",
-        "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke/starchat-beta-GPTQ:gptq-8bit-32g-actorder_True",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
-        "description": "StarChat Beta GPTQ 8bit is a variant of StarChat Beta, fine-tuned by TheBloke to facilitate an 8bit quantized version for enhanced performance. This model retains the conversational prowess of the Mistral lineage while benefiting from GPTQ's efficient quantization. It's an excellent choice for applications requiring a balance of performance, resource efficiency, and conversational ability. From engaging chatbots to interactive voice response systems, StarChat Beta GPTQ 8bit can handle diverse conversational scenarios.",
-        "examples": [
-            "Facilitating engaging conversations with improved efficiency",
-            "Providing customer support for a range of queries",
-            "Assisting with educational topics and homework questions",
-            "Offering travel tips and destination recommendations",
-            "Engaging in trivia games and quizzes",
-            "Providing advice on wellness and self-care",
-            "Helping with language learning and practice",
-            "Guiding users through basic technical troubleshooting",
-            "Offering creative writing prompts and ideas",
-            "Assisting in planning events and activities"
         ],
-        "usecases": ["Performance-optimized chatbots", "Voice-activated virtual assistants", "Automated customer support"],
-        "input_examples": [
-            "Can you help me plan a trip to New York?",
-            "What are some effective stress relief techniques?",
-            "How do I write a cover letter for a job application?",
-            "Can you suggest some healthy meal ideas?",
-            "How can I improve my public speaking skills?",
-            "What are the main points of the latest environmental policy?",
-            "How do I fix a slow computer?",
-            "What are some interesting facts about the ocean?",
-            "Can you help me with my algebra homework?",
-            "What are some fun activities for a weekend?"
-        ]
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n<|end|>\n<|user|>\nHow do I sort a list in Python?<|end|>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "temperature": 0.2,
+            "top_k": 50,
+            "top_p": 0.95,
+            "eos_token_id": 49155
+        }
     },
     {
         "name": "Mistral 7B Code GPTQ 4bit",
@@ -157,7 +252,28 @@
             "What are some common design patterns in software engineering?",
             "How can I merge branches in Git without conflicts?",
             "What's the difference between synchronous and asynchronous programming?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
     },
     {
         "name": "Mistral 7B Phibrarian GPTQ",
@@ -189,7 +305,32 @@
             "How do I start a book club for classic literature?",
             "Explain the concept of existentialism in literature",
             "What was the significance of the Harlem Renaissance?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n<|end|>\n<|user|>\nHow do I sort a list in Python?<|end|>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "temperature": 0.7,
+            "top_k": 40,
+            "top_p": 0.95,
+            "repetition_penalty": 1.1
+        }
     },
     {
         "name": "Mistral 7B Instruct GPTQ 4bit",
@@ -221,7 +362,28 @@
             "What should I consider when planning a wedding?",
             "How do I plan a budget trip to Europe?",
             "What should I do in case of a minor burn?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
     },
     {
         "name": "Mistral 7B Instruct GPTQ 8bit",
@@ -253,7 +415,248 @@
             "What should I know before traveling to Japan?",
             "How can I improve my academic writing skills?",
             "What are some tips for growing an herb garden?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
+    },
+    {
+        "name": "OpenChat 3.5 GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
+        "model_name": "TheBloke/openchat_3.5-GPTQ:gptq-4bit-32g-actorder_True",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "description": "OpenChat 3.5 GPTQ 4-bit is a lean version of the original OpenChat 3.5 model. With 4-bit quantization, it's engineered for environments with limited computational resources while still retaining decent performance for chat and dialog related tasks. It's a prime choice for real-time chat applications on edge devices.",
+        "examples": [
+            "Real-time chat generation",
+            "On-edge dialog systems",
+            "Resource-constrained environments",
+            "Creating instant chatbot replies",
+            "Generating short, engaging dialogues",
+            "Answering quick customer inquiries",
+            "Producing brief informational responses",
+            "Chatting about day-to-day topics",
+            "Providing quick travel recommendations",
+            "Creating responses for interactive games",
+            "Handling simple Q&A for websites"
+        ],
+        "input_examples": [
+            "Respond to 'What's your favorite food?'",
+            "Generate a quick reply to 'How can I reset my password?'",
+            "Chat about 'What movies do you recommend?'",
+            "Suggest a quick response to 'Tell me a fun fact.'",
+            "Create a chatbot response to 'What's the weather like?'",
+            "Answer 'Can you recommend a good book to read?'",
+            "Generate a quick dialogue for a coffee ordering scenario.",
+            "Respond to 'How do I get to the nearest subway station?'",
+            "Create a quick reply for a game character saying 'Hello!'",
+            "Answer a website visitor's question 'What are your opening hours?'",
+            "Respond to 'Can you help me with my homework?'"
+        ],
+        "usecases": ["Mobile chat applications", "Embedded dialog systems", "Real-time chatbots"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
+    },
+    {
+        "name": "OpenChat 3.5 GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
+        "model_name": "TheBloke/openchat_3.5-GPTQ:gptq-8bit-32g-actorder_True",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "description": "OpenChat 3.5 GPTQ 8-bit stands as a balance between the original model and the 4-bit quantized version, providing better precision while still being resource-efficient. It's suitable for dialog systems and chat applications where a blend of performance and efficiency is crucial.",
+        "examples": [
+            "Efficient chat generation",
+            "Low-latency dialog systems",
+            "Performance-sensitive environments",
+            "Generating interactive chatbot conversations",
+            "Creating quick responses for social media engagement",
+            "Answering diverse customer service questions",
+            "Generating witty and engaging dialogues",
+            "Chatting about current events",
+            "Providing quick suggestions and advice",
+            "Handling customer feedback",
+            "Creating engaging content for virtual assistants"
+        ],
+        "input_examples": [
+            "Respond to a user asking about the latest news.",
+            "Generate a quick reply to 'What's your favorite music genre?'",
+            "Chat about 'Any good restaurant recommendations?'",
+            "Create a response to 'How can I improve my fitness?'",
+            "Respond to a tweet asking 'What's happening in tech?'",
+            "Answer 'How can I exchange this product?'",
+            "Generate a dialogue for a virtual assistant helping with cooking.",
+            "Respond to 'What are some good weekend getaway spots?'",
+            "Create a friendly greeting for a hotel chatbot.",
+            "Handle a query about store return policies.",
+            "Generate a conversation about favorite hobbies."
+        ],
+        "usecases": ["Efficient chatbots", "Performance-oriented dialog systems", "Resource-optimized chat applications"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
+    },
+    {
+        "name": "Zephyr 7B Beta GPTQ 4-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
+        "model_name": "TheBloke/zephyr-7b-beta-GPTQ:gptq-4bit-32g-actorder_True",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "description": "Zephyr 7B Beta GPTQ 4-bit is a streamlined version of the Zephyr 7B Beta, optimized for resource-constrained environments. This model is adept at a variety of language tasks while being computationally economical, making it a suitable choice for on-edge deployments.",
+        "examples": [
+            "Text generation",
+            "Translation",
+            "Summarization",
+            "Generating quick news updates",
+            "Translating user queries in real-time",
+            "Summarizing customer feedback",
+            "Generating brief product descriptions",
+            "Creating concise report summaries",
+            "Translating short instructional texts",
+            "Providing quick answers to questions",
+            "Creating social media content"
+        ],
+        "input_examples": [
+            "Generate a summary of today's health news.",
+            "Translate 'Where can I find a taxi?' to Japanese.",
+            "Summarize this customer review of a smartphone.",
+            "Write a short description for a new coffee blend.",
+            "Summarize the main points of a sales report.",
+            "Translate a recipe from French to English.",
+            "Answer 'What are the benefits of yoga?'",
+            "Generate a tweet about sustainable living.",
+            "Translate 'How do I use this app?' to Spanish.",
+            "Summarize the features of the latest software update.",
+            "Create a brief intro for a travel blog post."
+        ],
+        "usecases": ["On-edge language processing", "Real-time text applications", "Resource-constrained language tasks"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
+    },
+    {
+        "name": "Zephyr 7B Beta GPTQ 8-bit",
+        "inputs": [{ "type": "text", "name": "input" }],
+        "model_name": "TheBloke/zephyr-7b-beta-GPTQ:gptq-8bit-32g-actorder_True",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "description": "Zephyr 7B Beta GPTQ 8-bit offers a good balance between performance and efficiency compared to its 4-bit counterpart. This model excels in language tasks while being relatively resource-efficient, making it adaptable to a range of computational settings.",
+        "examples": [
+            "Efficient text generation",
+            "On-demand translation",
+            "Quick summarization",
+            "Creating instant responses for customer inquiries",
+            "Generating brief news blurbs",
+            "Translating short texts for communication",
+            "Summarizing technical documents succinctly",
+            "Quickly answering trivia questions",
+            "Generating social media captions",
+            "Creating summaries for blog posts",
+            "Producing concise instructions"
+        ],
+        "input_examples": [
+            "Write a quick summary of the latest sports game.",
+            "Translate 'Can you help me?' into German.",
+            "Summarize a user manual for a digital camera.",
+            "Respond to a customer asking about delivery times.",
+            "Generate a news headline about a recent scientific discovery.",
+            "Translate a restaurant menu from Italian to English.",
+            "Answer the question 'Who was the first person on the moon?'",
+            "Create a caption for an Instagram post about a beach vacation.",
+            "Summarize a blog post about healthy eating.",
+            "Write brief instructions for setting up a home Wi-Fi network.",
+            "Generate a quick overview of a mobile app's features."
+        ],
+        "usecases": ["On-edge language processing", "Performance-sensitive text applications", "Efficiency-oriented language tasks"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        }
     },
     {
         "name": "Llama 7B Chat",
@@ -285,7 +688,33 @@
             "How do I fix a frozen computer?",
             "I need ideas for a short story, can you help?",
             "I'm feeling down today, can you cheer me up?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "temperature": 0.6,
+            "top_k": 50,
+            "top_p": 0.9,
+            "bos_token_id": 1,
+            "eos_token_id": 2
+        }
     },
     {
         "name": "Llama 13B Chat",
@@ -297,7 +726,33 @@
             "User: Can you explain the theory of relativity? Llama 13B Chat: Certainly! The theory of relativity, developed by Albert Einstein...",
             "User: What are the benefits of a balanced diet? Llama 13B Chat: A balanced diet is crucial for maintaining good health..."
         ],
-        "usecases": ["Advanced virtual assistants", "Educational chatbots", "Customer service platforms with complex queries"]
+        "usecases": ["Advanced virtual assistants", "Educational chatbots", "Customer service platforms with complex queries"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "temperature": 0.6,
+            "top_k": 50,
+            "top_p": 0.9,
+            "bos_token_id": 1,
+            "eos_token_id": 2
+        }
     },
     {
         "name": "Llama 70B Chat",
@@ -329,7 +784,33 @@
             "How do I prepare for a management role in my company?",
             "What are the best strategies for learning advanced French?",
             "Can you help me plan a fitness routine tailored to my needs?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "temperature": 0.6,
+            "top_k": 50,
+            "top_p": 0.9,
+            "bos_token_id": 1,
+            "eos_token_id": 2
+        }
     },
     {
         "name": "CodeLlama 7B Instruct",
@@ -361,7 +842,27 @@
             "What are some strategies for effective leadership in high-pressure environments?",
             "How can I balance a successful career with personal fulfillment?",
             "Can you help me understand advanced concepts in astrophysics?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 13B Instruct",
@@ -393,7 +894,27 @@
             "What are some common software testing techniques?",
             "How do I use React Hooks in a new project?",
             "What skills should I focus on to become a full-stack developer?"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 34B Instruct",
@@ -425,7 +946,27 @@
             "Develop an algorithm for efficient route optimization in logistics.",
             "Write a script to automate testing and deployment in a CI/CD pipeline."
         ],
-        "usecases": ["High-level instructional platforms", "Online professional education services", "Technical support for professional programmers"]
+        "usecases": ["High-level instructional platforms", "Online professional education services", "Technical support for professional programmers"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardCoder Python 7B",
@@ -457,7 +998,27 @@
             "Convert this algorithm pseudocode into Python",
             "Optimize this Python function for faster execution"
         ],
-        "usecases": ["Code generation platforms", "Educational platforms for learning Python", "Debugging and code review platforms"]
+        "usecases": ["Code generation platforms", "Educational platforms for learning Python", "Debugging and code review platforms"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardCoder Python 13B",
@@ -489,7 +1050,27 @@
             "Program a network of IoT devices using Python",
             "Implement advanced machine learning techniques with Python's scikit-learn"
         ],
-        "usecases": ["Professional development platforms", "Advanced coding bootcamps", "High-level educational platforms for Python programming"]
+        "usecases": ["Professional development platforms", "Advanced coding bootcamps", "High-level educational platforms for Python programming"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 7B",
@@ -521,7 +1102,27 @@
             "Explain how calculus is used in physics",
             "Calculate the compound interest for this investment"
         ],
-        "usecases": ["Educational platforms for math learning", "Homework help services", "Online tutoring platforms"]
+        "usecases": ["Educational platforms for math learning", "Homework help services", "Online tutoring platforms"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 13B",
@@ -553,7 +1154,27 @@
             "Calculate the risk analysis for this investment portfolio",
             "Explain the mathematics behind machine learning algorithms"
         ],
-        "usecases": ["Higher education platforms", "Advanced tutoring services", "Professional environments requiring mathematical expertise"]
+        "usecases": ["Higher education platforms", "Advanced tutoring services", "Professional environments requiring mathematical expertise"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 70B",
@@ -585,12 +1206,32 @@
             "Explain the mathematics behind quantum computing algorithms",
             "Conduct a mathematical simulation for this climate change model"
         ],
-        "usecases": ["Research institutions", "Engineering firms", "Advanced mathematical consultancy"]
+        "usecases": ["Research institutions", "Engineering firms", "Advanced mathematical consultancy"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "Llama Chat 7B GPTQ 4-bit",
         "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke-llama/Llama-2-7b-chat-hf-GPTQ:gptq-4bit-32g-actorder_True",
+        "model_name": "TheBloke/Llama-2-7b-chat-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama Chat 7B GPTQ 4-bit model enhances the conversational capabilities of the original Llama Chat 7B while being optimized for size and speed, thanks to the GPTQ 4-bit quantization. This model maintains a fluent and engaging conversational style while being more resource-efficient. It's an ideal choice for developers looking to integrate high-quality conversational AI in applications where resource constraints are a consideration.",
         "examples": [
@@ -617,12 +1258,32 @@
             "How do I say 'thank you' in Spanish?",
             "Provide tips for photography beginners"
         ],
-        "usecases": ["Resource-constrained conversational applications", "Mobile-based chatbots", "Interactive voice response systems"]
+        "usecases": ["Resource-constrained conversational applications", "Mobile-based chatbots", "Interactive voice response systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "Llama Chat 7B GPTQ 8-bit",
         "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke-llama/Llama-2-7b-chat-hf-GPTQ:gptq-8bit-32g-actorder_True",
+        "model_name": "TheBloke/Llama-2-7b-chat-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama Chat 7B GPTQ 8-bit model provides a balance between the conversational fluency of Llama Chat 7B and the resource efficiency brought by GPTQ 8-bit quantization. This model is suitable for developers who require a slightly more robust conversational AI solution without a significant compromise on resource efficiency. It's a solid choice for a wide range of conversational applications across various platforms.",
         "examples": [
@@ -649,12 +1310,32 @@
             "Have a conversation in French about regional cuisines",
             "Give tips for advanced photography techniques"
         ],
-        "usecases": ["Cross-platform conversational applications", "Web-based chatbots", "Customer service automation"]
+        "usecases": ["Cross-platform conversational applications", "Web-based chatbots", "Customer service automation"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "Llama Chat 13B GPTQ 4-bit",
         "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke-llama/Llama-2-13b-chat-hf-GPTQ:gptq-4bit-32g-actorder_True",
+        "model_name": "TheBloke/Llama-2-13b-chat-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama Chat 13B GPTQ 4-bit model takes the conversational capabilities of Llama Chat 13B to new horizons while being optimized for size and speed. The GPTQ 4-bit quantization allows this model to retain a high level of conversational fluency while being more resource-efficient. It's an excellent choice for developers seeking to integrate high-quality conversational AI in applications where both performance and resource efficiency are crucial.",
         "examples": [
@@ -681,12 +1362,32 @@
             "Converse in German about European politics",
             "Discuss advanced film-making techniques"
         ],
-        "usecases": ["Resource-optimized conversational applications", "Educational chatbots", "Information retrieval systems"]
+        "usecases": ["Resource-optimized conversational applications", "Educational chatbots", "Information retrieval systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "Llama Chat 13B GPTQ 8-bit",
         "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke-llama/Llama-2-13b-chat-hf-GPTQ:gptq-8bit-32g-actorder_True",
+        "model_name": "TheBloke/Llama-2-13b-chat-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama Chat 13B GPTQ 8-bit model is a balance between the robust conversational capabilities of Llama Chat 13B and the resource efficiency provided by GPTQ 8-bit quantization. This model is suitable for developers who need a robust conversational AI solution without a significant compromise on resource efficiency. It's well-suited for a wide range of conversational applications across various platforms.",
         "examples": [
@@ -713,12 +1414,32 @@
             "Engage in a discussion in Mandarin about traditional Chinese medicine",
             "Talk about the advancements in robotics"
         ],
-        "usecases": ["Cross-platform conversational applications", "Travel planning chatbots", "Customer service automation"]
+        "usecases": ["Cross-platform conversational applications", "Travel planning chatbots", "Customer service automation"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "Llama Chat 70B GPTQ 4-bit",
         "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke-llama/Llama-2-70b-chat-hf-GPTQ:gptq-4bit-32g-actorder_True",
+        "model_name": "TheBloke/Llama-2-70b-chat-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama Chat 70B GPTQ 4-bit model is the epitome of conversational excellence in the Llama lineup, now optimized for size and speed with GPTQ 4-bit quantization. This model handles complex queries with ease, providing detailed and coherent responses. It's the choice for developers in need of a highly capable conversational AI, where performance and resource efficiency are of paramount importance.",
         "examples": [
@@ -745,12 +1466,32 @@
             "Provide a comprehensive guide to holistic health practices",
             "Conduct a technical conversation in Japanese about robotics"
         ],
-        "usecases": ["Highly interactive conversational applications", "Educational platforms", "Advanced information retrieval systems"]
+        "usecases": ["Highly interactive conversational applications", "Educational platforms", "Advanced information retrieval systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "Llama Chat 70B GPTQ 8-bit",
         "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke-llama/Llama-2-70b-chat-hf-GPTQ:gptq-8bit-32g-actorder_True",
+        "model_name": "TheBloke/Llama-2-70b-chat-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama Chat 70B GPTQ 8-bit model encapsulates the conversational prowess of the original Llama Chat 70B model while being optimized for a smaller memory footprint and faster inference through GPTQ 8-bit quantization. This model serves as a powerhouse for handling intricate conversations, making it a prime choice for developers aiming for high-level conversational AI with improved efficiency.",
         "examples": [
@@ -777,12 +1518,32 @@
             "Have a technical discussion in Russian about aerospace engineering",
             "Explore the intricacies of molecular gastronomy"
         ],
-        "usecases": ["Sophisticated conversational applications", "Research assistance bots", "High-end customer service chatbots"]
+        "usecases": ["Sophisticated conversational applications", "Research assistance bots", "High-end customer service chatbots"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 7B Instruct GPTQ 4-bit",
         "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke/CodeLlama-7b-Instruct-hf-GPTQ:gptq-4bit-32g-actorder_True",
+        "model_name": "TheBloke/CodeLlama-7b-Instruct-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 7B Instruct GPTQ 4-bit model combines the instructional capabilities of CodeLlama 7B with the resource efficiency provided by GPTQ 4-bit quantization. This model is capable of providing detailed instructions on a wide range of topics while being highly efficient in terms of memory and compute resources. It's an excellent choice for developers seeking to build instructional or tutorial-based applications.",
         "examples": [
@@ -809,12 +1570,32 @@
             "Guide on integrating a third-party API in a Node.js app",
             "Tips for writing clean and maintainable C++ code"
         ],
-        "usecases": ["Tutorial and instructional applications", "Code assistance platforms", "DIY guide chatbots"]
+        "usecases": ["Tutorial and instructional applications", "Code assistance platforms", "DIY guide chatbots"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 7B Instruct GPTQ 8-bit",
         "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke/CodeLlama-7b-Instruct-hf-GPTQ:gptq-8bit-32g-actorder_True",
+        "model_name": "TheBloke/CodeLlama-7b-Instruct-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 7B Instruct GPTQ 8-bit model encapsulates the instructional essence of CodeLlama 7B while being optimized for better efficiency through GPTQ 8-bit quantization. This model stands as a robust solution for providing clear and detailed instructions across a multitude of domains. It's well-suited for developers aiming to integrate instructional capabilities in their applications without a significant compromise on efficiency.",
         "examples": [
@@ -841,12 +1622,32 @@
             "Assist in integrating a payment gateway in an e-commerce site",
             "Offer tips for clean and efficient C# coding"
         ],
-        "usecases": ["Educational platforms", "Tutorial creation tools", "Instructional chatbots for various domains"]
+        "usecases": ["Educational platforms", "Tutorial creation tools", "Instructional chatbots for various domains"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 13B Instruct GPTQ 4-bit",
         "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke/CodeLlama-13b-Instruct-hf-GPTQ:gptq-4bit-32g-actorder_True",
+        "model_name": "TheBloke/CodeLlama-13b-Instruct-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 13B Instruct GPTQ 4-bit model is a refined version of the CodeLlama 7B with an extended knowledge base and instructional capacity, further optimized for resource efficiency through GPTQ 4-bit quantization. This model is adept at providing in-depth instructions across a broader range of topics, making it a superior choice for applications requiring detailed instructional guidance.",
         "examples": [
@@ -873,12 +1674,32 @@
             "Assist in developing a blockchain-based application",
             "Explain the use of Kubernetes in managing containerized applications"
         ],
-        "usecases": ["Advanced tutorial and instructional applications", "Technical assistance platforms", "Educational chatbots for complex topics"]
+        "usecases": ["Advanced tutorial and instructional applications", "Technical assistance platforms", "Educational chatbots for complex topics"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 13B Instruct GPTQ 8-bit",
         "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke/CodeLlama-13b-Instruct-hf-GPTQ:gptq-8bit-32g-actorder_True",
+        "model_name": "TheBloke/CodeLlama-13b-Instruct-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 13B Instruct GPTQ 8-bit model retains the instructional prowess of CodeLlama 13B while benefitting from GPTQ 8-bit quantization for enhanced efficiency. With its capability to provide detailed instructions on complex topics, this model serves as a robust solution for developers looking to incorporate instructional AI in their applications while maintaining a balance between performance and resource utilization.",
         "examples": [
@@ -905,12 +1726,32 @@
             "Provide best practices for automated testing in software development",
             "Assist in the integration of IoT devices in a smart home system"
         ],
-        "usecases": ["Advanced educational platforms", "Technical support chatbots", "Instructional tools for complex domains"]
+        "usecases": ["Advanced educational platforms", "Technical support chatbots", "Instructional tools for complex domains"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 34B Instruct GPTQ 4-bit",
         "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke/CodeLlama-34b-Instruct-hf-GPTQ:gptq-4bit-32g-actorder_True",
+        "model_name": "TheBloke/CodeLlama-34b-Instruct-GPTQ:gptq-4bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 34B Instruct GPTQ 4-bit model is the epitome of instructional AI within the CodeLlama lineage, with GPTQ 4-bit quantization ensuring resource efficiency. Its vast knowledge base and superior instructional capabilities make it a powerhouse for providing detailed guidance on a myriad of complex topics. This model is a prime choice for developers aiming for top-tier instructional AI in their applications.",
         "examples": [
@@ -941,12 +1782,32 @@
             "Elite educational and tutorial platforms",
             "Technical and professional training applications",
             "Sophisticated instructional chatbots"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "CodeLlama 34B Instruct GPTQ 8-bit",
         "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke/CodeLlama-34b-Instruct-hf-GPTQ:gptq-8bit-32g-actorder_True",
+        "model_name": "TheBloke/CodeLlama-34b-Instruct-GPTQ:gptq-8bit-32g-actorder_True",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 34B Instruct GPTQ 8-bit model encapsulates the pinnacle of instructional capabilities with GPTQ 8-bit quantization for a balance of performance and efficiency. This model excels in delivering in-depth, precise instructions across a multitude of complex topics, solidifying its position as a top choice for developers in need of high-quality instructional AI for their platforms.",
         "examples": [
@@ -977,7 +1838,27 @@
             "Premium educational and instructional platforms",
             "Advanced technical support and troubleshooting applications",
             "Sophisticated knowledge sharing and guidance systems"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardCoder Python 7B GPTQ 4-bit",
@@ -1013,7 +1894,27 @@
             "Automated code generation and scripting",
             "Programming tutorial and guidance platforms",
             "Technical interview preparation tools"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardCoder Python 7B GPTQ 8-bit",
@@ -1049,7 +1950,27 @@
             "Automated code review and error checking",
             "Interactive programming learning platforms",
             "Code snippet generation for project acceleration"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardCoder Python 13B GPTQ 4-bit",
@@ -1085,7 +2006,27 @@
             "Automated code snippet generation",
             "Interactive programming education platforms",
             "Technical documentation and code review systems"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardCoder Python 13B GPTQ 8-bit",
@@ -1121,7 +2062,27 @@
             "Code generation for advanced programming projects",
             "Automated code review and optimization",
             "Interactive coding tutorials and exercises"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 7B GPTQ 4-bit",
@@ -1157,7 +2118,27 @@
             "Mathematical problem solving platforms",
             "Educational apps for advanced math learning",
             "Automated computation for engineering and scientific research"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 7B GPTQ 8-bit",
@@ -1189,7 +2170,27 @@
             "Explain tensor operations in linear algebra",
             "Solve this non-linear differential equation"
         ],
-        "usecases": ["Advanced mathematical problem solving", "Educational platforms for mathematics", "Automated computation in scientific research"]
+        "usecases": ["Advanced mathematical problem solving", "Educational platforms for mathematics", "Automated computation in scientific research"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 13B GPTQ 4-bit",
@@ -1225,7 +2226,27 @@
             "Mathematical analysis and problem solving",
             "Educational tools for higher-level math",
             "Automated computation for research and engineering"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 13B GPTQ 8-bit",
@@ -1257,7 +2278,27 @@
             "Discuss the role of linear algebra in quantum computing",
             "Solve a set of nonlinear partial differential equations in engineering"
         ],
-        "usecases": ["Advanced mathematical analysis", "Educational platforms for mathematics", "Research and engineering computations"]
+        "usecases": ["Advanced mathematical analysis", "Educational platforms for mathematics", "Research and engineering computations"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 70B GPTQ 4-bit",
@@ -1293,7 +2334,27 @@
             "Solving complex mathematical problems",
             "Educational platforms for advanced mathematics",
             "Research and engineering computations"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     },
     {
         "name": "WizardMath 70B GPTQ 8-bit",
@@ -1329,6 +2390,26 @@
             "Advanced mathematical analysis",
             "Educational platforms for high-level math",
             "Automated computation for research and engineering"
-        ]
+        ],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100
+        }
     }
 ]

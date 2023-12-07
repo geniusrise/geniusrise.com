@@ -23,7 +23,25 @@
             "This user is spreading hateful ideologies.",
             "Derogatory language used to belittle a certain ethnicity."
         ],
-        "usecases": ["Online community moderation", "Social media monitoring", "Automated reporting systems for hateful content"]
+        "usecases": ["Online community moderation", "Social media monitoring", "Automated reporting systems for hateful content"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "your text here"
+        }
     },
     {
         "name": "Binary Hate Speech Detection",
@@ -49,7 +67,25 @@
             "I'm unsure if this should be classified as hate speech.",
             "This post seems to be free from hate speech."
         ],
-        "usecases": ["Online community moderation", "Social media content filtering", "Automated hate speech detection systems"]
+        "usecases": ["Online community moderation", "Social media content filtering", "Automated hate speech detection systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "your text here"
+        }
     },
     {
         "name": "Offensive Language Classification",
@@ -75,7 +111,25 @@
             "This tweet could be offensive to some people.",
             "Some might find this language offensive."
         ],
-        "usecases": ["Online community moderation", "Social media content filtering", "Automated offensive language detection systems"]
+        "usecases": ["Online community moderation", "Social media content filtering", "Automated offensive language detection systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "your text here"
+        }
     },
     {
         "name": "Irony Detection",
@@ -101,7 +155,25 @@
             "Just what I needed, another Monday.",
             "Can't wait to start my diet tomorrow."
         ],
-        "usecases": ["Sentiment analysis", "Social media monitoring", "Linguistic research"]
+        "usecases": ["Sentiment analysis", "Social media monitoring", "Linguistic research"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "your text here"
+        }
     },
     {
         "name": "Toxicity Detection",
@@ -127,7 +199,25 @@
             "This text does not contain any toxic elements.",
             "Some may find this comment to be toxic."
         ],
-        "usecases": ["Online community moderation", "Social media content filtering", "Automated toxicity detection systems"]
+        "usecases": ["Online community moderation", "Social media content filtering", "Automated toxicity detection systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "your text here"
+        }
     },
     {
         "name": "Toxicity Analysis with RuBERT",
@@ -153,7 +243,25 @@
             "I don't find any obscenity in this text.",
             "This post contains dangerous language."
         ],
-        "usecases": ["Online community moderation", "Social media monitoring", "Content filtering systems"]
+        "usecases": ["Online community moderation", "Social media monitoring", "Content filtering systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "your text here"
+        }
     },
     {
         "name": "NSFW Text Classification",
@@ -179,33 +287,25 @@
             "This content might be unsafe for a professional setting.",
             "Is this text appropriate for a workplace?"
         ],
-        "usecases": ["Content moderation", "Social media monitoring", "Workplace communication moderation"]
-    },
-    {
-        "name": "Clinical Assertion and Negation Detection",
-        "inputs": [{ "type": "text", "name": "input" }],
-        "description": "The model is tailored for clinical text analysis, specifically in identifying assertions and negations. The model categorizes text into three classes: ABSENT, PRESENT, and POSSIBLE, which is crucial for understanding the clinical context of the text. By utilizing this model, healthcare professionals and researchers can automate the process of analyzing clinical text, saving time and ensuring accuracy. Furthermore, this model can significantly contribute to medical research, clinical data management, and healthcare service improvement by providing a nuanced understanding of the clinical information contained in the text.",
-        "model_name": "bvanaken/clinical-assertion-negation-bert",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
-        "examples": [
-            "Identifying clinical assertions in medical records",
-            "Detecting negation statements in health reports",
-            "Automated analysis of clinical text in patient histories",
-            "Evaluating clinical assertions in research papers",
-            "Monitoring clinical negations in electronic health records",
-            "Classifying clinical statements in medical transcripts",
-            "Analyzing clinical text for assertion and negation"
-        ],
-        "input_examples": [
-            "The patient does not have symptoms of the disease.",
-            "Symptoms are possibly related to the condition.",
-            "There is no indication of the disease in the patient.",
-            "The symptoms are definitely present in the patient.",
-            "The disease is absent in this case.",
-            "It is possible that the patient has the disease.",
-            "The patient shows no symptoms of the condition."
-        ],
-        "usecases": ["Medical research", "Clinical data management", "Healthcare service improvement"]
+        "usecases": ["Content moderation", "Social media monitoring", "Workplace communication moderation"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "your text here"
+        }
     },
     {
         "name": "Political Bias Detection",
@@ -231,59 +331,25 @@
             "The political inclination here is right-leaning.",
             "Is this text biased towards a certain political viewpoint?"
         ],
-        "usecases": ["News analysis", "Social media monitoring", "Academic research on political discourse"]
-    },
-    {
-        "name": "Plagiarism Detection with Longformer",
-        "inputs": [{ "type": "text", "name": "input" }],
-        "description": "The model is designed to identify plagiarism in text data by categorizing it as ORIGINAL or PLAGIARISM. Utilizing the Longformer architecture, this model is capable of handling long text documents, making it suitable for analyzing academic papers, articles, and other lengthy texts. The ability to detect plagiarism is essential in maintaining the integrity and originality of content across various domains. By employing this model, educational institutions, publishers, and content creators can automate the process of plagiarism detection, ensuring the authenticity and quality of the content.",
-        "model_name": "jpwahle/longformer-base-plagiarism-detection",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
-        "examples": [
-            "Identifying plagiarism in academic essays",
-            "Detecting copied content in research papers",
-            "Analyzing text for plagiarism in articles",
-            "Evaluating originality in student assignments",
-            "Monitoring for plagiarism in online publications",
-            "Classifying text as original or plagiarized in journals",
-            "Detecting duplication in scholarly manuscripts"
-        ],
-        "input_examples": [
-            "This paragraph seems to be copied from a source.",
-            "The text appears to be original and not plagiarized.",
-            "Could this section be plagiarized?",
-            "This document does not show signs of plagiarism.",
-            "The content might be a case of plagiarism.",
-            "This seems to be an original piece of writing.",
-            "Is this text copied or original?"
-        ],
-        "usecases": ["Educational integrity maintenance", "Academic publishing", "Content creation and verification"]
-    },
-    {
-        "name": "Multilingual Sentiment Analysis with DistilBERT",
-        "inputs": [{ "type": "text", "name": "input" }],
-        "description": "The model is designed for sentiment analysis across multiple languages, categorizing sentiment as negative, neutral, or positive. Utilizing the DistilBERT architecture, this model is capable of understanding and analyzing text sentiment in various languages, making it a versatile tool for global sentiment analysis applications. By employing this model, businesses, researchers, and analysts can gain insights into global market sentiment, customer feedback, and public opinion across different languages and regions.",
-        "model_name": "lxyuan/distilbert-base-multilingual-cased-sentiments-student",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
-        "examples": [
-            "Analyzing customer feedback sentiment in multiple languages",
-            "Evaluating global market sentiment from multilingual news",
-            "Detecting sentiment in social media posts across different languages",
-            "Classifying multilingual product reviews by sentiment",
-            "Monitoring sentiment in multilingual user-generated content",
-            "Assessing public opinion sentiment in various languages",
-            "Evaluating cross-cultural sentiment in online forums"
-        ],
-        "input_examples": [
-            "I am extremely happy with this product!",
-            "This service is just okay, nothing special.",
-            "I am very disappointed with the results.",
-            "The experience was rather neutral.",
-            "I absolutely love this app!",
-            "This is the worst experience I've ever had.",
-            "The quality of the product is average."
-        ],
-        "usecases": ["Global market sentiment analysis", "Multilingual customer feedback analysis", "Cross-regional public opinion analysis"]
+        "usecases": ["News analysis", "Social media monitoring", "Academic research on political discourse"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "your text here"
+        }
     },
     {
         "name": "General Sentiment Analysis",
@@ -309,7 +375,25 @@
             "The sentiment expressed here is quite negative.",
             "This statement seems to be neutral."
         ],
-        "usecases": ["Market sentiment analysis", "Investor sentiment analysis", "Financial product review analysis"]
+        "usecases": ["Market sentiment analysis", "Investor sentiment analysis", "Financial product review analysis"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "your text here"
+        }
     },
     {
         "name": "Multilingual Tweet Topic Classification",
@@ -335,7 +419,25 @@
             "Check out this amazing travel destination.",
             "In-depth analysis of current economic trends."
         ],
-        "usecases": ["Social media analysis", "Market trend analysis", "Public opinion analysis"]
+        "usecases": ["Social media analysis", "Market trend analysis", "Public opinion analysis"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "your text here"
+        }
     },
     {
         "name": "Gender Classification",
@@ -361,7 +463,25 @@
             "I'm attending a knitting class.",
             "Working on building a new bookshelf."
         ],
-        "usecases": ["Gender-based market analysis", "Online community analysis", "Gender representation analysis"]
+        "usecases": ["Gender-based market analysis", "Online community analysis", "Gender representation analysis"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "your text here"
+        }
     },
     {
         "name": "Financial Tone Analysis",
@@ -387,7 +507,25 @@
             "Market sentiment remains uncertain amid changes.",
             "Economic indicators suggest a stable future."
         ],
-        "usecases": ["Investment analysis", "Regulatory compliance", "Market sentiment analysis"]
+        "usecases": ["Investment analysis", "Regulatory compliance", "Market sentiment analysis"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "your text here"
+        }
     },
     {
         "name": "Gibberish Text Detection",
@@ -413,32 +551,24 @@
             "The content here is well-structured and logical.",
             "Can this text be classified as gibberish?"
         ],
-        "usecases": ["Spam filtering", "Content moderation", "Data cleaning"]
-    },
-    {
-        "name": "Biological Relationship Understanding",
-        "inputs": [{ "type": "text", "name": "input" }],
-        "description": "The model is designed to understand relationships in biological texts by classifying them as entailment, neutral, or contradiction. This model can be instrumental in extracting meaningful insights from a vast amount of biological literature. By employing this model, researchers can automate the process of understanding relationships between various biological entities and concepts, thereby accelerating the pace of biological research and discovery.",
-        "model_name": "cnut1648/biolinkbert-large-mnli-snli",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
-        "examples": [
-            "Identifying relationships in biological research texts",
-            "Analyzing gene-disease associations in medical literature",
-            "Classifying biological text for relational understanding",
-            "Detecting interactions between biological entities in academic papers",
-            "Evaluating biological hypotheses in research articles",
-            "Monitoring trends in biological relationship studies",
-            "Analyzing cause-effect relationships in clinical reports"
-        ],
-        "input_examples": [
-            "Gene X is implicated in Disease Y.",
-            "No connection between Protein A and Symptom B.",
-            "Possible link between Diet C and Health Condition D.",
-            "Drug E shows no effect on Condition F.",
-            "Vitamin G may benefit patients with Illness H.",
-            "No evidence supporting the role of Nutrient I in Disease J.",
-            "Research suggests a correlation between Lifestyle K and Disease L."
-        ],
-        "usecases": ["Biological research", "Drug discovery", "Genetic research"]
+        "usecases": ["Spam filtering", "Content moderation", "Data cleaning"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "your text here"
+        }
     }
 ]

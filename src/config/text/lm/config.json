@@ -1,73 +1,5 @@
 [
     {
-        "name": "Zephyr 7B Beta",
-        "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "HuggingFaceH4/zephyr-7b-beta",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
-        "description": "Zephyr 7B Beta is a powerful language model designed to understand and generate human-like text. It's adept at various NLP tasks including translation, summarization, and conversation. The '7B' in its name denotes the number of parameters, making it a large model capable of understanding complex contexts and generating coherent responses.",
-        "examples": [
-            "Translation of languages",
-            "Generating human-like text",
-            "Answering questions based on a given context",
-            "Summarizing long texts",
-            "Creating content for articles",
-            "Composing creative stories",
-            "Generating informative answers",
-            "Drafting emails",
-            "Creating dialogue for chatbots",
-            "Translating technical documents",
-            "Summarizing news articles"
-        ],
-        "input_examples": [
-            "Translate 'Hello, how are you?' to Spanish.",
-            "Generate a short story about a lost kitten.",
-            "Summarize the article about climate change.",
-            "What is the capital of France?",
-            "Compose an email to schedule a meeting.",
-            "Create a dialogue between a customer and a support agent.",
-            "Explain the process of photosynthesis.",
-            "Translate a user manual from German to English.",
-            "Draft a blog post about healthy eating.",
-            "Summarize the key points of the recent tech conference.",
-            "Generate a description for a fantasy novel."
-        ],
-        "usecases": ["Customer support automation", "Content creation", "Language translation services"]
-    },
-    {
-        "name": "OpenChat 3.5",
-        "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "openchat/openchat_3.5",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
-        "description": "OpenChat 3.5 is engineered to engage in meaningful conversations with users. Its primary function is to provide a human-like chatting experience. Given the name, it's tailored for open-domain chat applications. This model can handle a variety of topics and provide relevant, context-aware responses.",
-        "examples": [
-            "Engaging in casual conversation",
-            "Providing information on general topics",
-            "Answering open-domain questions",
-            "Discussing current events",
-            "Chatting about hobbies",
-            "Offering travel advice",
-            "Helping with basic customer queries",
-            "Talking about sports",
-            "Discussing movies and books",
-            "Providing general knowledge",
-            "Chatting about technology trends"
-        ],
-        "input_examples": [
-            "How's the weather today?",
-            "Can you recommend a good Italian restaurant?",
-            "What's the latest news on the Mars rover?",
-            "Tell me more about gardening.",
-            "What are some tourist attractions in Paris?",
-            "Can you help me with my phone issue?",
-            "Who won the football match yesterday?",
-            "Suggest some good science fiction movies.",
-            "How does a computer work?",
-            "Tell me a joke.",
-            "What are the benefits of meditation?"
-        ],
-        "usecases": ["Virtual assistants", "Chatbots for websites", "Social media chatbots"]
-    },
-    {
         "name": "Mistral 7B v0.1",
         "inputs": [{ "type": "text", "name": "input" }],
         "model_name": "mistralai/Mistral-7B-v0.1",
@@ -99,7 +31,28 @@
             "Create a catchy slogan for a new fitness app.",
             "Write a brief on the importance of cybersecurity."
         ],
-        "usecases": ["Automated translation services", "Content summarization tools", "Conversational agents"]
+        "usecases": ["Automated translation services", "Content summarization tools", "Conversational agents"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "MistralLite",
@@ -133,7 +86,28 @@
             "Answer: What is your refund policy?",
             "Converse about weekend plans."
         ],
-        "usecases": ["Real-time chat translation", "Customer service chatbots", "Quick information retrieval"]
+        "usecases": ["Real-time chat translation", "Customer service chatbots", "Quick information retrieval"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "CodeLlama 7B",
@@ -167,7 +141,28 @@
             "Convert this pseudocode into Python code.",
             "Write unit tests for this JavaScript function."
         ],
-        "usecases": ["Automated code review", "Code generation platforms", "Educational platforms for programming"]
+        "usecases": ["Automated code review", "Code generation platforms", "Educational platforms for programming"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "CodeLlama 7B Python",
@@ -201,7 +196,28 @@
             "Generate Python code from 'Create a program to analyze text files'.",
             "Write a Python script using TensorFlow for image recognition."
         ],
-        "usecases": ["Automated Python code review", "Python code generation platforms", "Educational platforms for Python programming"]
+        "usecases": ["Automated Python code review", "Python code generation platforms", "Educational platforms for Python programming"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "CodeLlama 13B",
@@ -235,7 +251,28 @@
             "Optimize this JavaScript code for speed and efficiency.",
             "Design a responsive UI with React."
         ],
-        "usecases": ["Automated code review", "Code generation platforms", "Educational platforms for advanced programming"]
+        "usecases": ["Automated code review", "Code generation platforms", "Educational platforms for advanced programming"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "CodeLlama 13B Python",
@@ -269,7 +306,28 @@
             "Optimize this Python script for faster execution with NumPy.",
             "Build a desktop calculator using Python's Tkinter library."
         ],
-        "usecases": ["Automated Python code review", "Python code generation platforms", "Educational platforms for advanced Python programming"]
+        "usecases": ["Automated Python code review", "Python code generation platforms", "Educational platforms for advanced Python programming"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "CodeLlama 34B",
@@ -303,7 +361,28 @@
             "Perform static code analysis on a large C++ codebase.",
             "Patch security vulnerabilities in a PHP web application."
         ],
-        "usecases": ["Cross-language code generation platforms", "Automated code review systems", "Software development assisting tools"]
+        "usecases": ["Cross-language code generation platforms", "Automated code review systems", "Software development assisting tools"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "CodeLlama 34B Python",
@@ -337,7 +416,28 @@
             "Optimize this Python web application for handling millions of requests.",
             "Develop a Python application for simulating quantum computing algorithms."
         ],
-        "usecases": ["Python code generation platforms", "Automated Python code review systems", "Advanced Python programming educational platforms"]
+        "usecases": ["Python code generation platforms", "Automated Python code review systems", "Advanced Python programming educational platforms"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "Llama 2 7B",
@@ -371,7 +471,28 @@
             "Write a short story set in a futuristic world.",
             "Generate a description for an eco-friendly backpack."
         ],
-        "usecases": ["Chatbots", "Automated customer service", "Content creation platforms"]
+        "usecases": ["Chatbots", "Automated customer service", "Content creation platforms"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "Llama 2 13B",
@@ -405,7 +526,28 @@
             "Generate a legal brief for a landmark court case.",
             "Create an educational module on advanced calculus."
         ],
-        "usecases": ["Professional writing aids", "Advanced chatbots", "Automated translation services"]
+        "usecases": ["Professional writing aids", "Advanced chatbots", "Automated translation services"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "Llama 2 70B",
@@ -439,7 +581,28 @@
             "Create a policy brief on data privacy regulations.",
             "Formulate a business strategy for entering emerging markets."
         ],
-        "usecases": ["Academic research", "Advanced AI applications", "High-level content creation"]
+        "usecases": ["Academic research", "Advanced AI applications", "High-level content creation"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "Mistral 7B GPTQ 4-bit",
@@ -473,7 +636,28 @@
             "Compose a short message to confirm an appointment.",
             "Create a customer service response for a refund request."
         ],
-        "usecases": ["Mobile applications", "Embedded systems", "Real-time chatbots"]
+        "usecases": ["Mobile applications", "Embedded systems", "Real-time chatbots"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "Mistral 7B GPTQ 8-bit",
@@ -507,143 +691,28 @@
             "Translate 'I need help with my order' to Italian.",
             "Generate an email response for a flight booking inquiry."
         ],
-        "usecases": ["Efficient chatbots", "Performance-oriented applications", "Resource-optimized NLP tasks"]
-    },
-    {
-        "name": "OpenChat 3.5 GPTQ 4-bit",
-        "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke/openchat_3.5-GPTQ:gptq-4bit-32g-actorder_True",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
-        "description": "OpenChat 3.5 GPTQ 4-bit is a lean version of the original OpenChat 3.5 model. With 4-bit quantization, it's engineered for environments with limited computational resources while still retaining decent performance for chat and dialog related tasks. It's a prime choice for real-time chat applications on edge devices.",
-        "examples": [
-            "Real-time chat generation",
-            "On-edge dialog systems",
-            "Resource-constrained environments",
-            "Creating instant chatbot replies",
-            "Generating short, engaging dialogues",
-            "Answering quick customer inquiries",
-            "Producing brief informational responses",
-            "Chatting about day-to-day topics",
-            "Providing quick travel recommendations",
-            "Creating responses for interactive games",
-            "Handling simple Q&A for websites"
-        ],
-        "input_examples": [
-            "Respond to 'What's your favorite food?'",
-            "Generate a quick reply to 'How can I reset my password?'",
-            "Chat about 'What movies do you recommend?'",
-            "Suggest a quick response to 'Tell me a fun fact.'",
-            "Create a chatbot response to 'What's the weather like?'",
-            "Answer 'Can you recommend a good book to read?'",
-            "Generate a quick dialogue for a coffee ordering scenario.",
-            "Respond to 'How do I get to the nearest subway station?'",
-            "Create a quick reply for a game character saying 'Hello!'",
-            "Answer a website visitor's question 'What are your opening hours?'",
-            "Respond to 'Can you help me with my homework?'"
-        ],
-        "usecases": ["Mobile chat applications", "Embedded dialog systems", "Real-time chatbots"]
-    },
-    {
-        "name": "OpenChat 3.5 GPTQ 8-bit",
-        "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke/openchat_3.5-GPTQ:gptq-8bit-32g-actorder_True",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
-        "description": "OpenChat 3.5 GPTQ 8-bit stands as a balance between the original model and the 4-bit quantized version, providing better precision while still being resource-efficient. It's suitable for dialog systems and chat applications where a blend of performance and efficiency is crucial.",
-        "examples": [
-            "Efficient chat generation",
-            "Low-latency dialog systems",
-            "Performance-sensitive environments",
-            "Generating interactive chatbot conversations",
-            "Creating quick responses for social media engagement",
-            "Answering diverse customer service questions",
-            "Generating witty and engaging dialogues",
-            "Chatting about current events",
-            "Providing quick suggestions and advice",
-            "Handling customer feedback",
-            "Creating engaging content for virtual assistants"
-        ],
-        "input_examples": [
-            "Respond to a user asking about the latest news.",
-            "Generate a quick reply to 'What's your favorite music genre?'",
-            "Chat about 'Any good restaurant recommendations?'",
-            "Create a response to 'How can I improve my fitness?'",
-            "Respond to a tweet asking 'What's happening in tech?'",
-            "Answer 'How can I exchange this product?'",
-            "Generate a dialogue for a virtual assistant helping with cooking.",
-            "Respond to 'What are some good weekend getaway spots?'",
-            "Create a friendly greeting for a hotel chatbot.",
-            "Handle a query about store return policies.",
-            "Generate a conversation about favorite hobbies."
-        ],
-        "usecases": ["Efficient chatbots", "Performance-oriented dialog systems", "Resource-optimized chat applications"]
-    },
-    {
-        "name": "Zephyr 7B Beta GPTQ 4-bit",
-        "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke/zephyr-7b-beta-GPTQ:gptq-4bit-32g-actorder_True",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
-        "description": "Zephyr 7B Beta GPTQ 4-bit is a streamlined version of the Zephyr 7B Beta, optimized for resource-constrained environments. This model is adept at a variety of language tasks while being computationally economical, making it a suitable choice for on-edge deployments.",
-        "examples": [
-            "Text generation",
-            "Translation",
-            "Summarization",
-            "Generating quick news updates",
-            "Translating user queries in real-time",
-            "Summarizing customer feedback",
-            "Generating brief product descriptions",
-            "Creating concise report summaries",
-            "Translating short instructional texts",
-            "Providing quick answers to questions",
-            "Creating social media content"
-        ],
-        "input_examples": [
-            "Generate a summary of today's health news.",
-            "Translate 'Where can I find a taxi?' to Japanese.",
-            "Summarize this customer review of a smartphone.",
-            "Write a short description for a new coffee blend.",
-            "Summarize the main points of a sales report.",
-            "Translate a recipe from French to English.",
-            "Answer 'What are the benefits of yoga?'",
-            "Generate a tweet about sustainable living.",
-            "Translate 'How do I use this app?' to Spanish.",
-            "Summarize the features of the latest software update.",
-            "Create a brief intro for a travel blog post."
-        ],
-        "usecases": ["On-edge language processing", "Real-time text applications", "Resource-constrained language tasks"]
-    },
-    {
-        "name": "Zephyr 7B Beta GPTQ 8-bit",
-        "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke/zephyr-7b-beta-GPTQ:gptq-8bit-32g-actorder_True",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
-        "description": "Zephyr 7B Beta GPTQ 8-bit offers a good balance between performance and efficiency compared to its 4-bit counterpart. This model excels in language tasks while being relatively resource-efficient, making it adaptable to a range of computational settings.",
-        "examples": [
-            "Efficient text generation",
-            "On-demand translation",
-            "Quick summarization",
-            "Creating instant responses for customer inquiries",
-            "Generating brief news blurbs",
-            "Translating short texts for communication",
-            "Summarizing technical documents succinctly",
-            "Quickly answering trivia questions",
-            "Generating social media captions",
-            "Creating summaries for blog posts",
-            "Producing concise instructions"
-        ],
-        "input_examples": [
-            "Write a quick summary of the latest sports game.",
-            "Translate 'Can you help me?' into German.",
-            "Summarize a user manual for a digital camera.",
-            "Respond to a customer asking about delivery times.",
-            "Generate a news headline about a recent scientific discovery.",
-            "Translate a restaurant menu from Italian to English.",
-            "Answer the question 'Who was the first person on the moon?'",
-            "Create a caption for an Instagram post about a beach vacation.",
-            "Summarize a blog post about healthy eating.",
-            "Write brief instructions for setting up a home Wi-Fi network.",
-            "Generate a quick overview of a mobile app's features."
-        ],
-        "usecases": ["On-edge language processing", "Performance-sensitive text applications", "Efficiency-oriented language tasks"]
+        "usecases": ["Efficient chatbots", "Performance-oriented applications", "Resource-optimized NLP tasks"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "CodeLlama 7B HF GPTQ 4-bit",
@@ -677,7 +746,28 @@
             "Develop a Python script for a chatbot to greet users.",
             "Write HTML and CSS for a responsive navigation bar."
         ],
-        "usecases": ["On-the-edge code generation", "Real-time coding assistance", "Automated code review and documentation"]
+        "usecases": ["On-the-edge code generation", "Real-time coding assistance", "Automated code review and documentation"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "CodeLlama 7B HF GPTQ 8-bit",
@@ -711,7 +801,28 @@
             "Optimize this Ruby on Rails application for faster load times.",
             "Generate Python code for a logistic regression model."
         ],
-        "usecases": ["Efficient on-the-edge code generation", "Real-time coding assistance", "Automated code review and documentation"]
+        "usecases": ["Efficient on-the-edge code generation", "Real-time coding assistance", "Automated code review and documentation"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "CodeLlama 13B HF GPTQ 4-bit",
@@ -745,7 +856,28 @@
             "Optimize a Django application for high-traffic scenarios.",
             "Generate a GraphQL API endpoint for a social media platform."
         ],
-        "usecases": ["On-the-edge complex code generation", "Advanced real-time coding assistance", "Automated code maintenance"]
+        "usecases": ["On-the-edge complex code generation", "Advanced real-time coding assistance", "Automated code maintenance"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "CodeLlama 13B HF GPTQ 8-bit",
@@ -779,7 +911,28 @@
             "Write C code for a smart home temperature sensor.",
             "Optimize a Kafka-based streaming application for lower latency."
         ],
-        "usecases": ["High-precision code generation", "Real-time complex coding assistance", "Automated code analysis and refactoring"]
+        "usecases": ["High-precision code generation", "Real-time complex coding assistance", "Automated code analysis and refactoring"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "CodeLlama 34B HF GPTQ 4-bit",
@@ -813,7 +966,28 @@
             "Write software for a self-driving car system.",
             "Optimize a Python application for processing large datasets."
         ],
-        "usecases": ["Large-scale code generation", "Advanced automated code design", "High-efficiency real-time coding assistance"]
+        "usecases": ["Large-scale code generation", "Advanced automated code design", "High-efficiency real-time coding assistance"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "CodeLlama 34B HF GPTQ 8-bit",
@@ -847,7 +1021,28 @@
             "Create a suite of tools for automated code refactoring.",
             "Optimize a machine learning algorithm for low-power devices."
         ],
-        "usecases": ["Precision-focused code generation", "Real-time sophisticated coding assistance", "Automated code analysis and optimization"]
+        "usecases": ["Precision-focused code generation", "Real-time sophisticated coding assistance", "Automated code analysis and optimization"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "Llama 2 7B HF GPTQ 4-bit",
@@ -881,7 +1076,28 @@
             "Create a slogan for an eco-friendly product.",
             "Write a short description for a new podcast episode."
         ],
-        "usecases": ["Real-time communication platforms", "Automated summarization tools", "Language translation services"]
+        "usecases": ["Real-time communication platforms", "Automated summarization tools", "Language translation services"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "Llama 2 7B HF GPTQ 8-bit",
@@ -915,7 +1131,28 @@
             "Translate a technical manual from English to German.",
             "Write a fictional story based on a given prompt."
         ],
-        "usecases": ["Advanced sentiment analysis platforms", "Automated content generation", "Semantic search engines"]
+        "usecases": ["Advanced sentiment analysis platforms", "Automated content generation", "Semantic search engines"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "Llama 2 13B HF GPTQ 4-bit",
@@ -949,7 +1186,28 @@
             "Translate a user guide for a kitchen appliance from Italian to English.",
             "Write an article about recent advancements in artificial intelligence."
         ],
-        "usecases": ["Real-time communication platforms", "Automated summarization tools", "Language translation services"]
+        "usecases": ["Real-time communication platforms", "Automated summarization tools", "Language translation services"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "Llama 2 13B HF GPTQ 8-bit",
@@ -983,7 +1241,28 @@
             "Translate a legal document from Spanish to English.",
             "Write an article on the future of artificial intelligence in healthcare."
         ],
-        "usecases": ["Advanced sentiment analysis platforms", "Automated content generation", "Semantic search engines"]
+        "usecases": ["Advanced sentiment analysis platforms", "Automated content generation", "Semantic search engines"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "Llama 2 70B HF GPTQ 4-bit",
@@ -1016,7 +1295,28 @@
             "Transcribe key points from a corporate webinar.",
             "Analyze customer feedback from a live survey about a new product."
         ],
-        "usecases": ["Live customer support", "Real-time communication platforms", "Live event captioning services"]
+        "usecases": ["Live customer support", "Real-time communication platforms", "Live event captioning services"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "Llama 2 70B HF GPTQ 8-bit",
@@ -1050,7 +1350,28 @@
             "Write a script for a documentary about ancient civilizations.",
             "Compose an editorial on the impact of technology on society."
         ],
-        "usecases": ["Research and academia", "Automated content creation", "Professional translation services"]
+        "usecases": ["Research and academia", "Automated content creation", "Professional translation services"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "WizardCoder Python 7B V1.0",
@@ -1093,7 +1414,28 @@
             "Develop a custom Python library for handling geospatial data.",
             "Create automated tests for a Python e-commerce platform."
         ],
-        "usecases": ["Software development", "Algorithm design", "Code review and optimization"]
+        "usecases": ["Software development", "Algorithm design", "Code review and optimization"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "WizardCoder Python 34B V1.0",
@@ -1127,7 +1469,28 @@
             "Develop a Python SDK for integrating with a RESTful API.",
             "Write a Python script for analyzing astronomical data."
         ],
-        "usecases": ["Enterprise-level software development", "Algorithm design and optimization", "Automated coding solutions"]
+        "usecases": ["Enterprise-level software development", "Algorithm design and optimization", "Automated coding solutions"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "WizardLM 13B V1.0",
@@ -1161,7 +1524,28 @@
             "Generate a news article about recent advancements in renewable energy.",
             "Write a script for an educational YouTube video on space exploration."
         ],
-        "usecases": ["Content generation", "Data mining", "Semantic analysis"]
+        "usecases": ["Content generation", "Data mining", "Semantic analysis"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "WizardLM 70B V1.0",
@@ -1195,7 +1579,28 @@
             "Create an in-depth guide on sustainable farming practices.",
             "Write a detailed analysis of economic trends in the past decade."
         ],
-        "usecases": ["Research in linguistics", "Automated content creation", "Language-based AI development"]
+        "usecases": ["Research in linguistics", "Automated content creation", "Language-based AI development"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "WizardCoder Python 7B V1.0 GPTQ",
@@ -1229,7 +1634,28 @@
             "Develop a custom Python library for handling geospatial data.",
             "Create automated tests for a Python e-commerce platform."
         ],
-        "usecases": ["Software engineering", "Code optimization", "Automated debugging"]
+        "usecases": ["Software engineering", "Code optimization", "Automated debugging"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "WizardCoder Python 13B V1.0 GPTQ",
@@ -1263,7 +1689,28 @@
             "Develop a Python package for blockchain-based applications.",
             "Create a Python library for augmented reality app development."
         ],
-        "usecases": ["Software development", "Automated code reviewing", "Algorithm design"]
+        "usecases": ["Software development", "Automated code reviewing", "Algorithm design"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "WizardCoder Python 34B V1.0 GPTQ",
@@ -1297,12 +1744,33 @@
             "Develop a Python SDK for integrating with a RESTful API.",
             "Write a Python script for analyzing astronomical data."
         ],
-        "usecases": ["High-level software engineering", "Algorithm research", "Code performance optimization"]
+        "usecases": ["High-level software engineering", "Algorithm research", "Code performance optimization"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "WizardLM 13B V1.0 GPTQ",
         "inputs": [{ "type": "text", "name": "input" }],
-        "model_name": "TheBloke/WizardLM-13B-V1.0-GPTQ",
+        "model_name": "TheBloke/WizardLM-13B-V1.0-Uncensored-GPTQ",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardLM 13B V1.0 GPTQ model excels in diverse language processing tasks. Its GPTQ optimization ensures it performs efficiently even in resource-constrained environments, making it a reliable choice for real-time language analysis and generation.",
         "examples": [
@@ -1331,7 +1799,28 @@
             "Generate a news article about recent advancements in renewable energy.",
             "Write a script for an educational YouTube video on space exploration."
         ],
-        "usecases": ["Live language processing", "Real-time communication platforms", "Automated content creation"]
+        "usecases": ["Live language processing", "Real-time communication platforms", "Automated content creation"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     },
     {
         "name": "WizardLM 70B V1.0 GPTQ",
@@ -1365,6 +1854,27 @@
             "Create an in-depth guide on sustainable farming practices.",
             "Write a detailed analysis of economic trends in the past decade."
         ],
-        "usecases": ["Language research", "Automated authoring systems", "High-performance language-based applications"]
+        "usecases": ["Language research", "Automated authoring systems", "High-performance language-based applications"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "*",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        }
     }
 ]
