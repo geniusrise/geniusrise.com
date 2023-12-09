@@ -111,6 +111,7 @@ const FineTune: React.FC<FineTuneProps> = ({ model }) => {
             </div>
             <Settings
                 taskType="fineTune"
+                model={model}
                 callback={x => {
                     setSettingsVisibile(!settingsVisible)
                     console.log(x)

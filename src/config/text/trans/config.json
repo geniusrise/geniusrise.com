@@ -7,6 +7,7 @@
             { "type": "text", "name": "target" }
         ],
         "model_name": "facebook/mbart-large-50-many-to-many-mmt",
+        "apiClass": "TranslationAPI",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The Multilingual Many-to-Many Translation model is a powerful tool for translating text between multiple languages. Unlike single pair translation models, this model is capable of handling translations among 50 different languages. This can be incredibly useful in global settings where communication across multiple language barriers is necessary. It employs a unique training approach to learn a multitude of language pairs simultaneously, improving its efficiency and consistency across different languages. By leveraging this model, businesses and individuals can significantly enhance their multilingual communication capabilities, making global interactions smoother and more effective.",
         "examples": [
@@ -71,6 +72,7 @@
             { "type": "text", "name": "target" }
         ],
         "model_name": "facebook/wmt21-dense-24-wide-x-en",
+        "apiClass": "TranslationAPI",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The Dense Multilingual Translation to English model is engineered to translate text from 24 different languages into English. This model can be an essential tool for organizations and individuals looking to consolidate multilingual data into a single language for analysis or communication. Its dense translation mechanism ensures high-quality translations, capturing the nuances of the original text. The capability of translating multiple languages to English in a consistent manner makes it a valuable asset in any scenario where understanding or disseminating multilingual information is crucial.",
         "examples": [
@@ -135,6 +137,7 @@
             { "type": "text", "name": "target" }
         ],
         "model_name": "facebook/wmt21-dense-24-wide-en-x",
+        "apiClass": "TranslationAPI",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The Dense Multilingual Translation from English model is tailored to translate English text into 24 different languages. This model is instrumental for organizations and individuals aiming to disseminate information across a diverse linguistic audience. The model's dense translation mechanism ensures that the translations are of high quality, maintaining the integrity of the original message. Whether it's for global marketing campaigns, international publications, or multilingual customer communications, this model serves as a robust solution for breaking down language barriers and reaching a wider audience.",
         "examples": [

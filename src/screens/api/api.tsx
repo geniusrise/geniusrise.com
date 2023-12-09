@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react"
-import { v4 as uuidv4 } from "uuid"
 import axios from "axios"
 import { useDropzone } from "react-dropzone"
+import { generateName } from "../../utils"
 
 import styles from "./api.module.css"
 import { Model } from "../../config"
@@ -13,6 +13,7 @@ import Settings from "../settings/settings"
 import { withAuthenticator } from "@aws-amplify/ui-react"
 
 import banners from "../../data/banners.json"
+import { createService } from "../../data/service"
 
 interface APIProps {
     model: Model
@@ -37,7 +38,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                     <Cell>
                         <Content className={styles.contentHeading}>
                             <h2>API inference</h2>
-                            Deploy an API instance or a cluister of instances.
+                            Deploy an API instance or a cluster of instances.
                         </Content>
                     </Cell>
                 </Grid>
@@ -52,12 +53,31 @@ const API: React.FC<APIProps> = ({ model }) => {
                         </Button>
                     </Cell>
                     <Cell>
-                        <Button>Create API</Button>
+                        <Button onClick={(e: any) => {
+                            createService({
+                                task: {
+                                    name: generateName(),
+                                    deployment_config: {
+                                        name: model.apiClass,
+                                        replicas: 1,
+                                        node_port: 0,
+                                        port: 80,
+                                        target_port: 3000,
+                                    },
+                                    method: "listen",
+                                    method_args: {
+                                        model_name: model.model_name,
+                                        ...model.apiDeploy
+                                    }
+                                }
+                            })
+                        }}>Create API</Button>
                     </Cell>
                 </Grid>
             </div>
             <Settings
                 taskType="api"
+                model={model}
                 callback={x => {
                     setSettingsVisibile(!settingsVisible)
                 }}

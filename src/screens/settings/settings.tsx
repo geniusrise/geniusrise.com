@@ -1,12 +1,14 @@
 import React, { useState } from "react"
-import { taskConfig } from "../../config"
+// import { taskConfig } from "../../config"
 
 import styles from "./settings.module.css"
 import { Cell, Grid } from "styled-css-grid"
 import { Button, Content } from "react-bulma-components"
+import { Model } from "../../config"
 
 interface Props {
     taskType: string
+    model: Model
     callback: (obj: any) => void
     visible: boolean
 }
@@ -28,9 +30,7 @@ function toTitleCase(input: string): string {
         .join(" ") // Join the parts with spaces
 }
 
-const Settings: React.FC<Props> = ({ taskType, callback, visible }) => {
-    // const [formState, setFormState] = useState<any>({})
-    // const config = taskType === "api" ? taskConfig.api : taskType === "bulk" ? taskConfig.bulk : taskConfig.fine_tune
+const Settings: React.FC<Props> = ({ taskType, model, callback, visible }) => {
 
     const buildInitialState = (properties: any) => {
         const state: any = {}
@@ -43,8 +43,8 @@ const Settings: React.FC<Props> = ({ taskType, callback, visible }) => {
         return state
     }
 
-    const config = taskType === "api" ? taskConfig.api : taskType === "bulk" ? taskConfig.bulk : taskConfig.fine_tune
-    const [formState, setFormState] = useState<any>(buildInitialState(config.properties))
+    const config = taskType === "api" ? model.apiDeploy : taskType === "bulk" ? model.apiDeploy : model.apiDeploy
+    const [formState, setFormState] = useState<any>(config)
 
     const handleChange = (key: string, value: any) => {
         setFormState((prevState: any) => ({
@@ -71,41 +71,39 @@ const Settings: React.FC<Props> = ({ taskType, callback, visible }) => {
             </Grid>
             <form onSubmit={handleSubmit}>
                 <Grid columns={2} className={styles.form}>
-                    {Object.entries(config.properties).map(([key, value]) => {
-                        if (!hasTypeField(value)) {
-                            console.warn(`Skipping field '${key}' due to incompatible type.`)
-                            return null // Skip rendering this field
-                        }
+                    {Object.entries(config).map(([key, value]) => {
+                        const inputType = "text"
 
-                        const inputType = Array.isArray(value.type)
-                            ? value.type.includes("boolean")
-                                ? "checkbox"
-                                : "text"
-                            : value.type === "boolean"
-                            ? "checkbox"
-                            : value.type === "integer"
-                            ? "number"
-                            : "text"
+                        // const inputType = Array.isArray(value)
+                        //     ? value.type.includes("boolean")
+                        //         ? "checkbox"
+                        //         : "text"
+                        //     : value.type === "boolean"
+                        //         ? "checkbox"
+                        //         : value.type === "integer"
+                        //             ? "number"
+                        //             : "text"
 
-                        const inputTypeClass =
-                            inputType === "checkbox" ? styles.checkboxInput : inputType === "number" ? styles.numberInput : styles.textInput
+                        const inputTypeClass = styles.textInput
+                        // inputType === "checkbox" ? styles.checkboxInput : inputType === "number" ? styles.numberInput : styles.textInput
 
                         return (
                             <Cell key={key} className={styles.formElement} center>
                                 <label>
                                     {toTitleCase(key)}
-                                    {inputType === "checkbox" ? (
+                                    {/* {inputType === "checkbox" ? (
                                         <input
                                             type={inputType}
                                             className={inputTypeClass}
                                             checked={formState[key]}
                                             onChange={e => handleChange(key, e.target.checked)}
                                         />
-                                    ) : (
+                                    ) :  */}
+                                    {(
                                         <input
                                             type={inputType}
                                             className={inputTypeClass}
-                                            value={formState[key] || ""}
+                                            value={formState[key]}
                                             onChange={e => handleChange(key, e.target.value)}
                                         />
                                     )}
