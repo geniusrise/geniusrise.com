@@ -2,12 +2,31 @@
     {
         "name": "TAPAS Tiny WTQ",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "google/tapas-tiny-finetuned-wtq",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "The TAPAS Tiny WTQ model is a compact and efficient version of the TAPAS series, fine-tuned on the WikiTableQuestions (WTQ) dataset. Despite its small size, this model retains a robust understanding of tabular data and natural language queries. The generic model name highlights its strength in analyzing and answering questions based on structured tables. It is particularly adept at handling questions that require comprehension of smaller, nuanced datasets.",
         "examples": [
             "Querying small datasets for specific facts.",
@@ -43,7 +62,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -66,12 +85,31 @@
     {
         "name": "TAPAS Large WTQ",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "google/tapas-large-finetuned-wtq",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "The TAPAS Large WTQ model is a powerful variant within the TAPAS family, fine-tuned on the WikiTableQuestions dataset for optimal performance in understanding complex table-based queries. Its large architecture allows it to process a wide range of tabular data and nuanced natural language questions. The generic model name signifies its capacity for deep semantic understanding and its prowess in providing detailed answers from extensive datasets.",
         "examples": [
             "Complex data analysis through natural language queries.",
@@ -107,7 +145,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -130,12 +168,31 @@
     {
         "name": "TAPAS Base WTQ",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "google/tapas-base-finetuned-wtq",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "TAPAS Base WTQ is a model from the TAPAS project, optimized for a balance between performance and efficiency. This model has been fine-tuned on the WikiTableQuestions dataset to interpret and respond to queries about structured data in tables. Its base size makes it versatile for various applications, with a generic model name that encapsulates its foundational capabilities in processing table-related questions.",
         "examples": [
             "General data queries from structured tables.",
@@ -171,7 +228,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -194,12 +251,31 @@
     {
         "name": "TAPAS Small SQA",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "google/tapas-small-finetuned-sqa",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "The TAPAS Small SQA model is designed to be a lightweight solution for conversational interfaces dealing with Sequential Question Answering (SQA). Trained on the respective SQA dataset, it specializes in understanding sequences of questions that build upon each other. The generic name of the model reflects its targeted efficiency and sequence handling ability, making it ideal for conversational systems that require quick and coherent follow-up question answering.",
         "examples": [
             "Sequencing multiple related questions for data tables.",
@@ -235,7 +311,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -258,12 +334,31 @@
     {
         "name": "TAPAS Base SQA",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "google/tapas-base-finetuned-sqa",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "TAPAS Base SQA stands as a robust conversational model trained on the Sequential Question Answering dataset, balancing comprehensive linguistic understanding with a focus on sequence-based questioning. It provides nuanced responses in dialogues where each question relates to the previous one, typically involving tabular data. The model's generic name underscores its foundational approach to sequence learning and its ability to handle a series of related queries effectively.",
         "examples": [
             "Conversational sequence querying in data tables.",
@@ -299,7 +394,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -322,12 +417,31 @@
     {
         "name": "TAPAS Large SQA",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "google/tapas-large-finetuned-sqa",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "The TAPAS Large SQA model is the more extensive and sophisticated sibling in the TAPAS SQA lineup, fine-tuned for Sequential Question Answering tasks. Its large-scale architecture affords it the ability to comprehend and process intricate question sequences, particularly in dialogues that involve complex table-based data. The generic model name conveys its strength in handling detailed conversational contexts and its adeptness in providing contextually relevant answers over multi-turn interactions.",
         "examples": [
             "Analyzing intricate question sequences for detailed data insights.",
@@ -363,7 +477,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -386,12 +500,31 @@
     {
         "name": "TaPEx Base WTQ",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "microsoft/tapex-base-finetuned-wtq",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "TaPEx Base WTQ by Microsoft leverages the WikiTableQuestions dataset to fine-tune its performance, enabling the model to field questions and generate responses based on tabular data. This base version of the TaPEx family is designed to be versatile and efficient, capable of understanding and interacting with a wide variety of table formats and contents. The generic name highlights its role as a foundational tool for developing conversational agents that can navigate database queries intuitively.",
         "examples": [
             "Transforming queries into structured database retrievals.",
@@ -427,7 +560,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -452,12 +585,31 @@
     {
         "name": "TaPEx Large WTQ",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "microsoft/tapex-large-finetuned-wtq",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "The TaPEx Large WTQ model represents the higher end of Microsoft's TaPEx series, boasting enhanced capabilities due to its large model architecture. Fine-tuned on the WikiTableQuestions dataset, it brings a depth of knowledge and a nuanced understanding of table-related questioning to conversational AI. The generic model name underlines its broad utility and advanced analytical prowess in processing and responding to complex natural language queries about data in tables.",
         "examples": [
             "Handling complex database queries through natural language.",
@@ -493,7 +645,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -518,12 +670,31 @@
     {
         "name": "TaPEx Base WikiSQL Reiteration",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "microsoft/tapex-base-finetuned-wikisql",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "TaPEx Base WikiSQL Reiteration is a retrained variant of Microsoft's original TaPEx Base model specifically on the WikiSQL dataset, improving its capability to translate natural language questions into SQL queries. This model maintains the balance between size and performance, aimed at developers looking for an efficient SQL query generation tool. The generic model name emphasizes its specialized function in bridging natural language and SQL for seamless database querying.",
         "examples": [
             "Enhancing SQL query generation from conversational inputs.",
@@ -559,7 +730,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -584,12 +755,31 @@
     {
         "name": "TaPEx Large WikiSQL",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "microsoft/tapex-large-finetuned-wikisql",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "The TaPEx Large WikiSQL model is Microsoft's expansive conversational model that excels in generating SQL queries from natural language questions, trained on the WikiSQL dataset. Its extensive architecture allows for sophisticated understanding and generation of SQL, suitable for complex database querying. The generic model name reflects its large-scale capacity and its expertise in facilitating direct interactions with databases through conversational means.",
         "examples": [
             "Generating complex SQL queries from detailed user queries.",
@@ -625,7 +815,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -650,12 +840,31 @@
     {
         "name": "TAPAS Small WikiSQL Supervised",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "google/tapas-small-finetuned-wikisql-supervised",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "Google's TAPAS Small WikiSQL Supervised model offers a streamlined approach to parsing and answering questions related to structured tabular data, having been supervised on the WikiSQL dataset. This small model variant prioritizes speed and efficiency, making it suitable for environments where rapid query processing is crucial. The generic model name highlights its precise focus on supervised learning from tabular data and its capability to provide quick, accurate responses.",
         "examples": [
             "Rapid response generation for tabular data queries.",
@@ -691,7 +900,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -714,12 +923,31 @@
     {
         "name": "TAPAS Base WikiSQL Supervised",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "google/tapas-base-finetuned-wikisql-supervised",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "The TAPAS Base WikiSQL Supervised model from Google strikes a balance between computational demands and the depth of learning, trained under supervision on the WikiSQL dataset. It stands as a versatile conversational AI agent that can effectively parse and interact with various tabular data formats through natural language. The generic model name underlines its foundational application in supervised table-question scenarios and its adaptability to a broad range of data interrogation tasks.",
         "examples": [
             "Balanced table-based question answering and interpretation.",
@@ -755,7 +983,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -778,12 +1006,31 @@
     {
         "name": "TAPAS Large WikiSQL Supervised",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "google/tapas-large-finetuned-wikisql-supervised",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "Google's TAPAS Large WikiSQL Supervised model epitomizes the upper tier of table-question AI, offering extensive understanding and detailed response generation, fine-tuned on the WikiSQL dataset. This model's large framework is tailored for deep analysis and interaction with complex table-based queries. The generic model name accentuates its supremacy in supervised learning from tabular content and its proficiency in managing elaborate conversational data exploration.",
         "examples": [
             "Advanced analysis of complex queries on large tables.",
@@ -819,7 +1066,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -842,12 +1089,31 @@
     {
         "name": "DistilBERT Base Uncased SQuAD",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "distilbert-base-uncased-distilled-squad",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "The DistilBERT Base Uncased SQuAD model is a distilled version of the BERT model, maintaining strong performance on the Stanford Question Answering Dataset (SQuAD) while being more lightweight. The distillation process ensures that it retains a significant amount of the original BERT's abilities, making it ideal for environments where resources are limited. The generic model name reflects its efficiency and efficacy in question-answering tasks, providing a balanced option for developers.",
         "examples": [
             "Efficient question answering from textual content.",
@@ -883,7 +1149,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -897,12 +1163,31 @@
     {
         "name": "Deepset BERT Base SQuAD2",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "deepset/bert-base-cased-squad2",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "Deepset's BERT Base Cased SQuAD2 model is fine-tuned on the second version of the Stanford Question Answering Dataset, which includes unanswerable questions, making it robust in discriminating between answerable and unanswerable queries. This model provides a solid foundation for conversational agents tasked with a high level of comprehension and judgment. The generic model name encapsulates its core functionality in answering complex questions with precision.",
         "examples": [
             "Advanced answering of complex and nuanced queries.",
@@ -938,7 +1223,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -952,12 +1237,31 @@
     {
         "name": "Deepset RoBERTa Base SQuAD2",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "deepset/roberta-base-squad2",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "The Deepset RoBERTa Base SQuAD2 model is fine-tuned on the SQuAD2.0 dataset and is built upon the RoBERTa architecture, which is optimized for more dynamic masking patterns and larger mini-batches during pre-training. This model excels at understanding complex questions and providing accurate answers, even when the questions are deliberately tricky or misleading. The generic model name signifies its expertise in delivering high-fidelity responses in a conversational context.",
         "examples": [
             "Handling complex, ambiguous, or misleading queries.",
@@ -993,7 +1297,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -1007,12 +1311,31 @@
     {
         "name": "Deepset DeBERTa V3 Base SQuAD2",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "deepset/deberta-v3-base-squad2",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "The Deepset DeBERTa V3 Base SQuAD2 model leverages the DeBERTa (Decoding-enhanced BERT with disentangled attention) V3 architecture, providing improved performance on the SQuAD2.0 dataset. It stands out for its ability to disentangle the attention mechanism, offering finer interpretation of question contexts. The generic model name underscores its advanced capabilities in processing and answering questions with high accuracy and context sensitivity.",
         "examples": [
             "Achieving top results in challenging question answering tasks.",
@@ -1048,7 +1371,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -1062,12 +1385,31 @@
     {
         "name": "Deepset ELECTRA Base SQuAD2",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "deepset/electra-base-squad2",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "The Deepset ELECTRA Base SQuAD2 model utilizes the ELECTRA training approach, which is more sample-efficient than traditional BERT pre-training. Fine-tuned on SQuAD2.0, it has a high aptitude for understanding complex and nuanced queries. The generic model name indicates its proficiency in leveraging the discriminator-generator setup to provide accurate and detailed answers in a conversational interface.",
         "examples": [
             "Efficient answering of nuanced queries in text.",
@@ -1103,7 +1445,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
@@ -1117,12 +1459,31 @@
     {
         "name": "Deepset DeBERTa V3 Large SQuAD2",
         "inputs": [
-            { "type": "text", "name": "context" },
-            { "type": "text", "name": "question" }
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
         ],
         "model_name": "deepset/deberta-v3-large-squad2",
         "apiClass": "QAAPI",
-        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "bulk_formats": [
+            "huggingface",
+            "jsonl",
+            "csv",
+            "parquet",
+            "json",
+            "xml",
+            "yaml",
+            "tsv",
+            "xls",
+            "xlsx",
+            "sqlite",
+            "feather"
+        ],
         "description": "The Deepset DeBERTa V3 Large SQuAD2 model represents an upscaled version of its base model with a larger capacity for handling complex language understanding tasks. Fine-tuned on SQuAD2.0, it demonstrates excellent performance in discerning relevant information from passages to answer questions accurately. The generic model name is a testament to its capability to manage and analyze extensive datasets for detailed question answering.",
         "examples": [
             "Comprehensive answers to complex questions.",
@@ -1158,7 +1519,7 @@
             "device_map": "cuda:0",
             "max_memory": null,
             "torchscript": false,
-            "endpoint": "*",
+            "endpoint": "\"0.0.0.0\"",
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",

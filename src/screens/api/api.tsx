@@ -26,6 +26,14 @@ const getRandomImage = () => {
 
 const API: React.FC<APIProps> = ({ model }) => {
     const [settingsVisible, setSettingsVisibile] = useState(false)
+    const [config, setConfig] = useState({
+        name: model.apiClass,
+        replicas: 1,
+        node_port: 0,
+        port: 80,
+        target_port: 3000,
+        pod_size: "s"
+    })
 
     return (
         <>
@@ -63,6 +71,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                                         node_port: 0,
                                         port: 80,
                                         target_port: 3000,
+                                        pod_size: "s"
                                     },
                                     method: "listen",
                                     method_args: {
