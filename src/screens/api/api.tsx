@@ -80,7 +80,7 @@ const API: React.FC<APIProps> = ({ model }) => {
 
                     const curl = `/usr/bin/curl -X POST ${x.data.ip}${model.endpoint} \\
     -H "Content-Type: application/json" \\
-    -u ${model.apiDeploy.username}:${model.apiDeploy.password} \\
+    -u "${model.apiDeploy.username}:${model.apiDeploy.password}" \\
     -d '${payload}' | jq`
 
                     setCurlCommand(curl)
@@ -188,7 +188,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                             <h3>🎊 Your API is deployed, try it out</h3>
                             <pre>
                                 <SyntaxHighlighter
-                                    language="javascript"
+                                    language="bash"
                                     style={shadesOfPurple}
                                     showLineNumbers={true}
                                     lineNumberStyle={{ minWidth: '3em', paddingRight: '10px', opacity: 0.5 }}
