@@ -19,6 +19,18 @@ interface APIProps {
     model: Model
 }
 
+function toTitleCase(input: string): string {
+    return input
+        .split("_") // Split by underscore
+        .map(
+            part =>
+                part
+                    .toLowerCase() // Convert to lower case
+                    .replace(/^\w/, c => c.toUpperCase()) // Capitalize the first letter
+        )
+        .join(" ") // Join the parts with spaces
+}
+
 const getRandomImage = () => {
     const randomIndex = Math.floor(Math.random() * banners.length)
     return banners[randomIndex]
@@ -35,11 +47,22 @@ const API: React.FC<APIProps> = ({ model }) => {
         pod_size: "s"
     })
 
+    const [launched, setLaunched] = useState<any>({})
+    const [launching, setLaunching] = useState(false)
+
+    const handleChange = (key: string, value: any) => {
+        setConfig((prevState: any) => ({
+            ...prevState,
+            [key]: value,
+        }))
+    }
+
     return (
         <>
             <div className={styles.container} hidden={settingsVisible}>
                 <div
                     className={styles.headerImage}
+                    // TODO: this image resets every time the page re-renders, make it static
                     style={{ backgroundImage: `url(../../vector-autumn-foliage-banner/${getRandomImage()})`, backgroundSize: "cover" }}
                 ></div>
                 <Grid columns={2}>
@@ -49,6 +72,26 @@ const API: React.FC<APIProps> = ({ model }) => {
                             Deploy an API instance or a cluster of instances.
                         </Content>
                     </Cell>
+                </Grid>
+                <Grid columns={2} className={styles.form}>
+                    {Object.entries(config).map(([key, value]) => {
+
+                        return (
+                            <Cell key={key} className={styles.formElement} center>
+                                <label>
+                                    {toTitleCase(key)}
+                                    {(
+                                        <input
+                                            type={"text"}
+                                            className={styles.textInput}
+                                            value={value}
+                                            onChange={e => handleChange(key, e.target.value)}
+                                        />
+                                    )}
+                                </label>
+                            </Cell>
+                        )
+                    })}
                 </Grid>
                 <Grid columns={2} className={styles.action}>
                     <Cell>
@@ -61,17 +104,14 @@ const API: React.FC<APIProps> = ({ model }) => {
                         </Button>
                     </Cell>
                     <Cell>
-                        <Button onClick={(e: any) => {
+                        <Button disabled={launching} onClick={(e: any) => {
+                            setLaunching(true)
+
                             createService({
                                 task: {
                                     name: generateName(),
                                     deployment_config: {
-                                        name: model.apiClass,
-                                        replicas: 1,
-                                        node_port: 0,
-                                        port: 80,
-                                        target_port: 3000,
-                                        pod_size: "s"
+                                        ...config
                                     },
                                     method: "listen",
                                     method_args: {
@@ -79,8 +119,16 @@ const API: React.FC<APIProps> = ({ model }) => {
                                         ...model.apiDeploy
                                     }
                                 }
+                            }).then(x => {
+                                setLaunched(x.data)
+                                setLaunching(false)
                             })
-                        }}>Create API</Button>
+                        }}>{launching ? "Launching API..." : "Create API"}</Button>
+                    </Cell>
+                    <Cell>
+                        <Content>
+                            {/* TODO: add a very simple progress bar for 2 minutes */}
+                        </Content>
                     </Cell>
                 </Grid>
             </div>
