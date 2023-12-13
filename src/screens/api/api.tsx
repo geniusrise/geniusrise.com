@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react"
+import React, { useState, useCallback, useEffect } from "react"
 import axios from "axios"
 import { useDropzone } from "react-dropzone"
 import { generateName } from "../../utils"
@@ -50,6 +50,15 @@ const API: React.FC<APIProps> = ({ model }) => {
     const [launched, setLaunched] = useState<any>({})
     const [launching, setLaunching] = useState(false)
 
+    const [backgroundImage, setBackgroundImage] = useState('');
+    const [progress, setProgress] = useState(0);
+    const [progressBarVisible, setProgressBarVisible] = useState(false);
+
+    // Set background image only once on component mount
+    useEffect(() => {
+        setBackgroundImage(`../../vector-autumn-foliage-banner/${getRandomImage()}`);
+    }, []);
+
     const handleChange = (key: string, value: any) => {
         setConfig((prevState: any) => ({
             ...prevState,
@@ -57,13 +66,45 @@ const API: React.FC<APIProps> = ({ model }) => {
         }))
     }
 
+    const handleLaunch = () => {
+        setLaunching(true);
+        setProgressBarVisible(true);
+
+        createService({
+            task: {
+                name: generateName(),
+                deployment_config: {
+                    ...config
+                },
+                method: "listen",
+                method_args: {
+                    model_name: model.model_name,
+                    ...model.apiDeploy
+                }
+            }
+        }).then(x => {
+            setLaunched(x.data);
+            setLaunching(false);
+        });
+
+        // Progress bar logic
+        const interval = setInterval(() => {
+            setProgress(oldProgress => {
+                if (oldProgress === 100) {
+                    clearInterval(interval);
+                    return 100;
+                }
+                return Math.min(oldProgress + 1, 100);
+            });
+        }, 1200); // 1200 ms interval for 2 minutes duration
+    };
+
     return (
         <>
             <div className={styles.container} hidden={settingsVisible}>
                 <div
                     className={styles.headerImage}
-                    // TODO: this image resets every time the page re-renders, make it static
-                    style={{ backgroundImage: `url(../../vector-autumn-foliage-banner/${getRandomImage()})`, backgroundSize: "cover" }}
+                    style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}
                 ></div>
                 <Grid columns={2}>
                     <Cell>
@@ -104,28 +145,18 @@ const API: React.FC<APIProps> = ({ model }) => {
                         </Button>
                     </Cell>
                     <Cell>
-                        <Button disabled={launching} onClick={(e: any) => {
-                            setLaunching(true)
-
-                            createService({
-                                task: {
-                                    name: generateName(),
-                                    deployment_config: {
-                                        ...config
-                                    },
-                                    method: "listen",
-                                    method_args: {
-                                        model_name: model.model_name,
-                                        ...model.apiDeploy
-                                    }
-                                }
-                            }).then(x => {
-                                setLaunched(x.data)
-                                setLaunching(false)
-                            })
-                        }}>{launching ? "Launching API..." : "Create API"}</Button>
+                        <Button disabled={launching} onClick={(e: any) => handleLaunch()}>
+                            {launching ? "Launching API..." : "Create API"}
+                        </Button>
                     </Cell>
-                    <Cell>
+                    <Cell width={2}>
+                        {progressBarVisible && (
+                            <div className={styles.progressBar}>
+                                <div className={styles.progress} style={{ width: `${progress}%` }}></div>
+                            </div>
+                        )}
+                    </Cell>
+                    <Cell width={2}>
                         <Content>
                             {/* TODO: add a very simple progress bar for 2 minutes */}
                         </Content>

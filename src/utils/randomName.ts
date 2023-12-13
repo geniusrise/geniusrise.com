@@ -2862,7 +2862,7 @@ function generateName() {
         "Lieuwe",
     ]
 
-    var name = name1[getRandomInt(0, name1.length + 1)] + "-" + name2[getRandomInt(0, name2.length + 1)]
+    var name = "genius--" + name1[getRandomInt(0, name1.length + 1)] + "-" + name2[getRandomInt(0, name2.length + 1)]
     return name
 }
 
