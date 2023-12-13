@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useCallback, useEffect } from "react"
 import axios from "axios"
 import { useDropzone } from "react-dropzone"
@@ -7,13 +8,13 @@ import styles from "./api.module.css"
 import { Model } from "../../config"
 import { Cell, Grid } from "styled-css-grid"
 import SyntaxHighlighter from "react-syntax-highlighter"
-import { solarizedDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { shadesOfPurple } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
 import Settings from "../settings/settings"
 import { withAuthenticator } from "@aws-amplify/ui-react"
 
 import banners from "../../data/banners.json"
-import { createService } from "../../data/service"
+import { createService, readService } from "../../data/service"
 
 interface APIProps {
     model: Model
@@ -54,6 +55,9 @@ const API: React.FC<APIProps> = ({ model }) => {
     const [progress, setProgress] = useState(0);
     const [progressBarVisible, setProgressBarVisible] = useState(false);
 
+    const [curlCommand, setCurlCommand] = useState("")
+    const [curlVisible, setCurlVisible] = useState(false)
+
     // Set background image only once on component mount
     useEffect(() => {
         setBackgroundImage(`../../vector-autumn-foliage-banner/${getRandomImage()}`);
@@ -65,6 +69,29 @@ const API: React.FC<APIProps> = ({ model }) => {
             [key]: value,
         }))
     }
+
+    useEffect(() => {
+        if (launched && launched.uuid) {
+            // Wait for a specified time before fetching the status
+            const delay = 30000;
+            const timer = setTimeout(() => {
+                readService(launched.uuid).then(x => {
+                    const payload = JSON.stringify(model.api, null, 2)
+
+                    const curl = `/usr/bin/curl -X POST ${x.data.ip}${model.endpoint} \\
+    -H "Content-Type: application/json" \\
+    -u ${model.apiDeploy.username}:${model.apiDeploy.password} \\
+    -d '${payload}' | jq`
+
+                    setCurlCommand(curl)
+                    setCurlVisible(true)
+                });
+            }, delay);
+
+            // Clear the timer if the component unmounts
+            return () => clearTimeout(timer)
+        }
+    }, [launched])
 
     const handleLaunch = () => {
         setLaunching(true);
@@ -96,7 +123,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                 }
                 return Math.min(oldProgress + 1, 100);
             });
-        }, 1200); // 1200 ms interval for 2 minutes duration
+        }, 300); // 1200 ms interval for 2 minutes duration
     };
 
     return (
@@ -156,9 +183,19 @@ const API: React.FC<APIProps> = ({ model }) => {
                             </div>
                         )}
                     </Cell>
-                    <Cell width={2}>
-                        <Content>
-                            {/* TODO: add a very simple progress bar for 2 minutes */}
+                    <Cell width={2} className={styles.curl}>
+                        <Content hidden={!curlVisible}>
+                            <h3>🎊 Your API is deployed, try it out</h3>
+                            <pre>
+                                <SyntaxHighlighter
+                                    language="javascript"
+                                    style={shadesOfPurple}
+                                    showLineNumbers={true}
+                                    lineNumberStyle={{ minWidth: '3em', paddingRight: '10px', opacity: 0.5 }}
+                                >
+                                    {curlCommand}
+                                </SyntaxHighlighter>
+                            </pre>
                         </Content>
                     </Cell>
                 </Grid>

@@ -13,6 +13,7 @@
         ],
         "model_name": "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -88,6 +89,7 @@
         ],
         "model_name": "google/t5_xxl_true_nli_mixture",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -163,6 +165,7 @@
         ],
         "model_name": "facebook/bart-large-mnli",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -238,6 +241,7 @@
         ],
         "model_name": "microsoft/deberta-v2-xlarge-mnli",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -313,6 +317,7 @@
         ],
         "model_name": "khalidalt/DeBERTa-v3-large-mnli",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -388,6 +393,7 @@
         ],
         "model_name": "typeform/distilbert-base-uncased-mnli",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -463,6 +469,7 @@
         ],
         "model_name": "roberta-large-mnli",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -538,6 +545,7 @@
         ],
         "model_name": "microsoft/deberta-v2-xxlarge-mnli",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -604,6 +612,7 @@
         ],
         "model_name": "sileod/deberta-v3-large-tasksource-nli",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -679,6 +688,7 @@
         ],
         "model_name": "cross-encoder/nli-deberta-v3-small",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -754,6 +764,7 @@
         ],
         "model_name": "cross-encoder/nli-deberta-v3-base",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -829,6 +840,7 @@
         ],
         "model_name": "cross-encoder/nli-deberta-v3-large",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -904,6 +916,7 @@
         ],
         "model_name": "cross-encoder/nli-roberta-base",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -979,6 +992,7 @@
         ],
         "model_name": "cross-encoder/nli-deberta-v3-large",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1054,6 +1068,7 @@
         ],
         "model_name": "cross-encoder/nli-distilroberta-base",
         "apiClass": "NLIAPI",
+        "endpoint": "/api/v1/entailment",
         "bulk_formats": [
             "huggingface",
             "jsonl",

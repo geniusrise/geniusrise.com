@@ -13,6 +13,7 @@
         ],
         "model_name": "google/tapas-tiny-finetuned-wtq",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -96,6 +97,7 @@
         ],
         "model_name": "google/tapas-large-finetuned-wtq",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -179,6 +181,7 @@
         ],
         "model_name": "google/tapas-base-finetuned-wtq",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -262,6 +265,7 @@
         ],
         "model_name": "google/tapas-small-finetuned-sqa",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -345,6 +349,7 @@
         ],
         "model_name": "google/tapas-base-finetuned-sqa",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -428,6 +433,7 @@
         ],
         "model_name": "google/tapas-large-finetuned-sqa",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -511,6 +517,7 @@
         ],
         "model_name": "microsoft/tapex-base-finetuned-wtq",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -596,6 +603,7 @@
         ],
         "model_name": "microsoft/tapex-large-finetuned-wtq",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -681,6 +689,7 @@
         ],
         "model_name": "microsoft/tapex-base-finetuned-wikisql",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -766,6 +775,7 @@
         ],
         "model_name": "microsoft/tapex-large-finetuned-wikisql",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -851,6 +861,7 @@
         ],
         "model_name": "google/tapas-small-finetuned-wikisql-supervised",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -934,6 +945,7 @@
         ],
         "model_name": "google/tapas-base-finetuned-wikisql-supervised",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1017,6 +1029,7 @@
         ],
         "model_name": "google/tapas-large-finetuned-wikisql-supervised",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1100,6 +1113,7 @@
         ],
         "model_name": "distilbert-base-uncased-distilled-squad",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1174,6 +1188,7 @@
         ],
         "model_name": "deepset/bert-base-cased-squad2",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1248,6 +1263,7 @@
         ],
         "model_name": "deepset/roberta-base-squad2",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1322,6 +1338,7 @@
         ],
         "model_name": "deepset/deberta-v3-base-squad2",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1396,6 +1413,7 @@
         ],
         "model_name": "deepset/electra-base-squad2",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1470,6 +1488,7 @@
         ],
         "model_name": "deepset/deberta-v3-large-squad2",
         "apiClass": "QAAPI",
+        "endpoint": "/api/v1/answer",
         "bulk_formats": [
             "huggingface",
             "jsonl",

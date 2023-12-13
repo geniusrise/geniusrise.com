@@ -9,6 +9,7 @@
         ],
         "model_name": "facebook/bart-large-cnn",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -89,6 +90,7 @@
         ],
         "model_name": "sshleifer/distilbart-cnn-12-6",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -161,6 +163,7 @@
         ],
         "model_name": "pszemraj/led-large-book-summary",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -236,6 +239,7 @@
         ],
         "model_name": "knkarthick/MEETING-SUMMARY-BART-LARGE-XSUM-SAMSUM-DIALOGSUM-AMI",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -312,6 +316,7 @@
         ],
         "model_name": "ainize/kobart-news",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -382,6 +387,7 @@
         ],
         "model_name": "human-centered-summarization/financial-summarization-pegasus",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -456,6 +462,7 @@
         ],
         "model_name": "Callidior/bert2bert-base-arxiv-titlegen",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -525,6 +532,7 @@
         ],
         "model_name": "pszemraj/long-t5-tglobal-base-16384-book-summary",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -599,6 +607,7 @@
         ],
         "model_name": "Quake24/easyTermsSummerizer",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -673,6 +682,7 @@
         ],
         "model_name": "google/bigbird-pegasus-large-arxiv",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -746,6 +756,7 @@
         ],
         "model_name": "google/bigbird-pegasus-large-bigpatent",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -819,6 +830,7 @@
         ],
         "model_name": "google/bigbird-pegasus-large-pubmed",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -892,6 +904,7 @@
         ],
         "model_name": "google/flan-t5-base",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -961,6 +974,7 @@
         ],
         "model_name": "google/flan-t5-large",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1030,6 +1044,7 @@
         ],
         "model_name": "google/flan-t5-xl",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1099,6 +1114,7 @@
         ],
         "model_name": "google/flan-t5-xxl",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1168,6 +1184,7 @@
         ],
         "model_name": "google/t5-v1_1-base",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1237,6 +1254,7 @@
         ],
         "model_name": "google/t5-v1_1-large",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1306,6 +1324,7 @@
         ],
         "model_name": "google/t5-v1_1-xl",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1375,6 +1394,7 @@
         ],
         "model_name": "google/t5-v1_1-xxl",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1444,6 +1464,7 @@
         ],
         "model_name": "google/umt5-base",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1513,6 +1534,7 @@
         ],
         "model_name": "google/umt5-xl",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1582,6 +1604,7 @@
         ],
         "model_name": "google/umt5-xxl",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1651,6 +1674,7 @@
         ],
         "model_name": "google/pegasus-x-base",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1725,6 +1749,7 @@
         ],
         "model_name": "google/pegasus-large",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1799,6 +1824,7 @@
         ],
         "model_name": "google/pegasus-x-large",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1873,6 +1899,7 @@
         ],
         "model_name": "google/pegasus-multi_news",
         "apiClass": "SummarizationAPI",
+        "endpoint": "/api/v1/summarize",
         "bulk_formats": [
             "huggingface",
             "jsonl",

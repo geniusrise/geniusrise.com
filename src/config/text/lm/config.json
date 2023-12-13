@@ -9,6 +9,7 @@
         ],
         "model_name": "mistralai/Mistral-7B-v0.1",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -87,6 +88,7 @@
         ],
         "model_name": "amazon/MistralLite",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -165,6 +167,7 @@
         ],
         "model_name": "codellama/CodeLlama-7b-hf",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -243,6 +246,7 @@
         ],
         "model_name": "codellama/CodeLlama-7b-Python-hf",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -321,6 +325,7 @@
         ],
         "model_name": "codellama/CodeLlama-13b-hf",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -399,6 +404,7 @@
         ],
         "model_name": "codellama/CodeLlama-13b-Python-hf",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -477,6 +483,7 @@
         ],
         "model_name": "codellama/CodeLlama-34b-hf",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -555,6 +562,7 @@
         ],
         "model_name": "codellama/CodeLlama-34b-Python-hf",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -633,6 +641,7 @@
         ],
         "model_name": "meta-llama/Llama-2-7b-hf",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -711,6 +720,7 @@
         ],
         "model_name": "meta-llama/Llama-2-13b-hf",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -789,6 +799,7 @@
         ],
         "model_name": "meta-llama/Llama-2-70b-hf",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -867,6 +878,7 @@
         ],
         "model_name": "TheBloke/Mistral-7B-v0.1-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -945,6 +957,7 @@
         ],
         "model_name": "TheBloke/Mistral-7B-v0.1-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1023,6 +1036,7 @@
         ],
         "model_name": "TheBloke/CodeLlama-7b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1101,6 +1115,7 @@
         ],
         "model_name": "TheBloke/CodeLlama-7b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1179,6 +1194,7 @@
         ],
         "model_name": "TheBloke/CodeLlama-13b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1257,6 +1273,7 @@
         ],
         "model_name": "TheBloke/CodeLlama-13b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1335,6 +1352,7 @@
         ],
         "model_name": "TheBloke/CodeLlama-34b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1413,6 +1431,7 @@
         ],
         "model_name": "TheBloke/CodeLlama-34b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1491,6 +1510,7 @@
         ],
         "model_name": "TheBloke/Llama-2-7b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1569,6 +1589,7 @@
         ],
         "model_name": "TheBloke/Llama-2-7b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1647,6 +1668,7 @@
         ],
         "model_name": "TheBloke/Llama-2-13b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1725,6 +1747,7 @@
         ],
         "model_name": "TheBloke/Llama-2-13b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1803,6 +1826,7 @@
         ],
         "model_name": "TheBloke/Llama-2-70b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1880,6 +1904,7 @@
         ],
         "model_name": "TheBloke/Llama-2-70b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1958,6 +1983,7 @@
         ],
         "model_name": "WizardLM/WizardCoder-Python-7B-V1.0",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1994,6 +2020,7 @@
         ],
         "model_name": "WizardLM/WizardCoder-Python-13B-V1.0",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2072,6 +2099,7 @@
         ],
         "model_name": "WizardLM/WizardCoder-Python-34B-V1.0",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2150,6 +2178,7 @@
         ],
         "model_name": "WizardLMTeam/WizardLM-13B-V1.0",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2228,6 +2257,7 @@
         ],
         "model_name": "WizardLM/WizardLM-70B-V1.0",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2306,6 +2336,7 @@
         ],
         "model_name": "TheBloke/WizardCoder-Python-7B-V1.0-GPTQ",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2384,6 +2415,7 @@
         ],
         "model_name": "TheBloke/WizardCoder-Python-13B-V1.0-GPTQ",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2462,6 +2494,7 @@
         ],
         "model_name": "TheBloke/WizardCoder-Python-34B-V1.0-GPTQ",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2540,6 +2573,7 @@
         ],
         "model_name": "TheBloke/WizardLM-13B-V1.0-Uncensored-GPTQ",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2618,6 +2652,7 @@
         ],
         "model_name": "TheBloke/WizardLM-70B-V1.0-GPTQ",
         "apiClass": "LanguageModelAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",

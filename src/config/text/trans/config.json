@@ -17,6 +17,7 @@
         ],
         "model_name": "facebook/mbart-large-50-many-to-many-mmt",
         "apiClass": "TranslationAPI",
+        "endpoint": "/api/v1/translate",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -108,6 +109,7 @@
         ],
         "model_name": "facebook/wmt21-dense-24-wide-x-en",
         "apiClass": "TranslationAPI",
+        "endpoint": "/api/v1/translate",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -199,6 +201,7 @@
         ],
         "model_name": "facebook/wmt21-dense-24-wide-en-x",
         "apiClass": "TranslationAPI",
+        "endpoint": "/api/v1/translate",
         "bulk_formats": [
             "huggingface",
             "jsonl",

@@ -9,6 +9,7 @@
         ],
         "model_name": "HuggingFaceH4/starchat-beta",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "description": "StarChat Beta is a conversational model trained by HuggingFaceH4. It's designed to provide engaging and coherent responses in a conversational setting. This model is a part of the Mistral lineage which emphasizes on delivering superior conversational experiences. Whether you are looking to build a friendly chatbot or an interactive virtual assistant, StarChat Beta is equipped to handle a variety of conversational scenarios. Its training on diverse data equips it to understand and respond to a wide range of topics.",
         "bulk_formats": [
             "huggingface",
@@ -89,6 +90,7 @@
         ],
         "model_name": "HuggingFaceH4/zephyr-7b-beta",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -168,6 +170,7 @@
         ],
         "model_name": "mistralai/Mistral-7B-Instruct-v0.1",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -244,6 +247,7 @@
         ],
         "model_name": "TheBloke/starchat-beta-GPTQ",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -324,6 +328,7 @@
         ],
         "model_name": "TheBloke/Mistral-7B-Code-16K-qlora-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -400,6 +405,7 @@
         ],
         "model_name": "TheBloke/Mistral-7B-Phibrarian-32K-GPTQ",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -480,6 +486,7 @@
         ],
         "model_name": "TheBloke/Mistral-7B-Instruct-v0.1-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -556,6 +563,7 @@
         ],
         "model_name": "TheBloke/Mistral-7B-Instruct-v0.1-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -632,6 +640,7 @@
         ],
         "model_name": "TheBloke/openchat_3.5-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -710,6 +719,7 @@
         ],
         "model_name": "TheBloke/openchat_3.5-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -788,6 +798,7 @@
         ],
         "model_name": "TheBloke/zephyr-7b-beta-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -866,6 +877,7 @@
         ],
         "model_name": "TheBloke/zephyr-7b-beta-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -944,6 +956,7 @@
         ],
         "model_name": "meta-llama/Llama-2-7b-chat-hf",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1025,6 +1038,7 @@
         ],
         "model_name": "meta-llama/Llama-2-13b-chat-hf",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1086,6 +1100,7 @@
         ],
         "model_name": "meta-llama/Llama-2-70b-chat-hf",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1167,6 +1182,7 @@
         ],
         "model_name": "codellama/CodeLlama-7b-Instruct-hf",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1242,6 +1258,7 @@
         ],
         "model_name": "codellama/CodeLlama-13b-Instruct-hf",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1317,6 +1334,7 @@
         ],
         "model_name": "codellama/CodeLlama-34b-Instruct-hf",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1392,6 +1410,7 @@
         ],
         "model_name": "WizardLM/WizardCoder-Python-7B-V1.0",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1467,6 +1486,7 @@
         ],
         "model_name": "WizardLM/WizardCoder-Python-13B-V1.0",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1542,6 +1562,7 @@
         ],
         "model_name": "WizardLM/WizardMath-7B-V1.0",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1617,6 +1638,7 @@
         ],
         "model_name": "WizardLM/WizardMath-13B-V1.0",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1692,6 +1714,7 @@
         ],
         "model_name": "WizardLM/WizardMath-70B-V1.0",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1767,6 +1790,7 @@
         ],
         "model_name": "TheBloke/Llama-2-7b-chat-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1842,6 +1866,7 @@
         ],
         "model_name": "TheBloke/Llama-2-7b-chat-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1917,6 +1942,7 @@
         ],
         "model_name": "TheBloke/Llama-2-13b-chat-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -1992,6 +2018,7 @@
         ],
         "model_name": "TheBloke/Llama-2-13b-chat-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2067,6 +2094,7 @@
         ],
         "model_name": "TheBloke/Llama-2-70b-chat-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2142,6 +2170,7 @@
         ],
         "model_name": "TheBloke/Llama-2-70b-chat-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2217,6 +2246,7 @@
         ],
         "model_name": "TheBloke/CodeLlama-7b-Instruct-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2292,6 +2322,7 @@
         ],
         "model_name": "TheBloke/CodeLlama-7b-Instruct-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2367,6 +2398,7 @@
         ],
         "model_name": "TheBloke/CodeLlama-13b-Instruct-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2442,6 +2474,7 @@
         ],
         "model_name": "TheBloke/CodeLlama-13b-Instruct-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2517,6 +2550,7 @@
         ],
         "model_name": "TheBloke/CodeLlama-34b-Instruct-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2592,6 +2626,7 @@
         ],
         "model_name": "TheBloke/CodeLlama-34b-Instruct-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2667,6 +2702,7 @@
         ],
         "model_name": "TheBloke/WizardCoder-Python-7B-V1.0-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2742,6 +2778,7 @@
         ],
         "model_name": "TheBloke/WizardCoder-Python-7B-V1.0-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2817,6 +2854,7 @@
         ],
         "model_name": "TheBloke/WizardCoder-Python-13B-V1.0-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2892,6 +2930,7 @@
         ],
         "model_name": "TheBloke/WizardCoder-Python-13B-V1.0-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -2967,6 +3006,7 @@
         ],
         "model_name": "TheBloke/WizardMath-7B-V1.0-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -3042,6 +3082,7 @@
         ],
         "model_name": "TheBloke/WizardMath-7B-V1.0-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -3117,6 +3158,7 @@
         ],
         "model_name": "TheBloke/WizardMath-13B-V1.0-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -3192,6 +3234,7 @@
         ],
         "model_name": "TheBloke/WizardMath-13B-V1.0-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -3267,6 +3310,7 @@
         ],
         "model_name": "TheBloke/WizardMath-70B-V1.0-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
@@ -3342,6 +3386,7 @@
         ],
         "model_name": "TheBloke/WizardMath-70B-V1.0-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "InstructionAPI",
+        "endpoint": "/api/v1/complete",
         "bulk_formats": [
             "huggingface",
             "jsonl",
