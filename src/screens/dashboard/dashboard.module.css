@@ -5,8 +5,9 @@
 .card {
   background-color: transparent;
   background-color: var(--dark-modal-background);
-  height: 40vh;
+  height: 85vh;
   width: 100%;
+  margin-top: 0.5rem;
 }
 .card h2,
 div,
@@ -32,6 +33,9 @@ strong {
 }
 .servicesList {
   font-size: 0.9rem;
+}
+.servicesList:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .servicesList:hover {
   background-color: var(--dark-table-hover);

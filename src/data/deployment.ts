@@ -38,86 +38,86 @@ const apiClient = () =>
     })
 
 // List Deployments
-async function listDeployments(): Promise<AxiosResponse<Deployment[]>> {
+async function listDeployments(): Promise<AxiosResponse<Deployment[]> | null> {
     try {
         const response = await apiClient().get<Deployment[]>("")
         console.debug("listDeployments response:", response)
         return response
     } catch (error) {
         console.error("Error in listDeployments:", error)
-        throw error
+        return null
     }
 }
 
 // Create Deployment
-async function createDeployment(deploymentData: DeploymentCreate): Promise<AxiosResponse<Deployment>> {
+async function createDeployment(deploymentData: DeploymentCreate): Promise<AxiosResponse<Deployment> | null> {
     try {
         const response = await apiClient().post<Deployment>("/", deploymentData)
         console.debug("createDeployment response:", response)
         return response
     } catch (error) {
         console.error("Error in createDeployment:", error)
-        throw error
+        return null
     }
 }
 
 // Read Deployment
-async function readDeployment(identifier: string): Promise<AxiosResponse<Deployment>> {
+async function readDeployment(identifier: string): Promise<AxiosResponse<Deployment> | null> {
     try {
         const response = await apiClient().get<Deployment>(`/${identifier}`)
         console.debug("readDeployment response:", response)
         return response
     } catch (error) {
         console.error("Error in readDeployment:", error)
-        throw error
+        return null
     }
 }
 
 // Update Deployment
-async function updateDeployment(identifier: string, deploymentData: DeploymentUpdate): Promise<AxiosResponse<Deployment>> {
+async function updateDeployment(identifier: string, deploymentData: DeploymentUpdate): Promise<AxiosResponse<Deployment> | null> {
     try {
         const response = await apiClient().put<Deployment>(`/${identifier}`, deploymentData)
         console.debug("updateDeployment response:", response)
         return response
     } catch (error) {
         console.error("Error in updateDeployment:", error)
-        throw error
+        return null
     }
 }
 
 // Delete Deployment
-async function deleteDeployment(deploymentData: DeploymentIdentifier): Promise<AxiosResponse<void>> {
+async function deleteDeployment(deploymentData: DeploymentIdentifier): Promise<AxiosResponse<void> | null> {
     try {
         const response = await apiClient().delete<void>(`/${deploymentData.identifier}`)
         console.debug("deleteDeployment response:", response)
         return response
     } catch (error) {
         console.error("Error in deleteDeployment:", error)
-        throw error
+        return null
     }
 }
 
 // Deployment Logs
-async function getDeploymentLogs(identifier: string): Promise<AxiosResponse<string>> {
+async function getDeploymentLogs(identifier: string): Promise<AxiosResponse<string> | null> {
     try {
         const response = await apiClient().get<string>(`/${identifier}/logs`)
         console.debug("getDeploymentLogs response:", response)
         return response
     } catch (error) {
         console.error("Error in getDeploymentLogs:", error)
-        throw error
+        return null
     }
 }
 
 // Deployment Metrics
-async function getDeploymentMetrics(identifier: string): Promise<AxiosResponse<object>> {
+async function getDeploymentMetrics(identifier: string): Promise<AxiosResponse<object> | null> {
     try {
         const response = await apiClient().get<object>(`/${identifier}/metrics`)
         console.debug("getDeploymentMetrics response:", response)
         return response
     } catch (error) {
         console.error("Error in getDeploymentMetrics:", error)
-        throw error
+        return null
     }
 }
 

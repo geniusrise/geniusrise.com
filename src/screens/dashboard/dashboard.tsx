@@ -6,7 +6,7 @@ import styles from "./dashboard.module.css"
 import moment from "moment"
 import { Cell, Grid } from "styled-css-grid"
 import { Button, Card, Content } from "react-bulma-components"
-import { deleteService, listServices } from "../../data/service"
+import { deleteService, listServices, getServiceMetrics } from "../../data/service"
 
 interface Props { }
 
@@ -14,6 +14,8 @@ function Dashboard(props: Props) {
 
     const [services, setServices] = useState([])
     const [update, setUpdate] = useState(1)
+    // const [metrics, setMetrics] = useState([])
+
 
     useEffect(() => {
         if (services.length === 0) {
@@ -21,6 +23,10 @@ function Dashboard(props: Props) {
                 const svcs = x.data.filter(x => !x.is_deleted).sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
                 console.log(svcs)
                 setServices(svcs)
+
+                // svcs.map(s => getServiceMetrics(s.uuid).then(x => {
+                //     if (x !== null) setMetrics(metrics + x.data)
+                // }))
             })
         }
     }, [update])
@@ -69,6 +75,18 @@ function Dashboard(props: Props) {
                 </Grid>
             </Card.Content>
         </Card>
+        {/* <Grid columns={2}>
+            <Card className={styles.card}>
+                <div className={styles.cardHeader}>
+                    <h4>CPU</h4>
+                </div>
+            </Card>
+            <Card className={styles.card}>
+                <div className={styles.cardHeader}>
+                    <h4>Memory</h4>
+                </div>
+            </Card>
+        </Grid> */}
     </div >
 }
 

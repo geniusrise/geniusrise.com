@@ -40,19 +40,19 @@ const apiClient = () =>
     })
 
 // List Services
-async function listServices(): Promise<AxiosResponse<Service[]>> {
+async function listServices(): Promise<AxiosResponse<Service[]> | null> {
     try {
         const response = await apiClient().get<Service[]>("")
         console.debug("listServices response:", response)
         return response
     } catch (error) {
         console.error("Error in listServices:", error)
-        throw error
+        return null
     }
 }
 
 // Create Service
-async function createService(serviceData: ServiceCreate): Promise<AxiosResponse<Service>> {
+async function createService(serviceData: ServiceCreate): Promise<AxiosResponse<Service> | null> {
     console.log(serviceData)
     try {
         const response = await apiClient().post<Service>("/1", serviceData)
@@ -60,67 +60,67 @@ async function createService(serviceData: ServiceCreate): Promise<AxiosResponse<
         return response
     } catch (error) {
         console.error("Error in createService:", error)
-        throw error
+        return null
     }
 }
 
 // Read Service
-async function readService(identifier: string): Promise<AxiosResponse<Service>> {
+async function readService(identifier: string): Promise<AxiosResponse<Service> | null> {
     try {
         const response = await apiClient().get<Service>(`/${identifier}`)
         console.debug("readService response:", response)
         return response
     } catch (error) {
         console.error("Error in readService:", error)
-        throw error
+        return null
     }
 }
 
 // Update Service
-async function updateService(identifier: string, serviceData: ServiceUpdate): Promise<AxiosResponse<Service>> {
+async function updateService(identifier: string, serviceData: ServiceUpdate): Promise<AxiosResponse<Service> | null> {
     try {
         const response = await apiClient().put<Service>(`/${identifier}`, serviceData)
         console.debug("updateService response:", response)
         return response
     } catch (error) {
         console.error("Error in updateService:", error)
-        throw error
+        return null
     }
 }
 
 // Delete Service
-async function deleteService(serviceData: ServiceIdentifier): Promise<AxiosResponse<void>> {
+async function deleteService(serviceData: ServiceIdentifier): Promise<AxiosResponse<void> | null> {
     try {
         const response = await apiClient().delete<void>(`/${serviceData.identifier}`)
         console.debug("deleteService response:", response)
         return response
     } catch (error) {
         console.error("Error in deleteService:", error)
-        throw error
+        return null
     }
 }
 
 // Service Logs
-async function getServiceLogs(identifier: string): Promise<AxiosResponse<string>> {
+async function getServiceLogs(identifier: string): Promise<AxiosResponse<string> | null> {
     try {
         const response = await apiClient().get<string>(`/${identifier}/logs`)
         console.debug("getServiceLogs response:", response)
         return response
     } catch (error) {
         console.error("Error in getServiceLogs:", error)
-        throw error
+        return null
     }
 }
 
 // Service Metrics
-async function getServiceMetrics(identifier: string): Promise<AxiosResponse<object>> {
+async function getServiceMetrics(identifier: string): Promise<AxiosResponse<object> | null> {
     try {
         const response = await apiClient().get<object>(`/${identifier}/metrics`)
         console.debug("getServiceMetrics response:", response)
         return response
     } catch (error) {
         console.error("Error in getServiceMetrics:", error)
-        throw error
+        return null
     }
 }
 
