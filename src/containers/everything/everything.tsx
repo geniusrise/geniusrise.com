@@ -16,6 +16,7 @@ import Model from "../../screens/model/model"
 import Bulk from "../../screens/bulk/bulk"
 import FineTune from "../../screens/fineTune/fineTune"
 import API from "../../screens/api/api"
+import { Dashboard } from "../../screens/dashboard/dashboard"
 // import { Autocomplete } from "../../components/autocomplete/autocomplete"
 
 const Everything = () => {
@@ -51,6 +52,7 @@ const Everything = () => {
                 <Grid columns={10}>
                     <Cell className={styles.content}>
                         <Routes>
+                            <Route key="/" path="/" element={<Dashboard />} />
                             {Object.entries(config).map(([taskKey, taskConfig], index) => (
                                 <Route key={index} path={`/${taskKey}`} element={<Task {...taskConfig} />} />
                             ))}

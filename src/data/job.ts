@@ -1,119 +1,120 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from "axios"
 
 interface Job {
-    uuid: string;
-    is_deleted: boolean;
-    created_at: string;
-    modified_at: string;
-    name: string;
-    status: string;
-    labels: object;
-    annotations: object;
-    namespace: string;
-    pods: object;
-    task: string;
+    uuid: string
+    is_deleted: boolean
+    created_at: string
+    modified_at: string
+    name: string
+    status: string
+    labels: object
+    annotations: object
+    namespace: string
+    pods: object
+    task: string
 }
 
 interface JobCreate {
-    task: object;  // Detailed structure as per TaskConfig definition in Swagger
+    task: object // Detailed structure as per TaskConfig definition in Swagger
 }
 
 interface JobIdentifier {
-    identifier: string;
+    identifier: string
 }
 
-const apiClient = () => axios.create({
-    baseURL: 'http://localhost:8000/api/v1/jobs',
-    headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${globalThis.accessToken}`
-    },
-    withCredentials: false
-});
+const apiClient = () =>
+    axios.create({
+        baseURL: "http://localhost:8000/api/v1/jobs",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${globalThis.accessToken}`,
+        },
+        withCredentials: false,
+    })
 
 // List Jobs
 async function listJobs(): Promise<AxiosResponse<Job[]>> {
     try {
-        const response = await apiClient().get<Job[]>('/');
-        console.debug('listJobs response:', response);
-        return response;
+        const response = await apiClient().get<Job[]>("")
+        console.debug("listJobs response:", response)
+        return response
     } catch (error) {
-        console.error('Error in listJobs:', error);
-        throw error;
+        console.error("Error in listJobs:", error)
+        throw error
     }
 }
 
 // Create Job
 async function createJob(jobData: JobCreate): Promise<AxiosResponse<Job>> {
     try {
-        const response = await apiClient().post<Job>('/', jobData);
-        console.debug('createJob response:', response);
-        return response;
+        const response = await apiClient().post<Job>("/", jobData)
+        console.debug("createJob response:", response)
+        return response
     } catch (error) {
-        console.error('Error in createJob:', error);
-        throw error;
+        console.error("Error in createJob:", error)
+        throw error
     }
 }
 
 // Read Job
 async function readJob(identifier: string): Promise<AxiosResponse<Job>> {
     try {
-        const response = await apiClient().get<Job>(`/${identifier}`);
-        console.debug('readJob response:', response);
-        return response;
+        const response = await apiClient().get<Job>(`/${identifier}`)
+        console.debug("readJob response:", response)
+        return response
     } catch (error) {
-        console.error('Error in readJob:', error);
-        throw error;
+        console.error("Error in readJob:", error)
+        throw error
     }
 }
 
 // Update Job
 async function updateJob(identifier: string, jobData: JobIdentifier): Promise<AxiosResponse<Job>> {
     try {
-        const response = await apiClient().put<Job>(`/${identifier}`, jobData);
-        console.debug('updateJob response:', response);
-        return response;
+        const response = await apiClient().put<Job>(`/${identifier}`, jobData)
+        console.debug("updateJob response:", response)
+        return response
     } catch (error) {
-        console.error('Error in updateJob:', error);
-        throw error;
+        console.error("Error in updateJob:", error)
+        throw error
     }
 }
 
 // Delete Job
 async function deleteJob(jobData: JobIdentifier): Promise<AxiosResponse<void>> {
     try {
-        const response = await apiClient().delete<void>(`/${jobData.identifier}`);
-        console.debug('deleteJob response:', response);
-        return response;
+        const response = await apiClient().delete<void>(`/${jobData.identifier}`)
+        console.debug("deleteJob response:", response)
+        return response
     } catch (error) {
-        console.error('Error in deleteJob:', error);
-        throw error;
+        console.error("Error in deleteJob:", error)
+        throw error
     }
 }
 
 // Job Logs
 async function getJobLogs(identifier: string): Promise<AxiosResponse<string>> {
     try {
-        const response = await apiClient().get<string>(`/${identifier}/logs`);
-        console.debug('getJobLogs response:', response);
-        return response;
+        const response = await apiClient().get<string>(`/${identifier}/logs`)
+        console.debug("getJobLogs response:", response)
+        return response
     } catch (error) {
-        console.error('Error in getJobLogs:', error);
-        throw error;
+        console.error("Error in getJobLogs:", error)
+        throw error
     }
 }
 
 // Job Metrics
 async function getJobMetrics(identifier: string): Promise<AxiosResponse<object>> {
     try {
-        const response = await apiClient().get<object>(`/${identifier}/metrics`);
-        console.debug('getJobMetrics response:', response);
-        return response;
+        const response = await apiClient().get<object>(`/${identifier}/metrics`)
+        console.debug("getJobMetrics response:", response)
+        return response
     } catch (error) {
-        console.error('Error in getJobMetrics:', error);
-        throw error;
+        console.error("Error in getJobMetrics:", error)
+        throw error
     }
 }
 
-export { listJobs, createJob, readJob, updateJob, deleteJob, getJobLogs, getJobMetrics };
-export type { Job, JobCreate, JobIdentifier };
+export { listJobs, createJob, readJob, updateJob, deleteJob, getJobLogs, getJobMetrics }
+export type { Job, JobCreate, JobIdentifier }

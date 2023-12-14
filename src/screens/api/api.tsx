@@ -99,7 +99,7 @@ const API: React.FC<APIProps> = ({ model }) => {
 
         createService({
             task: {
-                name: generateName(),
+                name: generateName() + "--" + model.name.toLowerCase().replace(" ", "-"),
                 deployment_config: {
                     ...config
                 },

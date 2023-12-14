@@ -42,7 +42,7 @@ const apiClient = () =>
 // List Services
 async function listServices(): Promise<AxiosResponse<Service[]>> {
     try {
-        const response = await apiClient().get<Service[]>("/")
+        const response = await apiClient().get<Service[]>("")
         console.debug("listServices response:", response)
         return response
     } catch (error) {
