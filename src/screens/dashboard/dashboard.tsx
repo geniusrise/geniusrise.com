@@ -49,7 +49,7 @@ function Dashboard(props: Props) {
                             <Cell className={styles.servicesList}>
                                 <Grid columns={13}>
                                     <Cell width={2} center middle>{s.name.split("--")[1]}</Cell>
-                                    <Cell width={2} center middle>{(s.name.split("--")[2] || "").replace("-", " ")}</Cell>
+                                    <Cell width={2} center middle>{(s.name.split("--")[2] || "").replaceAll("-", " ")}</Cell>
                                     <Cell center middle>{s.pod_size}</Cell>
                                     <Cell width={2} center middle>{s.class_name}</Cell>
                                     <Cell width={2} center middle>{s.cluster_ip || "0.0.0.0"}</Cell>

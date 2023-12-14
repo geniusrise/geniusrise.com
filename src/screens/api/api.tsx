@@ -85,6 +85,7 @@ const API: React.FC<APIProps> = ({ model }) => {
 
                     setCurlCommand(curl)
                     setCurlVisible(true)
+                    setLaunching(false)
                 });
             }, delay);
 
@@ -99,7 +100,7 @@ const API: React.FC<APIProps> = ({ model }) => {
 
         createService({
             task: {
-                name: generateName() + "--" + model.name.toLowerCase().replace(" ", "-"),
+                name: "genius--" + generateName() + "--" + model.name.toLowerCase().replaceAll(" ", "-"),
                 deployment_config: {
                     ...config
                 },
@@ -111,7 +112,6 @@ const API: React.FC<APIProps> = ({ model }) => {
             }
         }).then(x => {
             setLaunched(x.data);
-            setLaunching(false);
         });
 
         // Progress bar logic
