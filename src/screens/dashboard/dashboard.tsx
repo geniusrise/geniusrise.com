@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
 import PropTypes from "prop-types"
 
 import styles from "./dashboard.module.css"
@@ -7,6 +7,7 @@ import moment from "moment"
 import { Cell, Grid } from "styled-css-grid"
 import { Button, Card, Content } from "react-bulma-components"
 import { deleteService, listServices, getServiceMetrics } from "../../data/service"
+import { SupportContentContext } from "../../support/support"
 
 interface Props { }
 
@@ -16,6 +17,16 @@ function Dashboard(props: Props) {
     const [update, setUpdate] = useState(1)
     // const [metrics, setMetrics] = useState([])
 
+    const { setSupportContent } = useContext(SupportContentContext)
+
+    useEffect(() => {
+        setSupportContent({
+            heading: "Dashboard",
+            content: "This dashboard provides an overview of all active pods. You can view essential details about each pod, including its name, task name, size, type, IP address, number of replicas, and launch time. Manage your pods effectively by deleting any that are no longer needed.",
+            examples: null,
+            useCases: null,
+        })
+    }, [])
 
     useEffect(() => {
         if (services.length === 0) {

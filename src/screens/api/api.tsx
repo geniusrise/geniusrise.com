@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState, useCallback, useEffect } from "react"
+import React, { useState, useCallback, useEffect, useContext } from "react"
 import axios from "axios"
 import { useDropzone } from "react-dropzone"
 import { generateName } from "../../utils"
@@ -12,6 +12,7 @@ import { shadesOfPurple } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
 import Settings from "../settings/settings"
 import { withAuthenticator } from "@aws-amplify/ui-react"
+import { SupportContentContext } from "../../support/support"
 
 import banners from "../../data/banners.json"
 import { createService, readService } from "../../data/service"
@@ -57,6 +58,27 @@ const API: React.FC<APIProps> = ({ model }) => {
 
     const [curlCommand, setCurlCommand] = useState("")
     const [curlVisible, setCurlVisible] = useState(false)
+
+    const { setSupportContent } = useContext(SupportContentContext)
+
+    useEffect(() => {
+        setSupportContent({
+            heading: "Deploy as an API",
+            content: "This page allows you to deploy this machine learning model as APIs. You can configure the deployment settings like replicas, ports, and pod size to suit your needs. Select from a range of pod sizes to optimize performance and resource utilization. Once deployed, you can view and test your API using the generated cURL command. The progress bar provides real-time feedback on the deployment status. Additionally, you can access and modify advanced settings like model parameters and authentication credentials through the 'Configure Settings' option. The most optimum values are already pre-filled out.",
+            examplesTitle: "Sizes:",
+            examples: [
+                "s: 0.25 VCPU, 1 GB RAM, 0.5GB GPU",
+                "m: 0.5 VCPU, 2 GB RAM, 1GB GPU",
+                "l: 1 VCPU, 4 GB RAM, 2GB GPU",
+                "xl: 2 VCPU, 8 GB RAM, 4GB GPU",
+                "2xl: 4 VCPU, 16 GB RAM, 8GB GPU",
+                "4xl: 8 VCPU, 32 GB RAM, 16GB GPU",
+                "8xl: 16 VCPU, 64 GB RAM, 32GB GPU",
+                "16xl: 32 VCPU, 128 GB RAM, 64GB GPU",
+            ],
+            useCases: null,
+        })
+    }, [])
 
     // Set background image only once on component mount
     useEffect(() => {

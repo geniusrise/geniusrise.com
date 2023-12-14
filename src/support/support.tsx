@@ -7,6 +7,8 @@ type SupportContent = {
     content: string
     examples?: string[]
     useCases?: string[]
+    examplesTitle?: string
+    usecasesTitle?: string
 }
 
 type SupportContentContextType = {
@@ -18,12 +20,14 @@ const defaultSupportContent: SupportContent = {
     heading: "Support",
     content: "Hello! 👋",
     examples: [],
+    examplesTitle: "",
     useCases: [],
+    usecasesTitle: ""
 }
 
 const defaultContextValue: SupportContentContextType = {
     supportContent: defaultSupportContent,
-    setSupportContent: () => {},
+    setSupportContent: () => { },
 }
 
 const SupportContentContext = createContext<SupportContentContextType>(defaultContextValue)
@@ -47,13 +51,13 @@ const Support = () => {
                 <Content className={styles.content}>
                     <h1>{supportContent.heading}</h1>
                     <p>{supportContent.content}</p>
-                    {supportContent.examples ? <h2>Examples</h2> : <></>}
+                    {supportContent.examples ? <h2>{supportContent.examplesTitle ? supportContent.examplesTitle : "Examples"}</h2> : <></>}
                     <ul>
                         {supportContent.examples?.map((example, index) => (
                             <li key={index}>{example}</li>
                         ))}
                     </ul>
-                    {supportContent.useCases ? <h2>Use Cases</h2> : <></>}
+                    {supportContent.useCases ? <h2>{supportContent.usecasesTitle ? supportContent.usecasesTitle : "Use Cases"}</h2> : <></>}
                     <ul>
                         {supportContent.useCases?.map((useCase, index) => (
                             <li key={index}>{useCase}</li>
