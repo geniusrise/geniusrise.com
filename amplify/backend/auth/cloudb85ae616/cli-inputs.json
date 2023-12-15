@@ -102,7 +102,7 @@
     "parentStack": {
       "Ref": "AWS::StackId"
     },
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://cloud.geniusrise.com/\",\"https://cloud.geniusrise.com/\",\"https://cloud.geniusrise.ai/\",\"https://cloud.geniusrise.health/\",\"https://cloud.geniusrise.com/\"],\"LogoutURLs\":[\"https://geniusrise.com/\"]}",
-    "authProviders": []
+    "authProviders": [],
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://cloud.geniusrise.com/\",\"https://cloud.geniusrise.com/\",\"https://cloud.geniusrise.ai/\",\"https://cloud.geniusrise.health/\",\"https://cloud.geniusrise.com/\",\"https://geniusrise.com/\"],\"LogoutURLs\":[\"https://geniusrise.com/\"]}"
   }
 }

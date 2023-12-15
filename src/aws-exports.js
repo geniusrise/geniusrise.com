@@ -3,7 +3,7 @@
 
 const awsmobile = {
     "aws_project_region": "ap-south-1",
-    "aws_cognito_identity_pool_id": "ap-south-1:34161b8d-6f83-4a3d-ac9b-7b642b01cdcf",
+    "aws_cognito_identity_pool_id": "ap-south-1:bb86d331-fc50-4ac4-8933-b03c2437e83d",
     "aws_cognito_region": "ap-south-1",
     "aws_user_pools_id": "ap-south-1_df20bVY5Z",
     "aws_user_pools_web_client_id": "2im1fqc0lq2c9ltf21t41plegk",
@@ -15,7 +15,7 @@ const awsmobile = {
             "profile",
             "aws.cognito.signin.user.admin"
         ],
-        "redirectSignIn": "https://cloud.geniusrise.com/,https://cloud.geniusrise.com/,https://cloud.geniusrise.ai/,https://cloud.geniusrise.health/,https://cloud.geniusrise.com/",
+        "redirectSignIn": "https://cloud.geniusrise.com/,https://cloud.geniusrise.com/,https://cloud.geniusrise.ai/,https://cloud.geniusrise.health/,https://cloud.geniusrise.com/,https://geniusrise.com/",
         "redirectSignOut": "https://geniusrise.com/",
         "responseType": "code"
     },
