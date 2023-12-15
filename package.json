@@ -1,7 +1,7 @@
 {
     "name": "geniusrise.com",
     "version": "0.1.0",
-    "homepage": "https://geniusrise.cloud",
+    "homepage": "https://geniusrise.com",
     "private": true,
     "dependencies": {
         "@aws-amplify/core": "^5.8.6",
