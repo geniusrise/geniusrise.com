@@ -51,7 +51,7 @@ function Task(props: Config) {
             <div className={styles.searchContainer}>
                 <Form.Input value={searchTerm} onChange={handleSearchChange} className={styles.searchInput} placeholder="Search models..." />
             </div>
-            <Grid columns={is4K ? 8 : xl ? 3 : 1} gap="20px" className={styles.taskGrid}>
+            <Grid columns={is4K ? 3 : xl ? 3 : 1} gap="20px" className={styles.taskGrid}>
                 {" "}
                 {/* Adjust the number of columns and gap as needed */}
                 {filteredList.map((model, index) => {
