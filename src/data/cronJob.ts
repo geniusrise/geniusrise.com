@@ -23,7 +23,7 @@ interface CronJobIdentifier {
     identifier: string
 }
 
-const url = process.env.BACKEND_BASE_URL || "https://api.geniusrise.com/api/v1/cronjobs"
+const url = "https://api.geniusrise.com/api/v1/cronjobs"
 
 const apiClient = () =>
     axios.create({

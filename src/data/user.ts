@@ -25,7 +25,7 @@ interface UserDelete {
 // Axios instance for API calls
 const apiClient = () =>
     axios.create({
-        baseURL: "process.env.BACKEND_BASE_URL/api/v1/user",
+        baseURL: "https://api.geniusrise.com/api/v1/user",
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${globalThis.accessToken}`,

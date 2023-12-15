@@ -22,7 +22,7 @@ interface JobIdentifier {
     identifier: string
 }
 
-const url = process.env.BACKEND_BASE_URL || "https://api.geniusrise.com/api/v1/jobs"
+const url = "https://api.geniusrise.com/api/v1/jobs"
 
 const apiClient = () =>
     axios.create({
