@@ -27,9 +27,11 @@ interface DeploymentIdentifier {
     identifier: string
 }
 
+const url = process.env.BACKEND_BASE_URL || "https://api.geniusrise.com/api/v1/deployments"
+
 const apiClient = () =>
     axios.create({
-        baseURL: `${process.env.BACKEND_BASE_URL} || "https://api.geniusrise.com/api/v1/deployments"`,
+        baseURL: url,
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${globalThis.accessToken}`,
