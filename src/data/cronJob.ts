@@ -25,7 +25,7 @@ interface CronJobIdentifier {
 
 const apiClient = () =>
     axios.create({
-        baseURL: `${process.env.BACKEND_BASE_URL}/api/v1/cronjobs`,
+        baseURL: `${process.env.BACKEND_BASE_URL} || "https://api.geniusrise.com/api/v1/cronjobs"`,
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${globalThis.accessToken}`,

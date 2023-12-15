@@ -31,7 +31,7 @@ interface ServiceIdentifier {
 
 const apiClient = () =>
     axios.create({
-        baseURL: `${process.env.BACKEND_BASE_URL}/api/v1/services`,
+        baseURL: `${process.env.BACKEND_BASE_URL} || "https://api.geniusrise.com/api/v1/services"`,
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${globalThis.accessToken}`,

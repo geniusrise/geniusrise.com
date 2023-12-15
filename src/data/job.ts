@@ -24,7 +24,7 @@ interface JobIdentifier {
 
 const apiClient = () =>
     axios.create({
-        baseURL: `${process.env.BACKEND_BASE_URL}/api/v1/jobs`,
+        baseURL: `${process.env.BACKEND_BASE_URL} || "https://api.geniusrise.com/api/v1/jobs"`,
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${globalThis.accessToken}`,
