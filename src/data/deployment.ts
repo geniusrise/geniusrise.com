@@ -29,7 +29,7 @@ interface DeploymentIdentifier {
 
 const apiClient = () =>
     axios.create({
-        baseURL: "http://localhost:8000/api/v1/deployments",
+        baseURL: `${process.env.BACKEND_BASE_URL}/api/v1/deployments`,
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${globalThis.accessToken}`,
