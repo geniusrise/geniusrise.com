@@ -2,7 +2,7 @@
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: #11131c;
+  background-color: #151525;
   position: fixed;
   z-index: 1000;
 }
@@ -34,11 +34,11 @@
   color: white;
   font-size: 1.5rem;
   border-radius: 0.5rem;
-  background-color: #934141;
+  background-color: #d42379;
   cursor: pointer;
 }
 .headerElementRegister:hover {
-  background-color: #c85858;
+  background-color: #d4237950;
 }
 .heroheaderbanner {
   text-align: center;
@@ -59,7 +59,7 @@
   margin-left: 1rem;
   margin-right: 1rem;
   font-size: 1.2rem;
-  background-color: rgba(200, 200, 255, 0.1);
+  background-color: rgba(30, 0, 0, 0.2);
 }
 .heroTask h1 {
   color: white;
@@ -77,26 +77,29 @@
 .gridElement {
   color: white;
   font-size: 1rem;
-  padding: 2rem;
-  background-color: #352843;
+  height: 6rem !important;
+  width: 100%;
+  background-color: #1d1c30;
   text-align: center;
 }
 .gridElementYour {
   color: white;
   font-size: 1rem;
-  padding: 2rem;
-  background-color: #432839;
+  height: 6rem !important;
+  width: 100%;
+  background-color: #5b223e;
   text-align: center;
 }
 .gridElement a {
-  height: 100%;
   width: 100%;
+  margin: auto;
+  text-align: center;
 }
 .gridElement:hover {
-  background-color: #35284390;
+  background-color: #1d1c3090;
 }
 .gridElementYour:hover {
-  background-color: #43283990;
+  background-color: #5b223e90;
 }
 .footer {
   margin-top: 3rem;
@@ -113,13 +116,23 @@
   }
   .heroTask {
     color: white;
-    border: 8px solid #d42379;
     border-radius: 1rem;
     padding: 3rem;
     margin-left: 1rem;
     margin-right: 1rem;
     font-size: 1.2rem;
-    background-color: rgba(200, 200, 255, 0.1);
+  }
+  .gridElement {
+    color: white;
+    font-size: 1rem;
+    height: 6rem !important;
+    text-align: center;
+  }
+  .gridElementYour {
+    color: white;
+    font-size: 1rem;
+    height: 6rem !important;
+    text-align: center;
   }
 }
 @media (max-width: 481px) {
@@ -130,13 +143,23 @@
   }
   .heroTask {
     color: white;
-    border: 8px solid #d42379;
     border-radius: 1rem;
     padding: 3rem;
     margin-left: 0rem;
     margin-right: 0rem;
     font-size: 1.2rem;
-    background-color: rgba(200, 200, 255, 0.1);
+  }
+  .gridElement {
+    color: white;
+    font-size: 1rem;
+    height: 6rem !important;
+    text-align: center;
+  }
+  .gridElementYour {
+    color: white;
+    font-size: 1rem;
+    height: 6rem !important;
+    text-align: center;
   }
 }
 /*# sourceMappingURL=landing.module.css.map */

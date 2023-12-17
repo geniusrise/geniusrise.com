@@ -7,7 +7,7 @@ import logoText from "../../assets/geniusrise_text_dark.png"
 import { functions } from '../../config/navigation'
 import { Link } from 'react-router-dom'
 import { Content } from 'react-bulma-components'
-import { device } from "../../utils/responsive"
+import { device, s, m, xl } from "../../utils/responsive"
 
 const Landing = () => {
 
@@ -33,12 +33,12 @@ const Landing = () => {
                 <div className={styles.heroheaderbanner}>
                     <h1>Build, experiment, deploy AI everywhere.</h1>
                 </div>
-                <Grid columns={device === "smartphone" ? 1 : device === "tablet" ? 1 : 3} className={styles.heroTasks}>
+                <Grid columns={xl ? 3 : m ? 2 : 1} className={styles.heroTasks}>
                     <Cell className={styles.heroTask}>
                         <Content>
                             <h1>Text</h1>
                             <p>Empower your app with all of human knowledge.</p>
-                            <Grid columns={device === "smartphone" ? 2 : device === "tablet" ? 3 : 3}>
+                            <Grid columns={m ? 3 : 2}>
                                 {functions.text.map((f: any) => {
                                     return (
                                         <Cell center middle className={styles.gridElement}><Link to={f.function_name}>{f.name}</Link></Cell>
@@ -52,7 +52,7 @@ const Landing = () => {
                         <Content>
                             <h1>Vision</h1>
                             <p>Make your apps see the world and make sense of it.</p>
-                            <Grid columns={device === "smartphone" ? 2 : device === "tablet" ? 3 : 3}>
+                            <Grid columns={m ? 3 : 2}>
                                 {functions.vision.map((f: any) => {
                                     return (
                                         <Cell center middle className={styles.gridElement}><Link to="/TXTCLASS">{f.name}</Link></Cell>
@@ -66,7 +66,7 @@ const Landing = () => {
                         <Content>
                             <h1>Audio</h1>
                             <p>Enable your apps to interact with humans seamlessly.</p>
-                            <Grid columns={device === "smartphone" ? 2 : device === "tablet" ? 3 : 3}>
+                            <Grid columns={m ? 3 : 2}>
                                 {functions.audio.map((f: any) => {
                                     return (
                                         <Cell center middle className={styles.gridElement}><Link to="/TXTCLASS">{f.name}</Link></Cell>
@@ -82,7 +82,7 @@ const Landing = () => {
                         <Content>
                             <h1>Data</h1>
                             <p>Get access to various datasets with one click via our data partners.</p>
-                            <Grid columns={device === "smartphone" ? 2 : device === "tablet" ? 3 : 3}>
+                            <Grid columns={m ? 3 : 2}>
                                 <Cell center middle className={styles.gridElement}>Open datasets</Cell>
                                 <Cell center middle className={styles.gridElement}>Premium datasets</Cell>
                                 <Cell center middle className={styles.gridElement}>Scraped websites</Cell>
@@ -98,7 +98,7 @@ const Landing = () => {
                         <Content>
                             <h1>Compute</h1>
                             <p>Deploy models anywhere.</p>
-                            <Grid columns={device === "smartphone" ? 2 : device === "tablet" ? 3 : 3}>
+                            <Grid columns={m ? 3 : 2}>
                                 <Cell center middle className={styles.gridElement}>E2E Networks</Cell>
                                 <Cell center middle className={styles.gridElement}>Runpod</Cell>
                                 <Cell center middle className={styles.gridElement}>AWS</Cell>
@@ -114,7 +114,7 @@ const Landing = () => {
                         <Content>
                             <h1>Open Source</h1>
                             <p>Our framework and a large part of our libraries are Open Source.</p>
-                            <Grid columns={device === "smartphone" ? 2 : device === "tablet" ? 3 : 3}>
+                            <Grid columns={m ? 3 : 2}>
                                 <Cell center middle className={styles.gridElement}><Link to="https://geniusrise.ai" target="_blank" rel="noopener noreferrer">Framework</Link></Cell>
                                 <Cell center middle className={styles.gridElement}><Link to="https://docs.geniusrise.ai" target="_blank" rel="noopener noreferrer">Documentation</Link></Cell>
                                 <Cell center middle className={styles.gridElement}><Link to="https://github.com/geniusrise" target="_blank" rel="noopener noreferrer">Github</Link></Cell>
@@ -136,7 +136,7 @@ const Landing = () => {
                     </Grid>
                 </footer>
             </div>
-        </div>
+        </div >
     )
 }
 
