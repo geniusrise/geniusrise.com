@@ -9,7 +9,7 @@ import { device, is4K } from "../../utils"
 import logo from "../../assets/logo.png"
 import styles from "./sidebar.module.css"
 import { functions } from "../../config/navigation"
-
+import { Auth } from 'aws-amplify';
 import dark from "../../themes/dark"
 import light from "../../themes/light"
 import darkBlue from "../../themes/darkBlue"
@@ -100,7 +100,7 @@ const Sidebar = () => {
                 <Grid columns={4} className={styles.footer}>
                     <Cell center middle>
                         <div className={styles.themeSwitcher}>
-                            <Link to="/logout">Logout</Link>
+                            <Link to="/" onClick={() => Auth.signOut()}>Logout</Link>
                         </div>
                     </Cell>
                     <Cell center middle>

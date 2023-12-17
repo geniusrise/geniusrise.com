@@ -104,7 +104,20 @@ const Landing = () => {
                                 <Cell center middle className={styles.gridElement}>AWS</Cell>
                                 <Cell center middle className={styles.gridElement}>Azure</Cell>
                                 <Cell center middle className={styles.gridElement}>Google Cloud</Cell>
-                                <Cell center middle className={styles.gridElementYour}>Your kubernetes</Cell>
+                                <Cell center middle className={styles.gridElementYour}>Your Infrastructure</Cell>
+                            </Grid>
+                        </Content>
+                    </Cell>
+                </Grid>
+                <Grid className={styles.heroTasks} columns={1}>
+                    <Cell className={styles.heroTask}>
+                        <Content>
+                            <h1>Open Source</h1>
+                            <p>Our framework and a large part of our libraries are Open Source.</p>
+                            <Grid columns={device === "smartphone" ? 2 : device === "tablet" ? 3 : 3}>
+                                <Cell center middle className={styles.gridElement}><Link to="https://geniusrise.ai" target="_blank" rel="noopener noreferrer">Framework</Link></Cell>
+                                <Cell center middle className={styles.gridElement}><Link to="https://docs.geniusrise.ai" target="_blank" rel="noopener noreferrer">Documentation</Link></Cell>
+                                <Cell center middle className={styles.gridElement}><Link to="https://github.com/geniusrise" target="_blank" rel="noopener noreferrer">Github</Link></Cell>
                             </Grid>
                         </Content>
                     </Cell>
@@ -112,6 +125,16 @@ const Landing = () => {
                 <div className={styles.herofooterbanner}>
                     <h1>What Will You Build?</h1>
                 </div>
+                <footer className={styles.footer}>
+                    <Grid columns={3} className={styles.footerGrid}>
+                        <Cell center middle><Link to="https://github.com/geniusrise" target="_blank" rel="noopener noreferrer">GitHub</Link></Cell>
+                        <Cell center middle><Link to="https://www.crunchbase.com/organization/geniusrise" target="_blank" rel="noopener noreferrer">Crunchbase</Link></Cell>
+                        <Cell center middle><Link to="https://in.linkedin.com/company/geniusrise" target="_blank" rel="noopener noreferrer">LinkedIn</Link></Cell>
+                        <Cell center middle><Link to="https://docs.geniusrise.ai" target="_blank" rel="noopener noreferrer">Documentation</Link></Cell>
+                        <Cell center middle><Link to="https://huggingface.co/geniusrise" target="_blank" rel="noopener noreferrer">Huggingface</Link></Cell>
+                        <Cell center middle><Link to="#">Privacy Policy</Link></Cell>
+                    </Grid>
+                </footer>
             </div>
         </div>
     )

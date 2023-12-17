@@ -98,6 +98,13 @@
 .gridElementYour:hover {
   background-color: #43283990;
 }
+.footer {
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+}
+.footerGrid > div {
+  margin: 1rem;
+}
 @media (min-width: 481px) and (max-width: 1600px) {
   .heroTasks {
     margin-left: 1rem;
