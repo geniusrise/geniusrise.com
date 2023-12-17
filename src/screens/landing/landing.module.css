@@ -1,0 +1,135 @@
+.container {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: #11131c;
+  position: fixed;
+  z-index: 1000;
+}
+.header {
+  padding-top: 2rem;
+}
+.logo img {
+  padding: 1rem;
+}
+.headerElements {
+  padding: 0;
+  margin: 0;
+}
+.headerElement {
+  height: 5rem !important;
+  width: 100%;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  background-color: #181a27;
+  cursor: pointer;
+}
+.headerElement:hover {
+  background-color: #202334;
+}
+.headerElementRegister {
+  height: 5rem !important;
+  width: 100%;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  background-color: #934141;
+  cursor: pointer;
+}
+.headerElementRegister:hover {
+  background-color: #c85858;
+}
+.heroheaderbanner {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.heroTasks {
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-top: 2rem;
+}
+.heroTask {
+  color: white;
+  border: 8px solid #d42379;
+  border-radius: 1rem;
+  padding: 3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  background-color: rgba(200, 200, 255, 0.1);
+}
+.heroTask h1 {
+  color: white;
+  font-weight: 900;
+  text-align: center;
+}
+.heroTask p {
+  text-align: center;
+}
+.herofooterbanner h1 {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 6rem;
+}
+.gridElement {
+  color: white;
+  font-size: 1rem;
+  padding: 2rem;
+  background-color: #352843;
+  text-align: center;
+}
+.gridElementYour {
+  color: white;
+  font-size: 1rem;
+  padding: 2rem;
+  background-color: #432839;
+  text-align: center;
+}
+.gridElement a {
+  height: 100%;
+  width: 100%;
+}
+.gridElement:hover {
+  background-color: #35284390;
+}
+.gridElementYour:hover {
+  background-color: #43283990;
+}
+@media (min-width: 481px) and (max-width: 1600px) {
+  .heroTasks {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 2rem;
+  }
+  .heroTask {
+    color: white;
+    border: 8px solid #d42379;
+    border-radius: 1rem;
+    padding: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    background-color: rgba(200, 200, 255, 0.1);
+  }
+}
+@media (max-width: 481px) {
+  .heroTasks {
+    margin-left: 0rem;
+    margin-right: 0rem;
+    margin-top: 2rem;
+  }
+  .heroTask {
+    color: white;
+    border: 8px solid #d42379;
+    border-radius: 1rem;
+    padding: 3rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    font-size: 1.2rem;
+    background-color: rgba(200, 200, 255, 0.1);
+  }
+}
+/*# sourceMappingURL=landing.module.css.map */

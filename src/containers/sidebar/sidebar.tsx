@@ -51,7 +51,7 @@ const Sidebar = () => {
                 {functions[category].map((d: any) => {
                     return (
                         <Cell center middle>
-                            <Link className={styles.sidebarLink} to={d.link}>
+                            <Link className={styles.sidebarLink} to={d.enabled ? d.link : "#"}>
                                 {d.function_name}
                                 {device === "smartphone" ? (
                                     <></>

@@ -7,6 +7,7 @@ import "bulma/css/bulma.min.css"
 import { Modal, Form } from "react-bulma-components"
 import { device, is4K } from "../../utils"
 
+import { Auth } from "aws-amplify"
 import Sidebar from "../sidebar/sidebar"
 import { Support } from "../../support/support"
 import { functions } from "../../config/navigation"
@@ -17,6 +18,7 @@ import Bulk from "../../screens/bulk/bulk"
 import FineTune from "../../screens/fineTune/fineTune"
 import API from "../../screens/api/api"
 import { Dashboard } from "../../screens/dashboard/dashboard"
+import Landing from "../../screens/landing/landing"
 // import { Autocomplete } from "../../components/autocomplete/autocomplete"
 
 const Everything = () => {
@@ -45,14 +47,24 @@ const Everything = () => {
     //   return () => {}
     // }, [])
 
+    let [loggedIn, setLoggedIn] = useState(false)
+    useEffect(() => {
+        try {
+            Auth.currentAuthenticatedUser().then(x => setLoggedIn(true)).catch(x => setLoggedIn(false))
+        } catch {
+            setLoggedIn(false)
+        }
+    }, []);
+
     return (
         <div className={styles.everything}>
             <div className={styles.something}>
+                {/* {loggedIn ? <Sidebar></Sidebar> : <></>} */}
                 <Sidebar></Sidebar>
                 <Grid columns={10}>
                     <Cell className={styles.content}>
                         <Routes>
-                            <Route key="/" path="/" element={<Dashboard />} />
+                            <Route key="/" path="/" element={loggedIn ? <Dashboard /> : <Landing />} />
                             {Object.entries(config).map(([taskKey, taskConfig], index) => (
                                 <Route key={index} path={`/${taskKey}`} element={<Task {...taskConfig} />} />
                             ))}
@@ -79,6 +91,7 @@ const Everything = () => {
                         </Routes>
                     </Cell>
                 </Grid>
+                {/* {loggedIn ? <Support></Support> : <></>} */}
                 <Support></Support>
                 <SearchModal></SearchModal>
             </div>
