@@ -25,7 +25,7 @@ const Landing = () => {
                         {/* <Cell className={styles.headerElement} center middle>Models</Cell>
                         <Cell className={styles.headerElement} center middle>Data</Cell>
                         <Cell className={styles.headerElement} center middle>Compute</Cell> */}
-                        <Cell className={styles.headerElementRegister} center middle><Link to="/TXTCLASS">Console</Link></Cell>
+                        <Cell className={styles.headerElementRegister} center middle><Link to="/TXTCLASS">Catalog</Link></Cell>
                     </Grid>
                 </Cell>
             </Grid>
