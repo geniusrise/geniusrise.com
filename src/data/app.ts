@@ -19,7 +19,7 @@ interface AppDelete {
 
 const apiClient = () =>
     axios.create({
-        baseURL: "process.env.BACKEND_BASE_URL/api/v1/user",
+        baseURL: `${process.env.REACT_APP_BACKEND_BASE_URL}/api/v1/user`,
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${globalThis.accessToken}`,

@@ -52,9 +52,9 @@ const API: React.FC<APIProps> = ({ model }) => {
     const [launched, setLaunched] = useState<any>({})
     const [launching, setLaunching] = useState(false)
 
-    const [backgroundImage, setBackgroundImage] = useState('');
-    const [progress, setProgress] = useState(0);
-    const [progressBarVisible, setProgressBarVisible] = useState(false);
+    const [backgroundImage, setBackgroundImage] = useState('')
+    const [progress, setProgress] = useState(0)
+    const [progressBarVisible, setProgressBarVisible] = useState(false)
 
     const [curlCommand, setCurlCommand] = useState("")
     const [curlVisible, setCurlVisible] = useState(false)
@@ -82,8 +82,8 @@ const API: React.FC<APIProps> = ({ model }) => {
 
     // Set background image only once on component mount
     useEffect(() => {
-        setBackgroundImage(`../../vector-autumn-foliage-banner/${getRandomImage()}`);
-    }, []);
+        setBackgroundImage(`../../vector-autumn-foliage-banner/${getRandomImage()}`)
+    }, [])
 
     const handleChange = (key: string, value: any) => {
         setConfig((prevState: any) => ({
@@ -95,7 +95,7 @@ const API: React.FC<APIProps> = ({ model }) => {
     useEffect(() => {
         if (launched && launched.uuid) {
             // Wait for a specified time before fetching the status
-            const delay = 30000;
+            const delay = 30000
             const timer = setTimeout(() => {
                 readService(launched.uuid).then(x => {
                     const payload = JSON.stringify(model.api, null, 2)
@@ -108,8 +108,8 @@ const API: React.FC<APIProps> = ({ model }) => {
                     setCurlCommand(curl)
                     setCurlVisible(true)
                     setLaunching(false)
-                });
-            }, delay);
+                })
+            }, delay)
 
             // Clear the timer if the component unmounts
             return () => clearTimeout(timer)
@@ -117,8 +117,8 @@ const API: React.FC<APIProps> = ({ model }) => {
     }, [launched])
 
     const handleLaunch = () => {
-        setLaunching(true);
-        setProgressBarVisible(true);
+        setLaunching(true)
+        setProgressBarVisible(true)
 
         createService({
             task: {
@@ -133,20 +133,20 @@ const API: React.FC<APIProps> = ({ model }) => {
                 }
             }
         }).then(x => {
-            setLaunched(x.data);
-        });
+            setLaunched(x.data)
+        })
 
         // Progress bar logic
         const interval = setInterval(() => {
             setProgress(oldProgress => {
                 if (oldProgress === 100) {
-                    clearInterval(interval);
-                    return 100;
+                    clearInterval(interval)
+                    return 100
                 }
-                return Math.min(oldProgress + 1, 100);
-            });
-        }, 300); // 1200 ms interval for 2 minutes duration
-    };
+                return Math.min(oldProgress + 1, 100)
+            })
+        }, 300) // 1200 ms interval for 2 minutes duration
+    }
 
     return (
         <>

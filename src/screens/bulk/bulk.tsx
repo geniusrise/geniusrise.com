@@ -7,7 +7,7 @@ import styles from "./bulk.module.css"
 import { Model } from "../../config"
 import { Cell, Grid } from "styled-css-grid"
 import SyntaxHighlighter from "react-syntax-highlighter"
-import { shadesOfPurple } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { solarizedDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
 import Settings from "../settings/settings"
 import { withAuthenticator } from "@aws-amplify/ui-react"
@@ -29,6 +29,9 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     const [s3BucketUrl, setS3BucketUrl] = useState<string>("")
     const [settingsVisible, setSettingsVisibile] = useState(false)
 
+    const [progress, setProgress] = useState(0)
+    const [progressBarVisible, setProgressBarVisible] = useState(false)
+
     // Generate the S3 bucket URL
     const generateS3BucketUrl = useCallback(() => {
         const date = new Date()
@@ -40,10 +43,12 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     }, [model.model_name])
 
     AWS.config.update({
-        region: 'ap-south-1', // replace with your region
-        credentials: new AWS.CognitoIdentityCredentials({
-            IdentityPoolId: 'ap-south-1_m1rTttoqg',
-        }),
+        region: 'ap-south-1',
+        accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+        // credentials: new AWS.CognitoIdentityCredentials({
+        //     IdentityPoolId: 'ap-south-1_m1rTttoqg',
+        // }),
     })
 
     const s3 = new AWS.S3({
@@ -74,19 +79,37 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     }, [])
 
     const uploadFilesToS3 = async () => {
+        if (files.length === 0) {
+            return
+        }
+
+        setProgressBarVisible(true)
+        let totalUploaded = 0
+
         try {
             const uploadPromises = files.map(file => {
                 const uploadParams = {
                     Bucket: 'geniusrise-prod-input',
-                    Key: `${s3BucketUrl}/${file.name}`,
+                    Key: `${s3BucketUrl}${file.name}`,
                     Body: file,
-                };
-                return s3.upload(uploadParams).promise()
-            });
+                }
+
+                return s3.upload(uploadParams)
+                    .on('httpUploadProgress', (evt) => {
+                        // Update progress
+                        totalUploaded += evt.loaded
+                        const progressPercentage = (totalUploaded / files.reduce((acc, file) => acc + file.size, 0)) * 100
+                        setProgress(Math.min(100, progressPercentage))
+                    })
+                    .promise()
+            })
+
             await Promise.all(uploadPromises)
             console.log('Files uploaded successfully.')
         } catch (error) {
             console.error('Error uploading files: ', error)
+        } finally {
+            setProgressBarVisible(false)
         }
     }
 
@@ -131,9 +154,9 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                             <h2>Bulk inference</h2>
                             Upload data to run a inference using a model as a bulk job.
                             Each file should contain the following fields:
-                            <ul>
-                                {model.inputs.map(i => <li><p>{i.name}</p></li>)}
-                            </ul>
+                            <ol>
+                                {model.inputs.map(i => <li><p>{i.name} (type: {i.type})</p></li>)}
+                            </ol>
                         </Content>
                     </Cell>
                     <Cell className={styles.supportedFormats}>
@@ -158,15 +181,15 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                 </div>
                 <Grid columns={20} className={styles.s3Location}>
                     <Cell width={19} center middle>
-                        <p>{"s3://genisurise-prod-input/" + s3BucketUrl}</p>
+                        <p>{"s3://geniusrise-prod-input/" + s3BucketUrl}</p>
                     </Cell>
                     <Cell width={1} center middle>
                         <span>📋</span>
                     </Cell>
                 </Grid>
                 <div className={styles.s3Code}>
-                    <SyntaxHighlighter language="bash" style={shadesOfPurple} wrapLines={true} showLineNumbers={true}>
-                        {`aws s3 cp \\\n  --recursive\\\n  ./<YOUR_DATA>\\\n  s3://genisurise-prod-input/+${s3BucketUrl}`}
+                    <SyntaxHighlighter language="bash" style={solarizedDark} wrapLines={true} showLineNumbers={true}>
+                        {`aws s3 cp \\\n  --recursive\\\n  ./<YOUR_DATA>\\\n  s3://geniusrise-prod-input/${s3BucketUrl}`}
                     </SyntaxHighlighter>
                 </div>
                 <Grid columns={2} className={styles.action}>
@@ -180,7 +203,14 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                         </Button>
                     </Cell>
                     <Cell>
-                        <Button>Submit Job</Button>
+                        <Button onClick={() => uploadFilesToS3()} disabled={progressBarVisible}>Submit Job</Button>
+                    </Cell>
+                    <Cell width={2}>
+                        {progressBarVisible && (
+                            <div className={styles.progressBar}>
+                                <div className={styles.progress} style={{ width: `${progress}%` }}></div>
+                            </div>
+                        )}
                     </Cell>
                 </Grid>
             </div>

@@ -35,7 +35,7 @@ const FineTune: React.FC<FineTuneProps> = ({ model }) => {
         const month = `0${date.getMonth() + 1}`.slice(-2)
         const day = `0${date.getDate()}`.slice(-2)
         const randomUUID = uuidv4()
-        return `s3://genisurise-prod-input/${model.model_name}/${year}/${month}/${day}/${randomUUID}/`
+        return `s3://geniusrise-prod-input/${model.model_name}/${year}/${month}/${day}/${randomUUID}/`
     }, [model.model_name])
 
     // Initialize S3 bucket URL on component mount
