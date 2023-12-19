@@ -49,18 +49,22 @@ const Sidebar = () => {
 
     useEffect(() => {
         if (theme !== prevtheme) {
-            // @ts-ignore
-            updateUser(globalThis.user.username, { frontend_config: { "theme": theme } })
+            try {
+                // @ts-ignore
+                updateUser(globalThis.user.username, { frontend_config: { "theme": theme } })
+            } catch (error) { }
         }
     }, [theme])
 
     useEffect(() => {
-        // @ts-ignore
-        getUser(globalThis.user.username).then(u => {
-            setPrevTheme(theme)
+        try {
             // @ts-ignore
-            setTheme(parseInt(u.data.frontend_config.theme))
-        })
+            getUser(globalThis.user.username).then(u => {
+                setPrevTheme(theme)
+                // @ts-ignore
+                setTheme(parseInt(u.data.frontend_config.theme))
+            })
+        } catch (error) { }
 
     }, [globalThis.user])
 

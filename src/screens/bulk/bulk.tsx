@@ -25,6 +25,8 @@ const getRandomImage = () => {
 }
 
 const Bulk: React.FC<BulkProps> = ({ model }) => {
+    const [backgroundImage, setBackgroundImage] = useState('')
+
     const [files, setFiles] = useState<File[]>([])
     const [s3BucketUrl, setS3BucketUrl] = useState<string>("")
     const [settingsVisible, setSettingsVisibile] = useState(false)
@@ -41,6 +43,10 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
         const randomUUID = uuidv4()
         return `year=${year}/month=${month}/day=${day}/${randomUUID}/`
     }, [model.model_name])
+
+    useEffect(() => {
+        setBackgroundImage(`../../vector-autumn-foliage-banner/${getRandomImage()}`)
+    }, [])
 
     AWS.config.update({
         region: 'ap-south-1',
@@ -146,7 +152,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
             <div className={styles.container} hidden={settingsVisible}>
                 <div
                     className={styles.headerImage}
-                    style={{ backgroundImage: `url(../../vector-autumn-foliage-banner/${getRandomImage()})`, backgroundSize: "cover" }}
+                    style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}
                 ></div>
                 <Grid columns={2}>
                     <Cell>
