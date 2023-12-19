@@ -8,7 +8,7 @@ import styles from "./fineTune.module.css"
 import { Model } from "../../config"
 import { Cell, Grid } from "styled-css-grid"
 import SyntaxHighlighter from "react-syntax-highlighter"
-import { solarizedDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { shadesOfPurple } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
 import Settings from "../settings/settings"
 
@@ -90,7 +90,7 @@ const FineTune: React.FC<FineTuneProps> = ({ model }) => {
                     </Cell>
                 </Grid>
                 <div className={styles.s3Code}>
-                    <SyntaxHighlighter language="bash" style={solarizedDark} wrapLines={true} showLineNumbers={true}>
+                    <SyntaxHighlighter language="bash" style={shadesOfPurple} wrapLines={true} showLineNumbers={true}>
                         {`aws s3 cp \\\n  --recursive\\\n  ./<YOUR_DATA>\\\n  ${s3BucketUrl}`}
                     </SyntaxHighlighter>
                 </div>

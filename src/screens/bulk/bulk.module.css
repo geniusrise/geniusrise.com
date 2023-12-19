@@ -29,17 +29,19 @@
   color: var(--dark-text-color);
 }
 .filesDrop {
-  height: 10rem;
   width: 100%;
 }
 .filesDrop button {
   height: 100%;
   width: 100%;
+  min-height: 10rem;
   background-color: var(--dark-modal-background);
   color: var(--dark-text-color);
   font-size: 1.1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   border: none;
   border-radius: 1rem;
 }

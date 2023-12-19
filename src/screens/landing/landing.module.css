@@ -69,9 +69,12 @@
 .heroTask p {
   text-align: center;
 }
-.herofooterbanner h1 {
+.herofooterbanner {
   margin-top: 2rem;
   text-align: center;
+  font-size: 2rem;
+}
+.herofooterbanner h1 {
   font-size: 6rem;
 }
 .gridElement {
