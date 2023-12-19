@@ -58,9 +58,9 @@ async function createUser(userData: User): Promise<AxiosResponse<User>> {
 }
 
 // Update User
-async function updateUser(userData: User): Promise<AxiosResponse<User>> {
+async function updateUser(username: string, userData: User): Promise<AxiosResponse<User>> {
     try {
-        const response = await apiClient().put<User>("/", userData)
+        const response = await apiClient().put<User>(`/${username}`, userData)
         console.debug("updateUser response:", response)
         return response
     } catch (error) {

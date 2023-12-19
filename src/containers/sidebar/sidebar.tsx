@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 import { Button, Tabs } from "react-bulma-components"
@@ -16,6 +16,7 @@ import darkBlue from "../../themes/darkBlue"
 import purple from "../../themes/purple"
 import darkBlueN from "../../themes/darkBlueN"
 import purpleN from "../../themes/purpleN"
+import { getUser, updateUser } from "../../data/user"
 
 function useTheme(theme: number) {
     var t: any = darkBlue
@@ -41,9 +42,28 @@ function useTheme(theme: number) {
 
 const Sidebar = () => {
     const [theme, setTheme] = useState(2)
+    const [prevtheme, setPrevTheme] = useState(2)
     useTheme(theme)
 
     const [activeTab, setActiveTab] = useState("text") // Default tab is 'text'
+
+    useEffect(() => {
+        if (theme !== prevtheme) {
+            // @ts-ignore
+            updateUser(globalThis.user.username, { frontend_config: { "theme": theme } })
+        }
+    }, [theme])
+
+    useEffect(() => {
+        // @ts-ignore
+        getUser(globalThis.user.username).then(u => {
+            setPrevTheme(theme)
+            // @ts-ignore
+            setTheme(parseInt(u.data.frontend_config.theme))
+        })
+
+    }, [globalThis.user])
+
 
     const renderFunctions = (category: string) => {
         return (

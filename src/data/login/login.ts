@@ -8,7 +8,9 @@ const start = async () => {
         const _session = await Auth.currentSession()
         // @ts-ignore
         globalThis.accessToken = _session.accessToken.jwtToken
+        globalThis.user = _user
         const user = await getUser(_user.username)
+        globalThis.backendUser = user
     } catch (error) {
         try {
             const _user = await Auth.currentAuthenticatedUser()
@@ -48,7 +50,7 @@ const listener = async (data: any) => {
                     globalThis.accessToken = _session.accessToken.jwtToken
 
                     const user = await getUser(data.payload.data.username)
-                    globalThis.user = user
+                    globalThis.backendUser = user
                 } catch (error) {
                     await createUser({
                         is_superuser: false,
@@ -73,7 +75,7 @@ const listener = async (data: any) => {
                     globalThis.accessToken = _session.accessToken.jwtToken
 
                     const user = await getUser(data.payload.data.username)
-                    globalThis.user = user
+                    globalThis.backendUser = user
                 } catch (error) {
                     await createUser({
                         is_superuser: false,
