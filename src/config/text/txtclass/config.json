@@ -10,6 +10,7 @@
         "description": "The model is adept at identifying various forms of hate speech in textual content, particularly targeting tweets. It leverages the RoBERTa base model architecture and is trained on a diversified dataset to discern multiple categories of hate speech including sexism, racism, religious bigotry, and more. The model is capable of distinguishing between seven different classes of hateful language, providing a nuanced understanding that goes beyond a binary hate or not-hate classification. It's an invaluable asset in moderating online discussions, ensuring a respectful and inclusive communication environment. By utilizing this model, platforms can automate the process of flagging and managing hateful content, promoting a healthier online discourse.",
         "model_name": "cardiffnlp/twitter-roberta-base-hate-multiclass-latest",
         "apiClass": "TextClassificationAPI",
+        "bulkMethod": "classify",
         "endpoint": "/api/v1/classify",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
@@ -71,6 +72,7 @@
         "description": "The model is engineered for the binary classification of hate speech in text data, primarily focusing on tweets. Employing the RoBERTa base model architecture, it is trained to differentiate between hateful and non-hateful language. This model simplifies the complex nature of hate speech into a binary classification problem, making it a straightforward solution for platforms seeking to identify and eliminate hateful content. The model's binary classification approach allows for a clear-cut decision, aiding in the moderation of online discussions and social media posts. The utilization of this model can significantly contribute to creating a safer and more respectful online environment.",
         "model_name": "cardiffnlp/twitter-roberta-base-hate-latest",
         "apiClass": "TextClassificationAPI",
+        "bulkMethod": "classify",
         "endpoint": "/api/v1/classify",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
@@ -132,6 +134,7 @@
         "description": "The model is designed to distinguish between offensive and non-offensive language within text data, with a primary focus on tweets. Utilizing the RoBERTa base model architecture, it has been trained to accurately identify offensive language that might be detrimental to online discussions. This model simplifies the task of moderating online platforms by automating the detection of offensive content. By distinguishing between offensive and non-offensive language, it aids in maintaining a respectful dialogue within online communities. This model is a key tool for promoting positive interactions and reducing toxicity on social platforms.",
         "model_name": "cardiffnlp/twitter-roberta-base-offensive",
         "apiClass": "TextClassificationAPI",
+        "bulkMethod": "classify",
         "endpoint": "/api/v1/classify",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
@@ -193,6 +196,7 @@
         "description": "The model is tailored for detecting irony in text data, with a particular emphasis on tweets. Utilizing the RoBERTa base model architecture, it has been trained to distinguish between ironic and non-ironic expressions. This model aids in understanding the nuanced and often subtle nature of irony, which can be challenging to detect, especially in textual communications. It's a significant asset in sentiment analysis, social media monitoring, and linguistic studies, providing a more accurate understanding of the intended message. The use of this model can enhance the accuracy of sentiment analysis tools, contribute to linguistic research, and improve the moderation of online discussions.",
         "model_name": "cardiffnlp/twitter-roberta-base-irony",
         "apiClass": "TextClassificationAPI",
+        "bulkMethod": "classify",
         "endpoint": "/api/v1/classify",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
@@ -254,6 +258,7 @@
         "description": "The model is specifically engineered for detecting toxicity in text data. Employing the RoBERTa architecture, it has been trained to differentiate between toxic and non-toxic expressions. This model simplifies the task of moderating online platforms by automating the detection of toxic content, which is crucial for maintaining a respectful and inclusive online environment. By distinguishing between toxic and non-toxic language, it aids in reducing the moderation workload and promoting positive interactions within online communities. The utilization of this model can significantly contribute to creating safer online spaces, fostering respectful discussions, and minimizing online harassment.",
         "model_name": "tomh/toxigen_roberta",
         "apiClass": "TextClassificationAPI",
+        "bulkMethod": "classify",
         "endpoint": "/api/v1/classify",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
@@ -315,6 +320,7 @@
         "description": "The model is designed to categorize text into various levels of toxicity such as non-toxic, insult, obscenity, threat, and dangerous. Based on the RuBERT architecture, this model has been trained to understand and classify text based on the degree of toxicity, which can be particularly beneficial for moderating content in online platforms. By employing this model, platforms can automate the process of filtering and moderating content to ensure a safe and positive user experience. Furthermore, the model's ability to differentiate between various levels of toxicity can provide a nuanced understanding of the text, aiding in more effective moderation and analysis.",
         "model_name": "cointegrated/rubert-tiny-toxicity",
         "apiClass": "TextClassificationAPI",
+        "bulkMethod": "classify",
         "endpoint": "/api/v1/classify",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
@@ -376,6 +382,7 @@
         "description": "The model is adept at distinguishing between Safe For Work (SFW) and Not Safe For Work (NSFW) text content. This classification is essential for moderating content in professional or public platforms to ensure the appropriateness of the content. By employing this model, platforms can automate the process of filtering NSFW content, thereby maintaining a professional and respectful environment. Furthermore, the model can be utilized in various domains including social media, online forums, and workplace communication platforms to automatically moderate and manage the content, ensuring it adheres to the guidelines and standards of the platform.",
         "model_name": "michellejieli/NSFW_text_classifier",
         "apiClass": "TextClassificationAPI",
+        "bulkMethod": "classify",
         "endpoint": "/api/v1/classify",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
@@ -437,6 +444,7 @@
         "description": "The model is engineered to identify political bias in text data, categorizing it into LEFT, CENTER, and RIGHT. This model is significant in understanding the political inclination of the text, which is crucial for various applications like news analysis, social media monitoring, and academic research. By employing this model, platforms can automate the process of political bias detection, providing a more transparent and balanced view of the information. Furthermore, the model's ability to categorize political bias can contribute to fostering a more informed and balanced discourse in the public domain.",
         "model_name": "bucketresearch/politicalBiasBERT",
         "apiClass": "TextClassificationAPI",
+        "bulkMethod": "classify",
         "endpoint": "/api/v1/classify",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
@@ -498,6 +506,7 @@
         "description": "The model is designed to classify sentiment into three categories: LABEL_0, LABEL_1, and LABEL_2. It's unclear what these labels represent, but typically in sentiment analysis, they correspond to negative, neutral, and positive sentiments. This model could be utilized in a variety of financial contexts to understand the sentiment conveyed in textual data. Understanding sentiment is crucial in fields like finance where market sentiment can significantly impact investment decisions. This model could be employed to automate sentiment analysis on a large scale, potentially uncovering valuable insights from financial texts.",
         "model_name": "Sigma/financial-sentiment-analysis",
         "apiClass": "TextClassificationAPI",
+        "bulkMethod": "classify",
         "endpoint": "/api/v1/classify",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
@@ -559,6 +568,7 @@
         "description": "The model is adept at classifying tweets into a variety of topics like sports, news, science, celebrity culture, and more. This model is vital for understanding the diverse range of topics discussed on platforms like Twitter, which can be a goldmine of insights for researchers, marketers, and policymakers. By employing this model, organizations can automate the process of categorizing tweets, making it easier to analyze large volumes of data to understand public opinion, market trends, or societal issues.",
         "model_name": "cardiffnlp/tweet-topic-21-multi",
         "apiClass": "TextClassificationAPI",
+        "bulkMethod": "classify",
         "endpoint": "/api/v1/classify",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
@@ -620,6 +630,7 @@
         "description": "The model is designed to classify text into either 'Female' or 'Male' categories based on the content. This model could be employed in a variety of applications where understanding gender-based perspectives or behaviors is crucial. By leveraging this model, researchers, marketers, and organizations can analyze large volumes of text to uncover gender-specific insights, which can be instrumental in developing gender-inclusive policies, marketing strategies, or products.",
         "model_name": "padmajabfrl/Gender-Classification",
         "apiClass": "TextClassificationAPI",
+        "bulkMethod": "classify",
         "endpoint": "/api/v1/classify",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
@@ -681,6 +692,7 @@
         "description": "The model is also focused on analyzing the sentiment of financial text but with a slight variation in the naming of classes as Positive, Neutral, and Negative. Much like the previous model, it's designed to help stakeholders in the financial domain to understand the sentiment or tone conveyed in various types of financial texts. This model can be particularly useful in scenarios where the tone of the financial discourse can have implications on market movements, investment decisions, or regulatory compliance.",
         "model_name": "yiyanghkust/finbert-tone",
         "apiClass": "TextClassificationAPI",
+        "bulkMethod": "classify",
         "endpoint": "/api/v1/classify",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
@@ -742,6 +754,7 @@
         "description": "The model is designed to identify gibberish text across three levels: clean, mild gibberish, and word salad, and noise. This model is crucial for filtering out nonsensical or spam text in various applications like online forums, comment sections, or any other platform where text input is allowed. By employing this model, platform administrators can maintain a high level of discourse and ensure that the content on their platforms remains coherent and meaningful.",
         "model_name": "wajidlinux99/gibberish-text-detector",
         "apiClass": "TextClassificationAPI",
+        "bulkMethod": "classify",
         "endpoint": "/api/v1/classify",
         "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [

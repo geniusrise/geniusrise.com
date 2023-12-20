@@ -14,6 +14,8 @@ import { withAuthenticator } from "@aws-amplify/ui-react"
 import AWS from 'aws-sdk'
 import { SupportContentContext } from "../../support/support"
 import banners from "../../data/banners.json"
+import { generateName } from "../../utils"
+import { createJob } from "../../data/job"
 
 interface BulkProps {
     model: Model
@@ -24,27 +26,54 @@ const getRandomImage = () => {
     return banners[randomIndex]
 }
 
+const generateS3BucketUrl = () => {
+    const date = new Date()
+    const year = date.getFullYear()
+    const month = `0${date.getMonth() + 1}`.slice(-2)
+    const day = `0${date.getDate()}`.slice(-2)
+    const randomUUID = uuidv4()
+    return `year=${year}/month=${month}/day=${day}/${randomUUID}/`
+}
+
+function toTitleCase(input: string): string {
+    return input
+        .split("_") // Split by underscore
+        .map(
+            part =>
+                part
+                    .toLowerCase() // Convert to lower case
+                    .replace(/^\w/, c => c.toUpperCase()) // Capitalize the first letter
+        )
+        .join(" ") // Join the parts with spaces
+}
+
 const Bulk: React.FC<BulkProps> = ({ model }) => {
     const [backgroundImage, setBackgroundImage] = useState('')
 
     const [files, setFiles] = useState<File[]>([])
-    const [s3BucketUrl, setS3BucketUrl] = useState<string>("")
+    const [s3BucketUrl, setS3BucketUrl] = useState<string>(generateS3BucketUrl())
     const [settingsVisible, setSettingsVisibile] = useState(false)
 
     const [progress, setProgress] = useState(0)
     const [progressBarVisible, setProgressBarVisible] = useState(false)
+    const [deployed, setDeployed] = useState(false)
 
-    // Generate the S3 bucket URL
-    const generateS3BucketUrl = useCallback(() => {
-        const date = new Date()
-        const year = date.getFullYear()
-        const month = `0${date.getMonth() + 1}`.slice(-2)
-        const day = `0${date.getDate()}`.slice(-2)
-        const randomUUID = uuidv4()
-        return `year=${year}/month=${month}/day=${day}/${randomUUID}/`
-    }, [model.model_name])
+    const [config, setConfig] = useState<object>({
+        name: model.apiClass.replace("API", "Bulk"),
+        pod_size: "s",
+        input_s3_folder: s3BucketUrl,
+        output_s3_folder: s3BucketUrl,
+    })
 
-    useEffect(() => {
+    const handleChange = (key: string, value: any) => {
+        setConfig((prevState: any) => ({
+            ...prevState,
+            [key]: value,
+        }))
+    }
+
+    // Initialize S3 bucket URL on component mount
+    React.useEffect(() => {
         setBackgroundImage(`../../vector-autumn-foliage-banner/${getRandomImage()}`)
     }, [])
 
@@ -112,17 +141,12 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
 
             await Promise.all(uploadPromises)
             console.log('Files uploaded successfully.')
+            handleLaunch()
         } catch (error) {
             console.error('Error uploading files: ', error)
         } finally {
-            setProgressBarVisible(false)
         }
     }
-
-    // Initialize S3 bucket URL on component mount
-    React.useEffect(() => {
-        setS3BucketUrl(generateS3BucketUrl())
-    }, [generateS3BucketUrl])
 
     // Handle file drop
     const onDrop = useCallback((acceptedFiles: File[]) => {
@@ -146,6 +170,37 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
             'image/png': ['.png'],                   // PNG images
         }
     })
+
+    const handleLaunch = () => {
+        setProgressBarVisible(true)
+        setProgress(0)
+        console.log(config)
+
+        createJob({
+            task: {
+                name: ("geniusbulk--" + generateName() + "--" + model.name.toLowerCase().replaceAll(" ", "-")).substring(0, 60),
+                deployment_config: {
+                    ...config
+                },
+                method: model.bulkMethod,
+                method_args: {
+                    model_name: model.model_name,
+                    ...model.bulkDeploy
+                }
+            }
+        })
+
+        // Progress bar logic
+        const interval = setInterval(() => {
+            setProgress(oldProgress => {
+                if (oldProgress === 100) {
+                    clearInterval(interval)
+                    return 100
+                }
+                return Math.min(oldProgress + 1, 100)
+            })
+        }, 300) // 1200 ms interval for 2 minutes duration
+    }
 
     return (
         <>
@@ -177,6 +232,26 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                             })}
                         </Grid>
                     </Cell>
+                </Grid>
+                <Grid columns={2} className={styles.form}>
+                    {Object.entries(config).map(([key, value]) => {
+
+                        return (
+                            <Cell key={key} className={styles.formElement} center>
+                                <label>
+                                    {toTitleCase(key)}
+                                    {(
+                                        <input
+                                            type={"text"}
+                                            className={styles.textInput}
+                                            value={value === null ? "" : value}
+                                            onChange={e => handleChange(key, e.target.value)}
+                                        />
+                                    )}
+                                </label>
+                            </Cell>
+                        )
+                    })}
                 </Grid>
                 <div {...getRootProps()} className={styles.filesDrop}>
                     <input {...getInputProps()} />
@@ -217,6 +292,11 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                                 <div className={styles.progress} style={{ width: `${progress}%` }}></div>
                             </div>
                         )}
+                    </Cell>
+                    <Cell width={2} className={styles.curl}>
+                        <Content hidden={!deployed}>
+                            <h3>🎊 Your bulk job is deployed!</h3>
+                        </Content>
                     </Cell>
                 </Grid>
             </div>

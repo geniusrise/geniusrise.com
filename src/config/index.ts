@@ -27,6 +27,8 @@ interface Model {
     apiDeploy: object
     api: object
     apiClass: string
+    bulkDeploy: object
+    bulkMethod: string
 }
 
 interface Config {

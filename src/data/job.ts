@@ -49,7 +49,7 @@ async function listJobs(): Promise<AxiosResponse<Job[]> | null> {
 // Create Job
 async function createJob(jobData: JobCreate): Promise<AxiosResponse<Job> | null> {
     try {
-        const response = await apiClient().post<Job>("/", jobData)
+        const response = await apiClient().post<Job>("/1", jobData)
         console.debug("createJob response:", response)
         return response
     } catch (error) {

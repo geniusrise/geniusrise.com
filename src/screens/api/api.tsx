@@ -145,7 +145,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                 }
                 return Math.min(oldProgress + 1, 100)
             })
-        }, 300) // 1200 ms interval for 2 minutes duration
+        }, 350) // 1200 ms interval for 2 minutes duration
     }
 
     return (

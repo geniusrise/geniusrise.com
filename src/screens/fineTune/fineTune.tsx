@@ -35,7 +35,7 @@ const FineTune: React.FC<FineTuneProps> = ({ model }) => {
         const month = `0${date.getMonth() + 1}`.slice(-2)
         const day = `0${date.getDate()}`.slice(-2)
         const randomUUID = uuidv4()
-        return `s3://geniusrise-prod-input/${model.model_name}/${year}/${month}/${day}/${randomUUID}/`
+        return `year=${year}/month=${month}/day=${day}/${randomUUID}/`
     }, [model.model_name])
 
     // Initialize S3 bucket URL on component mount
@@ -83,7 +83,7 @@ const FineTune: React.FC<FineTuneProps> = ({ model }) => {
                 </div>
                 <Grid columns={20} className={styles.s3Location}>
                     <Cell width={19} center middle>
-                        <p>{s3BucketUrl}</p>
+                        <p>s3://geniusrise-prod-input/{s3BucketUrl}</p>
                     </Cell>
                     <Cell width={1} center middle>
                         <span>📋</span>
@@ -91,7 +91,7 @@ const FineTune: React.FC<FineTuneProps> = ({ model }) => {
                 </Grid>
                 <div className={styles.s3Code}>
                     <SyntaxHighlighter language="bash" style={shadesOfPurple} wrapLines={true} showLineNumbers={true}>
-                        {`aws s3 cp \\\n  --recursive\\\n  ./<YOUR_DATA>\\\n  ${s3BucketUrl}`}
+                        {`aws s3 cp \\\n  --recursive\\\n  ./<YOUR_DATA>\\\n  s3://geniusrise-prod-input/${s3BucketUrl}`}
                     </SyntaxHighlighter>
                 </div>
                 <Grid columns={2} className={styles.action}>
