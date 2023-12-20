@@ -51,6 +51,7 @@ const listener = async (data: any) => {
 
                     const user = await getUser(data.payload.data.username)
                     globalThis.backendUser = user
+                    window.location.reload()
                 } catch (error) {
                     await createUser({
                         is_superuser: false,

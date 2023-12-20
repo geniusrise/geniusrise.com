@@ -125,7 +125,9 @@ const Sidebar = () => {
                 <Grid columns={4} className={styles.footer}>
                     <Cell center middle>
                         <div className={styles.themeSwitcher}>
-                            <Link to="/" onClick={() => Auth.signOut()}>Logout</Link>
+                            <Link to="/" onClick={() => {
+                                Auth.signOut().then(x => window.location.reload())
+                            }}>Logout</Link>
                         </div>
                     </Cell>
                     <Cell center middle>
