@@ -8,6 +8,7 @@ import { Cell, Grid } from "styled-css-grid"
 import { Button, Card, Content } from "react-bulma-components"
 import { deleteService, listServices, getServiceMetrics } from "../../data/service"
 import { SupportContentContext } from "../../support/support"
+import { listJobs } from "../../data/job"
 
 interface Props { }
 
@@ -38,6 +39,12 @@ function Dashboard(props: Props) {
                 // svcs.map(s => getServiceMetrics(s.uuid).then(x => {
                 //     if (x !== null) setMetrics(metrics + x.data)
                 // }))
+
+                listJobs().then(x => {
+                    const jobs = x.data.filter(x => !x.is_deleted).sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+                    console.log(jobs)
+                    setServices(svcs => svcs.concat(jobs))
+                })
             })
         }
     }, [update])
@@ -50,9 +57,10 @@ function Dashboard(props: Props) {
             <Card.Content className={styles.cardContent}>
                 <Grid columns={1}>
                     <Cell className={styles.servicesHeader}>
-                        <Grid columns={13}>
+                        <Grid columns={14}>
                             <Cell width={2} center middle>Name</Cell>
                             <Cell width={2} center middle>Task Name</Cell>
+                            <Cell center middle>Task Type</Cell>
                             <Cell center middle>Pod Size</Cell>
                             <Cell width={2} center middle>Pod Type</Cell>
                             <Cell width={2} center middle>IP Address</Cell>
@@ -62,18 +70,23 @@ function Dashboard(props: Props) {
                         </Grid>
                     </Cell>
                     {services.map(s => {
+                        const uniqueName = s.name.split("--")[1]
+                        const taskName = (s.name.split("--")[2] || "").replaceAll("-", " ")
+                        var taskType = (s.name.split("--")[0] || "").replaceAll("genius", "")
+                        taskType = taskType ? taskType.toUpperCase() : "API"
+
                         return (
                             <Cell className={styles.servicesList}>
-                                <Grid columns={13}>
-                                    <Cell width={2} center middle>{s.name.split("--")[1]}</Cell>
-                                    <Cell width={2} center middle>{(s.name.split("--")[2] || "").replaceAll("-", " ")}</Cell>
-                                    <Cell center middle>{s.pod_size}</Cell>
-                                    <Cell width={2} center middle>{s.class_name}</Cell>
-                                    <Cell width={2} center middle>{s.cluster_ip || "0.0.0.0"}</Cell>
-                                    <Cell center middle>{s.replicas || "1"}</Cell>
-                                    <Cell width={2} center middle>{moment(s.created_at).format("lll")}</Cell>
-                                    <Cell center middle><Button onClick={() => {
-                                        console.log(s)
+                                <Grid columns={14}>
+                                    <Cell width={2} middle>{uniqueName}</Cell>
+                                    <Cell width={2} middle>{taskName}</Cell>
+                                    <Cell middle>{taskType}</Cell>
+                                    <Cell middle>{s.pod_size}</Cell>
+                                    <Cell width={2} middle>{s.class_name}</Cell>
+                                    <Cell width={2} middle>{s.cluster_ip}</Cell>
+                                    <Cell middle>{s.replicas || "1"}</Cell>
+                                    <Cell width={2} middle>{moment(s.created_at).format("lll")}</Cell>
+                                    <Cell middle><Button disabled={taskType !== "API"} onClick={() => {
                                         deleteService({ identifier: s.uuid }).then(x => {
                                             setServices([])
                                             setUpdate(update + 1)

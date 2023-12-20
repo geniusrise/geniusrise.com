@@ -77,6 +77,10 @@
   margin-bottom: 1rem;
   width: 100%;
 }
+.action button:disabled {
+  background-color: var(--dark-modal-background);
+  color: var(--dark-text-color);
+}
 .progressBar {
   width: 100%;
   border-radius: 5px;
