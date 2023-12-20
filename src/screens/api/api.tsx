@@ -122,7 +122,7 @@ const API: React.FC<APIProps> = ({ model }) => {
 
         createService({
             task: {
-                name: "genius--" + generateName() + "--" + model.name.toLowerCase().replaceAll(" ", "-"),
+                name: ("genius--" + generateName() + "--" + model.name.toLowerCase().replaceAll(" ", "-")).substring(0, 60),
                 deployment_config: {
                     ...config
                 },
@@ -145,7 +145,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                 }
                 return Math.min(oldProgress + 1, 100)
             })
-        }, 350) // 1200 ms interval for 2 minutes duration
+        }, 300) // 1200 ms interval for 2 minutes duration
     }
 
     return (
