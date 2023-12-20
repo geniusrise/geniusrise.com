@@ -11,20 +11,7 @@
         "model_name": "cardiffnlp/twitter-xlm-roberta-base-sentiment",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Analyzing sentiment in customer reviews",
             "Determining public sentiment towards a product on social media",
@@ -50,11 +37,7 @@
             "Finally, a software update that fixes the major issues!",
             "Their response to the issue was lackluster and unsatisfactory."
         ],
-        "usecases": [
-            "Customer feedback analysis",
-            "Market research",
-            "Social media monitoring"
-        ],
+        "usecases": ["Customer feedback analysis", "Market research", "Social media monitoring"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -72,6 +55,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -86,20 +79,7 @@
         "model_name": "cardiffnlp/twitter-roberta-base-emotion",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Analyzing emotional tone in customer reviews",
             "Determining emotional context of social media posts",
@@ -125,11 +105,7 @@
             "The movie was hilarious, laughed throughout!",
             "Felt nostalgic revisiting my old college campus."
         ],
-        "usecases": [
-            "Customer feedback analysis",
-            "Social media monitoring",
-            "Mental health studies"
-        ],
+        "usecases": ["Customer feedback analysis", "Social media monitoring", "Mental health studies"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -147,6 +123,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -161,20 +147,7 @@
         "model_name": "cardiffnlp/twitter-xlm-roberta-base-sentiment-multilingual",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Analyzing sentiment in customer reviews across multiple languages",
             "Determining public sentiment towards a global campaign on social media",
@@ -200,11 +173,7 @@
             "[Chinese] \"這次的軟件更新解決了許多問題，很滿意。",
             "[Korean] \"이번 회사의 대응은 실망스럽고 만족스럽지 못했습니다."
         ],
-        "usecases": [
-            "Customer feedback analysis",
-            "Global market research",
-            "Social media monitoring"
-        ],
+        "usecases": ["Customer feedback analysis", "Global market research", "Social media monitoring"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -222,6 +191,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -236,20 +215,7 @@
         "model_name": "soleimanian/financial-roberta-large-sentiment",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Analyzing sentiment of financial news articles",
             "Determining market sentiment from investor discussions",
@@ -274,11 +240,7 @@
             "Market volatility is expected to continue in the coming months.",
             "Financial analysts remain bullish on renewable energy stocks."
         ],
-        "usecases": [
-            "Market analysis",
-            "Investment strategy development",
-            "Financial news monitoring"
-        ],
+        "usecases": ["Market analysis", "Investment strategy development", "Financial news monitoring"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -296,6 +258,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -310,20 +282,7 @@
         "model_name": "mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Analyzing sentiment of financial news articles",
             "Determining market sentiment from financial reports",
@@ -349,11 +308,7 @@
             "Market optimism grows with the announcement of the vaccine rollout.",
             "Uncertainty about the future of oil prices affects energy stocks."
         ],
-        "usecases": [
-            "Market sentiment analysis",
-            "Investment strategy development",
-            "Financial market monitoring"
-        ],
+        "usecases": ["Market sentiment analysis", "Investment strategy development", "Financial market monitoring"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -371,6 +326,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -385,20 +350,7 @@
         "model_name": "SamLowe/roberta-base-go_emotions",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Analyzing emotions in customer reviews",
             "Identifying emotions in social media posts",
@@ -424,11 +376,7 @@
             "Excited about the holiday plans we've just made!",
             "Nervous about the first day at school tomorrow."
         ],
-        "usecases": [
-            "Customer feedback analysis",
-            "Social media monitoring",
-            "Therapeutic interaction analysis"
-        ],
+        "usecases": ["Customer feedback analysis", "Social media monitoring", "Therapeutic interaction analysis"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -446,6 +394,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -460,20 +418,7 @@
         "model_name": "ProsusAI/finbert",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Analyzing sentiment of financial news articles",
             "Determining investor sentiment from online forums",
@@ -499,11 +444,7 @@
             "Enthusiasm in the market as tech stocks hit a new high.",
             "Uncertainty prevails amidst mixed economic signals."
         ],
-        "usecases": [
-            "Market sentiment analysis",
-            "Investor sentiment analysis",
-            "Corporate sentiment analysis"
-        ],
+        "usecases": ["Market sentiment analysis", "Investor sentiment analysis", "Corporate sentiment analysis"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -521,6 +462,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     }
 ]

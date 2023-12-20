@@ -11,20 +11,7 @@
         "model_name": "cardiffnlp/twitter-roberta-base-hate-multiclass-latest",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Detecting gender-based hate speech in online articles",
             "Analyzing hate speech trends on social media platforms",
@@ -43,11 +30,7 @@
             "This user is spreading hateful ideologies.",
             "Derogatory language used to belittle a certain ethnicity."
         ],
-        "usecases": [
-            "Online community moderation",
-            "Social media monitoring",
-            "Automated reporting systems for hateful content"
-        ],
+        "usecases": ["Online community moderation", "Social media monitoring", "Automated reporting systems for hateful content"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -65,6 +48,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -79,20 +72,7 @@
         "model_name": "cardiffnlp/twitter-roberta-base-hate-latest",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Filtering hate speech in online forums",
             "Detecting hate speech in user comments",
@@ -111,11 +91,7 @@
             "I'm unsure if this should be classified as hate speech.",
             "This post seems to be free from hate speech."
         ],
-        "usecases": [
-            "Online community moderation",
-            "Social media content filtering",
-            "Automated hate speech detection systems"
-        ],
+        "usecases": ["Online community moderation", "Social media content filtering", "Automated hate speech detection systems"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -133,6 +109,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -147,20 +133,7 @@
         "model_name": "cardiffnlp/twitter-roberta-base-offensive",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Identifying offensive language in chat messages",
             "Detecting offensive language in social media content",
@@ -179,11 +152,7 @@
             "This tweet could be offensive to some people.",
             "Some might find this language offensive."
         ],
-        "usecases": [
-            "Online community moderation",
-            "Social media content filtering",
-            "Automated offensive language detection systems"
-        ],
+        "usecases": ["Online community moderation", "Social media content filtering", "Automated offensive language detection systems"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -201,6 +170,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -215,20 +194,7 @@
         "model_name": "cardiffnlp/twitter-roberta-base-irony",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Detecting irony in online article headlines",
             "Identifying irony in social media posts",
@@ -247,11 +213,7 @@
             "Just what I needed, another Monday.",
             "Can't wait to start my diet tomorrow."
         ],
-        "usecases": [
-            "Sentiment analysis",
-            "Social media monitoring",
-            "Linguistic research"
-        ],
+        "usecases": ["Sentiment analysis", "Social media monitoring", "Linguistic research"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -269,6 +231,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -283,20 +255,7 @@
         "model_name": "tomh/toxigen_roberta",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Evaluating toxicity in online community forums",
             "Monitoring toxicity in social media interactions",
@@ -315,11 +274,7 @@
             "This text does not contain any toxic elements.",
             "Some may find this comment to be toxic."
         ],
-        "usecases": [
-            "Online community moderation",
-            "Social media content filtering",
-            "Automated toxicity detection systems"
-        ],
+        "usecases": ["Online community moderation", "Social media content filtering", "Automated toxicity detection systems"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -337,6 +292,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -351,20 +316,7 @@
         "model_name": "cointegrated/rubert-tiny-toxicity",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Classifying levels of toxicity in online comments",
             "Detecting varying degrees of toxicity in social media posts",
@@ -383,11 +335,7 @@
             "I don't find any obscenity in this text.",
             "This post contains dangerous language."
         ],
-        "usecases": [
-            "Online community moderation",
-            "Social media monitoring",
-            "Content filtering systems"
-        ],
+        "usecases": ["Online community moderation", "Social media monitoring", "Content filtering systems"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -405,6 +353,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -419,20 +377,7 @@
         "model_name": "michellejieli/NSFW_text_classifier",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Filtering NSFW content in online community forums",
             "Identifying NSFW language in social media posts",
@@ -451,11 +396,7 @@
             "This content might be unsafe for a professional setting.",
             "Is this text appropriate for a workplace?"
         ],
-        "usecases": [
-            "Content moderation",
-            "Social media monitoring",
-            "Workplace communication moderation"
-        ],
+        "usecases": ["Content moderation", "Social media monitoring", "Workplace communication moderation"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -473,6 +414,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -487,20 +438,7 @@
         "model_name": "bucketresearch/politicalBiasBERT",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Analyzing political bias in news editorials",
             "Classifying political leanings in blog posts",
@@ -519,11 +457,7 @@
             "The political inclination here is right-leaning.",
             "Is this text biased towards a certain political viewpoint?"
         ],
-        "usecases": [
-            "News analysis",
-            "Social media monitoring",
-            "Academic research on political discourse"
-        ],
+        "usecases": ["News analysis", "Social media monitoring", "Academic research on political discourse"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -541,6 +475,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -555,20 +499,7 @@
         "model_name": "Sigma/financial-sentiment-analysis",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Evaluating customer feedback for sentiment analysis",
             "Analyzing sentiment in social media posts",
@@ -587,11 +518,7 @@
             "The sentiment expressed here is quite negative.",
             "This statement seems to be neutral."
         ],
-        "usecases": [
-            "Market sentiment analysis",
-            "Investor sentiment analysis",
-            "Financial product review analysis"
-        ],
+        "usecases": ["Market sentiment analysis", "Investor sentiment analysis", "Financial product review analysis"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -609,6 +536,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -623,20 +560,7 @@
         "model_name": "cardiffnlp/tweet-topic-21-multi",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Categorizing sports-related tweets in multiple languages",
             "Classifying news-related tweets from different regions",
@@ -655,11 +579,7 @@
             "Check out this amazing travel destination.",
             "In-depth analysis of current economic trends."
         ],
-        "usecases": [
-            "Social media analysis",
-            "Market trend analysis",
-            "Public opinion analysis"
-        ],
+        "usecases": ["Social media analysis", "Market trend analysis", "Public opinion analysis"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -677,6 +597,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -691,20 +621,7 @@
         "model_name": "padmajabfrl/Gender-Classification",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Classifying gender perspective in product reviews",
             "Analyzing gender-specific language in social media posts",
@@ -723,11 +640,7 @@
             "I'm attending a knitting class.",
             "Working on building a new bookshelf."
         ],
-        "usecases": [
-            "Gender-based market analysis",
-            "Online community analysis",
-            "Gender representation analysis"
-        ],
+        "usecases": ["Gender-based market analysis", "Online community analysis", "Gender representation analysis"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -745,6 +658,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -759,20 +682,7 @@
         "model_name": "yiyanghkust/finbert-tone",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Analyzing the tone of financial market reports",
             "Evaluating the sentiment in financial news articles",
@@ -791,11 +701,7 @@
             "Market sentiment remains uncertain amid changes.",
             "Economic indicators suggest a stable future."
         ],
-        "usecases": [
-            "Investment analysis",
-            "Regulatory compliance",
-            "Market sentiment analysis"
-        ],
+        "usecases": ["Investment analysis", "Regulatory compliance", "Market sentiment analysis"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -813,6 +719,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -827,20 +743,7 @@
         "model_name": "wajidlinux99/gibberish-text-detector",
         "apiClass": "TextClassificationAPI",
         "endpoint": "/api/v1/classify",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "examples": [
             "Filtering nonsensical text in online forums",
             "Identifying gibberish in social media posts",
@@ -859,11 +762,7 @@
             "The content here is well-structured and logical.",
             "Can this text be classified as gibberish?"
         ],
-        "usecases": [
-            "Spam filtering",
-            "Content moderation",
-            "Data cleaning"
-        ],
+        "usecases": ["Spam filtering", "Content moderation", "Data cleaning"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -881,6 +780,16 @@
         },
         "api": {
             "text": "your text here"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     }
 ]

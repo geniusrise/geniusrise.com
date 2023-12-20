@@ -10,20 +10,7 @@
         "model_name": "mistralai/Mistral-7B-v0.1",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Mistral 7B v0.1 is a robust language model adept at understanding and generating text. With '7B' denoting the number of parameters, it's large and capable of tackling a variety of NLP tasks. The model excels in translation, summarization, and conversation, providing accurate and coherent outputs.",
         "examples": [
             "Translating text between languages",
@@ -51,11 +38,7 @@
             "Create a catchy slogan for a new fitness app.",
             "Write a brief on the importance of cybersecurity."
         ],
-        "usecases": [
-            "Automated translation services",
-            "Content summarization tools",
-            "Conversational agents"
-        ],
+        "usecases": ["Automated translation services", "Content summarization tools", "Conversational agents"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -76,6 +59,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -89,20 +85,7 @@
         "model_name": "amazon/MistralLite",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "MistralLite is a lighter version of the Mistral series, optimized for quicker responses and lower resource utilization while maintaining a high level of understanding and text generation capabilities. This model is versatile across various NLP tasks such as summarization, translation, and conversation.",
         "examples": [
             "Quick summarization of texts",
@@ -130,11 +113,7 @@
             "Answer: What is your refund policy?",
             "Converse about weekend plans."
         ],
-        "usecases": [
-            "Real-time chat translation",
-            "Customer service chatbots",
-            "Quick information retrieval"
-        ],
+        "usecases": ["Real-time chat translation", "Customer service chatbots", "Quick information retrieval"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -155,6 +134,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -168,20 +160,7 @@
         "model_name": "codellama/CodeLlama-7b-hf",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 7B is a language model with a focus on code generation and understanding programming contexts. It's adept at autocompleting code, bug detection, and generating code based on natural language descriptions. The '7B' denotes the size of the model indicating its ability to handle complex code-related tasks.",
         "examples": [
             "Code generation from descriptions",
@@ -209,11 +188,7 @@
             "Convert this pseudocode into Python code.",
             "Write unit tests for this JavaScript function."
         ],
-        "usecases": [
-            "Automated code review",
-            "Code generation platforms",
-            "Educational platforms for programming"
-        ],
+        "usecases": ["Automated code review", "Code generation platforms", "Educational platforms for programming"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -234,6 +209,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -247,20 +235,7 @@
         "model_name": "codellama/CodeLlama-7b-Python-hf",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 7B Python is tailored for handling Python programming tasks. It's capable of generating Python code, detecting bugs, and providing coding solutions. Its understanding of Python programming paradigms makes it a reliable tool for developers seeking to automate code-related tasks.",
         "examples": [
             "Python code generation",
@@ -288,11 +263,7 @@
             "Generate Python code from 'Create a program to analyze text files'.",
             "Write a Python script using TensorFlow for image recognition."
         ],
-        "usecases": [
-            "Automated Python code review",
-            "Python code generation platforms",
-            "Educational platforms for Python programming"
-        ],
+        "usecases": ["Automated Python code review", "Python code generation platforms", "Educational platforms for Python programming"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -313,6 +284,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -326,20 +310,7 @@
         "model_name": "codellama/CodeLlama-13b-hf",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 13B is engineered for superior code generation and understanding complex programming contexts. It excels at autocompleting code, bug detection, and generating code based on natural language descriptions. The '13B' denotes a larger model size, enabling more sophisticated code-related tasks.",
         "examples": [
             "Advanced code generation",
@@ -367,11 +338,7 @@
             "Optimize this JavaScript code for speed and efficiency.",
             "Design a responsive UI with React."
         ],
-        "usecases": [
-            "Automated code review",
-            "Code generation platforms",
-            "Educational platforms for advanced programming"
-        ],
+        "usecases": ["Automated code review", "Code generation platforms", "Educational platforms for advanced programming"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -392,6 +359,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -405,20 +385,7 @@
         "model_name": "codellama/CodeLlama-13b-Python-hf",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 13B Python is specialized for handling Python programming tasks with a higher degree of complexity. It's proficient in generating Python code, detecting bugs, and providing advanced coding solutions. Its nuanced understanding of Python programming makes it an invaluable tool for seasoned developers.",
         "examples": [
             "Complex Python code generation",
@@ -446,11 +413,7 @@
             "Optimize this Python script for faster execution with NumPy.",
             "Build a desktop calculator using Python's Tkinter library."
         ],
-        "usecases": [
-            "Automated Python code review",
-            "Python code generation platforms",
-            "Educational platforms for advanced Python programming"
-        ],
+        "usecases": ["Automated Python code review", "Python code generation platforms", "Educational platforms for advanced Python programming"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -471,6 +434,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -484,20 +460,7 @@
         "model_name": "codellama/CodeLlama-34b-hf",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 34B is a highly sophisticated model designed for advanced code generation and comprehension across multiple programming languages. It thrives in complex coding environments, delivering precise code solutions and bug identification. Its superior model size '34B' facilitates handling intricate coding scenarios.",
         "examples": [
             "Multi-language code generation",
@@ -525,11 +488,7 @@
             "Perform static code analysis on a large C++ codebase.",
             "Patch security vulnerabilities in a PHP web application."
         ],
-        "usecases": [
-            "Cross-language code generation platforms",
-            "Automated code review systems",
-            "Software development assisting tools"
-        ],
+        "usecases": ["Cross-language code generation platforms", "Automated code review systems", "Software development assisting tools"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -550,6 +509,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -563,20 +535,7 @@
         "model_name": "codellama/CodeLlama-34b-Python-hf",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 34B Python is tailored for Python programming, excelling in generating, analyzing, and troubleshooting Python code. It’s adept at creating optimized code, identifying bugs, and providing insightful coding solutions. The model's vast knowledge base makes it an asset for complex Python-centric projects.",
         "examples": [
             "Python code generation",
@@ -604,11 +563,7 @@
             "Optimize this Python web application for handling millions of requests.",
             "Develop a Python application for simulating quantum computing algorithms."
         ],
-        "usecases": [
-            "Python code generation platforms",
-            "Automated Python code review systems",
-            "Advanced Python programming educational platforms"
-        ],
+        "usecases": ["Python code generation platforms", "Automated Python code review systems", "Advanced Python programming educational platforms"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -629,6 +584,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -642,20 +610,7 @@
         "model_name": "meta-llama/Llama-2-7b-hf",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 7B, with its 7 billion parameters, is a versatile language model proficient in a range of text processing tasks. It processes and generates human-like text, making it a valuable tool for applications like chatbots, text summarization, and translation.",
         "examples": [
             "Text summarization",
@@ -683,11 +638,7 @@
             "Write a short story set in a futuristic world.",
             "Generate a description for an eco-friendly backpack."
         ],
-        "usecases": [
-            "Chatbots",
-            "Automated customer service",
-            "Content creation platforms"
-        ],
+        "usecases": ["Chatbots", "Automated customer service", "Content creation platforms"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -708,6 +659,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -721,20 +685,7 @@
         "model_name": "meta-llama/Llama-2-13b-hf",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 13B, equipped with 13 billion parameters, is an advanced language model adept at handling more complex text processing tasks. Its heightened capacity enables deeper understanding and better text generation, suited for professional-grade applications in text summarization, language translation, and content creation.",
         "examples": [
             "Advanced text summarization",
@@ -762,11 +713,7 @@
             "Generate a legal brief for a landmark court case.",
             "Create an educational module on advanced calculus."
         ],
-        "usecases": [
-            "Professional writing aids",
-            "Advanced chatbots",
-            "Automated translation services"
-        ],
+        "usecases": ["Professional writing aids", "Advanced chatbots", "Automated translation services"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -787,6 +734,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -800,20 +760,7 @@
         "model_name": "meta-llama/Llama-2-70b-hf",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 70B stands among the titans of language models with a colossal 70 billion parameters. This model excels in understanding and generating text for high-complexity tasks. It's ideal for research, complex content creation, and advanced natural language understanding applications.",
         "examples": [
             "Research paper summarization",
@@ -841,11 +788,7 @@
             "Create a policy brief on data privacy regulations.",
             "Formulate a business strategy for entering emerging markets."
         ],
-        "usecases": [
-            "Academic research",
-            "Advanced AI applications",
-            "High-level content creation"
-        ],
+        "usecases": ["Academic research", "Advanced AI applications", "High-level content creation"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -866,6 +809,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -879,20 +835,7 @@
         "model_name": "TheBloke/Mistral-7B-v0.1-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Mistral 7B GPTQ 4-bit is a highly optimized version of the Mistral 7B model, engineered for reduced size without compromising on performance. With GPTQ 4-bit quantization, it is suited for environments where memory and computational resources are limited, making it a go-to model for on-edge deployments and real-time applications.",
         "examples": [
             "Real-time text generation",
@@ -920,11 +863,7 @@
             "Compose a short message to confirm an appointment.",
             "Create a customer service response for a refund request."
         ],
-        "usecases": [
-            "Mobile applications",
-            "Embedded systems",
-            "Real-time chatbots"
-        ],
+        "usecases": ["Mobile applications", "Embedded systems", "Real-time chatbots"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -945,6 +884,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -958,20 +910,7 @@
         "model_name": "TheBloke/Mistral-7B-v0.1-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Mistral 7B GPTQ 8-bit brings the balance of performance and size optimization. With GPTQ 8-bit quantization, it provides a level of precision closer to the original Mistral 7B while still being more resource-efficient. It's well-suited for applications requiring a blend of performance and efficiency.",
         "examples": [
             "Efficient text generation",
@@ -999,11 +938,7 @@
             "Translate 'I need help with my order' to Italian.",
             "Generate an email response for a flight booking inquiry."
         ],
-        "usecases": [
-            "Efficient chatbots",
-            "Performance-oriented applications",
-            "Resource-optimized NLP tasks"
-        ],
+        "usecases": ["Efficient chatbots", "Performance-oriented applications", "Resource-optimized NLP tasks"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1024,6 +959,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -1037,20 +985,7 @@
         "model_name": "TheBloke/CodeLlama-7b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 7B HF GPTQ 4-bit is a precision-reduced version of CodeLlama 7B HF tailored for code generation tasks. Its 4-bit quantization ensures resource efficiency making it ideal for constrained environments where code generation on the fly is needed.",
         "examples": [
             "Generating code snippets",
@@ -1078,11 +1013,7 @@
             "Develop a Python script for a chatbot to greet users.",
             "Write HTML and CSS for a responsive navigation bar."
         ],
-        "usecases": [
-            "On-the-edge code generation",
-            "Real-time coding assistance",
-            "Automated code review and documentation"
-        ],
+        "usecases": ["On-the-edge code generation", "Real-time coding assistance", "Automated code review and documentation"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1103,6 +1034,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -1116,20 +1060,7 @@
         "model_name": "TheBloke/CodeLlama-7b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 7B HF GPTQ 8-bit is designed for efficient code generation while providing higher precision than its 4-bit variant. It caters to on-the-fly code generation needs in environments where both efficiency and accuracy are crucial.",
         "examples": [
             "Generating complex code structures",
@@ -1157,11 +1088,7 @@
             "Optimize this Ruby on Rails application for faster load times.",
             "Generate Python code for a logistic regression model."
         ],
-        "usecases": [
-            "Efficient on-the-edge code generation",
-            "Real-time coding assistance",
-            "Automated code review and documentation"
-        ],
+        "usecases": ["Efficient on-the-edge code generation", "Real-time coding assistance", "Automated code review and documentation"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1182,6 +1109,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -1195,20 +1135,7 @@
         "model_name": "TheBloke/CodeLlama-13b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 13B HF GPTQ 4-bit, with its larger model size, is adept at tackling more complex code generation tasks. The 4-bit quantization retains efficiency, making it a balanced choice for sophisticated code generation in resource-constrained environments.",
         "examples": [
             "Generating multi-file code projects",
@@ -1236,11 +1163,7 @@
             "Optimize a Django application for high-traffic scenarios.",
             "Generate a GraphQL API endpoint for a social media platform."
         ],
-        "usecases": [
-            "On-the-edge complex code generation",
-            "Advanced real-time coding assistance",
-            "Automated code maintenance"
-        ],
+        "usecases": ["On-the-edge complex code generation", "Advanced real-time coding assistance", "Automated code maintenance"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1261,6 +1184,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -1274,20 +1210,7 @@
         "model_name": "TheBloke/CodeLlama-13b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 13B HF GPTQ 8-bit offers a blend of enhanced precision and sophisticated code generation capabilities. The 8-bit quantization provides a higher accuracy, making it suitable for intricate code generation tasks where precision is paramount.",
         "examples": [
             "Advanced code generation",
@@ -1315,11 +1238,7 @@
             "Write C code for a smart home temperature sensor.",
             "Optimize a Kafka-based streaming application for lower latency."
         ],
-        "usecases": [
-            "High-precision code generation",
-            "Real-time complex coding assistance",
-            "Automated code analysis and refactoring"
-        ],
+        "usecases": ["High-precision code generation", "Real-time complex coding assistance", "Automated code analysis and refactoring"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1340,6 +1259,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -1353,20 +1285,7 @@
         "model_name": "TheBloke/CodeLlama-34b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 34B HF GPTQ 4-bit is a powerhouse for complex code generation with its expansive model size. The 4-bit quantization ensures operational efficiency, making it a top choice for intricate code generation tasks in resource-constrained settings.",
         "examples": [
             "Generating extensive codebases",
@@ -1394,11 +1313,7 @@
             "Write software for a self-driving car system.",
             "Optimize a Python application for processing large datasets."
         ],
-        "usecases": [
-            "Large-scale code generation",
-            "Advanced automated code design",
-            "High-efficiency real-time coding assistance"
-        ],
+        "usecases": ["Large-scale code generation", "Advanced automated code design", "High-efficiency real-time coding assistance"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1419,6 +1334,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -1432,20 +1360,7 @@
         "model_name": "TheBloke/CodeLlama-34b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "CodeLlama 34B HF GPTQ 8-bit stands as a pinnacle of precise and advanced code generation. The 8-bit quantization allows for higher accuracy, rendering it ideal for the most challenging code generation tasks where precision is crucial.",
         "examples": [
             "Precision-focused code generation",
@@ -1473,11 +1388,7 @@
             "Create a suite of tools for automated code refactoring.",
             "Optimize a machine learning algorithm for low-power devices."
         ],
-        "usecases": [
-            "Precision-focused code generation",
-            "Real-time sophisticated coding assistance",
-            "Automated code analysis and optimization"
-        ],
+        "usecases": ["Precision-focused code generation", "Real-time sophisticated coding assistance", "Automated code analysis and optimization"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1498,6 +1409,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -1511,20 +1435,7 @@
         "model_name": "TheBloke/Llama-2-7b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 7B HF GPTQ 4-bit is tailored for swift language processing and interpretation. The 4-bit quantization optimizes performance, making it a reliable choice for real-time language understanding and interaction.",
         "examples": [
             "Real-time text generation",
@@ -1552,11 +1463,7 @@
             "Create a slogan for an eco-friendly product.",
             "Write a short description for a new podcast episode."
         ],
-        "usecases": [
-            "Real-time communication platforms",
-            "Automated summarization tools",
-            "Language translation services"
-        ],
+        "usecases": ["Real-time communication platforms", "Automated summarization tools", "Language translation services"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1577,6 +1484,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -1590,20 +1510,7 @@
         "model_name": "TheBloke/Llama-2-7b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 7B HF GPTQ 8-bit excels in delivering precise language understanding and generation. The 8-bit quantization ensures higher accuracy, making it ideal for applications requiring nuanced language processing.",
         "examples": [
             "Sentiment analysis",
@@ -1631,11 +1538,7 @@
             "Translate a technical manual from English to German.",
             "Write a fictional story based on a given prompt."
         ],
-        "usecases": [
-            "Advanced sentiment analysis platforms",
-            "Automated content generation",
-            "Semantic search engines"
-        ],
+        "usecases": ["Advanced sentiment analysis platforms", "Automated content generation", "Semantic search engines"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1656,6 +1559,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -1669,20 +1585,7 @@
         "model_name": "TheBloke/Llama-2-13b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 13B HF GPTQ 4-bit is optimized for fast language processing while ensuring a reasonable level of accuracy. The 4-bit quantization facilitates rapid analysis and interpretation, making it suitable for real-time applications.",
         "examples": [
             "Real-time conversation analysis",
@@ -1710,11 +1613,7 @@
             "Translate a user guide for a kitchen appliance from Italian to English.",
             "Write an article about recent advancements in artificial intelligence."
         ],
-        "usecases": [
-            "Real-time communication platforms",
-            "Automated summarization tools",
-            "Language translation services"
-        ],
+        "usecases": ["Real-time communication platforms", "Automated summarization tools", "Language translation services"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1735,6 +1634,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -1748,20 +1660,7 @@
         "model_name": "TheBloke/Llama-2-13b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 13B HF GPTQ 8-bit is designed for accurate and nuanced language processing. The 8-bit quantization provides a balance between precision and performance, making it a go-to choice for complex language tasks.",
         "examples": [
             "Advanced language processing",
@@ -1789,11 +1688,7 @@
             "Translate a legal document from Spanish to English.",
             "Write an article on the future of artificial intelligence in healthcare."
         ],
-        "usecases": [
-            "Advanced sentiment analysis platforms",
-            "Automated content generation",
-            "Semantic search engines"
-        ],
+        "usecases": ["Advanced sentiment analysis platforms", "Automated content generation", "Semantic search engines"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1814,6 +1709,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -1827,20 +1735,7 @@
         "model_name": "TheBloke/Llama-2-70b-hf-GPTQ:gptq-4bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 70B HF GPTQ 4-bit is a highly optimized model engineered for swift language processing tasks. The 4-bit quantization boosts its speed, making it a prime choice for real-time applications that require a swift response.",
         "examples": [
             "Real-time dialogue systems",
@@ -1867,11 +1762,7 @@
             "Transcribe key points from a corporate webinar.",
             "Analyze customer feedback from a live survey about a new product."
         ],
-        "usecases": [
-            "Live customer support",
-            "Real-time communication platforms",
-            "Live event captioning services"
-        ],
+        "usecases": ["Live customer support", "Real-time communication platforms", "Live event captioning services"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1892,6 +1783,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -1905,20 +1809,7 @@
         "model_name": "TheBloke/Llama-2-70b-hf-GPTQ:gptq-8bit-32g-actorder_True",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "Llama 2 70B HF GPTQ 8-bit stands out for its precision in handling intricate language processing tasks. With 8-bit quantization, it strikes a balance between accuracy and performance, rendering it suitable for demanding linguistic challenges.",
         "examples": [
             "Deep semantic analysis",
@@ -1946,11 +1837,7 @@
             "Write a script for a documentary about ancient civilizations.",
             "Compose an editorial on the impact of technology on society."
         ],
-        "usecases": [
-            "Research and academia",
-            "Automated content creation",
-            "Professional translation services"
-        ],
+        "usecases": ["Research and academia", "Automated content creation", "Professional translation services"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1971,6 +1858,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -1984,31 +1884,10 @@
         "model_name": "WizardLM/WizardCoder-Python-7B-V1.0",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "WizardCoder Python 7B V1.0 is a specialized language model tailored for code generation in Python. Its vast training on diverse coding datasets makes it a robust model for transforming natural language descriptions into accurate Python code.",
-        "examples": [
-            "Code snippet generation",
-            "Bug fixing",
-            "Code refactoring"
-        ],
-        "usecases": [
-            "Automated code generation",
-            "Assisting in software development",
-            "Educational platforms for learning Python"
-        ]
+        "examples": ["Code snippet generation", "Bug fixing", "Code refactoring"],
+        "usecases": ["Automated code generation", "Assisting in software development", "Educational platforms for learning Python"]
     },
     {
         "name": "WizardCoder Python 13B V1.0",
@@ -2021,20 +1900,7 @@
         "model_name": "WizardLM/WizardCoder-Python-13B-V1.0",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "WizardCoder Python 13B V1.0 excels in creating complex code structures in Python. Its extensive understanding of programming paradigms makes it an invaluable asset for professional developers aiming for optimized, well-structured code.",
         "examples": [
             "Optimized code generation",
@@ -2062,11 +1928,7 @@
             "Develop a custom Python library for handling geospatial data.",
             "Create automated tests for a Python e-commerce platform."
         ],
-        "usecases": [
-            "Software development",
-            "Algorithm design",
-            "Code review and optimization"
-        ],
+        "usecases": ["Software development", "Algorithm design", "Code review and optimization"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2087,6 +1949,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -2100,20 +1975,7 @@
         "model_name": "WizardLM/WizardCoder-Python-34B-V1.0",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardCoder Python 34B V1.0 model is built to handle sophisticated code generation and manipulation tasks. Its enormous parameter size ensures a deep understanding of complex coding requirements, making it ideal for large-scale software development and computational problem solving.",
         "examples": [
             "Sophisticated code generation",
@@ -2141,11 +2003,7 @@
             "Develop a Python SDK for integrating with a RESTful API.",
             "Write a Python script for analyzing astronomical data."
         ],
-        "usecases": [
-            "Enterprise-level software development",
-            "Algorithm design and optimization",
-            "Automated coding solutions"
-        ],
+        "usecases": ["Enterprise-level software development", "Algorithm design and optimization", "Automated coding solutions"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2166,6 +2024,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -2179,20 +2050,7 @@
         "model_name": "WizardLMTeam/WizardLM-13B-V1.0",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardLM 13B V1.0 is engineered for a broad spectrum of natural language processing tasks. It has a profound comprehension of contextual relationships within text, which is instrumental in various NLP applications.",
         "examples": [
             "Real-time text generation",
@@ -2220,11 +2078,7 @@
             "Generate a news article about recent advancements in renewable energy.",
             "Write a script for an educational YouTube video on space exploration."
         ],
-        "usecases": [
-            "Content generation",
-            "Data mining",
-            "Semantic analysis"
-        ],
+        "usecases": ["Content generation", "Data mining", "Semantic analysis"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2245,6 +2099,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -2258,20 +2125,7 @@
         "model_name": "WizardLM/WizardLM-70B-V1.0",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardLM 70B V1.0 model, with its massive parameter count, is at the forefront of tackling intricate language tasks. It excels in text generation, translation, and complex linguistic problem solving.",
         "examples": [
             "High-level text generation",
@@ -2299,11 +2153,7 @@
             "Create an in-depth guide on sustainable farming practices.",
             "Write a detailed analysis of economic trends in the past decade."
         ],
-        "usecases": [
-            "Research in linguistics",
-            "Automated content creation",
-            "Language-based AI development"
-        ],
+        "usecases": ["Research in linguistics", "Automated content creation", "Language-based AI development"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2324,6 +2174,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -2337,20 +2200,7 @@
         "model_name": "TheBloke/WizardCoder-Python-7B-V1.0-GPTQ",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardCoder Python 7B V1.0 GPTQ model is a specialized tool for code generation, honed to deliver quality code across diverse programming paradigms. The GPTQ optimization enables faster performance with lower resource requirements.",
         "examples": [
             "Optimized code generation",
@@ -2378,11 +2228,7 @@
             "Develop a custom Python library for handling geospatial data.",
             "Create automated tests for a Python e-commerce platform."
         ],
-        "usecases": [
-            "Software engineering",
-            "Code optimization",
-            "Automated debugging"
-        ],
+        "usecases": ["Software engineering", "Code optimization", "Automated debugging"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2403,6 +2249,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -2416,20 +2275,7 @@
         "model_name": "TheBloke/WizardCoder-Python-13B-V1.0-GPTQ",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardCoder Python 13B V1.0 GPTQ model is engineered for superior code generation and review. With an enhanced parameter count, it delivers more nuanced code structures while the GPTQ optimization ensures efficient performance.",
         "examples": [
             "Advanced code generation",
@@ -2457,11 +2303,7 @@
             "Develop a Python package for blockchain-based applications.",
             "Create a Python library for augmented reality app development."
         ],
-        "usecases": [
-            "Software development",
-            "Automated code reviewing",
-            "Algorithm design"
-        ],
+        "usecases": ["Software development", "Automated code reviewing", "Algorithm design"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2482,6 +2324,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -2495,20 +2350,7 @@
         "model_name": "TheBloke/WizardCoder-Python-34B-V1.0-GPTQ",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardCoder Python 34B V1.0 GPTQ model stands as a pinnacle in automated code generation and analysis. Its vast parameter count facilitates intricate code structures and sophisticated algorithm designs, optimized for performance by GPTQ.",
         "examples": [
             "Sophisticated code generation",
@@ -2536,11 +2378,7 @@
             "Develop a Python SDK for integrating with a RESTful API.",
             "Write a Python script for analyzing astronomical data."
         ],
-        "usecases": [
-            "High-level software engineering",
-            "Algorithm research",
-            "Code performance optimization"
-        ],
+        "usecases": ["High-level software engineering", "Algorithm research", "Code performance optimization"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2561,6 +2399,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -2574,20 +2425,7 @@
         "model_name": "TheBloke/WizardLM-13B-V1.0-Uncensored-GPTQ",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardLM 13B V1.0 GPTQ model excels in diverse language processing tasks. Its GPTQ optimization ensures it performs efficiently even in resource-constrained environments, making it a reliable choice for real-time language analysis and generation.",
         "examples": [
             "Real-time text generation",
@@ -2615,11 +2453,7 @@
             "Generate a news article about recent advancements in renewable energy.",
             "Write a script for an educational YouTube video on space exploration."
         ],
-        "usecases": [
-            "Live language processing",
-            "Real-time communication platforms",
-            "Automated content creation"
-        ],
+        "usecases": ["Live language processing", "Real-time communication platforms", "Automated content creation"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2640,6 +2474,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     },
     {
@@ -2653,20 +2500,7 @@
         "model_name": "TheBloke/WizardLM-70B-V1.0-GPTQ",
         "apiClass": "LanguageModelAPI",
         "endpoint": "/api/v1/complete",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The WizardLM 70B V1.0 GPTQ model is a giant in the realm of language processing. Its colossal parameter count, paired with GPTQ optimization, makes it a powerhouse for any high-level language task, delivering unparalleled performance.",
         "examples": [
             "High-level text generation",
@@ -2694,11 +2528,7 @@
             "Create an in-depth guide on sustainable farming practices.",
             "Write a detailed analysis of economic trends in the past decade."
         ],
-        "usecases": [
-            "Language research",
-            "Automated authoring systems",
-            "High-performance language-based applications"
-        ],
+        "usecases": ["Language research", "Automated authoring systems", "High-performance language-based applications"],
         "apiDeploy": {
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2719,6 +2549,19 @@
             "decoding_strategy": "generate",
             "max_new_tokens": 1024,
             "do_sample": true
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
         }
     }
 ]

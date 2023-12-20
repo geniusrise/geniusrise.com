@@ -14,20 +14,7 @@
         "model_name": "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The Multilingual DeBERTa model is engineered for Natural Language Inference (NLI) tasks across multiple languages. This model, by learning from a vast dataset of 2 million examples, has honed its capabilities to discern the relationships between premises and hypotheses in text. It operates effectively across various languages, making it a versatile tool for multilingual NLI tasks. The model's performance is particularly robust in scenarios that require understanding subtle nuances in text to ascertain the logical coherence or contradiction among statements. Its multilingual nature makes it a reliable choice in global settings, providing consistency in NLI tasks across diverse linguistic landscapes.",
         "examples": [
             "Assessing logical connections in multilingual customer feedback",
@@ -50,11 +37,7 @@
             " \"premise\": \"The company's profits have doubled.\", \"hypothesis\": \"The company is facing financial losses.",
             " \"premise\": \"The vaccine is effective against the virus.\", \"hypothesis\": \"The virus can be prevented with the vaccine."
         ],
-        "usecases": [
-            "Cross-lingual text analysis",
-            "Multilingual content moderation",
-            "Global customer support systems"
-        ],
+        "usecases": ["Cross-lingual text analysis", "Multilingual content moderation", "Global customer support systems"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -73,6 +56,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -90,20 +83,7 @@
         "model_name": "google/t5_xxl_true_nli_mixture",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The T5 XXL True NLI model is built to excel in Natural Language Inference tasks, leveraging a large-scale mixture of diverse NLI datasets for training. This model embodies the strength of Transformer architecture to analyze and infer relationships between text snippets. It's designed to ascertain whether a hypothesis is entailed, contradicted, or neutrally related to a given premise. The model's large scale ensures a deep understanding of textual nuances, aiding in accurate inference across a range of domains. T5 XXL True NLI model is a powerful asset for applications that demand high-precision understanding and inference from text data.",
         "examples": [
             "Verifying factual consistency in historical texts",
@@ -126,11 +106,7 @@
             " \"premise\": \"The painting is a work of Vincent van Gogh.\", \"hypothesis\": \"The artwork was created by a famous Dutch painter.",
             " \"premise\": \"The medication is taken once a day.\", \"hypothesis\": \"Patients need to take the medication multiple times a day."
         ],
-        "usecases": [
-            "Automated reasoning systems",
-            "Content moderation",
-            "Knowledge verification"
-        ],
+        "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -149,6 +125,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -166,20 +152,7 @@
         "model_name": "facebook/bart-large-mnli",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The BART Large MNLI model is fine-tuned specifically for the MultiNLI (MNLI) dataset to perform Natural Language Inference (NLI) tasks. It leverages the BART (Bidirectional and Auto-Regressive Transformers) architecture to analyze the relationship between a premise and a hypothesis. By evaluating whether the hypothesis is entailed, contradicted, or unrelated to the premise, it provides valuable insights into the logical coherence of text. This model's fine-tuning on the MNLI dataset, which encompasses a variety of genres and topics, ensures a broad understanding and robust performance across diverse textual scenarios. BART Large MNLI model is a solid choice for applications that require accurate inference and understanding of textual relationships.",
         "examples": [
             "Validating news report accuracy against established facts",
@@ -202,11 +175,7 @@
             " \"premise\": \"The technology company is valued at a billion dollars.\", \"hypothesis\": \"The company is struggling financially.",
             " \"premise\": \"The new law was passed by the senate.\", \"hypothesis\": \"The legislative process is at a standstill."
         ],
-        "usecases": [
-            "Textual logic verification",
-            "Content moderation",
-            "Automated reasoning systems"
-        ],
+        "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -225,6 +194,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -242,20 +221,7 @@
         "model_name": "microsoft/deberta-v2-xlarge-mnli",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The DeBERTa V2 Xlarge MNLI model is an iteration of the DeBERTa architecture, specifically fine-tuned on the MultiNLI (MNLI) dataset for excelling in Natural Language Inference (NLI) tasks. The model is designed to analyze and understand the relationship between a premise and a hypothesis, categorizing them as entailment, contradiction, or neutral. The fine-tuning on the MNLI dataset ensures that the model is well-versed with a variety of text genres and topics, thus making it adept at handling diverse textual scenarios. The DeBERTa V2 Xlarge MNLI model is a robust choice for applications requiring a deep understanding and inference of textual relationships, backed by a large-scale and diverse training dataset.",
         "examples": [
             "Determining logical consistency in political speeches",
@@ -278,11 +244,7 @@
             " \"premise\": \"The musician performed at the concert last night.\", \"hypothesis\": \"The concert was cancelled.",
             " \"premise\": \"The book covers the topic of climate change.\", \"hypothesis\": \"The book is about ancient civilizations."
         ],
-        "usecases": [
-            "Automated reasoning systems",
-            "Content moderation",
-            "Knowledge verification"
-        ],
+        "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -301,6 +263,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -318,20 +290,7 @@
         "model_name": "khalidalt/DeBERTa-v3-large-mnli",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The DeBERTa V3 Large MNLI model is a refined version of the DeBERTa architecture, specifically tailored for Natural Language Inference (NLI) tasks through fine-tuning on the MultiNLI (MNLI) dataset. This model is adept at understanding the logical relationships between a premise and a hypothesis, categorizing them as entailment, contradiction, or neutral. The specialized training on the MNLI dataset enables the model to have a broad understanding of various text genres and topics, ensuring robust performance across different textual scenarios. The DeBERTa V3 Large MNLI model is an excellent choice for applications that demand accurate inference and understanding of textual relationships, leveraging the power of the DeBERTa architecture and a diverse training dataset.",
         "examples": [
             "Analyzing logical consistency in academic theses",
@@ -354,11 +313,7 @@
             " \"premise\": \"The experiment was conducted in a controlled environment.\", \"hypothesis\": \"The research lacked proper experimental conditions.",
             " \"premise\": \"The lecture covered the topic of renewable energy.\", \"hypothesis\": \"The talk focused on fossil fuels."
         ],
-        "usecases": [
-            "Textual logic verification",
-            "Content moderation",
-            "Automated reasoning systems"
-        ],
+        "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -377,6 +332,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -394,20 +359,7 @@
         "model_name": "typeform/distilbert-base-uncased-mnli",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The DistilBERT MNLI model is a distilled version of the BERT model, specifically fine-tuned on the MultiNLI (MNLI) dataset for Natural Language Inference (NLI) tasks. It aims to analyze the relationship between a premise and a hypothesis, categorizing them as entailment, contradiction, or neutral. Despite being a lighter model, DistilBERT MNLI does not compromise on performance and provides accurate inferences across a variety of textual scenarios. Its training on the MNLI dataset ensures a broad understanding of different text genres and topics. The DistilBERT MNLI model is a compact and efficient choice for applications requiring accurate textual inference while being resource-conscious.",
         "examples": [
             "Assessing logical coherence in user reviews",
@@ -430,11 +382,7 @@
             " \"premise\": \"The treatment is effective in reducing symptoms.\", \"hypothesis\": \"Patients reported no improvement after the treatment.",
             " \"premise\": \"The film was awarded at several international festivals.\", \"hypothesis\": \"The movie failed to receive any recognition."
         ],
-        "usecases": [
-            "Resource-efficient textual inference",
-            "Content moderation",
-            "Automated reasoning systems"
-        ],
+        "usecases": ["Resource-efficient textual inference", "Content moderation", "Automated reasoning systems"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -453,6 +401,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -470,20 +428,7 @@
         "model_name": "roberta-large-mnli",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The RoBERTa Large MNLI model is a variation of the RoBERTa model, tailored for the Natural Language Inference (NLI) tasks by being fine-tuned on the MultiNLI (MNLI) dataset. It examines the relationship between a premise and a hypothesis and categorizes them as entailment, contradiction, or neutral. The fine-tuning on the MNLI dataset endows the model with a broad understanding of various textual scenarios across different genres and topics. RoBERTa Large MNLI is a robust choice for applications necessitating a deep understanding of textual relationships, leveraging the power of the RoBERTa architecture along with a diverse training dataset.",
         "examples": [
             "Validating hypotheses in research abstracts",
@@ -506,11 +451,7 @@
             " \"premise\": \"The building is a preserved historical site.\", \"hypothesis\": \"The structure was recently constructed.",
             " \"premise\": \"The article discusses climate change.\", \"hypothesis\": \"The piece is about urban development."
         ],
-        "usecases": [
-            "Automated reasoning systems",
-            "Content moderation",
-            "Knowledge verification"
-        ],
+        "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -529,6 +470,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -546,20 +497,7 @@
         "model_name": "microsoft/deberta-v2-xxlarge-mnli",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The DeBERTa V2 XXLarge MNLI model is an advanced iteration of the DeBERTa model, particularly fine-tuned on the MultiNLI (MNLI) dataset for excelling in Natural Language Inference (NLI) tasks. The model is adept at understanding the logical relationships between a premise and a hypothesis, categorizing them as entailment, contradiction, or neutral. With the fine-tuning on the MNLI dataset, the model gains a wide understanding of various text genres and topics, ensuring a robust performance across diverse textual scenarios. The DeBERTa V2 XXLarge MNLI model is a potent choice for applications requiring a profound understanding and inference of textual relationships, backed by the powerful DeBERTa architecture and a diverse training dataset.",
         "input_examples": [
             " \"premise\": \"The city is expanding its public transport system.\", \"hypothesis\": \"Public transportation options are being reduced.",
@@ -573,11 +511,7 @@
             " \"premise\": \"The species is considered endangered.\", \"hypothesis\": \"The species has a stable population.",
             " \"premise\": \"The book is set in the 19th century.\", \"hypothesis\": \"The story takes place in the modern day."
         ],
-        "usecases": [
-            "Textual logic verification",
-            "Content moderation",
-            "Automated reasoning systems"
-        ],
+        "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -596,6 +530,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -613,20 +557,7 @@
         "model_name": "sileod/deberta-v3-large-tasksource-nli",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The DeBERTa V3 Large TaskSource NLI model is a refined version of the DeBERTa architecture, specifically tailored for Natural Language Inference (NLI) tasks. This model is adept at understanding the logical relationships between a premise and a hypothesis, categorizing them as entailment, contradiction, or neutral. The specialized training on a variety of NLI tasks ensures the model's robustness and wide understanding across different textual scenarios. The DeBERTa V3 Large TaskSource NLI model is an excellent choice for applications that demand accurate inference and understanding of textual relationships, leveraging the power of the DeBERTa architecture and a diverse training background.",
         "examples": [
             "Verifying facts in journalistic reports",
@@ -649,11 +580,7 @@
             " \"premise\": \"The movie is based on a true story.\", \"hypothesis\": \"The film is a work of pure fiction.",
             " \"premise\": \"The research focuses on renewable energy.\", \"hypothesis\": \"The study is about fossil fuels."
         ],
-        "usecases": [
-            "Textual logic verification",
-            "Content moderation",
-            "Automated reasoning systems"
-        ],
+        "usecases": ["Textual logic verification", "Content moderation", "Automated reasoning systems"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -672,6 +599,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -689,20 +626,7 @@
         "model_name": "cross-encoder/nli-deberta-v3-small",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The NLI DeBERTa V3 Small model is a more compact variant of the DeBERTa model series, fine-tuned for Natural Language Inference (NLI) tasks. It analyzes the relationship between a premise and a hypothesis, classifying them into categories such as entailment, contradiction, or neutral. Despite its smaller size, this model provides a quick yet effective solution for understanding textual relationships. It's an excellent choice for applications with limited computational resources while still requiring reliable NLI capabilities.",
         "examples": [
             "Identifying logical flaws in arguments",
@@ -725,11 +649,7 @@
             " \"premise\": \"The lake is a popular tourist spot.\", \"hypothesis\": \"The site is rarely visited.",
             " \"premise\": \"The conference focuses on environmental issues.\", \"hypothesis\": \"The seminar is about technology advancements."
         ],
-        "usecases": [
-            "Real-time text analysis platforms",
-            "Content moderation",
-            "Automated reasoning systems"
-        ],
+        "usecases": ["Real-time text analysis platforms", "Content moderation", "Automated reasoning systems"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -748,6 +668,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -765,20 +695,7 @@
         "model_name": "cross-encoder/nli-deberta-v3-base",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The NLI DeBERTa V3 Base model, part of the DeBERTa model series, is fine-tuned specifically for Natural Language Inference (NLI) tasks. It assesses the relationship between a premise and a hypothesis, classifying them into categories like entailment, contradiction, or neutral. The fine-tuning process empowers the model to have a good understanding of textual relationships across a variety of contexts. It's a strong choice for applications that require a balance between computational efficiency and reliable NLI performance.",
         "examples": [
             "Analyzing logical structure in academic papers",
@@ -801,11 +718,7 @@
             " \"premise\": \"The climate in the region is arid.\", \"hypothesis\": \"The area has a tropical climate.",
             " \"premise\": \"The law is newly enacted.\", \"hypothesis\": \"The regulation has been long established."
         ],
-        "usecases": [
-            "Automated reasoning systems",
-            "Content moderation",
-            "Knowledge verification"
-        ],
+        "usecases": ["Automated reasoning systems", "Content moderation", "Knowledge verification"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -824,6 +737,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -841,20 +764,7 @@
         "model_name": "cross-encoder/nli-deberta-v3-large",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The NLI DeBERTa V3 Large model is a robust version within the DeBERTa model series, fine-tuned particularly for Natural Language Inference (NLI) tasks. It meticulously analyzes the relationship between a premise and a hypothesis, classifying them into entailment, contradiction, or neutral. The model's large architecture and fine-tuning process on NLI tasks provide it with a deep understanding of textual relationships across various contexts. It is a solid choice for applications that require high-level NLI performance and are equipped to handle the computational demands of a large model.",
         "examples": [
             "Evaluating argument validity in debates",
@@ -877,11 +787,7 @@
             " \"premise\": \"The food is organic.\", \"hypothesis\": \"The produce is genetically modified.",
             " \"premise\": \"The movie is a romantic comedy.\", \"hypothesis\": \"The film is a thriller."
         ],
-        "usecases": [
-            "Advanced textual logic verification",
-            "Content moderation",
-            "Automated reasoning systems"
-        ],
+        "usecases": ["Advanced textual logic verification", "Content moderation", "Automated reasoning systems"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -900,6 +806,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -917,20 +833,7 @@
         "model_name": "cross-encoder/nli-roberta-base",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The NLI RoBERTa Base model is a variant of the original RoBERTa model, fine-tuned specifically for Natural Language Inference (NLI) tasks. It analyzes the relationship between a premise and a hypothesis, aiming to determine whether the hypothesis is entailed, contradicted, or neutrally related to the premise. The model leverages the robustness of the RoBERTa architecture to effectively understand and categorize textual relationships. It's a reliable choice for various applications requiring a solid understanding of text relationships without the computational demand of larger models.",
         "examples": [
             "Assessing logical coherence in business reports",
@@ -953,11 +856,7 @@
             " \"premise\": \"The organization is non-profit.\", \"hypothesis\": \"The group operates for profit.",
             " \"premise\": \"The climate is humid.\", \"hypothesis\": \"The environment is arid."
         ],
-        "usecases": [
-            "Content moderation",
-            "Automated reasoning systems",
-            "Real-time text analysis platforms"
-        ],
+        "usecases": ["Content moderation", "Automated reasoning systems", "Real-time text analysis platforms"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -976,6 +875,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -993,20 +902,7 @@
         "model_name": "cross-encoder/nli-deberta-v3-large",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The NLI DeBERTa V3 Large model is another large-scale model within the DeBERTa series, fine-tuned for Natural Language Inference (NLI) tasks. It examines the relationship between a premise and a hypothesis, categorizing them into either entailment, contradiction, or neutral. Due to its large architecture, the model provides a deeper understanding of textual relationships, making it an excellent choice for applications requiring high-accuracy NLI performance. However, the computational requirements for this model are higher, making it suitable for well-resourced environments.",
         "examples": [
             "Verifying logical relationships in scientific research papers",
@@ -1029,11 +925,7 @@
             " \"premise\": \"The software enhances data security.\", \"hypothesis\": \"Using the software poses a risk to data safety.",
             " \"premise\": \"The athlete won multiple gold medals.\", \"hypothesis\": \"The sportsperson has never won a major competition."
         ],
-        "usecases": [
-            "Advanced textual logic verification",
-            "Content moderation",
-            "Automated reasoning systems"
-        ],
+        "usecases": ["Advanced textual logic verification", "Content moderation", "Automated reasoning systems"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -1052,6 +944,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     },
     {
@@ -1069,20 +971,7 @@
         "model_name": "cross-encoder/nli-distilroberta-base",
         "apiClass": "NLIAPI",
         "endpoint": "/api/v1/entailment",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The NLI DistilRoBERTa Base model is a distilled version of the RoBERTa model, fine-tuned for Natural Language Inference (NLI) tasks. It aims to analyze the relationship between a premise and a hypothesis, categorizing them into entailment, contradiction, or neutral. The distillation process makes this model lighter and faster, while still retaining a good level of performance on NLI tasks. It's a great choice for applications with limited computational resources but still requiring reliable NLI capabilities.",
         "examples": [
             "Analyzing text for logical soundness in news articles",
@@ -1105,11 +994,7 @@
             " \"premise\": \"The experiment yielded significant results.\", \"hypothesis\": \"The study's findings were inconclusive.",
             " \"premise\": \"The vehicle is equipped with advanced safety features.\", \"hypothesis\": \"The car lacks modern safety mechanisms."
         ],
-        "usecases": [
-            "Real-time text analysis platforms",
-            "Content moderation",
-            "Knowledge verification"
-        ],
+        "usecases": ["Real-time text analysis platforms", "Content moderation", "Knowledge verification"],
         "apiDeploy": {
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
@@ -1128,6 +1013,16 @@
         "api": {
             "premise": "This a very good entry level smartphone, battery last 2-3 days after fully charged when connected to the internet. No memory lag issue when playing simple hidden object games. Performance is beyond my expectation, i bought it with a good bargain, couldnt ask for more!",
             "hypothesis": "the phone has an awesome battery life"
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
         }
     }
 ]

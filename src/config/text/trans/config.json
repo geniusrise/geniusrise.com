@@ -18,20 +18,7 @@
         "model_name": "facebook/mbart-large-50-many-to-many-mmt",
         "apiClass": "TranslationAPI",
         "endpoint": "/api/v1/translate",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The Multilingual Many-to-Many Translation model is a powerful tool for translating text between multiple languages. Unlike single pair translation models, this model is capable of handling translations among 50 different languages. This can be incredibly useful in global settings where communication across multiple language barriers is necessary. It employs a unique training approach to learn a multitude of language pairs simultaneously, improving its efficiency and consistency across different languages. By leveraging this model, businesses and individuals can significantly enhance their multilingual communication capabilities, making global interactions smoother and more effective.",
         "examples": [
             "Translating customer reviews from various languages to English",
@@ -57,11 +44,7 @@
             "input: English press release for an international event, source: English, target: Portuguese",
             "input: English product catalog for a multinational company, source: English, target: Hindi"
         ],
-        "usecases": [
-            "Global customer support",
-            "Multilingual content creation",
-            "International business communication"
-        ],
+        "usecases": ["Global customer support", "Multilingual content creation", "International business communication"],
         "apiDeploy": {
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
@@ -89,6 +72,26 @@
             "max_length": 200,
             "num_beams": 5,
             "pad_token_id": 1
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSeq2SeqLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "generation_origin": "hi_IN",
+            "generation_target": "en_XX",
+            "generation_decoding_strategy": "generate",
+            "generation_decoder_start_token_id": 2,
+            "generation_early_stopping": true,
+            "generation_eos_token_id": 2,
+            "generation_forced_eos_token_id": 2,
+            "generation_max_length": 200,
+            "generation_num_beams": 5,
+            "generation_pad_token_id": 1
         }
     },
     {
@@ -110,20 +113,7 @@
         "model_name": "facebook/wmt21-dense-24-wide-x-en",
         "apiClass": "TranslationAPI",
         "endpoint": "/api/v1/translate",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The Dense Multilingual Translation to English model is engineered to translate text from 24 different languages into English. This model can be an essential tool for organizations and individuals looking to consolidate multilingual data into a single language for analysis or communication. Its dense translation mechanism ensures high-quality translations, capturing the nuances of the original text. The capability of translating multiple languages to English in a consistent manner makes it a valuable asset in any scenario where understanding or disseminating multilingual information is crucial.",
         "examples": [
             "Translating foreign news articles to English",
@@ -149,11 +139,7 @@
             "input: International sports event commentary, source: Spanish, target: Italian",
             "input: Multinational corporate policy announcement, source: English, target: Hindi"
         ],
-        "usecases": [
-            "Multilingual content moderation",
-            "Global news monitoring",
-            "International business documentation"
-        ],
+        "usecases": ["Multilingual content moderation", "Global news monitoring", "International business documentation"],
         "apiDeploy": {
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
@@ -181,6 +167,26 @@
             "max_length": 200,
             "num_beams": 5,
             "pad_token_id": 1
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSeq2SeqLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "generation_origin": "hi_IN",
+            "generation_target": "en_XX",
+            "generation_decoding_strategy": "generate",
+            "generation_decoder_start_token_id": 2,
+            "generation_early_stopping": true,
+            "generation_eos_token_id": 2,
+            "generation_forced_eos_token_id": 2,
+            "generation_max_length": 200,
+            "generation_num_beams": 5,
+            "generation_pad_token_id": 1
         }
     },
     {
@@ -202,20 +208,7 @@
         "model_name": "facebook/wmt21-dense-24-wide-en-x",
         "apiClass": "TranslationAPI",
         "endpoint": "/api/v1/translate",
-        "bulk_formats": [
-            "huggingface",
-            "jsonl",
-            "csv",
-            "parquet",
-            "json",
-            "xml",
-            "yaml",
-            "tsv",
-            "xls",
-            "xlsx",
-            "sqlite",
-            "feather"
-        ],
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
         "description": "The Dense Multilingual Translation from English model is tailored to translate English text into 24 different languages. This model is instrumental for organizations and individuals aiming to disseminate information across a diverse linguistic audience. The model's dense translation mechanism ensures that the translations are of high quality, maintaining the integrity of the original message. Whether it's for global marketing campaigns, international publications, or multilingual customer communications, this model serves as a robust solution for breaking down language barriers and reaching a wider audience.",
         "examples": [
             "Translating English marketing material to multiple languages",
@@ -241,11 +234,7 @@
             "input: Product specifications for an automotive part, source: Japanese, target: Spanish",
             "input: E-commerce platform's policy updates, source: English, target: Chinese"
         ],
-        "usecases": [
-            "Global marketing campaigns",
-            "Multilingual educational platforms",
-            "International legal compliance"
-        ],
+        "usecases": ["Global marketing campaigns", "Multilingual educational platforms", "International legal compliance"],
         "apiDeploy": {
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
@@ -273,6 +262,26 @@
             "max_length": 200,
             "num_beams": 5,
             "pad_token_id": 1
+        },
+        "bulkDeploy": {
+            "model_class": "AutoModelForSeq2SeqLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "generation_origin": "hi_IN",
+            "generation_target": "en_XX",
+            "generation_decoding_strategy": "generate",
+            "generation_decoder_start_token_id": 2,
+            "generation_early_stopping": true,
+            "generation_eos_token_id": 2,
+            "generation_forced_eos_token_id": 2,
+            "generation_max_length": 200,
+            "generation_num_beams": 5,
+            "generation_pad_token_id": 1
         }
     }
 ]
