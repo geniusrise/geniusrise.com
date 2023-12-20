@@ -46,8 +46,9 @@ const API: React.FC<APIProps> = ({ model }) => {
         node_port: 0,
         port: 80,
         target_port: 3000,
-        pod_size: "s"
+        pod_size: "m"
     })
+    const [modelSettings, setModelSettings] = useState(model.apiDeploy)
 
     const [launched, setLaunched] = useState<any>({})
     const [launching, setLaunching] = useState(false)
@@ -129,7 +130,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                 method: "listen",
                 method_args: {
                     model_name: model.model_name,
-                    ...model.apiDeploy
+                    ...modelSettings
                 }
             }
         }).then(x => {
@@ -223,9 +224,10 @@ const API: React.FC<APIProps> = ({ model }) => {
                 </Grid>
             </div>
             <Settings
-                taskType="api"
+                taskType="bulk"
                 model={model}
                 callback={x => {
+                    setModelSettings(x)
                     setSettingsVisibile(!settingsVisible)
                 }}
                 visible={settingsVisible}

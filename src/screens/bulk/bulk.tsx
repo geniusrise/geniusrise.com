@@ -60,10 +60,11 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
 
     const [config, setConfig] = useState<object>({
         name: model.apiClass.replace("API", "Bulk"),
-        pod_size: "s",
+        pod_size: "m",
         input_s3_folder: s3BucketUrl,
         output_s3_folder: s3BucketUrl,
     })
+    const [modelSettings, setModelSettings] = useState(model.bulkDeploy)
 
     const handleChange = (key: string, value: any) => {
         setConfig((prevState: any) => ({
@@ -192,7 +193,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                 method: model.bulkMethod,
                 method_args: {
                     model_name: model.model_name,
-                    ...model.bulkDeploy
+                    ...modelSettings
                 }
             }
         })
@@ -322,6 +323,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                 taskType="bulk"
                 model={model}
                 callback={x => {
+                    setModelSettings(x)
                     setSettingsVisibile(!settingsVisible)
                 }}
                 visible={settingsVisible}

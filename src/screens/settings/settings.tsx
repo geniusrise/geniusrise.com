@@ -43,7 +43,7 @@ const Settings: React.FC<Props> = ({ taskType, model, callback, visible }) => {
         return state
     }
 
-    const config = taskType === "api" ? model.apiDeploy : taskType === "bulk" ? model.apiDeploy : model.apiDeploy
+    const config = taskType === "api" ? model.apiDeploy : taskType === "bulk" ? model.bulkDeploy : model.apiDeploy
     const [formState, setFormState] = useState<any>(config)
 
     const handleChange = (key: string, value: any) => {
