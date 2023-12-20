@@ -114,7 +114,6 @@ const FineTune: React.FC<FineTuneProps> = ({ model }) => {
                 model={model}
                 callback={x => {
                     setSettingsVisibile(!settingsVisible)
-                    console.log(x)
                 }}
                 visible={settingsVisible}
             ></Settings>

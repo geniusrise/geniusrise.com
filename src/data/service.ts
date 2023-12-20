@@ -55,7 +55,6 @@ async function listServices(): Promise<AxiosResponse<Service[]> | null> {
 
 // Create Service
 async function createService(serviceData: ServiceCreate): Promise<AxiosResponse<Service> | null> {
-    console.log(serviceData)
     try {
         const response = await apiClient().post<Service>("/1", serviceData)
         console.debug("createService response:", response)

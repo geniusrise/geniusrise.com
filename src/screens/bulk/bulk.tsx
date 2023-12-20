@@ -174,7 +174,6 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     const handleLaunch = () => {
         setProgressBarVisible(true)
         setProgress(0)
-        console.log(config)
 
         createJob({
             task: {
@@ -316,7 +315,6 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                 model={model}
                 callback={x => {
                     setSettingsVisibile(!settingsVisible)
-                    console.log(x)
                 }}
                 visible={settingsVisible}
             ></Settings>

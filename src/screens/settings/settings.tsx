@@ -55,7 +55,6 @@ const Settings: React.FC<Props> = ({ taskType, model, callback, visible }) => {
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault()
-        console.log(formState)
         callback(formState)
     }
 

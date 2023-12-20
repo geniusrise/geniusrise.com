@@ -33,7 +33,6 @@ function Dashboard(props: Props) {
         if (services.length === 0) {
             listServices().then((x) => {
                 const svcs = x.data.filter(x => !x.is_deleted).sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-                console.log(svcs)
                 setServices(svcs)
 
                 // svcs.map(s => getServiceMetrics(s.uuid).then(x => {
@@ -42,7 +41,6 @@ function Dashboard(props: Props) {
 
                 listJobs().then(x => {
                     const jobs = x.data.filter(x => !x.is_deleted).sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-                    console.log(jobs)
                     setServices(svcs => svcs.concat(jobs))
                 })
             })
