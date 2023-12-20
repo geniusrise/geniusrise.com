@@ -71,7 +71,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true,
             "generation_temperature": 0.2,
@@ -151,7 +151,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true,
             "generation_temperature": 0.2
@@ -225,7 +225,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true
         }
@@ -302,7 +302,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true,
             "generation_temperature": 0.2,
@@ -379,7 +379,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true
         }
@@ -456,7 +456,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true,
             "generation_temperature": 0.7,
@@ -533,7 +533,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true
         }
@@ -606,7 +606,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true
         }
@@ -681,7 +681,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true
         }
@@ -756,7 +756,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true
         }
@@ -831,7 +831,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true
         }
@@ -906,7 +906,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true
         }
@@ -984,7 +984,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true,
             "generation_temperature": 0.6,
@@ -1047,7 +1047,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true,
             "generation_temperature": 0.6,
@@ -1130,7 +1130,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100,
             "generation_do_sample": true,
             "generation_temperature": 0.6,
@@ -1207,7 +1207,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -1278,7 +1278,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -1353,7 +1353,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -1424,7 +1424,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -1495,7 +1495,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -1566,7 +1566,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -1637,7 +1637,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -1708,7 +1708,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -1779,7 +1779,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -1850,7 +1850,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -1921,7 +1921,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -1992,7 +1992,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -2063,7 +2063,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -2134,7 +2134,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -2205,7 +2205,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -2276,7 +2276,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -2347,7 +2347,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -2418,7 +2418,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -2493,7 +2493,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -2568,7 +2568,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -2643,7 +2643,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -2718,7 +2718,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -2793,7 +2793,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -2868,7 +2868,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -2943,7 +2943,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -3018,7 +3018,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -3093,7 +3093,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -3164,7 +3164,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -3239,7 +3239,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     },
@@ -3314,7 +3314,7 @@
             "device_map": "auto",
             "max_memory": null,
             "torchscript": false,
-            "generation_decoding_strategy": "generate",
+            "decoding_strategy": "generate",
             "generation_max_new_tokens": 100
         }
     }
