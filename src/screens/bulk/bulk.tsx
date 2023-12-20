@@ -7,7 +7,7 @@ import styles from "./bulk.module.css"
 import { Model } from "../../config"
 import { Cell, Grid } from "styled-css-grid"
 import SyntaxHighlighter from "react-syntax-highlighter"
-import { solarizedDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { solarizedDark, shadesOfPurple } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
 import Settings from "../settings/settings"
 import { withAuthenticator } from "@aws-amplify/ui-react"
@@ -194,6 +194,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
         const interval = setInterval(() => {
             setProgress(oldProgress => {
                 if (oldProgress === 100) {
+                    setDeployed(true)
                     clearInterval(interval)
                     return 100
                 }
@@ -295,7 +296,17 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                     </Cell>
                     <Cell width={2} className={styles.curl}>
                         <Content hidden={!deployed}>
-                            <h3>🎊 Your bulk job is deployed!</h3>
+                            <h3>🎊 Your bulk job is deployed! Download from:</h3>
+                            <pre>
+                                <SyntaxHighlighter
+                                    language="bash"
+                                    style={shadesOfPurple}
+                                    showLineNumbers={true}
+                                    lineNumberStyle={{ minWidth: '3em', paddingRight: '10px', opacity: 0.5 }}
+                                >
+                                    {`aws s3 cp \\\n  --recursive\\\n  s3://geniusrise-prod-output/${s3BucketUrl} \\\n .`}
+                                </SyntaxHighlighter>
+                            </pre>
                         </Content>
                     </Cell>
                 </Grid>
