@@ -60,7 +60,8 @@ const Sidebar = () => {
         try {
             // @ts-ignore
             getUser(globalThis.user.username).then(u => {
-                setPrevTheme(theme)
+                // @ts-ignore
+                setPrevTheme(parseInt(u.data.frontend_config.theme))
                 // @ts-ignore
                 setTheme(parseInt(u.data.frontend_config.theme))
             })
