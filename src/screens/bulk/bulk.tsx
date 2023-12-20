@@ -103,12 +103,20 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                 "For JSONL each line should contain a JSON with fields: " + model.inputs.map(i => i.name).join(", "),
                 "For JSON, YAML each file should contain these fields: " + model.inputs.map(i => i.name).join(", "),
                 "For huggingface, parquet, sqlite etc, the dataset should contain these fields: " + model.inputs.map(i => i.name).join(", "),
-            ],
-            usecasesTitle: "Additional Instructions",
-            useCases: [
                 "You may upload multiple files",
                 "You may upload directories with arbitrary nesting",
                 "You may also use the generated S3 link to upload files via an external system like backend or spark"
+            ],
+            usecasesTitle: "Sizes:",
+            useCases: [
+                "s: 0.25 VCPU, 1 GB RAM, 0.5GB GPU",
+                "m: 0.5 VCPU, 2 GB RAM, 1GB GPU",
+                "l: 1 VCPU, 4 GB RAM, 2GB GPU",
+                "xl: 2 VCPU, 8 GB RAM, 4GB GPU",
+                "2xl: 4 VCPU, 16 GB RAM, 8GB GPU",
+                "4xl: 8 VCPU, 32 GB RAM, 16GB GPU",
+                "8xl: 16 VCPU, 64 GB RAM, 32GB GPU",
+                "16xl: 32 VCPU, 128 GB RAM, 64GB GPU",
             ],
         })
     }, [])
