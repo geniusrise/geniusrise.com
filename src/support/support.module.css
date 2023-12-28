@@ -23,6 +23,13 @@
 h2 {
   color: var(--dark-text-color) !important;
 }
+.docs {
+  background-color: var(--dark-modal-background);
+  color: var(--dark-text-color);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
 @media (min-width: 1100px) {
   .container {
     width: 22rem;

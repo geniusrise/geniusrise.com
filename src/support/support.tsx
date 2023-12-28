@@ -1,6 +1,7 @@
 import React, { useState, createContext, useContext, ReactNode } from "react"
 import { Button, Content } from "react-bulma-components"
 import styles from "./support.module.css"
+import { Link } from "react-router-dom"
 
 type SupportContent = {
     heading: string
@@ -64,6 +65,7 @@ const Support = () => {
                         ))}
                     </ul>
                 </Content>
+                <Button className={styles.docs}><Link to="https://docs.geniusrise.ai" target="_blank" rel="noopener noreferrer">Documentation</Link></Button>
             </div>
         </div>
     )

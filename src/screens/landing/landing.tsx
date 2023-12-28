@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import styles from "./landing.module.css"
 import { Cell, Grid } from 'styled-css-grid'
@@ -6,11 +6,13 @@ import logo from "../../assets/logo1.png"
 import logoText from "../../assets/geniusrise_text_dark.png"
 import { functions } from '../../config/navigation'
 import { Link } from 'react-router-dom'
-import { Content } from 'react-bulma-components'
+import { Content, Modal } from 'react-bulma-components'
 import { device, s, m, xl } from "../../utils/responsive"
+import { Authenticator, withAuthenticator } from "@aws-amplify/ui-react"
 
 const Landing = () => {
 
+    const [login, setLogin] = useState(false)
 
     return (
         <div className={styles.container}>
@@ -21,10 +23,11 @@ const Landing = () => {
                 <Cell width={1}></Cell>
                 <Cell width={5} center middle>
                     <Grid columns={device === "smartphone" ? 3 : device === "tablet" ? 3 : 5} className={styles.headerElements}>
-                        <Cell width={device === "smartphone" ? 0 : device === "tablet" ? 0 : 3}></Cell>
+                        <Cell width={device === "smartphone" ? 0 : device === "tablet" ? 0 : 2}></Cell>
                         {/* <Cell className={styles.headerElement} center middle>Models</Cell>
                         <Cell className={styles.headerElement} center middle>Data</Cell>
                         <Cell className={styles.headerElement} center middle>Compute</Cell> */}
+                        <Cell className={styles.headerElementRegister} center middle><Link to="/login">Sign up</Link></Cell>
                         <Cell className={styles.headerElementRegister} center middle><Link to="/TXTCLASS">Catalog</Link></Cell>
                     </Grid>
                 </Cell>

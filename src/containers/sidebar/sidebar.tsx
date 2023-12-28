@@ -41,8 +41,8 @@ function useTheme(theme: number) {
 }
 
 const Sidebar = () => {
-    const [theme, setTheme] = useState(2)
-    const [prevtheme, setPrevTheme] = useState(2)
+    const [theme, setTheme] = useState(3)
+    const [prevtheme, setPrevTheme] = useState(3)
     useTheme(theme)
 
     const [activeTab, setActiveTab] = useState("text") // Default tab is 'text'

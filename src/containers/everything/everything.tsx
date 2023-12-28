@@ -19,6 +19,7 @@ import FineTune from "../../screens/fineTune/fineTune"
 import API from "../../screens/api/api"
 import { Dashboard } from "../../screens/dashboard/dashboard"
 import Landing from "../../screens/landing/landing"
+import Login from "../../screens/login/login"
 // import { Autocomplete } from "../../components/autocomplete/autocomplete"
 
 const Everything = () => {
@@ -65,6 +66,7 @@ const Everything = () => {
                     <Cell className={styles.content}>
                         <Routes>
                             <Route key="/" path="/" element={loggedIn ? <Dashboard /> : <Landing />} />
+                            <Route key="/login" path="/login" element={loggedIn ? <Dashboard /> : <Login />} />
                             {Object.entries(config).map(([taskKey, taskConfig], index) => (
                                 <Route key={index} path={`/${taskKey}`} element={<Task {...taskConfig} />} />
                             ))}
