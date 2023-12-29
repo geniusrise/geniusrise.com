@@ -1,9 +1,9 @@
 const purple = {
   "dark-text-color": "#fff",
   "dark-scrollbar-color": "#071023",
-  "dark-background-color": "#151225",
+  "dark-background-color": "#120e18",
   "dark-border-color": "#333744",
-  "dark-modal-background": "#1c152c",
+  "dark-modal-background": "#1b1524",
   "dark-input-color": "#4c4c70",
   "dark-card-color": "#3c3f51",
   "dark-card-shadow": "rgba(20, 20, 40, 0.2)",

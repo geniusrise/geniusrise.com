@@ -1,9 +1,9 @@
-const light = {
+const lightN = {
     "dark-text-color": "#4d4d4c",
     "dark-scrollbar-color": "#d0d0d0",
     "dark-background-color": "#fafafa",
     "dark-border-color": "#d0d0d0",
-    "dark-modal-background": "#ffffffd7",
+    "dark-modal-background": "#ffffff",
     "dark-input-color": "#cccccc",
     "dark-card-color": "#ffffff",
     "dark-card-shadow": "#e0e0e0",
@@ -22,4 +22,4 @@ const light = {
     "dark-separator": "#d8d8d8",
 }
 
-export default light
+export default lightN

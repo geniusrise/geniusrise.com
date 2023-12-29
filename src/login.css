@@ -1509,9 +1509,9 @@ h6.amplify-heading {
     box-sizing: border-box;
     padding-top: 20vh;
     align-content: flex-start;
-    background-image: url(./assets/vector-autumn-foliage-bg/lol-0ebe5e65-d285-42f7-b1db-c49e7f3089b5.jpg);
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
+    background-image: url(./assets/login3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 
     /* background-image: linear-gradient(70deg,
             #faba43 5%,

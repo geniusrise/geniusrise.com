@@ -12,6 +12,7 @@ import { functions } from "../../config/navigation"
 import { Auth } from 'aws-amplify';
 import dark from "../../themes/dark"
 import light from "../../themes/light"
+import lightN from "../../themes/lightN"
 import darkBlue from "../../themes/darkBlue"
 import purple from "../../themes/purple"
 import darkBlueN from "../../themes/darkBlueN"
@@ -21,17 +22,19 @@ import { getUser, updateUser } from "../../data/user"
 function useTheme(theme: number) {
     var t: any = darkBlue
     if (theme === 0) {
-        t = darkBlue
+        t = dark
     } else if (theme === 1) {
         t = light
     } else if (theme === 2) {
-        t = dark
+        t = darkBlue
     } else if (theme === 3) {
         t = purple
     } else if (theme === 4) {
         t = darkBlueN
     } else if (theme === 5) {
         t = purpleN
+    } else if (theme == 6) {
+        t = lightN
     }
 
     for (const key in t) {
@@ -41,8 +44,8 @@ function useTheme(theme: number) {
 }
 
 const Sidebar = () => {
-    const [theme, setTheme] = useState(3)
-    const [prevtheme, setPrevTheme] = useState(3)
+    const [theme, setTheme] = useState(0)
+    const [prevtheme, setPrevTheme] = useState(0)
     useTheme(theme)
 
     const [activeTab, setActiveTab] = useState("text") // Default tab is 'text'
@@ -141,7 +144,7 @@ const Sidebar = () => {
                         </div>
                     </Cell>
                     <Cell center middle>
-                        <div className={styles.themeSwitcher} onClick={() => setTheme(theme < 5 ? theme + 1 : 0)}>
+                        <div className={styles.themeSwitcher} onClick={() => setTheme(theme < 6 ? theme + 1 : 0)}>
                             <p>Theme</p>
                         </div>
                     </Cell>

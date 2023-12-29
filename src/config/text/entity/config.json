@@ -463,7 +463,9 @@
             "Discussion on coping with chronic fatigue syndrome."
         ],
         "usecases": [
-            "Automating the extraction of disease-related information from medical literature, enhancing information retrieval systems in the biomedical domain, and supporting data curation tasks for medical databases."
+            "Automating the extraction of disease-related information from medical literature",
+            "enhancing information retrieval systems in the biomedical domain",
+            "supporting data curation tasks for medical databases."
         ],
         "apiDeploy": {
             "model_class": "AutoModelForTokenClassification",
