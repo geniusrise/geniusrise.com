@@ -63,6 +63,7 @@
             "do_sample": false
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -143,6 +144,7 @@
             "num_beams": 4
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -219,6 +221,7 @@
             "prefix": " "
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -299,6 +302,7 @@
             "prefix": " "
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -374,6 +378,7 @@
             "num_beams": 4
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -447,6 +452,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -519,6 +525,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -596,6 +603,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -673,6 +681,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -749,6 +758,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -824,6 +834,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -899,6 +910,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -970,6 +982,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1037,6 +1050,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1104,6 +1118,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1171,6 +1186,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1238,6 +1254,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1305,6 +1322,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1372,6 +1390,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1439,6 +1458,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1506,6 +1526,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1573,6 +1594,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1640,6 +1662,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1712,6 +1735,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1789,6 +1813,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1866,6 +1891,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1943,6 +1969,7 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,

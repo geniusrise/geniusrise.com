@@ -75,6 +75,7 @@
             "pad_token_id": 1
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -170,6 +171,7 @@
             "pad_token_id": 1
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -266,6 +268,7 @@
             "pad_token_id": 1
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,

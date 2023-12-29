@@ -58,6 +58,7 @@
             "text": "your text here"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -127,6 +128,7 @@
             "text": "your text here"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -196,6 +198,7 @@
             "text": "your text here"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -264,6 +267,7 @@
             "text": "your text here"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -333,6 +337,7 @@
             "text": "your text here"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -402,6 +407,7 @@
             "text": "your text here"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -471,6 +477,7 @@
             "text": "your text here"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSequenceClassification",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,

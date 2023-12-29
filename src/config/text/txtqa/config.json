@@ -71,6 +71,7 @@
             "question": "what is their total age?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForTableQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -153,6 +154,7 @@
             "question": "what is their total age?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForTableQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -235,6 +237,7 @@
             "question": "what is their total age?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForTableQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -317,6 +320,7 @@
             "question": "what is their total age?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForTableQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -399,6 +403,7 @@
             "question": "what is their total age?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForTableQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -481,6 +486,7 @@
             "question": "what is their total age?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForTableQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -557,6 +563,7 @@
             "question": "how many movies does Leonardo Di Caprio have?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -633,6 +640,7 @@
             "question": "how many movies does Leonardo Di Caprio have?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -709,6 +717,7 @@
             "question": "how many movies does Leonardo Di Caprio have?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -785,6 +794,7 @@
             "question": "how many movies does Leonardo Di Caprio have?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForSeq2SeqLM",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -867,6 +877,7 @@
             "question": "what is their total age?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForTableQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -949,6 +960,7 @@
             "question": "what is their total age?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForTableQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1031,6 +1043,7 @@
             "question": "what is their total age?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForTableQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1104,6 +1117,7 @@
             "question": "What is the common wisdom about RNNs?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1177,6 +1191,7 @@
             "question": "What is the common wisdom about RNNs?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1250,6 +1265,7 @@
             "question": "What is the common wisdom about RNNs?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1323,6 +1339,7 @@
             "question": "What is the common wisdom about RNNs?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1396,6 +1413,7 @@
             "question": "What is the common wisdom about RNNs?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
@@ -1469,6 +1487,7 @@
             "question": "What is the common wisdom about RNNs?"
         },
         "bulkDeploy": {
+            "notification_email": null,
             "model_class": "AutoModelForQuestionAnswering",
             "tokenizer_class": "AutoTokenizer",
             "use_cuda": true,
