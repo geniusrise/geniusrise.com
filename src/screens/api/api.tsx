@@ -224,7 +224,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                 </Grid>
             </div>
             <Settings
-                taskType="bulk"
+                taskType="api"
                 model={model}
                 callback={x => {
                     setModelSettings(x)
