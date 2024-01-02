@@ -1509,7 +1509,8 @@ h6.amplify-heading {
     box-sizing: border-box;
     padding-top: 20vh;
     align-content: flex-start;
-    background-image: url(./assets/login3.jpg);
+    background-image: url(./assets/banner8.jpg);
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 

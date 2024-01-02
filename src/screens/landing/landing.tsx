@@ -16,26 +16,28 @@ const Landing = () => {
 
     return (
         <div className={styles.container}>
-            <Grid columns={device === "smartphone" ? 1 : device === "tablet" ? 1 : 10} className={styles.header}>
-                <Cell width={1}></Cell>
-                <Cell width={1} className={styles.logo} center middle><img src={logo}></img></Cell>
-                <Cell width={2} className={styles.logoText} center middle><img src={logoText}></img></Cell>
-                <Cell width={1}></Cell>
-                <Cell width={5} center middle>
-                    <Grid columns={device === "smartphone" ? 3 : device === "tablet" ? 3 : 5} className={styles.headerElements}>
-                        <Cell width={device === "smartphone" ? 0 : device === "tablet" ? 0 : 2}></Cell>
-                        {/* <Cell className={styles.headerElement} center middle>Models</Cell>
-                        <Cell className={styles.headerElement} center middle>Data</Cell>
-                        <Cell className={styles.headerElement} center middle>Compute</Cell> */}
-                        <Cell className={styles.headerElementRegister} center middle><Link to="/login">Sign up</Link></Cell>
-                        <Cell className={styles.headerElementRegister} center middle><Link to="/TXTCLASS">Catalog</Link></Cell>
-                    </Grid>
-                </Cell>
-            </Grid>
-            <div>
-                <div className={styles.heroheaderbanner}>
-                    <h1>Build, experiment, deploy AI everywhere.</h1>
+            <div className={styles.banner}>
+                <Grid columns={device === "smartphone" ? 1 : device === "tablet" ? 1 : 10} className={styles.header}>
+                    <Cell width={1}></Cell>
+                    <Cell width={1} className={styles.logo} center middle><img src={logo}></img></Cell>
+                    <Cell width={2} className={styles.logoText} center middle><img src={logoText}></img></Cell>
+                    <Cell width={1}></Cell>
+                    <Cell width={5} center middle>
+                        <Grid columns={device === "smartphone" ? 3 : device === "tablet" ? 3 : 5} className={styles.headerElements}>
+                            <Cell width={device === "smartphone" ? 0 : device === "tablet" ? 0 : 2}></Cell>
+                            <Cell className={styles.headerElementRegister} center middle><Link to="/login">Sign up</Link></Cell>
+                            <Cell className={styles.headerElementRegister} center middle><Link to="/TXTCLASS">Catalog</Link></Cell>
+                        </Grid>
+                    </Cell>
+                </Grid>
+                <div>
                 </div>
+                <div className={styles.heroheaderbanner}>
+                    <h1>AI has landed</h1>
+                    <h3>Build, experiment, deploy</h3>
+                </div>
+            </div>
+            <div>
                 <Grid columns={xl ? 3 : m ? 2 : 1} className={styles.heroTasks}>
                     <Cell className={styles.heroTask}>
                         <Content>
@@ -125,10 +127,10 @@ const Landing = () => {
                         </Content>
                     </Cell>
                 </Grid>
-                <div className={styles.herofooterbanner}>
-                    <h1>What Will You Build?</h1>
-                </div>
                 <footer className={styles.footer}>
+                    <div className={styles.herofooterbanner}>
+                        <h1>The world is yours to build</h1>
+                    </div>
                     <Grid columns={3} className={styles.footerGrid}>
                         <Cell center middle><Link to="https://github.com/geniusrise" target="_blank" rel="noopener noreferrer">GitHub</Link></Cell>
                         <Cell center middle><Link to="https://www.crunchbase.com/organization/geniusrise" target="_blank" rel="noopener noreferrer">Crunchbase</Link></Cell>

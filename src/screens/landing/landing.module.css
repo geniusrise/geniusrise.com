@@ -31,25 +31,54 @@
 .headerElementRegister {
   height: 5rem !important;
   width: 100%;
-  color: white;
-  font-size: 1.5rem;
   border-radius: 0.5rem;
   background-color: #d42379;
   cursor: pointer;
 }
+.headerElementRegister a {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 #000, /* Right bottom shadow */ 2px 2px 0 #000, /* More pronounced right bottom shadow */ 3px 3px 0 #000, /* Even more pronounced right bottom shadow */ 4px 4px 0 #000;
+  /* Maximum pronounced right bottom shadow */
+}
 .headerElementRegister:hover {
-  background-color: #d4237950;
+  background-color: #b4035b;
 }
 .login {
   position: fixed;
   right: 0;
   top: 0;
 }
+.banner {
+  background-image: url(../../assets/banner8.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
 .heroheaderbanner {
   text-align: center;
-  font-size: 3rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 5vh;
+  margin-left: 30vw;
+}
+.heroheaderbanner h1 {
+  font-size: 7rem;
+  font-weight: 900;
+  color: yellow;
+  text-transform: capitalize;
+  text-shadow: 6px 6px 0 #000, /* Shadow right and bottom */ -1px -1px 0 #000, /* Shadow top and left */ 1px -1px 0 #000, /* Shadow top and right */ -1px 1px 0 #000, /* Shadow bottom and left */ 0 0 5px #000, /* Soft outer glow for depth */ 8px 8px 0 #000, /* Additional layer for 3D effect */ 10px 10px 0 #000;
+  /* Additional layer for 3D effect */
+}
+.heroheaderbanner h2,
+h3 {
+  font-size: 4rem;
+  font-weight: 900;
+  color: white;
+  text-transform: capitalize;
+  text-shadow: 2px 2px 0 #000, /* Right bottom shadow */ 4px 4px 0 #000, /* More pronounced right bottom shadow */ 6px 6px 0 #000, /* Even more pronounced right bottom shadow */ 8px 8px 0 #000;
+  /* Maximum pronounced right bottom shadow */
 }
 .heroTasks {
   margin-left: 5rem;
@@ -73,14 +102,6 @@
 }
 .heroTask p {
   text-align: center;
-}
-.herofooterbanner {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 2rem;
-}
-.herofooterbanner h1 {
-  font-size: 6rem;
 }
 .gridElement {
   color: white;
@@ -109,14 +130,47 @@
 .gridElementYour:hover {
   background-color: #5b223e90;
 }
+.herofooterbanner {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 2rem;
+}
+.herofooterbanner h1 {
+  font-size: 6rem;
+  font-weight: 900;
+  color: yellow;
+  text-transform: capitalize;
+  text-shadow: 6px 6px 0 #000, /* Shadow right and bottom */ -1px -1px 0 #000, /* Shadow top and left */ 1px -1px 0 #000, /* Shadow top and right */ -1px 1px 0 #000, /* Shadow bottom and left */ 0 0 5px #000, /* Soft outer glow for depth */ 8px 8px 0 #000, /* Additional layer for 3D effect */ 10px 10px 0 #000;
+  /* Additional layer for 3D effect */
+}
 .footer {
   margin-top: 3rem;
-  margin-bottom: 6rem;
+  padding-top: 10vh;
+  background-image: url(../../assets/banner5.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+}
+.footer a {
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+  text-transform: capitalize;
+  text-shadow: 2px 2px 0 #000, /* Right bottom shadow */ 4px 4px 0 #000, /* More pronounced right bottom shadow */ 6px 6px 0 #000, /* Even more pronounced right bottom shadow */ 8px 8px 0 #000;
+  /* Maximum pronounced right bottom shadow */
 }
 .footerGrid > div {
   margin: 1rem;
 }
 @media (min-width: 481px) and (max-width: 1600px) {
+  .heroheaderbanner h1 {
+    font-size: 5rem;
+  }
+  .heroheaderbanner h2,
+  h3 {
+    font-size: 3rem;
+  }
   .heroTasks {
     margin-left: 1rem;
     margin-right: 1rem;
@@ -144,6 +198,13 @@
   }
 }
 @media (max-width: 481px) {
+  .heroheaderbanner h1 {
+    font-size: 3rem;
+  }
+  .heroheaderbanner h2,
+  h3 {
+    font-size: 2rem;
+  }
   .heroTasks {
     margin-left: 0rem;
     margin-right: 0rem;
@@ -168,6 +229,14 @@
     font-size: 1rem;
     height: 6rem !important;
     text-align: center;
+  }
+  .footer {
+    height: 100vh;
+  }
+  .footer a {
+    font-size: 1rem;
+    text-shadow: 1px 1px 0 #000, /* Right bottom shadow */ 2px 2px 0 #000, /* More pronounced right bottom shadow */ 3px 3px 0 #000, /* Even more pronounced right bottom shadow */ 4px 4px 0 #000;
+    /* Maximum pronounced right bottom shadow */
   }
 }
 /*# sourceMappingURL=landing.module.css.map */
