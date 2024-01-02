@@ -49,6 +49,8 @@ const API: React.FC<APIProps> = ({ model }) => {
         pod_size: "m"
     })
     const [modelSettings, setModelSettings] = useState(model.apiDeploy)
+    const [customModel, setCustomModel] = useState(model.model_name)
+    const isModelCustom = model.model_name === null
 
     const [launched, setLaunched] = useState<any>({})
     const [launching, setLaunching] = useState(false)
@@ -129,7 +131,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                 },
                 method: "listen",
                 method_args: {
-                    model_name: model.model_name,
+                    model_name: customModel,
                     ...modelSettings
                 }
             }
@@ -165,6 +167,21 @@ const API: React.FC<APIProps> = ({ model }) => {
                     </Cell>
                 </Grid>
                 <Grid columns={2} className={styles.form}>
+                    {isModelCustom ?
+                        <Cell key="customModel" className={styles.formElement} center>
+                            <label>
+                                Custom Model Name
+                                {(
+                                    <input
+                                        type={"text"}
+                                        className={styles.textInput}
+                                        value={customModel}
+                                        onChange={e => setCustomModel(e.target.value)}
+                                    />
+                                )}
+                            </label>
+                        </Cell>
+                        : <></>}
                     {Object.entries(config).map(([key, value]) => {
 
                         return (

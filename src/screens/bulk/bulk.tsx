@@ -53,6 +53,8 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     const [files, setFiles] = useState<File[]>([])
     const [s3BucketUrl, setS3BucketUrl] = useState<string>(generateS3BucketUrl())
     const [settingsVisible, setSettingsVisibile] = useState(false)
+    const [customModel, setCustomModel] = useState(model.model_name)
+    const isModelCustom = model.model_name === null
 
     const [progress, setProgress] = useState(0)
     const [progressBarVisible, setProgressBarVisible] = useState(false)
@@ -192,7 +194,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                 },
                 method: model.bulkMethod,
                 method_args: {
-                    model_name: model.model_name,
+                    model_name: customModel,
                     ...modelSettings
                 }
             }
@@ -243,6 +245,21 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                     </Cell>
                 </Grid>
                 <Grid columns={2} className={styles.form}>
+                    {isModelCustom ?
+                        <Cell key="customModel" className={styles.formElement} center>
+                            <label>
+                                Custom Model Name
+                                {(
+                                    <input
+                                        type={"text"}
+                                        className={styles.textInput}
+                                        value={customModel}
+                                        onChange={e => setCustomModel(e.target.value)}
+                                    />
+                                )}
+                            </label>
+                        </Cell>
+                        : <></>}
                     {Object.entries(config).map(([key, value]) => {
 
                         return (
