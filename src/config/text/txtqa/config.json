@@ -1,5 +1,118 @@
 [
     {
+        "name": "Any Table QA Model",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
+        ],
+        "model_name": null,
+        "apiClass": "QAAPI",
+        "bulkMethod": "answer_questions",
+        "endpoint": "/api/v1/answer",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "description": "Any custom table question answering model",
+        "examples": ["Specific to the model"],
+        "input_examples": ["Specific to the model"],
+        "usecases": ["Any custom table question answering usecase"],
+        "apiDeploy": {
+            "model_class": "AutoModelForTableQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": [
+                {
+                    "Name": "Alice",
+                    "Age": "30"
+                },
+                {
+                    "Name": "Bob",
+                    "Age": "25"
+                }
+            ],
+            "question": "what is their total age?"
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForTableQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
+        }
+    },
+    {
+        "name": "Any QA Model",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "context"
+            },
+            {
+                "type": "text",
+                "name": "question"
+            }
+        ],
+        "model_name": null,
+        "apiClass": "QAAPI",
+        "bulkMethod": "answer_questions",
+        "endpoint": "/api/v1/answer",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "description": "Any custom question answering model",
+        "examples": ["Specific to the model"],
+        "input_examples": ["Specific to the model"],
+        "usecases": ["Any custom question answering usecase"],
+        "apiDeploy": {
+            "model_class": "AutoModelForQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "data": "Theres something magical about Recurrent Neural Networks (RNNs). I still remember when I trained my first recurrent network for Image Captioning. Within a few dozen minutes of training my first baby model (with rather arbitrarily-chosen hyperparameters) started to generate very nice looking descriptions of images that were on the edge of making sense. Sometimes the ratio of how simple your model is to the quality of the results you get out of it blows past your expectations, and this was one of those times. What made this result so shocking at the time was that the common wisdom was that RNNs were supposed to be difficult to train (with more experience Ive in fact reached the opposite conclusion). Fast forward about a year: Im training RNNs all the time and Ive witnessed their power and robustness many times, and yet their magical outputs still find ways of amusing me.",
+            "question": "What is the common wisdom about RNNs?"
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForQuestionAnswering",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
+        }
+    },
+    {
         "name": "TAPAS Tiny WTQ",
         "inputs": [
             {

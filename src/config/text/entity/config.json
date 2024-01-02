@@ -1,5 +1,52 @@
 [
     {
+        "name": "Any Entity Recognition Model",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": null,
+        "apiClass": "NamedEntityRecognitionAPI",
+        "bulkMethod": "recognize_entities",
+        "endpoint": "/api/v1/recognize_entities",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "description": "Any custom named entity recognition model",
+        "examples": ["Specific to the model"],
+        "input_examples": ["Specific to the model"],
+        "usecases": ["Any custom named entity recognition usecase"],
+        "apiDeploy": {
+            "model_class": "AutoModelForTokenClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "My name is Clara and I live in Berkeley, California."
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForTokenClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
+        }
+    },
+    {
         "name": "BERT Large NER",
         "inputs": [
             {

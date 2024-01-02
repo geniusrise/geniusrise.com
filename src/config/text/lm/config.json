@@ -1,5 +1,58 @@
 [
     {
+        "name": "Any Language Model",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": null,
+        "apiClass": "LanguageModelAPI",
+        "bulkMethod": "complete",
+        "endpoint": "/api/v1/complete",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "description": "Any custom language model",
+        "examples": ["Specific to the model"],
+        "input_examples": ["Specific to the model"],
+        "usecases": ["Any custom language model usecase"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "## PRD for federated auth with google using keycloak",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 1024,
+            "do_sample": true
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 1024,
+            "generation_do_sample": true
+        }
+    },
+    {
         "name": "Mistral 7B v0.1",
         "inputs": [
             {

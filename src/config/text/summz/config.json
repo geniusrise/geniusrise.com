@@ -1,5 +1,57 @@
 [
     {
+        "name": "Any Summarization Model",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": null,
+        "apiClass": "SummarizationAPI",
+        "bulkMethod": "summarize",
+        "endpoint": "/api/v1/summarize",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "description": "Any custom summarization model",
+        "examples": ["Specific to the model"],
+        "input_examples": ["Specific to the model"],
+        "usecases": ["Any custom summarization usecase"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSeq2SeqLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "Theres something magical about Recurrent Neural Networks (RNNs). I still remember when I trained my first recurrent network for Image Captioning. Within a few dozen minutes of training my first baby model (with rather arbitrarily-chosen hyperparameters) started to generate very nice looking descriptions of images that were on the edge of making sense. Sometimes the ratio of how simple your model is to the quality of the results you get out of it blows past your expectations, and this was one of those times. What made this result so shocking at the time was that the common wisdom was that RNNs were supposed to be difficult to train (with more experience Ive in fact reached the opposite conclusion). Fast forward about a year: Im training RNNs all the time and Ive witnessed their power and robustness many times, and yet their magical outputs still find ways of amusing me.",
+            "length_penalty": 0.8,
+            "max_length": 1024,
+            "num_beams": 8
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForSeq2SeqLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "generation_max_length": 142,
+            "generation_num_beams": 4
+        }
+    },
+    {
         "name": "BART Large CNN Summarization",
         "inputs": [
             {

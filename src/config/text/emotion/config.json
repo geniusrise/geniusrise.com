@@ -1,5 +1,52 @@
 [
     {
+        "name": "Any Sentiment Analysis Model",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "description": "Any custom sentiment classification model",
+        "model_name": null,
+        "apiClass": "TextClassificationAPI",
+        "bulkMethod": "classify",
+        "endpoint": "/api/v1/classify",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "examples": ["Specific to the model"],
+        "input_examples": ["Specific to the model"],
+        "usecases": ["Any custom sentiment classification usecase"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "your text here"
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForSequenceClassification",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false
+        }
+    },
+    {
         "name": "Sentiment Analysis",
         "inputs": [
             {

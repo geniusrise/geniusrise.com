@@ -1,5 +1,80 @@
 [
     {
+        "name": "Any Translation Model",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            },
+            {
+                "type": "text",
+                "name": "source"
+            },
+            {
+                "type": "text",
+                "name": "target"
+            }
+        ],
+        "model_name": null,
+        "apiClass": "TranslationAPI",
+        "bulkMethod": "translate",
+        "endpoint": "/api/v1/translate",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "description": "Any custom translation model",
+        "examples": ["Specific to the model"],
+        "input_examples": ["Specific to the model"],
+        "usecases": ["Any custom translation usecase"],
+        "apiDeploy": {
+            "model_class": "AutoModelForSeq2SeqLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "text": "संयुक्त राष्ट्र के प्रमुख का कहना है कि सीरिया में कोई सैन्य समाधान नहीं है",
+            "source_lang": "hi_IN",
+            "target_lang": "en_XX",
+            "decoding_strategy": "generate",
+            "decoder_start_token_id": 2,
+            "early_stopping": true,
+            "eos_token_id": 2,
+            "forced_eos_token_id": 2,
+            "max_length": 200,
+            "num_beams": 5,
+            "pad_token_id": 1
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForSeq2SeqLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float",
+            "quantization": 0,
+            "device_map": "cuda:0",
+            "max_memory": null,
+            "torchscript": false,
+            "origin": "hi_IN",
+            "target": "en_XX",
+            "generation_decoding_strategy": "generate",
+            "generation_decoder_start_token_id": 2,
+            "generation_early_stopping": true,
+            "generation_eos_token_id": 2,
+            "generation_forced_eos_token_id": 2,
+            "generation_max_length": 200,
+            "generation_num_beams": 5,
+            "generation_pad_token_id": 1
+        }
+    },
+    {
         "name": "Multilingual Many-to-Many Translation",
         "inputs": [
             {

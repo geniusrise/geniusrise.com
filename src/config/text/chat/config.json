@@ -1,5 +1,58 @@
 [
     {
+        "name": "Any Chat Model",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": null,
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "description": "Any Chat model",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "examples": ["Specific to the model"],
+        "input_examples": ["Specific to the model"],
+        "usecases": ["Any custom chat usecase"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "\nHow do I sort a list in Python?\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true
+        }
+    },
+    {
         "name": "StarChat Beta",
         "inputs": [
             {
