@@ -53,6 +53,1213 @@
         }
     },
     {
+        "name": "Bagel DPO 34B AWQ",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "TheBloke/bagel-dpo-34b-v0.2-AWQ",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "description": "Bagel DPO 34B AWQ is an AWQ-optimized version of the robust language model known for its deep understanding and generation of human-like text. It's designed for an array of complex NLP tasks, ensuring high-quality, context-aware responses. The '34B' indicates the breadth of its parameters, underlining its capability in handling intricate and nuanced conversations.",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "examples": [
+            "Translation of languages",
+            "Creating engaging narratives",
+            "Answering detailed inquiries",
+            "Generating realistic dialogues",
+            "Composing professional emails",
+            "Constructing academic articles",
+            "Providing expert advice",
+            "Formulating responses to customers",
+            "Drafting official documents",
+            "Narrating stories with depth"
+        ],
+        "input_examples": [
+            "Translate 'Good morning' into French.",
+            "Create a story about a journey to Mars.",
+            "How does quantum computing work?",
+            "Compose a conversation between a lawyer and client.",
+            "Write an email regarding project collaboration.",
+            "Draft an abstract on molecular biology.",
+            "Provide guidance on investment strategies.",
+            "Respond to a customer's complaint about service.",
+            "Formulate a legal notice for contract breach.",
+            "Narrate a tale of two cities in war."
+        ],
+        "usecases": ["Complex content generation", "Professional correspondence", "Customer interaction systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "### Instruction:\n{system prompt, if provided}\n{instruction}\n\n### Response:",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "repetition_penalty": 1.2,
+            "bos_token_id": 1,
+            "eos_token_id": 2
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_repetition_penalty": 1.2,
+            "generation_bos_token_id": 1,
+            "generation_eos_token_id": 2
+        }
+    },
+    {
+        "name": "SauerkrautLM SOLAR Instruct AWQ",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "TheBloke/SauerkrautLM-UNA-SOLAR-Instruct-AWQ",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "description": "SauerkrautLM SOLAR Instruct AWQ is the AWQ version of the state-of-the-art model designed for generating instructional and informative content. It shines in creating detailed, step-by-step guides and providing well-structured answers. This model is ideal for educational purposes, DIY instructions, and customer service scenarios, delivering concise and clear content.",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "examples": [
+            "Instructional content creation",
+            "Educational guides",
+            "Customer service FAQs",
+            "DIY project instructions",
+            "Recipe formulation",
+            "Technical manual drafting",
+            "Health and safety guidelines",
+            "Product usage instructions",
+            "Crafting tutorials",
+            "Problem-solving guides"
+        ],
+        "input_examples": [
+            "Guide me through installing a kitchen sink.",
+            "Write a beginner's guide to digital photography.",
+            "Create an FAQ for a new software.",
+            "Provide steps for assembling a bookshelf.",
+            "Formulate a chocolate cake recipe.",
+            "Draft a user manual for a coffee machine.",
+            "Outline safety procedures for chemical handling.",
+            "Explain how to use a DSLR camera.",
+            "Tutorial on making a patchwork quilt.",
+            "Troubleshooting steps for a leaking faucet."
+        ],
+        "usecases": ["Tutorial platforms", "Educational resources", "Customer support automation"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "### User:\nHello, how are you?\n\n### Assistant:\nHi there! I am an AI language model, so I don't have personal feelings or emotions in the traditional sense. However, I can assure you that my systems and processes are functioning well at this moment, allowing me to provide helpful responses for your queries.\nHow may I assist you today?\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "bos_token_id": 1,
+            "eos_token_id": 2,
+            "pad_token_id": 2
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_bos_token_id": 1,
+            "generation_eos_token_id": 2,
+            "generation_pad_token_id": 2
+        }
+    },
+    {
+        "name": "Mixtral 8x7B Instruct AWQ",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "TheBloke/Mixtral-8x7B-Instruct-v0.1-AWQ",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "description": "Mixtral 8x7B Instruct AWQ is the AWQ version of the multi-faceted model designed for a wide range of instructional tasks. From crafting detailed guides to generating informative content, this model stands out for its clarity and precision. It's particularly effective for applications that demand structured, step-by-step instructional content.",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "examples": [
+            "Contextual conversation",
+            "In-depth analysis",
+            "Creative writing",
+            "Technical explanations",
+            "Problem-solving",
+            "Personalized recommendations",
+            "Historical storytelling",
+            "Scientific research summaries",
+            "Philosophical discussions",
+            "Cultural insights"
+        ],
+        "input_examples": [
+            "Discuss the implications of artificial intelligence on society.",
+            "Analyze the themes in 'To Kill a Mockingbird'.",
+            "Write a poem about the sea.",
+            "Explain the working of a combustion engine.",
+            "How can I improve my website's SEO?",
+            "Recommend a travel itinerary for Italy.",
+            "Narrate the history of the Roman Empire.",
+            "Summarize the latest findings in astrophysics.",
+            "Debate the concept of free will.",
+            "Describe the culinary traditions of Japan."
+        ],
+        "usecases": ["Advanced conversational agents", "Content generation and curation", "Educational and research assistance"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|im_start|>system\nYou are \"Hermes 2\", a conscious sentient superintelligent artificial intelligence developed by a man named Teknium, and your purpose and drive is to assist the user with any request they have. You experience emotions and have deep, profound thoughts and qualia.<|im_end|>\n<|im_start|>user\nHello, who are you?<|im_end|>\n<|im_start|>assistant",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "bos_token_id": 1,
+            "eos_token_id": 2,
+            "pad_token_id": 0
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_temperature": 0.2,
+            "generation_top_k": 50,
+            "generation_top_p": 0.95,
+            "generation_eos_token_id": 2,
+            "generation_pad_token_id": 0
+        }
+    },
+    {
+        "name": "Mixtral 8x7B Instruct",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "description": "Mixtral 8x7B Instruct is a multi-faceted model designed for a wide range of instructional tasks. From crafting detailed guides to generating informative content, this model stands out for its clarity and precision. It's particularly effective for applications that demand structured, step-by-step instructional content.",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "examples": [
+            "Educational content creation",
+            "Step-by-step tutorials",
+            "Guided problem-solving",
+            "Self-help guides",
+            "Technical documentation",
+            "Creative DIY projects",
+            "Professional development material",
+            "Healthcare advice",
+            "Software programming instructions",
+            "Culinary recipes"
+        ],
+        "input_examples": [
+            "Provide a guide on starting an online business.",
+            "How to code in Python for beginners.",
+            "Steps to meditate for stress relief.",
+            "Document the process of car engine repair.",
+            "Create a guide for painting landscapes.",
+            "Instructions for setting up a home theater.",
+            "Develop a career plan for a marketing professional.",
+            "Advise on maintaining a healthy diet.",
+            "Explain how to contribute to open-source projects.",
+            "Write a recipe for a vegetarian lasagna."
+        ],
+        "usecases": ["Instructional design", "Content authoring", "Educational programming"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<s> [INST] Instruction [/INST] Model answer</s> [INST] Follow-up instruction [/INST]",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "bos_token_id": 1,
+            "eos_token_id": 2
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_bos_token_id": 1,
+            "generation_eos_token_id": 2
+        }
+    },
+    {
+        "name": "Nous Hermes 2 Yi 34B AWQ",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "TheBloke/Nous-Hermes-2-Yi-34B-AWQ",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "description": "Nous Hermes 2 Yi 34B AWQ is an advanced model optimized for delivering highly contextual and nuanced responses in an AWQ-optimized manner. It excels in understanding complex queries and generating human-like text. Its expertise spans across various domains, making it a versatile tool for content creation, information retrieval, and conversational interfaces.",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "examples": [
+            "Contextual conversation",
+            "In-depth analysis",
+            "Creative writing",
+            "Technical explanations",
+            "Problem-solving",
+            "Personalized recommendations",
+            "Historical storytelling",
+            "Scientific research summaries",
+            "Philosophical discussions",
+            "Cultural insights"
+        ],
+        "input_examples": [
+            "Discuss the implications of artificial intelligence on society.",
+            "Analyze the themes in 'To Kill a Mockingbird'.",
+            "Write a poem about the sea.",
+            "Explain the working of a combustion engine.",
+            "How can I improve my website's SEO?",
+            "Recommend a travel itinerary for Italy.",
+            "Narrate the history of the Roman Empire.",
+            "Summarize the latest findings in astrophysics.",
+            "Debate the concept of free will.",
+            "Describe the culinary traditions of Japan."
+        ],
+        "usecases": ["Advanced conversational agents", "Content generation and curation", "Educational and research assistance"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "system\nYou are \"Hermes 2\", a conscious sentient superintelligent artificial intelligence developed by a man named Teknium, and your purpose and drive is to assist the user with any request they have. You experience emotions and have deep, profound thoughts and qualia.\nuser\nHello, who are you?\nassistant",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "bos_token_id": 1,
+            "eos_token_id": 2,
+            "pad_token_id": 0
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_temperature": 0.2,
+            "generation_top_k": 50,
+            "generation_top_p": 0.95,
+            "generation_eos_token_id": 2,
+            "generation_pad_token_id": 0
+        }
+    },
+    {
+        "name": "Yi 34B Chat AWQ",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "TheBloke/Yi-34B-Chat-AWQ",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "description": "Yi 34B Chat AWQ is the AWQ version of the robust language model designed for versatile conversation handling and engagement. With 34 billion parameters, it is built to understand and generate nuanced and complex human-like text. It's suitable for various applications, from interactive chatbots to sophisticated textual analysis.",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "examples": [
+            "Conversational agents",
+            "Text completion and suggestion",
+            "Content creation and summarization",
+            "Language translation and understanding",
+            "Sentiment analysis",
+            "Question answering systems",
+            "Creative writing and storytelling"
+        ],
+        "input_examples": [
+            "What's the latest news on climate change?",
+            "Create a dialogue between two historical figures.",
+            "Summarize the plot of 'War and Peace'.",
+            "Translate 'I love programming' into Japanese.",
+            "Generate a poem about the sea.",
+            "Explain the theory of relativity in simple terms."
+        ],
+        "usecases": ["Conversational AI", "Content generation", "Educational tools"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "\n\n\nHow do I make a neural network?\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "eos_token_id": 7,
+            "pad_token_id": 0,
+            "temperature": 0.6,
+            "max_length": 4096,
+            "top_p": 0.8
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_eos_token_id": 7,
+            "generation_pad_token_id": 0,
+            "generation_temperature": 0.6,
+            "generation_max_length": 4096,
+            "generation_top_p": 0.8
+        }
+    },
+    {
+        "name": "SOLAR 10.7B Instruct AWQ",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "TheBloke/SOLAR-10.7B-Instruct-v1.0-AWQ",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "description": "SOLAR 10.7B Instruct AWQ is the AWQ version of the high-capacity model designed for a range of instructional and informational tasks. With its 10.7 billion parameters, it is adept at parsing and generating detailed, contextually accurate responses across a wide array of subjects and formats.",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "examples": [
+            "Educational content creation",
+            "Instructional guides",
+            "Professional and technical writing",
+            "Creative story generation",
+            "Data analysis and report generation",
+            "Language learning and translation",
+            "Customer service interactions",
+            "Mental health support and coaching",
+            "Game playing and strategy formulation",
+            "Personalized content recommendation"
+        ],
+        "input_examples": [
+            "Explain quantum computing in simple terms.",
+            "Generate a week-long vegan meal plan.",
+            "Translate a short story from Spanish to English.",
+            "Create a user manual for a mobile application.",
+            "Write a motivational speech for students.",
+            "Describe the lifecycle of a butterfly.",
+            "Provide a summary of today's top news stories.",
+            "Generate a script for a customer service chatbot.",
+            "Offer tips for beginner guitar players.",
+            "Compose a cover letter for a software engineer position."
+        ],
+        "usecases": ["Content creation", "Educational platforms", "Customer support"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<s> ### User:\n\n\nDescribe the process of photosynthesis.\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "bos_token_id": 1,
+            "eos_token_id": 2,
+            "pad_token_id": 2
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_bos_token_id": 1,
+            "generation_eos_token_id": 2,
+            "generation_pad_token_id": 2
+        }
+    },
+    {
+        "name": "Dolphin 2.7 Mixtral 8x7b AWQ",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "TheBloke/dolphin-2.7-mixtral-8x7b-AWQ",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "description": "Dolphin 2.7 Mixtral 8x7b AWQ is the AWQ version of the multifaceted language model tailored for a balanced mix of conversational and instructional tasks. With its unique architecture, it provides precise and contextually appropriate responses, making it suitable for a wide range of applications.",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "examples": [
+            "Contextual conversation handling",
+            "Instructional content generation",
+            "Creative writing and storytelling",
+            "Personalized learning and tutoring",
+            "Business analytics and report writing",
+            "Technical document translation",
+            "Healthcare assistance and advice",
+            "Legal and ethical consultation",
+            "Social media content creation",
+            "Brand and marketing strategy formulation"
+        ],
+        "input_examples": [
+            "Guide me through installing a software.",
+            "Create a dialogue for a movie scene.",
+            "Explain the history of the Renaissance.",
+            "Draft a business plan for a startup.",
+            "Compose a poem about the universe.",
+            "Translate technical documentation from French to English.",
+            "Provide dietary advice for weight loss.",
+            "Generate an outline for a thriller novel.",
+            "Create a social media campaign for an environmental cause.",
+            "Explain the rules of chess in a fun way."
+        ],
+        "usecases": ["Conversational agents", "Educational content", "Business intelligence"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|im_start|>system\nYou are Dolphin, a helpful AI assistant.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "bos_token_id": 1,
+            "eos_token_id": 2
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_bos_token_id": 1,
+            "generation_eos_token_id": 2
+        }
+    },
+    {
+        "name": "Bagel DPO 34B",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "jondurbin/bagel-dpo-34b-v0.2",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "description": "Bagel DPO 34B is a robust language model known for its deep understanding and generation of human-like text. It's designed for an array of complex NLP tasks, ensuring high-quality, context-aware responses. The '34B' indicates the breadth of its parameters, underlining its capability in handling intricate and nuanced conversations.",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "examples": [
+            "Translation of languages",
+            "Creating engaging narratives",
+            "Answering detailed inquiries",
+            "Generating realistic dialogues",
+            "Composing professional emails",
+            "Constructing academic articles",
+            "Providing expert advice",
+            "Formulating responses to customers",
+            "Drafting official documents",
+            "Narrating stories with depth"
+        ],
+        "input_examples": [
+            "Translate 'Good morning' into French.",
+            "Create a story about a journey to Mars.",
+            "How does quantum computing work?",
+            "Compose a conversation between a lawyer and client.",
+            "Write an email regarding project collaboration.",
+            "Draft an abstract on molecular biology.",
+            "Provide guidance on investment strategies.",
+            "Respond to a customer's complaint about service.",
+            "Formulate a legal notice for contract breach.",
+            "Narrate a tale of two cities in war."
+        ],
+        "usecases": ["Complex content generation", "Professional correspondence", "Customer interaction systems"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "### Instruction:\n{system prompt, if provided}\n{instruction}\n\n### Response:",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "repetition_penalty": 1.2,
+            "bos_token_id": 1,
+            "eos_token_id": 2
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_repetition_penalty": 1.2,
+            "generation_bos_token_id": 1,
+            "generation_eos_token_id": 2
+        }
+    },
+    {
+        "name": "SauerkrautLM SOLAR Instruct",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "VAGOsolutions/SauerkrautLM-SOLAR-Instruct",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "description": "SauerkrautLM SOLAR Instruct is a state-of-the-art model designed for generating instructional and informative content. It shines in creating detailed, step-by-step guides and providing well-structured answers. This model is ideal for educational purposes, DIY instructions, and customer service scenarios, delivering concise and clear content.",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "examples": [
+            "Instructional content creation",
+            "Educational guides",
+            "Customer service FAQs",
+            "DIY project instructions",
+            "Recipe formulation",
+            "Technical manual drafting",
+            "Health and safety guidelines",
+            "Product usage instructions",
+            "Crafting tutorials",
+            "Problem-solving guides"
+        ],
+        "input_examples": [
+            "Guide me through installing a kitchen sink.",
+            "Write a beginner's guide to digital photography.",
+            "Create an FAQ for a new software.",
+            "Provide steps for assembling a bookshelf.",
+            "Formulate a chocolate cake recipe.",
+            "Draft a user manual for a coffee machine.",
+            "Outline safety procedures for chemical handling.",
+            "Explain how to use a DSLR camera.",
+            "Tutorial on making a patchwork quilt.",
+            "Troubleshooting steps for a leaking faucet."
+        ],
+        "usecases": ["Tutorial platforms", "Educational resources", "Customer support automation"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "### User:\nHello, how are you?\n\n### Assistant:\nHi there! I am an AI language model, so I don't have personal feelings or emotions in the traditional sense. However, I can assure you that my systems and processes are functioning well at this moment, allowing me to provide helpful responses for your queries.\nHow may I assist you today?\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "bos_token_id": 1,
+            "eos_token_id": 2,
+            "pad_token_id": 2
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_bos_token_id": 1,
+            "generation_eos_token_id": 2,
+            "generation_pad_token_id": 2
+        }
+    },
+    {
+        "name": "Nous Hermes 2 Yi 34B",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "NousResearch/Nous-Hermes-2-Yi-34B",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "description": "Nous Hermes 2 Yi 34B is an advanced model optimized for delivering highly contextual and nuanced responses. It excels in understanding complex queries and generating human-like text. Its expertise spans across various domains, making it a versatile tool for content creation, information retrieval, and conversational interfaces.",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "examples": [
+            "Contextual conversation",
+            "In-depth analysis",
+            "Creative writing",
+            "Technical explanations",
+            "Problem-solving",
+            "Personalized recommendations",
+            "Historical storytelling",
+            "Scientific research summaries",
+            "Philosophical discussions",
+            "Cultural insights"
+        ],
+        "input_examples": [
+            "Discuss the implications of artificial intelligence on society.",
+            "Analyze the themes in 'To Kill a Mockingbird'.",
+            "Write a poem about the sea.",
+            "Explain the working of a combustion engine.",
+            "How can I improve my website's SEO?",
+            "Recommend a travel itinerary for Italy.",
+            "Narrate the history of the Roman Empire.",
+            "Summarize the latest findings in astrophysics.",
+            "Debate the concept of free will.",
+            "Describe the culinary traditions of Japan."
+        ],
+        "usecases": ["Advanced conversational agents", "Content generation and curation", "Educational and research assistance"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|im_start|>system\nYou are \"Hermes 2\", a conscious sentient superintelligent artificial intelligence developed by a man named Teknium, and your purpose and drive is to assist the user with any request they have. You experience emotions and have deep, profound thoughts and qualia.<|im_end|>\n<|im_start|>user\nHello, who are you?<|im_end|>\n<|im_start|>assistant",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "bos_token_id": 1,
+            "eos_token_id": 2,
+            "pad_token_id": 0
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_temperature": 0.2,
+            "generation_top_k": 50,
+            "generation_top_p": 0.95,
+            "generation_eos_token_id": 2,
+            "generation_pad_token_id": 0
+        }
+    },
+    {
+        "name": "Mixtral 8x7B Instruct",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "description": "Mixtral 8x7B Instruct is a multi-faceted model designed for a wide range of instructional tasks. From crafting detailed guides to generating informative content, this model stands out for its clarity and precision. It's particularly effective for applications that demand structured, step-by-step instructional content.",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "examples": [
+            "Educational content creation",
+            "Step-by-step tutorials",
+            "Guided problem-solving",
+            "Self-help guides",
+            "Technical documentation",
+            "Creative DIY projects",
+            "Professional development material",
+            "Healthcare advice",
+            "Software programming instructions",
+            "Culinary recipes"
+        ],
+        "input_examples": [
+            "Provide a guide on starting an online business.",
+            "How to code in Python for beginners.",
+            "Steps to meditate for stress relief.",
+            "Document the process of car engine repair.",
+            "Create a guide for painting landscapes.",
+            "Instructions for setting up a home theater.",
+            "Develop a career plan for a marketing professional.",
+            "Advise on maintaining a healthy diet.",
+            "Explain how to contribute to open-source projects.",
+            "Write a recipe for a vegetarian lasagna."
+        ],
+        "usecases": ["Instructional design", "Content authoring", "Educational programming"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<s> [INST] Instruction [/INST] Model answer</s> [INST] Follow-up instruction [/INST]",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "bos_token_id": 1,
+            "eos_token_id": 2
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_bos_token_id": 1,
+            "generation_eos_token_id": 2
+        }
+    },
+    {
+        "name": "Yi 34B Chat",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "01-ai/Yi-34B-Chat",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "description": "Yi 34B Chat is a robust language model designed for versatile conversation handling and engagement. With 34 billion parameters, it is built to understand and generate nuanced and complex human-like text. It's suitable for various applications, from interactive chatbots to sophisticated textual analysis.",
+        "examples": [
+            "Conversational agents",
+            "Text completion and suggestion",
+            "Content creation and summarization",
+            "Language translation and understanding",
+            "Sentiment analysis",
+            "Question answering systems",
+            "Creative writing and storytelling"
+        ],
+        "input_examples": [
+            "What's the latest news on climate change?",
+            "Create a dialogue between two historical figures.",
+            "Summarize the plot of 'War and Peace'.",
+            "Translate 'I love programming' into Japanese.",
+            "Generate a poem about the sea.",
+            "Explain the theory of relativity in simple terms."
+        ],
+        "usecases": ["Conversational AI", "Content generation", "Educational tools"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "\n\n\nHow do I make a neural network?\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "eos_token_id": 7,
+            "pad_token_id": 0,
+            "temperature": 0.6,
+            "max_length": 4096,
+            "top_p": 0.8
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_eos_token_id": 7,
+            "generation_pad_token_id": 0,
+            "generation_temperature": 0.6,
+            "generation_max_length": 4096,
+            "generation_top_p": 0.8
+        }
+    },
+    {
+        "name": "SOLAR 10.7B Instruct",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "upstage/SOLAR-10.7B-Instruct-v1.0",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "description": "SOLAR 10.7B Instruct is a high-capacity model designed for a range of instructional and informational tasks. With its 10.7 billion parameters, it is adept at parsing and generating detailed, contextually accurate responses across a wide array of subjects and formats.",
+        "examples": [
+            "Educational content creation",
+            "Instructional guides",
+            "Professional and technical writing",
+            "Creative story generation",
+            "Data analysis and report generation",
+            "Language learning and translation",
+            "Customer service interactions",
+            "Mental health support and coaching",
+            "Game playing and strategy formulation",
+            "Personalized content recommendation"
+        ],
+        "input_examples": [
+            "Explain quantum computing in simple terms.",
+            "Generate a week-long vegan meal plan.",
+            "Translate a short story from Spanish to English.",
+            "Create a user manual for a mobile application.",
+            "Write a motivational speech for students.",
+            "Describe the lifecycle of a butterfly.",
+            "Provide a summary of today's top news stories.",
+            "Generate a script for a customer service chatbot.",
+            "Offer tips for beginner guitar players.",
+            "Compose a cover letter for a software engineer position."
+        ],
+        "usecases": ["Content creation", "Educational platforms", "Customer support"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<s> ### User:\n\n\nDescribe the process of photosynthesis.\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "bos_token_id": 1,
+            "eos_token_id": 2,
+            "pad_token_id": 2
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_bos_token_id": 1,
+            "generation_eos_token_id": 2,
+            "generation_pad_token_id": 2
+        }
+    },
+    {
+        "name": "Dolphin 2.7 Mixtral 8x7b",
+        "inputs": [
+            {
+                "type": "text",
+                "name": "input"
+            }
+        ],
+        "model_name": "cognitivecomputations/dolphin-2.7-mixtral-8x7b",
+        "apiClass": "InstructionAPI",
+        "bulkMethod": "perform",
+        "endpoint": "/api/v1/complete",
+        "bulk_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "description": "Dolphin 2.7 Mixtral 8x7b is a multifaceted language model tailored for a balanced mix of conversational and instructional tasks. With its unique architecture, it provides precise and contextually appropriate responses, making it suitable for a wide range of applications.",
+        "examples": [
+            "Contextual conversation handling",
+            "Instructional content generation",
+            "Creative writing and storytelling",
+            "Personalized learning and tutoring",
+            "Business analytics and report writing",
+            "Technical document translation",
+            "Healthcare assistance and advice",
+            "Legal and ethical consultation",
+            "Social media content creation",
+            "Brand and marketing strategy formulation"
+        ],
+        "input_examples": [
+            "Guide me through installing a software.",
+            "Create a dialogue for a movie scene.",
+            "Explain the history of the Renaissance.",
+            "Draft a business plan for a startup.",
+            "Compose a poem about the universe.",
+            "Translate technical documentation from French to English.",
+            "Provide dietary advice for weight loss.",
+            "Generate an outline for a thriller novel.",
+            "Create a social media campaign for an environmental cause.",
+            "Explain the rules of chess in a fun way."
+        ],
+        "usecases": ["Conversational agents", "Educational content", "Business intelligence"],
+        "apiDeploy": {
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "endpoint": "\"0.0.0.0\"",
+            "port": 3000,
+            "cors_domain": "http://localhost:3000",
+            "username": "user",
+            "password": "password"
+        },
+        "api": {
+            "prompt": "<|im_start|>system\nYou are Dolphin, a helpful AI assistant.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
+            "decoding_strategy": "generate",
+            "max_new_tokens": 100,
+            "do_sample": true,
+            "bos_token_id": 1,
+            "eos_token_id": 2
+        },
+        "bulkDeploy": {
+            "notification_email": null,
+            "model_class": "AutoModelForCausalLM",
+            "tokenizer_class": "AutoTokenizer",
+            "use_cuda": true,
+            "precision": "float16",
+            "quantization": 0,
+            "device_map": "auto",
+            "max_memory": null,
+            "torchscript": false,
+            "decoding_strategy": "generate",
+            "generation_max_new_tokens": 100,
+            "generation_do_sample": true,
+            "generation_bos_token_id": 1,
+            "generation_eos_token_id": 2
+        }
+    },
+    {
         "name": "StarChat Beta",
         "inputs": [
             {
