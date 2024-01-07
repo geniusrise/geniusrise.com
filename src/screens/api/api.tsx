@@ -125,7 +125,7 @@ const API: React.FC<APIProps> = ({ model }) => {
 
         createService({
             task: {
-                name: ("genius--" + generateName() + "--" + model.name.toLowerCase().replaceAll(" ", "-")).substring(0, 60),
+                name: ("genius--" + generateName() + "--" + model.name.toLowerCase().replaceAll(" ", "-")).replaceAll(".", "-").substring(0, 60),
                 deployment_config: {
                     ...config
                 },

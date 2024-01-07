@@ -188,7 +188,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
 
         createJob({
             task: {
-                name: ("geniusbulk--" + generateName() + "--" + model.name.toLowerCase().replaceAll(" ", "-")).substring(0, 60),
+                name: ("geniusbulk--" + generateName() + "--" + model.name.toLowerCase().replaceAll(" ", "-")).replaceAll(".", "-").substring(0, 60),
                 deployment_config: {
                     ...config
                 },
