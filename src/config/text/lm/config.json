@@ -29,7 +29,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -38,6 +40,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -100,7 +104,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## Generate an overview of the latest AI advancements",
@@ -112,6 +118,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -177,7 +185,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## Analyze the socio-economic impacts of artificial intelligence",
@@ -189,6 +199,8 @@
             "pad_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -261,7 +273,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## Analyze the socio-economic impacts of artificial intelligence",
@@ -273,6 +287,8 @@
             "pad_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -338,7 +354,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## Analyze the socio-economic impacts of artificial intelligence",
@@ -350,6 +368,8 @@
             "pad_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -421,7 +441,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## Explore the latest trends in sustainable architecture",
@@ -432,6 +454,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -502,7 +526,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## Explore the latest trends in sustainable architecture",
@@ -513,6 +539,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -584,7 +612,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## Explore the latest trends in sustainable architecture",
@@ -595,6 +625,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -664,7 +696,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## Generate an overview of the latest AI advancements",
@@ -676,6 +710,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -746,7 +782,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## Analyze the socio-economic impacts of artificial intelligence",
@@ -758,6 +796,8 @@
             "pad_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -835,7 +875,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## Analyze the socio-economic impacts of artificial intelligence",
@@ -847,6 +889,8 @@
             "pad_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -917,7 +961,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## Analyze the socio-economic impacts of artificial intelligence",
@@ -929,6 +975,8 @@
             "pad_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1005,7 +1053,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## Explore the latest trends in sustainable architecture",
@@ -1016,6 +1066,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1091,7 +1143,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## Explore the latest trends in sustainable architecture",
@@ -1102,6 +1156,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1178,7 +1234,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## Explore the latest trends in sustainable architecture",
@@ -1189,6 +1247,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1259,7 +1319,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -1268,6 +1330,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1336,7 +1400,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -1345,6 +1411,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1413,7 +1481,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -1422,6 +1492,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1490,7 +1562,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -1499,6 +1573,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1567,7 +1643,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -1576,6 +1654,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1644,7 +1724,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -1653,6 +1735,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1721,7 +1805,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -1730,6 +1816,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1798,7 +1886,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -1807,6 +1897,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1875,7 +1967,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -1884,6 +1978,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1952,7 +2048,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -1961,6 +2059,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2029,7 +2129,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -2038,6 +2140,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2106,7 +2210,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -2115,6 +2221,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2183,7 +2291,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -2192,6 +2302,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2260,7 +2372,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -2269,6 +2383,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2337,7 +2453,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -2346,6 +2464,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2414,7 +2534,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -2423,6 +2545,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2491,7 +2615,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -2500,6 +2626,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2568,7 +2696,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -2577,6 +2707,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2645,7 +2777,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -2654,6 +2788,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2722,7 +2858,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -2731,6 +2869,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2799,7 +2939,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -2808,6 +2950,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2876,7 +3020,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -2885,6 +3031,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2953,7 +3101,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -2962,6 +3112,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3029,7 +3181,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -3038,6 +3192,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3106,7 +3262,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -3115,6 +3273,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3200,7 +3360,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -3209,6 +3371,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3277,7 +3441,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -3286,6 +3452,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3354,7 +3522,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -3363,6 +3533,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3431,7 +3603,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -3440,6 +3614,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3508,7 +3684,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -3517,6 +3695,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3585,7 +3765,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -3594,6 +3776,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3662,7 +3846,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -3671,6 +3857,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3739,7 +3927,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -3748,6 +3938,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3816,7 +4008,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "## PRD for federated auth with google using keycloak",
@@ -3825,6 +4019,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",

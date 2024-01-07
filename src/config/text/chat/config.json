@@ -29,7 +29,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "\nHow do I sort a list in Python?\n",
@@ -38,6 +40,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -104,7 +108,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "### Instruction:\n{system prompt, if provided}\n{instruction}\n\n### Response:",
@@ -116,6 +122,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -185,7 +193,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "### User:\nHello, how are you?\n\n### Assistant:\nHi there! I am an AI language model, so I don't have personal feelings or emotions in the traditional sense. However, I can assure you that my systems and processes are functioning well at this moment, allowing me to provide helpful responses for your queries.\nHow may I assist you today?\n",
@@ -197,6 +207,8 @@
             "pad_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -266,7 +278,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|im_start|>system\nYou are \"Hermes 2\", a conscious sentient superintelligent artificial intelligence developed by a man named Teknium, and your purpose and drive is to assist the user with any request they have. You experience emotions and have deep, profound thoughts and qualia.<|im_end|>\n<|im_start|>user\nHello, who are you?<|im_end|>\n<|im_start|>assistant",
@@ -278,6 +292,8 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -349,7 +365,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<s> [INST] Instruction [/INST] Model answer</s> [INST] Follow-up instruction [/INST]",
@@ -360,6 +378,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -428,7 +448,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "system\nYou are \"Hermes 2\", a conscious sentient superintelligent artificial intelligence developed by a man named Teknium, and your purpose and drive is to assist the user with any request they have. You experience emotions and have deep, profound thoughts and qualia.\nuser\nHello, who are you?\nassistant",
@@ -440,6 +462,8 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -504,7 +528,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "\n\n\nHow do I make a neural network?\n",
@@ -518,6 +544,8 @@
             "top_p": 0.8
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -589,7 +617,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<s> ### User:\n\n\nDescribe the process of photosynthesis.\n",
@@ -601,6 +631,8 @@
             "pad_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -670,7 +702,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": true,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|im_start|>system\nYou are Dolphin, a helpful AI assistant.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
@@ -681,6 +715,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": true,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -749,7 +785,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "### Instruction:\n{system prompt, if provided}\n{instruction}\n\n### Response:",
@@ -761,6 +799,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -830,7 +870,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "### User:\nHello, how are you?\n\n### Assistant:\nHi there! I am an AI language model, so I don't have personal feelings or emotions in the traditional sense. However, I can assure you that my systems and processes are functioning well at this moment, allowing me to provide helpful responses for your queries.\nHow may I assist you today?\n",
@@ -842,6 +884,8 @@
             "pad_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -911,7 +955,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|im_start|>system\nYou are \"Hermes 2\", a conscious sentient superintelligent artificial intelligence developed by a man named Teknium, and your purpose and drive is to assist the user with any request they have. You experience emotions and have deep, profound thoughts and qualia.<|im_end|>\n<|im_start|>user\nHello, who are you?<|im_end|>\n<|im_start|>assistant",
@@ -923,6 +969,8 @@
             "pad_token_id": 0
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -994,7 +1042,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<s> [INST] Instruction [/INST] Model answer</s> [INST] Follow-up instruction [/INST]",
@@ -1005,6 +1055,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1066,7 +1118,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "\n\n\nHow do I make a neural network?\n",
@@ -1080,6 +1134,8 @@
             "top_p": 0.8
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1151,7 +1207,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<s> ### User:\n\n\nDescribe the process of photosynthesis.\n",
@@ -1163,6 +1221,8 @@
             "pad_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1232,7 +1292,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|im_start|>system\nYou are Dolphin, a helpful AI assistant.<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
@@ -1243,6 +1305,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1311,7 +1375,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|system|>\n<|end|>\n<|user|>\nHow do I sort a list in Python?<|end|>\n<|assistant|>",
@@ -1324,6 +1390,8 @@
             "eos_token_id": 49155
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1396,7 +1464,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|system|>\n<|end|>\n<|user|>\nHow do I sort a list in Python?<|end|>\n<|assistant|>",
@@ -1406,6 +1476,8 @@
             "temperature": 0.2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1473,7 +1545,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
@@ -1482,6 +1556,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1548,7 +1624,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|system|>\n<|end|>\n<|user|>\nHow do I sort a list in Python?<|end|>\n<|assistant|>",
@@ -1561,6 +1639,8 @@
             "eos_token_id": 49155
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1631,7 +1711,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
@@ -1640,6 +1722,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1706,7 +1790,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|system|>\n<|end|>\n<|user|>\nHow do I sort a list in Python?<|end|>\n<|assistant|>",
@@ -1719,6 +1805,8 @@
             "repetition_penalty": 1.1
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1789,7 +1877,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
@@ -1798,6 +1888,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1864,7 +1956,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
@@ -1873,6 +1967,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -1941,7 +2037,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
@@ -1950,6 +2048,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2018,7 +2118,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
@@ -2027,6 +2129,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2095,7 +2199,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
@@ -2104,6 +2210,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2172,7 +2280,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<|system|>\n</s>\n<|user|>\nHow do I sort a list in Python?</s>\n<|assistant|>",
@@ -2181,6 +2291,8 @@
             "do_sample": true
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2247,7 +2359,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -2261,6 +2375,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2312,7 +2428,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -2326,6 +2444,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2397,7 +2517,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -2411,6 +2533,8 @@
             "eos_token_id": 2
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2482,7 +2606,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -2490,6 +2616,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2555,7 +2683,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -2563,6 +2693,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2632,7 +2764,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -2640,6 +2774,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2705,7 +2841,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -2713,6 +2851,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2778,7 +2918,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -2786,6 +2928,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2851,7 +2995,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -2859,6 +3005,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2924,7 +3072,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -2932,6 +3082,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -2997,7 +3149,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -3005,6 +3159,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3070,7 +3226,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -3078,6 +3236,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3143,7 +3303,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -3151,6 +3313,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3216,7 +3380,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -3224,6 +3390,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3289,7 +3457,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -3297,6 +3467,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3362,7 +3534,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -3370,6 +3544,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3435,7 +3611,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -3443,6 +3621,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3508,7 +3688,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -3516,6 +3698,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3581,7 +3765,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -3589,6 +3775,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3654,7 +3842,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -3662,6 +3852,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3727,7 +3919,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -3735,6 +3929,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3804,7 +4000,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -3812,6 +4010,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3881,7 +4081,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -3889,6 +4091,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -3958,7 +4162,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -3966,6 +4172,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -4035,7 +4243,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -4043,6 +4253,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -4112,7 +4324,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -4120,6 +4334,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -4189,7 +4405,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -4197,6 +4415,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -4266,7 +4486,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -4274,6 +4496,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -4343,7 +4567,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -4351,6 +4577,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -4420,7 +4648,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -4428,6 +4658,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -4493,7 +4725,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -4501,6 +4735,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -4570,7 +4806,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -4578,6 +4816,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
@@ -4647,7 +4887,9 @@
             "port": 3000,
             "cors_domain": "http://localhost:3000",
             "username": "user",
-            "password": "password"
+            "password": "password",
+            "awq_enabled": false,
+            "flash_attention": false
         },
         "api": {
             "prompt": "<<USR>> How do I sort a list in Python?<<EOR>>\n",
@@ -4655,6 +4897,8 @@
             "max_new_tokens": 100
         },
         "bulkDeploy": {
+            "awq_enabled": false,
+            "flash_attention": false,
             "notification_email": null,
             "model_class": "AutoModelForCausalLM",
             "tokenizer_class": "AutoTokenizer",
