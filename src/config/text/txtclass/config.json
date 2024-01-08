@@ -17,33 +17,165 @@
         "input_examples": ["Specific to the model"],
         "usecases": ["Any custom text classification usecase"],
         "apiDeploy": {
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false,
-            "endpoint": "\"0.0.0.0\"",
-            "port": 3000,
-            "cors_domain": "http://localhost:3000",
-            "username": "user",
-            "password": "password"
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "1": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Typically you would want to leave it at 0.0.0.0",
+                "type": "No type available.",
+                "default": "\"0.0.0.0\"",
+                "possible": null
+            },
+            "9": {
+                "name": "port",
+                "description": "Port number for API deployment, typically leave it at default.",
+                "type": "No type available.",
+                "default": 3000,
+                "possible": null
+            },
+            "10": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing. To handle CORS if this API is exptected to be called by a frontend application.",
+                "type": "No type available.",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "11": {
+                "name": "username",
+                "description": "Username for API authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "user",
+                "possible": null
+            },
+            "12": {
+                "name": "password",
+                "description": "Password for authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "password",
+                "possible": null
+            }
         },
         "api": {
             "text": "your text here"
         },
         "bulkDeploy": {
-            "notification_email": null,
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false
+            "0": {
+                "name": "notification_email",
+                "description": "Email address to send notifications about model serving status. Setting this allows for monitoring and alerting on model performance or downtime.",
+                "type": "string or null",
+                "default": null,
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "2": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            }
         }
     },
     {
@@ -80,33 +212,165 @@
         ],
         "usecases": ["Online community moderation", "Social media monitoring", "Automated reporting systems for hateful content"],
         "apiDeploy": {
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false,
-            "endpoint": "\"0.0.0.0\"",
-            "port": 3000,
-            "cors_domain": "http://localhost:3000",
-            "username": "user",
-            "password": "password"
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "1": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Typically you would want to leave it at 0.0.0.0",
+                "type": "No type available.",
+                "default": "\"0.0.0.0\"",
+                "possible": null
+            },
+            "9": {
+                "name": "port",
+                "description": "Port number for API deployment, typically leave it at default.",
+                "type": "No type available.",
+                "default": 3000,
+                "possible": null
+            },
+            "10": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing. To handle CORS if this API is exptected to be called by a frontend application.",
+                "type": "No type available.",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "11": {
+                "name": "username",
+                "description": "Username for API authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "user",
+                "possible": null
+            },
+            "12": {
+                "name": "password",
+                "description": "Password for authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "password",
+                "possible": null
+            }
         },
         "api": {
             "text": "your text here"
         },
         "bulkDeploy": {
-            "notification_email": null,
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false
+            "0": {
+                "name": "notification_email",
+                "description": "Email address to send notifications about model serving status. Setting this allows for monitoring and alerting on model performance or downtime.",
+                "type": "string or null",
+                "default": null,
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "2": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            }
         }
     },
     {
@@ -143,33 +407,165 @@
         ],
         "usecases": ["Online community moderation", "Social media content filtering", "Automated hate speech detection systems"],
         "apiDeploy": {
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false,
-            "endpoint": "\"0.0.0.0\"",
-            "port": 3000,
-            "cors_domain": "http://localhost:3000",
-            "username": "user",
-            "password": "password"
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "1": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Typically you would want to leave it at 0.0.0.0",
+                "type": "No type available.",
+                "default": "\"0.0.0.0\"",
+                "possible": null
+            },
+            "9": {
+                "name": "port",
+                "description": "Port number for API deployment, typically leave it at default.",
+                "type": "No type available.",
+                "default": 3000,
+                "possible": null
+            },
+            "10": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing. To handle CORS if this API is exptected to be called by a frontend application.",
+                "type": "No type available.",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "11": {
+                "name": "username",
+                "description": "Username for API authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "user",
+                "possible": null
+            },
+            "12": {
+                "name": "password",
+                "description": "Password for authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "password",
+                "possible": null
+            }
         },
         "api": {
             "text": "your text here"
         },
         "bulkDeploy": {
-            "notification_email": null,
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false
+            "0": {
+                "name": "notification_email",
+                "description": "Email address to send notifications about model serving status. Setting this allows for monitoring and alerting on model performance or downtime.",
+                "type": "string or null",
+                "default": null,
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "2": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            }
         }
     },
     {
@@ -206,33 +602,165 @@
         ],
         "usecases": ["Online community moderation", "Social media content filtering", "Automated offensive language detection systems"],
         "apiDeploy": {
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false,
-            "endpoint": "\"0.0.0.0\"",
-            "port": 3000,
-            "cors_domain": "http://localhost:3000",
-            "username": "user",
-            "password": "password"
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "1": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Typically you would want to leave it at 0.0.0.0",
+                "type": "No type available.",
+                "default": "\"0.0.0.0\"",
+                "possible": null
+            },
+            "9": {
+                "name": "port",
+                "description": "Port number for API deployment, typically leave it at default.",
+                "type": "No type available.",
+                "default": 3000,
+                "possible": null
+            },
+            "10": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing. To handle CORS if this API is exptected to be called by a frontend application.",
+                "type": "No type available.",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "11": {
+                "name": "username",
+                "description": "Username for API authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "user",
+                "possible": null
+            },
+            "12": {
+                "name": "password",
+                "description": "Password for authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "password",
+                "possible": null
+            }
         },
         "api": {
             "text": "your text here"
         },
         "bulkDeploy": {
-            "notification_email": null,
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false
+            "0": {
+                "name": "notification_email",
+                "description": "Email address to send notifications about model serving status. Setting this allows for monitoring and alerting on model performance or downtime.",
+                "type": "string or null",
+                "default": null,
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "2": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            }
         }
     },
     {
@@ -269,33 +797,165 @@
         ],
         "usecases": ["Sentiment analysis", "Social media monitoring", "Linguistic research"],
         "apiDeploy": {
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false,
-            "endpoint": "\"0.0.0.0\"",
-            "port": 3000,
-            "cors_domain": "http://localhost:3000",
-            "username": "user",
-            "password": "password"
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "1": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Typically you would want to leave it at 0.0.0.0",
+                "type": "No type available.",
+                "default": "\"0.0.0.0\"",
+                "possible": null
+            },
+            "9": {
+                "name": "port",
+                "description": "Port number for API deployment, typically leave it at default.",
+                "type": "No type available.",
+                "default": 3000,
+                "possible": null
+            },
+            "10": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing. To handle CORS if this API is exptected to be called by a frontend application.",
+                "type": "No type available.",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "11": {
+                "name": "username",
+                "description": "Username for API authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "user",
+                "possible": null
+            },
+            "12": {
+                "name": "password",
+                "description": "Password for authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "password",
+                "possible": null
+            }
         },
         "api": {
             "text": "your text here"
         },
         "bulkDeploy": {
-            "notification_email": null,
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false
+            "0": {
+                "name": "notification_email",
+                "description": "Email address to send notifications about model serving status. Setting this allows for monitoring and alerting on model performance or downtime.",
+                "type": "string or null",
+                "default": null,
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "2": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            }
         }
     },
     {
@@ -332,33 +992,165 @@
         ],
         "usecases": ["Online community moderation", "Social media content filtering", "Automated toxicity detection systems"],
         "apiDeploy": {
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false,
-            "endpoint": "\"0.0.0.0\"",
-            "port": 3000,
-            "cors_domain": "http://localhost:3000",
-            "username": "user",
-            "password": "password"
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "1": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Typically you would want to leave it at 0.0.0.0",
+                "type": "No type available.",
+                "default": "\"0.0.0.0\"",
+                "possible": null
+            },
+            "9": {
+                "name": "port",
+                "description": "Port number for API deployment, typically leave it at default.",
+                "type": "No type available.",
+                "default": 3000,
+                "possible": null
+            },
+            "10": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing. To handle CORS if this API is exptected to be called by a frontend application.",
+                "type": "No type available.",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "11": {
+                "name": "username",
+                "description": "Username for API authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "user",
+                "possible": null
+            },
+            "12": {
+                "name": "password",
+                "description": "Password for authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "password",
+                "possible": null
+            }
         },
         "api": {
             "text": "your text here"
         },
         "bulkDeploy": {
-            "notification_email": null,
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false
+            "0": {
+                "name": "notification_email",
+                "description": "Email address to send notifications about model serving status. Setting this allows for monitoring and alerting on model performance or downtime.",
+                "type": "string or null",
+                "default": null,
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "2": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            }
         }
     },
     {
@@ -395,33 +1187,165 @@
         ],
         "usecases": ["Online community moderation", "Social media monitoring", "Content filtering systems"],
         "apiDeploy": {
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false,
-            "endpoint": "\"0.0.0.0\"",
-            "port": 3000,
-            "cors_domain": "http://localhost:3000",
-            "username": "user",
-            "password": "password"
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "1": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Typically you would want to leave it at 0.0.0.0",
+                "type": "No type available.",
+                "default": "\"0.0.0.0\"",
+                "possible": null
+            },
+            "9": {
+                "name": "port",
+                "description": "Port number for API deployment, typically leave it at default.",
+                "type": "No type available.",
+                "default": 3000,
+                "possible": null
+            },
+            "10": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing. To handle CORS if this API is exptected to be called by a frontend application.",
+                "type": "No type available.",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "11": {
+                "name": "username",
+                "description": "Username for API authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "user",
+                "possible": null
+            },
+            "12": {
+                "name": "password",
+                "description": "Password for authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "password",
+                "possible": null
+            }
         },
         "api": {
             "text": "your text here"
         },
         "bulkDeploy": {
-            "notification_email": null,
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false
+            "0": {
+                "name": "notification_email",
+                "description": "Email address to send notifications about model serving status. Setting this allows for monitoring and alerting on model performance or downtime.",
+                "type": "string or null",
+                "default": null,
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "2": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            }
         }
     },
     {
@@ -458,33 +1382,165 @@
         ],
         "usecases": ["Content moderation", "Social media monitoring", "Workplace communication moderation"],
         "apiDeploy": {
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false,
-            "endpoint": "\"0.0.0.0\"",
-            "port": 3000,
-            "cors_domain": "http://localhost:3000",
-            "username": "user",
-            "password": "password"
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "1": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Typically you would want to leave it at 0.0.0.0",
+                "type": "No type available.",
+                "default": "\"0.0.0.0\"",
+                "possible": null
+            },
+            "9": {
+                "name": "port",
+                "description": "Port number for API deployment, typically leave it at default.",
+                "type": "No type available.",
+                "default": 3000,
+                "possible": null
+            },
+            "10": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing. To handle CORS if this API is exptected to be called by a frontend application.",
+                "type": "No type available.",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "11": {
+                "name": "username",
+                "description": "Username for API authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "user",
+                "possible": null
+            },
+            "12": {
+                "name": "password",
+                "description": "Password for authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "password",
+                "possible": null
+            }
         },
         "api": {
             "text": "your text here"
         },
         "bulkDeploy": {
-            "notification_email": null,
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false
+            "0": {
+                "name": "notification_email",
+                "description": "Email address to send notifications about model serving status. Setting this allows for monitoring and alerting on model performance or downtime.",
+                "type": "string or null",
+                "default": null,
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "2": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            }
         }
     },
     {
@@ -521,33 +1577,165 @@
         ],
         "usecases": ["News analysis", "Social media monitoring", "Academic research on political discourse"],
         "apiDeploy": {
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false,
-            "endpoint": "\"0.0.0.0\"",
-            "port": 3000,
-            "cors_domain": "http://localhost:3000",
-            "username": "user",
-            "password": "password"
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "1": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Typically you would want to leave it at 0.0.0.0",
+                "type": "No type available.",
+                "default": "\"0.0.0.0\"",
+                "possible": null
+            },
+            "9": {
+                "name": "port",
+                "description": "Port number for API deployment, typically leave it at default.",
+                "type": "No type available.",
+                "default": 3000,
+                "possible": null
+            },
+            "10": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing. To handle CORS if this API is exptected to be called by a frontend application.",
+                "type": "No type available.",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "11": {
+                "name": "username",
+                "description": "Username for API authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "user",
+                "possible": null
+            },
+            "12": {
+                "name": "password",
+                "description": "Password for authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "password",
+                "possible": null
+            }
         },
         "api": {
             "text": "your text here"
         },
         "bulkDeploy": {
-            "notification_email": null,
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false
+            "0": {
+                "name": "notification_email",
+                "description": "Email address to send notifications about model serving status. Setting this allows for monitoring and alerting on model performance or downtime.",
+                "type": "string or null",
+                "default": null,
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "2": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            }
         }
     },
     {
@@ -584,33 +1772,165 @@
         ],
         "usecases": ["Market sentiment analysis", "Investor sentiment analysis", "Financial product review analysis"],
         "apiDeploy": {
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false,
-            "endpoint": "\"0.0.0.0\"",
-            "port": 3000,
-            "cors_domain": "http://localhost:3000",
-            "username": "user",
-            "password": "password"
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "1": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Typically you would want to leave it at 0.0.0.0",
+                "type": "No type available.",
+                "default": "\"0.0.0.0\"",
+                "possible": null
+            },
+            "9": {
+                "name": "port",
+                "description": "Port number for API deployment, typically leave it at default.",
+                "type": "No type available.",
+                "default": 3000,
+                "possible": null
+            },
+            "10": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing. To handle CORS if this API is exptected to be called by a frontend application.",
+                "type": "No type available.",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "11": {
+                "name": "username",
+                "description": "Username for API authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "user",
+                "possible": null
+            },
+            "12": {
+                "name": "password",
+                "description": "Password for authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "password",
+                "possible": null
+            }
         },
         "api": {
             "text": "your text here"
         },
         "bulkDeploy": {
-            "notification_email": null,
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false
+            "0": {
+                "name": "notification_email",
+                "description": "Email address to send notifications about model serving status. Setting this allows for monitoring and alerting on model performance or downtime.",
+                "type": "string or null",
+                "default": null,
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "2": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            }
         }
     },
     {
@@ -647,33 +1967,165 @@
         ],
         "usecases": ["Social media analysis", "Market trend analysis", "Public opinion analysis"],
         "apiDeploy": {
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false,
-            "endpoint": "\"0.0.0.0\"",
-            "port": 3000,
-            "cors_domain": "http://localhost:3000",
-            "username": "user",
-            "password": "password"
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "1": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Typically you would want to leave it at 0.0.0.0",
+                "type": "No type available.",
+                "default": "\"0.0.0.0\"",
+                "possible": null
+            },
+            "9": {
+                "name": "port",
+                "description": "Port number for API deployment, typically leave it at default.",
+                "type": "No type available.",
+                "default": 3000,
+                "possible": null
+            },
+            "10": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing. To handle CORS if this API is exptected to be called by a frontend application.",
+                "type": "No type available.",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "11": {
+                "name": "username",
+                "description": "Username for API authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "user",
+                "possible": null
+            },
+            "12": {
+                "name": "password",
+                "description": "Password for authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "password",
+                "possible": null
+            }
         },
         "api": {
             "text": "your text here"
         },
         "bulkDeploy": {
-            "notification_email": null,
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false
+            "0": {
+                "name": "notification_email",
+                "description": "Email address to send notifications about model serving status. Setting this allows for monitoring and alerting on model performance or downtime.",
+                "type": "string or null",
+                "default": null,
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "2": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            }
         }
     },
     {
@@ -710,33 +2162,165 @@
         ],
         "usecases": ["Gender-based market analysis", "Online community analysis", "Gender representation analysis"],
         "apiDeploy": {
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false,
-            "endpoint": "\"0.0.0.0\"",
-            "port": 3000,
-            "cors_domain": "http://localhost:3000",
-            "username": "user",
-            "password": "password"
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "1": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Typically you would want to leave it at 0.0.0.0",
+                "type": "No type available.",
+                "default": "\"0.0.0.0\"",
+                "possible": null
+            },
+            "9": {
+                "name": "port",
+                "description": "Port number for API deployment, typically leave it at default.",
+                "type": "No type available.",
+                "default": 3000,
+                "possible": null
+            },
+            "10": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing. To handle CORS if this API is exptected to be called by a frontend application.",
+                "type": "No type available.",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "11": {
+                "name": "username",
+                "description": "Username for API authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "user",
+                "possible": null
+            },
+            "12": {
+                "name": "password",
+                "description": "Password for authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "password",
+                "possible": null
+            }
         },
         "api": {
             "text": "your text here"
         },
         "bulkDeploy": {
-            "notification_email": null,
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false
+            "0": {
+                "name": "notification_email",
+                "description": "Email address to send notifications about model serving status. Setting this allows for monitoring and alerting on model performance or downtime.",
+                "type": "string or null",
+                "default": null,
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "2": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            }
         }
     },
     {
@@ -773,33 +2357,165 @@
         ],
         "usecases": ["Investment analysis", "Regulatory compliance", "Market sentiment analysis"],
         "apiDeploy": {
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false,
-            "endpoint": "\"0.0.0.0\"",
-            "port": 3000,
-            "cors_domain": "http://localhost:3000",
-            "username": "user",
-            "password": "password"
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "1": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Typically you would want to leave it at 0.0.0.0",
+                "type": "No type available.",
+                "default": "\"0.0.0.0\"",
+                "possible": null
+            },
+            "9": {
+                "name": "port",
+                "description": "Port number for API deployment, typically leave it at default.",
+                "type": "No type available.",
+                "default": 3000,
+                "possible": null
+            },
+            "10": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing. To handle CORS if this API is exptected to be called by a frontend application.",
+                "type": "No type available.",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "11": {
+                "name": "username",
+                "description": "Username for API authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "user",
+                "possible": null
+            },
+            "12": {
+                "name": "password",
+                "description": "Password for authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "password",
+                "possible": null
+            }
         },
         "api": {
             "text": "your text here"
         },
         "bulkDeploy": {
-            "notification_email": null,
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false
+            "0": {
+                "name": "notification_email",
+                "description": "Email address to send notifications about model serving status. Setting this allows for monitoring and alerting on model performance or downtime.",
+                "type": "string or null",
+                "default": null,
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "2": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            }
         }
     },
     {
@@ -836,33 +2552,165 @@
         ],
         "usecases": ["Spam filtering", "Content moderation", "Data cleaning"],
         "apiDeploy": {
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false,
-            "endpoint": "\"0.0.0.0\"",
-            "port": 3000,
-            "cors_domain": "http://localhost:3000",
-            "username": "user",
-            "password": "password"
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "1": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Typically you would want to leave it at 0.0.0.0",
+                "type": "No type available.",
+                "default": "\"0.0.0.0\"",
+                "possible": null
+            },
+            "9": {
+                "name": "port",
+                "description": "Port number for API deployment, typically leave it at default.",
+                "type": "No type available.",
+                "default": 3000,
+                "possible": null
+            },
+            "10": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing. To handle CORS if this API is exptected to be called by a frontend application.",
+                "type": "No type available.",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "11": {
+                "name": "username",
+                "description": "Username for API authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "user",
+                "possible": null
+            },
+            "12": {
+                "name": "password",
+                "description": "Password for authentication. Best practice to set it to a non-default value.",
+                "type": "No type available.",
+                "default": "password",
+                "possible": null
+            }
         },
         "api": {
             "text": "your text here"
         },
         "bulkDeploy": {
-            "notification_email": null,
-            "model_class": "AutoModelForSequenceClassification",
-            "tokenizer_class": "AutoTokenizer",
-            "use_cuda": true,
-            "precision": "float",
-            "quantization": 0,
-            "device_map": "cuda:0",
-            "max_memory": null,
-            "torchscript": false
+            "0": {
+                "name": "notification_email",
+                "description": "Email address to send notifications about model serving status. Setting this allows for monitoring and alerting on model performance or downtime.",
+                "type": "string or null",
+                "default": null,
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "type": "string",
+                "default": "AutoModelForSequenceClassification",
+                "possible": null
+            },
+            "2": {
+                "name": "tokenizer_class",
+                "description": "Specifies the class of the tokenizer to be used with the model for processing input text. The tokenizer class should match the model's requirements and language.",
+                "type": "string",
+                "default": "AutoTokenizer",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates whether CUDA (GPU acceleration) should be used for model deployment. Enabling CUDA can significantly speed up computation at the cost of higher GPU resource utilization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Determines the precision level for calculations (e.g., float16, float32). Lower precision like float16 can speed up performance but might affect the model's accuracy or result quality.",
+                "type": "string",
+                "default": "float",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
+                "type": "integer",
+                "default": 0,
+                "possible": [2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "gpu:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory that can be used by the model in megabytes. Useful for constraining resource usage in environments with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Indicates if the model should be converted to TorchScript. TorchScript conversion allows for better performance and easier deployment across different platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            }
         }
     }
 ]
