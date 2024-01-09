@@ -13,7 +13,7 @@
 .contentHeading {
   font-size: 1rem;
 }
-.contentHeading h2 {
+.contentHeading h1 {
   color: var(--dark-text-color);
 }
 .supportedFormats p {
@@ -84,5 +84,99 @@
     margin-top: 5rem;
     height: calc(100% - 8rem);
   }
+}
+/* Markdown */
+.markdown h1 {
+  color: var(--dark-text-color);
+  font-size: 2rem;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  text-shadow: none;
+}
+.markdown h2 {
+  color: var(--dark-text-color);
+  font-size: 1.8rem;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  text-shadow: none;
+}
+.markdown h3 {
+  color: var(--dark-text-color);
+  font-size: 1.6rem;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  text-shadow: none;
+}
+.markdown h4 {
+  color: var(--dark-text-color);
+  font-size: 1.4rem;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  text-shadow: none;
+}
+.markdown h5 {
+  color: var(--dark-text-color);
+  font-size: 1.2rem;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  text-shadow: none;
+}
+.markdown h6 {
+  color: var(--dark-text-color);
+  font-size: 1rem;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  text-shadow: none;
+}
+.markdown p {
+  color: #ffffff;
+  /* Warm Light Salmon for Text */
+  margin: 0.2em 0;
+}
+.markdown ul,
+.markdown ol {
+  margin: 0.5em 0;
+  padding-left: 1em;
+}
+.markdown li {
+  color: #ffffff;
+  /* Warm Tomato for List Items */
+}
+.markdown blockquote {
+  border-left: 4px solid #ff4500;
+  /* Warm Orange-Red for Blockquote Border */
+  padding-left: 1em;
+  color: #ff8c00;
+  /* Warm Dark Orange for Blockquote Text */
+}
+.markdown code {
+  background-color: #2f4f4f;
+  /* Dark Slate Gray for Inline Code */
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  color: #ffa07a;
+  /* Warm Light Salmon for Inline Code Text */
+}
+.markdown pre {
+  background-color: #2f4f4f;
+  /* Dark Slate Gray for Code Blocks */
+  padding: 1em;
+  border-radius: 4px;
+  color: #ffa07a;
+  /* Warm Light Salmon for Code Blocks Text */
+}
+.markdown a {
+  color: var(--dark-text-color);
+  /* Warm Gold for Links */
+  text-decoration: none;
+}
+.markdown a:hover {
+  text-decoration: underline;
+  color: #ff6347;
+  /* Warm Tomato for Hovered Links */
+}
+.markdown img {
+  max-width: 100%;
+  height: auto;
 }
 /*# sourceMappingURL=fineTune.module.css.map */

@@ -3,19 +3,18 @@ import { v4 as uuidv4 } from "uuid"
 import axios from "axios"
 import { useDropzone } from "react-dropzone"
 import { withAuthenticator } from "@aws-amplify/ui-react"
-
+import Markdown from "react-markdown"
 import styles from "./fineTune.module.css"
-import { Model } from "../../config"
+import { Config, data_instructions } from "../../config"
 import { Cell, Grid } from "styled-css-grid"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { shadesOfPurple } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
-import { Settings } from "../settings/settings"
 
 import banners from "../../data/banners.json"
 
 interface FineTuneProps {
-    model: Model
+    task: Config
 }
 
 const getRandomImage = () => {
@@ -23,7 +22,7 @@ const getRandomImage = () => {
     return banners[randomIndex]
 }
 
-const FineTune: React.FC<FineTuneProps> = ({ model }) => {
+const FineTune: React.FC<FineTuneProps> = ({ task }) => {
     const [files, setFiles] = useState<File[]>([])
     const [s3BucketUrl, setS3BucketUrl] = useState<string>("")
     const [settingsVisible, setSettingsVisibile] = useState(false)
@@ -36,7 +35,7 @@ const FineTune: React.FC<FineTuneProps> = ({ model }) => {
         const day = `0${date.getDate()}`.slice(-2)
         const randomUUID = uuidv4()
         return `year=${year}/month=${month}/day=${day}/${randomUUID}/`
-    }, [model.model_name])
+    }, [task.short_name])
 
     // Initialize S3 bucket URL on component mount
     React.useEffect(() => {
@@ -58,24 +57,17 @@ const FineTune: React.FC<FineTuneProps> = ({ model }) => {
                     className={styles.headerImage}
                     style={{ backgroundImage: `url(../../vector-autumn-foliage-banner/${getRandomImage()})`, backgroundSize: "cover" }}
                 ></div>
-                <Grid columns={2}>
-                    <Cell>
+                <Grid columns={5}>
+                    <Cell width={4}>
                         <Content className={styles.contentHeading}>
-                            <h2>FineTune a model</h2>
-                            Upload data to fine-tune a model.
+                            <h1>Fine-Tune a model for: {task.long_name}</h1>
+                            <Markdown className={styles.markdown}>
+                                {
+                                    // @ts-ignore
+                                    data_instructions[task.short_name]
+                                }
+                            </Markdown>
                         </Content>
-                    </Cell>
-                    <Cell className={styles.supportedFormats}>
-                        <p>Supported formats</p>
-                        <Grid columns={3}>
-                            {model.bulk_formats.map(b => {
-                                return (
-                                    <Cell center middle>
-                                        {b}
-                                    </Cell>
-                                )
-                            })}
-                        </Grid>
                     </Cell>
                 </Grid>
                 <div className={styles.s3Drop}>
@@ -109,14 +101,14 @@ const FineTune: React.FC<FineTuneProps> = ({ model }) => {
                     </Cell>
                 </Grid>
             </div>
-            <Settings
+            {/* <Settings
                 taskType="fineTune"
                 model={model}
                 callback={x => {
                     setSettingsVisibile(!settingsVisible)
                 }}
                 visible={settingsVisible}
-            ></Settings>
+            ></Settings> */}
         </>
     )
 }

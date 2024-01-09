@@ -12,6 +12,7 @@ import emotionConfig from "./text/emotion/config.json"
 import api from "./tasks/api.json"
 import bulk from "./tasks/bulk.json"
 import fineTune from "./tasks/fine_tune.json"
+import { data_instructions } from "./text/fine_tuning"
 
 const _config = textConfig
 
@@ -35,6 +36,7 @@ interface Config {
     short_name: string
     long_name: string
     description: string
+    fine_tune_formats: string[]
     examples: string[]
     usecases: string[]
     endpoint: string
@@ -62,6 +64,6 @@ const config = {
 
 globalThis.config = config
 
-export { config, taskConfig }
+export { config, taskConfig, data_instructions }
 
 export type { Config, Model }

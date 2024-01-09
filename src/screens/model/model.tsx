@@ -103,7 +103,7 @@ function Model({ model }: Props) {
                         </Content>
                     </Cell> */}
                 </Grid>
-                <Grid columns={3} className={styles.actions}>
+                <Grid columns={2} className={styles.actions}>
                     <Cell center middle>
                         <Button>
                             <Link to={`/model/${model.name}/bulk`}>One-time Bulk Job</Link>
@@ -112,11 +112,6 @@ function Model({ model }: Props) {
                     <Cell center middle>
                         <Button>
                             <Link to={`/model/${model.name}/api`}>Deploy API on autoscale</Link>
-                        </Button>
-                    </Cell>
-                    <Cell center middle>
-                        <Button>
-                            <Link to={`/model/${model.name}/fineTune`}>Fine Tune with your data</Link>
                         </Button>
                     </Cell>
                 </Grid>

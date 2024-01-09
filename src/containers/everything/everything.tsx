@@ -81,9 +81,7 @@ const Everything = () => {
                                 ))
                             )}
                             {Object.entries(config).map(([taskKey, taskConfig], index) =>
-                                taskConfig.models.map((model, index) => (
-                                    <Route key={index} path={`/model/${model.name}/fineTune`} element={<FineTune model={model} />} />
-                                ))
+                                <Route key={index} path={`/model/${taskConfig.short_name}/fine_tune`} element={<FineTune task={taskConfig} />} />
                             )}
                             {Object.entries(config).map(([taskKey, taskConfig], index) =>
                                 taskConfig.models.map((model, index) => (

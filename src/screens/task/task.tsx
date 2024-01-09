@@ -52,8 +52,31 @@ function Task(props: Config) {
                 <Form.Input value={searchTerm} onChange={handleSearchChange} className={styles.searchInput} placeholder="Search models..." />
             </div>
             <Grid columns={is4K ? 3 : xl ? 3 : 1} gap="20px" className={styles.taskGrid}>
-                {" "}
-                {/* Adjust the number of columns and gap as needed */}
+                <Cell key={1000} className={styles.modelCard}>
+                    <Link to={`/model/${props.short_name}/fine_tune`}>
+                        <Card className={styles.card}>
+                            <Card.Header
+                                className={styles.cardHeader}
+                                style={{ backgroundImage: `url(vector-autumn-foliage-banner/${getRandomImage()})`, backgroundSize: "cover" }}
+                            >
+                                <Card.Header.Title>
+                                    <Content>
+                                        <h2>Fine Tune / Make your own model</h2>
+                                    </Content>
+                                </Card.Header.Title>
+                            </Card.Header>
+                            <Card.Content className={styles.cardContent}>
+                                <Content>
+                                    <strong>Use Cases:</strong>
+                                    <ul>
+                                        <li>Fine tune any open source model with any open source dataset to suit your requirements.</li>
+                                    </ul>
+                                </Content>
+                            </Card.Content>
+                        </Card>
+                    </Link>
+                </Cell>
+
                 {filteredList.map((model, index) => {
                     const bgImage = getRandomImage()
 
