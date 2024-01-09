@@ -7,9 +7,9 @@ import styles from "./bulk.module.css"
 import { Model } from "../../config"
 import { Cell, Grid } from "styled-css-grid"
 import SyntaxHighlighter from "react-syntax-highlighter"
-import { solarizedDark, shadesOfPurple } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { shadesOfPurple } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
-import { Settings } from "../settings/settings"
+import { Settings, buildInitialState } from "../settings/settings"
 import { withAuthenticator } from "@aws-amplify/ui-react"
 import AWS from 'aws-sdk'
 import { SupportContentContext } from "../../support/support"
@@ -60,20 +60,62 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     const [progressBarVisible, setProgressBarVisible] = useState(false)
     const [deployed, setDeployed] = useState(false)
 
-    const [config, setConfig] = useState<object>({
-        name: model.apiClass.replace("API", "Bulk"),
-        pod_size: "m",
-        input_s3_folder: s3BucketUrl,
-        output_s3_folder: s3BucketUrl,
-    })
-    const [modelSettings, setModelSettings] = useState(model.bulkDeploy)
+    const [config, setConfig] = useState([
+        {
+            name: "name",
+            description: "Unique identifier for the API deployment. This name is used to distinguish between different deployments.",
+            default: model.apiClass,
+        },
+        {
+            name: "input_s3_folder",
+            description: "",
+            default: s3BucketUrl,
+        },
+        {
+            name: "output_s3_folder",
+            description: "",
+            default: s3BucketUrl,
+        },
+        {
+            name: "pod_size",
+            description: "Defines the size of the pod, dictating its CPU, memory, and GPU resources. Choose a size based on the expected workload and performance requirements.",
+            default: "m",
+            options: [
+                { label: " 🟢⚫⚫⚫ S - 0.25 VCPU, 1 GB RAM, 0.5GB GPU", value: "s" },
+                { label: " 🟢🟢⚫⚫ M - 0.5 VCPU, 2 GB RAM, 1GB GPU", value: "m" },
+                { label: " 🟢🟢🟢⚫ L - 1 VCPU, 4 GB RAM, 2GB GPU", value: "l" },
+                { label: " 🟢🟢🟢🟢 XL - 2 VCPU, 8 GB RAM, 4GB GPU", value: "xl" },
+                { label: " 🔥🟢🟢🟢 2XL - 4 VCPU, 16 GB RAM, 8GB GPU", value: "2xl" },
+                { label: " 🔥🔥🟢🟢 4XL - 8 VCPU, 32 GB RAM, 16GB GPU", value: "4xl" },
+                { label: " 🔥🔥🔥🟢 8XL - 16 VCPU, 64 GB RAM, 32GB GPU", value: "8xl" },
+                { label: " 🔥🔥🔥🔥 16XL - 32 VCPU, 128 GB RAM, 64GB GPU", value: "16xl" },
+            ],
+        },
+        {
+            name: "cloud",
+            description: "Selects the cloud to be deployed in. Select one according to your preference, usecase and cost requirements.",
+            default: "e2e-delhi",
+            options: [
+                { label: "E2E Networks - Delhi-NCR", value: "e2e-delhi" },
+                { label: "Amazon AWS - ap-south-1", value: "AWS-ap-south-1" },
+                { label: "Amazon AWS - us-east-1 (Coming Soon)", value: "AWS-us-east-1" },
+                { label: "Microsoft Azure - Central India", value: "azure-central-india" },
+                { label: "Microsoft Azure - Central USA (Coming Soon)", value: "azure-central-us" },
+                { label: "Google Cloud - asia-south1 (Coming Soon)", value: "gcp-asia-south1" },
+                { label: "Google Cloud - us-east1 (Coming Soon)", value: "gcp-us-east1" },
+            ],
+        },
+    ]);
 
-    const handleChange = (key: string, value: any) => {
-        setConfig((prevState: any) => ({
-            ...prevState,
-            [key]: value,
-        }))
-    }
+    const [modelSettings, setModelSettings] = useState(buildInitialState(model.apiDeploy))
+
+    const handleChange = (name: string, value: any) => {
+        setConfig(prevState =>
+            prevState.map(configItem =>
+                configItem.name === name ? { ...configItem, default: value } : configItem
+            )
+        );
+    };
 
     // Initialize S3 bucket URL on component mount
     React.useEffect(() => {
@@ -186,11 +228,17 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
         setProgressBarVisible(true)
         setProgress(0)
 
+        const deploymentConfig = config.reduce((acc, item) => {
+            // @ts-ignore
+            acc[item.name] = item.default;
+            return acc;
+        }, {});
+
         createJob({
             task: {
                 name: ("geniusbulk--" + generateName() + "--" + model.name.toLowerCase().replaceAll(" ", "-")).replaceAll(".", "-").substring(0, 60),
                 deployment_config: {
-                    ...config
+                    ...deploymentConfig
                 },
                 method: model.bulkMethod,
                 method_args: {
@@ -223,7 +271,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                 <Grid columns={2}>
                     <Cell>
                         <Content className={styles.contentHeading}>
-                            <h2>Bulk inference</h2>
+                            <h2>Bulk inference - {model.name}</h2>
                             Upload data to run a inference using a model as a bulk job.
                             Each file should contain the following fields:
                             <ol>
@@ -260,32 +308,48 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                             </label>
                         </Cell>
                         : <></>}
-                    {Object.entries(config).map(([key, value]) => {
-
-                        return (
-                            <Cell key={key} className={styles.formElement} center>
-                                <label>
-                                    {toTitleCase(key)}
-                                    {(
-                                        <input
-                                            type={"text"}
-                                            className={styles.textInput}
-                                            value={value === null ? "" : value}
-                                            onChange={e => handleChange(key, e.target.value)}
-                                        />
-                                    )}
-                                </label>
-                            </Cell>
-                        )
-                    })}
+                    {config.map(({ name, description, default: defaultValue, options }) => (name === "name" || name.includes("s3")) ? <></> : (
+                        <Cell key={name} className={styles.formElement} center>
+                            <label>
+                                {toTitleCase(name)}
+                                <div>{description}</div>
+                                {options ?
+                                    <select
+                                        className={styles.selectInput}
+                                        value={defaultValue}
+                                        onChange={e => handleChange(name, e.target.value)}
+                                    >
+                                        {
+                                            // @ts-ignore
+                                            options.map((option: any) => (
+                                                <option key={option.value} value={option.value}>
+                                                    {option.label}
+                                                </option>
+                                            ))}
+                                    </select>
+                                    :
+                                    <input
+                                        type="text"
+                                        className={styles.textInput}
+                                        value={defaultValue}
+                                        onChange={e => handleChange(name, e.target.value)}
+                                    />
+                                }
+                            </label>
+                        </Cell>
+                    ))}
                 </Grid>
+                <Content className={styles.contentHeading}>
+                    <h2>Upload Files</h2>
+                </Content>
                 <div {...getRootProps()} className={styles.filesDrop}>
                     <input {...getInputProps()} />
                     {isDragActive ? <p>Drop the files here ...</p> : <button>{(files.length === 0) ? "Click to select files or folders or drag them here" : files.map(f => <p>{f.name}</p>)}</button>}
                 </div>
-                <div className={styles.s3Drop}>
-                    <p>Alternatively, you can upload files directly to the following S3 bucket:</p>
-                </div>
+                <Content className={styles.contentHeading}>
+                    <h2>Upload Files</h2>
+                    Alternatively, you can upload files directly to the following S3 bucket:
+                </Content>
                 <Grid columns={20} className={styles.s3Location}>
                     <Cell width={19} center middle>
                         <p>{"s3://geniusrise-prod-input/" + s3BucketUrl}</p>
@@ -295,7 +359,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                     </Cell>
                 </Grid>
                 <div className={styles.s3Code}>
-                    <SyntaxHighlighter language="bash" style={solarizedDark} wrapLines={true} showLineNumbers={true}>
+                    <SyntaxHighlighter language="bash" style={shadesOfPurple} wrapLines={true} showLineNumbers={true}>
                         {`aws s3 cp \\\n  --recursive\\\n  ./<YOUR_DATA>\\\n  s3://geniusrise-prod-input/${s3BucketUrl}`}
                     </SyntaxHighlighter>
                 </div>
@@ -321,17 +385,8 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                     </Cell>
                     <Cell width={2} className={styles.curl}>
                         <Content hidden={!deployed}>
-                            <h3>🎊 Your bulk job is deployed! Download from:</h3>
-                            <pre>
-                                <SyntaxHighlighter
-                                    language="bash"
-                                    style={shadesOfPurple}
-                                    showLineNumbers={true}
-                                    lineNumberStyle={{ minWidth: '3em', paddingRight: '10px', opacity: 0.5 }}
-                                >
-                                    {`aws s3 cp \\\n  --recursive\\\n  s3://geniusrise-prod-output/${s3BucketUrl} \\\n .`}
-                                </SyntaxHighlighter>
-                            </pre>
+                            <h3>🎊 Your bulk job is deployed!</h3>
+                            {modelSettings.notification_email ? `We will send you an email notification at ${modelSettings.notification_email}` : ""}
                         </Content>
                     </Cell>
                 </Grid>

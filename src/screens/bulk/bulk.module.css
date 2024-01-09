@@ -45,11 +45,6 @@
   border: none;
   border-radius: 1rem;
 }
-.s3Drop {
-  padding-top: 3rem;
-  padding-bottom: 1rem;
-  font-size: 1rem;
-}
 .s3Location {
   border: 1px solid var(--dark-border-color);
   border-radius: 1rem;
@@ -111,11 +106,23 @@
   border: none;
 }
 .checkboxInput {
-  transform: scale(1.2);
   margin-right: 0.5rem;
   background-color: var(--dark-table-head);
   color: var(--dark-text-color);
+  accent-color: var(--dark-neon-color-2);
   border: none;
+  height: 30px;
+}
+.selectInput {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  background-color: var(--dark-table-head);
+  color: var(--dark-text-color);
+  border: none;
+  width: 100%;
 }
 .formElement {
   width: 80%;
