@@ -130,8 +130,8 @@ option {
 }
 
 .progress {
-    height: 20px;
-    background-color: var(--dark-pricing-color-2);
+    height: 3rem;
+    background: var(--dark-background-histogram2);
     border-radius: 5px;
     transition: width 1.2s ease;
 }
@@ -164,3 +164,8 @@ option {
 @media (min-width: 481px) and (max-width: 1100px) {}
 
 @media (max-width: 481px) {}
+
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 150%; }
+}

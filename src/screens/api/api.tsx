@@ -87,12 +87,13 @@ const API: React.FC<APIProps> = ({ model }) => {
             default: "e2e-delhi",
             options: [
                 { label: "E2E Networks - Delhi-NCR", value: "e2e-delhi" },
-                { label: "Amazon AWS - ap-south-1", value: "AWS-ap-south-1" },
-                { label: "Amazon AWS - us-east-1 (Coming Soon)", value: "AWS-us-east-1" },
-                { label: "Microsoft Azure - Central India", value: "azure-central-india" },
+                { label: "Amazon AWS - ap-south-1 (Mumbai)", value: "AWS-ap-south-1" },
+                { label: "Microsoft Azure - Central India (Pune)", value: "azure-central-india" },
+                { label: "E2E Networks - Mumbai (Coming Soon)", value: "e2e-delhi" },
+                { label: "Amazon AWS - us-east-1 (N. Virginia) (Coming Soon)", value: "AWS-us-east-1" },
                 { label: "Microsoft Azure - Central USA (Coming Soon)", value: "azure-central-us" },
                 { label: "Google Cloud - asia-south1 (Coming Soon)", value: "gcp-asia-south1" },
-                { label: "Google Cloud - us-east1 (Coming Soon)", value: "gcp-us-east1" },
+                { label: "Google Cloud - northamerica-east1 (Coming Soon)", value: "gcp-us-east1" },
             ],
         },
     ]);
@@ -158,7 +159,7 @@ const API: React.FC<APIProps> = ({ model }) => {
 
                     const curl = `/ usr / bin / curl - X POST ${x.data.ip}${model.endpoint} \\
   -H "Content-Type: application/json" \\
-  -u "${model.apiDeploy.username}:${model.apiDeploy.password}" \\
+  -u "${modelSettings.username}:${modelSettings.password}" \\
   -d '${payload}' | jq`
 
                     setCurlCommand(curl)
@@ -304,7 +305,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                     <Cell width={2}>
                         {progressBarVisible && (
                             <div className={styles.progressBar}>
-                                <div className={styles.progress} style={{ width: `${progress} % ` }}></div>
+                                <div className={styles.progress} style={{ width: `${progress}%` }}></div>
                             </div>
                         )}
                     </Cell>
