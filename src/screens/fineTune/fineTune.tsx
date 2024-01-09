@@ -10,7 +10,7 @@ import { Cell, Grid } from "styled-css-grid"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { shadesOfPurple } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
-import Settings from "../settings/settings"
+import { Settings } from "../settings/settings"
 
 import banners from "../../data/banners.json"
 

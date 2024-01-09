@@ -4,7 +4,11 @@ import React, { useState } from "react"
 import styles from "./settings.module.css"
 import { Cell, Grid } from "styled-css-grid"
 import { Button, Content } from "react-bulma-components"
-import { Model } from "../../config"
+
+interface Model {
+    apiDeploy: any;
+    bulkDeploy: any;
+}
 
 interface Props {
     taskType: string
@@ -13,38 +17,32 @@ interface Props {
     visible: boolean
 }
 
-// Type guard to check if 'type' property exists
-function hasTypeField(value: any): value is { type: string | string[]; default?: any; items?: any } {
+function hasTypeField(value: any): value is { type: string; default?: any; description?: string; possible?: any[] } {
     return value.hasOwnProperty("type")
 }
 
 function toTitleCase(input: string): string {
     return input
-        .split("_") // Split by underscore
-        .map(
-            part =>
-                part
-                    .toLowerCase() // Convert to lower case
-                    .replace(/^\w/, c => c.toUpperCase()) // Capitalize the first letter
-        )
-        .join(" ") // Join the parts with spaces
+        .split("_")
+        .map(part => part.toLowerCase().replace(/^\w/, c => c.toUpperCase()))
+        .join(" ")
+}
+
+const buildInitialState = (properties: any) => {
+    const state: any = {}
+    Object.entries(properties).forEach(([key, value]) => {
+        if (hasTypeField(value) && value.hasOwnProperty("default")) {
+            // @ts-ignore
+            state[value.name] = typeof value.default === "object" ? JSON.stringify(value.default, null, 2) : value.default
+        }
+    })
+    return state
 }
 
 const Settings: React.FC<Props> = ({ taskType, model, callback, visible }) => {
 
-    const buildInitialState = (properties: any) => {
-        const state: any = {}
-        Object.entries(properties).forEach(([key, value]) => {
-            if (hasTypeField(value) && value.hasOwnProperty("default")) {
-                // If the default value is an object, use JSON.stringify to convert it to a string
-                state[key] = typeof value.default === "object" ? JSON.stringify(value.default, null, 2) : value.default
-            }
-        })
-        return state
-    }
-
     const config = taskType === "api" ? model.apiDeploy : taskType === "bulk" ? model.bulkDeploy : model.apiDeploy
-    const [formState, setFormState] = useState<any>(config)
+    const [formState, setFormState] = useState<any>(buildInitialState(config))
 
     const handleChange = (key: string, value: any) => {
         setFormState((prevState: any) => ({
@@ -71,42 +69,59 @@ const Settings: React.FC<Props> = ({ taskType, model, callback, visible }) => {
             <form onSubmit={handleSubmit}>
                 <Grid columns={2} className={styles.form}>
                     {Object.entries(config).map(([key, value]) => {
-                        const inputType = "text"
+                        // @ts-ignore
+                        const inputType = value.type === "boolean" ? "checkbox"
+                            // @ts-ignore
+                            : value.type === "integer" ? "number"
+                                : "text"
 
-                        // const inputType = Array.isArray(value)
-                        //     ? value.type.includes("boolean")
-                        //         ? "checkbox"
-                        //         : "text"
-                        //     : value.type === "boolean"
-                        //         ? "checkbox"
-                        //         : value.type === "integer"
-                        //             ? "number"
-                        //             : "text"
+                        // @ts-ignore
+                        const isDropDown = value.possible && Array.isArray(value.possible)
 
-                        const inputTypeClass = styles.textInput
-                        // inputType === "checkbox" ? styles.checkboxInput : inputType === "number" ? styles.numberInput : styles.textInput
+                        const inputTypeClass = inputType === "checkbox" ? styles.checkboxInput
+                            : inputType === "number" ? styles.numberInput
+                                : styles.textInput
 
+                        // @ts-ignore
+                        const formKey = value.name
                         return (
-                            <Cell key={key} className={styles.formElement} center>
+                            <Cell key={formKey} className={styles.formElement} center>
                                 <label>
-                                    {toTitleCase(key)}
-                                    {/* {inputType === "checkbox" ? (
-                                        <input
-                                            type={inputType}
-                                            className={inputTypeClass}
-                                            checked={formState[key]}
-                                            onChange={e => handleChange(key, e.target.checked)}
-                                        />
-                                    ) :  */}
-                                    {(
-                                        <input
-                                            type={inputType}
-                                            className={inputTypeClass}
-                                            value={formState[key]}
-                                            onChange={e => handleChange(key, e.target.value)}
-                                        />
-                                    )}
+                                    {toTitleCase(formKey)}
                                 </label>
+                                <div className={styles.description}>{
+                                    // @ts-ignore
+                                    value.description
+                                }</div>
+                                {isDropDown ? (
+                                    <select
+                                        className={styles.selectInput}
+                                        value={formState[formKey]}
+                                        onChange={e => handleChange(formKey, e.target.value)}
+                                    >
+                                        {
+                                            // @ts-ignore
+                                            value.possible.map((option: any) => (
+                                                <option key={option} value={option}>
+                                                    {option.toString()}
+                                                </option>
+                                            ))}
+                                    </select>
+                                ) : inputType === "checkbox" ? (
+                                    <input
+                                        type={inputType}
+                                        className={inputTypeClass}
+                                        checked={formState[formKey]}
+                                        onChange={e => handleChange(formKey, e.target.checked)}
+                                    />
+                                ) : (
+                                    <input
+                                        type={inputType}
+                                        className={inputTypeClass}
+                                        value={formState[formKey]}
+                                        onChange={e => handleChange(formKey, e.target.value)}
+                                    />
+                                )}
                             </Cell>
                         )
                     })}
@@ -119,4 +134,4 @@ const Settings: React.FC<Props> = ({ taskType, model, callback, visible }) => {
     )
 }
 
-export default Settings
+export { Settings, buildInitialState }

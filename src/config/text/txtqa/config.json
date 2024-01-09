@@ -23,7 +23,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -54,14 +54,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -136,7 +136,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -167,14 +167,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -216,7 +216,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForQuestionAnswering",
                 "possible": null
@@ -247,14 +247,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -320,7 +320,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForQuestionAnswering",
                 "possible": null
@@ -351,14 +351,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -422,7 +422,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -453,14 +453,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -535,7 +535,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -566,14 +566,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -637,7 +637,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -668,14 +668,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -750,7 +750,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -781,14 +781,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -852,7 +852,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -883,14 +883,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -965,7 +965,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -996,14 +996,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -1067,7 +1067,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -1098,14 +1098,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -1180,7 +1180,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -1211,14 +1211,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -1282,7 +1282,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -1313,14 +1313,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -1395,7 +1395,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -1426,14 +1426,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -1497,7 +1497,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -1528,14 +1528,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -1610,7 +1610,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -1641,14 +1641,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -1712,7 +1712,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForSeq2SeqLM",
                 "possible": null
@@ -1743,14 +1743,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -1819,7 +1819,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForSeq2SeqLM",
                 "possible": null
@@ -1850,14 +1850,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -1921,7 +1921,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForSeq2SeqLM",
                 "possible": null
@@ -1952,14 +1952,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -2028,7 +2028,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForSeq2SeqLM",
                 "possible": null
@@ -2059,14 +2059,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -2130,7 +2130,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForSeq2SeqLM",
                 "possible": null
@@ -2161,14 +2161,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -2237,7 +2237,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForSeq2SeqLM",
                 "possible": null
@@ -2268,14 +2268,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -2339,7 +2339,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForSeq2SeqLM",
                 "possible": null
@@ -2370,14 +2370,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -2446,7 +2446,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForSeq2SeqLM",
                 "possible": null
@@ -2477,14 +2477,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -2548,7 +2548,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -2579,14 +2579,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -2661,7 +2661,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -2692,14 +2692,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -2763,7 +2763,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -2794,14 +2794,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -2876,7 +2876,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -2907,14 +2907,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -2978,7 +2978,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -3009,14 +3009,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -3091,7 +3091,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForTableQuestionAnswering",
                 "possible": null
@@ -3122,14 +3122,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -3193,7 +3193,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForQuestionAnswering",
                 "possible": null
@@ -3224,14 +3224,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -3297,7 +3297,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForQuestionAnswering",
                 "possible": null
@@ -3328,14 +3328,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -3399,7 +3399,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForQuestionAnswering",
                 "possible": null
@@ -3430,14 +3430,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -3503,7 +3503,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForQuestionAnswering",
                 "possible": null
@@ -3534,14 +3534,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -3605,7 +3605,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForQuestionAnswering",
                 "possible": null
@@ -3636,14 +3636,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -3709,7 +3709,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForQuestionAnswering",
                 "possible": null
@@ -3740,14 +3740,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -3811,7 +3811,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForQuestionAnswering",
                 "possible": null
@@ -3842,14 +3842,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -3915,7 +3915,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForQuestionAnswering",
                 "possible": null
@@ -3946,14 +3946,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -4017,7 +4017,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForQuestionAnswering",
                 "possible": null
@@ -4048,14 +4048,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -4121,7 +4121,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForQuestionAnswering",
                 "possible": null
@@ -4152,14 +4152,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",
@@ -4223,7 +4223,7 @@
         "apiDeploy": {
             "0": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForQuestionAnswering",
                 "possible": null
@@ -4254,14 +4254,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "5": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
                 "name": "max_memory",
@@ -4327,7 +4327,7 @@
             },
             "1": {
                 "name": "model_class",
-                "description": "Specifies the class of the model to be loaded from the Hugging Face library for causal language modeling. Changing this affects the type of model used and its capabilities.",
+                "description": "Specifies the class of the model to be loaded from the Huggingface library for causal language modeling. Changing this affects the type of model used and its capabilities.",
                 "type": "string",
                 "default": "AutoModelForQuestionAnswering",
                 "possible": null
@@ -4358,14 +4358,14 @@
                 "description": "Quantization configuration for the model to optimize performance. It reduces model size and increases inference speed without significant loss of quality. Different levels of quantization may affect the performance and size trade-off.",
                 "type": "integer",
                 "default": 0,
-                "possible": [2, 4, 8]
+                "possible": [0, 2, 4, 8]
             },
             "6": {
                 "name": "device_map",
                 "description": "Mapping of model layers to specific devices, typically GPUs, for distributed computation. Setting this can optimize the model's performance on available hardware.",
                 "type": "string",
                 "default": "cuda:0",
-                "possible": ["auto", "gpu:0", "cpu"]
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
                 "name": "max_memory",

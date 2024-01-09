@@ -10,7 +10,7 @@ import { Cell, Grid } from "styled-css-grid"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { shadesOfPurple } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
-import Settings from "../settings/settings"
+import { Settings, buildInitialState } from "../settings/settings"
 import { withAuthenticator } from "@aws-amplify/ui-react"
 import { SupportContentContext } from "../../support/support"
 
@@ -48,7 +48,7 @@ const API: React.FC<APIProps> = ({ model }) => {
         target_port: 3000,
         pod_size: "m"
     })
-    const [modelSettings, setModelSettings] = useState(model.apiDeploy)
+    const [modelSettings, setModelSettings] = useState(buildInitialState(model.apiDeploy))
     const [customModel, setCustomModel] = useState(model.model_name)
     const isModelCustom = model.model_name === null
 
