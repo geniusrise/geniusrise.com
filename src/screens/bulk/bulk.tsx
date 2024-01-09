@@ -64,7 +64,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
         {
             name: "name",
             description: "Unique identifier for the API deployment. This name is used to distinguish between different deployments.",
-            default: model.apiClass,
+            default: model.apiClass.replace("API", "Bulk"),
         },
         {
             name: "input_s3_folder",
@@ -108,7 +108,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
         },
     ]);
 
-    const [modelSettings, setModelSettings] = useState(buildInitialState(model.apiDeploy))
+    const [modelSettings, setModelSettings] = useState(buildInitialState(model.bulkDeploy))
 
     const handleChange = (name: string, value: any) => {
         setConfig(prevState =>
@@ -348,7 +348,8 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                     {isDragActive ? <p>Drop the files here ...</p> : <button>{(files.length === 0) ? "Click to select files or folders or drag them here" : files.map(f => <p>{f.name}</p>)}</button>}
                 </div>
                 <Content className={styles.contentHeading}>
-                    <h2>Upload Files</h2>
+                    <h2>OR</h2>
+                    <h2>Upload files in S3</h2>
                     Alternatively, you can upload files directly to the following S3 bucket:
                 </Content>
                 <Grid columns={20} className={styles.s3Location}>

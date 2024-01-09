@@ -196,14 +196,14 @@
             },
             "9": {
                 "name": "origin",
-                "description": "No description available.",
+                "description": "The query language.",
                 "type": "No type available.",
                 "default": "hi_IN",
                 "possible": null
             },
             "10": {
                 "name": "target",
-                "description": "No description available.",
+                "description": "The target language. This is the language that the content in the origin language will be translated to.",
                 "type": "No type available.",
                 "default": "en_XX",
                 "possible": null
@@ -485,23 +485,16 @@
             },
             "9": {
                 "name": "origin",
-                "description": "No description available.",
-                "type": "No type available.",
+                "description": "The query language.",
+                "type": "string",
                 "default": "hi_IN",
                 "possible": null
             },
             "10": {
                 "name": "target",
-                "description": "No description available.",
-                "type": "No type available.",
-                "default": "en_XX",
-                "possible": null
-            },
-            "11": {
-                "name": "generation_decoding_strategy",
-                "description": "No description available.",
+                "description": "The target language. This is the language that the content in the origin language will be translated to.",
                 "type": "string",
-                "default": "generate",
+                "default": "en_XX",
                 "possible": null
             },
             "12": {
@@ -773,14 +766,14 @@
             },
             "9": {
                 "name": "origin",
-                "description": "No description available.",
+                "description": "The query language.",
                 "type": "No type available.",
                 "default": "de",
                 "possible": null
             },
             "10": {
                 "name": "target",
-                "description": "No description available.",
+                "description": "The target language. This is the language that the content in the origin language will be translated to.",
                 "type": "No type available.",
                 "default": "en",
                 "possible": null
@@ -1062,14 +1055,14 @@
             },
             "9": {
                 "name": "origin",
-                "description": "No description available.",
+                "description": "The query language.",
                 "type": "No type available.",
                 "default": "en",
                 "possible": null
             },
             "10": {
                 "name": "target",
-                "description": "No description available.",
+                "description": "The target language. This is the language that the content in the origin language will be translated to.",
                 "type": "No type available.",
                 "default": "de",
                 "possible": null
