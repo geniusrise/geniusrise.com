@@ -107,7 +107,11 @@ const API: React.FC<APIProps> = ({ model }) => {
     const [progress, setProgress] = useState(0)
     const [progressBarVisible, setProgressBarVisible] = useState(false)
 
-    const [curlCommand, setCurlCommand] = useState("")
+    const payload = JSON.stringify(model.api, null, 4)
+    const [curlCommand, setCurlCommand] = useState(`curl -X POST <endpoint>${model.endpoint} \\
+  - H "Content-Type: application/json" \\
+  -u "<username (from settings)>:<password (from settings)>" \\
+  -d '${payload}' | jq`)
     const [curlVisible, setCurlVisible] = useState(false)
 
     const { setSupportContent } = useContext(SupportContentContext)
@@ -150,12 +154,12 @@ const API: React.FC<APIProps> = ({ model }) => {
             const delay = 30000
             const timer = setTimeout(() => {
                 readService(launched.uuid).then(x => {
-                    const payload = JSON.stringify(model.api, null, 2)
+                    const payload = JSON.stringify(model.api, null, 4)
 
-                    const curl = `/usr/bin/curl -X POST ${x.data.ip}${model.endpoint} \\
-    -H "Content-Type: application/json" \\
-    -u "${model.apiDeploy.username}:${model.apiDeploy.password}" \\
-    -d '${payload}' | jq`
+                    const curl = `/ usr / bin / curl - X POST ${x.data.ip}${model.endpoint} \\
+  -H "Content-Type: application/json" \\
+  -u "${model.apiDeploy.username}:${model.apiDeploy.password}" \\
+  -d '${payload}' | jq`
 
                     setCurlCommand(curl)
                     setCurlVisible(true)
@@ -212,11 +216,26 @@ const API: React.FC<APIProps> = ({ model }) => {
                     className={styles.headerImage}
                     style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}
                 ></div>
-                <Grid columns={2}>
+                <Grid columns={1}>
                     <Cell>
                         <Content className={styles.contentHeading}>
                             <h2>API inference - {model.name}</h2>
                             Deploy an API instance or a cluster of instances.
+
+                            <h2>API Invocation</h2>
+                            This is how the API can be invoked after deployment:
+                            <div className={styles.curl}>
+                                <pre>
+                                    <SyntaxHighlighter
+                                        language="bash"
+                                        style={shadesOfPurple}
+                                        showLineNumbers={true}
+                                        lineNumberStyle={{ minWidth: '3em', paddingRight: '10px', opacity: 0.5 }}
+                                    >
+                                        {curlCommand}
+                                    </SyntaxHighlighter>
+                                </pre>
+                            </div>
                         </Content>
                     </Cell>
                 </Grid>
@@ -285,7 +304,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                     <Cell width={2}>
                         {progressBarVisible && (
                             <div className={styles.progressBar}>
-                                <div className={styles.progress} style={{ width: `${progress}%` }}></div>
+                                <div className={styles.progress} style={{ width: `${progress} % ` }}></div>
                             </div>
                         )}
                     </Cell>
