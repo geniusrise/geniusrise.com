@@ -245,6 +245,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                         <Cell key="customModel" className={styles.formElement} center>
                             <label>
                                 Custom Model Name
+                                <div>Input the name of the desired model. This name corresponds to the huggingface format: <SyntaxHighlighter style={shadesOfPurple}>repository_name/model_name:optional_model_tag</SyntaxHighlighter></div>
                                 {(
                                     <input
                                         type={"text"}
