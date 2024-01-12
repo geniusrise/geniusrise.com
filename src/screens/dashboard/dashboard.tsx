@@ -55,9 +55,10 @@ function Dashboard(props: Props) {
             <Card.Content className={styles.cardContent}>
                 <Grid columns={1}>
                     <Cell className={styles.servicesHeader}>
-                        <Grid columns={13}>
+                        <Grid columns={15}>
                             <Cell width={3} center middle>Task Name</Cell>
                             <Cell center middle>Task Type</Cell>
+                            <Cell width={2} center middle>Cloud</Cell>
                             <Cell center middle>Pod Size</Cell>
                             <Cell width={2} center middle>Pod Type</Cell>
                             <Cell width={2} center middle>IP Address</Cell>
@@ -74,9 +75,10 @@ function Dashboard(props: Props) {
 
                         return (
                             <Cell className={styles.servicesList}>
-                                <Grid columns={13}>
+                                <Grid columns={15}>
                                     <Cell width={3} middle>{taskName}</Cell>
                                     <Cell center middle>{taskType}</Cell>
+                                    <Cell width={2} center middle>{s.cloud.replaceAll("-", " ")}</Cell>
                                     <Cell center middle>{s.pod_size}</Cell>
                                     <Cell width={2} center middle>{s.class_name}</Cell>
                                     <Cell width={2} center middle>{s.cluster_ip}</Cell>
