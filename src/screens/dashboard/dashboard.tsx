@@ -55,9 +55,8 @@ function Dashboard(props: Props) {
             <Card.Content className={styles.cardContent}>
                 <Grid columns={1}>
                     <Cell className={styles.servicesHeader}>
-                        <Grid columns={14}>
-                            <Cell width={2} center middle>Name</Cell>
-                            <Cell width={2} center middle>Task Name</Cell>
+                        <Grid columns={13}>
+                            <Cell width={3} center middle>Task Name</Cell>
                             <Cell center middle>Task Type</Cell>
                             <Cell center middle>Pod Size</Cell>
                             <Cell width={2} center middle>Pod Type</Cell>
@@ -75,16 +74,15 @@ function Dashboard(props: Props) {
 
                         return (
                             <Cell className={styles.servicesList}>
-                                <Grid columns={14}>
-                                    <Cell width={2} middle>{uniqueName}</Cell>
-                                    <Cell width={2} middle>{taskName}</Cell>
-                                    <Cell middle>{taskType}</Cell>
-                                    <Cell middle>{s.pod_size}</Cell>
-                                    <Cell width={2} middle>{s.class_name}</Cell>
-                                    <Cell width={2} middle>{s.cluster_ip}</Cell>
-                                    <Cell middle>{s.replicas || "1"}</Cell>
-                                    <Cell width={2} middle>{moment(s.created_at).format("lll")}</Cell>
-                                    <Cell middle><Button disabled={taskType !== "API"} onClick={() => {
+                                <Grid columns={13}>
+                                    <Cell width={3} middle>{taskName}</Cell>
+                                    <Cell center middle>{taskType}</Cell>
+                                    <Cell center middle>{s.pod_size}</Cell>
+                                    <Cell width={2} center middle>{s.class_name}</Cell>
+                                    <Cell width={2} center middle>{s.cluster_ip}</Cell>
+                                    <Cell center middle>{s.replicas || "1"}</Cell>
+                                    <Cell width={2} center middle>{moment(s.created_at).fromNow()}</Cell>
+                                    <Cell center middle><Button disabled={taskType !== "API"} onClick={() => {
                                         deleteService({ identifier: s.uuid, cloud: s.cloud }).then(x => {
                                             setServices([])
                                             setUpdate(update + 1)
