@@ -154,10 +154,15 @@ const API: React.FC<APIProps> = ({ model }) => {
             // Wait for a specified time before fetching the status
             const delay = 30000
             const timer = setTimeout(() => {
-                readService(launched.uuid).then(x => {
+                const deploymentConfig = config.reduce((acc, item) => {
+                    acc[item.name] = item.default;
+                    return acc;
+                }, {});
+
+                readService(launched.uuid, deploymentConfig.cloud).then(x => {
                     const payload = JSON.stringify(model.api, null, 4)
 
-                    const curl = `/ usr / bin / curl - X POST ${x.data.ip}${model.endpoint} \\
+                    const curl = `/usr/bin/curl -X POST ${x.data.ip}${model.endpoint} \\
   -H "Content-Type: application/json" \\
   -u "${modelSettings.username}:${modelSettings.password}" \\
   -d '${payload}' | jq`

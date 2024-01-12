@@ -21,9 +21,10 @@ interface CronJobCreate {
 
 interface CronJobIdentifier {
     identifier: string
+    cloud: string
 }
 
-const url = "https://api.geniusrise.com/api/v1/cronjobs"
+const url = "http://localhost:8000/api/v1/cronjobs"
 
 const apiClient = () =>
     axios.create({
@@ -60,9 +61,9 @@ async function createCronJob(cronJobData: CronJobCreate): Promise<AxiosResponse<
 }
 
 // Read CronJob
-async function readCronJob(identifier: string): Promise<AxiosResponse<CronJob> | null> {
+async function readCronJob(identifier: string, cloud: string): Promise<AxiosResponse<CronJob> | null> {
     try {
-        const response = await apiClient().get<CronJob>(`/${identifier}`)
+        const response = await apiClient().get<CronJob>(`/${identifier}/${cloud}/get`)
         console.debug("readCronJob response:", response)
         return response
     } catch (error) {
@@ -86,7 +87,7 @@ async function updateCronJob(identifier: string, cronJobData: CronJobIdentifier)
 // Delete CronJob
 async function deleteCronJob(cronJobData: CronJobIdentifier): Promise<AxiosResponse<void> | null> {
     try {
-        const response = await apiClient().delete<void>(`/${cronJobData.identifier}`)
+        const response = await apiClient().delete<void>(`/${cronJobData.identifier}/${cronJobData.cloud}/delete`)
         console.debug("deleteCronJob response:", response)
         return response
     } catch (error) {
@@ -96,9 +97,9 @@ async function deleteCronJob(cronJobData: CronJobIdentifier): Promise<AxiosRespo
 }
 
 // CronJob Logs
-async function getCronJobLogs(identifier: string): Promise<AxiosResponse<string> | null> {
+async function getCronJobLogs(identifier: string, cloud: string): Promise<AxiosResponse<string> | null> {
     try {
-        const response = await apiClient().get<string>(`/${identifier}/logs`)
+        const response = await apiClient().get<string>(`/${identifier}/${cloud}/logs`)
         console.debug("getCronJobLogs response:", response)
         return response
     } catch (error) {
@@ -107,17 +108,5 @@ async function getCronJobLogs(identifier: string): Promise<AxiosResponse<string>
     }
 }
 
-// CronJob Metrics
-async function getCronJobMetrics(identifier: string): Promise<AxiosResponse<object> | null> {
-    try {
-        const response = await apiClient().get<object>(`/${identifier}/metrics`)
-        console.debug("getCronJobMetrics response:", response)
-        return response
-    } catch (error) {
-        console.error("Error in getCronJobMetrics:", error)
-        return null
-    }
-}
-
-export { listCronJobs, createCronJob, readCronJob, updateCronJob, deleteCronJob, getCronJobLogs, getCronJobMetrics }
+export { listCronJobs, createCronJob, readCronJob, updateCronJob, deleteCronJob, getCronJobLogs }
 export type { CronJob, CronJobCreate, CronJobIdentifier }

@@ -23,13 +23,15 @@ interface ServiceCreate {
 
 interface ServiceUpdate {
     replicas: number
+    cloud: string
 }
 
 interface ServiceIdentifier {
     identifier: string
+    cloud: string
 }
 
-const url = "https://api.geniusrise.com/api/v1/services"
+const url = "http://localhost:8000/api/v1/services"
 
 const apiClient = () =>
     axios.create({
@@ -66,9 +68,9 @@ async function createService(serviceData: ServiceCreate): Promise<AxiosResponse<
 }
 
 // Read Service
-async function readService(identifier: string): Promise<AxiosResponse<Service> | null> {
+async function readService(identifier: string, cloud: string): Promise<AxiosResponse<Service> | null> {
     try {
-        const response = await apiClient().get<Service>(`/${identifier}`)
+        const response = await apiClient().get<Service>(`/${identifier}/${cloud}/get`)
         console.debug("readService response:", response)
         return response
     } catch (error) {
@@ -92,7 +94,7 @@ async function updateService(identifier: string, serviceData: ServiceUpdate): Pr
 // Delete Service
 async function deleteService(serviceData: ServiceIdentifier): Promise<AxiosResponse<void> | null> {
     try {
-        const response = await apiClient().delete<void>(`/${serviceData.identifier}`)
+        const response = await apiClient().delete<void>(`/${serviceData.identifier}/${serviceData.cloud}/delete`)
         console.debug("deleteService response:", response)
         return response
     } catch (error) {
@@ -102,9 +104,9 @@ async function deleteService(serviceData: ServiceIdentifier): Promise<AxiosRespo
 }
 
 // Service Logs
-async function getServiceLogs(identifier: string): Promise<AxiosResponse<string> | null> {
+async function getServiceLogs(identifier: string, cloud: string): Promise<AxiosResponse<string> | null> {
     try {
-        const response = await apiClient().get<string>(`/${identifier}/logs`)
+        const response = await apiClient().get<string>(`/${identifier}/${cloud}/logs`)
         console.debug("getServiceLogs response:", response)
         return response
     } catch (error) {
@@ -113,17 +115,5 @@ async function getServiceLogs(identifier: string): Promise<AxiosResponse<string>
     }
 }
 
-// Service Metrics
-async function getServiceMetrics(identifier: string): Promise<AxiosResponse<object> | null> {
-    try {
-        const response = await apiClient().get<object>(`/${identifier}/metrics`)
-        console.debug("getServiceMetrics response:", response)
-        return response
-    } catch (error) {
-        console.error("Error in getServiceMetrics:", error)
-        return null
-    }
-}
-
-export { listServices, createService, readService, updateService, deleteService, getServiceLogs, getServiceMetrics }
+export { listServices, createService, readService, updateService, deleteService, getServiceLogs }
 export type { Service, ServiceCreate, ServiceUpdate, ServiceIdentifier }

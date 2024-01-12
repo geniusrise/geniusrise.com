@@ -20,9 +20,10 @@ interface JobCreate {
 
 interface JobIdentifier {
     identifier: string
+    cloud: string
 }
 
-const url = "https://api.geniusrise.com/api/v1/jobs"
+const url = "http://localhost:8000/api/v1/jobs"
 
 const apiClient = () =>
     axios.create({
@@ -59,9 +60,9 @@ async function createJob(jobData: JobCreate): Promise<AxiosResponse<Job> | null>
 }
 
 // Read Job
-async function readJob(identifier: string): Promise<AxiosResponse<Job> | null> {
+async function readJob(identifier: string, cloud: string): Promise<AxiosResponse<Job> | null> {
     try {
-        const response = await apiClient().get<Job>(`/${identifier}`)
+        const response = await apiClient().get<Job>(`/${identifier}/${cloud}/get`)
         console.debug("readJob response:", response)
         return response
     } catch (error) {
@@ -85,7 +86,7 @@ async function updateJob(identifier: string, jobData: JobIdentifier): Promise<Ax
 // Delete Job
 async function deleteJob(jobData: JobIdentifier): Promise<AxiosResponse<void> | null> {
     try {
-        const response = await apiClient().delete<void>(`/${jobData.identifier}`)
+        const response = await apiClient().delete<void>(`/${jobData.identifier}/${jobData.cloud}/delete`)
         console.debug("deleteJob response:", response)
         return response
     } catch (error) {
@@ -95,9 +96,9 @@ async function deleteJob(jobData: JobIdentifier): Promise<AxiosResponse<void> | 
 }
 
 // Job Logs
-async function getJobLogs(identifier: string): Promise<AxiosResponse<string> | null> {
+async function getJobLogs(identifier: string, cloud: string): Promise<AxiosResponse<string> | null> {
     try {
-        const response = await apiClient().get<string>(`/${identifier}/logs`)
+        const response = await apiClient().get<string>(`/${identifier}/${cloud}/logs`)
         console.debug("getJobLogs response:", response)
         return response
     } catch (error) {
@@ -106,17 +107,5 @@ async function getJobLogs(identifier: string): Promise<AxiosResponse<string> | n
     }
 }
 
-// Job Metrics
-async function getJobMetrics(identifier: string): Promise<AxiosResponse<object> | null> {
-    try {
-        const response = await apiClient().get<object>(`/${identifier}/metrics`)
-        console.debug("getJobMetrics response:", response)
-        return response
-    } catch (error) {
-        console.error("Error in getJobMetrics:", error)
-        return null
-    }
-}
-
-export { listJobs, createJob, readJob, updateJob, deleteJob, getJobLogs, getJobMetrics }
+export { listJobs, createJob, readJob, updateJob, deleteJob, getJobLogs }
 export type { Job, JobCreate, JobIdentifier }

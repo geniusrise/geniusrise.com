@@ -21,13 +21,15 @@ interface DeploymentCreate {
 
 interface DeploymentUpdate {
     replicas: number
+    cloud: string
 }
 
 interface DeploymentIdentifier {
     identifier: string
+    cloud: string
 }
 
-const url = "https://api.geniusrise.com/api/v1/deployments"
+const url = "http://localhost:8000/api/v1/deployments"
 
 const apiClient = () =>
     axios.create({
@@ -64,9 +66,9 @@ async function createDeployment(deploymentData: DeploymentCreate): Promise<Axios
 }
 
 // Read Deployment
-async function readDeployment(identifier: string): Promise<AxiosResponse<Deployment> | null> {
+async function readDeployment(identifier: string, cloud: string): Promise<AxiosResponse<Deployment> | null> {
     try {
-        const response = await apiClient().get<Deployment>(`/${identifier}`)
+        const response = await apiClient().get<Deployment>(`/${identifier}/${cloud}/get`)
         console.debug("readDeployment response:", response)
         return response
     } catch (error) {
@@ -90,7 +92,7 @@ async function updateDeployment(identifier: string, deploymentData: DeploymentUp
 // Delete Deployment
 async function deleteDeployment(deploymentData: DeploymentIdentifier): Promise<AxiosResponse<void> | null> {
     try {
-        const response = await apiClient().delete<void>(`/${deploymentData.identifier}`)
+        const response = await apiClient().delete<void>(`/${deploymentData.identifier}/${deploymentData.cloud}/delete`)
         console.debug("deleteDeployment response:", response)
         return response
     } catch (error) {
@@ -100,9 +102,9 @@ async function deleteDeployment(deploymentData: DeploymentIdentifier): Promise<A
 }
 
 // Deployment Logs
-async function getDeploymentLogs(identifier: string): Promise<AxiosResponse<string> | null> {
+async function getDeploymentLogs(identifier: string, cloud: string): Promise<AxiosResponse<string> | null> {
     try {
-        const response = await apiClient().get<string>(`/${identifier}/logs`)
+        const response = await apiClient().get<string>(`/${identifier}/${cloud}/logs`)
         console.debug("getDeploymentLogs response:", response)
         return response
     } catch (error) {
@@ -111,17 +113,5 @@ async function getDeploymentLogs(identifier: string): Promise<AxiosResponse<stri
     }
 }
 
-// Deployment Metrics
-async function getDeploymentMetrics(identifier: string): Promise<AxiosResponse<object> | null> {
-    try {
-        const response = await apiClient().get<object>(`/${identifier}/metrics`)
-        console.debug("getDeploymentMetrics response:", response)
-        return response
-    } catch (error) {
-        console.error("Error in getDeploymentMetrics:", error)
-        return null
-    }
-}
-
-export { listDeployments, createDeployment, readDeployment, updateDeployment, deleteDeployment, getDeploymentLogs, getDeploymentMetrics }
+export { listDeployments, createDeployment, readDeployment, updateDeployment, deleteDeployment, getDeploymentLogs }
 export type { Deployment, DeploymentCreate, DeploymentUpdate, DeploymentIdentifier }

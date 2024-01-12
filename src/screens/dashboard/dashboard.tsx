@@ -85,7 +85,7 @@ function Dashboard(props: Props) {
                                     <Cell middle>{s.replicas || "1"}</Cell>
                                     <Cell width={2} middle>{moment(s.created_at).format("lll")}</Cell>
                                     <Cell middle><Button disabled={taskType !== "API"} onClick={() => {
-                                        deleteService({ identifier: s.uuid }).then(x => {
+                                        deleteService({ identifier: s.uuid, cloud: s.cloud }).then(x => {
                                             setServices([])
                                             setUpdate(update + 1)
                                         })
