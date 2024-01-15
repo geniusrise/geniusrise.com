@@ -333,7 +333,13 @@ const API: React.FC<APIProps> = ({ model }) => {
                 </Grid>
             </div>
             <Settings
-                config={model.apiDeploy}
+                config={Object.entries(model.apiDeploy).reduce((mem, [key, value]) => {
+                    if (!["model_class", "tokenizer_class"].includes(value.name)) {
+                        // @ts-ignore
+                        mem[key] = value
+                        return mem
+                    } else return mem
+                }, {})}
                 callback={x => {
                     setModelSettings({
                         ...modelSettings,

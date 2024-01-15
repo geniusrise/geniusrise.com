@@ -11,8 +11,7 @@ interface Model {
 }
 
 interface Props {
-    taskType: string
-    model: Model
+    config: object
     callback: (obj: any) => void
     visible: boolean
 }
@@ -33,15 +32,14 @@ const buildInitialState = (properties: any) => {
     Object.entries(properties).forEach(([key, value]) => {
         if (hasTypeField(value) && value.hasOwnProperty("default")) {
             // @ts-ignore
-            state[value.name] = typeof value.default === "object" ? JSON.stringify(value.default, null, 2) : value.default
+            state[value.name] = typeof value.default === "object" && value.default !== null ? JSON.stringify(value.default, null, 2) : value.default
         }
     })
     return state
 }
 
-const Settings: React.FC<Props> = ({ taskType, model, callback, visible }) => {
+const Settings: React.FC<Props> = ({ config, callback, visible }) => {
 
-    const config = taskType === "api" ? model.apiDeploy : taskType === "bulk" ? model.bulkDeploy : model.apiDeploy
     const [formState, setFormState] = useState<any>(buildInitialState(config))
 
     const handleChange = (key: string, value: any) => {

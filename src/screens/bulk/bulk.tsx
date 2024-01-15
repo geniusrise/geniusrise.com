@@ -55,6 +55,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     const [settingsVisible, setSettingsVisibile] = useState(false)
     const [customModel, setCustomModel] = useState(model.model_name)
     const isModelCustom = model.model_name === null
+    const [customNotification, setCustomNotification] = useState("")
 
     const [progress, setProgress] = useState(0)
     const [progressBarVisible, setProgressBarVisible] = useState(false)
@@ -243,8 +244,9 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                 },
                 method: model.bulkMethod,
                 method_args: {
+                    ...modelSettings,
                     model_name: customModel,
-                    ...modelSettings
+                    notification_email: customNotification
                 }
             }
         })
@@ -340,6 +342,20 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                             </label>
                         </Cell>
                     ))}
+                    <Cell key="customNotification" className={styles.formElement} center>
+                        <label>
+                            Notification Email
+                            <div>Input the email id to be notified once the fine-tuning is done:</div>
+                            {(
+                                <input
+                                    type={"text"}
+                                    className={styles.textInput}
+                                    value={customNotification}
+                                    onChange={e => setCustomNotification(e.target.value)}
+                                />
+                            )}
+                        </label>
+                    </Cell>
                 </Grid>
                 <Content className={styles.contentHeading}>
                     <h2>Upload Files</h2>
@@ -395,10 +411,18 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                 </Grid>
             </div>
             <Settings
-                taskType="bulk"
-                model={model}
+                config={Object.entries(model.bulkDeploy).reduce((mem, [key, value]) => {
+                    if (!["notification_email", "model_class", "tokenizer_class"].includes(value.name)) {
+                        // @ts-ignore
+                        mem[key] = value
+                        return mem
+                    } else return mem
+                }, {})}
                 callback={x => {
-                    setModelSettings(x)
+                    setModelSettings({
+                        ...modelSettings,
+                        ...x
+                    })
                     setSettingsVisibile(!settingsVisible)
                 }}
                 visible={settingsVisible}
