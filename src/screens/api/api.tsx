@@ -84,7 +84,7 @@ const API: React.FC<APIProps> = ({ model }) => {
         {
             name: "cloud",
             description: "Selects the cloud to be deployed in. Select one according to your preference, usecase and cost requirements.",
-            default: "e2e-delhi",
+            default: "azure-central-india",
             options: [
                 { label: "E2E Networks - Delhi-NCR", value: "e2e-delhi" },
                 { label: "Amazon AWS - ap-south-1 (Mumbai)", value: "AWS-ap-south-1" },
