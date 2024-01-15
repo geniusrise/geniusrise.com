@@ -31,7 +31,7 @@ interface ServiceIdentifier {
     cloud: string
 }
 
-const url = "http://localhost:8000/api/v1/services"
+const url = "https://api.geniusrise.com/api/v1/services"
 
 const apiClient = () =>
     axios.create({

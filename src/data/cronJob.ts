@@ -24,7 +24,7 @@ interface CronJobIdentifier {
     cloud: string
 }
 
-const url = "http://localhost:8000/api/v1/cronjobs"
+const url = "https://api.geniusrise.com/api/v1/cronjobs"
 
 const apiClient = () =>
     axios.create({

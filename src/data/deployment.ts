@@ -29,7 +29,7 @@ interface DeploymentIdentifier {
     cloud: string
 }
 
-const url = "http://localhost:8000/api/v1/deployments"
+const url = "https://api.geniusrise.com/api/v1/deployments"
 
 const apiClient = () =>
     axios.create({
