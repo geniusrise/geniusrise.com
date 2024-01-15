@@ -76,20 +76,43 @@ function Dashboard(props: Props) {
                         return (
                             <Cell className={styles.servicesList}>
                                 <Grid columns={15}>
-                                    <Cell width={3} middle>{taskName}</Cell>
-                                    <Cell center middle>{taskType}</Cell>
-                                    <Cell width={2} center middle>{s.cloud.replaceAll("-", " ")}</Cell>
-                                    <Cell center middle>{s.pod_size}</Cell>
-                                    <Cell width={2} center middle>{s.class_name}</Cell>
-                                    <Cell width={2} center middle>{s.cluster_ip}</Cell>
-                                    <Cell center middle>{s.replicas || "1"}</Cell>
-                                    <Cell width={2} center middle>{moment(s.created_at).fromNow()}</Cell>
-                                    <Cell center middle><Button disabled={taskType !== "API"} onClick={() => {
-                                        deleteService({ identifier: s.uuid, cloud: s.cloud }).then(x => {
-                                            setServices([])
-                                            setUpdate(update + 1)
-                                        })
-                                    }}>Delete</Button></Cell>
+                                    <Cell width={3} middle>
+                                        {taskName}
+                                    </Cell>
+                                    <Cell center middle>
+                                        {taskType}
+                                    </Cell>
+                                    <Cell width={2} center middle>
+                                        {s.cloud ? s.cloud.replaceAll("-", " ") : "azure-central-india".replaceAll("-", " ")}
+                                    </Cell>
+                                    <Cell center middle>
+                                        {s.pod_size}
+                                    </Cell>
+                                    <Cell width={2} center middle>
+                                        {s.class_name}
+                                    </Cell>
+                                    <Cell width={2} center middle>
+                                        {s.cluster_ip}
+                                    </Cell>
+                                    <Cell center middle>
+                                        {s.replicas || "1"}
+                                    </Cell>
+                                    <Cell width={2} center middle>
+                                        {moment(s.created_at).fromNow()}
+                                    </Cell>
+                                    <Cell center middle>
+                                        <Button
+                                            disabled={taskType !== "API"}
+                                            onClick={() => {
+                                                deleteService({ identifier: s.uuid, cloud: s.cloud }).then(x => {
+                                                    setServices([])
+                                                    setUpdate(update + 1)
+                                                })
+                                            }}
+                                        >
+                                            Delete
+                                        </Button>
+                                    </Cell>
                                 </Grid>
                             </Cell>
                         )
