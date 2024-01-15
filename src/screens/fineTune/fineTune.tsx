@@ -195,7 +195,7 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
 
         createJob({
             task: {
-                name: ("geniusft--" + generateName() + "--" + task.short_name.toLowerCase().replaceAll(" ", "-")).replaceAll(".", "-").substring(0, 60),
+                name: ("geniusft--" + generateName() + "--" + task.long_name.toLowerCase().replaceAll(" ", "-")).replaceAll(".", "-").substring(0, 60),
                 deployment_config: {
                     ...deploymentConfig
                 },
