@@ -195,8 +195,8 @@ const API: React.FC<APIProps> = ({ model }) => {
                 },
                 method: "listen",
                 method_args: {
-                    model_name: customModel,
-                    ...modelSettings
+                    ...modelSettings,
+                    model_name: customModel
                 }
             }
         }).then(x => {
@@ -333,10 +333,12 @@ const API: React.FC<APIProps> = ({ model }) => {
                 </Grid>
             </div>
             <Settings
-                taskType="api"
-                model={model}
+                config={model.apiDeploy}
                 callback={x => {
-                    setModelSettings(x)
+                    setModelSettings({
+                        ...modelSettings,
+                        ...x
+                    })
                     setSettingsVisibile(!settingsVisible)
                 }}
                 visible={settingsVisible}
