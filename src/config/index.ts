@@ -8,6 +8,7 @@ import transConfig from "./text/trans/config.json"
 import txtclassConfig from "./text/txtclass/config.json"
 import txtqaConfig from "./text/txtqa/config.json"
 import emotionConfig from "./text/emotion/config.json"
+import fineTuningConfig from "./text/fine_tuning_config.json"
 
 import api from "./tasks/api.json"
 import bulk from "./tasks/bulk.json"
@@ -64,6 +65,6 @@ const config = {
 
 globalThis.config = config
 
-export { config, taskConfig, data_instructions }
+export { config, taskConfig, data_instructions, fineTuningConfig }
 
 export type { Config, Model }

@@ -5,13 +5,18 @@ import { useDropzone } from "react-dropzone"
 import { withAuthenticator } from "@aws-amplify/ui-react"
 import Markdown from "react-markdown"
 import styles from "./fineTune.module.css"
-import { Config, data_instructions } from "../../config"
+import { Config, data_instructions, fineTuningConfig } from "../../config"
 import { Cell, Grid } from "styled-css-grid"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { shadesOfPurple } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
 
 import banners from "../../data/banners.json"
+import { Settings, buildInitialState } from "../settings/settings"
+import s3 from "aws-sdk/clients/s3"
+import AWS from "aws-sdk"
+import { createJob } from "../../data/job"
+import { generateName } from "../../utils"
 
 interface FineTuneProps {
     task: Config
@@ -34,27 +39,24 @@ function toTitleCase(input: string): string {
         .join(" ") // Join the parts with spaces
 }
 
+// Generate the S3 bucket URL
+const generateS3BucketUrl = () => {
+    const date = new Date()
+    const year = date.getFullYear()
+    const month = `0${date.getMonth() + 1}`.slice(-2)
+    const day = `0${date.getDate()}`.slice(-2)
+    const randomUUID = uuidv4()
+    return `year=${year}/month=${month}/day=${day}/${randomUUID}/`
+}
+
+
 const FineTune: React.FC<FineTuneProps> = ({ task }) => {
     const [files, setFiles] = useState<File[]>([])
-    const [s3BucketUrl, setS3BucketUrl] = useState<string>("")
+    const [s3BucketUrl, setS3BucketUrl] = useState<string>(generateS3BucketUrl())
     const [settingsVisible, setSettingsVisibile] = useState(false)
     const [customModel, setCustomModel] = useState("")
     const [customData, setCustomData] = useState("")
-
-    // Generate the S3 bucket URL
-    const generateS3BucketUrl = useCallback(() => {
-        const date = new Date()
-        const year = date.getFullYear()
-        const month = `0${date.getMonth() + 1}`.slice(-2)
-        const day = `0${date.getDate()}`.slice(-2)
-        const randomUUID = uuidv4()
-        return `year=${year}/month=${month}/day=${day}/${randomUUID}/`
-    }, [task.short_name])
-
-    // Initialize S3 bucket URL on component mount
-    React.useEffect(() => {
-        setS3BucketUrl(generateS3BucketUrl())
-    }, [generateS3BucketUrl])
+    const [customNotification, setCustomNotification] = useState("")
 
     // Handle file drop
     const onDrop = useCallback((acceptedFiles: File[]) => {
@@ -68,7 +70,7 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
         {
             name: "name",
             description: "Unique identifier for the API deployment. This name is used to distinguish between different deployments.",
-            default: task.models[0].apiClass,
+            default: task.models[0].apiClass.replace("API", "FineTuner"),
         },
         {
             name: "pod_size",
@@ -109,6 +111,119 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
             )
         );
     };
+
+    const [progress, setProgress] = useState(0)
+    const [progressBarVisible, setProgressBarVisible] = useState(false)
+    const [deployed, setDeployed] = useState(false)
+
+    // @ts-ignore
+    const taskClassMapping = fineTuningConfig.taskClassMapping[task.short_name.toUpperCase()]
+    const s = {
+        ...buildInitialState(fineTuningConfig.fineTuneDeploy),
+        model_class: taskClassMapping.model_class,
+        tokenizer_class: taskClassMapping.tokenizer_class,
+    }
+
+    const [modelSettings, setModelSettings] = useState(s)
+
+    AWS.config.update({
+        region: 'ap-south-1',
+        accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+        // credentials: new AWS.CognitoIdentityCredentials({
+        //     IdentityPoolId: 'ap-south-1_m1rTttoqg',
+        // }),
+    })
+
+    const s3 = new AWS.S3({
+        apiVersion: '2006-03-01',
+        params: { Bucket: 'geniusrise-prod-input' },
+    })
+
+    const uploadFilesToS3 = async () => {
+
+        if (files.length == 0 && customData !== "") {
+            setProgressBarVisible(true)
+            handleLaunch()
+        }
+        if (files.length === 0) {
+            return
+        }
+
+        setProgressBarVisible(true)
+        let totalUploaded = 0
+
+        try {
+            const uploadPromises = files.map(file => {
+                const uploadParams = {
+                    Bucket: 'geniusrise-prod-input',
+                    Key: `${s3BucketUrl}${file.name}`,
+                    Body: file,
+                }
+
+                return s3.upload(uploadParams)
+                    .on('httpUploadProgress', (evt) => {
+                        // Update progress
+                        totalUploaded += evt.loaded
+                        const progressPercentage = (totalUploaded / files.reduce((acc, file) => acc + file.size, 0)) * 100
+                        setProgress(Math.min(100, progressPercentage))
+                    })
+                    .promise()
+            })
+
+            await Promise.all(uploadPromises)
+            console.log('Files uploaded successfully.')
+            handleLaunch()
+        } catch (error) {
+            console.error('Error uploading files: ', error)
+        } finally {
+        }
+    }
+
+    const handleLaunch = () => {
+        setProgressBarVisible(true)
+        setProgress(0)
+
+        const deploymentConfig = config.reduce((acc, item) => {
+            // @ts-ignore
+            acc[item.name] = item.default;
+            return acc;
+        }, {});
+        console.log(deploymentConfig)
+        console.log(modelSettings)
+        console.log(customModel, customData)
+
+        createJob({
+            task: {
+                name: ("geniusft--" + generateName() + "--" + task.short_name.toLowerCase().replaceAll(" ", "-")).replaceAll(".", "-").substring(0, 60),
+                deployment_config: {
+                    ...deploymentConfig
+                },
+                method: "fine_tune",
+                method_args: {
+                    ...modelSettings,
+                    model_name: customModel,
+                    tokenizer_name: customModel,
+                    notification_email: customNotification,
+                    use_huggingface_dataset: customData !== "",
+                    huggingface_dataset: customData !== "" ? customData : null
+                }
+            }
+        })
+
+        // Progress bar logic
+        const interval = setInterval(() => {
+            setProgress(oldProgress => {
+                if (oldProgress === 100) {
+                    setDeployed(true)
+                    clearInterval(interval)
+                    setProgressBarVisible(false)
+                    return 100
+                }
+                return Math.min(oldProgress + 1, 100)
+            })
+        }, 300) // 1200 ms interval for 2 minutes duration
+    }
 
     return (
         <>
@@ -175,6 +290,20 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
                             )}
                         </label>
                     </Cell>
+                    <Cell key="customNotification" className={styles.formElement} center>
+                        <label>
+                            Notification Email
+                            <div>Input the email id to be notified once the fine-tuning is done:</div>
+                            {(
+                                <input
+                                    type={"text"}
+                                    className={styles.textInput}
+                                    value={customNotification}
+                                    onChange={e => setCustomNotification(e.target.value)}
+                                />
+                            )}
+                        </label>
+                    </Cell>
                 </Grid>
                 <Markdown className={styles.markdown}>
                     {`## Data
@@ -235,18 +364,41 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
                         </Button>
                     </Cell>
                     <Cell>
-                        <Button>Submit Job</Button>
+                        <Button onClick={() => uploadFilesToS3()} disabled={progressBarVisible}>Submit Job</Button>
+                    </Cell>
+                    <Cell width={2}>
+                        {progressBarVisible && (
+                            <div className={styles.progressBar}>
+                                <div className={styles.progress} style={{ width: `${progress}%` }}></div>
+                            </div>
+                        )}
+                    </Cell>
+                    <Cell width={2} className={styles.curl}>
+                        <Content hidden={!deployed}>
+                            <h3>🎊 Your fine-tuning job is deployed!</h3>
+                            {modelSettings.notification_email ? `We will send you an email notification at ${modelSettings.notification_email}` : ""}
+                        </Content>
                     </Cell>
                 </Grid>
             </div >
-            {/* <Settings
-                taskType="fineTune"
-                model={model}
+            <Settings
+                // @ts-ignore
+                config={Object.entries(fineTuningConfig.fineTuneDeploy).reduce((mem, [key, value]) => {
+                    if (!["model_class", "tokenizer_class", "model_name", "tokenizer_name"].includes(value.name)) {
+                        // @ts-ignore
+                        mem[key] = value
+                        return mem
+                    } else return mem
+                }, {})}
                 callback={x => {
+                    setModelSettings({
+                        ...modelSettings,
+                        ...x
+                    })
                     setSettingsVisibile(!settingsVisible)
                 }}
                 visible={settingsVisible}
-            ></Settings> */}
+            ></Settings>
         </>
     )
 }
