@@ -35,6 +35,12 @@ const Landing = () => {
                 <div className={styles.heroheaderbanner}>
                     <h1>AI has landed</h1>
                     <h3>Build, experiment, deploy</h3>
+                    <ul>
+                        <li>Host Inference APIs on any model</li>
+                        <li>Perform Bulk Inference on any model</li>
+                        <li>Fine Tune any model with any dataset</li>
+                        <li>Use any cloud service</li>
+                    </ul>
                 </div>
             </div>
             <div>

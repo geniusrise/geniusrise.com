@@ -74,12 +74,12 @@
 
 .heroheaderbanner {
     text-align: center;
-    margin-top: 5vh;
-    margin-left: 30vw;
+    margin-top: 3vh;
+    margin-left: 35vw;
 }
 
 .heroheaderbanner h1 {
-    font-size: 7rem;
+    font-size: 6rem;
     font-weight: 900;
     color: yellow;
 
@@ -105,13 +105,25 @@
         4px 4px 0 #000, /* More pronounced right bottom shadow */
         6px 6px 0 #000, /* Even more pronounced right bottom shadow */
         8px 8px 0 #000; /* Maximum pronounced right bottom shadow */
+}
 
-    // text-shadow:
-    //     1px 1px 0 rgba(255,0,0,1), /* Start color: Red */
-    //     2px 2px 0 rgba(255,69,0,0.875), /* Intermediate color */
-    //     3px 3px 0 rgba(255,140,0,0.75), /* Intermediate color */
-    //     4px 4px 0 rgba(255,200,0,0.625), /* Intermediate color */
-    //     5px 5px 0 rgba(255,255,0,0.5); /* End color: Yellow */
+.heroheaderbanner ul {
+    margin-top: 4vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.heroheaderbanner li {
+    padding: 1rem;
+    margin: 2rem;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+
+    border: 10px solid yellow;
+    background-color: rgba(0,0,0,0.7);
 }
 
 .heroTasks {
@@ -227,11 +239,24 @@
 
 @media (min-width: 481px) and (max-width: 1600px) {
     .heroheaderbanner h1 {
-        font-size: 5rem;
+        font-size: 6rem;
     }
 
     .heroheaderbanner h2, h3 {
-        font-size: 3rem;
+        font-size: 4rem;
+    }
+
+    .heroheaderbanner ul {
+        margin-top: 0vh;
+        margin-left: 0vw;
+        margin-right: 0vw;
+    }
+
+    .heroheaderbanner li {
+        padding: 1rem;
+        margin: 3rem;
+
+        font-size: 2rem;
     }
 
     .heroTasks {
@@ -266,12 +291,38 @@
 }
 
 @media (max-width: 481px) {
+    .headerElementRegister {
+        height: 2.5rem !important;
+        width: 100%;
+        border-radius: 0.5rem;
+        background-color: #d42379;
+        cursor: pointer;
+    }
+
+    .headerElementRegister a {
+        font-size: 1rem;
+        text-shadow: none;
+    }
+
     .heroheaderbanner h1 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .heroheaderbanner h2, h3 {
-        font-size: 2rem;
+        font-size: 1rem;
+    }
+
+    .heroheaderbanner ul {
+        margin-top: 0vh;
+        margin-left: 0vw;
+        margin-right: 0vw;
+    }
+
+    .heroheaderbanner li {
+        padding: 0.5rem;
+        margin: 1rem;
+
+        font-size: 1rem;
     }
 
     .heroTasks {
