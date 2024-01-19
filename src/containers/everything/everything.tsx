@@ -20,6 +20,7 @@ import API from "../../screens/api/api"
 import { Dashboard } from "../../screens/dashboard/dashboard"
 import Landing from "../../screens/landing/landing"
 import Login from "../../screens/login/login"
+import Notebook from "../../screens/notebook/notebook"
 // import { Autocomplete } from "../../components/autocomplete/autocomplete"
 
 const Everything = () => {
@@ -78,6 +79,11 @@ const Everything = () => {
                             {Object.entries(config).map(([taskKey, taskConfig], index) =>
                                 taskConfig.models.map((model, index) => (
                                     <Route key={index} path={`/model/${model.name}/api`} element={<API model={model} />} />
+                                ))
+                            )}
+                            {Object.entries(config).map(([taskKey, taskConfig], index) =>
+                                taskConfig.models.map((model, index) => (
+                                    <Route key={index} path={`/model/${model.name}/notebook`} element={<Notebook model={model} />} />
                                 ))
                             )}
                             {Object.entries(config).map(([taskKey, taskConfig], index) =>

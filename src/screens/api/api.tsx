@@ -68,7 +68,7 @@ const API: React.FC<APIProps> = ({ model }) => {
         },
         {
             name: "pod_size",
-            description: "Defines the size of the pod, dictating its CPU, memory, and GPU resources. Choose a size based on the expected workload and performance requirements.",
+            description: "Defines the size of the pod, dictating its CPU, memory, and GPU resources. Choose a size based on the expected workload.",
             default: "m",
             options: [
                 { label: " 🟢⚫⚫⚫ S - 0.25 VCPU, 1 GB RAM, 0.5GB GPU", value: "s" },

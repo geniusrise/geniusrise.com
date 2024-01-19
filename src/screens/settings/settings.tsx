@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import styles from "./settings.module.css"
 import { Cell, Grid } from "styled-css-grid"
 import { Button, Content } from "react-bulma-components"
+import Markdown from "react-markdown";
 
 interface Model {
     apiDeploy: any;
@@ -87,10 +88,11 @@ const Settings: React.FC<Props> = ({ config, callback, visible }) => {
                                 <label>
                                     {toTitleCase(formKey)}
                                 </label>
-                                <div className={styles.description}>{
-                                    // @ts-ignore
-                                    value.description
-                                }</div>
+                                <div className={styles.description}>
+                                    <Markdown className={styles.markdown}>
+                                        {value.description.toString()}
+                                    </Markdown>
+                                </div>
                                 {isDropDown ? (
                                     <select
                                         className={styles.selectInput}

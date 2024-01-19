@@ -98,7 +98,7 @@
             "name": "per_device_batch_size",
             "description": "Batch size per device during the training process.",
             "type": "integer",
-            "default": 32,
+            "default": 4,
             "possible": null
         },
         "4": {
@@ -267,6 +267,20 @@
             "description": "Whether to just-in-time (JIT) compile the model before fine-tuning.",
             "type": "boolean",
             "default": false,
+            "possible": null
+        },
+        "28": {
+            "name": "learning_rate",
+            "description": "The learning rate for backpropagation.",
+            "type": "number",
+            "default": 0.000005,
+            "possible": null
+        },
+        "29": {
+            "name": "map_data",
+            "description": "An arbitrary lambda function for custom changes to data, e.g. renaming fields: ```lambda d: {'label': d['intent'], 'text': d['utt']}```.",
+            "type": "string",
+            "default": null,
             "possible": null
         }
     }

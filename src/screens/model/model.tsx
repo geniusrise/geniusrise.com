@@ -104,6 +104,11 @@ function Model({ model }: Props) {
                     </Cell> */}
                 </Grid>
                 <Grid columns={2} className={styles.actions}>
+                    <Cell center middle width={2}>
+                        <Button>
+                            <Link to={`/model/${model.name}/notebook`}>Launch a Notebook</Link>
+                        </Button>
+                    </Cell>
                     <Cell center middle>
                         <Button>
                             <Link to={`/model/${model.name}/bulk`}>One-time Bulk Job</Link>
