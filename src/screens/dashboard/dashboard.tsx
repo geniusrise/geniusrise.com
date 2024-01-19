@@ -102,7 +102,7 @@ function Dashboard(props: Props) {
                                     </Cell>
                                     <Cell center middle>
                                         <Button
-                                            disabled={taskType !== "API"}
+                                            disabled={taskType !== "API" && taskType !== "NB"}
                                             onClick={() => {
                                                 deleteService({ identifier: s.uuid, cloud: s.cloud }).then(x => {
                                                     setServices([])
