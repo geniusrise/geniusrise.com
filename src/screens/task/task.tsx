@@ -61,18 +61,22 @@ function Task(props: Config) {
                             >
                                 <Card.Header.Title>
                                     <Content>
-                                        <h2>Fine Tune / Make your own model</h2>
                                     </Content>
                                 </Card.Header.Title>
                             </Card.Header>
                             <Card.Content className={styles.cardContent}>
+                                <Content>
+                                    <h3>Fine Tune your own model</h3>
+                                </Content>
+                            </Card.Content>
+                            {/* <Card.Content className={styles.cardContent}>
                                 <Content>
                                     <strong>Use Cases:</strong>
                                     <ul>
                                         <li>Fine tune any open source model with any open source dataset to suit your requirements.</li>
                                     </ul>
                                 </Content>
-                            </Card.Content>
+                            </Card.Content> */}
                         </Card>
                     </Link>
                 </Cell>
@@ -89,22 +93,13 @@ function Task(props: Config) {
                                         style={{ backgroundImage: `url(vector-autumn-foliage-banner/${bgImage})`, backgroundSize: "cover" }}
                                     >
                                         <Card.Header.Title>
-                                            <Content>
-                                                <h2>{model.name}</h2>
-                                            </Content>
+                                            <Content></Content>
                                         </Card.Header.Title>
                                     </Card.Header>
                                     <Card.Content className={styles.cardContent}>
                                         <Content>
-                                            {/* <h2>{model.name}</h2> */}
-                                            {/* <div> */}
-                                            <strong>Use Cases:</strong>
-                                            <ul>
-                                                {model.usecases.map((usecase, idx) => (
-                                                    <li key={idx}>{usecase}</li>
-                                                ))}
-                                            </ul>
-                                            {/* </div> */}
+                                            <h3>{model.name}</h3>
+                                            <p>{model.description.split(". ")[0]}.</p>
                                         </Content>
                                     </Card.Content>
                                     {/* <Card.Footer

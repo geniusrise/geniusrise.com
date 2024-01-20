@@ -151,7 +151,7 @@ const Notebook: React.FC<NotebookProps> = ({ model }) => {
     useEffect(() => {
         if (launched && launched.uuid) {
             // Wait for a specified time before fetching the status
-            const delay = 120000
+            const delay = 240000
             const timer = setTimeout(() => {
                 const deploymentConfig = config.reduce((acc, item) => {
                     // @ts-ignore
@@ -217,7 +217,7 @@ const Notebook: React.FC<NotebookProps> = ({ model }) => {
                 }
                 return Math.min(oldProgress + 1, 100)
             })
-        }, 1200) // 1200 ms interval for 2 minutes duration
+        }, 2400) // 1200 ms interval for 2 minutes duration
     }
 
     return (

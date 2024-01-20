@@ -38,14 +38,17 @@
     height: 100%;
     background-color: transparent;
     background-color: var(--dark-modal-background);
+    padding: 10px;
 }
-.card h2, div, a, a:hover, strong {
+.card h3, div, a, a:hover, strong {
     color: var(--dark-text-color);
+    text-shadow: none;
 }
 
 .cardHeader {
-    border: none !important;
-    height: 6rem;
+    // border: none !important;
+    height: 3rem;
+    border: 4px solid var(--dark-background-color);
 }
 
 .cardHeader > div {
@@ -54,6 +57,10 @@
 
 .cardContent {
     padding: 0.5rem;
+}
+
+.cardContent p {
+    font-size: 0.9rem;
 }
 
 .cardFooter {
