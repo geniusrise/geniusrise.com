@@ -17,7 +17,13 @@ const getRandomImage = () => {
     return banners[randomIndex]
 }
 
-function Task(props: Config) {
+interface Args {
+    props: Config
+    wide: boolean
+}
+
+function Task(args: Args) {
+    const props = args.props
     const models: Model[] = props.models
     const [searchTerm, setSearchTerm] = useState("")
     const [filteredList, setFilteredList] = useState<Model[]>(models)
@@ -46,12 +52,18 @@ function Task(props: Config) {
         setSearchTerm(event.target.value)
     }, [])
 
+    const [extraWidth, setExtraWidth] = useState(1)
+    useEffect(() => {
+        if (args.wide) setExtraWidth(1)
+        else setExtraWidth(0)
+    }, [args.wide])
+
     return (
         <div className={styles.container}>
             <div className={styles.searchContainer}>
                 <Form.Input value={searchTerm} onChange={handleSearchChange} className={styles.searchInput} placeholder="Search models..." />
             </div>
-            <Grid columns={is4K ? 3 : xl ? 3 : 1} gap="20px" className={styles.taskGrid}>
+            <Grid columns={is4K ? 3 + extraWidth : xl ? 3 + extraWidth : 1} gap="20px" className={styles.taskGrid}>
                 <Cell key={1000} className={styles.modelCard}>
                     <Link to={`/model/${props.short_name}/fine_tune`}>
                         <Card className={styles.card}>
@@ -60,8 +72,7 @@ function Task(props: Config) {
                                 style={{ backgroundImage: `url(vector-autumn-foliage-banner/${getRandomImage()})`, backgroundSize: "cover" }}
                             >
                                 <Card.Header.Title>
-                                    <Content>
-                                    </Content>
+                                    <Content></Content>
                                 </Card.Header.Title>
                             </Card.Header>
                             <Card.Content className={styles.cardContent}>

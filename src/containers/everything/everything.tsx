@@ -21,6 +21,7 @@ import { Dashboard } from "../../screens/dashboard/dashboard"
 import Landing from "../../screens/landing/landing"
 import Login from "../../screens/login/login"
 import Notebook from "../../screens/notebook/notebook"
+import style from "react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark"
 // import { Autocomplete } from "../../components/autocomplete/autocomplete"
 
 const Everything = () => {
@@ -52,24 +53,28 @@ const Everything = () => {
     let [loggedIn, setLoggedIn] = useState(false)
     useEffect(() => {
         try {
-            Auth.currentAuthenticatedUser().then(x => setLoggedIn(true)).catch(x => setLoggedIn(false))
+            Auth.currentAuthenticatedUser()
+                .then(x => setLoggedIn(true))
+                .catch(x => setLoggedIn(false))
         } catch {
             setLoggedIn(false)
         }
-    }, []);
+    }, [])
+
+    const [fullWidth, setFullWidth] = useState(styles.fullWidth)
 
     return (
         <div className={styles.everything}>
             <div className={styles.something}>
                 {/* {loggedIn ? <Sidebar></Sidebar> : <></>} */}
                 <Sidebar></Sidebar>
-                <Grid columns={10}>
-                    <Cell className={styles.content}>
+                <Grid>
+                    <Cell className={fullWidth}>
                         <Routes>
                             <Route key="/" path="/" element={loggedIn ? <Dashboard /> : <Landing />} />
                             <Route key="/login" path="/login" element={loggedIn ? <Dashboard /> : <Login />} />
                             {Object.entries(config).map(([taskKey, taskConfig], index) => (
-                                <Route key={index} path={`/${taskKey}`} element={<Task {...taskConfig} />} />
+                                <Route key={index} path={`/${taskKey}`} element={<Task props={taskConfig} wide={fullWidth === styles.fullWidth} />} />
                             ))}
                             {Object.entries(config).map(([taskKey, taskConfig], index) =>
                                 taskConfig.models.map((model, index) => (
@@ -86,9 +91,9 @@ const Everything = () => {
                                     <Route key={index} path={`/model/${model.name}/notebook`} element={<Notebook model={model} />} />
                                 ))
                             )}
-                            {Object.entries(config).map(([taskKey, taskConfig], index) =>
+                            {Object.entries(config).map(([taskKey, taskConfig], index) => (
                                 <Route key={index} path={`/model/${taskConfig.short_name}/fine_tune`} element={<FineTune task={taskConfig} />} />
-                            )}
+                            ))}
                             {Object.entries(config).map(([taskKey, taskConfig], index) =>
                                 taskConfig.models.map((model, index) => (
                                     <Route key={index} path={`/model/${model.name}`} element={<Model model={model} />} />
@@ -98,7 +103,15 @@ const Everything = () => {
                     </Cell>
                 </Grid>
                 {/* {loggedIn ? <Support></Support> : <></>} */}
-                <Support></Support>
+                <Support
+                    widthCallback={(hide: boolean) => {
+                        if (hide) {
+                            setFullWidth(styles.content)
+                        } else {
+                            setFullWidth(styles.fullWidth)
+                        }
+                    }}
+                ></Support>
                 <SearchModal></SearchModal>
             </div>
         </div>

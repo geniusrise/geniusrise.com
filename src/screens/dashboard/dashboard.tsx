@@ -10,10 +10,9 @@ import { deleteService, listServices, getServiceMetrics } from "../../data/servi
 import { SupportContentContext } from "../../support/support"
 import { listJobs } from "../../data/job"
 
-interface Props { }
+interface Props {}
 
 function Dashboard(props: Props) {
-
     const [services, setServices] = useState([])
     const [update, setUpdate] = useState(1)
     // const [metrics, setMetrics] = useState([])
@@ -23,7 +22,8 @@ function Dashboard(props: Props) {
     useEffect(() => {
         setSupportContent({
             heading: "Dashboard",
-            content: "This dashboard provides an overview of all active pods. You can view essential details about each pod, including its name, task name, size, type, IP address, number of replicas, and launch time. Manage your pods effectively by deleting any that are no longer needed.",
+            content:
+                "This dashboard provides an overview of all active pods. You can view essential details about each pod, including its name, task name, size, type, IP address, number of replicas, and launch time. Manage your pods effectively by deleting any that are no longer needed.",
             examples: null,
             useCases: null,
         })
@@ -31,7 +31,7 @@ function Dashboard(props: Props) {
 
     useEffect(() => {
         if (services.length === 0) {
-            listServices().then((x) => {
+            listServices().then(x => {
                 const svcs = x.data.filter(x => !x.is_deleted).sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
                 setServices(svcs)
 
@@ -47,80 +47,99 @@ function Dashboard(props: Props) {
         }
     }, [update])
 
-    return <div className={styles.container}>
-        <Card className={styles.card}>
-            <div className={styles.cardHeader}>
-                <h4>Pods</h4>
-            </div>
-            <Card.Content className={styles.cardContent}>
-                <Grid columns={1}>
-                    <Cell className={styles.servicesHeader}>
-                        <Grid columns={15}>
-                            <Cell width={3} center middle>Task Name</Cell>
-                            <Cell center middle>Task Type</Cell>
-                            <Cell width={2} center middle>Cloud</Cell>
-                            <Cell center middle>Pod Size</Cell>
-                            <Cell width={2} center middle>Pod Type</Cell>
-                            <Cell width={2} center middle>IP Address</Cell>
-                            <Cell center middle>Replicas</Cell>
-                            <Cell width={2} center middle>Launched At</Cell>
-                            <Cell center middle>Delete</Cell>
-                        </Grid>
-                    </Cell>
-                    {services.map(s => {
-                        const uniqueName = s.name.split("--")[1]
-                        const taskName = (s.name.split("--")[2] || "").replaceAll("-", " ")
-                        var taskType = (s.name.split("--")[0] || "").replaceAll("genius", "")
-                        taskType = taskType ? taskType.toUpperCase() : "API"
+    return (
+        <div className={styles.container}>
+            <Card className={styles.card}>
+                <div className={styles.cardHeader}>
+                    <h4>Pods</h4>
+                </div>
+                <Card.Content className={styles.cardContent}>
+                    <Grid columns={1}>
+                        <Cell className={styles.servicesHeader}>
+                            <Grid columns={15}>
+                                <Cell width={3} center middle>
+                                    Task Name
+                                </Cell>
+                                <Cell center middle>
+                                    Task Type
+                                </Cell>
+                                <Cell width={2} center middle>
+                                    Cloud
+                                </Cell>
+                                <Cell center middle>
+                                    Pod Size
+                                </Cell>
+                                <Cell width={2} center middle>
+                                    Pod Type
+                                </Cell>
+                                <Cell width={2} center middle>
+                                    IP Address
+                                </Cell>
+                                <Cell center middle>
+                                    Replicas
+                                </Cell>
+                                <Cell width={2} center middle>
+                                    Launched At
+                                </Cell>
+                                <Cell center middle>
+                                    Delete
+                                </Cell>
+                            </Grid>
+                        </Cell>
+                        {services.map(s => {
+                            const uniqueName = s.name.split("--")[1]
+                            const taskName = (s.name.split("--")[2] || "").replaceAll("-", " ")
+                            var taskType = (s.name.split("--")[0] || "").replaceAll("genius", "")
+                            taskType = taskType ? taskType.toUpperCase() : "API"
 
-                        return (
-                            <Cell className={styles.servicesList}>
-                                <Grid columns={15}>
-                                    <Cell width={3} middle>
-                                        {taskName}
-                                    </Cell>
-                                    <Cell center middle>
-                                        {taskType}
-                                    </Cell>
-                                    <Cell width={2} center middle>
-                                        {s.cloud ? s.cloud.replaceAll("-", " ") : "azure-central-india".replaceAll("-", " ")}
-                                    </Cell>
-                                    <Cell center middle>
-                                        {s.pod_size}
-                                    </Cell>
-                                    <Cell width={2} center middle>
-                                        {s.class_name}
-                                    </Cell>
-                                    <Cell width={2} center middle>
-                                        {s.cluster_ip}
-                                    </Cell>
-                                    <Cell center middle>
-                                        {s.replicas || "1"}
-                                    </Cell>
-                                    <Cell width={2} center middle>
-                                        {moment(s.created_at).fromNow()}
-                                    </Cell>
-                                    <Cell center middle>
-                                        <Button
-                                            disabled={taskType !== "API" && taskType !== "NB"}
-                                            onClick={() => {
-                                                deleteService({ identifier: s.uuid, cloud: s.cloud }).then(x => {
-                                                    setServices([])
-                                                    setUpdate(update + 1)
-                                                })
-                                            }}
-                                        >
-                                            Delete
-                                        </Button>
-                                    </Cell>
-                                </Grid>
-                            </Cell>
-                        )
-                    })}
-                </Grid>
-            </Card.Content>
-        </Card>
-        {/* <Grid columns={2}>
+                            return (
+                                <Cell className={styles.servicesList}>
+                                    <Grid columns={15}>
+                                        <Cell width={3} middle>
+                                            {taskName}
+                                        </Cell>
+                                        <Cell center middle>
+                                            {taskType}
+                                        </Cell>
+                                        <Cell width={2} center middle>
+                                            {s.cloud ? s.cloud.replaceAll("-", " ") : "azure-central-india".replaceAll("-", " ")}
+                                        </Cell>
+                                        <Cell center middle>
+                                            {s.pod_size.toUpperCase()}
+                                        </Cell>
+                                        <Cell width={2} center middle>
+                                            {s.class_name}
+                                        </Cell>
+                                        <Cell width={2} center middle>
+                                            {s.cluster_ip}
+                                        </Cell>
+                                        <Cell center middle>
+                                            {s.replicas || "1"}
+                                        </Cell>
+                                        <Cell width={2} center middle>
+                                            {moment(s.created_at).fromNow()}
+                                        </Cell>
+                                        <Cell center middle>
+                                            <Button
+                                                disabled={taskType !== "API" && taskType !== "NB"}
+                                                onClick={() => {
+                                                    deleteService({ identifier: s.uuid, cloud: s.cloud }).then(x => {
+                                                        setServices([])
+                                                        setUpdate(update + 1)
+                                                    })
+                                                }}
+                                            >
+                                                Delete
+                                            </Button>
+                                        </Cell>
+                                    </Grid>
+                                </Cell>
+                            )
+                        })}
+                    </Grid>
+                </Card.Content>
+            </Card>
+            {/* <Grid columns={2}>
             <Card className={styles.card}>
                 <div className={styles.cardHeader}>
                     <h4>CPU</h4>
@@ -132,7 +151,8 @@ function Dashboard(props: Props) {
                 </div>
             </Card>
         </Grid> */}
-    </div >
+        </div>
+    )
 }
 
 export { Dashboard }

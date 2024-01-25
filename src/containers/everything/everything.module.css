@@ -55,6 +55,9 @@ body {
   .content {
     margin-right: 50px;
   }
+  .fullWidth > div {
+    width: calc(100% - 30rem);
+  }
 }
 @media (min-width: 481px) and (max-width: 1100px) {
   .something {

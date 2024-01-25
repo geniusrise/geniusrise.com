@@ -23,12 +23,12 @@ const defaultSupportContent: SupportContent = {
     examples: [],
     examplesTitle: "",
     useCases: [],
-    usecasesTitle: ""
+    usecasesTitle: "",
 }
 
 const defaultContextValue: SupportContentContextType = {
     supportContent: defaultSupportContent,
-    setSupportContent: () => { },
+    setSupportContent: () => {},
 }
 
 const SupportContentContext = createContext<SupportContentContextType>(defaultContextValue)
@@ -43,31 +43,50 @@ const SupportContentProvider: React.FC<SupportContentProviderProps> = ({ childre
     return <SupportContentContext.Provider value={{ supportContent, setSupportContent }}>{children}</SupportContentContext.Provider>
 }
 
-const Support = () => {
+// @ts-ignore
+const Support = ({ widthCallback }) => {
     const { supportContent } = useContext(SupportContentContext)
 
+    const [hide, setHide] = useState(true)
+
     return (
-        <div className={styles.container}>
-            <div className={styles.supportContent}>
-                <Content className={styles.content}>
-                    <h1>{supportContent.heading}</h1>
-                    <p>{supportContent.content}</p>
-                    {supportContent.examples ? <h2>{supportContent.examplesTitle ? supportContent.examplesTitle : "Examples"}</h2> : <></>}
-                    <ul>
-                        {supportContent.examples?.map((example, index) => (
-                            <li key={index}>{example}</li>
-                        ))}
-                    </ul>
-                    {supportContent.useCases ? <h2>{supportContent.usecasesTitle ? supportContent.usecasesTitle : "Use Cases"}</h2> : <></>}
-                    <ul>
-                        {supportContent.useCases?.map((useCase, index) => (
-                            <li key={index}>{useCase}</li>
-                        ))}
-                    </ul>
-                </Content>
-                <Button className={styles.docs}><Link to="https://docs.geniusrise.ai" target="_blank" rel="noopener noreferrer">Documentation</Link></Button>
+        <>
+            <div
+                className={styles.hide}
+                onClick={() => {
+                    setHide(!hide)
+                    console.log(typeof widthCallback)
+                    if (widthCallback) widthCallback(hide)
+                }}
+            >
+                Show / Hide Support
             </div>
-        </div>
+            <div className={styles.container} hidden={hide}>
+                <div className={styles.supportContent}>
+                    <Content className={styles.content}>
+                        <h1>{supportContent.heading}</h1>
+                        <p>{supportContent.content}</p>
+                        {supportContent.examples ? <h2>{supportContent.examplesTitle ? supportContent.examplesTitle : "Examples"}</h2> : <></>}
+                        <ul>
+                            {supportContent.examples?.map((example, index) => (
+                                <li key={index}>{example}</li>
+                            ))}
+                        </ul>
+                        {supportContent.useCases ? <h2>{supportContent.usecasesTitle ? supportContent.usecasesTitle : "Use Cases"}</h2> : <></>}
+                        <ul>
+                            {supportContent.useCases?.map((useCase, index) => (
+                                <li key={index}>{useCase}</li>
+                            ))}
+                        </ul>
+                    </Content>
+                    <Button className={styles.docs}>
+                        <Link to="https://docs.geniusrise.ai" target="_blank" rel="noopener noreferrer">
+                            Documentation
+                        </Link>
+                    </Button>
+                </div>
+            </div>
+        </>
     )
 }
 

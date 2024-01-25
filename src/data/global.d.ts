@@ -3,6 +3,7 @@ declare global {
     var backendUser: object
     var accessToken: string
     var config: object
+    var wide: boolean
 }
 
 export {}
