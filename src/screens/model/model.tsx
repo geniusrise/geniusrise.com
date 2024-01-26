@@ -46,6 +46,38 @@ function Model({ model }: Props) {
             .catch(error => console.error("Error fetching markdown content:", error))
     }, [model.model_name])
 
+    var modelRunString = Object.entries(model.apiDeploy)
+        // @ts-ignore
+        .map(([k, v]) => {
+            return (
+                "--" +
+                v.name +
+                "=" +
+                v.default +
+                ` \\
+        `
+            )
+        })
+        // @ts-ignore
+        .reduce((mem, x) => mem + x, "")
+    modelRunString = modelRunString.trim().slice(0, -1)
+
+    var modelBulkRunString = Object.entries(model.bulkDeploy)
+        // @ts-ignore
+        .map(([k, v]) => {
+            return (
+                "--" +
+                v.name +
+                "=" +
+                v.default +
+                ` \\
+        `
+            )
+        })
+        // @ts-ignore
+        .reduce((mem, x) => mem + x, "")
+    modelBulkRunString = modelRunString.trim().slice(0, -1)
+
     return (
         <div className={styles.container}>
             <div className={styles.modelTitle}>
@@ -57,6 +89,70 @@ function Model({ model }: Props) {
                 <Grid columns={10}>
                     <Cell width={7}>
                         <Markdown className={styles.markdown} children={markdownContent} />
+                        <Markdown className={styles.markdown}>{`## Using genius CLI
+
+### Install geniusrise
+
+\`\`\`bash
+# Maybe in a virtualenv
+pip install geniusrise
+pip install geniusrise-text
+pip install geniusrise-audio
+pip install geniusrise-vision
+\`\`\`
+
+### Launch API server
+
+\`\`\`bash
+genius ${model.apiClass} rise \\
+    batch \\
+        --input_s3_bucket my-bucket \\
+        --input_s3_folder $(date +%Y-%m-%d)/input \\
+    batch \\
+        --output_s3_bucket my-bucket \\
+        --output_s3_folder $(date +%Y-%m-%d)/output \\
+    postgres \\
+        --postgres_host 127.0.0.1 \\
+        --postgres_port 5432 \\
+        --postgres_user postgres \\
+        --postgres_password postgres \\
+        --postgres_database geniusrise\\
+        --postgres_table state \\
+    listen \\
+    ${modelRunString}
+\`\`\`
+
+### Or execute bulk inference
+
+First copy your files to S3:
+
+\`\`\`bash
+aws s3 cp --recursive my_files/ s3://my-bucket/$(date +%Y-%m-%d)/input/
+\`\`\`
+
+Then run the job:
+
+\`\`\`bash
+genius ${model.apiClass.replace("API", "Bulk")} rise \\
+    batch \\
+        --input_s3_bucket my-bucket \\
+        --input_s3_folder $(date +%Y-%m-%d)/input \\
+    batch \\
+        --output_s3_bucket my-bucket \\
+        --output_s3_folder $(date +%Y-%m-%d)/output \\
+    postgres \\
+        --postgres_host 127.0.0.1 \\
+        --postgres_port 5432 \\
+        --postgres_user postgres \\
+        --postgres_password postgres \\
+        --postgres_database geniusrise\\
+        --postgres_table state \\
+    listen \\
+    ${modelBulkRunString}
+\`\`\`
+
+For more on how to run locally, refer to [docs.geniusrise.ai](https://docs.geniusrise.ai).
+                        `}</Markdown>
                     </Cell>
                     <Cell width={3}>
                         <Grid columns={1} rows={3} className={styles.actions}>

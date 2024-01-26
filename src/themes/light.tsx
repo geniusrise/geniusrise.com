@@ -20,6 +20,9 @@ const light = {
     "dark-candle-up": "#a2c680",
     "dark-candle-down": "#ba8baf",
     "dark-separator": "#d8d8d8",
+    "dark-background-histogram": "#9988dda0",
+    "dark-background-histogram2": "#60ff9050",
+    "dark-background-histogram3": "#ff800050",
 }
 
 export default light
