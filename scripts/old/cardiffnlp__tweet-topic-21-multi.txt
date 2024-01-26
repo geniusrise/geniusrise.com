@@ -1,0 +1,30 @@
+# Model name
+
+tweet-topic-21-multi
+
+## Links
+
+- [Hugging Face Model Card](https://huggingface.co/cardiffnlp/tweet-topic-21-multi)
+
+## Description
+
+The tweet-topic-21-multi model is a text classification model that can classify tweets into multiple topics. It is based on the RobertaForSequenceClassification architecture and uses the transformers library in Python. The model has been fine-tuned on the tweet_topic_multi dataset. It has a total of 1076144 downloads and is currently liked by 51 users.
+
+## Usage example
+
+```
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/tweet-topic-21-multi")
+model = AutoModelForSequenceClassification.from_pretrained("cardiffnlp/tweet-topic-21-multi")
+
+text = "It is great to see athletes promoting awareness for climate change."
+inputs = tokenizer(text, return_tensors="pt")
+outputs = model(**inputs)
+
+predictions = outputs.logits.argmax(axis=1)
+classes = [tokenizer.decode(i.item()) for i in predictions]
+print(classes)
+```
+
+For more details and alternative model names, please refer to the [Hugging Face Model Card](https://huggingface.co/cardiffnlp/tweet-topic-21-multi).

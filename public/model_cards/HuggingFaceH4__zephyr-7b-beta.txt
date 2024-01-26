@@ -1,0 +1,36 @@
+# Model name
+
+zephyr-7b-beta
+
+## Links
+
+[Original Huggingface page](https://huggingface.co/HuggingFaceH4/zephyr-7b-beta)
+
+## Description
+
+- This model is based on the Mistral-7B-v0.1 base model.
+- It is suitable for text generation tasks.
+- It uses the transformers library with Python.
+- The model has been fine-tuned and optimized for efficiency.
+- It has a total of 220,989 downloads.
+
+## Usage example
+
+```
+from transformers import pipeline
+
+model = "HuggingFaceH4/zephyr-7b-beta"
+text_generator = pipeline("text-generation", model=model)
+
+prompt = "There's a llama on my lawn, how can I get rid of him?"
+output = text_generator(prompt)
+
+for response in output:
+    print(response['generated_text'])
+```
+
+## Model details
+
+- **Datasets:** The model has been trained on the following datasets: HuggingFaceH4/ultrachat_200k and HuggingFaceH4/ultrafeedback_binarized.
+- **Number of parameters:** The exact number of parameters is not specified.
+- **GPTQ and AWQ:** There is no mention of GPTQ or AWQ in the model description.

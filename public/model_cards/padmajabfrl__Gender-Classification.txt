@@ -1,0 +1,24 @@
+# Model name
+
+Gender-Classification
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/padmajabfrl/Gender-Classification)
+
+## Description
+
+The Gender-Classification model is a text classification model trained using the DistilBERT architecture from the transformers library. It is designed to predict the gender of a given text input. The model has been trained on a specific dataset and has a total of 952,603 downloads. It has been evaluated using the accuracy metric.
+
+## Usage example
+
+```
+from transformers import pipeline
+
+classifier = pipeline("text-classification", model="padmajabfrl/Gender-Classification")
+
+result = classifier("I like you. I love you")
+print(result)
+```
+
+This model is compatible with the transformers library and can be used for gender classification tasks. For more details, please refer to the [Hugging Face Model Page](https://huggingface.co/padmajabfrl/Gender-Classification).

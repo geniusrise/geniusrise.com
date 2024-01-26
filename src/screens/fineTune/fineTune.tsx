@@ -49,7 +49,6 @@ const generateS3BucketUrl = () => {
     return `year=${year}/month=${month}/day=${day}/${randomUUID}/`
 }
 
-
 const FineTune: React.FC<FineTuneProps> = ({ task }) => {
     const [files, setFiles] = useState<File[]>([])
     const [s3BucketUrl, setS3BucketUrl] = useState<string>(generateS3BucketUrl())
@@ -102,15 +101,11 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
                 { label: "Google Cloud - northamerica-east1 (Coming Soon)", value: "gcp-us-east1" },
             ],
         },
-    ]);
+    ])
 
     const handleChange = (name: string, value: any) => {
-        setConfig(prevState =>
-            prevState.map(configItem =>
-                configItem.name === name ? { ...configItem, default: value } : configItem
-            )
-        );
-    };
+        setConfig(prevState => prevState.map(configItem => (configItem.name === name ? { ...configItem, default: value } : configItem)))
+    }
 
     const [progress, setProgress] = useState(0)
     const [progressBarVisible, setProgressBarVisible] = useState(false)
@@ -127,7 +122,7 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
     const [modelSettings, setModelSettings] = useState(s)
 
     AWS.config.update({
-        region: 'ap-south-1',
+        region: "ap-south-1",
         accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
         secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
         // credentials: new AWS.CognitoIdentityCredentials({
@@ -136,12 +131,11 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
     })
 
     const s3 = new AWS.S3({
-        apiVersion: '2006-03-01',
-        params: { Bucket: 'geniusrise-prod-input' },
+        apiVersion: "2006-03-01",
+        params: { Bucket: "geniusrise-prod-input" },
     })
 
     const uploadFilesToS3 = async () => {
-
         if (files.length == 0 && customData !== "") {
             setProgressBarVisible(true)
             handleLaunch()
@@ -156,13 +150,14 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
         try {
             const uploadPromises = files.map(file => {
                 const uploadParams = {
-                    Bucket: 'geniusrise-prod-input',
+                    Bucket: "geniusrise-prod-input",
                     Key: `${s3BucketUrl}${file.name}`,
                     Body: file,
                 }
 
-                return s3.upload(uploadParams)
-                    .on('httpUploadProgress', (evt) => {
+                return s3
+                    .upload(uploadParams)
+                    .on("httpUploadProgress", evt => {
                         // Update progress
                         totalUploaded += evt.loaded
                         const progressPercentage = (totalUploaded / files.reduce((acc, file) => acc + file.size, 0)) * 100
@@ -172,10 +167,10 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
             })
 
             await Promise.all(uploadPromises)
-            console.log('Files uploaded successfully.')
+            console.log("Files uploaded successfully.")
             handleLaunch()
         } catch (error) {
-            console.error('Error uploading files: ', error)
+            console.error("Error uploading files: ", error)
         } finally {
         }
     }
@@ -186,18 +181,20 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
 
         const deploymentConfig = config.reduce((acc, item) => {
             // @ts-ignore
-            acc[item.name] = item.default;
-            return acc;
-        }, {});
+            acc[item.name] = item.default
+            return acc
+        }, {})
         console.log(deploymentConfig)
         console.log(modelSettings)
         console.log(customModel, customData)
 
         createJob({
             task: {
-                name: ("geniusft--" + generateName() + "--" + task.long_name.toLowerCase().replaceAll(" ", "-")).replaceAll(".", "-").substring(0, 60),
+                name: ("geniusft--" + generateName() + "--" + task.long_name.toLowerCase().replaceAll(" ", "-"))
+                    .replaceAll(".", "-")
+                    .substring(0, 60),
                 deployment_config: {
-                    ...deploymentConfig
+                    ...deploymentConfig,
                 },
                 method: "fine_tune",
                 method_args: {
@@ -206,9 +203,9 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
                     tokenizer_name: customModel,
                     notification_email: customNotification,
                     use_huggingface_dataset: customData !== "",
-                    huggingface_dataset: customData !== "" ? customData : null
-                }
-            }
+                    huggingface_dataset: customData !== "" ? customData : null,
+                },
+            },
         })
 
         // Progress bar logic
@@ -228,10 +225,6 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
     return (
         <>
             <div className={styles.container} hidden={settingsVisible}>
-                <div
-                    className={styles.headerImage}
-                    style={{ backgroundImage: `url(../../vector-autumn-foliage-banner/${getRandomImage()})`, backgroundSize: "cover" }}
-                ></div>
                 <Grid columns={5}>
                     <Cell width={4}>
                         <Content className={styles.contentHeading}>
@@ -246,62 +239,63 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
                     </Cell>
                 </Grid>
                 <Grid columns={2} className={styles.form}>
-                    {config.map(({ name, description, default: defaultValue, options }) => (name === "name" || name.includes("port")) ? <></> : (
-                        <Cell key={name} className={styles.formElement} center>
-                            <label>
-                                {toTitleCase(name)}
-                                <div>{description}</div>
-                                {options ?
-                                    <select
-                                        className={styles.selectInput}
-                                        value={defaultValue}
-                                        onChange={e => handleChange(name, e.target.value)}
-                                    >
-                                        {
-                                            // @ts-ignore
-                                            options.map((option: any) => (
-                                                <option key={option.value} value={option.value}>
-                                                    {option.label}
-                                                </option>
-                                            ))}
-                                    </select>
-                                    :
-                                    <input
-                                        type="text"
-                                        className={styles.textInput}
-                                        value={defaultValue}
-                                        onChange={e => handleChange(name, e.target.value)}
-                                    />
-                                }
-                            </label>
-                        </Cell>
-                    ))}
+                    {config.map(({ name, description, default: defaultValue, options }) =>
+                        name === "name" || name.includes("port") ? (
+                            <></>
+                        ) : (
+                            <Cell key={name} className={styles.formElement} center>
+                                <label>
+                                    {toTitleCase(name)}
+                                    <div>{description}</div>
+                                    {options ? (
+                                        <select
+                                            className={styles.selectInput}
+                                            value={defaultValue}
+                                            onChange={e => handleChange(name, e.target.value)}
+                                        >
+                                            {
+                                                // @ts-ignore
+                                                options.map((option: any) => (
+                                                    <option key={option.value} value={option.value}>
+                                                        {option.label}
+                                                    </option>
+                                                ))
+                                            }
+                                        </select>
+                                    ) : (
+                                        <input
+                                            type="text"
+                                            className={styles.textInput}
+                                            value={defaultValue}
+                                            onChange={e => handleChange(name, e.target.value)}
+                                        />
+                                    )}
+                                </label>
+                            </Cell>
+                        )
+                    )}
                     <Cell key="customModel" className={styles.formElement} center>
                         <label>
                             Model Name
-                            <div>Input the name of the desired model. This name corresponds to the huggingface format: <SyntaxHighlighter style={shadesOfPurple}>repository_name/model_name:optional_model_tag</SyntaxHighlighter></div>
-                            {(
-                                <input
-                                    type={"text"}
-                                    className={styles.textInput}
-                                    value={customModel}
-                                    onChange={e => setCustomModel(e.target.value)}
-                                />
-                            )}
+                            <div>
+                                Input the name of the desired model. This name corresponds to the huggingface format:{" "}
+                                <SyntaxHighlighter style={shadesOfPurple}>repository_name/model_name:optional_model_tag</SyntaxHighlighter>
+                            </div>
+                            {<input type={"text"} className={styles.textInput} value={customModel} onChange={e => setCustomModel(e.target.value)} />}
                         </label>
                     </Cell>
                     <Cell key="customNotification" className={styles.formElement} center>
                         <label>
                             Notification Email
                             <div>Input the email id to be notified once the fine-tuning is done:</div>
-                            {(
+                            {
                                 <input
                                     type={"text"}
                                     className={styles.textInput}
                                     value={customNotification}
                                     onChange={e => setCustomNotification(e.target.value)}
                                 />
-                            )}
+                            }
                         </label>
                     </Cell>
                 </Grid>
@@ -314,15 +308,11 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
                     <Cell key="customModel" className={styles.formElement} center>
                         <label>
                             Huggingface dataset handle
-                            <div>Input the name of the desired dataset. This name corresponds to the huggingface format: <SyntaxHighlighter style={shadesOfPurple}>repository_name/dataset_name</SyntaxHighlighter></div>
-                            {(
-                                <input
-                                    type={"text"}
-                                    className={styles.textInput}
-                                    value={customData}
-                                    onChange={e => setCustomData(e.target.value)}
-                                />
-                            )}
+                            <div>
+                                Input the name of the desired dataset. This name corresponds to the huggingface format:{" "}
+                                <SyntaxHighlighter style={shadesOfPurple}>repository_name/dataset_name</SyntaxHighlighter>
+                            </div>
+                            {<input type={"text"} className={styles.textInput} value={customData} onChange={e => setCustomData(e.target.value)} />}
                         </label>
                     </Cell>
                     <Cell>
@@ -331,13 +321,17 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
                         </Content>
                         <div {...getRootProps()} className={styles.filesDrop}>
                             <input {...getInputProps()} />
-                            {isDragActive ? <p>Drop the files here ...</p> : <button>{(files.length === 0) ? "Click to select files or folders or drag them here" : files.map(f => <p>{f.name}</p>)}</button>}
+                            {isDragActive ? (
+                                <p>Drop the files here ...</p>
+                            ) : (
+                                <button>
+                                    {files.length === 0 ? "Click to select files or folders or drag them here" : files.map(f => <p>{f.name}</p>)}
+                                </button>
+                            )}
                         </div>
                     </Cell>
                     <Cell>
-                        <Markdown className={styles.markdown}>
-                            ### OR upload data to S3
-                        </Markdown>
+                        <Markdown className={styles.markdown}>### OR upload data to S3</Markdown>
                         <Grid columns={20} className={styles.s3Location}>
                             <Cell width={19} center middle>
                                 <p>s3://geniusrise-prod-input/{s3BucketUrl}</p>
@@ -364,7 +358,9 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
                         </Button>
                     </Cell>
                     <Cell>
-                        <Button onClick={() => uploadFilesToS3()} disabled={progressBarVisible}>Submit Job</Button>
+                        <Button onClick={() => uploadFilesToS3()} disabled={progressBarVisible}>
+                            Submit Job
+                        </Button>
                     </Cell>
                     <Cell width={2}>
                         {progressBarVisible && (
@@ -380,7 +376,7 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
                         </Content>
                     </Cell>
                 </Grid>
-            </div >
+            </div>
             <Settings
                 // @ts-ignore
                 config={Object.entries(fineTuningConfig.fineTuneDeploy).reduce((mem, [key, value]) => {
@@ -393,7 +389,7 @@ const FineTune: React.FC<FineTuneProps> = ({ task }) => {
                 callback={x => {
                     setModelSettings({
                         ...modelSettings,
-                        ...x
+                        ...x,
                     })
                     setSettingsVisibile(!settingsVisible)
                 }}

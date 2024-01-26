@@ -209,7 +209,7 @@
   text-shadow: none;
 }
 .markdown p {
-  color: #ffffff;
+  color: var(--dark-text-color);
   /* Warm Light Salmon for Text */
   margin: 0.2em 0;
 }
@@ -219,7 +219,7 @@
   padding-left: 1em;
 }
 .markdown li {
-  color: #ffffff;
+  color: var(--dark-text-color);
   /* Warm Tomato for List Items */
 }
 .markdown blockquote {
@@ -230,7 +230,7 @@
   /* Warm Dark Orange for Blockquote Text */
 }
 .markdown code {
-  background-color: #2f4f4f;
+  background-color: #382f4f;
   /* Dark Slate Gray for Inline Code */
   padding: 0.2em 0.4em;
   border-radius: 3px;
@@ -238,7 +238,7 @@
   /* Warm Light Salmon for Inline Code Text */
 }
 .markdown pre {
-  background-color: #2f4f4f;
+  background-color: #382f4f;
   /* Dark Slate Gray for Code Blocks */
   padding: 1em;
   border-radius: 4px;

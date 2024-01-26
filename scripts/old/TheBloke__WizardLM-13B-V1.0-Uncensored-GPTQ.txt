@@ -1,0 +1,31 @@
+# Model name
+TheBloke/WizardLM-13B-V1.0-Uncensored-GPTQ
+
+## Links
+* [Hugging Face Model Page](https://huggingface.co/TheBloke/WizardLM-13B-V1.0-Uncensored-GPTQ)
+
+## Description
+The WizardLM-13B-V1.0-Uncensored-GPTQ model is a chatbot model trained on the conversation dataset. It is based on the LlamaForCausalLM architecture and is compatible with the transformers library in Python. The model provides helpful, detailed, and polite answers to user questions in a chat-like format. It has a total of 13 billion parameters and uses 4-bit quantization (GPTQ).
+
+## Usage example
+Here is an example of how to use the model with the transformers library in Python:
+
+```python
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+# Load the model and tokenizer
+model_name = "TheBloke/WizardLM-13B-V1.0-Uncensored-GPTQ"
+model = GPT2LMHeadModel.from_pretrained(model_name)
+tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+
+# Generate text
+user_input = "My name is John and I have a question."
+input_ids = tokenizer.encode(user_input, return_tensors="pt")
+output = model.generate(input_ids, max_length=100)
+
+# Print the generated text
+generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+print(generated_text)
+```
+
+For more details and advanced usage, refer to the [original Hugging Face model page](https://huggingface.co/TheBloke/WizardLM-13B-V1.0-Uncensored-GPTQ).

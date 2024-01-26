@@ -1,0 +1,35 @@
+# Model name
+
+CodeLlama-34b-hf
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/codellama/CodeLlama-34b-hf)
+
+## Description
+
+CodeLlama-34b-hf is a text generation model trained on a large dataset for code-related tasks. It belongs to the llama family of models and utilizes the Transformers library in Python. The model has been fine-tuned for text generation tasks, particularly for code-related scenarios.
+
+The model has a total of 33,743,970,304 parameters and has been trained on various datasets. It is focused on text generation tasks and supports different programming languages. The model incorporates the GPTQ framework and AWQ techniques to enhance its performance in generating code-related content.
+
+For more information and usage examples, please visit the [original Hugging Face page](https://huggingface.co/codellama/CodeLlama-34b-hf).
+
+## Usage example
+
+You can use the CodeLlama-34b-hf model in Python with the Transformers library. Here's an example code snippet:
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+tokenizer = AutoTokenizer.from_pretrained("codellama/CodeLlama-34b-hf")
+model = AutoModelForCausalLM.from_pretrained("codellama/CodeLlama-34b-hf")
+
+prompt = "Write a function to calculate the factorial of a number."
+inputs = tokenizer.encode(prompt, return_tensors="pt")
+outputs = model.generate(inputs, max_length=100)
+
+generated_code = tokenizer.decode(outputs[0])
+print(generated_code)
+```
+
+Make sure you have the transformers library installed to use this model. You can install it using `pip install transformers`.

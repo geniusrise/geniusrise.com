@@ -1,0 +1,28 @@
+# Model Name
+pszemraj/long-t5-tglobal-base-16384-book-summary
+
+## Links
+- Hugging Face page: [pszemraj/long-t5-tglobal-base-16384-book-summary](https://huggingface.co/pszemraj/long-t5-tglobal-base-16384-book-summary)
+
+## Description
+The pszemraj/long-t5-tglobal-base-16384-book-summary model is a T5-based model that is trained on the kmfoda/booksum dataset. It is designed for book summarization tasks and is capable of handling long documents with a maximum sequence length of 16384. The model uses block sparse attention instead of normal attention, allowing it to handle long sequences at a much lower computational cost compared to traditional transformer-based models like BERT. BigBird RoBERTa-like model achieves state-of-the-art performance on various tasks involving long sequences, such as long document summarization and question-answering with long contexts.
+
+The model has approximately [number of parameters] parameters.
+
+## Usage example
+```python
+from transformers import T5Tokenizer, T5ForConditionalGeneration
+
+tokenizer = T5Tokenizer.from_pretrained('pszemraj/long-t5-tglobal-base-16384-book-summary')
+model = T5ForConditionalGeneration.from_pretrained('pszemraj/long-t5-tglobal-base-16384-book-summary')
+
+text = "The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side."
+
+inputs = tokenizer.encode(text, return_tensors='pt')
+outputs = model.generate(inputs)
+decoded_outputs = tokenizer.decode(outputs[0])
+
+print(decoded_outputs)
+```
+
+For more details and advanced usage, refer to the [Hugging Face page](https://huggingface.co/pszemraj/long-t5-tglobal-base-16384-book-summary).

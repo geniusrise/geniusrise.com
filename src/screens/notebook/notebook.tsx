@@ -11,7 +11,7 @@ import { shadesOfPurple } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
 import { Settings, buildInitialState } from "../settings/settings"
 import { withAuthenticator } from "@aws-amplify/ui-react"
-import AWS from 'aws-sdk'
+import AWS from "aws-sdk"
 import { SupportContentContext } from "../../support/support"
 import banners from "../../data/banners.json"
 import { generateName } from "../../utils"
@@ -50,7 +50,7 @@ function toTitleCase(input: string): string {
 }
 
 const Notebook: React.FC<NotebookProps> = ({ model }) => {
-    const [backgroundImage, setBackgroundImage] = useState('')
+    const [backgroundImage, setBackgroundImage] = useState("")
 
     const [customModel, setCustomModel] = useState(model.model_name)
     const isModelCustom = model.model_name === null
@@ -103,17 +103,13 @@ const Notebook: React.FC<NotebookProps> = ({ model }) => {
                 { label: "Google Cloud - northamerica-east1 (Coming Soon)", value: "gcp-us-east1" },
             ],
         },
-    ]);
+    ])
 
     const [modelSettings, setModelSettings] = useState(buildInitialState(model.apiDeploy))
 
     const handleChange = (name: string, value: any) => {
-        setConfig(prevState =>
-            prevState.map(configItem =>
-                configItem.name === name ? { ...configItem, default: value } : configItem
-            )
-        );
-    };
+        setConfig(prevState => prevState.map(configItem => (configItem.name === name ? { ...configItem, default: value } : configItem)))
+    }
 
     // Initialize S3 bucket URL on component mount
     React.useEffect(() => {
@@ -125,14 +121,15 @@ const Notebook: React.FC<NotebookProps> = ({ model }) => {
     useEffect(() => {
         setSupportContent({
             heading: "Launch a Jupyter Notebook",
-            content: "This page allows you to launch a Jupyter Notebook inside a pod. Choose from a variety of pod sizes to balance performance and resource allocation efficiently. Once launched, the notebook can be accessed via the dashboard. You have the flexibility to adjust notebook settings and environment packages through the 'Configure Settings' option. Default settings are optimized for general use. Follow the instructions below for accessing and using your notebook.",
+            content:
+                "This page allows you to launch a Jupyter Notebook inside a pod. Choose from a variety of pod sizes to balance performance and resource allocation efficiently. Once launched, the notebook can be accessed via the dashboard. You have the flexibility to adjust notebook settings and environment packages through the 'Configure Settings' option. Default settings are optimized for general use. Follow the instructions below for accessing and using your notebook.",
             examplesTitle: "Notebook Access Instructions",
             examples: [
                 "Access the notebook through the dashboard link provided after deployment. Dont forget to ",
                 "The notebook will have pre-installed libraries. Additional libraries can be installed as needed.",
                 "Persistent storage options are available to save your work. After the notebook exits, your remaining files will be emailed to you to download.",
                 "Direct integration with data sources is supported for seamless data import.",
-                "Interactive visualizations and data analysis tools are readily available."
+                "Interactive visualizations and data analysis tools are readily available.",
             ],
             usecasesTitle: "Pod Sizes:",
             useCases: [
@@ -155,9 +152,9 @@ const Notebook: React.FC<NotebookProps> = ({ model }) => {
             const timer = setTimeout(() => {
                 const deploymentConfig = config.reduce((acc, item) => {
                     // @ts-ignore
-                    acc[item.name] = item.default;
-                    return acc;
-                }, {});
+                    acc[item.name] = item.default
+                    return acc
+                }, {})
 
                 // @ts-ignore
                 readService(launched.uuid, deploymentConfig.cloud).then(x => {
@@ -181,9 +178,9 @@ const Notebook: React.FC<NotebookProps> = ({ model }) => {
 
         const deploymentConfig = config.reduce((acc, item) => {
             // @ts-ignore
-            acc[item.name] = item.default;
-            return acc;
-        }, {});
+            acc[item.name] = item.default
+            return acc
+        }, {})
 
         createService({
             task: {
@@ -200,9 +197,9 @@ const Notebook: React.FC<NotebookProps> = ({ model }) => {
                     ...modelSettings,
                     model_name: customModel,
                     password: password,
-                    notification_email: customNotification
-                }
-            }
+                    notification_email: customNotification,
+                },
+            },
         }).then(x => {
             x ? setLaunched(x.data) : console.log("")
         })
@@ -223,10 +220,6 @@ const Notebook: React.FC<NotebookProps> = ({ model }) => {
     return (
         <>
             <div className={styles.container}>
-                <div
-                    className={styles.headerImage}
-                    style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}
-                ></div>
                 <Grid columns={2}>
                     <Cell>
                         <Content className={styles.contentHeading}>
@@ -235,84 +228,89 @@ const Notebook: React.FC<NotebookProps> = ({ model }) => {
                     </Cell>
                 </Grid>
                 <Grid columns={2} className={styles.form}>
-                    {isModelCustom ?
+                    {isModelCustom ? (
                         <Cell key="customModel" className={styles.formElement} center>
                             <label>
                                 Custom Model Name
-                                <div>Input the name of the desired model. This name corresponds to the huggingface format: <SyntaxHighlighter style={shadesOfPurple}>repository_name/model_name:optional_model_tag</SyntaxHighlighter></div>
-                                {(
+                                <div>
+                                    Input the name of the desired model. This name corresponds to the huggingface format:{" "}
+                                    <SyntaxHighlighter style={shadesOfPurple}>repository_name/model_name:optional_model_tag</SyntaxHighlighter>
+                                </div>
+                                {
                                     <input
                                         type={"text"}
                                         className={styles.textInput}
                                         value={customModel}
                                         onChange={e => setCustomModel(e.target.value)}
                                     />
-                                )}
-                            </label>
-                        </Cell>
-                        : <></>}
-                    {config.map(({ name, description, default: defaultValue, options }) => (name === "name" || name.includes("s3")) ? <></> : (
-                        <Cell key={name} className={styles.formElement} center>
-                            <label>
-                                {toTitleCase(name)}
-                                <div>{description}</div>
-                                {options ?
-                                    <select
-                                        className={styles.selectInput}
-                                        value={defaultValue}
-                                        onChange={e => handleChange(name, e.target.value)}
-                                    >
-                                        {
-                                            // @ts-ignore
-                                            options.map((option: any) => (
-                                                <option key={option.value} value={option.value}>
-                                                    {option.label}
-                                                </option>
-                                            ))}
-                                    </select>
-                                    :
-                                    <input
-                                        type="text"
-                                        className={styles.textInput}
-                                        value={defaultValue}
-                                        onChange={e => handleChange(name, e.target.value)}
-                                    />
                                 }
                             </label>
                         </Cell>
-                    ))}
+                    ) : (
+                        <></>
+                    )}
+                    {config.map(({ name, description, default: defaultValue, options }) =>
+                        name === "name" || name.includes("s3") ? (
+                            <></>
+                        ) : (
+                            <Cell key={name} className={styles.formElement} center>
+                                <label>
+                                    {toTitleCase(name)}
+                                    <div>{description}</div>
+                                    {options ? (
+                                        <select
+                                            className={styles.selectInput}
+                                            value={defaultValue}
+                                            onChange={e => handleChange(name, e.target.value)}
+                                        >
+                                            {
+                                                // @ts-ignore
+                                                options.map((option: any) => (
+                                                    <option key={option.value} value={option.value}>
+                                                        {option.label}
+                                                    </option>
+                                                ))
+                                            }
+                                        </select>
+                                    ) : (
+                                        <input
+                                            type="text"
+                                            className={styles.textInput}
+                                            value={defaultValue}
+                                            onChange={e => handleChange(name, e.target.value)}
+                                        />
+                                    )}
+                                </label>
+                            </Cell>
+                        )
+                    )}
                     <Cell key="customNotification" className={styles.formElement} center>
                         <label>
                             Notification Email
                             <div>Input the email id to be notified once the notebook is closed:</div>
-                            {(
+                            {
                                 <input
                                     type={"text"}
                                     className={styles.textInput}
                                     value={customNotification}
                                     onChange={e => setCustomNotification(e.target.value)}
                                 />
-                            )}
+                            }
                         </label>
                     </Cell>
                     <Cell key="password" className={styles.formElement} center>
                         <label>
                             Password
                             <div>Input the password used to access the notebook:</div>
-                            {(
-                                <input
-                                    type={"text"}
-                                    className={styles.textInput}
-                                    value={password}
-                                    onChange={e => setPassword(e.target.value)}
-                                />
-                            )}
+                            {<input type={"text"} className={styles.textInput} value={password} onChange={e => setPassword(e.target.value)} />}
                         </label>
                     </Cell>
                 </Grid>
                 <Grid columns={2} className={styles.action}>
                     <Cell width={2}>
-                        <Button onClick={() => handleLaunch()} disabled={progressBarVisible}>Launch</Button>
+                        <Button onClick={() => handleLaunch()} disabled={progressBarVisible}>
+                            Launch
+                        </Button>
                     </Cell>
                     <Cell width={2}>
                         {progressBarVisible && (

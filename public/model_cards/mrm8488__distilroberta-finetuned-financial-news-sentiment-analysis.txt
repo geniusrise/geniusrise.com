@@ -1,0 +1,25 @@
+# Model name
+distilroberta-finetuned-financial-news-sentiment-analysis
+
+## Links
+Original Hugging Face page: [distilroberta-finetuned-financial-news-sentiment-analysis](https://huggingface.co/mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis)
+
+## Description
+The distilroberta-finetuned-financial-news-sentiment-analysis model is a fine-tuned version of the DistilRoBERTa model for sentiment analysis on financial news. It is trained on the financial_phrasebank dataset and is compatible with AutoTrain and inference endpoints. The model achieves an accuracy of 98.2% on the financial_phrasebank dataset.
+
+The model is based on the RoBERTa model and is implemented using the transformers library in Python.
+
+## Usage example
+Here is an example of how to use the model with the transformers library in Python:
+```python
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+tokenizer = AutoTokenizer.from_pretrained("mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis")
+model = AutoModelForSequenceClassification.from_pretrained("mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis")
+
+text = "Operating profit totaled EUR 9.4 mn, down from EUR 11.7 mn in 2004."
+encoded_input = tokenizer(text, return_tensors="pt")
+output = model(**encoded_input)
+```
+
+Please refer to the [original Hugging Face page](https://huggingface.co/mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis) for more details and documentation.

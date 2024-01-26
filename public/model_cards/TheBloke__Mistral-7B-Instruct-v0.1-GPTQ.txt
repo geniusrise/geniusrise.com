@@ -1,0 +1,32 @@
+# Model name
+
+Mistral-7B-Instruct-v0.1-GPTQ
+
+## Links
+
+- Original Hugging Face page: [Mistral-7B-Instruct-v0.1-GPTQ](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GPTQ)
+
+## Description
+
+Mistral-7B-Instruct-v0.1-GPTQ is a text generation model that utilizes the Mistral architecture. It is fine-tuned for text generation tasks and is available through the Hugging Face model repository. The model is licensed under Apache License 2.0 and was created by Mistral AI. It has a pipeline tag of text-generation and can be used with the transformers library in Python.
+
+The model is based on the base model mistralai/Mistral-7B-Instruct-v0.1 and has a total of 880,476,160 parameters. It supports 4-bit quantization using the GPTQ (Generalized Permuted Quantization) method.
+
+## Usage example
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "TheBloke/Mistral-7B-Instruct-v0.1-GPTQ"
+model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+input_text = "Once upon a time,"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids)
+
+decoded_output = tokenizer.decode(output[0])
+print(decoded_output)
+```
+
+Make sure to install the `transformers` library before running this example.

@@ -1,0 +1,28 @@
+# Model name
+google/pegasus-x-large
+
+## Links
+- [Hugging Face Model page](https://huggingface.co/google/pegasus-x-large)
+
+## Description
+The `google/pegasus-x-large` model is a large variant of the Pegasus model, trained by Google. It is part of the Transformers library and is designed for text-to-text generation tasks. This model has 1.5 billion parameters and supports inference. It is compatible with AutoModelForSeq2SeqLM and AutoTokenizer from the Transformers library. The model is trained on the PEGASUS dataset and can be used for various NLP tasks such as summarization, headline generation, and more.
+
+## Usage example
+You can use the `transformers` library in Python to load and use the `google/pegasus-x-large` model. Here is an example:
+
+```python
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+
+tokenizer = AutoTokenizer.from_pretrained("google/pegasus-x-large")
+model = AutoModelForSeq2SeqLM.from_pretrained("google/pegasus-x-large")
+
+# Generate summary
+input_text = "This is an example sentence."
+inputs = tokenizer(input_text, padding="longest", return_tensors="pt")
+outputs = model.generate(inputs["input_ids"], num_beams=4, max_length=100, early_stopping=True)
+summary = tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+print(summary)
+```
+
+For more details and examples, please refer to the [Hugging Face Model page](https://huggingface.co/google/pegasus-x-large).

@@ -1,0 +1,33 @@
+# Model name
+
+Llama-2-13B-chat-GPTQ
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/TheBloke/Llama-2-13B-chat-GPTQ)
+
+## Description
+
+Llama-2-13B-chat-GPTQ is a language model trained by TheBloke. It is based on the Llama 2 13B Chat model. The model is trained using the Transformers library with Python. It has been trained on various datasets and has a total of 2,029,493,760 parameters. The model is designed for text generation tasks and is suitable for generating helpful and respectful responses. It follows certain guidelines to ensure that the responses are safe, unbiased, and positive in nature. The model is quantized with 4-bit precision and can be used with the Safetensors framework.
+
+## Usage example
+
+Here is an example of how to use the Llama-2-13B-chat-GPTQ model with the Transformers library in Python:
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "TheBloke/Llama-2-13B-chat-GPTQ"
+model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+# Generate a response
+input_text = "Can you help me with my homework?"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output_ids = model.generate(input_ids, max_length=100)
+output_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+
+print(output_text)
+```
+
+This will generate a response from the Llama-2-13B-chat-GPTQ model based on the input text "Can you help me with my homework?".

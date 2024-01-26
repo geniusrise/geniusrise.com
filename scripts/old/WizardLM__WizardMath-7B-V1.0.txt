@@ -1,0 +1,35 @@
+# Model name
+
+WizardMath-7B-V1.0
+
+## Links
+
+[Link to Hugging Face page](https://huggingface.co/WizardLM/WizardMath-7B-V1.0)
+
+## Description
+
+The WizardMath-7B-V1.0 model is a large-scale language model developed by the WizardLM team. It is trained on a diverse range of math-related documents and can perform various math-related tasks such as solving equations, answering math questions, and generating math explanations. This model is based on the LLAMA (Language Learning for Math) architecture and is fine-tuned using the AutoTrain framework. It is built on the Transformers library and is available for use with Python.
+
+The model has approximately 7 billion parameters and has been trained on a dataset consisting of math-related documents. It is capable of generating high-quality math-related text and can be used for a wide range of math-related tasks.
+
+## Usage example
+
+Here is an example of how to use the WizardMath-7B-V1.0 model with the Transformers library in Python:
+
+```
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
+
+tokenizer = GPT2Tokenizer.from_pretrained("WizardLM/WizardMath-7B-V1.0")
+model = GPT2LMHeadModel.from_pretrained("WizardLM/WizardMath-7B-V1.0")
+
+input_text = "What is the square root of 16?"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
+output = model.generate(input_ids, max_length=50)
+
+decoded_output = tokenizer.decode(output[0])
+
+print(decoded_output)
+```
+
+This example demonstrates how to use the WizardMath-7B-V1.0 model to generate a response to a math-related question. The model takes an input question and generates a response that provides the square root of 16.

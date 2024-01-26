@@ -1,0 +1,33 @@
+# Model name
+
+d4data/biomedical-ner-all
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/d4data/biomedical-ner-all)
+
+## Description
+
+The d4data/biomedical-ner-all model is a token classification model trained on biomedical text data. It uses the DistilBERT architecture and is part of the Transformers library. The model is designed to perform named entity recognition (NER) tasks specifically in the biomedical domain. It is trained to identify and classify entities such as diseases, symptoms, and medical terms in text.
+
+The model has a total of 66,427,476 parameters and supports the English language. It is available under the Apache-2.0 license.
+
+## Usage example
+
+Here is an example of how to use the model with the Transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForTokenClassification
+
+tokenizer = AutoTokenizer.from_pretrained("d4data/biomedical-ner-all")
+model = AutoModelForTokenClassification.from_pretrained("d4data/biomedical-ner-all")
+
+text = "A 28-year-old previously healthy man presented with a 6-week history of palpitations."
+
+inputs = tokenizer(text, return_tensors="pt")
+outputs = model(**inputs)
+
+# Perform further analysis and post-processing on the outputs
+```
+
+For more details and advanced usage, refer to the [Hugging Face Model Page](https://huggingface.co/d4data/biomedical-ner-all).

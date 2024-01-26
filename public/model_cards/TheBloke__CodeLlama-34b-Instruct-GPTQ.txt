@@ -1,0 +1,34 @@
+# Model name
+
+The model name is CodeLlama-34B-Instruct-GPTQ.
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/TheBloke/CodeLlama-34B-Instruct-GPTQ): The model's page on the Hugging Face website.
+
+## Description
+
+CodeLlama-34B-Instruct-GPTQ is a text generation model trained on the CodeLlama dataset. It has been fine-tuned using GPTQ, an extension of GPT that introduces quantization-aware training to reduce the memory footprint and computational requirements of the model. The model is implemented using the transformers library in Python and has a total of 4,186,217,344 parameters.
+
+## Usage example
+
+Here is an example of how to use the CodeLlama-34B-Instruct-GPTQ model with the transformers library in Python:
+
+```python
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+model_name = "TheBloke/CodeLlama-34B-Instruct-GPTQ"
+tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+model = GPT2LMHeadModel.from_pretrained(model_name)
+
+prompt = "Write code to solve the following coding problem that obeys the constraints and passes the example test cases. Please wrap your code answer using ```:\n"
+input_text = prompt + "\n"
+
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids, max_length=100)
+
+generated_code = tokenizer.decode(output[0], skip_special_tokens=True)
+print(generated_code)
+```
+
+For more details on using the model, please refer to the [Hugging Face Model Page](https://huggingface.co/TheBloke/CodeLlama-34B-Instruct-GPTQ).

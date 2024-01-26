@@ -1,0 +1,36 @@
+# Model name
+
+dslim/bert-large-NER
+
+## Links
+
+Hugging Face Model Hub: [dslim/bert-large-NER](https://huggingface.co/dslim/bert-large-NER)
+
+## Description
+
+The dslim/bert-large-NER model is a large-scale BERT (Bidirectional Encoder Representations from Transformers) model fine-tuned for Named Entity Recognition (NER) tasks. It is trained to classify tokens in text into predefined categories such as person, organization, location, etc. This model can be used for various natural language processing tasks involving NER.
+
+The model is trained on the CoNLL 2003 dataset and has achieved strong performance metrics including accuracy, precision, recall, and F1 score. It is powered by the transformers library and is available for use in both PyTorch and TensorFlow.
+
+The model has a total of 333,588,489 parameters and can be used for token classification tasks in English.
+
+## Usage example
+
+Here is an example of using the dslim/bert-large-NER model with the transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForTokenClassification
+
+tokenizer = AutoTokenizer.from_pretrained("dslim/bert-large-NER")
+model = AutoModelForTokenClassification.from_pretrained("dslim/bert-large-NER")
+
+text = "John lives in New York."
+inputs = tokenizer(text, return_tensors="pt")
+outputs = model(**inputs)
+
+# Get the predicted labels for each token
+predicted_labels = tokenizer.batch_decode(outputs.logits.argmax(dim=2), skip_special_tokens=True)
+print(predicted_labels)
+```
+
+This code tokenizes the input text, feeds it through the dslim/bert-large-NER model, and obtains the predicted labels for each token in the input text.

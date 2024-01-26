@@ -1,0 +1,32 @@
+# Model name
+
+cross-encoder/nli-deberta-v3-large
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/cross-encoder/nli-deberta-v3-large)
+
+## Description
+
+The cross-encoder/nli-deberta-v3-large model is a large-sized pretrained model based on the DeBERTa architecture. It is trained for the task of natural language inference (NLI) and is specifically optimized for zero-shot classification using the zero-shot-classification pipeline tag. The model is compatible with the transformers library in Python and can be used for various NLI tasks.
+
+The model has been trained on multiple datasets, including multi_nli and snli. It has approximately 335 million parameters and is licensed under Apache-2.0.
+
+## Usage example
+
+Here is an example of how to use the model with the transformers library in Python:
+
+```python
+from transformers import pipeline
+
+classifier = pipeline("zero-shot-classification", model="cross-encoder/nli-deberta-v3-large")
+
+sequence = "Some text you want to classify"
+candidate_labels = ["label1", "label2", "label3"]
+
+result = classifier(sequence, candidate_labels)
+
+print(result)
+```
+
+Please refer to the [Hugging Face Model Page](https://huggingface.co/cross-encoder/nli-deberta-v3-large) for more information and examples.

@@ -1,0 +1,32 @@
+# Model name
+
+cross-encoder/nli-deberta-v3-base
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/cross-encoder/nli-deberta-v3-base)
+
+## Description
+
+The cross-encoder/nli-deberta-v3-base model is a transformer-based model that is pre-trained on the `multi_nli` and `snli` datasets. It is based on the DeBERTa-v2 architecture and is specifically designed for zero-shot classification tasks. The model can be used for tasks such as sentence classification and text classification. 
+
+The model has a total of 355 million parameters and supports the use of GPTQ or AWQ (Answer-Wrapped Questions) for zero-shot classification. It achieves an accuracy metric on its pre-training datasets.
+
+For usage examples, the Transformers library with Python can be used.
+
+## Usage example
+
+```python
+from transformers import pipeline
+
+classifier = pipeline("zero-shot-classification", model="cross-encoder/nli-deberta-v3-base")
+
+sequence = "This is an example sentence."
+candidate_labels = ["label1", "label2", "label3"]
+
+result = classifier(sequence, candidate_labels)
+
+print(result)
+```
+
+This example demonstrates how to use the model for zero-shot classification. The model predicts the most relevant label from the given candidate labels for a given input sequence.

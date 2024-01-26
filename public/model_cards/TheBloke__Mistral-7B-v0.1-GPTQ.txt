@@ -1,0 +1,34 @@
+# Model Name
+
+TheBloke/Mistral-7B-v0.1-GPTQ
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/TheBloke/Mistral-7B-v0.1-GPTQ)
+
+## Description
+
+The Mistral-7B-v0.1-GPTQ model is a pretrained GPT-like model trained by Mistral AI. It is based on the MistralForCausalLM architecture and is primarily designed for text generation tasks. The model has been quantized using the GPTQ technique by TheBloke.
+
+The model has been trained on a large amount of data and consists of approximately X number of parameters. It is a powerful tool for various natural language processing tasks, including text generation.
+
+## Usage example
+
+You can use the Mistral-7B-v0.1-GPTQ model with the transformers library in Python. Here is an example of how to use the model:
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+tokenizer = AutoTokenizer.from_pretrained("TheBloke/Mistral-7B-v0.1-GPTQ")
+model = AutoModelForCausalLM.from_pretrained("TheBloke/Mistral-7B-v0.1-GPTQ")
+
+input_text = "Once upon a time,"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
+output = model.generate(input_ids, max_length=100)
+
+decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
+print(decoded_output)
+```
+
+This code snippet uses the Mistral-7B-v0.1-GPTQ model to generate text based on the input prompt "Once upon a time,". The generated text is then decoded and printed to the console.

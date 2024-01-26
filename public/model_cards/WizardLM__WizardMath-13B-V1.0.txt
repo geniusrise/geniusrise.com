@@ -1,0 +1,38 @@
+# Model name
+WizardMath-13B-V1.0
+
+## Links
+- [Hugging Face Model Page](https://huggingface.co/WizardLM/WizardMath-13B-V1.0)
+- [Original Hugging Face Page](https://huggingface.co/WizardLM/WizardMath-13B-V1.0)
+
+## Description
+The WizardMath-13B-V1.0 model is a large language model trained by the WizardLM team. It is based on the Llama architecture and is designed for text generation tasks. The model has been trained on a significant amount of data and has 13 billion parameters.
+
+Key features and information about the model include:
+- The model is capable of generating text based on the input prompts.
+- It is built using the transformers library and implemented in Python.
+- The model is compatible with the AutoModelForCausalLM and AutoTokenizer classes from the transformers library.
+- The model supports text generation and inference tasks.
+- The model is associated with various tags, such as transformers, pytorch, llama, text-generation, and more.
+
+## Usage example
+Here is an example of how to use the WizardMath-13B-V1.0 model with the transformers library in Python:
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model = AutoModelForCausalLM.from_pretrained("WizardLM/WizardMath-13B-V1.0")
+tokenizer = AutoTokenizer.from_pretrained("WizardLM/WizardMath-13B-V1.0")
+
+input_text = "What is the square root of 16?"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids, max_length=50, num_return_sequences=5)
+
+for generated_sequence in output:
+    sequence = tokenizer.decode(generated_sequence, skip_special_tokens=True)
+    print(sequence)
+```
+
+This example demonstrates how to use the model to generate multiple sequences based on an input prompt asking for the square root of 16. The generated sequences will be printed as output.
+
+Please refer to the [Hugging Face Model Page](https://huggingface.co/WizardLM/WizardMath-13B-V1.0) for more information and examples on using the model.

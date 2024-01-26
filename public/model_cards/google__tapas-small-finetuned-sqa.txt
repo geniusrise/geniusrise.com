@@ -1,0 +1,26 @@
+# Model name
+
+google/tapas-small-finetuned-sqa
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/google/tapas-small-finetuned-sqa)
+
+## Description
+
+The google/tapas-small-finetuned-sqa model is a finetuned version of the TAPAS (Table Parsing via Pre-training) model for table question answering. It is built on the Transformers library and can be used to answer questions about tabular data. The model has been trained with the msr_sqa dataset and has a total of 36 million parameters. The model architecture is based on the TapasForQuestionAnswering model type. The model is compatible with Python and can be used with the Transformers library. The model is licensed under the Apache-2.0 license.
+
+## Usage example 
+
+```python
+from transformers import AutoTokenizer, AutoModelForTableQuestionAnswering
+
+tokenizer = AutoTokenizer.from_pretrained("google/tapas-small-finetuned-sqa")
+model = AutoModelForTableQuestionAnswering.from_pretrained("google/tapas-small-finetuned-sqa")
+
+inputs = tokenizer(table=table, queries=queries, padding="max_length", truncation=True, return_tensors="pt")
+outputs = model(**inputs)
+
+```
+
+Note: Please refer to the [Hugging Face Model Page](https://huggingface.co/google/tapas-small-finetuned-sqa) for more details and examples.

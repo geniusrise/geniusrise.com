@@ -48,7 +48,8 @@ const API: React.FC<APIProps> = ({ model }) => {
         },
         {
             name: "replicas",
-            description: "The number of pod replicas to deploy for load balancing and redundancy. Increasing replicas can enhance availability and parallel processing.",
+            description:
+                "The number of pod replicas to deploy for load balancing and redundancy. Increasing replicas can enhance availability and parallel processing.",
             default: 1,
         },
         {
@@ -63,7 +64,8 @@ const API: React.FC<APIProps> = ({ model }) => {
         },
         {
             name: "target_port",
-            description: "The port on the pod that receives traffic. This should match the port your application is listening on within the container.",
+            description:
+                "The port on the pod that receives traffic. This should match the port your application is listening on within the container.",
             default: 3000,
         },
         {
@@ -96,7 +98,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                 { label: "Google Cloud - northamerica-east1 (Coming Soon)", value: "gcp-us-east1" },
             ],
         },
-    ]);
+    ])
     const [modelSettings, setModelSettings] = useState(buildInitialState(model.apiDeploy))
     const [customModel, setCustomModel] = useState(model.model_name)
     const isModelCustom = model.model_name === null
@@ -104,7 +106,7 @@ const API: React.FC<APIProps> = ({ model }) => {
     const [launched, setLaunched] = useState<any>({})
     const [launching, setLaunching] = useState(false)
 
-    const [backgroundImage, setBackgroundImage] = useState('')
+    const [backgroundImage, setBackgroundImage] = useState("")
     const [progress, setProgress] = useState(0)
     const [progressBarVisible, setProgressBarVisible] = useState(false)
 
@@ -120,7 +122,8 @@ const API: React.FC<APIProps> = ({ model }) => {
     useEffect(() => {
         setSupportContent({
             heading: "Deploy as an API",
-            content: "This page allows you to deploy this machine learning model as APIs. You can configure the deployment settings like replicas, ports, and pod size to suit your needs. Select from a range of pod sizes to optimize performance and resource utilization. Once deployed, you can view and test your API using the generated cURL command. The progress bar provides real-time feedback on the deployment status. Additionally, you can access and modify advanced settings like model parameters and authentication credentials through the 'Configure Settings' option. The most optimum values are already pre-filled out.",
+            content:
+                "This page allows you to deploy this machine learning model as APIs. You can configure the deployment settings like replicas, ports, and pod size to suit your needs. Select from a range of pod sizes to optimize performance and resource utilization. Once deployed, you can view and test your API using the generated cURL command. The progress bar provides real-time feedback on the deployment status. Additionally, you can access and modify advanced settings like model parameters and authentication credentials through the 'Configure Settings' option. The most optimum values are already pre-filled out.",
             examplesTitle: "Sizes:",
             examples: [
                 "s: 0.25 VCPU, 1 GB RAM, 0.5GB GPU",
@@ -142,12 +145,8 @@ const API: React.FC<APIProps> = ({ model }) => {
     }, [])
 
     const handleChange = (name: string, value: any) => {
-        setConfig(prevState =>
-            prevState.map(configItem =>
-                configItem.name === name ? { ...configItem, default: value } : configItem
-            )
-        );
-    };
+        setConfig(prevState => prevState.map(configItem => (configItem.name === name ? { ...configItem, default: value } : configItem)))
+    }
 
     useEffect(() => {
         if (launched && launched.uuid) {
@@ -155,9 +154,9 @@ const API: React.FC<APIProps> = ({ model }) => {
             const delay = 30000
             const timer = setTimeout(() => {
                 const deploymentConfig = config.reduce((acc, item) => {
-                    acc[item.name] = item.default;
-                    return acc;
-                }, {});
+                    acc[item.name] = item.default
+                    return acc
+                }, {})
 
                 readService(launched.uuid, deploymentConfig.cloud).then(x => {
                     const payload = JSON.stringify(model.api, null, 4)
@@ -183,22 +182,22 @@ const API: React.FC<APIProps> = ({ model }) => {
         setProgressBarVisible(true)
 
         const deploymentConfig = config.reduce((acc, item) => {
-            acc[item.name] = item.default;
-            return acc;
-        }, {});
+            acc[item.name] = item.default
+            return acc
+        }, {})
 
         createService({
             task: {
                 name: ("genius--" + generateName() + "--" + model.name.toLowerCase().replaceAll(" ", "-")).replaceAll(".", "-").substring(0, 60),
                 deployment_config: {
-                    ...deploymentConfig
+                    ...deploymentConfig,
                 },
                 method: "listen",
                 method_args: {
                     ...modelSettings,
-                    model_name: customModel
-                }
-            }
+                    model_name: customModel,
+                },
+            },
         }).then(x => {
             setLaunched(x.data)
         })
@@ -218,16 +217,11 @@ const API: React.FC<APIProps> = ({ model }) => {
     return (
         <>
             <div className={styles.container} hidden={settingsVisible}>
-                <div
-                    className={styles.headerImage}
-                    style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}
-                ></div>
                 <Grid columns={1}>
                     <Cell>
                         <Content className={styles.contentHeading}>
                             <h2>API inference - {model.name}</h2>
                             Deploy an API instance or a cluster of instances.
-
                             <h2>API Invocation</h2>
                             This is how the API can be invoked after deployment:
                             <div className={styles.curl}>
@@ -236,7 +230,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                                         language="bash"
                                         style={shadesOfPurple}
                                         showLineNumbers={true}
-                                        lineNumberStyle={{ minWidth: '3em', paddingRight: '10px', opacity: 0.5 }}
+                                        lineNumberStyle={{ minWidth: "3em", paddingRight: "10px", opacity: 0.5 }}
                                     >
                                         {curlCommand}
                                     </SyntaxHighlighter>
@@ -246,52 +240,62 @@ const API: React.FC<APIProps> = ({ model }) => {
                     </Cell>
                 </Grid>
                 <Grid columns={2} className={styles.form}>
-                    {isModelCustom ?
+                    {isModelCustom ? (
                         <Cell key="customModel" className={styles.formElement} center>
                             <label>
                                 Custom Model Name
-                                <div>Input the name of the desired model. This name corresponds to the huggingface format: <SyntaxHighlighter style={shadesOfPurple}>repository_name/model_name:optional_model_tag</SyntaxHighlighter></div>
-                                {(
+                                <div>
+                                    Input the name of the desired model. This name corresponds to the huggingface format:{" "}
+                                    <SyntaxHighlighter style={shadesOfPurple}>repository_name/model_name:optional_model_tag</SyntaxHighlighter>
+                                </div>
+                                {
                                     <input
                                         type={"text"}
                                         className={styles.textInput}
                                         value={customModel}
                                         onChange={e => setCustomModel(e.target.value)}
                                     />
-                                )}
-                            </label>
-                        </Cell>
-                        : <></>}
-                    {config.map(({ name, description, default: defaultValue, options }) => (name === "name" || name.includes("port")) ? <></> : (
-                        <Cell key={name} className={styles.formElement} center>
-                            <label>
-                                {toTitleCase(name)}
-                                <div>{description}</div>
-                                {options ?
-                                    <select
-                                        className={styles.selectInput}
-                                        value={defaultValue}
-                                        onChange={e => handleChange(name, e.target.value)}
-                                    >
-                                        {
-                                            // @ts-ignore
-                                            options.map((option: any) => (
-                                                <option key={option.value} value={option.value}>
-                                                    {option.label}
-                                                </option>
-                                            ))}
-                                    </select>
-                                    :
-                                    <input
-                                        type="text"
-                                        className={styles.textInput}
-                                        value={defaultValue}
-                                        onChange={e => handleChange(name, e.target.value)}
-                                    />
                                 }
                             </label>
                         </Cell>
-                    ))}
+                    ) : (
+                        <></>
+                    )}
+                    {config.map(({ name, description, default: defaultValue, options }) =>
+                        name === "name" || name.includes("port") ? (
+                            <></>
+                        ) : (
+                            <Cell key={name} className={styles.formElement} center>
+                                <label>
+                                    {toTitleCase(name)}
+                                    <div>{description}</div>
+                                    {options ? (
+                                        <select
+                                            className={styles.selectInput}
+                                            value={defaultValue}
+                                            onChange={e => handleChange(name, e.target.value)}
+                                        >
+                                            {
+                                                // @ts-ignore
+                                                options.map((option: any) => (
+                                                    <option key={option.value} value={option.value}>
+                                                        {option.label}
+                                                    </option>
+                                                ))
+                                            }
+                                        </select>
+                                    ) : (
+                                        <input
+                                            type="text"
+                                            className={styles.textInput}
+                                            value={defaultValue}
+                                            onChange={e => handleChange(name, e.target.value)}
+                                        />
+                                    )}
+                                </label>
+                            </Cell>
+                        )
+                    )}
                 </Grid>
                 <Grid columns={2} className={styles.action}>
                     <Cell>
@@ -323,7 +327,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                                     language="bash"
                                     style={shadesOfPurple}
                                     showLineNumbers={true}
-                                    lineNumberStyle={{ minWidth: '3em', paddingRight: '10px', opacity: 0.5 }}
+                                    lineNumberStyle={{ minWidth: "3em", paddingRight: "10px", opacity: 0.5 }}
                                 >
                                     {curlCommand}
                                 </SyntaxHighlighter>
@@ -343,7 +347,7 @@ const API: React.FC<APIProps> = ({ model }) => {
                 callback={x => {
                     setModelSettings({
                         ...modelSettings,
-                        ...x
+                        ...x,
                     })
                     setSettingsVisibile(!settingsVisible)
                 }}

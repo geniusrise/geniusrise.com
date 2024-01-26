@@ -1,0 +1,31 @@
+# Model name
+
+flan-t5-base
+
+## Links
+
+- [Original Hugging Face Page](https://huggingface.co/google/flan-t5-base)
+
+## Description
+
+flan-t5-base is a T5-based model developed by Google. T5, or Text-To-Text Transfer Transformer, is a versatile language model that can be fine-tuned for various natural language processing tasks, including text generation, translation, question answering, and logical reasoning. flan-t5-base supports multiple languages (English, French, Romanian, German, and multilingual) and is trained on a combination of datasets such as QRECC, Taskmaster2, Wiki_dialog, Code_contests, Lambada, GSM8k, Aqua_rat, and others. It has a total of 247,577,856 parameters. The model is compatible with the transformers library in Python.
+
+## Usage example
+
+```python
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+
+model_name = "google/flan-t5-base"
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+sequence = "Translate to German: My name is Arthur"
+input_ids = tokenizer.encode(sequence, return_tensors="pt")
+output = model.generate(input_ids)
+translated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+
+print(translated_text)
+# Output: Mein Name ist Arthur
+```
+
+Please note that the above code is a simplified example. Make sure to install the transformers library and adjust the code according to your specific use case.

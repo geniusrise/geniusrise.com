@@ -1,0 +1,30 @@
+# Model Name
+
+The model is called "WizardMath-13B-V1.0-GPTQ".
+
+## Links
+
+[Click here to view the model on Hugging Face](https://huggingface.co/TheBloke/WizardMath-13B-V1.0-GPTQ)
+
+## Description
+
+The "WizardMath-13B-V1.0-GPTQ" model is a text generation model based on the GPTQ architecture. It is part of the WizardLM project and is designed to empower mathematical reasoning in large language models. The model has a total of 13 billion parameters and is trained on a wide range of tasks related to mathematics. It uses the transformers library in Python for implementation.
+
+## Usage example
+
+```python
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+model_name = "TheBloke/WizardMath-13B-V1.0-GPTQ"
+tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+model = GPT2LMHeadModel.from_pretrained(model_name)
+
+prompt = "Solve the following equation: x^2 + 5x - 6 = 0"
+input_ids = tokenizer.encode(prompt, return_tensors="pt")
+
+output = model.generate(input_ids, max_length=100, num_return_sequences=1)
+generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+print(generated_text)
+```
+
+Please note that the example code above assumes that you have already installed the transformers library in your Python environment.

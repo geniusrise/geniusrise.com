@@ -1,0 +1,27 @@
+# Model name
+
+epfl-llm/meditron-70b
+
+## Links
+
+- [Hugging Face Model Hub](https://huggingface.co/epfl-llm/meditron-70b)
+
+## Description
+
+The `epfl-llm/meditron-70b` model is a medical language model trained by the EPFL LLM Team. It is designed for text generation tasks and belongs to the `text-generation` pipeline. The model is based on the `LLAMA-2-70b` base model and is compatible with the Transformers library. It has been trained using various datasets, including `bigbio/med_qa`, `medmcqa`, `bigbio/pubmed_qa`, and `epfl-llm/guidelines`. The model has a total of 68,976,926,720 parameters and is available in English (`en`). It also supports inference.
+
+More information about the model can be found on the [Hugging Face Model Hub](https://huggingface.co/epfl-llm/meditron-70b) page.
+
+## Usage example
+
+To use the `epfl-llm/meditron-70b` model for text generation tasks, you can use the Transformers library in Python. Here is an example code snippet:
+
+```python
+from transformers import pipeline
+
+generator = pipeline("text-generation", model="epfl-llm/meditron-70b")
+result = generator("Generate text with the medical language model.")
+print(result[0]["generated_text"])
+```
+
+This will generate text using the `epfl-llm/meditron-70b` model.

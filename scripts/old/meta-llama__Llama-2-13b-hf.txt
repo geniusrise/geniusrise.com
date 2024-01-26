@@ -1,0 +1,28 @@
+# Model name
+
+Llama-2-13b-hf
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/meta-llama/Llama-2-13b-hf)
+
+## Description
+
+Llama-2-13b-hf is a text generation model available on Hugging Face. It is based on the Llama architecture and is trained using the PyTorch library. The model is designed for text generation tasks and is particularly suitable for tasks such as chatbot development.
+
+The Llama-2-13b-hf model has 13 billion parameters and supports the text generation pipeline. It is part of the Llama model series and is a fine-tuned version of the Llama model. The model is licensed under Hugging Face's model sharing and usage policies.
+
+## Usage example
+
+```python
+from transformers import pipeline
+
+text_generator = pipeline("text-generation", model="meta-llama/Llama-2-13b-hf")
+
+prompt = "Once upon a time,"
+text = text_generator(prompt, max_length=100)[0]["generated_text"]
+
+print(text)
+```
+
+This example demonstrates how to use Llama-2-13b-hf for text generation. The model is loaded using the transformers library, and a prompt is provided to generate a text continuation. The generated text is then printed to the console.

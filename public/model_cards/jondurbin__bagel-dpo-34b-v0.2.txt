@@ -1,0 +1,29 @@
+# Model name
+
+jondurbin/bagel-dpo-34b-v0.2
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/jondurbin/bagel-dpo-34b-v0.2)
+
+## Description
+
+The jondurbin/bagel-dpo-34b-v0.2 model is a large language model trained on a variety of datasets, including ai2_arc, unalignment/spicy-3.1, codeparrot/apps, and more. It is based on the Llama architecture and is suitable for text generation tasks. The model has been fine-tuned and optimized for safety and secure inference with the Safetensors library. It has a total of 34 billion parameters.
+
+## Usage example
+
+```python
+from transformers import GPTJForCausalLM, GPTJJITModel
+
+# Load the model
+model = GPTJForCausalLM.from_pretrained("jondurbin/bagel-dpo-34b-v0.2")
+
+# Generate text
+input_text = "Once upon a time,"
+outputs = model.generate(input_text, max_length=50)
+
+for output in outputs:
+    print(output)
+```
+
+Please refer to the [Hugging Face Model Page](https://huggingface.co/jondurbin/bagel-dpo-34b-v0.2) for more details and information on using this model.

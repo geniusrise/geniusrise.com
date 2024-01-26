@@ -1,0 +1,36 @@
+# Model name
+
+WizardCoder-Python-34B-V1.0
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/WizardLM/WizardCoder-Python-34B-V1.0)
+
+## Description
+
+The WizardCoder-Python-34B-V1.0 is a model designed for text generation, specifically for generating Python code. It is part of the WizardLM collection and is based on the LLAMA architecture. The model has been trained on a large amount of Python code data and is capable of generating high-quality Python code snippets.
+
+The model utilizes the transformers library and can be used with Python. It has a total of 34 billion parameters and supports the GPTQ format.
+
+The model has been evaluated on the HumanEval dataset, achieving a pass@1 metric of 0.732.
+
+For more information, please refer to the [original Hugging Face model page](https://huggingface.co/WizardLM/WizardCoder-Python-34B-V1.0).
+
+## Usage example
+
+```python
+from transformers import GPT2LMTokenizer, GPT2LMHeadModel
+
+tokenizer = GPT2LMTokenizer.from_pretrained("WizardLM/WizardCoder-Python-34B-V1.0")
+model = GPT2LMHeadModel.from_pretrained("WizardLM/WizardCoder-Python-34B-V1.0")
+
+prompt = "print('Hello, world!')"
+
+input_ids = tokenizer.encode(prompt, return_tensors="pt")
+output_ids = model.generate(input_ids)
+
+generated_code = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+print(generated_code)
+```
+
+Please note that due to the large number of parameters, using this model may require substantial computational resources.

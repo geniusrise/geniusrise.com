@@ -1,0 +1,33 @@
+# Model name
+
+deepset/electra-base-squad2
+
+## Links
+
+- Hugging Face Model Page: [deepset/electra-base-squad2](https://huggingface.co/deepset/electra-base-squad2)
+
+## Description
+
+The deepset/electra-base-squad2 model is a variant of the ELECTRA pre-trained model fine-tuned for the question-answering task. It is based on the ELECTRA architecture and trained on the SQuAD v2 dataset. The model achieves high performance in terms of exact match and F1 score on the validation set of the SQuAD v2 dataset. The model has been evaluated using metrics such as exact match and F1 score.
+
+The model is trained using the Transformers library in Python and can be used for various question-answering tasks.
+
+## Usage example
+
+```python
+from transformers import pipeline
+
+qa_pipeline = pipeline("question-answering", model="deepset/electra-base-squad2", tokenizer="deepset/electra-base-squad2")
+
+context = "The deepset/electra-base-squad2 model is a pre-trained ELECTRA model fine-tuned for the question-answering task."
+
+question = "What is the deepset/electra-base-squad2 model?"
+
+answer = qa_pipeline(question=question, context=context)
+
+print(answer)
+```
+
+This example shows how to use the deepset/electra-base-squad2 model for question-answering. The model is used to answer the question "What is the deepset/electra-base-squad2 model?" based on the given context. The answer is then printed to the console.
+
+For more information on using the model and its capabilities, refer to the [Hugging Face Model Page](https://huggingface.co/deepset/electra-base-squad2).

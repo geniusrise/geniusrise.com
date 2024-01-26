@@ -1,0 +1,39 @@
+# Model name
+
+mDeBERTa-v3-base-xnli-multilingual-nli-2mil7
+
+## Links
+
+- Hugging Face Model Page: [mDeBERTa-v3-base-xnli-multilingual-nli-2mil7](https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7)
+
+## Description
+
+The mDeBERTa-v3-base-xnli-multilingual-nli-2mil7 model is based on the DeBERTa-v3 architecture and is designed for multilingual natural language inference tasks. It is pretrained on a large corpus of 26 languages and fine-tuned on various datasets, including MultiNLI, ANLI, FEVER, LingNLI, and WANLI. The model supports zero-shot classification and text classification tasks and is implemented in the Transformers library using PyTorch.
+
+The model has the following features:
+- Architecture: DeBERTa-v3
+- Supported languages: Multilingual, Chinese, Japanese, Arabic, Korean, German, French, Spanish, Portuguese, Hindi, Indonesian, Italian, Turkish, Russian, Bengali, Urdu, Marathi, Tamil, Vietnamese, Persian, Polish, Ukrainian, Dutch, Swedish, Hebrew, Swahili, Pashto
+- Supported tasks: Zero-shot classification, Text classification
+- Metrics: Accuracy
+- Datasets: MoritzLaurer/multilingual-NLI-26lang-2mil7, XNLI, MultiNLI, ANLI, FEVER, LingNLI, alisawuffles/WANLI
+
+The model has a total of 157,282 downloads and has been liked by 167 users. It has been last modified on January 8, 2024.
+
+## Usage example
+
+Here's an example of how to use the mDeBERTa-v3-base-xnli-multilingual-nli-2mil7 model with the Transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+tokenizer = AutoTokenizer.from_pretrained("MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7")
+model = AutoModelForSequenceClassification.from_pretrained("MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7")
+
+inputs = tokenizer("Angela Merkel ist eine Politikerin in Deutschland und Vorsitzende der CDU", 
+                   truncation=True, 
+                   padding=True, 
+                   return_tensors="pt")
+outputs = model(**inputs)
+```
+
+Note that you will need to install the Transformers library and have PyTorch installed to run the example.

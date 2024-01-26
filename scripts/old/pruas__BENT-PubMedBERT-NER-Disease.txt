@@ -1,0 +1,25 @@
+# Model name
+
+BENT-PubMedBERT-NER-Disease
+
+## Links
+
+- [Model Page](https://huggingface.co/pruas/BENT-PubMedBERT-NER-Disease)
+- [Original Hugging Face Page](https://huggingface.co/pruas/BENT-PubMedBERT-NER-Disease)
+
+## Description
+
+BENT-PubMedBERT-NER-Disease is a token classification model for disease named entity recognition (NER) task. It is built using the BERT architecture and is available for use with the Transformers library in Python. The model is trained on the PubMed database and is capable of performing token classification on text data.
+
+The model has a total of 55,135,872 parameters and is compatible with the AutoTokenizer and AutoModelForTokenClassification classes in the Transformers library. It supports the token classification pipeline and can be used for NER tasks in the medical domain.
+
+## Usage example
+
+```python
+from transformers import AutoTokenizer, AutoModelForTokenClassification
+
+tokenizer = AutoTokenizer.from_pretrained("pruas/BENT-PubMedBERT-NER-Disease")
+model = AutoModelForTokenClassification.from_pretrained("pruas/BENT-PubMedBERT-NER-Disease")
+```
+
+Note: The code above is assuming that the Transformers library is already installed.

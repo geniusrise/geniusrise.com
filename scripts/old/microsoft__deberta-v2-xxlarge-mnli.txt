@@ -1,0 +1,44 @@
+# Model name
+
+microsoft/deberta-v2-xxlarge-mnli
+
+## Links
+
+[Link to the original Hugging Face page](https://huggingface.co/microsoft/deberta-v2-xxlarge-mnli)
+
+## Description
+
+The `microsoft/deberta-v2-xxlarge-mnli` model is a powerful variant of the DeBERTa model specifically fine-tuned for the MNLI (Multi-Genre Natural Language Inference) task. It is based on the DeBERTa-v2 architecture and has been trained on large-scale datasets, making it suitable for a wide range of natural language processing tasks.
+
+This model is part of the DeBERTa family and is released by Microsoft. It is available for use with the Transformers library in Python.
+
+Some key features of the `microsoft/deberta-v2-xxlarge-mnli` model include:
+- Language: English
+- Task: MNLI (Multi-Genre Natural Language Inference)
+- Architecture: DeBERTa-v2
+- License: MIT
+- Fine-tuning: Yes
+- Inference: Yes
+
+The model has been downloaded 1746 times and has received 7 likes.
+
+For more details, please visit the [original Hugging Face page](https://huggingface.co/microsoft/deberta-v2-xxlarge-mnli).
+
+## Usage example
+
+Here's an example of how to use the `microsoft/deberta-v2-xxlarge-mnli` model with the Transformers library in Python:
+
+```python
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
+model_name = "microsoft/deberta-v2-xxlarge-mnli"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(model_name)
+
+# Example usage
+text = "[CLS] I love you. [SEP] I like you. [SEP]"
+inputs = tokenizer(text, padding=True, truncation=True, return_tensors="pt")
+outputs = model(**inputs)
+```
+
+Please refer to the [Transformers documentation](https://huggingface.co/transformers/) for more information on using the Transformers library.

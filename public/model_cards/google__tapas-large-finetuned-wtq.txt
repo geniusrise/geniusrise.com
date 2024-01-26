@@ -1,0 +1,45 @@
+# Model name
+
+tapas-large-finetuned-wtq
+
+## Links
+
+- Original Hugging Face page: [tapas-large-finetuned-wtq](https://huggingface.co/google/tapas-large-finetuned-wtq)
+
+## Description
+
+The tapas-large-finetuned-wtq model is a large model that has been fine-tuned on the WikiTableQuestions dataset for table question answering. It belongs to the Tapas (Table-based Parser for Semantic Parsing) family of models.
+
+Key details about the model:
+- Architecture: TapasForQuestionAnswering
+- Model type: tapas
+- Number of parameters: Not specified
+- License: Apache 2.0
+
+The model is compatible with the Transformers library and can be used for table question answering tasks.
+
+## Usage example
+
+Using the Transformers library in Python:
+
+```python
+from transformers import TapasTokenizer, TapasForQuestionAnswering
+
+tokenizer = TapasTokenizer.from_pretrained("google/tapas-large-finetuned-wtq")
+model = TapasForQuestionAnswering.from_pretrained("google/tapas-large-finetuned-wtq")
+
+question = "How many stars does the transformers repository have?"
+table = {
+    "Repository": ["Transformers", "Datasets", "Tokenizers"],
+    "Stars": [36542, 4512, 3934],
+    "Contributors": [651, 77, 34],
+    "Programming language": ["Python", "Python", "Rust, Python and NodeJS"]
+}
+
+inputs = tokenizer(table=table, queries=question, padding="max_length", truncation=True, return_tensors="pt")
+outputs = model(**inputs)
+answer = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(outputs.logits.argmax(dim=-1).squeeze()))
+print("Answer:", answer)
+```
+
+For more details on how to use the model, please refer to the [official Hugging Face website](https://huggingface.co/google/tapas-large-finetuned-wtq).

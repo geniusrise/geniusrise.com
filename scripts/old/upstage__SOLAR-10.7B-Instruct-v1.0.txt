@@ -1,0 +1,31 @@
+# Model name
+
+SOLAR-10.7B-Instruct-v1.0
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/upstage/SOLAR-10.7B-Instruct-v1.0)
+
+## Description
+
+SOLAR-10.7B-Instruct-v1.0 is a high-capacity language model based on the Llama architecture. It is designed for text generation tasks and is powered by the transformers library. The model has been trained on large amounts of text and can generate coherent and contextually relevant responses.
+
+This model has 10.7 billion parameters, making it one of the largest language models available. It supports English language generation and is licensed under CC-BY-NC-4.0. The model is compatible with the transformers library and can be fine-tuned for specific tasks.
+
+The model's capabilities include text generation, and it is suitable for a wide range of applications. The model utilizes several datasets for training, including `c-s-ale/alpaca-gpt4-data`, `Open-Orca/OpenOrca`, `Intel/orca_dpo_pairs`, and `allenai/ultrafeedback_binarized_cleaned`.
+
+## Usage example
+
+```python
+from transformers import pipeline
+
+generator = pipeline("text-generation", model="upstage/SOLAR-10.7B-Instruct-v1.0")
+
+prompt = "Once upon a time,"
+output = generator(prompt, max_length=50)
+
+for o in output:
+    print(o['generated_text'])
+```
+
+This will generate text starting with the prompt "Once upon a time," using the SOLAR-10.7B-Instruct-v1.0 model. The generated text will have a maximum length of 50 tokens.

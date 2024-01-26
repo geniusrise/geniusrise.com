@@ -1,0 +1,29 @@
+# Model name
+TheBloke/Mistral-7B-Phibrarian-32K-GPTQ
+
+## Links
+- [Model's Hugging Face page](https://huggingface.co/TheBloke/Mistral-7B-Phibrarian-32K-GPTQ)
+
+## Description
+The Mistral-7B-Phibrarian-32K-GPTQ model is a text generation model available on the Hugging Face platform. It is based on the Mistral architecture and has been fine-tuned for the task of text generation. The model has a total of 880,476,160 parameters. It is compatible with the Transformers library in Python.
+
+## Usage example
+Here is an example of how to use the Mistral-7B-Phibrarian-32K-GPTQ model with the Transformers library in Python:
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "TheBloke/Mistral-7B-Phibrarian-32K-GPTQ"
+model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+prompt = "Once upon a time,"
+input_ids = tokenizer.encode(prompt, return_tensors="pt")
+
+output = model.generate(input_ids, max_length=50)
+generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+
+print(generated_text)
+```
+
+For more details and examples, refer to the [original Hugging Face page](https://huggingface.co/TheBloke/Mistral-7B-Phibrarian-32K-GPTQ).

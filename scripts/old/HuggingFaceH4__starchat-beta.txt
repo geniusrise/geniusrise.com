@@ -1,0 +1,34 @@
+# Model name
+
+HuggingFaceH4/starchat-beta
+
+## Links
+
+- [HuggingFace Model Card](https://huggingface.co/HuggingFaceH4/starchat-beta)
+
+## Description
+
+The HuggingFaceH4/starchat-beta model is a text generation model trained using the GPTBigCodeForCausalLM architecture. It is part of the Transformers library and is designed for generating text corresponding to questions and answers. The model is trained on a large dataset and has a total of 15,517,480 parameters. It falls under the "Text Generation" pipeline tag and is compatible with the AutoTrain framework and Inference Endpoints. The model is licensed under the "bigcode-openrail-m" license.
+
+## Usage example
+
+Here is an example of how to use the HuggingFaceH4/starchat-beta model with the Transformers library in Python:
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+# Load the model and tokenizer
+model = AutoModelForCausalLM.from_pretrained("HuggingFaceH4/starchat-beta")
+tokenizer = AutoTokenizer.from_pretrained("HuggingFaceH4/starchat-beta")
+
+# Generate a response given an input text
+input_text = "How can I write a Python function to generate the nth Fibonacci number?"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids)
+
+# Decode and print the output
+decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
+print(decoded_output)
+```
+
+For more information, refer to the [official HuggingFace model card](https://huggingface.co/HuggingFaceH4/starchat-beta).

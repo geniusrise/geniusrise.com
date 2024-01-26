@@ -1,0 +1,35 @@
+# Model name
+
+twitter-xlm-roberta-base-sentiment
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/cardiffnlp/twitter-xlm-roberta-base-sentiment)
+
+## Description
+
+The `twitter-xlm-roberta-base-sentiment` model is a text classification model based on the XLM-RoBERTa architecture. It is trained to classify sentiment in multilingual text from Twitter. The model has been fine-tuned on sentiment datasets and is designed to perform sentiment analysis on social media text.
+
+This model is part of the Transformers library in Python and can be accessed through the Hugging Face Model Hub.
+
+## Usage example
+
+Here is an example of using the `twitter-xlm-roberta-base-sentiment` model with the Transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-xlm-roberta-base-sentiment")
+model = AutoModelForSequenceClassification.from_pretrained("cardiffnlp/twitter-xlm-roberta-base-sentiment")
+
+text = "I love this movie!"
+encoded_input = tokenizer(text, return_tensors="pt")
+output = model(**encoded_input)
+
+sentiment = output.logits.argmax().item()
+print(f"Sentiment: {sentiment}")
+```
+
+In this example, we first load the tokenizer and model from the `"cardiffnlp/twitter-xlm-roberta-base-sentiment"` model. We then encode the input text using the tokenizer and pass it to the model for classification. Finally, we retrieve the predicted sentiment from the model's output logits.
+
+Please note that you may need to install the Transformers library before running this code.

@@ -1,0 +1,29 @@
+# Model name
+
+flan-t5-xxl
+
+## Links
+
+- Hugging Face: [flan-t5-xxl](https://huggingface.co/google/flan-t5-xxl)
+
+## Description
+
+The flan-t5-xxl model is a text-to-text generation model developed by Google. It is based on the T5 architecture and is trained using the transformers library. The model has been fine-tuned for various tasks including translation, question answering, logical reasoning, scientific knowledge, and more. It supports multiple languages and has been trained on various datasets such as qrecc, taskmaster2, wiki_dialog, code_contests, lambada, gsm8k, aqua_rat, esnli, quasc, and qed. The model has a total of 11,266,928,640 parameters.
+
+## Usage example
+
+```python
+from transformers import T5ForConditionalGeneration, T5Tokenizer
+
+tokenizer = T5Tokenizer.from_pretrained('google/flan-t5-xxl')
+model = T5ForConditionalGeneration.from_pretrained('google/flan-t5-xxl')
+
+input_text = "Translate to German: My name is Arthur"
+input_ids = tokenizer.encode(input_text, return_tensors='pt')
+output_ids = model.generate(input_ids)
+
+output_text = tokenizer.decode(output_ids[0])
+print(output_text)
+```
+
+This example demonstrates how to use the flan-t5-xxl model for translation from English to German.

@@ -1,0 +1,36 @@
+# Model name
+
+easyTermsSummerizer
+
+## Links
+
+- [Hugging Face Model Hub](https://huggingface.co/Quake24/easyTermsSummerizer)
+
+## Description
+
+easyTermsSummerizer is a text summarization model that uses the Bart architecture implemented in the Transformers library. It is designed to generate a concise summary of a given text input. The model has been fine-tuned on the task of summarization using the BartForConditionalGeneration architecture. It has been trained on a combination of datasets, including Quake24/paraphrasedPayPal and Quake24/paraphrasedTwitter.
+
+The model can be used for various applications, including document summarization, text compression, and information extraction. It has a total of 1953 downloads and has received positive feedback from users.
+
+The model uses a length penalty of 2, a maximum length of 142 tokens, a minimum length of 56 tokens, and a beam size of 4 during the generation process.
+
+## Usage example
+
+Here is an example of how to use the easyTermsSummerizer model with the Transformers library in Python:
+
+```python
+from transformers import BartTokenizer, BartForConditionalGeneration
+
+tokenizer = BartTokenizer.from_pretrained("Quake24/easyTermsSummerizer")
+model = BartForConditionalGeneration.from_pretrained("Quake24/easyTermsSummerizer")
+
+input_text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
+input_ids = tokenizer.encode(input_text, truncation=True, padding=True, return_tensors="pt")
+
+summary_ids = model.generate(input_ids)
+summary_text = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+
+print("Summary:", summary_text)
+```
+
+For more information on how to use the model and its available methods, refer to the [Hugging Face Model Hub page](https://huggingface.co/Quake24/easyTermsSummerizer).

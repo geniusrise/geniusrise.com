@@ -1,0 +1,30 @@
+# Model name
+
+NSFW_text_classifier
+
+## Links
+
+- Hugging Face page: [NSFW_text_classifier](https://huggingface.co/michellejieli/NSFW_text_classifier)
+
+## Description
+
+The NSFW_text_classifier model is a text classification model that can be used to identify NSFW (Not Safe for Work) content in text. It uses the transformers library with Python and is based on the DistilBERT model architecture. The model has been trained on various datasets and has a total of 21,538 downloads.
+
+The model can be used to classify text from sources such as Twitter and Reddit, and is particularly effective in detecting inappropriate and spam content. It supports inference, meaning it can be used to make predictions on new data.
+
+## Usage example
+
+```python
+from transformers import pipeline
+
+classifier = pipeline("text-classification", model="michellejieli/NSFW_text_classifier")
+
+text = "I like you. You remind me of me when I was young and stupid."
+result = classifier(text)
+
+print(result)
+```
+
+This example demonstrates how to use the NSFW_text_classifier model to classify the text "I like you. You remind me of me when I was young and stupid". The model will return the predicted label and confidence score for the input text.
+
+Please refer to the [Hugging Face page](https://huggingface.co/michellejieli/NSFW_text_classifier) for more information and usage details.

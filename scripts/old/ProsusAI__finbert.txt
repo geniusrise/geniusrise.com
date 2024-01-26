@@ -1,0 +1,33 @@
+# Model Name
+
+finbert
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/ProsusAI/finbert)
+
+## Description
+
+finbert is a text classification model for financial sentiment analysis trained on the BertForSequenceClassification architecture. It is part of the transformers library and is implemented using Python.
+
+The model is based on the BERT (Bidirectional Encoder Representations from Transformers) architecture and is specifically designed for analyzing financial sentiments in texts. It can be used to classify whether a given text expresses positive or negative sentiment towards financial stocks, currencies, or other related entities.
+
+The model has been trained on various financial datasets and has over 1 million downloads. It has 444 likes and is used for inference purposes.
+
+## Usage Example
+
+```python
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
+model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
+
+text = "Stocks rallied and the British pound gained."
+encoded_input = tokenizer(text, truncation=True, padding=True, return_tensors="pt")
+output = model(**encoded_input)
+
+logits = output.logits
+predicted_labels = logits.argmax(dim=1)
+```
+
+For more details and advanced usage, please refer to the [Hugging Face Model Page](https://huggingface.co/ProsusAI/finbert).

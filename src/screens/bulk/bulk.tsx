@@ -11,7 +11,7 @@ import { shadesOfPurple } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { Button, Content } from "react-bulma-components"
 import { Settings, buildInitialState } from "../settings/settings"
 import { withAuthenticator } from "@aws-amplify/ui-react"
-import AWS from 'aws-sdk'
+import AWS from "aws-sdk"
 import { SupportContentContext } from "../../support/support"
 import banners from "../../data/banners.json"
 import { generateName } from "../../utils"
@@ -48,7 +48,7 @@ function toTitleCase(input: string): string {
 }
 
 const Bulk: React.FC<BulkProps> = ({ model }) => {
-    const [backgroundImage, setBackgroundImage] = useState('')
+    const [backgroundImage, setBackgroundImage] = useState("")
 
     const [files, setFiles] = useState<File[]>([])
     const [s3BucketUrl, setS3BucketUrl] = useState<string>(generateS3BucketUrl())
@@ -107,17 +107,13 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                 { label: "Google Cloud - northamerica-east1 (Coming Soon)", value: "gcp-us-east1" },
             ],
         },
-    ]);
+    ])
 
     const [modelSettings, setModelSettings] = useState(buildInitialState(model.bulkDeploy))
 
     const handleChange = (name: string, value: any) => {
-        setConfig(prevState =>
-            prevState.map(configItem =>
-                configItem.name === name ? { ...configItem, default: value } : configItem
-            )
-        );
-    };
+        setConfig(prevState => prevState.map(configItem => (configItem.name === name ? { ...configItem, default: value } : configItem)))
+    }
 
     // Initialize S3 bucket URL on component mount
     React.useEffect(() => {
@@ -125,7 +121,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     }, [])
 
     AWS.config.update({
-        region: 'ap-south-1',
+        region: "ap-south-1",
         accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
         secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
         // credentials: new AWS.CognitoIdentityCredentials({
@@ -134,8 +130,8 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     })
 
     const s3 = new AWS.S3({
-        apiVersion: '2006-03-01',
-        params: { Bucket: 'geniusrise-prod-input' },
+        apiVersion: "2006-03-01",
+        params: { Bucket: "geniusrise-prod-input" },
     })
 
     const { setSupportContent } = useContext(SupportContentContext)
@@ -143,7 +139,8 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     useEffect(() => {
         setSupportContent({
             heading: "Deploy a bulk job",
-            content: "This page allows you to deploy this machine learning model as a bulk job. Select from a range of pod sizes to optimize performance and resource utilization. Once deployed, you can view your job on the dashboard. Additionally, you can access and modify advanced settings like model parameters through the 'Configure Settings' option. The most optimum values are already pre-filled out. Please follow the instructions below to structure your input data.",
+            content:
+                "This page allows you to deploy this machine learning model as a bulk job. Select from a range of pod sizes to optimize performance and resource utilization. Once deployed, you can view your job on the dashboard. Additionally, you can access and modify advanced settings like model parameters through the 'Configure Settings' option. The most optimum values are already pre-filled out. Please follow the instructions below to structure your input data.",
             examplesTitle: "Data Format",
             examples: [
                 "For CSV, TSV, XLS, XLSX each file should contain the following columns: " + model.inputs.map(i => i.name).join(", "),
@@ -152,7 +149,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                 "For huggingface, parquet, sqlite etc, the dataset should contain these fields: " + model.inputs.map(i => i.name).join(", "),
                 "You may upload multiple files",
                 "You may upload directories with arbitrary nesting",
-                "You may also use the generated S3 link to upload files via an external system like backend or spark"
+                "You may also use the generated S3 link to upload files via an external system like backend or spark",
             ],
             usecasesTitle: "Sizes:",
             useCases: [
@@ -179,13 +176,14 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
         try {
             const uploadPromises = files.map(file => {
                 const uploadParams = {
-                    Bucket: 'geniusrise-prod-input',
+                    Bucket: "geniusrise-prod-input",
                     Key: `${s3BucketUrl}${file.name}`,
                     Body: file,
                 }
 
-                return s3.upload(uploadParams)
-                    .on('httpUploadProgress', (evt) => {
+                return s3
+                    .upload(uploadParams)
+                    .on("httpUploadProgress", evt => {
                         // Update progress
                         totalUploaded += evt.loaded
                         const progressPercentage = (totalUploaded / files.reduce((acc, file) => acc + file.size, 0)) * 100
@@ -195,10 +193,10 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
             })
 
             await Promise.all(uploadPromises)
-            console.log('Files uploaded successfully.')
+            console.log("Files uploaded successfully.")
             handleLaunch()
         } catch (error) {
-            console.error('Error uploading files: ', error)
+            console.error("Error uploading files: ", error)
         } finally {
         }
     }
@@ -212,18 +210,18 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
         onDrop,
         accept: {
-            'application/json': ['.jsonl', '.json'], // JSON and JSON Lines format
-            'text/csv': ['.csv'],                    // CSV files
-            'application/parquet': ['.parquet'],     // Parquet files
-            'application/xml': ['.xml'],             // XML files
-            'application/x-yaml': ['.yaml'],         // YAML files
-            'text/tab-separated-values': ['.tsv'],   // TSV files
-            'application/vnd.ms-excel': ['.xls'],    // Excel files
-            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['.xlsx'], // Excel files
-            'application/octet-stream': ['.sqlite', '.feather'], // Binary file types
-            'image/jpeg': ['.jpeg', '.jpg'],         // JPEG images
-            'image/png': ['.png'],                   // PNG images
-        }
+            "application/json": [".jsonl", ".json"], // JSON and JSON Lines format
+            "text/csv": [".csv"], // CSV files
+            "application/parquet": [".parquet"], // Parquet files
+            "application/xml": [".xml"], // XML files
+            "application/x-yaml": [".yaml"], // YAML files
+            "text/tab-separated-values": [".tsv"], // TSV files
+            "application/vnd.ms-excel": [".xls"], // Excel files
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": [".xlsx"], // Excel files
+            "application/octet-stream": [".sqlite", ".feather"], // Binary file types
+            "image/jpeg": [".jpeg", ".jpg"], // JPEG images
+            "image/png": [".png"], // PNG images
+        },
     })
 
     const handleLaunch = () => {
@@ -232,23 +230,23 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
 
         const deploymentConfig = config.reduce((acc, item) => {
             // @ts-ignore
-            acc[item.name] = item.default;
-            return acc;
-        }, {});
+            acc[item.name] = item.default
+            return acc
+        }, {})
 
         createJob({
             task: {
                 name: ("geniusbulk--" + generateName() + "--" + model.name.toLowerCase().replaceAll(" ", "-")).replaceAll(".", "-").substring(0, 60),
                 deployment_config: {
-                    ...deploymentConfig
+                    ...deploymentConfig,
                 },
                 method: model.bulkMethod,
                 method_args: {
                     ...modelSettings,
                     model_name: customModel,
-                    notification_email: customNotification
-                }
-            }
+                    notification_email: customNotification,
+                },
+            },
         })
 
         // Progress bar logic
@@ -267,102 +265,106 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
     return (
         <>
             <div className={styles.container} hidden={settingsVisible}>
-                <div
-                    className={styles.headerImage}
-                    style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}
-                ></div>
                 <Grid columns={2}>
                     <Cell>
                         <Content className={styles.contentHeading}>
                             <h2>Bulk inference - {model.name}</h2>
-                            Upload data to run a inference using a model as a bulk job.
-                            Each file should contain the following fields:
+                            Upload data to run a inference using a model as a bulk job. Each file should contain the following fields:
                             <ol>
-                                {model.inputs.map(i => <li><p>{i.name} (type: {i.type})</p></li>)}
+                                {model.inputs.map(i => (
+                                    <li>
+                                        <p>
+                                            {i.name} (type: {i.type})
+                                        </p>
+                                    </li>
+                                ))}
                             </ol>
                         </Content>
                     </Cell>
-                    <Cell className={styles.supportedFormats}>
-                        <p>Supported formats</p>
-                        <Grid columns={3}>
-                            {model.bulk_formats.map(b => {
-                                return (
-                                    <Cell center middle>
-                                        {b}
-                                    </Cell>
-                                )
-                            })}
-                        </Grid>
-                    </Cell>
                 </Grid>
                 <Grid columns={2} className={styles.form}>
-                    {isModelCustom ?
+                    {isModelCustom ? (
                         <Cell key="customModel" className={styles.formElement} center>
                             <label>
                                 Custom Model Name
-                                <div>Input the name of the desired model. This name corresponds to the huggingface format: <SyntaxHighlighter style={shadesOfPurple}>repository_name/model_name:optional_model_tag</SyntaxHighlighter></div>
-                                {(
+                                <div>
+                                    Input the name of the desired model. This name corresponds to the huggingface format:{" "}
+                                    <SyntaxHighlighter style={shadesOfPurple}>repository_name/model_name:optional_model_tag</SyntaxHighlighter>
+                                </div>
+                                {
                                     <input
                                         type={"text"}
                                         className={styles.textInput}
                                         value={customModel}
                                         onChange={e => setCustomModel(e.target.value)}
                                     />
-                                )}
-                            </label>
-                        </Cell>
-                        : <></>}
-                    {config.map(({ name, description, default: defaultValue, options }) => (name === "name" || name.includes("s3")) ? <></> : (
-                        <Cell key={name} className={styles.formElement} center>
-                            <label>
-                                {toTitleCase(name)}
-                                <div>{description}</div>
-                                {options ?
-                                    <select
-                                        className={styles.selectInput}
-                                        value={defaultValue}
-                                        onChange={e => handleChange(name, e.target.value)}
-                                    >
-                                        {
-                                            // @ts-ignore
-                                            options.map((option: any) => (
-                                                <option key={option.value} value={option.value}>
-                                                    {option.label}
-                                                </option>
-                                            ))}
-                                    </select>
-                                    :
-                                    <input
-                                        type="text"
-                                        className={styles.textInput}
-                                        value={defaultValue}
-                                        onChange={e => handleChange(name, e.target.value)}
-                                    />
                                 }
                             </label>
                         </Cell>
-                    ))}
+                    ) : (
+                        <></>
+                    )}
+                    {config.map(({ name, description, default: defaultValue, options }) =>
+                        name === "name" || name.includes("s3") ? (
+                            <></>
+                        ) : (
+                            <Cell key={name} className={styles.formElement} center>
+                                <label>
+                                    {toTitleCase(name)}
+                                    <div>{description}</div>
+                                    {options ? (
+                                        <select
+                                            className={styles.selectInput}
+                                            value={defaultValue}
+                                            onChange={e => handleChange(name, e.target.value)}
+                                        >
+                                            {
+                                                // @ts-ignore
+                                                options.map((option: any) => (
+                                                    <option key={option.value} value={option.value}>
+                                                        {option.label}
+                                                    </option>
+                                                ))
+                                            }
+                                        </select>
+                                    ) : (
+                                        <input
+                                            type="text"
+                                            className={styles.textInput}
+                                            value={defaultValue}
+                                            onChange={e => handleChange(name, e.target.value)}
+                                        />
+                                    )}
+                                </label>
+                            </Cell>
+                        )
+                    )}
                     <Cell key="customNotification" className={styles.formElement} center>
                         <label>
                             Notification Email
                             <div>Input the email id to be notified once the fine-tuning is done:</div>
-                            {(
+                            {
                                 <input
                                     type={"text"}
                                     className={styles.textInput}
                                     value={customNotification}
                                     onChange={e => setCustomNotification(e.target.value)}
                                 />
-                            )}
+                            }
                         </label>
                     </Cell>
                 </Grid>
                 <Content className={styles.contentHeading}>
                     <h2>Upload Files</h2>
+                    <p>Supported formats: {model.bulk_formats.join(", ")}</p>
                 </Content>
                 <div {...getRootProps()} className={styles.filesDrop}>
                     <input {...getInputProps()} />
-                    {isDragActive ? <p>Drop the files here ...</p> : <button>{(files.length === 0) ? "Click to select files or folders or drag them here" : files.map(f => <p>{f.name}</p>)}</button>}
+                    {isDragActive ? (
+                        <p>Drop the files here ...</p>
+                    ) : (
+                        <button>{files.length === 0 ? "Click to select files or folders or drag them here" : files.map(f => <p>{f.name}</p>)}</button>
+                    )}
                 </div>
                 <Content className={styles.contentHeading}>
                     <h2>OR</h2>
@@ -393,7 +395,9 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                         </Button>
                     </Cell>
                     <Cell>
-                        <Button onClick={() => uploadFilesToS3()} disabled={progressBarVisible}>Submit Job</Button>
+                        <Button onClick={() => uploadFilesToS3()} disabled={progressBarVisible}>
+                            Submit Job
+                        </Button>
                     </Cell>
                     <Cell width={2}>
                         {progressBarVisible && (
@@ -421,7 +425,7 @@ const Bulk: React.FC<BulkProps> = ({ model }) => {
                 callback={x => {
                     setModelSettings({
                         ...modelSettings,
-                        ...x
+                        ...x,
                     })
                     setSettingsVisibile(!settingsVisible)
                 }}

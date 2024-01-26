@@ -1,0 +1,30 @@
+# Model name
+
+mixtral-8x7b-v0.1-AWQ
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/TheBloke/mixtral-8x7b-v0.1-AWQ)
+
+## Description
+
+The `mixtral-8x7b-v0.1-AWQ` model is a text generation model based on Mixtral architecture. It has been trained using the transformers library with Python. The model is designed for multi-language text generation tasks and supports multiple languages including French, Italian, German, Spanish, and English. The model has a total of 5,850,267,648 parameters and is quantized using the AWQ (Approximate Weight Quantization) method. The model is licensed under the Apache-2.0 license.
+
+## Usage example
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "TheBloke/mixtral-8x7b-v0.1-AWQ"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+
+prompt = "Once upon a time"
+inputs = tokenizer.encode(prompt, return_tensors="pt")
+outputs = model.generate(inputs, max_length=100)
+
+generated_text = tokenizer.decode(outputs[0])
+print(generated_text)
+```
+
+For more information and usage details, please refer to the [official Hugging Face model page](https://huggingface.co/TheBloke/mixtral-8x7b-v0.1-AWQ).

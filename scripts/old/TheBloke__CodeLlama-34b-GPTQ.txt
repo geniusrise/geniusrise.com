@@ -1,0 +1,40 @@
+# Model name
+
+TheBloke/CodeLlama-34B-GPTQ
+
+## Links
+
+- Repository: [Link](https://huggingface.co/TheBloke/CodeLlama-34B-GPTQ)
+- Model card: [Link](https://huggingface.co/TheBloke/CodeLlama-34B-GPTQ)
+
+## Description
+
+The CodeLlama-34B-GPTQ model is a language model trained on code-related text data. It is based on the transformers library in Python and is part of the CodeLlama project. The model is designed for generating code and code-related text.
+
+Key features of the model include:
+
+- Text generation for code and code-related tasks
+- Large model size with 34 billion parameters
+- Utilizes GPTQ (Quantized GPT) or AWQ (Automated Weight Quantization) techniques, resulting in reduced model size and memory requirements
+
+The model has been trained on various code-related datasets and can be used for a wide range of applications in the field of software development and programming.
+
+## Usage example
+
+Here is an example of how to use the CodeLlama-34B-GPTQ model with the transformers library in Python:
+
+```python
+from transformers import pipeline
+
+generator = pipeline("text-generation", model="TheBloke/CodeLlama-34B-GPTQ", tokenizer="TheBloke/CodeLlama-34B-GPTQ")
+
+prompt = "Generate a Python function to calculate the factorial of a number"
+
+output = generator(prompt, max_length=100)
+
+print(output[0]["generated_text"])
+```
+
+This will generate a Python function to calculate the factorial of a number based on the provided prompt using the CodeLlama-34B-GPTQ model.
+
+For more details and usage examples, please refer to the [model repository](https://huggingface.co/TheBloke/CodeLlama-34B-GPTQ).

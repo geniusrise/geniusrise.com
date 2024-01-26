@@ -1,0 +1,32 @@
+# Model name
+
+facebook/bart-large-cnn
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/facebook/bart-large-cnn)
+
+## Description
+
+The `facebook/bart-large-cnn` model is a transformer-based model trained by Facebook. It is part of the BART (Bidirectional and Auto-Regressive Transformers) model family, specifically optimized for summarization tasks. The model architecture is `BartForConditionalGeneration`, and it is trained on the `cnn_dailymail` dataset. The model has been evaluated using metrics such as ROUGE-1, ROUGE-2, ROUGE-L, ROUGE-LSUM, loss, and generation length.
+
+The model is available in the `transformers` library and can be used for various summarization tasks.
+
+## Usage example
+
+Here is an example of how to use the `facebook/bart-large-cnn` model with the `transformers` library in Python:
+
+```python
+from transformers import BartTokenizer, BartForConditionalGeneration
+
+tokenizer = BartTokenizer.from_pretrained("facebook/bart-large-cnn")
+model = BartForConditionalGeneration.from_pretrained("facebook/bart-large-cnn")
+
+text = "Insert your input text here"
+inputs = tokenizer(text, return_tensors="pt")
+summary_ids = model.generate(inputs["input_ids"], num_beams=4, max_length=142, min_length=56, early_stopping=True)
+summary = tokenizer.batch_decode(summary_ids, skip_special_tokens=True)
+print(summary)
+```
+
+Please refer to the [Hugging Face Model Page](https://huggingface.co/facebook/bart-large-cnn) for more details and options for using this model.

@@ -1,0 +1,43 @@
+# Model name
+
+WizardCoder-Python-13B-V1.0-GPTQ
+
+## Links
+
+- Original Hugging Face page: [WizardCoder-Python-13B-V1.0-GPTQ](https://huggingface.co/TheBloke/WizardCoder-Python-13B-V1.0-GPTQ)
+
+## Description
+
+The WizardCoder-Python-13B-V1.0-GPTQ model is a text generation model trained using the `transformers` library. It is part of the WizardLM project and belongs to the Llama architecture. The model has been fine-tuned for text-generation tasks and specifically tailored to generate Python code. It is built upon the base model WizardLM/WizardCoder-Python-13B-V1.0 and includes quantization using the GPTQ method.
+
+Key details about the model:
+
+- Library name: transformers
+- Number of parameters: 13 billion
+- Model type: GPTQ (Quantized GPT)
+- Base model: WizardLM/WizardCoder-Python-13B-V1.0
+- Inference type: ExplicitOptOut
+
+The model has been evaluated on the HumanEval dataset, and its performance is measured using the "pass@1" metric. It achieved a pass rate of 0.64 on this metric.
+
+## Usage example
+
+Here's how you can use the WizardCoder-Python-13B-V1.0-GPTQ model with the Transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+tokenizer = AutoTokenizer.from_pretrained("TheBloke/WizardCoder-Python-13B-V1.0-GPTQ")
+model = AutoModelForCausalLM.from_pretrained("TheBloke/WizardCoder-Python-13B-V1.0-GPTQ")
+
+input_prompt = "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\n{prompt}\n\n### Response:\n"
+input_text = f"{input_prompt}Write a Python function that calculates the sum of two numbers."
+
+input_ids = tokenizer.encode(input_text, add_special_tokens=True, truncation=True, padding="longest", max_length=512, return_tensors="pt")
+output = model.generate(input_ids)
+
+decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
+print(decoded_output)
+```
+
+Please note that you will need to install the `transformers` library in order to run this example.

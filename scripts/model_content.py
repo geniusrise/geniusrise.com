@@ -1,0 +1,223 @@
+from openai import OpenAI
+from bs4 import BeautifulSoup
+import requests
+
+OPENAI_API_KEY = "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"
+client = OpenAI(api_key=OPENAI_API_KEY)
+
+
+models = [
+    "TheBloke/bagel-dpo-34b-v0.2-AWQ",
+    "TheBloke/SauerkrautLM-UNA-SOLAR-Instruct-AWQ",
+    "TheBloke/Mixtral-8x7B-Instruct-v0.1-AWQ",
+    "mistralai/Mixtral-8x7B-Instruct-v0.1",
+    "TheBloke/Nous-Hermes-2-Yi-34B-AWQ",
+    "TheBloke/Yi-34B-Chat-AWQ",
+    "TheBloke/SOLAR-10.7B-Instruct-v1.0-AWQ",
+    "TheBloke/dolphin-2.7-mixtral-8x7b-AWQ",
+    "jondurbin/bagel-dpo-34b-v0.2",
+    "VAGOsolutions/SauerkrautLM-SOLAR-Instruct",
+    "NousResearch/Nous-Hermes-2-Yi-34B",
+    "mistralai/Mixtral-8x7B-Instruct-v0.1",
+    "01-ai/Yi-34B-Chat",
+    "upstage/SOLAR-10.7B-Instruct-v1.0",
+    "cognitivecomputations/dolphin-2.7-mixtral-8x7b",
+    "HuggingFaceH4/starchat-beta",
+    "HuggingFaceH4/zephyr-7b-beta",
+    "mistralai/Mistral-7B-Instruct-v0.1",
+    "TheBloke/starchat-beta-GPTQ",
+    "TheBloke/Mistral-7B-Code-16K-qlora-GPTQ",
+    "TheBloke/Mistral-7B-Phibrarian-32K-GPTQ",
+    "TheBloke/Mistral-7B-Instruct-v0.1-GPTQ",
+    "TheBloke/openchat_3.5-GPTQ",
+    "TheBloke/zephyr-7b-beta-GPTQ",
+    "meta-llama/Llama-2-7b-chat-hf",
+    "meta-llama/Llama-2-13b-chat-hf",
+    "meta-llama/Llama-2-70b-chat-hf",
+    "codellama/CodeLlama-7b-Instruct-hf",
+    "codellama/CodeLlama-13b-Instruct-hf",
+    "codellama/CodeLlama-34b-Instruct-hf",
+    "WizardLM/WizardCoder-Python-7B-V1.0",
+    "WizardLM/WizardCoder-Python-13B-V1.0",
+    "WizardLM/WizardMath-7B-V1.0",
+    "WizardLM/WizardMath-13B-V1.0",
+    "WizardLM/WizardMath-70B-V1.0",
+    "TheBloke/Llama-2-7b-chat-GPTQ",
+    "TheBloke/Llama-2-13b-chat-GPTQ",
+    "TheBloke/Llama-2-70b-chat-GPTQ",
+    "TheBloke/CodeLlama-7b-Instruct-GPTQ",
+    "TheBloke/CodeLlama-13b-Instruct-GPTQ",
+    "TheBloke/CodeLlama-34b-Instruct-GPTQ",
+    "TheBloke/WizardCoder-Python-7B-V1.0-GPTQ",
+    "TheBloke/WizardCoder-Python-13B-V1.0-GPTQ",
+    "TheBloke/WizardMath-7B-V1.0-GPTQ",
+    "TheBloke/WizardMath-13B-V1.0-GPTQ",
+    "TheBloke/WizardMath-70B-V1.0-GPTQ",
+    "cardiffnlp/twitter-xlm-roberta-base-sentiment",
+    "cardiffnlp/twitter-roberta-base-emotion",
+    "cardiffnlp/twitter-xlm-roberta-base-sentiment-multilingual",
+    "soleimanian/financial-roberta-large-sentiment",
+    "mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis",
+    "SamLowe/roberta-base-go_emotions",
+    "ProsusAI/finbert",
+    "dslim/bert-large-NER",
+    "Babelscape/wikineural-multilingual-ner",
+    "d4data/biomedical-ner-all",
+    "alvaroalon2/biobert_chemical_ner",
+    "pruas/BENT-PubMedBERT-NER-Gene",
+    "Dizex/FoodBaseBERT-NER",
+    "pruas/BENT-PubMedBERT-NER-Disease",
+    "TheBloke/Mixtral_11Bx2_MoE_19B-AWQ",
+    "TheBloke/SOLAR-10.7B-Instruct-v1.0-AWQ",
+    "TheBloke/SOLARC-MOE-10.7Bx4-AWQ",
+    "TheBloke/Yi-34B-AWQ",
+    "TheBloke/Mixtral-8x7B-v0.1-AWQ",
+    "TheBloke/SOLAR-10.7B-v1.0-AWQ",
+    "TheBloke/meditron-70b-AWQ",
+    "cloudyu/Mixtral_11Bx2_MoE_19B",
+    "DopeorNope/SOLARC-M-10.7B",
+    "DopeorNope/SOLARC-MOE-10.7Bx6",
+    "01-ai/Yi-34B",
+    "mistralai/Mixtral-8x7B-v0.1",
+    "upstage/SOLAR-10.7B-v1.0",
+    "epfl-llm/meditron-70b",
+    "mistralai/Mistral-7B-v0.1",
+    "amazon/MistralLite",
+    "codellama/CodeLlama-7b-hf",
+    "codellama/CodeLlama-7b-Python-hf",
+    "codellama/CodeLlama-13b-hf",
+    "codellama/CodeLlama-13b-Python-hf",
+    "codellama/CodeLlama-34b-hf",
+    "codellama/CodeLlama-34b-Python-hf",
+    "meta-llama/Llama-2-7b-hf",
+    "meta-llama/Llama-2-13b-hf",
+    "meta-llama/Llama-2-70b-hf",
+    "TheBloke/Mistral-7B-v0.1-GPTQ",
+    "TheBloke/CodeLlama-7b-GPTQ",
+    "TheBloke/CodeLlama-13b-GPTQ",
+    "TheBloke/CodeLlama-34b-GPTQ",
+    "TheBloke/Llama-2-7b-GPTQ",
+    "TheBloke/Llama-2-13b-GPTQ",
+    "TheBloke/Llama-2-70b-GPTQ",
+    "WizardLM/WizardCoder-Python-34B-V1.0",
+    "WizardLMTeam/WizardLM-13B-V1.0",
+    "WizardLM/WizardLM-70B-V1.0",
+    "TheBloke/WizardCoder-Python-34B-V1.0-GPTQ",
+    "TheBloke/WizardLM-13B-V1.0-Uncensored-GPTQ",
+    "TheBloke/WizardLM-70B-V1.0-GPTQ",
+    "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
+    "google/t5_xxl_true_nli_mixture",
+    "facebook/bart-large-mnli",
+    "microsoft/deberta-v2-xlarge-mnli",
+    "khalidalt/DeBERTa-v3-large-mnli",
+    "typeform/distilbert-base-uncased-mnli",
+    "roberta-large-mnli",
+    "microsoft/deberta-v2-xxlarge-mnli",
+    "sileod/deberta-v3-large-tasksource-nli",
+    "cross-encoder/nli-deberta-v3-small",
+    "cross-encoder/nli-deberta-v3-base",
+    "cross-encoder/nli-deberta-v3-large",
+    "cross-encoder/nli-roberta-base",
+    "cross-encoder/nli-distilroberta-base",
+    "facebook/bart-large-cnn",
+    "sshleifer/distilbart-cnn-12-6",
+    "pszemraj/led-large-book-summary",
+    "knkarthick/MEETING-SUMMARY-BART-LARGE-XSUM-SAMSUM-DIALOGSUM-AMI",
+    "ainize/kobart-news",
+    "human-centered-summarization/financial-summarization-pegasus",
+    "Callidior/bert2bert-base-arxiv-titlegen",
+    "pszemraj/long-t5-tglobal-base-16384-book-summary",
+    "Quake24/easyTermsSummerizer",
+    "google/bigbird-pegasus-large-arxiv",
+    "google/bigbird-pegasus-large-bigpatent",
+    "google/bigbird-pegasus-large-pubmed",
+    "google/flan-t5-base",
+    "google/flan-t5-large",
+    "google/flan-t5-xl",
+    "google/flan-t5-xxl",
+    "google/t5-v1_1-base",
+    "google/t5-v1_1-large",
+    "google/t5-v1_1-xl",
+    "google/t5-v1_1-xxl",
+    "google/umt5-base",
+    "google/umt5-xl",
+    "google/umt5-xxl",
+    "google/pegasus-x-base",
+    "google/pegasus-large",
+    "google/pegasus-x-large",
+    "google/pegasus-multi_news",
+    "facebook/mbart-large-50-many-to-many-mmt",
+    "facebook/wmt21-dense-24-wide-x-en",
+    "facebook/wmt21-dense-24-wide-en-x",
+    "cardiffnlp/twitter-roberta-base-hate-multiclass-latest",
+    "cardiffnlp/twitter-roberta-base-hate-latest",
+    "cardiffnlp/twitter-roberta-base-offensive",
+    "cardiffnlp/twitter-roberta-base-irony",
+    "tomh/toxigen_roberta",
+    "cointegrated/rubert-tiny-toxicity",
+    "michellejieli/NSFW_text_classifier",
+    "bucketresearch/politicalBiasBERT",
+    "Sigma/financial-sentiment-analysis",
+    "cardiffnlp/tweet-topic-21-multi",
+    "padmajabfrl/Gender-Classification",
+    "yiyanghkust/finbert-tone",
+    "wajidlinux99/gibberish-text-detector",
+    "google/tapas-tiny-finetuned-wtq",
+    "google/tapas-large-finetuned-wtq",
+    "google/tapas-base-finetuned-wtq",
+    "google/tapas-small-finetuned-sqa",
+    "google/tapas-base-finetuned-sqa",
+    "google/tapas-large-finetuned-sqa",
+    "microsoft/tapex-base-finetuned-wtq",
+    "microsoft/tapex-large-finetuned-wtq",
+    "microsoft/tapex-base-finetuned-wikisql",
+    "microsoft/tapex-large-finetuned-wikisql",
+    "google/tapas-small-finetuned-wikisql-supervised",
+    "google/tapas-base-finetuned-wikisql-supervised",
+    "google/tapas-large-finetuned-wikisql-supervised",
+    "distilbert-base-uncased-distilled-squad",
+    "deepset/bert-base-cased-squad2",
+    "deepset/roberta-base-squad2",
+    "deepset/deberta-v3-base-squad2",
+    "deepset/electra-base-squad2",
+    "deepset/deberta-v3-large-squad2",
+]
+
+
+def generate_model_summary_with_search(model_name: str) -> str:
+    model_name = model_name.split(":")[0]
+
+    response = requests.get(f"https://huggingface.co/{model}")
+    response.raise_for_status()
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    # Extracting the relevant section, e.g., model description
+    model_description = soup.find("div", {"class": "hf-sanitized"})
+    text = model_description.get_text() if model_description else ""
+
+    prompt = (
+        f"\n\nRead the page below and create an executive summary of the model description in markdown, with the following sections: ```# Model name\n\n## Links\n\n## Description\n\n## Usage example```\n\n"
+        f"Use transformers library with python for the examples\n\n"
+        f"dont include license info anywhere\n\n"
+        f"Highlight the datasets, number of parameters if possible, also mention a bit about GPTQ or AWQ if applicable\n\n"
+        f"Include links to the original huggingface page\n\n"
+        f"Here is the page for 'https://huggingface.co/{model_name}': \n\n {response.text[:27000]}.\n\n"
+    )
+
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo-16k-0613",
+        messages=[{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": prompt}],
+        max_tokens=3000,
+    )
+    print(len(prompt))
+    print(response.choices[0].message.content)
+    print("-------------------------------------------------------------------------------------------")
+    return response.choices[0].message.content
+
+
+# Output (for demonstration purposes, only showing a part of the result)
+for model in models:
+    model = model.split(":")[0]
+    summary = generate_model_summary_with_search(model)
+    with open(model.replace("/", "__") + ".txt", "w") as inp:
+        inp.write(summary)

@@ -1,0 +1,30 @@
+# Model name
+
+BENT-PubMedBERT-NER-Gene
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/pruas/BENT-PubMedBERT-NER-Gene)
+
+## Description
+
+BENT-PubMedBERT-NER-Gene is a token classification model trained on the PubMedBERT architecture. It is designed for Named Entity Recognition (NER) tasks specifically for gene names. The model is based on the Transformers library and implemented in Python. It has been trained on specific datasets and offers an inference capability.
+
+The model has a total of 34,376,937 parameters and supports the token classification pipeline tag.
+
+## Usage example
+
+```python
+from transformers import pipeline, AutoTokenizer
+
+tokenizer = AutoTokenizer.from_pretrained("pruas/BENT-PubMedBERT-NER-Gene")
+model = pipeline("ner", model="pruas/BENT-PubMedBERT-NER-Gene")
+
+text = "The BRCA2 gene is associated with an increased risk of breast cancer."
+encoded_input = tokenizer(text, return_tensors="pt")
+
+output = model(**encoded_input)
+print(output)
+```
+
+This code snippet demonstrates how to use the BENT-PubMedBERT-NER-Gene model for gene name recognition in a given text input. The model is loaded, the input text is tokenized using the accompanying tokenizer, and the model is invoked with the encoded input. The output is printed, which contains the recognized gene names and their corresponding labels.

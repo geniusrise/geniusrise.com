@@ -1,0 +1,33 @@
+# Model name
+
+WizardLM-70B-V1.0
+
+## Links
+
+- Hugging Face: [WizardLM/WizardLM-70B-V1.0](https://huggingface.co/WizardLM/WizardLM-70B-V1.0)
+
+## Description
+
+WizardLM-70B-V1.0 is a large language model based on the Llama architecture. It is designed for text generation tasks and is compatible with the Transformers library in Python. The model has been trained on a large amount of data and has a total of 70 billion parameters. It supports both GPTQ and AWQ formats. The model can be accessed and used through the Hugging Face API.
+
+## Usage example
+
+To use the WizardLM-70B-V1.0 model with the Transformers library in Python, you can follow these steps:
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "WizardLM/WizardLM-70B-V1.0"
+model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+input_text = "Once upon a time,"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
+output = model.generate(input_ids)
+
+decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
+print(decoded_output)
+```
+
+Please note that you need to install the `transformers` library if you haven't already. You can do this by running `pip install transformers` in your terminal.

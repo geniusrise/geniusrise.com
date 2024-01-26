@@ -821,7 +821,7 @@
                 "name": "input"
             }
         ],
-        "model_name": "TheBloke/SOLARC-MOE-10.7Bx6-AWQ",
+        "model_name": "TheBloke/SOLARC-MOE-10.7Bx4-AWQ",
         "apiClass": "LanguageModelAPI",
         "bulkMethod": "complete",
         "endpoint": "/api/v1/complete",
@@ -1402,7 +1402,7 @@
                 "name": "input"
             }
         ],
-        "model_name": "TheBloke/Mixtral-8x7B-v01-AWQ",
+        "model_name": "TheBloke/Mixtral-8x7B-v0.1-AWQ",
         "apiClass": "LanguageModelAPI",
         "bulkMethod": "complete",
         "endpoint": "/api/v1/complete",
@@ -3413,7 +3413,7 @@
                 "name": "input"
             }
         ],
-        "model_name": "mistralai/Mixtral-8x7B-v01",
+        "model_name": "mistralai/Mixtral-8x7B-v0.1",
         "apiClass": "LanguageModelAPI",
         "bulkMethod": "complete",
         "endpoint": "/api/v1/complete",

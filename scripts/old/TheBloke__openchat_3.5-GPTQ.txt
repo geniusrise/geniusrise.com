@@ -1,0 +1,33 @@
+# Model name
+
+OpenChat 3.5-GPTQ
+
+## Links
+
+- Repository page: [TheBloke/openchat_3.5-GPTQ](https://huggingface.co/TheBloke/openchat_3.5-GPTQ)
+
+## Description
+
+OpenChat 3.5-GPTQ is a text generation model based on the Mistral architecture. It is designed for conversational AI tasks and is trained using mixed-quality data. The model is available in the transformers library for Python.
+
+This model is based on the openchat/openchat_3.5 base model and utilizes quantization techniques for performance optimization. It has a total of 1,198,804,992 parameters. The model is compatible with the AutoModelForCausalLM architecture and can be used for text generation tasks.
+
+More information about the model can be found on the [original Hugging Face page](https://huggingface.co/TheBloke/openchat_3.5-GPTQ).
+
+## Usage example
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+tokenizer = AutoTokenizer.from_pretrained("TheBloke/openchat_3.5-GPTQ")
+model = AutoModelForCausalLM.from_pretrained("TheBloke/openchat_3.5-GPTQ")
+
+prompt = "Hello, how are you?"
+inputs = tokenizer(prompt, return_tensors="pt")
+outputs = model.generate(inputs["input_ids"])
+
+response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+print(response)
+```
+
+This example demonstrates how to use the OpenChat 3.5-GPTQ model for text generation. The model is loaded using the `AutoModelForCausalLM.from_pretrained()` method, and the input prompt is tokenized using the `AutoTokenizer.from_pretrained()` method. The model then generates a response based on the input prompt, and the response is decoded using the tokenizer to obtain the final output.

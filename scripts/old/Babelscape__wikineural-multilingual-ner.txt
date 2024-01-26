@@ -1,0 +1,26 @@
+# Model name
+
+wikineural-multilingual-ner
+
+## Links
+
+- [Hugging Face Model page](https://huggingface.co/Babelscape/wikineural-multilingual-ner)
+
+## Description
+
+The wikineural-multilingual-ner model is a token classification model that can perform named entity recognition (NER) on multilingual text. It is based on the BERT architecture and is compatible with the transformers library in Python. The model is trained on the wikineural dataset, which contains multilingual text from various languages. It has been trained to identify and classify named entities in text, such as person names, locations, organizations, and more. The model is licensed under CC BY-NC-SA 4.0.
+
+## Usage example
+
+```python
+from transformers import AutoTokenizer, AutoModelForTokenClassification
+
+tokenizer = AutoTokenizer.from_pretrained("Babelscape/wikineural-multilingual-ner")
+model = AutoModelForTokenClassification.from_pretrained("Babelscape/wikineural-multilingual-ner")
+
+text = "My name is John Doe and I live in London."
+inputs = tokenizer.encode_plus(text, return_tensors="pt")
+outputs = model(**inputs)
+```
+
+In this example, the model is used to perform NER on the given text. The tokenizer converts the text into input features suitable for the model, and the model classifies each token in the text into a named entity category.

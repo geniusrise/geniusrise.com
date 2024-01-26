@@ -1,0 +1,33 @@
+# Model name
+
+CodeLlama-13B-GPTQ
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/TheBloke/CodeLlama-13B-GPTQ)
+
+## Description
+
+CodeLlama-13B-GPTQ is a language model based on the GPT architecture and is part of the CodeLlama series. It is trained to generate code and can be used for a variety of natural language processing tasks, particularly in the area of text generation. The model has a total of 2,029,655,040 parameters and is suitable for tasks requiring large-scale computational power.
+
+## Usage example
+
+You can use the CodeLlama-13B-GPTQ model from the `transformers` library in Python. Here is an example of how to generate text using this model:
+
+```python
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+model_name = "TheBloke/CodeLlama-13B-GPTQ"
+tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+model = GPT2LMHeadModel.from_pretrained(model_name)
+
+input_text = "This is an example sentence."
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
+output = model.generate(input_ids, max_length=100)
+output_text = tokenizer.decode(output[0], skip_special_tokens=True)
+
+print(output_text)
+```
+
+Make sure to install the `transformers` library if you haven't already. You can find more information and examples on the [Hugging Face Model Page](https://huggingface.co/TheBloke/CodeLlama-13B-GPTQ).

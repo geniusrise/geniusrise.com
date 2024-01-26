@@ -1,0 +1,32 @@
+# Model name
+
+'Llama-2-7B-GPTQ'
+
+## Links
+
+- Hugging Face page: [TheBloke/Llama-2-7B-GPTQ](https://huggingface.co/TheBloke/Llama-2-7B-GPTQ)
+
+## Description
+
+'Llama-2-7B-GPTQ' is a text generation model based on the Llama-2 architecture. It has been trained using PyTorch and is part of the transformers library. The model has been fine-tuned for text generation tasks and is designed to generate coherent and contextually relevant text. It uses a 7 billion parameter model and is quantized using the GPTQ method. 
+
+## Usage example
+
+Here is an example of how to use the 'Llama-2-7B-GPTQ' model with the transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+tokenizer = AutoTokenizer.from_pretrained("TheBloke/Llama-2-7B-GPTQ")
+model = AutoModelForCausalLM.from_pretrained("TheBloke/Llama-2-7B-GPTQ")
+
+prompt = "Once upon a time"
+input_ids = tokenizer.encode(prompt, return_tensors="pt")
+
+output = model.generate(input_ids, max_length=100)
+generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+
+print(generated_text)
+```
+
+For more details and examples, please refer to the [Hugging Face page](https://huggingface.co/TheBloke/Llama-2-7B-GPTQ).

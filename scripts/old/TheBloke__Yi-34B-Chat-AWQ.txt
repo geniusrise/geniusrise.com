@@ -1,0 +1,37 @@
+# Model name
+
+The model name is 'Yi-34B-Chat-AWQ'.
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/TheBloke/Yi-34B-Chat-AWQ)
+
+## Description
+
+The 'Yi-34B-Chat-AWQ' model is a text generation model based on the transformers library. It is developed by TheBloke and is part of the Yi-34B-Chat series. The model has a pipeline tag of 'text-generation' and is built on the Llama architecture. It supports automatic mixed-precision training and quantization using AWQ (Adaptive Weight Quantization) with 4-bit precision. The model is licensed under the 'yi-license' and is hosted in the US region.
+
+The model is suitable for generating text responses given a prompt. It can be used for various natural language processing tasks such as chatbots, language generation, and more.
+
+The model has been downloaded 565 times and has received 7 likes.
+
+## Usage example
+
+Here is an example of how to use the 'Yi-34B-Chat-AWQ' model with the transformers library in Python:
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "TheBloke/Yi-34B-Chat-AWQ"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+
+prompt = "Hi"
+input_ids = tokenizer.encode(prompt, return_tensors="pt")
+
+output = model.generate(input_ids)
+
+response = tokenizer.decode(output[0], skip_special_tokens=True)
+print(response)
+```
+
+For more information and advanced usage, please refer to the [Hugging Face Model Page](https://huggingface.co/TheBloke/Yi-34B-Chat-AWQ).

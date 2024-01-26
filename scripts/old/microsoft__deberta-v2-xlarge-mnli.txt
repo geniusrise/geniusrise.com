@@ -1,0 +1,34 @@
+# Model name
+
+microsoft/deberta-v2-xlarge-mnli
+
+## Links
+
+- Hugging Face model page: [microsoft/deberta-v2-xlarge-mnli](https://huggingface.co/microsoft/deberta-v2-xlarge-mnli)
+
+## Description
+
+The `microsoft/deberta-v2-xlarge-mnli` model is an implementation of the DeBERTa-v2 model trained on the MNLI (Multi-Genre Natural Language Inference) dataset. It is based on the DeBERTa model architecture and has been fine-tuned for text classification tasks using the Transformers library. The model has a large size, with 536 million parameters.
+
+The model is suitable for tasks related to text classification and natural language inference. It achieves good performance on benchmark datasets and has been trained with state-of-the-art techniques.
+
+## Usage example
+
+You can use the model with the Transformers library in Python. Here's an example of how to load the model and perform inference:
+
+```python
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
+model_name = "microsoft/deberta-v2-xlarge-mnli"
+model = AutoModelForSequenceClassification.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+sentence = "I love you."
+inputs = tokenizer(sentence, return_tensors="pt")
+outputs = model(**inputs)
+
+predicted_label = torch.argmax(outputs.logits, dim=1).item()
+```
+Replace `sentence` with the input text you want to classify.
+
+For more information and fine-tuning examples, please refer to the [Hugging Face model page](https://huggingface.co/microsoft/deberta-v2-xlarge-mnli).

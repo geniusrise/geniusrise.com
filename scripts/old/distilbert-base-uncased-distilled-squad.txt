@@ -1,0 +1,41 @@
+# Model name
+
+distilbert-base-uncased-distilled-squad
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/distilbert-base-uncased-distilled-squad)
+
+## Description
+
+The `distilbert-base-uncased-distilled-squad` model is a distilled version of the `distilbert-base-uncased` model fine-tuned on the SQuAD (Stanford Question Answering Dataset) 1.1. dataset. It is designed for question answering tasks and is based on the DistilBERT architecture. 
+
+The model is trained to provide answers to questions given a certain context. It achieves this by predicting the start and end positions of the answer within the given context. 
+
+The model has been implemented using the transformers library with Python.
+
+The `distilbert-base-uncased-distilled-squad` model is licensed under the Apache-2.0 license.
+
+## Usage example
+
+```python
+from transformers import pipeline
+
+qa_pipeline = pipeline('question-answering', model='distilbert-base-uncased-distilled-squad', tokenizer='distilbert-base-uncased-distilled-squad')
+
+context = "The Amazon rainforest, also known in English as Amazonia or the Amazon Jungle, is a moist broadleaf forest that covers most of the Amazon basin of South America."
+
+question = "Which name is also used to describe the Amazon rainforest in English?"
+
+result = qa_pipeline(question=question, context=context)
+
+print(result)
+```
+
+This will output:
+
+```
+{'score': 0.9497074484825134, 'start': 34, 'end': 42, 'answer': 'Amazonia'}
+```
+
+For further usage examples and documentation, please refer to the [Hugging Face Model Page](https://huggingface.co/distilbert-base-uncased-distilled-squad).

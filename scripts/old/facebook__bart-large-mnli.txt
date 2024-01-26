@@ -1,0 +1,39 @@
+# Model name
+
+facebook/bart-large-mnli
+
+## Links
+
+- Hugging Face Model Card: [facebook/bart-large-mnli](https://huggingface.co/facebook/bart-large-mnli)
+
+## Description
+
+The facebook/bart-large-mnli model is built using the BART architecture and is fine-tuned on the MNLI dataset. It is designed for zero-shot classification tasks. The model has 407,344,133 parameters and supports the Transformers library. 
+
+- Architecture: BARTForSequenceClassification
+- Model type: BART
+- Pipeline tag: zero-shot-classification
+- Dataset: MNLI
+
+For more details, please refer to the [Facebook BART Large MNLI Model Card](https://huggingface.co/facebook/bart-large-mnli).
+
+## Usage example
+
+```python
+from transformers import pipeline
+
+classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli", framework="pt")
+
+sequence = "I have a problem with my iPhone that needs to be resolved asap!!"
+candidate_labels = ["urgent", "not urgent", "phone", "tablet", "computer"]
+
+result = classifier(sequence, candidate_labels)
+
+print(result)
+```
+
+This example demonstrates how to use the facebook/bart-large-mnli model for zero-shot classification, where the model predicts labels for a given sequence of text using the provided candidate labels ["urgent", "not urgent", "phone", "tablet", "computer"].
+
+Please note that you will need to install the Transformers library in order to use the model in the example.
+
+For more information on the usage and capabilities of the model, refer to the [Facebook BART Large MNLI Model Card](https://huggingface.co/facebook/bart-large-mnli).

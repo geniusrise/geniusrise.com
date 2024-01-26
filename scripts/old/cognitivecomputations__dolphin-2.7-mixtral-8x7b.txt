@@ -1,0 +1,33 @@
+# Model name
+
+dolphin-2.7-mixtral-8x7b
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/cognitivecomputations/dolphin-2.7-mixtral-8x7b)
+
+## Description
+
+The dolphin-2.7-mixtral-8x7b model is a text generation model based on the Mixtral architecture. It has been trained on a number of datasets, including cognitivecomputations/dolphin, jondurbin/airoboros-2.2.1, cognitivecomputations/dolphin-coder, teknium/openhermes, ise-uiuc/Magicoder-OSS-Instruct-75K, ise-uiuc/Magicoder-Evol-Instruct-110K, and LDJnr/Capybara. The model supports text generation tasks and can be used with the Transformers library in Python.
+
+The model has a total of 2163 downloads and 77 likes. It does not have any associated papers or documentation.
+
+## Usage example
+
+Here is an example of how to use the dolphin-2.7-mixtral-8x7b model with the Transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+tokenizer = AutoTokenizer.from_pretrained("cognitivecomputations/dolphin-2.7-mixtral-8x7b")
+model = AutoModelForCausalLM.from_pretrained("cognitivecomputations/dolphin-2.7-mixtral-8x7b")
+
+input_text = "Once upon a time,"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output_ids = model.generate(input_ids, max_length=50)
+
+output_text = tokenizer.decode(output_ids[0])
+print(output_text)
+```
+
+For more information and detailed usage instructions, please refer to the [Hugging Face Model Page](https://huggingface.co/cognitivecomputations/dolphin-2.7-mixtral-8x7b).

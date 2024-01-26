@@ -1,0 +1,37 @@
+# Model name
+
+cointegrated/rubert-tiny-toxicity
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/cointegrated/rubert-tiny-toxicity)
+
+## Description
+
+The `cointegrated/rubert-tiny-toxicity` model is a Russian language model trained using the Bert architecture for sequence classification. It is designed for text classification tasks related to toxicity, specifically for Russian texts. The model is based on the `bert-tiny` architecture and has a total of 11.7 million parameters.
+
+The model is available for fine-tuning and inference tasks using the Transformers library in Python. It is compatible with the `transformers` library and can be directly used with the library's functionalities such as tokenization and model inference.
+
+## Usage example
+
+Here is an example of using the model with the Transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+# Load tokenizer and model
+tokenizer = AutoTokenizer.from_pretrained("cointegrated/rubert-tiny-toxicity")
+model = AutoModelForSequenceClassification.from_pretrained("cointegrated/rubert-tiny-toxicity")
+
+# Tokenize input text
+text = "Some toxic text in Russian"
+encoded_input = tokenizer(text, truncation=True, padding=True, return_tensors="pt")
+
+# Pass input through the model
+outputs = model(**encoded_input)
+
+# Get predicted toxicity scores
+toxicity_scores = outputs.logits
+```
+
+For more details and advanced usage examples, refer to the [original Hugging Face model page](https://huggingface.co/cointegrated/rubert-tiny-toxicity).

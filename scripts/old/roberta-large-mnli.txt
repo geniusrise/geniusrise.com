@@ -1,0 +1,35 @@
+# Model name
+
+roberta-large-mnli
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/roberta-large-mnli)
+
+## Description
+
+The `roberta-large-mnli` model is a language model implemented using the Roberta architecture. It is trained on the MNLI dataset along with other datasets such as Wikipedia and BookCorpus. The model has approximately 356 million parameters. It is a text classification model primarily used for multi-class classification tasks.
+
+## Usage example
+
+Here is an example of how to use the `roberta-large-mnli` model with the Transformers library in Python:
+
+```python
+from transformers import RobertaForSequenceClassification, RobertaTokenizer
+
+model_name = "roberta-large-mnli"
+tokenizer = RobertaTokenizer.from_pretrained(model_name)
+model = RobertaForSequenceClassification.from_pretrained(model_name)
+
+sentence = "This is an example sentence."
+
+inputs = tokenizer(sentence, return_tensors="pt")
+outputs = model(**inputs)
+
+logits = outputs.logits
+predicted_label = logits.argmax().item()
+
+print(f"Predicted label: {predicted_label}")
+```
+
+For more information and detailed examples, please refer to the [official Hugging Face model page](https://huggingface.co/roberta-large-mnli).

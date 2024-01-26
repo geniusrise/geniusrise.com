@@ -1,0 +1,27 @@
+# Model name
+CodeLlama-13b-hf
+
+## Links
+- Repository: [codellama/CodeLlama-13b-hf](https://huggingface.co/codellama/CodeLlama-13b-hf)
+
+## Description
+CodeLlama-13b-hf is a text generation model based on the LlamaForCausalLM architecture. It is trained on a large dataset and can generate code-related text. It is compatible with the transformers library in Python. The model has been trained on a variety of datasets and has a total of 13 billion parameters.
+
+## Usage example
+```
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "codellama/CodeLlama-13b-hf"
+model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+input_text = "def hello():\n  print('Hello, world!')\n"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
+output = model.generate(input_ids, max_length=100)
+
+decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
+print(decoded_output)
+```
+
+For more information and examples, refer to the [huggingface page](https://huggingface.co/codellama/CodeLlama-13b-hf).

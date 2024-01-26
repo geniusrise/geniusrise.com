@@ -1,0 +1,40 @@
+# Model name
+
+wmt21-dense-24-wide-x-en
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/facebook/wmt21-dense-24-wide-x-en)
+
+## Description
+
+The wmt21-dense-24-wide-x-en model is a translation model developed by Facebook. It is part of the Transformers library and is based on the m2m_100 architecture. The model is designed for text-to-text generation tasks and specifically focuses on translation tasks. It supports multiple languages, including multilingual, Hausa, Icelandic, Japanese, Czech, Russian, Chinese, German, and English. The model has been trained on the WMT21 dataset and has a total of 24 billion parameters. The model is available under the MIT license.
+
+## Usage example
+
+To use the wmt21-dense-24-wide-x-en model, you can use the `transformers` library in Python. Here is an example:
+
+```python
+from transformers import MarianMTModel, MarianTokenizer
+
+tokenizer = MarianTokenizer.from_pretrained("facebook/wmt21-dense-24-wide-x-en")
+model = MarianMTModel.from_pretrained("facebook/wmt21-dense-24-wide-x-en")
+
+# Example text
+text = "Translate this sentence to French."
+
+# Tokenize text
+inputs = tokenizer.prepare_translation_batch(src_texts=[text], return_tensors="pt")
+
+# Generate translation
+outputs = model.generate(**inputs)
+
+# Get translated text
+translation = tokenizer.batch_decode(outputs, skip_special_tokens=True)
+
+print(translation)
+```
+
+Make sure to install the `transformers` library before running this code.
+
+(Note: The above example assumes you have the necessary GPU resources for running the model efficiently. If you don't have a GPU, you can modify the code to run on CPU, but it may be slower.)

@@ -1,0 +1,32 @@
+# Model name
+bert2bert-base-arxiv-titlegen
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/Callidior/bert2bert-base-arxiv-titlegen)
+
+## Description
+
+The `bert2bert-base-arxiv-titlegen` model is a language generation model for generating titles for arXiv papers. It is based on the BERT2BERT architecture and is fine-tuned on the arXiv dataset. The model is trained using the transformers library with Python. 
+
+The model achieves superior performance in terms of quality and is more parallelizable and faster to train compared to other sequence transduction models. It achieves impressive results in machine translation tasks, such as English-to-German and English-to-French translation, as well as English constituency parsing. The model has a BLEU score of 28.4 on the WMT 2014 English-to-German translation task and a BLEU score of 41.8 on the WMT 2014 English-to-French translation task.
+
+The `bert2bert-base-arxiv-titlegen` model has 830 downloads and is interoperable with AutoTrain and inference endpoints.
+
+## Usage example
+
+```python
+from transformers import BertTokenizer, BertForSeq2SeqLM
+
+tokenizer = BertTokenizer.from_pretrained("Callidior/bert2bert-base-arxiv-titlegen")
+model = BertForSeq2SeqLM.from_pretrained("Callidior/bert2bert-base-arxiv-titlegen")
+
+text = "An introduction to machine learning"
+input_ids = tokenizer.encode(text, return_tensors="pt")
+output_ids = model.generate(input_ids)
+output = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+
+print("Generated Title:", output)
+```
+
+Note: Please refer to the [Hugging Face Model Page](https://huggingface.co/Callidior/bert2bert-base-arxiv-titlegen) for more details on usage and examples.

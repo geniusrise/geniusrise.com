@@ -1,0 +1,31 @@
+# Model name
+
+SOLAR-10.7B-v1.0-AWQ
+
+## Links
+
+- [Model Page](https://huggingface.co/TheBloke/SOLAR-10.7B-v1.0-AWQ)
+
+## Description
+
+The SOLAR-10.7B-v1.0-AWQ model is a text generation model based on the SOLAR-10.7B-v1.0 base model. It is designed for text generation tasks and utilizes the Llama architecture. The model is quantized using the AWQ (Asymmetric Weight Quantization) method with 4-bit precision. The model has a total of approximately 1.663 billion parameters.
+
+## Usage example
+
+You can use the SOLAR-10.7B-v1.0-AWQ model with the transformers library in Python. Here is an example:
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+tokenizer = AutoTokenizer.from_pretrained("TheBloke/SOLAR-10.7B-v1.0-AWQ")
+model = AutoModelForCausalLM.from_pretrained("TheBloke/SOLAR-10.7B-v1.0-AWQ")
+
+input_text = "My name is John and I like to"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+outputs = model.generate(input_ids, max_length=100)
+
+generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
+print(generated_text)
+```
+
+For more details and usage examples, please refer to the [original huggingface page](https://huggingface.co/TheBloke/SOLAR-10.7B-v1.0-AWQ).

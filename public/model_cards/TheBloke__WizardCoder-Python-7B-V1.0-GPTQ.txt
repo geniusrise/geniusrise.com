@@ -1,0 +1,33 @@
+# Model name
+
+WizardCoder-Python-7B-V1.0-GPTQ
+
+## Links
+
+- [Original HuggingFace page](https://huggingface.co/TheBloke/WizardCoder-Python-7B-V1.0-GPTQ)
+
+## Description
+
+The WizardCoder-Python-7B-V1.0-GPTQ model is a text generation model specifically designed for Python code. It is built on the transformers library and has a total of 7 billion parameters. The model is part of the WizardLM project and uses the GPTQ (Quantization-Aware GPT) architecture. It is trained to follow complex instructions and complete code-related tasks. The model has been evaluated on the HumanEval dataset, achieving a pass rate of 55.5% at top-1.
+
+## Usage example
+
+You can use the WizardCoder-Python-7B-V1.0-GPTQ model for Python code generation by using the transformers library in Python. Here is an example of how to use it:
+
+```python
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+model_name = "TheBloke/WizardCoder-Python-7B-V1.0-GPTQ"
+tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+model = GPT2LMHeadModel.from_pretrained(model_name)
+
+input_code = "def sum(a, b):\n    return a + b"
+
+input_ids = tokenizer.encode(input_code, return_tensors="pt")
+output = model.generate(input_ids)
+
+generated_code = tokenizer.decode(output[0], skip_special_tokens=True)
+print(generated_code)
+```
+
+This will generate Python code based on the input code provided using the WizardCoder-Python-7B-V1.0-GPTQ model.

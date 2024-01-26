@@ -1,0 +1,50 @@
+# Model name
+
+tapas-base-finetuned-wikisql-supervised
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/google/tapas-base-finetuned-wikisql-supervised)
+
+## Description
+
+The `tapas-base-finetuned-wikisql-supervised` model is a language model that is fine-tuned on the WikiSQL dataset using the TAPAS (Table Parsing via Pre-training and Simple Supervision) approach. It is part of the Transformers library and can be used for table question answering tasks. The model has been trained with supervised learning on the WikiSQL dataset and can provide answers to questions based on tables.
+
+The model architecture is based on the TapasForQuestionAnswering architecture. It has been pre-trained on a large corpus of text data and then fine-tuned on the WikiSQL dataset, which contains tables and corresponding questions and answers.
+
+The model has the following properties:
+
+- Number of parameters: not specified in the document
+- Language: English
+- Supported task: Table question answering
+
+For more details, you can refer to the [Hugging Face Model Page](https://huggingface.co/google/tapas-base-finetuned-wikisql-supervised).
+
+## Usage example
+
+Here's an example of using the `tapas-base-finetuned-wikisql-supervised` model with the Transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForTableQuestionAnswering
+
+tokenizer = AutoTokenizer.from_pretrained("google/tapas-base-finetuned-wikisql-supervised")
+model = AutoModelForTableQuestionAnswering.from_pretrained("google/tapas-base-finetuned-wikisql-supervised")
+
+table = [
+    {"column_header": "Name", "type": "text", "values": ["John", "Emily", "Michael"]},
+    {"column_header": "Age", "type": "number", "values": [25, 30, 35]},
+    {"column_header": "City", "type": "text", "values": ["New York", "London", "Paris"]},
+]
+
+question = "What is the age of Michael?"
+
+inputs = tokenizer(table=table, queries=question, padding="longest", return_tensors="pt")
+outputs = model(**inputs)
+
+answer = outputs.answer
+print(answer)  
+```
+
+Make sure to install the Transformers library (`pip install transformers`) and have the necessary dependencies installed before running the code.
+
+Note: The example is for illustrative purposes only and may need to be adapted to your specific use case.
