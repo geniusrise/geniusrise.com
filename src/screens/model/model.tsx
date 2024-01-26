@@ -62,6 +62,21 @@ function Model({ model }: Props) {
         .reduce((mem, x) => mem + x, "")
     modelRunString = modelRunString.trim().slice(0, -1)
 
+    var modelYamlRunString = Object.entries(model.apiDeploy)
+        // @ts-ignore
+        .map(([k, v]) => {
+            return (
+                v.name +
+                ": " +
+                v.default +
+                `
+        `
+            )
+        })
+        // @ts-ignore
+        .reduce((mem, x) => mem + x, "")
+    modelYamlRunString = modelYamlRunString.trim().slice(0, -1)
+
     var modelBulkRunString = Object.entries(model.bulkDeploy)
         // @ts-ignore
         .map(([k, v]) => {
@@ -76,7 +91,22 @@ function Model({ model }: Props) {
         })
         // @ts-ignore
         .reduce((mem, x) => mem + x, "")
-    modelBulkRunString = modelRunString.trim().slice(0, -1)
+    modelBulkRunString = modelBulkRunString.trim().slice(0, -1)
+
+    var modelBulkYamlRunString = Object.entries(model.bulkDeploy)
+        // @ts-ignore
+        .map(([k, v]) => {
+            return (
+                v.name +
+                ": " +
+                v.default +
+                `
+        `
+            )
+        })
+        // @ts-ignore
+        .reduce((mem, x) => mem + x, "")
+    modelBulkYamlRunString = modelBulkYamlRunString.trim().slice(0, -1)
 
     return (
         <div className={styles.container}>
@@ -103,6 +133,8 @@ pip install geniusrise-vision
 
 ### Launch API server
 
+#### Using CLI
+
 \`\`\`bash
 genius ${model.apiClass} rise \\
     batch \\
@@ -123,6 +155,45 @@ genius ${model.apiClass} rise \\
         ${modelRunString}
 \`\`\`
 
+#### Using YAML
+
+\`\`\`yaml
+version: "1"
+
+bolts:
+  my_bolt:
+    name: ${model.apiClass}
+    state:
+      type: postgres
+      args:
+        postgres_host: localhost
+        postgres_port: 5432
+        postgres_user: postgres
+        postgres_password: postgres
+        postgres_database: geniusrise
+        postgres_table: state
+    input:
+      type: batch
+      args:
+        bucket: geniusrise-test
+        folder: input
+    output:
+      type: batch
+      args:
+        bucket: geniusrise-test
+        folder: output
+    method: listen
+    args:
+        model_name: ${model.model_name}
+        ${modelYamlRunString}
+\`\`\`
+
+and then:
+
+\`\`\`bash
+genius rise
+\`\`\`
+
 ### Or execute bulk inference
 
 First copy your files to S3:
@@ -132,6 +203,8 @@ aws s3 cp --recursive my_files/ s3://my-bucket/$(date +%Y-%m-%d)/input/
 \`\`\`
 
 Then run the job:
+
+#### Using CLI
 
 \`\`\`bash
 genius ${model.apiClass.replace("API", "Bulk")} rise \\
@@ -151,6 +224,41 @@ genius ${model.apiClass.replace("API", "Bulk")} rise \\
     listen \\
         --model_name="${model.model_name}" \\
         ${modelBulkRunString}
+\`\`\`
+
+#### Using YAML
+
+#### Using YAML
+
+\`\`\`yaml
+version: "1"
+
+bolts:
+  my_bolt:
+    name: ${model.apiClass.replace("API", "Bulk")}
+    state:
+      type: postgres
+      args:
+        postgres_host: localhost
+        postgres_port: 5432
+        postgres_user: postgres
+        postgres_password: postgres
+        postgres_database: geniusrise
+        postgres_table: state
+    input:
+      type: batch
+      args:
+        bucket: geniusrise-test
+        folder: input
+    output:
+      type: batch
+      args:
+        bucket: geniusrise-test
+        folder: output
+    method: listen
+    args:
+        model_name: ${model.model_name}
+        ${modelBulkYamlRunString}
 \`\`\`
 
 For more on how to run locally, refer to [docs.geniusrise.ai](https://docs.geniusrise.ai).
