@@ -103,7 +103,7 @@ const Everything = () => {
                     </Cell>
                 </Grid>
                 {/* {loggedIn ? <Support></Support> : <></>} */}
-                <Support
+                {/* <Support
                     widthCallback={(hide: boolean) => {
                         if (hide) {
                             setFullWidth(styles.content)
@@ -111,7 +111,7 @@ const Everything = () => {
                             setFullWidth(styles.fullWidth)
                         }
                     }}
-                ></Support>
+                ></Support> */}
                 <SearchModal></SearchModal>
             </div>
         </div>
