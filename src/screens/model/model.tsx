@@ -84,17 +84,15 @@ Upload to S3 and run the model.`}</Markdown>
                                 </Link>
                             </Cell>
                             <Cell center middle>
-                                <Button>
-                                    <Link to={`/model/${model.name}/api`}>
-                                        <Button>
-                                            <Markdown className={styles.markdown}>{`## Inference API
+                                <Link to={`/model/${model.name}/api`}>
+                                    <Button>
+                                        <Markdown className={styles.markdown}>{`## Inference API
 
 **Inference APIs over model**:
 
 Deploy a replica-set in any cloud.`}</Markdown>
-                                        </Button>
-                                    </Link>
-                                </Button>
+                                    </Button>
+                                </Link>
                             </Cell>
                         </Grid>
                     </Cell>

@@ -35,7 +35,7 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  overflow: auto;
+  overflow-y: auto;
   text-align: center;
   /* background-image: url('../assets/background2.jpg'); */
   /* background: linear-gradient(90deg, rgba(131,58,180,1) 2%, rgba(253,29,9,1) 71%, rgba(252,176,69,1) 100%); */
@@ -76,7 +76,7 @@ body {
   .something {
     background-color: var(--dark-background-color);
     height: calc(100vh - 0px);
-    overflow: auto;
+    overflow-y: auto;
   }
 }
 /*# sourceMappingURL=everything.module.css.map */

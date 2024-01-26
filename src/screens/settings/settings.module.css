@@ -1,6 +1,6 @@
 .container {
   height: 80%;
-  overflow: auto;
+  overflow-y: auto;
 }
 .contentHeading {
   text-align: left;
@@ -86,8 +86,8 @@
     left: 25rem;
     position: absolute;
     width: calc(100% - 50rem);
-    margin-top: 5rem;
-    height: calc(100% - 8rem);
+    margin-top: 3rem;
+    height: calc(100% - 6rem);
   }
 }
 /* Markdown */

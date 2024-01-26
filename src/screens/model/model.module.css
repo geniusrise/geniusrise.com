@@ -1,9 +1,9 @@
 .container {
   height: 80%;
-  overflow: auto;
+  overflow-y: auto;
   overflow-x: hidden;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 2rem;
+  background-color: var(--dark-table-head);
+  border: 1rem solid var(--dark-modal-background);
   border-radius: 1rem;
 }
 .container h1,
@@ -97,8 +97,6 @@ div {
 }
 .actions {
   width: 100%;
-  margin-right: 15px;
-  margin-left: 15px;
 }
 .actions button {
   width: 100%;
@@ -107,6 +105,7 @@ div {
   color: var(--dark-text-color);
   font-size: 1.1rem;
   border: none;
+  border: 1rem solid var(--dark-table-head);
   border-radius: 1rem;
 }
 .actions a {
@@ -115,14 +114,16 @@ div {
 }
 .actions button:hover {
   color: var(--dark-neon-color-1);
+  border: 1rem solid var(--dark-background-histogram);
 }
 @media (min-width: 1100px) {
   .container {
     left: 25rem;
     position: absolute;
     width: calc(100% - 50rem);
-    margin-top: 5rem;
-    height: calc(100% - 8rem);
+    margin-top: 3rem;
+    height: calc(100% - 6rem);
+    padding: 5rem;
   }
   .markdown {
     max-width: 50vw;

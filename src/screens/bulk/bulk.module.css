@@ -1,8 +1,7 @@
 .container {
   height: 80%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 2rem;
+  overflow-y: auto;
+  background-color: var(--dark-table-head);
   border-radius: 1rem;
 }
 .headerImage {
@@ -170,8 +169,9 @@
     left: 25rem;
     position: absolute;
     width: calc(100% - 50rem);
-    margin-top: 5rem;
-    height: calc(100% - 8rem);
+    margin-top: 3rem;
+    height: calc(100% - 6rem);
+    padding: 5rem;
   }
 }
 /*# sourceMappingURL=bulk.module.css.map */
