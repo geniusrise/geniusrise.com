@@ -119,7 +119,8 @@ genius ${model.apiClass} rise \\
         --postgres_database geniusrise\\
         --postgres_table state \\
     listen \\
-    ${modelRunString}
+        --model_name="${model.model_name}" \\
+        ${modelRunString}
 \`\`\`
 
 ### Or execute bulk inference
@@ -148,7 +149,8 @@ genius ${model.apiClass.replace("API", "Bulk")} rise \\
         --postgres_database geniusrise\\
         --postgres_table state \\
     listen \\
-    ${modelBulkRunString}
+        --model_name="${model.model_name}" \\
+        ${modelBulkRunString}
 \`\`\`
 
 For more on how to run locally, refer to [docs.geniusrise.ai](https://docs.geniusrise.ai).
