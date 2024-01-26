@@ -228,8 +228,6 @@ genius ${model.apiClass.replace("API", "Bulk")} rise \\
 
 #### Using YAML
 
-#### Using YAML
-
 \`\`\`yaml
 version: "1"
 
