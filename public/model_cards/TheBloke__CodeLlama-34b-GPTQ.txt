@@ -1,40 +1,36 @@
 # Model name
 
-TheBloke/CodeLlama-34B-GPTQ
+CodeLlama-34B-GPTQ
 
 ## Links
 
-- Repository: [Link](https://huggingface.co/TheBloke/CodeLlama-34B-GPTQ)
-- Model card: [Link](https://huggingface.co/TheBloke/CodeLlama-34B-GPTQ)
+- [Model Page](https://huggingface.co/TheBloke/CodeLlama-34B-GPTQ)
+- [GitHub Repo](https://github.com/TheBloke/CodeLlama-34B-GPTQ)
 
 ## Description
 
-The CodeLlama-34B-GPTQ model is a language model trained on code-related text data. It is based on the transformers library in Python and is part of the CodeLlama project. The model is designed for generating code and code-related text.
+The CodeLlama-34B-GPTQ is a text generation model built using the llama architecture. It is primarily designed for code generation tasks and is based on the CodeLlama-34B base model. The model has been quantized using GPTQ (Generative Pre-trained Transformer with Quantization) techniques.
 
-Key features of the model include:
-
-- Text generation for code and code-related tasks
-- Large model size with 34 billion parameters
-- Utilizes GPTQ (Quantized GPT) or AWQ (Automated Weight Quantization) techniques, resulting in reduced model size and memory requirements
-
-The model has been trained on various code-related datasets and can be used for a wide range of applications in the field of software development and programming.
+The model offers advanced capabilities for code generation and can be fine-tuned for specific use cases. It has a large number of parameters and can generate high-quality code outputs.
 
 ## Usage example
 
-Here is an example of how to use the CodeLlama-34B-GPTQ model with the transformers library in Python:
+Here is an example of how to use the CodeLlama-34B-GPTQ model with the Transformers library in Python:
 
 ```python
-from transformers import pipeline
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-generator = pipeline("text-generation", model="TheBloke/CodeLlama-34B-GPTQ", tokenizer="TheBloke/CodeLlama-34B-GPTQ")
+model_name = "TheBloke/CodeLlama-34B-GPTQ"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
-prompt = "Generate a Python function to calculate the factorial of a number"
+input_text = "def greet():\n    print('Hello, world!')\n"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
 
-output = generator(prompt, max_length=100)
+output = model.generate(input_ids)
+output_text = tokenizer.decode(output[0])
 
-print(output[0]["generated_text"])
+print(output_text)
 ```
 
-This will generate a Python function to calculate the factorial of a number based on the provided prompt using the CodeLlama-34B-GPTQ model.
-
-For more details and usage examples, please refer to the [model repository](https://huggingface.co/TheBloke/CodeLlama-34B-GPTQ).
+Please note that this example assumes you have already installed the Transformers library and have a compatible GPU for running the model efficiently.

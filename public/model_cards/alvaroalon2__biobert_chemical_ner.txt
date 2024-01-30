@@ -1,37 +1,29 @@
 # Model name
 
-biobert_chemical_ner
+alvaroalon2/biobert_chemical_ner
 
 ## Links
 
-Hugging Face page: [biobert_chemical_ner](https://huggingface.co/alvaroalon2/biobert_chemical_ner)
+- Hugging Face Model Page: [https://huggingface.co/alvaroalon2/biobert_chemical_ner](https://huggingface.co/alvaroalon2/biobert_chemical_ner)
+- GitHub Repo: N/A
 
 ## Description
 
-The biobert_chemical_ner is a model for chemical named entity recognition (NER) using the BioBERT architecture. It is fine-tuned on the BC5CDR-chemicals and BC4CHEMD datasets. 
-
-The model is based on the BERT architecture and is implemented in the transformers library for Python. It has a total of 164 million parameters.
-
-For more information and usage examples, refer to the [Hugging Face model page](https://huggingface.co/alvaroalon2/biobert_chemical_ner).
+The alvaroalon2/biobert_chemical_ner model is a token classification model trained using the BioBERT architecture. It is specifically designed for named entity recognition (NER) tasks related to chemical entities in biomedical text. The model is based on the BERT architecture and is trained on diverse biomedical datasets such as BC5CDR-chemicals and BC4CHEMD. It belongs to the token-classification pipeline and is compatible with the transformers library in Python.
 
 ## Usage example
 
-Here is an example of how to use the biobert_chemical_ner model with the transformers library in Python:
-
 ```python
-from transformers import pipeline
+from transformers import AutoTokenizer, AutoModelForTokenClassification
 
-ner = pipeline("ner", model="alvaroalon2/biobert_chemical_ner", tokenizer="alvaroalon2/biobert_chemical_ner")
+tokenizer = AutoTokenizer.from_pretrained("alvaroalon2/biobert_chemical_ner")
+model = AutoModelForTokenClassification.from_pretrained("alvaroalon2/biobert_chemical_ner")
 
-text = "The patient was administered Ibuprofen for pain relief."
+text = "Some example text"
+inputs = tokenizer.encode_plus(text, return_tensors="pt")
+outputs = model(**inputs)
 
-entities = ner(text)
-print(entities)
+# Process the outputs as per your application's requirements
 ```
 
-This will output the following:
-```
-[{'entity': 'Ibuprofen', 'score': 0.9682798981666565, 'index': 5, 'start': 26, 'end': 35, 'type': 'CHEMICAL'}]
-```
-
-Please note that the example assumes you have installed the transformers library and have access to the biobert_chemical_ner model.
+Note: Replace "Some example text" with your input text that you want to perform chemical NER on.

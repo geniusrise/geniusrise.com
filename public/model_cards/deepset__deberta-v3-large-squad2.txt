@@ -1,43 +1,41 @@
 # Model name
 
-Deepset/Deberta-v3-large-squad2
+deepset/deberta-v3-large-squad2
 
 ## Links
 
-- [Hugging Face Model Repository](https://huggingface.co/deepset/deberta-v3-large-squad2)
+- [Model Page](https://huggingface.co/deepset/deberta-v3-large-squad2)
+- [GitHub Repo](https://github.com/deepset-ai/haystack)
 
 ## Description
 
-Deepset/Deberta-v3-large-squad2 is a question answering model based on the DeBERTa-v3-large architecture. It has been fine-tuned on the SQuAD2 dataset. The model achieves an Exact Match score of 88.0876% and an F1 score of 91.1623% on the SQuAD2 validation set. It can be easily accessed and used through the transformers library in Python.
+The deepset/deberta-v3-large-squad2 model is a Question Answering model based on the DeBERTa-v3 framework. It has been fine-tuned on the SQuAD v2 dataset. The model has achieved an exact match accuracy of 88.0876% and an F1 score of 91.1623% on the validation set of SQuAD v2. 
 
-The DeBERTa-v3-large model is an extension of the base DeBERTa model, which utilizes a modified architecture and training procedure to achieve improved performance on downstream tasks.
+This model is compatible with the transformers library in Python.
 
 ## Usage example
 
-Here is an example of how to use the Deberta-v3-large-squad2 model with the transformers library in Python:
-
 ```python
 from transformers import DebertaTokenizer, DebertaForQuestionAnswering
+import torch
 
 tokenizer = DebertaTokenizer.from_pretrained("deepset/deberta-v3-large-squad2")
 model = DebertaForQuestionAnswering.from_pretrained("deepset/deberta-v3-large-squad2")
 
 question = "What is the capital of France?"
-context = "Paris is the capital of France."
+context = "The capital of France is Paris."
 
-inputs = tokenizer.encode_plus(question, context, add_special_tokens=True, return_tensors="pt")
-input_ids = inputs["input_ids"].tolist()[0]
-attention_mask = inputs["attention_mask"].tolist()[0]
+inputs = tokenizer.encode_plus(question, context, return_tensors="pt")
+start_logits, end_logits = model(**inputs)
 
-outputs = model(input_ids=input_ids, attention_mask=attention_mask)
+start_index = torch.argmax(start_logits)
+end_index = torch.argmax(end_logits)
 
-start_scores = outputs.start_logits
-end_scores = outputs.end_logits
-
-all_tokens = tokenizer.convert_ids_to_tokens(input_ids)
-answer = tokenizer.convert_tokens_to_string(all_tokens[torch.argmax(start_scores): torch.argmax(end_scores)+1])
-
+answer_tokens = inputs["input_ids"][0][start_index:end_index+1]
+answer = tokenizer.decode(answer_tokens)
 print(answer)
 ```
 
-For more details and options on using the Deberta-v3-large-squad2 model, please refer to the [official Hugging Face page](https://huggingface.co/deepset/deberta-v3-large-squad2).
+Please note that this model has a total of 544 million parameters.
+
+For more details, please refer to the [model page](https://huggingface.co/deepset/deberta-v3-large-squad2) and the [GitHub repository](https://github.com/deepset-ai/haystack).

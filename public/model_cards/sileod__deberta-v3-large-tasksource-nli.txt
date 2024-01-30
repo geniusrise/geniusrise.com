@@ -4,31 +4,36 @@ sileod/deberta-v3-large-tasksource-nli
 
 ## Links
 
-- [Hugging Face Model Page](https://huggingface.co/sileod/deberta-v3-large-tasksource-nli)
+- [Model Page](https://huggingface.co/sileod/deberta-v3-large-tasksource-nli)
+- [GitHub Repo](https://github.com/sileod/hf_scaffold)
 
 ## Description
 
-The sileod/deberta-v3-large-tasksource-nli model is a variant of the DeBERTa v3 large model trained on various Natural Language Inference (NLI) datasets. It is designed for performing text classification tasks and is based on the transformers library in Python.
+This model is based on the DeBERTa-v3-large architecture and is fine-tuned on the Natural Language Inference (NLI) task. It is part of the DeBERTa-v3 series of models, which are optimized for extreme multitasking and can handle a wide range of tasks, including zero-shot classification. The model is trained using the Transformers library and Python.
 
-The model has been fine-tuned on several datasets, including GLUE, SuperGLUE, ANLI, MetaEval/Babi-NLI, SICK, SNLI, SciTail, and HANS. It has a total of 463 million parameters and is capable of performing zero-shot classification using the zero-shot-classification pipeline. It supports the English language.
+The model's pipeline tag is "zero-shot-classification" indicating its ability to perform zero-shot classification on unseen classes.
+
+The model supports multiple datasets, including GLUE, SuperGLUE, ANLI, SNLI, SciTail, HANS, and more. It has a total of 40600 downloads.
+
+The model is developed by Damien Sileo (sileod) and is licensed under the Apache 2.0 license. The model is available in English.
 
 ## Usage example
 
-You can use the sileod/deberta-v3-large-tasksource-nli model with the transformers library in Python. Here is an example of how to use it for text classification:
-
 ```python
-from transformers import DebertaForSequenceClassification, DebertaTokenizer
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 model_name = "sileod/deberta-v3-large-tasksource-nli"
-model = DebertaForSequenceClassification.from_pretrained(model_name)
-tokenizer = DebertaTokenizer.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(model_name)
 
-text = "This is an example sentence."
-inputs = tokenizer(text, return_tensors="pt")
+sentence = "This is an example sentence."
+inputs = tokenizer.encode_plus(sentence, add_special_tokens=True, return_tensors="pt")
 outputs = model(**inputs)
 
-logits = outputs.logits
-predicted_label = torch.argmax(logits, dim=1).item()
+# Get predicted label
+predicted_label = tokenizer.decode(outputs.logits.argmax(), skip_special_tokens=True)
+
+print("Predicted label:", predicted_label)
 ```
 
-For more information and detailed usage examples, refer to the [Hugging Face Model Page](https://huggingface.co/sileod/deberta-v3-large-tasksource-nli).
+Please refer to the [Model Page](https://huggingface.co/sileod/deberta-v3-large-tasksource-nli) for more details and usage options.

@@ -1,32 +1,35 @@
 # Model name
-bert2bert-base-arxiv-titlegen
+
+Callidior/bert2bert-base-arxiv-titlegen
 
 ## Links
 
 - [Hugging Face Model Page](https://huggingface.co/Callidior/bert2bert-base-arxiv-titlegen)
+- [GitHub Repo](https://github.com/callidior/bert2bert-arxiv-titlegen)
 
 ## Description
 
-The `bert2bert-base-arxiv-titlegen` model is a language generation model for generating titles for arXiv papers. It is based on the BERT2BERT architecture and is fine-tuned on the arXiv dataset. The model is trained using the transformers library with Python. 
+The Callidior/bert2bert-base-arxiv-titlegen is a BERT-based model trained for generating titles for academic papers from their arXiv abstracts. It is built using the transformers library in Python. The model is fine-tuned on the arXiv dataset and can be used for summarization tasks. It follows an encoder-decoder architecture and achieves good results in terms of quality and generation time.
 
-The model achieves superior performance in terms of quality and is more parallelizable and faster to train compared to other sequence transduction models. It achieves impressive results in machine translation tasks, such as English-to-German and English-to-French translation, as well as English constituency parsing. The model has a BLEU score of 28.4 on the WMT 2014 English-to-German translation task and a BLEU score of 41.8 on the WMT 2014 English-to-French translation task.
-
-The `bert2bert-base-arxiv-titlegen` model has 830 downloads and is interoperable with AutoTrain and inference endpoints.
+The model is based on the Transformer architecture, which consists solely of attention mechanisms and eliminates the need for recurrence and convolutions. This allows for higher parallelization and faster training times. The model outperforms previous approaches on machine translation tasks, achieving state-of-the-art performance while requiring fewer computational resources.
 
 ## Usage example
 
-```python
-from transformers import BertTokenizer, BertForSeq2SeqLM
+```
+from transformers import pipeline
 
-tokenizer = BertTokenizer.from_pretrained("Callidior/bert2bert-base-arxiv-titlegen")
-model = BertForSeq2SeqLM.from_pretrained("Callidior/bert2bert-base-arxiv-titlegen")
+title_generator = pipeline(
+    "text2text-generation",
+    model="Callidior/bert2bert-base-arxiv-titlegen",
+    tokenizer="Callidior/bert2bert-base-arxiv-titlegen"
+)
 
-text = "An introduction to machine learning"
-input_ids = tokenizer.encode(text, return_tensors="pt")
-output_ids = model.generate(input_ids)
-output = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+abstract = "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration..."
+generated_title = title_generator(abstract, max_length=20)[0]['generated_text']
 
-print("Generated Title:", output)
+print(generated_title)
 ```
 
-Note: Please refer to the [Hugging Face Model Page](https://huggingface.co/Callidior/bert2bert-base-arxiv-titlegen) for more details on usage and examples.
+This example demonstrates how to use the model to generate a title for an arXiv abstract using the transformers library in Python. The generated title is then printed as output.
+
+Please note that the number of parameters for this model is not provided in the available information.

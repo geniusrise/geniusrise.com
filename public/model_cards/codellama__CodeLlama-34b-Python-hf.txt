@@ -1,32 +1,34 @@
 # Model name
+
 CodeLlama-34b-Python-hf
 
 ## Links
-- Hugging Face Model page: [CodeLlama-34b-Python-hf](https://huggingface.co/codellama/CodeLlama-34b-Python-hf)
+
+- Hugging Face Model Page: [CodeLlama-34b-Python-hf](https://huggingface.co/codellama/CodeLlama-34b-Python-hf)
+- GitHub Repository: *not available*
 
 ## Description
-The CodeLlama-34b-Python-hf model is a text generation model developed by Code Llama. It is built using the transformers library in Python. The model is designed for text generation tasks and has a pipeline tag of "text-generation". It is based on the LlamaForCausalLM architecture and falls under the category of neural language models.
 
-The model has been trained on various datasets and has a total of 34 billion parameters. It supports the use of GPTQ and AWQ methods for language understanding and generation. The model is compatible with the transformers library and can be easily used for text generation tasks.
+CodeLlama-34b-Python-hf is a text generation model developed by Code Llama. It is based on the LlamaForCausalLM architecture and can be used for various text generation tasks. The model is trained on the Transformers library with Python. 
+
+This model supports text generation tasks and can be used with the transformers library in Python. It has a total of 34 billion parameters. The model is part of the Llama project and utilizes safe tensors for enhanced safety and security.
 
 ## Usage example
+
 Here is an example of how to use the CodeLlama-34b-Python-hf model with the transformers library in Python:
 
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import TapasTokenizer, TFAutoModel
 
-model_name = "codellama/CodeLlama-34b-Python-hf"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = TapasTokenizer.from_pretrained("codellama/CodeLlama-34b-Python-hf")
+model = TFAutoModel.from_pretrained("codellama/CodeLlama-34b-Python-hf")
 
 input_text = "Once upon a time"
-input_ids = tokenizer.encode(input_text, return_tensors="pt")
+inputs = tokenizer.encode(input_text, return_tensors="tf")
+outputs = model.generate(inputs)
+generated_text = tokenizer.decode(outputs[0])
 
-output = model.generate(input_ids, max_length=50, num_beams=5, num_return_sequences=1)
-generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
 print(generated_text)
 ```
 
-This will generate text using the CodeLlama-34b-Python-hf model with the input text "Once upon a time". The generated text will be printed to the console.
-
-For more information and examples, please refer to the [original Hugging Face page](https://huggingface.co/codellama/CodeLlama-34b-Python-hf).
+Note: The above example assumes that you have already installed the transformers library.

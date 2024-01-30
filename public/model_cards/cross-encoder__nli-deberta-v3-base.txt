@@ -4,29 +4,28 @@ cross-encoder/nli-deberta-v3-base
 
 ## Links
 
-- [Hugging Face Model Page](https://huggingface.co/cross-encoder/nli-deberta-v3-base)
+- [Model Page](https://huggingface.co/cross-encoder/nli-deberta-v3-base)
+- [GitHub Repository](https://github.com/cross-encoder/nli-deberta-v3-base)
 
 ## Description
 
-The cross-encoder/nli-deberta-v3-base model is a transformer-based model that is pre-trained on the `multi_nli` and `snli` datasets. It is based on the DeBERTa-v2 architecture and is specifically designed for zero-shot classification tasks. The model can be used for tasks such as sentence classification and text classification. 
+The cross-encoder/nli-deberta-v3-base model is a transformer-based model trained for natural language inference tasks. It is built using the Deberta-v3 architecture and is specifically designed for zero-shot classification tasks. The model performs inference and supports the use of the autotrain and endpoint features.
 
-The model has a total of 355 million parameters and supports the use of GPTQ or AWQ (Answer-Wrapped Questions) for zero-shot classification. It achieves an accuracy metric on its pre-training datasets.
-
-For usage examples, the Transformers library with Python can be used.
+The model has been fine-tuned on the multi_nli and snli datasets and achieves high accuracy in zero-shot classification tasks. It uses the transformers library with Python for the examples.
 
 ## Usage example
 
 ```python
-from transformers import pipeline
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
-classifier = pipeline("zero-shot-classification", model="cross-encoder/nli-deberta-v3-base")
+tokenizer = AutoTokenizer.from_pretrained("cross-encoder/nli-deberta-v3-base")
+model = AutoModelForSequenceClassification.from_pretrained("cross-encoder/nli-deberta-v3-base")
 
-sequence = "This is an example sentence."
-candidate_labels = ["label1", "label2", "label3"]
+sentence = "This is an example sentence."
+inputs = tokenizer.encode_plus(sentence, add_special_tokens=True, return_tensors="pt")
 
-result = classifier(sequence, candidate_labels)
-
-print(result)
+outputs = model(**inputs)
+logits = outputs.logits
 ```
 
-This example demonstrates how to use the model for zero-shot classification. The model predicts the most relevant label from the given candidate labels for a given input sequence.
+The model can be used for various natural language inference tasks by providing input sentences and using the model's outputs for classification or further processing.

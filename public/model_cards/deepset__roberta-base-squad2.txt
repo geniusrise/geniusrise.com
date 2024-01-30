@@ -4,28 +4,38 @@ deepset/roberta-base-squad2
 
 ## Links
 
-- [Model Page](https://huggingface.co/deepset/roberta-base-squad2)
-- [Original Hugging Face Page](https://huggingface.co/deepset/roberta-base-squad2)
+- [Hugging Face Model Page](https://huggingface.co/deepset/roberta-base-squad2)
+- [GitHub Repository](https://github.com/deepset-ai/haystack)
 
 ## Description
 
-The deepset/roberta-base-squad2 model is a RoBERTa-based model fine-tuned on the SQuAD 2.0 dataset. It is designed for question-answering tasks, where given a question and a passage of text, the model predicts the answer to the question within the passage. It achieves an exact match score of 79.93% on the SQuAD 2.0 validation set.
+The deepset/roberta-base-squad2 model is a RoBERTa-based model fine-tuned for the task of question answering. It achieves state-of-the-art performance on the SQuAD v2.0 dataset, with an exact match score of 79.93% and an F1 score of 82.95%. The model is trained on the SQuAD v2.0 dataset and supports question answering in English. It is implemented in the transformers library in Python.
 
-The model is compatible with the Transformers library in Python and can be used for various question-answering applications.
+The model has 124 million parameters and can be used for various question answering tasks using the transformers library.
 
 ## Usage example
 
-Here is an example of using the deepset/roberta-base-squad2 model with the Transformers library in Python:
+Here is an example of using the deepset/roberta-base-squad2 model for question answering using the transformers library in Python:
 
 ```python
-from transformers import pipeline
+from transformers import AutoModelForQuestionAnswering, AutoTokenizer
 
-nlp = pipeline("question-answering", model="deepset/roberta-base-squad2", tokenizer="deepset/roberta-base-squad2")
-context = "Hugging Face is a company that develops natural language processing models."
-question = "What does Hugging Face do?"
+model_name = "deepset/roberta-base-squad2"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForQuestionAnswering.from_pretrained(model_name)
 
-result = nlp(question=question, context=context)
-print(result)
+context = "The quick brown fox jumps over the lazy dog."
+question = "What is the color of the fox?"
+
+encoding = tokenizer.encode_plus(question, context, return_tensors="pt")
+input_ids = encoding["input_ids"].tolist()
+start_scores, end_scores = model(**encoding).logits[0]
+
+answer_start = torch.argmax(start_scores)
+answer_end = torch.argmax(end_scores) + 1
+answer = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(input_ids[0][answer_start:answer_end]))
+
+print(answer)
 ```
 
-This will output the predicted answer to the question based on the given context.
+Please refer to the [Hugging Face Model Page](https://huggingface.co/deepset/roberta-base-squad2) for more information on using this model.

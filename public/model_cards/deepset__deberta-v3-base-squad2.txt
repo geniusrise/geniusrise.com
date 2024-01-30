@@ -1,35 +1,45 @@
 # Model name
+
 deepset/deberta-v3-base-squad2
 
 ## Links
-[Original Hugging Face page](https://huggingface.co/deepset/deberta-v3-base-squad2)
+
+- [Model Page](https://huggingface.co/deepset/deberta-v3-base-squad2)
+- [GitHub Repo](https://github.com/deepset-ai/hub-models)
 
 ## Description
-The deepset/deberta-v3-base-squad2 model is a Question Answering model based on the DeBERTa-V3 architecture. It has been fine-tuned on the SQuAD v2 dataset and achieves state-of-the-art performance on the task. The model is trained using PyTorch and can be accessed through the transformers library in Python.
 
-The model has a total of 144 million parameters.
+The deepset/deberta-v3-base-squad2 model is a question answering model based on the DeBERTa-v3 architecture. It is fine-tuned on the SQuAD v2 dataset. The model achieves an exact match score of 83.82% and an F1 score of 87.41% on the SQuAD v2 validation set. It can be used to answer questions based on a given context.
+
+The model is compatible with the transformers library in Python. It has a total of 456 million parameters and uses the microsoft/deberta-v3-base model as its base.
 
 ## Usage example
-Here is an example of how to use the deepset/deberta-v3-base-squad2 model with the transformers library in Python:
 
 ```python
-from transformers import AutoTokenizer, AutoModelForQuestionAnswering
+from transformers import DebertaForQuestionAnswering, AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("deepset/deberta-v3-base-squad2")
-model = AutoModelForQuestionAnswering.from_pretrained("deepset/deberta-v3-base-squad2")
+model_name = "deepset/deberta-v3-base-squad2"
+model = DebertaForQuestionAnswering.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-# Encode the context and question
-inputs = tokenizer.encode_plus("context", "question", return_tensors="pt")
+context = "The DeBERTa architecture is a powerful tool for question answering tasks."
+question = "What is DeBERTa?"
 
-# Get the model's predictions
-start_scores, end_scores = model(**inputs)
+inputs = tokenizer.encode_plus(question, context, padding="max_length", truncation=True, max_length=512, return_tensors="pt")
+input_ids = inputs["input_ids"]
+attention_mask = inputs["attention_mask"]
 
-# Decode the tokens and get the answer span
-answer_start = torch.argmax(start_scores)
-answer_end = torch.argmax(end_scores)
-answer = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(inputs["input_ids"][0][answer_start:answer_end+1]))
+outputs = model(input_ids, attention_mask=attention_mask)
+answer_start_scores = outputs.start_logits
+answer_end_scores = outputs.end_logits
 
-print("Answer:", answer)
+start_index = torch.argmax(answer_start_scores)
+end_index = torch.argmax(answer_end_scores)
+
+answer = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(input_ids[0][start_index:end_index+1]))
+print(answer)
 ```
 
-For more details and examples, refer to the [original Hugging Face page](https://huggingface.co/deepset/deberta-v3-base-squad2).
+Please note that the example above is a basic implementation. Additional post-processing may be required depending on the specific use case.
+
+The model is licensed under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.

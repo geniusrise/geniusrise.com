@@ -5,27 +5,31 @@ google/pegasus-x-base
 ## Links
 
 - [Hugging Face Model Page](https://huggingface.co/google/pegasus-x-base)
+- [GitHub Repository](https://github.com/huggingface/transformers)
 
 ## Description
 
-The `google/pegasus-x-base` model is a Pegasus model developed by Google. Pegasus is a state-of-the-art text-to-text transfer transformer for conditional generation tasks. This model is based on the Pegasus architecture and is trained on a large corpus of data to generate high-quality summaries for various input texts. It can be used for tasks like text summarization, abstractive summarization, and other related tasks. 
-
-The model uses the transformers library with Python for implementation. It has a significant number of parameters and is well-suited for generating high-quality summaries.
+The google/pegasus-x-base model is a variant of Pegasus, a state-of-the-art model for text-to-text generation. It is available in the Transformers library with Python. This model is designed to generate abstractive summaries of text inputs. It utilizes the Pegasus architecture and is trained on a large amount of data.
 
 ## Usage example
 
+Here's an example of how to use the model with the Transformers library in Python:
+
 ```python
-from transformers import PegasusTokenizer, PegasusForConditionalGeneration
+from transformers import PegasusForConditionalGeneration, PegasusTokenizer
 
-tokenizer = PegasusTokenizer.from_pretrained("google/pegasus-x-base")
-model = PegasusForConditionalGeneration.from_pretrained("google/pegasus-x-base")
+model_name = "google/pegasus-x-base"
+tokenizer = PegasusTokenizer.from_pretrained(model_name)
+model = PegasusForConditionalGeneration.from_pretrained(model_name)
 
-input_text = "This is an example sentence that needs to be summarized."
-inputs = tokenizer([input_text], truncation=True, padding="longest")
-summary_ids = model.generate(inputs.input_ids, num_beams=4, max_length=100)
+input_text = "This is an example input for text summarization"
+input_ids = tokenizer.encode(input_text, truncation=True, padding=True, return_tensors="pt")
 
-summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
-print(summary)
+summary_ids = model.generate(input_ids)
+summary_text = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+
+print("Input text:", input_text)
+print("Generated summary:", summary_text)
 ```
 
-This example shows how to use the `google/pegasus-x-base` model to generate a summary for an input sentence using the transformers library in Python.
+Please note that this example assumes you have already installed the Transformers library and have the necessary dependencies.

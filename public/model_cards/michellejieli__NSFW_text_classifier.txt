@@ -4,27 +4,36 @@ NSFW_text_classifier
 
 ## Links
 
-- Hugging Face page: [NSFW_text_classifier](https://huggingface.co/michellejieli/NSFW_text_classifier)
+- Hugging Face Model Page: [michellejieli/NSFW_text_classifier](https://huggingface.co/michellejieli/NSFW_text_classifier)
+- GitHub Repo: Not available
 
 ## Description
 
-The NSFW_text_classifier model is a text classification model that can be used to identify NSFW (Not Safe for Work) content in text. It uses the transformers library with Python and is based on the DistilBERT model architecture. The model has been trained on various datasets and has a total of 21,538 downloads.
-
-The model can be used to classify text from sources such as Twitter and Reddit, and is particularly effective in detecting inappropriate and spam content. It supports inference, meaning it can be used to make predictions on new data.
+The NSFW_text_classifier is a text classification model that can be used to identify and classify text that contains NSFW (Not Safe for Work) content, such as inappropriate or spam content. It is based on the DistilBERT architecture and trained using the transformers library with Python. The model supports inference and is compatible with auto-training and inference endpoints.
 
 ## Usage example
 
 ```python
-from transformers import pipeline
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
-classifier = pipeline("text-classification", model="michellejieli/NSFW_text_classifier")
+tokenizer = AutoTokenizer.from_pretrained("michellejieli/NSFW_text_classifier")
+model = AutoModelForSequenceClassification.from_pretrained("michellejieli/NSFW_text_classifier")
 
-text = "I like you. You remind me of me when I was young and stupid."
-result = classifier(text)
+# Preprocess input text
+inputs = tokenizer("I like you. You remind me of me when I was young and stupid.", return_tensors="pt")
 
-print(result)
+# Perform inference
+outputs = model(**inputs)
+predictions = outputs.logits.argmax().item()
+
+print("Predicted class:", predictions)
 ```
 
-This example demonstrates how to use the NSFW_text_classifier model to classify the text "I like you. You remind me of me when I was young and stupid". The model will return the predicted label and confidence score for the input text.
+## Model details
 
-Please refer to the [Hugging Face page](https://huggingface.co/michellejieli/NSFW_text_classifier) for more information and usage details.
+- Architecture: DistilBERT
+- Model type: text-classification
+- Number of parameters: Not available
+- Possible tags: transformers, pytorch, distilbert, text-classification, distilroberta, sentiment, NSFW, inappropriate, spam, twitter, reddit, en, autotrain_compatible, endpoints_compatible, has_space, region:us
+
+Please note that the specific number of parameters is not mentioned on the model page.

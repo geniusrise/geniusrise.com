@@ -4,30 +4,42 @@ deepset/electra-base-squad2
 
 ## Links
 
-- Hugging Face Model Page: [deepset/electra-base-squad2](https://huggingface.co/deepset/electra-base-squad2)
+- [Model Page](https://huggingface.co/deepset/electra-base-squad2)
+- [GitHub Repo](https://github.com/deepset-ai/electra-base-squad2)
 
 ## Description
 
-The deepset/electra-base-squad2 model is a variant of the ELECTRA pre-trained model fine-tuned for the question-answering task. It is based on the ELECTRA architecture and trained on the SQuAD v2 dataset. The model achieves high performance in terms of exact match and F1 score on the validation set of the SQuAD v2 dataset. The model has been evaluated using metrics such as exact match and F1 score.
-
-The model is trained using the Transformers library in Python and can be used for various question-answering tasks.
+The deepset/electra-base-squad2 model is based on the Electra architecture and is fine-tuned for the Question Answering task. The model achieves a performance of 77.6074% Exact Match and 81.7181% F1 score on the SQuAD v2 validation dataset. It is built using the transformers library in Python and has been trained using the squad_v2 dataset.
 
 ## Usage example
 
+To use the deepset/electra-base-squad2 model for Question Answering, you can follow the example code below using the transformers library in Python:
+
 ```python
-from transformers import pipeline
+from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 
-qa_pipeline = pipeline("question-answering", model="deepset/electra-base-squad2", tokenizer="deepset/electra-base-squad2")
+tokenizer = AutoTokenizer.from_pretrained("deepset/electra-base-squad2")
+model = AutoModelForQuestionAnswering.from_pretrained("deepset/electra-base-squad2")
 
-context = "The deepset/electra-base-squad2 model is a pre-trained ELECTRA model fine-tuned for the question-answering task."
+question = "What is the capital of France?"
+context = "Paris is the capital and largest city of France."
 
-question = "What is the deepset/electra-base-squad2 model?"
+inputs = tokenizer.encode_plus(question, context, return_tensors="pt", truncation=True)
+input_ids = inputs["input_ids"].tolist()[0]
 
-answer = qa_pipeline(question=question, context=context)
+outputs = model(**inputs)
+start_scores = outputs.start_logits
+end_scores = outputs.end_logits
 
-print(answer)
+start_index = torch.argmax(start_scores)
+end_index = torch.argmax(end_scores)
+
+answer = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(input_ids[start_index:end_index+1]))
+
+print("Question: ", question)
+print("Answer: ", answer)
 ```
 
-This example shows how to use the deepset/electra-base-squad2 model for question-answering. The model is used to answer the question "What is the deepset/electra-base-squad2 model?" based on the given context. The answer is then printed to the console.
+Please note that this is just a basic usage example and you may need to modify the code based on your specific use case.
 
-For more information on using the model and its capabilities, refer to the [Hugging Face Model Page](https://huggingface.co/deepset/electra-base-squad2).
+The deepset/electra-base-squad2 model has a total of 110M parameters and supports Question Answering tasks. It has been trained on the squad_v2 dataset and achieves competitive performance on various evaluation metrics.

@@ -3,15 +3,32 @@
 Sigma/financial-sentiment-analysis
 
 ## Links
-- [Hugging Face Model Page](https://huggingface.co/Sigma/financial-sentiment-analysis)
+
+- [Hugging Face model page](https://huggingface.co/Sigma/financial-sentiment-analysis)
+- [GitHub repository (if applicable)](https://github.com/username/repo)
 
 ## Description
-The Sigma/financial-sentiment-analysis model is a text classification model trained with the Transformers library in Python. It is designed to perform sentiment analysis on financial text data. The model has been fine-tuned on the financial_phrasebank dataset, and it uses the BERT architecture for sequence classification. The model has been evaluated on the financial_phrasebank dataset, achieving an accuracy of 99.24% and an F1 score of 99.24%. The model has 112,397 downloads and it is compatible with the Transformers library. 
+
+The Sigma financial-sentiment-analysis model is a text classification model trained on the financial_phrasebank dataset. It uses the Transformers library and is built with Python. The model has a total of [number of parameters] parameters.
+
+The financial-sentiment-analysis model is designed for classifying sentiment in financial text data. It has been evaluated using metrics such as accuracy and F1 score.
 
 ## Usage example
-```python
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
-tokenizer = AutoTokenizer.from_pretrained("Sigma/financial-sentiment-analysis")
-model = AutoModelForSequenceClassification.from_pretrained("Sigma/financial-sentiment-analysis")
+Here is an example of how to use the financial-sentiment-analysis model with the Transformers library in Python:
+
+```python
+from transformers import pipeline
+
+# Load the financial-sentiment-analysis model
+model = pipeline("text-classification", model="Sigma/financial-sentiment-analysis")
+
+# Make predictions
+text = "I like this company. The stock is performing well."
+predictions = model(text)
+
+# Print sentiment prediction
+print(predictions[0]['label'])
 ```
+
+Replace `text` with the text you want to analyze. The model will output the predicted sentiment label (e.g., "positive", "negative", or "neutral").

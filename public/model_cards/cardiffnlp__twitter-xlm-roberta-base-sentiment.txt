@@ -1,35 +1,31 @@
 # Model name
 
-twitter-xlm-roberta-base-sentiment
+cardiffnlp/twitter-xlm-roberta-base-sentiment
 
 ## Links
 
-- [Hugging Face Model Page](https://huggingface.co/cardiffnlp/twitter-xlm-roberta-base-sentiment)
+- [Model Page](https://huggingface.co/cardiffnlp/twitter-xlm-roberta-base-sentiment)
+- [GitHub Repo](https://github.com/cardiffnlp/tweeteval/tree/main/models/sentiment/twitter-xlm-roberta-base)
 
 ## Description
 
-The `twitter-xlm-roberta-base-sentiment` model is a text classification model based on the XLM-RoBERTa architecture. It is trained to classify sentiment in multilingual text from Twitter. The model has been fine-tuned on sentiment datasets and is designed to perform sentiment analysis on social media text.
+The cardiffnlp/twitter-xlm-roberta-base-sentiment model is a transformer-based model trained on multilingual data for sentiment analysis in text classification tasks. It utilizes the XLM-RoBERTa architecture and is compatible with the transformers library in Python. The model is suited for tasks such as sentiment analysis in social media posts and other multilingual text classification tasks. It has been trained on a large amount of Twitter data and can handle various sentiment classes.
 
-This model is part of the Transformers library in Python and can be accessed through the Hugging Face Model Hub.
+The model has been built by Cardiff NLP and is hosted on the Hugging Face Model Hub.
 
 ## Usage example
 
-Here is an example of using the `twitter-xlm-roberta-base-sentiment` model with the Transformers library in Python:
-
 ```python
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import pipeline
 
-tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-xlm-roberta-base-sentiment")
-model = AutoModelForSequenceClassification.from_pretrained("cardiffnlp/twitter-xlm-roberta-base-sentiment")
+# Load the sentiment analysis pipeline
+pipeline_name = "cardiffnlp/twitter-xlm-roberta-base-sentiment"
+sentiment_pipeline = pipeline("text-classification", model=pipeline_name, tokenizer=pipeline_name)
 
+# Analyze sentiment of a text
 text = "I love this movie!"
-encoded_input = tokenizer(text, return_tensors="pt")
-output = model(**encoded_input)
-
-sentiment = output.logits.argmax().item()
-print(f"Sentiment: {sentiment}")
+sentiment = sentiment_pipeline(text)
+print(sentiment)
 ```
 
-In this example, we first load the tokenizer and model from the `"cardiffnlp/twitter-xlm-roberta-base-sentiment"` model. We then encode the input text using the tokenizer and pass it to the model for classification. Finally, we retrieve the predicted sentiment from the model's output logits.
-
-Please note that you may need to install the Transformers library before running this code.
+Note: Replace `pipeline_name` with the actual model name "cardiffnlp/twitter-xlm-roberta-base-sentiment" when using the code.

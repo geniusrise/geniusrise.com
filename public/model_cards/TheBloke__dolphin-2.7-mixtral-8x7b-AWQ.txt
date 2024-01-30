@@ -1,20 +1,36 @@
 # Model name
-TheBloke/dolphin-2.7-mixtral-8x7b-AWQ
+
+The model is called dolphin-2.7-mixtral-8x7b-AWQ.
 
 ## Links
-- [Model page on Hugging Face](https://huggingface.co/TheBloke/dolphin-2.7-mixtral-8x7b-AWQ)
+
+- Hugging Face model page: [dolphin-2.7-mixtral-8x7b-AWQ](https://huggingface.co/TheBloke/dolphin-2.7-mixtral-8x7b-AWQ)
+- GitHub repository: N/A
 
 ## Description
-The model is called `dolphin-2.7-mixtral-8x7b-AWQ` and it is created by TheBloke. It is a Mixtral language model trained on various datasets. The model is a text generation model and it is compatible with the transformers library. The model has been quantized using the AWQ (Approximate Weight Quantization) method.
+
+The dolphin-2.7-mixtral-8x7b-AWQ model is a mixtral-based text generation model. It was created by TheBloke. The model is designed for text generation tasks and is trained on multiple datasets, including "ehartford/dolphin", "jondurbin/airoboros-2.2.1", "ehartford/dolphin-coder", "teknium/openhermes", "ise-uiuc/Magicoder-OSS-Instruct-75K", "ise-uiuc/Magicoder-Evol-Instruct-110K", and "LDJnr/Capybara". The model is available in English.
+
+The model configuration includes the architecture "MixtralForCausalLM" and the model type "mixtral". The model uses 4-bit quantization with AWQ (Adaptive Weight Quantization). The total number of parameters for the model is not mentioned in the provided information.
 
 ## Usage example
-Here is an example of how to use the model with the transformers library in Python:
+
+Here is an example of how to use the dolphin-2.7-mixtral-8x7b-AWQ model with the Transformers library in Python:
 
 ```python
-from transformers import AutoTokenizer, AutoModel
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("TheBloke/dolphin-2.7-mixtral-8x7b-AWQ")
-model = AutoModel.from_pretrained("TheBloke/dolphin-2.7-mixtral-8x7b-AWQ")
+model_name = "TheBloke/dolphin-2.7-mixtral-8x7b-AWQ"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+
+input_text = "Once upon a time,"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids, max_length=50, num_return_sequences=5)
+
+for i, generated_sequence in enumerate(output):
+    sequence = tokenizer.decode(generated_sequence, skip_special_tokens=True)
+    print(f"Generated sequence {i+1}: {sequence}")
 ```
 
-You can then use the tokenizer to tokenize input text and feed it to the model for text generation tasks.
+Note: This is a sample code snippet and may need to be adjusted to fit the specific use case.

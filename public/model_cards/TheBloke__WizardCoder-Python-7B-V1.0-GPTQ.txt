@@ -4,30 +4,30 @@ WizardCoder-Python-7B-V1.0-GPTQ
 
 ## Links
 
-- [Original HuggingFace page](https://huggingface.co/TheBloke/WizardCoder-Python-7B-V1.0-GPTQ)
+- [Hugging Face Model Page](https://huggingface.co/TheBloke/WizardCoder-Python-7B-V1.0-GPTQ)
+- [GitHub Repo](https://github.com/TheBloke/CoBlox)
 
 ## Description
 
-The WizardCoder-Python-7B-V1.0-GPTQ model is a text generation model specifically designed for Python code. It is built on the transformers library and has a total of 7 billion parameters. The model is part of the WizardLM project and uses the GPTQ (Quantization-Aware GPT) architecture. It is trained to follow complex instructions and complete code-related tasks. The model has been evaluated on the HumanEval dataset, achieving a pass rate of 55.5% at top-1.
+WizardCoder-Python-7B-V1.0-GPTQ is a text generation model trained on Python code using the GPTQ variant of the GPT-3 architecture. It has been fine-tuned on the WizardLM dataset and is part of the Wizards series of models. The model is implemented using the transformers library in Python.
+
+This model has been quantized to 4-bit precision using the GPTQ method. It has a total of approximately 1.13 billion parameters. The model is designed for text-generation tasks and includes a prompt template that provides instructions for completing requests.
 
 ## Usage example
 
-You can use the WizardCoder-Python-7B-V1.0-GPTQ model for Python code generation by using the transformers library in Python. Here is an example of how to use it:
-
 ```python
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
 
-model_name = "TheBloke/WizardCoder-Python-7B-V1.0-GPTQ"
-tokenizer = GPT2Tokenizer.from_pretrained(model_name)
-model = GPT2LMHeadModel.from_pretrained(model_name)
+tokenizer = GPT2Tokenizer.from_pretrained("TheBloke/WizardCoder-Python-7B-V1.0-GPTQ")
+model = GPT2LMHeadModel.from_pretrained("TheBloke/WizardCoder-Python-7B-V1.0-GPTQ")
 
-input_code = "def sum(a, b):\n    return a + b"
-
-input_ids = tokenizer.encode(input_code, return_tensors="pt")
-output = model.generate(input_ids)
+# Generate Python code based on a prompt
+prompt = "Write a Python function to calculate the factorial of a number."
+input_ids = tokenizer.encode(prompt, return_tensors="pt")
+output = model.generate(input_ids, max_length=100)
 
 generated_code = tokenizer.decode(output[0], skip_special_tokens=True)
 print(generated_code)
 ```
 
-This will generate Python code based on the input code provided using the WizardCoder-Python-7B-V1.0-GPTQ model.
+Please note that this model is trained for text generation tasks and is specifically optimized for Python code.

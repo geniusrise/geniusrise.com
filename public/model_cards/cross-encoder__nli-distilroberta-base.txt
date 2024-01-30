@@ -1,20 +1,30 @@
 # Model name
 
-cross-encoder/nli-distilroberta-base
+nli-distilroberta-base
 
 ## Links
 
 - [Hugging Face Model Page](https://huggingface.co/cross-encoder/nli-distilroberta-base)
+- [GitHub Repo](https://github.com/cross-encoder/nli-distilroberta-base)
 
 ## Description
 
-The cross-encoder/nli-distilroberta-base model is a fine-tuned version of the DistilRoBERTa-base model trained for natural language inference (NLI) tasks. It is based on the distilroberta-base architecture and uses the transformers library in Python. The model is specifically designed for zero-shot classification tasks and performs well in various evaluation metrics such as accuracy. It has been trained on datasets like multi_nli and snli. The model has approximately 69 million parameters and is licensed under Apache-2.0.
+The nli-distilroberta-base model is a cross-encoder model based on distilroberta-base. It is trained for natural language inference (NLI) tasks and can perform zero-shot classification. The model is fine-tuned on the multi_nli and snli datasets. It has a total of 66 million parameters.
 
 ## Usage example
 
+To use the nli-distilroberta-base model with the transformers library in Python, you can follow this code snippet:
+
 ```python
-from transformers import AutoTokenizer, AutoModel
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 tokenizer = AutoTokenizer.from_pretrained("cross-encoder/nli-distilroberta-base")
-model = AutoModel.from_pretrained("cross-encoder/nli-distilroberta-base")
+model = AutoModelForSequenceClassification.from_pretrained("cross-encoder/nli-distilroberta-base")
+
+inputs = tokenizer("sentence 1", "sentence 2", return_tensors="pt", padding=True, truncation=True)
+outputs = model(**inputs)
+
+logits = outputs.logits
 ```
+
+Please refer to the official documentation for more details on how to use the model with the transformers library.

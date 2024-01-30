@@ -1,32 +1,35 @@
 # Model name
 
-'Llama-2-7B-GPTQ'
+Llama-2-7B-GPTQ
 
 ## Links
 
-- Hugging Face page: [TheBloke/Llama-2-7B-GPTQ](https://huggingface.co/TheBloke/Llama-2-7B-GPTQ)
+- Hugging Face model page: [Llama-2-7B-GPTQ](https://huggingface.co/TheBloke/Llama-2-7B-GPTQ)
+- GitHub repo: [TheBloke/Llama-2-7B-GPTQ](https://github.com/TheBloke/Llama-2-7B-GPTQ)
 
 ## Description
 
-'Llama-2-7B-GPTQ' is a text generation model based on the Llama-2 architecture. It has been trained using PyTorch and is part of the transformers library. The model has been fine-tuned for text generation tasks and is designed to generate coherent and contextually relevant text. It uses a 7 billion parameter model and is quantized using the GPTQ method. 
+Llama-2-7B-GPTQ is a language model based on the Llama-2-7B model, implemented using the transformers library in Python. The model is designed for text generation tasks and belongs to the text-generation pipeline. It has been fine-tuned with a base model of meta-llama/Llama-2-7b-hf. The model is quantized using the GPTQ (GPT Quantization) technique.
+
+The model was created by Tom Jobbins (@TheBloke) and is available under the llama2 license.
 
 ## Usage example
 
-Here is an example of how to use the 'Llama-2-7B-GPTQ' model with the transformers library in Python:
-
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("TheBloke/Llama-2-7B-GPTQ")
-model = AutoModelForCausalLM.from_pretrained("TheBloke/Llama-2-7B-GPTQ")
+model_name = "TheBloke/Llama-2-7B-GPTQ"
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
-prompt = "Once upon a time"
-input_ids = tokenizer.encode(prompt, return_tensors="pt")
-
-output = model.generate(input_ids, max_length=100)
-generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+input_text = "Once upon a time,"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids)
+generated_text = tokenizer.decode(output[0])
 
 print(generated_text)
 ```
 
-For more details and examples, please refer to the [Hugging Face page](https://huggingface.co/TheBloke/Llama-2-7B-GPTQ).
+Note: Replace `model_name` with the actual model name you want to use.
+
+The example showcases how to generate text using the Llama-2-7B-GPTQ model with the transformers library.

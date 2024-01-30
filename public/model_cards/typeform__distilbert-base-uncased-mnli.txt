@@ -1,36 +1,29 @@
 # Model name
-
 distilbert-base-uncased-mnli
 
 ## Links
-
-- [Hugging Face Model Card](https://huggingface.co/typeform/distilbert-base-uncased-mnli)
+- [Hugging Face Model Page](https://huggingface.co/typeform/distilbert-base-uncased-mnli)
+- [Github Repository](https://github.com/typeform/distilbert-base-uncased-mnli)
 
 ## Description
+The `distilbert-base-uncased-mnli` model is a distilled version of the BERT model trained on the MNLI dataset. It is a transformer-based model that is fine-tuned for the task of natural language inference. The model architecture is based on the DistilBERT architecture, which is a smaller and faster version of BERT.
 
-The `distilbert-base-uncased-mnli` model is a variant of DistilBERT, which is a smaller and faster version of BERT, pretrained on the MultiNLI dataset. It is a transformer model that can be used for zero-shot classification tasks. The model has been fine-tuned on the MultiNLI dataset, which consists of natural language inference examples. It performs inference, and the model's last modified date is March 22, 2023.
+The `distilbert-base-uncased-mnli` model can be used for zero-shot classification tasks and text classification tasks. It has been trained on the MNLI dataset, which is a collection of sentence pairs labeled with textual entailment relationships.
 
-The model belongs to the organization "Typeform" and has been authored by "Typeform". It has been liked by 33 users and has a total of 46,287 downloads. The model supports the following tags: transformers, pytorch, tf, safetensors, distilbert, text-classification, zero-shot-classification, en, and dataset: multi_nli.
+The model is part of the transformers library in Python and can be easily accessed and used within a Python environment.
 
 ## Usage example
-
-The following is an example of how to use the `distilbert-base-uncased-mnli` model with the transformers library in Python:
+Here is an example of using the `distilbert-base-uncased-mnli` model with the transformers library in Python:
 
 ```python
-from transformers import DistilBertForSequenceClassification, DistilBertTokenizer
+from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
 
-model_name = "typeform/distilbert-base-uncased-mnli"
-tokenizer = DistilBertTokenizer.from_pretrained(model_name)
-model = DistilBertForSequenceClassification.from_pretrained(model_name)
+tokenizer = DistilBertTokenizer.from_pretrained('typeform/distilbert-base-uncased-mnli')
+model = DistilBertForSequenceClassification.from_pretrained('typeform/distilbert-base-uncased-mnli')
 
-sentence = "This is a sample sentence."
-encoded_input = tokenizer(sentence, return_tensors="pt")
+input_text = "This is an example sentence."
+encoded_input = tokenizer(input_text, truncation=True, padding=True, return_tensors='pt')
 output = model(**encoded_input)
-
-logits = output.logits
-predicted_labels = logits.argmax(dim=1)
-
-print("Predicted label:", predicted_labels.item())
 ```
 
-For more details and options on how to use the model, please refer to the [original Hugging Face page](https://huggingface.co/typeform/distilbert-base-uncased-mnli).
+Please note that the `transformers` library needs to be installed in order to use the `distilbert-base-uncased-mnli` model.

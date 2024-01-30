@@ -1,29 +1,30 @@
 # Model name
 
-jondurbin/bagel-dpo-34b-v0.2
+bagel-dpo-34b-v0.2
 
 ## Links
 
-- [Hugging Face Model Page](https://huggingface.co/jondurbin/bagel-dpo-34b-v0.2)
+- Hugging Face Model Page: [link](https://huggingface.co/jondurbin/bagel-dpo-34b-v0.2)
+- GitHub Repo: N/A
 
 ## Description
 
-The jondurbin/bagel-dpo-34b-v0.2 model is a large language model trained on a variety of datasets, including ai2_arc, unalignment/spicy-3.1, codeparrot/apps, and more. It is based on the Llama architecture and is suitable for text generation tasks. The model has been fine-tuned and optimized for safety and secure inference with the Safetensors library. It has a total of 34 billion parameters.
+The bagel-dpo-34b-v0.2 model is a text generation model based on the Llama architecture and available in the Transformers library. It has been trained on various datasets including ai2_arc, unalignment/spicy-3.1, codeparrot/apps, and more. The model has a total of 34 billion parameters and is compatible with autotrain and inference endpoints.
 
 ## Usage example
 
 ```python
-from transformers import GPTJForCausalLM, GPTJJITModel
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# Load the model
-model = GPTJForCausalLM.from_pretrained("jondurbin/bagel-dpo-34b-v0.2")
+tokenizer = AutoTokenizer.from_pretrained("jondurbin/bagel-dpo-34b-v0.2")
+model = AutoModelForCausalLM.from_pretrained("jondurbin/bagel-dpo-34b-v0.2")
 
-# Generate text
 input_text = "Once upon a time,"
-outputs = model.generate(input_text, max_length=50)
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids, max_length=100)
 
-for output in outputs:
-    print(output)
+decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
+print(decoded_output)
 ```
 
-Please refer to the [Hugging Face Model Page](https://huggingface.co/jondurbin/bagel-dpo-34b-v0.2) for more details and information on using this model.
+Note: The example uses the `AutoModelForCausalLM` and `AutoTokenizer` classes from the Transformers library to load and use the bagel-dpo-34b-v0.2 model.

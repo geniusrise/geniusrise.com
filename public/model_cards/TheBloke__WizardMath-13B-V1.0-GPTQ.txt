@@ -1,30 +1,37 @@
-# Model Name
+# Model name
 
-The model is called "WizardMath-13B-V1.0-GPTQ".
+The model name is WizardMath-13B-V1.0-GPTQ.
 
 ## Links
 
-[Click here to view the model on Hugging Face](https://huggingface.co/TheBloke/WizardMath-13B-V1.0-GPTQ)
+- Model page: [https://huggingface.co/TheBloke/WizardMath-13B-V1.0-GPTQ](https://huggingface.co/TheBloke/WizardMath-13B-V1.0-GPTQ)
+- GitHub repo: N/A (not mentioned in the page)
 
 ## Description
 
-The "WizardMath-13B-V1.0-GPTQ" model is a text generation model based on the GPTQ architecture. It is part of the WizardLM project and is designed to empower mathematical reasoning in large language models. The model has a total of 13 billion parameters and is trained on a wide range of tasks related to mathematics. It uses the transformers library in Python for implementation.
+WizardMath-13B-V1.0-GPTQ is a large language model based on the GPTQ (Generative Pre-trained Transformer for Question Answering) architecture. It is part of the WizardLM project and is designed for mathematical reasoning tasks. The model uses the transformers library in Python for its usage examples.
+
+The model has a total of 13 billion parameters and was trained using the AWQ (Artificial Wizard Questioning) technique. It supports text generation tasks and is quantized using GPTQ, achieving a 4-bit precision.
 
 ## Usage example
 
+Here is an example of how to use the WizardMath-13B-V1.0-GPTQ model with the transformers library in Python:
+
 ```python
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_name = "TheBloke/WizardMath-13B-V1.0-GPTQ"
-tokenizer = GPT2Tokenizer.from_pretrained(model_name)
-model = GPT2LMHeadModel.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
-prompt = "Solve the following equation: x^2 + 5x - 6 = 0"
-input_ids = tokenizer.encode(prompt, return_tensors="pt")
+input_text = "What is the square root of 16?"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids)
 
-output = model.generate(input_ids, max_length=100, num_return_sequences=1)
-generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+generated_text = tokenizer.decode(output[0])
 print(generated_text)
 ```
 
-Please note that the example code above assumes that you have already installed the transformers library in your Python environment.
+This example demonstrates how to use the model for generating responses to mathematical questions. The input text is encoded using the model's tokenizer, passed to the model for text generation, and then decoded to obtain the generated text.
+
+Note: The code provided is a simplified example and may need additional steps or modifications to fit specific use cases.

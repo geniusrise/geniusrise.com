@@ -4,34 +4,33 @@ Nous-Hermes-2-Yi-34B
 
 ## Links
 
-- Hugging Face Model Card: [NousResearch/Nous-Hermes-2-Yi-34B](https://huggingface.co/NousResearch/Nous-Hermes-2-Yi-34B)
+- Hugging Face model page: [Nous-Hermes-2-Yi-34B](https://huggingface.co/NousResearch/Nous-Hermes-2-Yi-34B)
+- GitHub repo: (No GitHub repo available)
 
 ## Description
 
-The Nous-Hermes-2-Yi-34B model is a text generation model trained by NousResearch. It uses the LlamaForCausalLM architecture and is based on the base model 01-ai/Yi-34B. The model is fine-tuned using synthetic data and distillation techniques. It is compatible with the transformers library and supports text generation tasks.
+The Nous-Hermes-2-Yi-34B model is a text generation model trained using the transformers library with Python. It is built on the 01-ai/Yi-34B base model and is fine-tuned for text generation tasks. The model uses a synthetic dataset and distillation techniques.
 
-The model has been downloaded 9511 times and has received 155 likes. It is tagged with labels such as "text-generation," "transformers," "llama," and "yi." The model is publicly available and licensed under Apache 2.0.
-
-For more details, refer to the [Hugging Face Model Card](https://huggingface.co/NousResearch/Nous-Hermes-2-Yi-34B).
+Some key features and tags associated with the model are:
+- Language: English
+- Libraries: transformers, Safetensors
+- Architecture: LlamaForCausalLM
+- Tags: yi, instruct, finetune, chatml, gpt4, synthetic data, distillation, text-generation, transformers
 
 ## Usage example
 
-Here is an example of how to use the Nous-Hermes-2-Yi-34B model with the transformers library in Python:
-
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoTokenizer, AutoModel
 
-model_name = "NousResearch/Nous-Hermes-2-Yi-34B"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained("NousResearch/Nous-Hermes-2-Yi-34B")
+model = AutoModel.from_pretrained("NousResearch/Nous-Hermes-2-Yi-34B")
 
-input_text = "Once upon a time,"
+input_text = "Generate a text about dogs."
 input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids)
 
-output = model.generate(input_ids, max_length=100, do_sample=True)
-decoded_output = tokenizer.decode(output[0])
-
-print(decoded_output)
+generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+print(generated_text)
 ```
 
-Make sure to install the transformers library before running the code.
+Note: Please make sure you have the transformers library installed before running the code above.

@@ -4,30 +4,40 @@ WizardLM-70B-V1.0-GPTQ
 
 ## Links
 
-[Original Hugging Face Page](https://huggingface.co/TheBloke/WizardLM-70B-V1.0-GPTQ)
+- Hugging Face model page: [WizardLM-70B-V1.0-GPTQ](https://huggingface.co/TheBloke/WizardLM-70B-V1.0-GPTQ)
+- GitHub repository: N/A
 
 ## Description
 
-The WizardLM-70B-V1.0-GPTQ model is a large language model trained on the Wizard dataset. It is based on the GPT architecture and is part of the WizardLM library. The model is designed to generate helpful and detailed responses to user queries in a conversational style. It can be used for various natural language processing tasks, including text generation and language understanding.
+The WizardLM-70B-V1.0-GPTQ model is a large language model based on the GPT architecture. It is trained on a diverse range of data and has been fine-tuned to provide helpful, detailed, and polite answers in a chat-based dialogue setting. The model is designed to engage in conversations with users, providing responses to their queries.
 
-The model has a total of 9,102,503,936 parameters and is quantized using GPTQ. It is compatible with the transformers library in Python.
+The model has been quantized using GPTQ, a quantization method that uses 4-bit precision with group sparsity. This enables efficient deployment on edge devices and reduces memory requirements without significantly sacrificing performance.
+
+The model is trained using the transformers library in Python. It is equipped with a prompt template that allows users to initiate conversations with a specific prompt, to which the model responds accordingly.
 
 ## Usage example
 
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 model_name = "TheBloke/WizardLM-70B-V1.0-GPTQ"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+model = GPT2LMHeadModel.from_pretrained(model_name)
 
-input_text = "Can you help me with some coding problems?"
-input_ids = tokenizer.encode(input_text, return_tensors="pt")
+# Define user input
+user_input = "My name is John. Can you tell me about the weather today?"
 
-output = model.generate(input_ids)
+# Encode user input
+encoded_input = tokenizer.encode(user_input, return_tensors="pt")
 
-response = tokenizer.decode(output[0])
-print(response)
+# Generate model output
+model_output = model.generate(encoded_input)
+
+# Decode and print response
+response = tokenizer.decode(model_output[0], skip_special_tokens=True)
+print("Model response:", response)
 ```
 
-This example demonstrates how to use the WizardLM-70B-V1.0-GPTQ model for text generation. The model is loaded using the `AutoModelForCausalLM` and `AutoTokenizer` classes from the `transformers` library. An input text is encoded using the tokenizer, and then passed to the model for generation. The generated response is decoded using the tokenizer and printed.
+Note: Make sure you have the `transformers` library installed before running the code.
+
+Please refer to the [Hugging Face model page](https://huggingface.co/TheBloke/WizardLM-70B-V1.0-GPTQ) for more information and examples.

@@ -1,34 +1,31 @@
 # Model name
 
-microsoft/deberta-v2-xlarge-mnli
+deberta-v2-xlarge-mnli
 
 ## Links
 
-- Hugging Face model page: [microsoft/deberta-v2-xlarge-mnli](https://huggingface.co/microsoft/deberta-v2-xlarge-mnli)
+- Model Page: [deberta-v2-xlarge-mnli](https://huggingface.co/microsoft/deberta-v2-xlarge-mnli)
+- GitHub Repo: Not available
 
 ## Description
 
-The `microsoft/deberta-v2-xlarge-mnli` model is an implementation of the DeBERTa-v2 model trained on the MNLI (Multi-Genre Natural Language Inference) dataset. It is based on the DeBERTa model architecture and has been fine-tuned for text classification tasks using the Transformers library. The model has a large size, with 536 million parameters.
+The deberta-v2-xlarge-mnli model is a text classification model based on the DeBERTa-v2 architecture. It is specifically trained on the MNLI (Multi-Genre Natural Language Inference) dataset. The model is designed for tasks related to text classification, particularly in the English language. 
 
-The model is suitable for tasks related to text classification and natural language inference. It achieves good performance on benchmark datasets and has been trained with state-of-the-art techniques.
+The model is part of the Transformers library, a popular library for natural language processing tasks. It contains approximately 732 downloads and has been liked by 5 users. It has a pipeline tag of "text-classification" and is compatible with AutoTrain and Inference Endpoints.
 
 ## Usage example
 
-You can use the model with the Transformers library in Python. Here's an example of how to load the model and perform inference:
-
 ```python
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
-model_name = "microsoft/deberta-v2-xlarge-mnli"
-model = AutoModelForSequenceClassification.from_pretrained(model_name)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained("microsoft/deberta-v2-xlarge-mnli")
+model = AutoModelForSequenceClassification.from_pretrained("microsoft/deberta-v2-xlarge-mnli")
 
-sentence = "I love you."
-inputs = tokenizer(sentence, return_tensors="pt")
+inputs = tokenizer.encode_plus("I love you.", "I like you.", return_tensors="pt", padding="longest", truncation=True)
 outputs = model(**inputs)
 
-predicted_label = torch.argmax(outputs.logits, dim=1).item()
+predictions = outputs.logits.argmax(dim=1)
+print(predictions)
 ```
-Replace `sentence` with the input text you want to classify.
 
-For more information and fine-tuning examples, please refer to the [Hugging Face model page](https://huggingface.co/microsoft/deberta-v2-xlarge-mnli).
+Make sure to install the `transformers` library in order to run the example above.

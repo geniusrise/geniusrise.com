@@ -1,47 +1,36 @@
 # Model name
-Nous Hermes 2 Yi 34B - AWQ
+
+The model is called Nous-Hermes-2-Yi-34B-AWQ.
 
 ## Links
-- [Base Model: Nous Hermes 2 Yi 34B](https://huggingface.co/NousResearch/Nous-Hermes-2-Yi-34B)
-- [Original Model Card: NousResearch's Nous Hermes 2 Yi 34B](https://huggingface.co/TheBloke/Nous-Hermes-2-Yi-34B-AWQ#original-model-card-nousresearchs-nous-hermes-2-yi-34b)
-- [Hugging Face Model Page](https://huggingface.co/TheBloke/Nous-Hermes-2-Yi-34B-AWQ)
+
+- Model page: [Nous-Hermes-2-Yi-34B-AWQ](https://huggingface.co/TheBloke/Nous-Hermes-2-Yi-34B-AWQ)
+- GitHub repo: [TheBloke/Nous-Hermes-2-Yi-34B-AWQ](https://github.com/TheBloke/Nous-Hermes-2-Yi-34B-AWQ)
 
 ## Description
-Nous Hermes 2 Yi 34B is a state-of-the-art model fine-tuned on 1,000,000 entries of GPT-4 generated data as well as open datasets. It has been quantized to 4 bits using AWQ (Adaptive Weight Quantization), offering fast Transformers-based inference with equivalent or better quality compared to GPTQ. This model uses ChatML as the prompt format and is meant for text generation tasks. It comes with a total model size of 5.4B parameters and was quantized by TheBloke.
 
-### Datasets
-- VMware Open Instruct
-- GPT-4 generated data
+The Nous-Hermes-2-Yi-34B-AWQ model is a text generation model. It is based on the Llama architecture and is trained on the Nous-Hermes-2-Yi-34B base model. The model is fine-tuned using the AWQ (Asymmetric Weight Quantization) method.
 
-### Number of Parameters
-- 5.4 billion
-
-### Quantization
-- AWQ (Adaptive Weight Quantization)
-
-### Compatibility
-- Linux and Windows
-- NVidia GPUs only
-- Text Generation Webui (Loader: AutoAWQ)
-- vLLM version 0.2.2 or later
-- Hugging Face Text Generation Inference (TGI) version 1.1.0 or later
-- Transformers version 4.35.0 or later
+The model supports text generation in English and is compatible with the transformers library in Python. It has a total of 4-bit parameters and is quantized by TheBloke. The model is trained with synthetic data and uses distillation techniques.
 
 ## Usage example
-**Using the Transformers Library with Python:**
+
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer, TextGenerationPipeline
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-model_name_or_path = "TheBloke/Nous-Hermes-2-Yi-34B-AWQ"
+model_name = "TheBloke/Nous-Hermes-2-Yi-34B-AWQ"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
-tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
-model = AutoModelForCausalLM.from_pretrained(model_name_or_path)
+input_text = "My name is John and I like to"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
 
-text_generator = TextGenerationPipeline(model=model, tokenizer=tokenizer)
+output = model.generate(input_ids, max_length=50)
 
-prompt = "The quick brown fox jumps over the lazy dog"
-outputs = text_generator(prompt, max_length=50, do_sample=True, temperature=0.8)
-
-print(outputs[0]["generated_text"])
+decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
+print(decoded_output)
 ```
-Note: Replace the `model_name_or_path` with the actual model name or path. Adjust the parameters such as `max_length`, `do_sample`, and `temperature` as required for your use case.
+
+Make sure to install the `transformers` library using pip before running the code.
+
+Please note that the usage example is a generic example for text generation using the transformers library with Python and may need to be adapted to specific use cases.

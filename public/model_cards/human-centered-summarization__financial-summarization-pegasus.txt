@@ -1,33 +1,32 @@
 # Model name
 
-financial-summarization-pegasus
+Financial Summarization Pegasus
 
 ## Links
 
-- [Hugging Face Model Page](https://huggingface.co/human-centered-summarization/financial-summarization-pegasus)
+[Hugging Face Model Page](https://huggingface.co/human-centered-summarization/financial-summarization-pegasus)
 
 ## Description
 
-The financial-summarization-pegasus model is a Pegasus model fine-tuned for financial summarization tasks. It is developed by the Human Centered Summarization team. This model is trained to summarize financial news articles, making it ideal for tasks such as summarizing stocks, mergers, acquisitions, and financial reports. 
-
-The model is based on the Pegasus architecture and is trained on the xsum dataset. It performs abstractive summarization and is evaluated using metrics such as ROUGE-1, ROUGE-2, ROUGE-L, and ROUGE-LSUM. The model has a total of 568,796,007 parameters.
+The Financial Summarization Pegasus model is a pre-trained model that is part of the Pegasus family. It has been fine-tuned for financial summarization tasks. The model uses the Pegasus architecture and is trained on the xsum dataset. It achieves good performance on the summarization task, with a ROUGE-1 score of 35.2055.
 
 ## Usage example
 
-You can use the financial-summarization-pegasus model with the transformers library in Python, as shown below:
+Here is an example of how to use the Financial Summarization Pegasus model using the Transformers library in Python:
 
 ```python
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import PegasusForConditionalGeneration, PegasusTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("human-centered-summarization/financial-summarization-pegasus")
-model = AutoModelForSeq2SeqLM.from_pretrained("human-centered-summarization/financial-summarization-pegasus")
+model_name = "human-centered-summarization/financial-summarization-pegasus"
+tokenizer = PegasusTokenizer.from_pretrained(model_name)
+model = PegasusForConditionalGeneration.from_pretrained(model_name)
 
-text = "National Commercial Bank (NCB), Saudi Arabia’s largest lender by assets, agreed to buy rival Samba Financial Group for $15 billion in the biggest banking takeover this year. NCB will pay 28.45 riyals ($7.58) for each Samba share..."
-inputs = tokenizer.encode(text, return_tensors="pt", truncation=True)
+text = "National Commercial Bank (NCB), Saudi Arabia’s largest lender by assets, agreed to buy rival Samba Financial Group for $15 billion in the biggest banking takeover this year. NCB will pay 28.45 riyals ($7.58) for each Samba share, valuing it at about 55.7 billion riyals."
+inputs = tokenizer([text], truncation=True, padding="longest", return_tensors="pt")
+summary_ids = model.generate(inputs["input_ids"], num_beams=4, max_length=100, early_stopping=True)
+summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
 
-outputs = model.generate(inputs)
-summary = tokenizer.decode(outputs[0], skip_special_tokens=True)
 print(summary)
 ```
 
-This will generate a summary of a given financial news article using the financial-summarization-pegasus model.
+This will output the summarization of the given financial news article.

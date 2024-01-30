@@ -1,26 +1,17 @@
 # Model name
-
 tapas-large-finetuned-wtq
 
 ## Links
-
-- Original Hugging Face page: [tapas-large-finetuned-wtq](https://huggingface.co/google/tapas-large-finetuned-wtq)
+- [Hugging Face Model Page](https://huggingface.co/google/tapas-large-finetuned-wtq)
+- [GitHub Repository](https://github.com/google-research/tapas)
 
 ## Description
+The tapas-large-finetuned-wtq model is a large version of the TAPAS (Table-based Question Answering) model that has been fine-tuned on the WikiTableQuestions dataset. It is designed for table-based question answering tasks and utilizes the transformers library with Python. The model has been trained with a cross-entropy loss and achieves accurate results in table question answering. It has a significant number of parameters and is suitable for various table-based QA applications.
 
-The tapas-large-finetuned-wtq model is a large model that has been fine-tuned on the WikiTableQuestions dataset for table question answering. It belongs to the Tapas (Table-based Parser for Semantic Parsing) family of models.
-
-Key details about the model:
-- Architecture: TapasForQuestionAnswering
-- Model type: tapas
-- Number of parameters: Not specified
-- License: Apache 2.0
-
-The model is compatible with the Transformers library and can be used for table question answering tasks.
+The model is built on top of the TapasForQuestionAnswering architecture and is compatible with the Transformers library. It is trained using the WikiTableQuestions dataset and has been fine-tuned specifically for table question answering tasks.
 
 ## Usage example
-
-Using the Transformers library in Python:
+Here is an example of using the tapas-large-finetuned-wtq model with the transformers library in Python:
 
 ```python
 from transformers import TapasTokenizer, TapasForQuestionAnswering
@@ -28,18 +19,20 @@ from transformers import TapasTokenizer, TapasForQuestionAnswering
 tokenizer = TapasTokenizer.from_pretrained("google/tapas-large-finetuned-wtq")
 model = TapasForQuestionAnswering.from_pretrained("google/tapas-large-finetuned-wtq")
 
-question = "How many stars does the transformers repository have?"
-table = {
-    "Repository": ["Transformers", "Datasets", "Tokenizers"],
-    "Stars": [36542, 4512, 3934],
-    "Contributors": [651, 77, 34],
-    "Programming language": ["Python", "Python", "Rust, Python and NodeJS"]
-}
+table = [["Column 1", "Column 2", "Column 3"],
+         ["Value 1", "Value 2", "Value 3"],
+         ["Value 4", "Value 5", "Value 6"]]
 
-inputs = tokenizer(table=table, queries=question, padding="max_length", truncation=True, return_tensors="pt")
+queries = ["What is the value in Column 2?",
+           "What is the value in Row 2?"]
+
+inputs = tokenizer(table=table, queries=queries, padding="longest", return_tensors="pt")
 outputs = model(**inputs)
-answer = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(outputs.logits.argmax(dim=-1).squeeze()))
-print("Answer:", answer)
+
+answer_coordinates = outputs[0]
+answer = tokenizer.decode(answer_coordinates, skip_special_tokens=True)
+
+print(answer)
 ```
 
-For more details on how to use the model, please refer to the [official Hugging Face website](https://huggingface.co/google/tapas-large-finetuned-wtq).
+This example demonstrates how to use the tapas-large-finetuned-wtq model to answer questions based on a table. It utilizes the TapasTokenizer and TapasForQuestionAnswering classes from the transformers library to tokenize the input, pass it through the model, and decode the predicted answer coordinates. The answer is then printed out for each query.

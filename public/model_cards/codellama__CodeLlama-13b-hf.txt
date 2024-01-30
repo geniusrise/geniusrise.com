@@ -1,27 +1,36 @@
 # Model name
+
 CodeLlama-13b-hf
 
 ## Links
-- Repository: [codellama/CodeLlama-13b-hf](https://huggingface.co/codellama/CodeLlama-13b-hf)
+
+- [Model page](https://huggingface.co/codellama/CodeLlama-13b-hf)
+- [GitHub repo](https://github.com/codellama/CodeLlama-13b-hf)
 
 ## Description
-CodeLlama-13b-hf is a text generation model based on the LlamaForCausalLM architecture. It is trained on a large dataset and can generate code-related text. It is compatible with the transformers library in Python. The model has been trained on a variety of datasets and has a total of 13 billion parameters.
+
+The CodeLlama-13b-hf model is a text generation model that is part of the Code Llama project. It is built using the transformers library in Python and has a total of 13 billion parameters. The model is specifically designed for text generation tasks and is trained on various datasets.
+
+The CodeLlama-13b-hf model is capable of generating high-quality text output for a wide range of applications. It is especially useful for developers and builders who need advanced natural language processing capabilities.
 
 ## Usage example
-```
+
+Here is an example of how to use the CodeLlama-13b-hf model with the transformers library in Python:
+
+```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_name = "codellama/CodeLlama-13b-hf"
-model = AutoModelForCausalLM.from_pretrained(model_name)
+
 tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
-input_text = "def hello():\n  print('Hello, world!')\n"
-input_ids = tokenizer.encode(input_text, return_tensors="pt")
-
-output = model.generate(input_ids, max_length=100)
+text = "Once upon a time"
+inputs = tokenizer.encode(text, return_tensors="pt")
+output = model.generate(inputs, max_length=100)
 
 decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
 print(decoded_output)
 ```
 
-For more information and examples, refer to the [huggingface page](https://huggingface.co/codellama/CodeLlama-13b-hf).
+In this example, the model is initialized using the `AutoModelForCausalLM` class from the transformers library, and the tokenizer is initialized using the `AutoTokenizer` class. The input text is encoded using the tokenizer, and the model is used to generate a text sequence based on the input. The generated text is then decoded using the tokenizer and printed to the console.

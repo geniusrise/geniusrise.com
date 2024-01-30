@@ -1,36 +1,36 @@
 # Model name
+
 SauerkrautLM-UNA-SOLAR-Instruct-AWQ
 
 ## Links
-- [Original Hugging Face Model Page](https://huggingface.co/TheBloke/SauerkrautLM-UNA-SOLAR-Instruct-AWQ)
+
+- [Hugging Face Model Page](https://huggingface.co/TheBloke/SauerkrautLM-UNA-SOLAR-Instruct-AWQ)
+- No GitHub repository available
 
 ## Description
-SauerkrautLM-UNA-SOLAR-Instruct-AWQ is AWQ quantized model variants of Yağız Çalık's SauerkrautLM Una SOLAR Instruct. AWQ (Adaptive Weight Quantization) is a method for efficient quantization, currently supporting 4-bit configurations and offering faster Transformers-based inference compared to GPTQ. It has hardware requirements of Linux or Windows with NVidia GPUs, but not supported on macOS (use GGUF models instead).
 
-Model is currently given with parameters for 4-bits and group size of 128, using the VMware Open Instruct dataset with a sequence length configuration of 4096, totaling around 5.96 GB. These AWQ models are usable in various platforms including text-generation-webui (Loader: AutoAWQ), vLLM, Hugging Face Text Generation Inference (TGI), Transformers library, and AutoAWQ for Python code.
+SauerkrautLM-UNA-SOLAR-Instruct-AWQ is a fine-tuned language model based on the LlamaForCausalLM architecture. It is trained using the Transformers library in Python. The model is specifically designed for text generation tasks and falls under the text-generation and transformers tags. The model provides a prompt template for user-assistant interactions.
+
+The model is licensed under the Apache-2.0 license. It has been quantized using the AWQ (Approximately Weight Quantization) method with 4-bit precision. The model has a total of 1,668,317,704 parameters. The author of the model is Tom Jobbins (TheBloke), and it is not listed on the Hugging Face model index. The model has a base model called Weyaxi/SauerkrautLM-UNA-SOLAR-Instruct. The model supports autotrain and is compatible with the AutoModelForCausalLM processor.
+
+The model has been downloaded 394 times and has received 1 like.
 
 ## Usage example
-### Transformers Library (Python)
+
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-model_name_or_path = "TheBloke/SauerkrautLM-UNA-SOLAR-Instruct-AWQ"
+model_name = "TheBloke/SauerkrautLM-UNA-SOLAR-Instruct-AWQ"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
-tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
-model = AutoModelForCausalLM.from_pretrained(
-    model_name_or_path,
-    low_cpu_mem_usage=True,
-    device_map="cuda:0"
-)
+prompt = "My name is John and I"
+input_ids = tokenizer.encode(prompt, return_tensors="pt")
+output = model.generate(input_ids, max_length=50, num_return_sequences=5)
 
-# Generate prompt
-prompt = "Tell me about AI"
-generated = model.generate(
-    tokenizer.encode(prompt, return_tensors='pt'),
-    max_length=50,
-    num_return_sequences=5
-)
-
-print(tokenizer.decode(generated[0], skip_special_tokens=True))
+for sequence in output:
+    generated_text = tokenizer.decode(sequence, skip_special_tokens=True)
+    print(generated_text)
 ```
-Note: Replace `cuda:0` with your GPU device or `cpu` for CPU-only inference. Modify `max_length` and `num_return_sequences` as needed.
+
+Please note that the above example assumes that you have already installed the Transformers library in your Python environment.

@@ -1,41 +1,39 @@
 # Model name
-
 Llama-2-70B-Chat-GPTQ
 
 ## Links
-
 - [Hugging Face Model Page](https://huggingface.co/TheBloke/Llama-2-70B-Chat-GPTQ)
+- [GitHub Repository](https://github.com/TheBloke/transformers)
 
 ## Description
+The Llama-2-70B-Chat-GPTQ model is a text generation model based on the Llama-2 architecture. It is trained on a large amount of data and can generate text in a conversational manner. The model is built using the transformers library in Python and has a total of 9,102,492,672 parameters.
 
-The Llama-2-70B-Chat-GPTQ model is a text generation model developed by TheBloke. It is based on the Llama 2 70B Chat base model and is fine-tuned for text generation tasks. The model has been trained using the transformers library with Python.
+The model is designed to be helpful and respectful, providing answers that are safe and unbiased. It follows specific guidelines to avoid harmful, unethical, or illegal content. If a question is not factually coherent, the model will explain why instead of providing incorrect information.
 
-The model is designed to be a helpful and respectful assistant, providing helpful answers while maintaining safety. It follows guidelines to avoid harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. The model can handle prompts and generate responses based on the input text.
-
-The model has been trained on a large dataset and has a huge number of parameters. Unfortunately, the exact number of parameters is not mentioned in the model description.
-
-The model utilizes the GPTQ technique for quantization, which allows it to use 4-bit precision for inference while maintaining reasonable performance.
+The model is based on the GPTQ framework and incorporates the AWQ (Answer With Care) guidelines, aiming to provide helpful and reliable responses.
 
 ## Usage example
+To use the Llama-2-70B-Chat-GPTQ model, you can use the transformers library in Python. Here's an example code snippet:
 
 ```python
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
-model_name = "TheBloke/Llama-2-70B-Chat-GPTQ"
+model_name = 'TheBloke/Llama-2-70B-Chat-GPTQ'
 tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 model = GPT2LMHeadModel.from_pretrained(model_name)
 
-inputs = tokenizer.encode("Hello, how are you?")
-input_ids = tokenizer.build_inputs_with_special_tokens(inputs)
-attention_mask = [1] * len(input_ids)
+# Provide a prompt
+prompt = "Can you tell me a joke?"
 
-input_ids = torch.tensor([input_ids])
-attention_mask = torch.tensor([attention_mask])
+# Tokenize the prompt
+input_ids = tokenizer.encode(prompt, return_tensors="pt")
 
-outputs = model.generate(input_ids=input_ids, attention_mask=attention_mask, max_length=50)
+# Generate response
+output = model.generate(input_ids, max_length=100)
 
-response = tokenizer.decode(outputs[0])
-print(response)
+# Decode and print the response
+decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
+print(decoded_output)
 ```
 
-This is a basic example of how to use the Llama-2-70B-Chat-GPTQ model for text generation.
+This will generate a response from the model based on the provided prompt.

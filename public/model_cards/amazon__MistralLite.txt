@@ -4,27 +4,30 @@ MistralLite
 
 ## Links
 
-- [Hugging Face Model Page](https://huggingface.co/amazon/MistralLite)
+- [Model Page](https://huggingface.co/amazon/MistralLite)
+- [GitHub Repository](https://github.com/amazon/Mistral)
 
 ## Description
 
-MistralLite is a text generation model developed by Amazon Web Services. It is based on the Mistral architecture and is compatible with the Transformers library in Python. The model is designed for text generation tasks and is particularly suited for tasks such as summarization, translation, and dialogue generation. The model has been trained on large-scale datasets and has a relatively small number of parameters. It is available for public use and can be accessed through the Hugging Face model page.
+MistralLite is a text generation model based on the Mistral architecture. It is designed for text generation tasks and is built using the Transformers library in Python. The model has been trained on a dataset and has a total of unknown number of parameters. MistralLite is particularly useful for tasks such as language modeling and text generation.
 
 ## Usage example
 
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
-model_name = "amazon/MistralLite"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained("amazon/MistralLite")
+model = AutoModelForCausalLM.from_pretrained("amazon/MistralLite")
 
 input_text = "Once upon a time,"
-inputs = tokenizer(input_text, return_tensors="pt")
-outputs = model.generate(inputs["input_ids"])
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
 
-generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
-print(generated_text)
+output_ids = model.generate(input_ids, max_length=50)
+output_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+
+print(output_text)
 ```
 
-Please refer to the [Hugging Face Model Page](https://huggingface.co/amazon/MistralLite) for more details and examples.
+This example demonstrates how to use MistralLite for text generation. The model is loaded using the `AutoModelForCausalLM` class from the Transformers library. The input text is encoded using the tokenizer, and then passed to the model for generation. The generated output text is then decoded using the tokenizer.
+
+Please refer to the [model page](https://huggingface.co/amazon/MistralLite) for more information on the model and additional usage examples.

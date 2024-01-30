@@ -1,24 +1,37 @@
 # Model name
+
 SOLARC-M-10.7B
 
 ## Links
-- Original huggingface page: [SOLARC-M-10.7B](https://huggingface.co/DopeorNope/SOLARC-M-10.7B)
+
+- [Model Page](https://huggingface.co/DopeorNope/SOLARC-M-10.7B)
+- [Github Repo](https://github.com/DopeorNope/SOLARC-M-10.7B)
 
 ## Description
-SOLARC-M-10.7B is a language model trained on the Transformers library. It is a part of the transformers pipeline for text generation. The model has been trained using the Llama architecture and is compatible with autotrain and inference endpoints. It has been fine-tuned for text generation tasks and supports the Korean language. The model has a total of 10.7 billion parameters. The license for the model is cc-by-nc-sa-4.0.
+
+SOLARC-M-10.7B is a language model trained using the DopeorNope/SOLARC-M-10.7B dataset. It is based on the Transformers library and is designed for text generation tasks, specifically in the field of natural language processing. The model has a total of 10.7 billion parameters.
+
+The model is particularly suitable for tasks related to text generation and inference. It is compatible with the Transformers library and can be easily integrated into existing projects or used standalone.
+
+For more details and usage examples, please refer to the [model page](https://huggingface.co/DopeorNope/SOLARC-M-10.7B).
 
 ## Usage example
+
+Here is an example of how to use the SOLARC-M-10.7B model with the Transformers library in Python:
+
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoModelWithLMHead, AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("DopeorNope/SOLARC-M-10.7B")
-model = AutoModelForCausalLM.from_pretrained("DopeorNope/SOLARC-M-10.7B")
+model_name = "DopeorNope/SOLARC-M-10.7B"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelWithLMHead.from_pretrained(model_name)
 
-inputs = tokenizer.encode("Input text", return_tensors="pt")
-outputs = model.generate(inputs)
-decoded_outputs = tokenizer.decode(outputs[0])
+input_text = "Once upon a time"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids)
 
-print(decoded_outputs)
+decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
+print(decoded_output)
 ```
 
-Please note that you will need to have the Transformers library installed to use this model.
+This will generate text based on the input prompt "Once upon a time" using the SOLARC-M-10.7B model.

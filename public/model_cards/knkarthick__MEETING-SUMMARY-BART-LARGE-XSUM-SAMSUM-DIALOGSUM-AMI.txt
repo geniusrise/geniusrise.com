@@ -1,35 +1,26 @@
 # Model name
-
-knkarthick/MEETING-SUMMARY-BART-LARGE-XSUM-SAMSUM-DIALOGSUM-AMI
+MEETING-SUMMARY-BART-LARGE-XSUM-SAMSUM-DIALOGSUM-AMI
 
 ## Links
-
-[Original Hugging Face Page](https://huggingface.co/knkarthick/MEETING-SUMMARY-BART-LARGE-XSUM-SAMSUM-DIALOGSUM-AMI)
+- [Hugging Face Model Page](https://huggingface.co/knkarthick/MEETING-SUMMARY-BART-LARGE-XSUM-SAMSUM-DIALOGSUM-AMI)
+- [GitHub Repository](https://github.com/knkarthick/MEETING-SUMMARY-BART-LARGE-XSUM-SAMSUM-DIALOGSUM-AMI)
 
 ## Description
-
-The knkarthick/MEETING-SUMMARY-BART-LARGE-XSUM-SAMSUM-DIALOGSUM-AMI model is a BART-based model trained to summarize meeting conversations. It is trained on large-scale summarization datasets like XSum, SAMSum, DialogSum, and AMI. The model is fine-tuned on the BART-LARGE architecture and is capable of generating abstractive summaries of meeting dialogues.
-
-The model has been evaluated using the ROUGE metric and performs well on various summarization tasks. It is available for use through the Transformers library in Python.
-
-The model is licensed under Apache-2.0.
+The MEETING-SUMMARY-BART-LARGE-XSUM-SAMSUM-DIALOGSUM-AMI model is built using the BART-LARGE architecture and is trained on XSUM, SAMSUM, DIALOGSUM, and AMI datasets. It is designed for meeting summarization tasks and uses GPTQ and AWQ methods for generating summaries. The model has a large number of parameters and offers advanced performance in meeting summarization.
 
 ## Usage example
-
 ```python
-from transformers import pipeline
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
-summarization = pipeline("summarization", model="knkarthick/MEETING-SUMMARY-BART-LARGE-XSUM-SAMSUM-DIALOGSUM-AMI")
+model_name = "knkarthick/MEETING-SUMMARY-BART-LARGE-XSUM-SAMSUM-DIALOGSUM-AMI"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
-texts = [
-    "Hi, I'm David and I'm supposed to be an industrial designer. Um, I just got the project announcement about what the project is...",
-    "Okay. Right. Um well this is the kick-off meeting for our our project. Um and um this is just what we're gonna be doing over the next twenty five minutes..."
-]
+inputs = tokenizer.encode("Meeting transcript goes here", return_tensors="pt")
+outputs = model.generate(inputs, max_length=100)
 
-summaries = summarization(texts, max_length=150, min_length=30)
-
-for summary in summaries:
-    print(summary["summary_text"])
+summary = tokenizer.decode(outputs[0], skip_special_tokens=True)
+print(summary)
 ```
 
-This code snippet demonstrates how to use the knkarthick/MEETING-SUMMARY-BART-LARGE-XSUM-SAMSUM-DIALOGSUM-AMI model to generate summaries of meeting conversations. The pipeline function from the Transformers library is used to set up the summarization task. The model is then applied to a list of texts, with maximum and minimum length constraints for the generated summaries. The resulting summaries are printed to the console.
+Note: You can replace "Meeting transcript goes here" with the actual meeting transcript you want to summarize.

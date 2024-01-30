@@ -4,44 +4,45 @@ tapas-large-finetuned-wikisql-supervised
 
 ## Links
 
-- [Hugging Face Model Page](https://huggingface.co/google/tapas-large-finetuned-wikisql-supervised)
+- [Model Card](https://huggingface.co/google/tapas-large-finetuned-wikisql-supervised)
+- [GitHub Repo](https://github.com/google-research/tapas)
 
 ## Description
 
-The tapas-large-finetuned-wikisql-supervised model is a language model that has been fine-tuned using the WikiSQL dataset. It is based on the Tapas architecture, which is designed specifically for table question answering. The model is available for usage with the Transformers library in Python.
+The `tapas-large-finetuned-wikisql-supervised` model is a large-scale fine-tuned version of Tapas (Table-type Question Answering System). Tapas is a BERT-based model specifically designed for table-based question answering. This model has been fine-tuned on the WikiSQL dataset using a supervised approach.
 
-Key details about the model include:
+The Tapas model is trained to understand and answer questions based on the information present in a table. It can handle complex multi-step questions that require reasoning over the table data. With its pre-trained language understanding capabilities, Tapas is able to process natural language questions and generate corresponding SQL queries to extract relevant information from the table.
 
-- The model uses the TapasForQuestionAnswering architecture.
-- It falls under the table-question-answering pipeline tag.
-- The model is compatible with inference endpoints.
-- The model has been trained on the WikiSQL dataset.
-- The model is licensed under Apache 2.0.
+This model can be used to perform table-based question answering tasks. It can be particularly useful in scenarios where structured data in tables needs to be queried and analyzed using natural language questions.
 
-The model has a total of 354 downloads and has been liked by 5 users.
+The `tapas-large-finetuned-wikisql-supervised` model can be accessed using the transformers library in Python.
 
 ## Usage example
 
+Here's an example of how to use the `tapas-large-finetuned-wikisql-supervised` model with the transformers library in Python:
+
 ```python
-from transformers import AutoModelForTableQuestionAnswering, TapasTokenizer
+from transformers import AutoTokenizer, AutoModelForTableQuestionAnswering
 
-model_name = "google/tapas-large-finetuned-wikisql-supervised"
-tokenizer = TapasTokenizer.from_pretrained(model_name)
-model = AutoModelForTableQuestionAnswering.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained("google/tapas-large-finetuned-wikisql-supervised")
+model = AutoModelForTableQuestionAnswering.from_pretrained("google/tapas-large-finetuned-wikisql-supervised")
 
-# Example usage
-table = [
-    ["Name", "Age", "City"],
-    ["John", "30", "New York"],
-    ["Alice", "25", "London"],
-    ["Bob", "40", "Paris"],
-]
-questions = ["What is the age of Alice?", "Which city does Bob live in?"]
+question = "How many stars does the transformers repository have?"
+table = {
+    "Repository": ["Transformers", "Datasets", "Tokenizers"],
+    "Stars": [36542, 4512, 3934],
+    "Contributors": [651, 77, 34],
+    "Programming language": ["Python", "Python", "Rust, Python and NodeJS"]
+}
 
-inputs = tokenizer(table=table, queries=questions, padding="max_length", truncation=True, return_tensors="pt")
+inputs = tokenizer(table=table, queries=question, padding="max_length", truncation=True, return_tensors="pt")
 outputs = model(**inputs)
 
-print(outputs.logits)
+answer = tokenizer.decode(outputs.logits.argmax(dim=-1)[0]).strip()
+
+print("Answer:", answer)
 ```
 
-For more details on how to use the model, refer to the [official Hugging Face documentation](https://huggingface.co/google/tapas-large-finetuned-wikisql-supervised).
+Make sure to install the `transformers` library before running the code.
+
+Please note that this model has a large number of parameters.

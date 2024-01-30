@@ -1,40 +1,33 @@
 # Model name
-google/bigbird-pegasus-large-arxiv
+
+Google BigBird-Pegasus Large ARXIV
 
 ## Links
+
 - [Hugging Face Model Page](https://huggingface.co/google/bigbird-pegasus-large-arxiv)
+- [GitHub Repository](https://github.com/google-research/bigbird)
 
 ## Description
-The `google/bigbird-pegasus-large-arxiv` model is a large-scale transformer model trained for the task of summarization. It is based on the BigBird Pegasus architecture and uses the Pegasus framework for text-to-text generation. The model is trained on various datasets, including scientific papers, CNN/DailyMail articles, and XSum dataset. It has achieved competitive performance on multiple evaluation metrics such as ROUGE and meteor.
 
-Key features of the model:
-- Architecture: BigBirdPegasusForConditionalGeneration
-- Model type: bigbird_pegasus
-- Datasets: scientific_papers, CNN/DailyMail, XSum
-- License: Apache 2.0
+This model is part of the Google BigBird-Pegasus family and is trained for the task of summarization. It is based on the Pegasus model and uses the BigBird architecture, which allows for more efficient processing of long sequences. The model achieves state-of-the-art performance on a variety of summarization datasets, including scientific papers, CNN/DailyMail, XSum, and SamSum.
 
-The model is implemented using the Transformers library in Python.
+The model requires the `transformers` library in Python for usage examples. It is available under the Apache-2.0 license.
 
 ## Usage example
+
 ```python
-from transformers import BigBirdPegasusForConditionalGeneration, BigBirdPegasusTokenizer
+from transformers import BigBirdPegasusForConditionalGeneration, BigBirdTokenizer
 
-# Load the tokenizer and model
-tokenizer = BigBirdPegasusTokenizer.from_pretrained("google/bigbird-pegasus-large-arxiv")
-model = BigBirdPegasusForConditionalGeneration.from_pretrained("google/bigbird-pegasus-large-arxiv")
+model_name = "google/bigbird-pegasus-large-arxiv"
 
-# Example input text
-input_text = "The quick brown fox jumps over the lazy dog."
+tokenizer = BigBirdTokenizer.from_pretrained(model_name)
+model = BigBirdPegasusForConditionalGeneration.from_pretrained(model_name)
 
-# Tokenize the input text
-inputs = tokenizer.encode(input_text, return_tensors="pt")
+input_text = "..."
+inputs = tokenizer([input_text], truncation=True, padding=True, max_length=4096, return_tensors="pt")
+summary_ids = model.generate(inputs.input_ids)
 
-# Generate a summary
-summary_ids = model.generate(inputs["input_ids"])
-summary = tokenizer.decode(summary_ids[0])
-
-print("Input text:", input_text)
-print("Summary:", summary)
+summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
 ```
 
-Please refer to the [original Hugging Face model page](https://huggingface.co/google/bigbird-pegasus-large-arxiv) for more details.
+Note: The above code is a simplified example. Please refer to the official documentation and example notebooks for more details on usage.

@@ -4,36 +4,31 @@ facebook/bart-large-mnli
 
 ## Links
 
-- Hugging Face Model Card: [facebook/bart-large-mnli](https://huggingface.co/facebook/bart-large-mnli)
+- [Model page](https://huggingface.co/facebook/bart-large-mnli)
+- [GitHub repository](https://github.com/huggingface/transformers)
 
 ## Description
 
-The facebook/bart-large-mnli model is built using the BART architecture and is fine-tuned on the MNLI dataset. It is designed for zero-shot classification tasks. The model has 407,344,133 parameters and supports the Transformers library. 
+The facebook/bart-large-mnli model is a variant of the BART (Bidirectional and Auto-Regressive Transformers) model. It is trained on the Multi-Genre Natural Language Inference (MNLI) dataset and is fine-tuned for sequence classification tasks.
 
-- Architecture: BARTForSequenceClassification
-- Model type: BART
-- Pipeline tag: zero-shot-classification
-- Dataset: MNLI
+The model uses the transformers library in Python. It has a total of 407,344,133 parameters.
 
-For more details, please refer to the [Facebook BART Large MNLI Model Card](https://huggingface.co/facebook/bart-large-mnli).
+The BART model is suitable for tasks such as text generation, text summarization, text classification, and machine translation.
 
 ## Usage example
 
 ```python
-from transformers import pipeline
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli", framework="pt")
+model_name = "facebook/bart-large-mnli"
+model = AutoModelForSequenceClassification.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-sequence = "I have a problem with my iPhone that needs to be resolved asap!!"
-candidate_labels = ["urgent", "not urgent", "phone", "tablet", "computer"]
-
-result = classifier(sequence, candidate_labels)
-
-print(result)
+# Example usage for text classification
+text = "This is an example sentence."
+inputs = tokenizer(text, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
 ```
 
-This example demonstrates how to use the facebook/bart-large-mnli model for zero-shot classification, where the model predicts labels for a given sequence of text using the provided candidate labels ["urgent", "not urgent", "phone", "tablet", "computer"].
-
-Please note that you will need to install the Transformers library in order to use the model in the example.
-
-For more information on the usage and capabilities of the model, refer to the [Facebook BART Large MNLI Model Card](https://huggingface.co/facebook/bart-large-mnli).
+Please refer to the [model page](https://huggingface.co/facebook/bart-large-mnli) for more details and code examples.

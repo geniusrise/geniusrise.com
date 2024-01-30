@@ -1,0 +1,2628 @@
+[
+    {
+        "name": "Distil-Whisper Audio Transcription",
+        "inputs": [
+            {
+                "type": "audio",
+                "name": "input"
+            }
+        ],
+        "description": "This model, based on the Distil-Whisper architecture, is designed for high-quality, efficient audio transcription. It excels in converting spoken language in audio files into accurate text. Distil-Whisper is fine-tuned for a balance between performance and resource usage, making it ideal for various applications requiring speech-to-text capabilities. Whether it's transcribing meetings, lectures, or converting voice memos to text, this model provides reliable and accurate transcription across multiple languages and dialects.",
+        "model_name": "distil-whisper/distil-large-v2",
+        "apiClass": "AudioTranscriptionAPI",
+        "bulkMethod": "transcribe",
+        "endpoint": "/api/v1/transcribe",
+        "bulk_formats": ["wav", "mp3", "ogg", "m4a", "flac", "aac"],
+        "examples": [
+            "Transcribing audio recordings from meetings",
+            "Converting lectures and talks to text",
+            "Transcribing voice memos and notes",
+            "Generating subtitles for videos",
+            "Documenting interviews and podcasts",
+            "Transcribing customer service calls",
+            "Creating written records of legal proceedings",
+            "Documenting medical consultations",
+            "Transcribing multilingual content",
+            "Generating text from audio books"
+        ],
+        "input_examples": [
+            "Audio file of a business meeting",
+            "Recording of a university lecture",
+            "Voice memo with a to-do list",
+            "Podcast episode discussing technology trends",
+            "Interview with a subject matter expert",
+            "Customer service call for quality analysis",
+            "Legal deposition recording",
+            "Medical consultation between a doctor and patient",
+            "Multilingual news broadcast",
+            "Chapter from an audio book"
+        ],
+        "usecases": ["Meeting transcription", "Educational content transcription", "Podcast transcription", "Customer service documentation"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for audio transcription. This influences the transcription capabilities and performance of the model.",
+                "type": "string",
+                "default": "WhisperForConditionalGeneration",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Determines the processor class to be used for handling audio input. Ensures compatibility with the model and efficient processing of audio data.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Sets the precision level for calculations, affecting performance and resource usage. Float32 offers a balance between accuracy and efficiency.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Configuration for model optimization. A quantization value of 0 implies no quantization, prioritizing quality over size and speed.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for distributed computation. Here, 'cuda:0' indicates usage of the first GPU.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization in constrained environments.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for enhanced performance and deployment flexibility. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. The '*' symbol indicates that any endpoint can be used for accessing the API.",
+                "type": "string",
+                "default": "\"*\"",
+                "possible": null
+            },
+            "10": {
+                "name": "port",
+                "description": "Port number for API deployment. Default set to 3000.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "11": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "12": {
+                "name": "username",
+                "description": "Username for API authentication, enhancing security. Recommended to be set to a unique value.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "13": {
+                "name": "password",
+                "description": "Password for API security. Advised to use a strong, non-default value.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            }
+        },
+        "api": {
+            "audio": "your base64 encoded audio file here",
+            "model_sampling_rate": 16000,
+            "do_sample": true,
+            "num_beams": 4,
+            "temperature": 0.6
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status, enabling monitoring and alerts.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for audio transcription. Impacts transcription capabilities and performance.",
+                "type": "string",
+                "default": "WhisperForConditionalGeneration",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for handling audio input, ensuring compatibility and efficient processing.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Sets precision level for calculations, affecting performance and resource usage.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Configuration for model optimization. Zero quantization prioritizes quality over size and speed.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for distributed computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes, managing resource usage.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance and deployment. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "10": {
+                "name": "batch_size",
+                "description": "Determines the number of audio files processed simultaneously. A higher batch size can increase throughput but requires more memory.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "11": {
+                "name": "model_sampling_rate",
+                "description": "The sampling rate at which the model processes audio. 16,000 Hz is typical for high-quality audio transcription.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "12": {
+                "name": "chunk_size",
+                "description": "Size of each audio chunk in seconds when processing long audio files. A value of 0 indicates no chunking.",
+                "type": "integer",
+                "default": 0,
+                "possible": null
+            },
+            "13": {
+                "name": "overlap_size",
+                "description": "Size of overlap between chunks in seconds, useful for ensuring continuity in transcription of chunked audio. A value of 0 indicates no overlap.",
+                "type": "integer",
+                "default": 0,
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "Distil-Whisper Small English",
+        "inputs": [
+            {
+                "type": "audio",
+                "name": "input"
+            }
+        ],
+        "description": "This is a small model, based on the Distil-Whisper architecture, is designed for high-quality, efficient audio transcription. It excels in converting spoken language in audio files into accurate text. Distil-Whisper is fine-tuned for a balance between performance and resource usage, making it ideal for various applications requiring speech-to-text capabilities. Whether it's transcribing meetings, lectures, or converting voice memos to text, this model provides reliable and accurate transcription.",
+        "model_name": "distil-whisper/distil-small.en",
+        "apiClass": "AudioTranscriptionAPI",
+        "bulkMethod": "transcribe",
+        "endpoint": "/api/v1/transcribe",
+        "bulk_formats": ["wav", "mp3", "ogg", "m4a", "flac", "aac"],
+        "examples": [
+            "Transcribing audio recordings from meetings",
+            "Converting lectures and talks to text",
+            "Transcribing voice memos and notes",
+            "Generating subtitles for videos",
+            "Documenting interviews and podcasts",
+            "Transcribing customer service calls",
+            "Creating written records of legal proceedings",
+            "Documenting medical consultations",
+            "Transcribing multilingual content",
+            "Generating text from audio books"
+        ],
+        "input_examples": [
+            "Audio file of a business meeting",
+            "Recording of a university lecture",
+            "Voice memo with a to-do list",
+            "Podcast episode discussing technology trends",
+            "Interview with a subject matter expert",
+            "Customer service call for quality analysis",
+            "Legal deposition recording",
+            "Medical consultation between a doctor and patient",
+            "Multilingual news broadcast",
+            "Chapter from an audio book"
+        ],
+        "usecases": ["Meeting transcription", "Educational content transcription", "Podcast transcription", "Customer service documentation"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for audio transcription. This influences the transcription capabilities and performance of the model.",
+                "type": "string",
+                "default": "WhisperForConditionalGeneration",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Determines the processor class to be used for handling audio input. Ensures compatibility with the model and efficient processing of audio data.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Sets the precision level for calculations, affecting performance and resource usage. Float32 offers a balance between accuracy and efficiency.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Configuration for model optimization. A quantization value of 0 implies no quantization, prioritizing quality over size and speed.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for distributed computation. Here, 'cuda:0' indicates usage of the first GPU.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization in constrained environments.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for enhanced performance and deployment flexibility. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. The '*' symbol indicates that any endpoint can be used for accessing the API.",
+                "type": "string",
+                "default": "\"*\"",
+                "possible": null
+            },
+            "10": {
+                "name": "port",
+                "description": "Port number for API deployment. Default set to 3000.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "11": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "12": {
+                "name": "username",
+                "description": "Username for API authentication, enhancing security. Recommended to be set to a unique value.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "13": {
+                "name": "password",
+                "description": "Password for API security. Advised to use a strong, non-default value.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            }
+        },
+        "api": {
+            "audio": "your base64 encoded audio file here",
+            "model_sampling_rate": 16000,
+            "do_sample": true,
+            "num_beams": 4,
+            "temperature": 0.6
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status, enabling monitoring and alerts.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for audio transcription. Impacts transcription capabilities and performance.",
+                "type": "string",
+                "default": "WhisperForConditionalGeneration",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for handling audio input, ensuring compatibility and efficient processing.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Sets precision level for calculations, affecting performance and resource usage.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Configuration for model optimization. Zero quantization prioritizes quality over size and speed.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for distributed computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes, managing resource usage.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance and deployment. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "10": {
+                "name": "batch_size",
+                "description": "Determines the number of audio files processed simultaneously. A higher batch size can increase throughput but requires more memory.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "11": {
+                "name": "model_sampling_rate",
+                "description": "The sampling rate at which the model processes audio. 16,000 Hz is typical for high-quality audio transcription.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "12": {
+                "name": "chunk_size",
+                "description": "Size of each audio chunk in seconds when processing long audio files. A value of 0 indicates no chunking.",
+                "type": "integer",
+                "default": 0,
+                "possible": null
+            },
+            "13": {
+                "name": "overlap_size",
+                "description": "Size of overlap between chunks in seconds, useful for ensuring continuity in transcription of chunked audio. A value of 0 indicates no overlap.",
+                "type": "integer",
+                "default": 0,
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "Distil-Whisper Medium English",
+        "inputs": [
+            {
+                "type": "audio",
+                "name": "input"
+            }
+        ],
+        "description": "This is a medium-sized model, based on the Distil-Whisper architecture, is designed for high-quality, efficient audio transcription. It excels in converting spoken language in audio files into accurate text. Distil-Whisper is fine-tuned for a balance between performance and resource usage, making it ideal for various applications requiring speech-to-text capabilities. Whether it's transcribing meetings, lectures, or converting voice memos to text, this model provides reliable and accurate transcription.",
+        "model_name": "distil-whisper/distil-medium.en",
+        "apiClass": "AudioTranscriptionAPI",
+        "bulkMethod": "transcribe",
+        "endpoint": "/api/v1/transcribe",
+        "bulk_formats": ["wav", "mp3", "ogg", "m4a", "flac", "aac"],
+        "examples": [
+            "Transcribing audio recordings from meetings",
+            "Converting lectures and talks to text",
+            "Transcribing voice memos and notes",
+            "Generating subtitles for videos",
+            "Documenting interviews and podcasts",
+            "Transcribing customer service calls",
+            "Creating written records of legal proceedings",
+            "Documenting medical consultations",
+            "Transcribing multilingual content",
+            "Generating text from audio books"
+        ],
+        "input_examples": [
+            "Audio file of a business meeting",
+            "Recording of a university lecture",
+            "Voice memo with a to-do list",
+            "Podcast episode discussing technology trends",
+            "Interview with a subject matter expert",
+            "Customer service call for quality analysis",
+            "Legal deposition recording",
+            "Medical consultation between a doctor and patient",
+            "Multilingual news broadcast",
+            "Chapter from an audio book"
+        ],
+        "usecases": ["Meeting transcription", "Educational content transcription", "Podcast transcription", "Customer service documentation"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for audio transcription. This influences the transcription capabilities and performance of the model.",
+                "type": "string",
+                "default": "WhisperForConditionalGeneration",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Determines the processor class to be used for handling audio input. Ensures compatibility with the model and efficient processing of audio data.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Sets the precision level for calculations, affecting performance and resource usage. Float32 offers a balance between accuracy and efficiency.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Configuration for model optimization. A quantization value of 0 implies no quantization, prioritizing quality over size and speed.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for distributed computation. Here, 'cuda:0' indicates usage of the first GPU.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization in constrained environments.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for enhanced performance and deployment flexibility. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. The '*' symbol indicates that any endpoint can be used for accessing the API.",
+                "type": "string",
+                "default": "\"*\"",
+                "possible": null
+            },
+            "10": {
+                "name": "port",
+                "description": "Port number for API deployment. Default set to 3000.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "11": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "12": {
+                "name": "username",
+                "description": "Username for API authentication, enhancing security. Recommended to be set to a unique value.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "13": {
+                "name": "password",
+                "description": "Password for API security. Advised to use a strong, non-default value.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            }
+        },
+        "api": {
+            "audio": "your base64 encoded audio file here",
+            "model_sampling_rate": 16000,
+            "do_sample": true,
+            "num_beams": 4,
+            "temperature": 0.6
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status, enabling monitoring and alerts.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for audio transcription. Impacts transcription capabilities and performance.",
+                "type": "string",
+                "default": "WhisperForConditionalGeneration",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for handling audio input, ensuring compatibility and efficient processing.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Sets precision level for calculations, affecting performance and resource usage.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Configuration for model optimization. Zero quantization prioritizes quality over size and speed.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for distributed computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes, managing resource usage.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance and deployment. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "10": {
+                "name": "batch_size",
+                "description": "Determines the number of audio files processed simultaneously. A higher batch size can increase throughput but requires more memory.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "11": {
+                "name": "model_sampling_rate",
+                "description": "The sampling rate at which the model processes audio. 16,000 Hz is typical for high-quality audio transcription.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "12": {
+                "name": "chunk_size",
+                "description": "Size of each audio chunk in seconds when processing long audio files. A value of 0 indicates no chunking.",
+                "type": "integer",
+                "default": 0,
+                "possible": null
+            },
+            "13": {
+                "name": "overlap_size",
+                "description": "Size of overlap between chunks in seconds, useful for ensuring continuity in transcription of chunked audio. A value of 0 indicates no overlap.",
+                "type": "integer",
+                "default": 0,
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "Facebook Seamless M4T v2",
+        "inputs": [
+            {
+                "type": "audio",
+                "name": "input"
+            }
+        ],
+        "description": "This is a large model, based on Facebook's Seamless M4T v2, is optimized for high-quality speech-to-text transcription. It's particularly effective in transcribing diverse audio inputs with accuracy, thanks to its state-of-the-art architecture. The model is capable of handling various audio formats and is designed to provide excellent transcription results, making it suitable for applications such as transcribing meetings, lectures, or any audio content into text. Its advanced features make it an ideal choice for users seeking efficient and reliable transcription solutions.",
+        "model_name": "facebook/seamless-m4t-v2-large",
+        "apiClass": "SpeechToTextAPI",
+        "bulkMethod": "transcribe",
+        "endpoint": "/api/v1/transcribe",
+        "bulk_formats": ["wav", "mp3", "ogg", "m4a", "flac", "aac"],
+        "examples": [
+            "Transcribing audio from various formats",
+            "Converting spoken language in meetings to text",
+            "Transcribing educational lectures and seminars",
+            "Creating text transcripts of podcasts and interviews",
+            "Transcribing audio content for accessibility purposes",
+            "Generating subtitles for videos",
+            "Documenting verbal communications in legal contexts",
+            "Translating spoken content in multilingual settings"
+        ],
+        "input_examples": [
+            "Short audio clip from a meeting",
+            "Recording of an online webinar",
+            "Podcast episode in various languages",
+            "Audio from a legal deposition",
+            "Lecture recording from an academic course",
+            "Customer service call recording",
+            "Interview with a subject matter expert",
+            "Spoken content from a documentary film"
+        ],
+        "usecases": ["Meeting transcription", "Educational content transcription", "Multilingual audio transcription", "Legal documentation"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for speech-to-text purposes. This choice impacts the model's capabilities in transcribing audio into text.",
+                "type": "string",
+                "default": "SeamlessM4Tv2ForSpeechToText",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the class of the processor used for handling audio input, ensuring efficient and accurate audio processing.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Sets the precision level for calculations, balancing between computational efficiency and transcription accuracy.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Determines the quantization level for the model to optimize performance. A value of 0 indicates no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices, like GPUs, for distributed computation, optimizing the model's performance on the available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory allocation for the model in megabytes, providing a control over resource usage.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for enhanced performance and deployment flexibility. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
+                "type": "string",
+                "default": "\"*\"",
+                "possible": null
+            },
+            "10": {
+                "name": "port",
+                "description": "Port number for API deployment. Default set to 3000.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "11": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "12": {
+                "name": "username",
+                "description": "Username for API authentication, enhancing security. Recommended to be set to a unique value.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "13": {
+                "name": "password",
+                "description": "Password for API security. Advised to use a strong, non-default value.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            }
+        },
+        "api": {
+            "audio": "your audio file here",
+            "model_sampling_rate": 16000,
+            "chunk_size": 1280000,
+            "overlap_size": 213333,
+            "do_sample": true,
+            "num_beams": 4,
+            "temperature": 0.6,
+            "tgt_lang": "eng"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status, enabling monitoring and alerts.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for speech-to-text purposes. Impacts transcription capabilities and performance.",
+                "type": "string",
+                "default": "SeamlessM4Tv2ForSpeechToText",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for handling audio input, ensuring compatibility and efficient processing.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Sets precision level for calculations, affecting performance and resource usage.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Configuration for model optimization. Zero quantization prioritizes quality over size and speed.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for distributed computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes, managing resource usage.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance and deployment. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "10": {
+                "name": "batch_size",
+                "description": "Determines the number of audio files processed simultaneously. A higher batch size can increase throughput but requires more memory.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "11": {
+                "name": "model_sampling_rate",
+                "description": "The sampling rate at which the model processes audio. 16,000 Hz is typical for high-quality audio transcription.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "12": {
+                "name": "chunk_size",
+                "description": "Size of each audio chunk in bytes when processing long audio files. A value of 16000 indicates segmentation of audio for efficient processing.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "13": {
+                "name": "overlap_size",
+                "description": "Size of overlap between chunks in bytes, ensuring continuity in transcription of segmented audio. A value of 1600 provides a balance between accuracy and performance.",
+                "type": "integer",
+                "default": 1600,
+                "possible": null
+            },
+            "14": {
+                "name": "generation_tgt_lang",
+                "description": "Target language for transcription output. Setting this to 'eng' specifies English as the output language.",
+                "type": "string",
+                "default": "eng",
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "Wav2Vec v2 Base",
+        "inputs": [
+            {
+                "type": "audio",
+                "name": "input"
+            }
+        ],
+        "description": "This model utilizes Facebook's Wav2Vec2 architecture for efficient and accurate audio transcription. It's capable of converting speech from various audio formats into text, making it ideal for applications like transcribing podcasts, meetings, or any spoken word content. The Wav2Vec2 model has been trained on a vast dataset, ensuring high-quality transcription across different accents and dialects. This model is particularly useful for creating written records of verbal communications, providing accessibility, or generating data for analysis.",
+        "model_name": "facebook/wav2vec2-base-960h",
+        "apiClass": "SpeechToTextAPI",
+        "bulkMethod": "transcribe",
+        "endpoint": "/api/v1/transcribe",
+        "bulk_formats": ["wav", "mp3", "ogg", "m4a", "flac", "aac"],
+        "examples": [
+            "Transcribing spoken content from audio files",
+            "Creating text transcripts of podcasts and interviews",
+            "Transcribing meetings and lectures for record-keeping",
+            "Generating subtitles for videos and films",
+            "Documenting customer service calls",
+            "Transcribing legal and medical dictations",
+            "Analyzing spoken content in research interviews",
+            "Creating accessible content from audio and video"
+        ],
+        "input_examples": [
+            "Audio recording of a business meeting",
+            "Lecture from an online course",
+            "Customer service call for quality analysis",
+            "Interview with a subject matter expert",
+            "Podcast episode on a current topic",
+            "Legal deposition for documentation",
+            "Medical dictation for patient records",
+            "Video content for subtitle generation"
+        ],
+        "usecases": [
+            "Business transcription",
+            "Educational content transcription",
+            "Legal and medical documentation",
+            "Subtitle generation for media"
+        ],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for audio-to-text conversion. This choice impacts the transcription accuracy and capabilities.",
+                "type": "string",
+                "default": "Wav2Vec2ForCTC",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the class of the processor used for handling audio input, ensuring efficient and accurate audio processing.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Sets the precision level for calculations, balancing between computational efficiency and transcription accuracy.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Determines the quantization level for the model to optimize performance. A value of 0 indicates no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices, like GPUs, for distributed computation, optimizing the model's performance on the available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory allocation for the model in megabytes, providing a control over resource usage.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for enhanced performance and deployment flexibility. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. The '*' indicates a flexible endpoint setting for accessing the API.",
+                "type": "string",
+                "default": "\"*\"",
+                "possible": null
+            },
+            "10": {
+                "name": "port",
+                "description": "Port number for the API deployment. Default is set to 3000.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "11": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "12": {
+                "name": "username",
+                "description": "Username for API authentication, enhancing security. It is recommended to set this to a unique value.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "13": {
+                "name": "password",
+                "description": "Password for API security. Advised to use a strong, non-default value for enhanced protection.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            }
+        },
+        "api": {
+            "audio": "your audio file here",
+            "model_sampling_rate": 16000,
+            "chunk_size": 1600000
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status, enabling monitoring and alerts.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for speech-to-text purposes. Impacts transcription capabilities and performance.",
+                "type": "string",
+                "default": "Wav2Vec2ForCTC",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for handling audio input, ensuring compatibility and efficient processing.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Sets precision level for calculations, affecting performance and resource usage.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Configuration for model optimization. Zero quantization prioritizes quality over size and speed.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for distributed computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes, managing resource usage.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance and deployment. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "10": {
+                "name": "batch_size",
+                "description": "Determines the number of audio files processed simultaneously. A higher batch size can increase throughput but requires more memory.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "11": {
+                "name": "model_sampling_rate",
+                "description": "The sampling rate at which the model processes audio. 16,000 Hz is typical for high-quality audio transcription.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "12": {
+                "name": "chunk_size",
+                "description": "Size of each audio chunk in bytes when processing long audio files. A larger chunk size can handle longer audio segments but requires more memory.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "13": {
+                "name": "overlap_size",
+                "description": "Size of overlap between chunks in bytes, ensuring continuity in transcription of segmented audio. A value of 1600 helps to maintain context between chunks.",
+                "type": "integer",
+                "default": 1600,
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "Wav2Vec v2 Large",
+        "inputs": [
+            {
+                "type": "audio",
+                "name": "input"
+            }
+        ],
+        "description": "This model utilizes Facebook's Wav2Vec2 architecture for efficient and accurate audio transcription. It's capable of converting speech from various audio formats into text, making it ideal for applications like transcribing podcasts, meetings, or any spoken word content. The Wav2Vec2 model has been trained on a vast dataset, ensuring high-quality transcription across different accents and dialects. This model is particularly useful for creating written records of verbal communications, providing accessibility, or generating data for analysis.",
+        "model_name": "facebook/wav2vec2-large-960h-lv60-self",
+        "apiClass": "SpeechToTextAPI",
+        "bulkMethod": "transcribe",
+        "endpoint": "/api/v1/transcribe",
+        "bulk_formats": ["wav", "mp3", "ogg", "m4a", "flac", "aac"],
+        "examples": [
+            "Transcribing spoken content from audio files",
+            "Creating text transcripts of podcasts and interviews",
+            "Transcribing meetings and lectures for record-keeping",
+            "Generating subtitles for videos and films",
+            "Documenting customer service calls",
+            "Transcribing legal and medical dictations",
+            "Analyzing spoken content in research interviews",
+            "Creating accessible content from audio and video"
+        ],
+        "input_examples": [
+            "Audio recording of a business meeting",
+            "Lecture from an online course",
+            "Customer service call for quality analysis",
+            "Interview with a subject matter expert",
+            "Podcast episode on a current topic",
+            "Legal deposition for documentation",
+            "Medical dictation for patient records",
+            "Video content for subtitle generation"
+        ],
+        "usecases": [
+            "Business transcription",
+            "Educational content transcription",
+            "Legal and medical documentation",
+            "Subtitle generation for media"
+        ],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for audio-to-text conversion. This choice impacts the transcription accuracy and capabilities.",
+                "type": "string",
+                "default": "Wav2Vec2ForCTC",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the class of the processor used for handling audio input, ensuring efficient and accurate audio processing.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Sets the precision level for calculations, balancing between computational efficiency and transcription accuracy.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Determines the quantization level for the model to optimize performance. A value of 0 indicates no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices, like GPUs, for distributed computation, optimizing the model's performance on the available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Maximum memory allocation for the model in megabytes, providing a control over resource usage.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for enhanced performance and deployment flexibility. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. The '*' indicates a flexible endpoint setting for accessing the API.",
+                "type": "string",
+                "default": "\"*\"",
+                "possible": null
+            },
+            "10": {
+                "name": "port",
+                "description": "Port number for the API deployment. Default is set to 3000.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "11": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "12": {
+                "name": "username",
+                "description": "Username for API authentication, enhancing security. It is recommended to set this to a unique value.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "13": {
+                "name": "password",
+                "description": "Password for API security. Advised to use a strong, non-default value for enhanced protection.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            }
+        },
+        "api": {
+            "audio": "your audio file here",
+            "model_sampling_rate": 16000,
+            "chunk_size": 1600000
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status, enabling monitoring and alerts.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for speech-to-text purposes. Impacts transcription capabilities and performance.",
+                "type": "string",
+                "default": "Wav2Vec2ForCTC",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for handling audio input, ensuring compatibility and efficient processing.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Sets precision level for calculations, affecting performance and resource usage.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Configuration for model optimization. Zero quantization prioritizes quality over size and speed.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for distributed computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes, managing resource usage.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance and deployment. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "10": {
+                "name": "batch_size",
+                "description": "Determines the number of audio files processed simultaneously. A higher batch size can increase throughput but requires more memory.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "11": {
+                "name": "model_sampling_rate",
+                "description": "The sampling rate at which the model processes audio. 16,000 Hz is typical for high-quality audio transcription.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "12": {
+                "name": "chunk_size",
+                "description": "Size of each audio chunk in bytes when processing long audio files. A larger chunk size can handle longer audio segments but requires more memory.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "13": {
+                "name": "overlap_size",
+                "description": "Size of overlap between chunks in bytes, ensuring continuity in transcription of segmented audio. A value of 1600 helps to maintain context between chunks.",
+                "type": "integer",
+                "default": 1600,
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "Audio Transcription with Whisper Large v3",
+        "inputs": [
+            {
+                "type": "audio",
+                "name": "input"
+            }
+        ],
+        "description": "This model, based on the Whisper Large v3 architecture, is adept at transcribing audio files into text. It's versatile in handling different audio formats and contents, making it suitable for various applications like transcribing lectures, podcasts, meetings, and more.",
+        "model_name": "openai/whisper-large-v3",
+        "apiClass": "AudioTranscriptionAPI",
+        "bulkMethod": "transcribe",
+        "endpoint": "/api/v1/transcribe",
+        "bulk_formats": ["huggingface", "wav", "mp3", "flac", "aac", "ogg", "m4a"],
+        "examples": [
+            "Transcribing audio from different languages",
+            "Creating text transcripts of podcasts and interviews",
+            "Documenting speeches and lectures for accessibility",
+            "Converting audio books into readable text",
+            "Transcribing meetings and conferences for record-keeping"
+        ],
+        "input_examples": ["Base64 encoded audio file content here"],
+        "usecases": ["Educational transcription", "Media production", "Business meeting documentation"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Class of the Whisper model for audio transcription.",
+                "type": "string",
+                "default": "WhisperForConditionalGeneration",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Class of the processor for handling audio inputs.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Enables CUDA for GPU acceleration.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Precision level for calculations (e.g., float16, float32).",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Model size and inference speed optimization via quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Allocation of model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Max memory usage by the model in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Conversion to TorchScript for better performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "compile",
+                "description": "Compilation of the model for optimized performance.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "9": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "10": {
+                "name": "port",
+                "description": "Port number for API deployment.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "11": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "12": {
+                "name": "username",
+                "description": "Username for API authentication.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "13": {
+                "name": "password",
+                "description": "Password for API authentication.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            }
+        },
+        "api": {
+            "audio_file": "Base64 encoded audio content here",
+            "model_sampling_rate": 16000
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status, enabling monitoring and alerts.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for speech-to-text purposes. Impacts transcription capabilities and performance.",
+                "type": "string",
+                "default": "Wav2Vec2ForCTC",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for handling audio input, ensuring compatibility and efficient processing.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Sets precision level for calculations, affecting performance and resource usage.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Configuration for model optimization. Zero quantization prioritizes quality over size and speed.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for distributed computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes, managing resource usage.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance and deployment. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "10": {
+                "name": "batch_size",
+                "description": "Determines the number of audio files processed simultaneously. A higher batch size can increase throughput but requires more memory.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "11": {
+                "name": "model_sampling_rate",
+                "description": "The sampling rate at which the model processes audio. 16,000 Hz is typical for high-quality audio transcription.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "12": {
+                "name": "chunk_size",
+                "description": "Size of each audio chunk in bytes when processing long audio files. A larger chunk size can handle longer audio segments but requires more memory.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "13": {
+                "name": "overlap_size",
+                "description": "Size of overlap between chunks in bytes, ensuring continuity in transcription of segmented audio. A value of 1600 helps to maintain context between chunks.",
+                "type": "integer",
+                "default": 1600,
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "Whisper Large v2",
+        "inputs": [
+            {
+                "type": "audio",
+                "name": "input"
+            }
+        ],
+        "description": "This model, based on the Whisper Large v2 architecture, is adept at transcribing audio files into text. It's versatile in handling different audio formats and contents, making it suitable for various applications like transcribing lectures, podcasts, meetings, and more.",
+        "model_name": "openai/whisper-large-v2",
+        "apiClass": "AudioTranscriptionAPI",
+        "bulkMethod": "transcribe",
+        "endpoint": "/api/v1/transcribe",
+        "bulk_formats": ["huggingface", "wav", "mp3", "flac", "aac", "ogg", "m4a"],
+        "examples": [
+            "Transcribing audio from different languages",
+            "Creating text transcripts of podcasts and interviews",
+            "Documenting speeches and lectures for accessibility",
+            "Converting audio books into readable text",
+            "Transcribing meetings and conferences for record-keeping"
+        ],
+        "input_examples": ["Base64 encoded audio file content here"],
+        "usecases": ["Educational transcription", "Media production", "Business meeting documentation"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Class of the Whisper model for audio transcription.",
+                "type": "string",
+                "default": "WhisperForConditionalGeneration",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Class of the processor for handling audio inputs.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Enables CUDA for GPU acceleration.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Precision level for calculations (e.g., float16, float32).",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Model size and inference speed optimization via quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Allocation of model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Max memory usage by the model in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Conversion to TorchScript for better performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "compile",
+                "description": "Compilation of the model for optimized performance.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "9": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "10": {
+                "name": "port",
+                "description": "Port number for API deployment.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "11": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "12": {
+                "name": "username",
+                "description": "Username for API authentication.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "13": {
+                "name": "password",
+                "description": "Password for API authentication.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            }
+        },
+        "api": {
+            "audio_file": "Base64 encoded audio content here",
+            "model_sampling_rate": 16000
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status, enabling monitoring and alerts.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for speech-to-text purposes. Impacts transcription capabilities and performance.",
+                "type": "string",
+                "default": "Wav2Vec2ForCTC",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for handling audio input, ensuring compatibility and efficient processing.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Sets precision level for calculations, affecting performance and resource usage.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Configuration for model optimization. Zero quantization prioritizes quality over size and speed.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for distributed computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes, managing resource usage.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance and deployment. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "10": {
+                "name": "batch_size",
+                "description": "Determines the number of audio files processed simultaneously. A higher batch size can increase throughput but requires more memory.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "11": {
+                "name": "model_sampling_rate",
+                "description": "The sampling rate at which the model processes audio. 16,000 Hz is typical for high-quality audio transcription.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "12": {
+                "name": "chunk_size",
+                "description": "Size of each audio chunk in bytes when processing long audio files. A larger chunk size can handle longer audio segments but requires more memory.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "13": {
+                "name": "overlap_size",
+                "description": "Size of overlap between chunks in bytes, ensuring continuity in transcription of segmented audio. A value of 1600 helps to maintain context between chunks.",
+                "type": "integer",
+                "default": 1600,
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "Whisper Base English",
+        "inputs": [
+            {
+                "type": "audio",
+                "name": "input"
+            }
+        ],
+        "description": "This model, based on the Whisper Base architecture, is adept at transcribing audio files into text. It's versatile in handling different audio formats and contents, making it suitable for various applications like transcribing lectures, podcasts, meetings, and more.",
+        "model_name": "openai/whisper-base.en",
+        "apiClass": "AudioTranscriptionAPI",
+        "bulkMethod": "transcribe",
+        "endpoint": "/api/v1/transcribe",
+        "bulk_formats": ["huggingface", "wav", "mp3", "flac", "aac", "ogg", "m4a"],
+        "examples": [
+            "Transcribing audio from different languages",
+            "Creating text transcripts of podcasts and interviews",
+            "Documenting speeches and lectures for accessibility",
+            "Converting audio books into readable text",
+            "Transcribing meetings and conferences for record-keeping"
+        ],
+        "input_examples": ["Base64 encoded audio file content here"],
+        "usecases": ["Educational transcription", "Media production", "Business meeting documentation"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Class of the Whisper model for audio transcription.",
+                "type": "string",
+                "default": "WhisperForConditionalGeneration",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Class of the processor for handling audio inputs.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Enables CUDA for GPU acceleration.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Precision level for calculations (e.g., float16, float32).",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Model size and inference speed optimization via quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Allocation of model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Max memory usage by the model in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Conversion to TorchScript for better performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "compile",
+                "description": "Compilation of the model for optimized performance.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "9": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "10": {
+                "name": "port",
+                "description": "Port number for API deployment.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "11": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "12": {
+                "name": "username",
+                "description": "Username for API authentication.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "13": {
+                "name": "password",
+                "description": "Password for API authentication.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            }
+        },
+        "api": {
+            "audio_file": "Base64 encoded audio content here",
+            "model_sampling_rate": 16000
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status, enabling monitoring and alerts.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for speech-to-text purposes. Impacts transcription capabilities and performance.",
+                "type": "string",
+                "default": "Wav2Vec2ForCTC",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for handling audio input, ensuring compatibility and efficient processing.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Sets precision level for calculations, affecting performance and resource usage.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Configuration for model optimization. Zero quantization prioritizes quality over size and speed.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for distributed computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes, managing resource usage.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance and deployment. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "10": {
+                "name": "batch_size",
+                "description": "Determines the number of audio files processed simultaneously. A higher batch size can increase throughput but requires more memory.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "11": {
+                "name": "model_sampling_rate",
+                "description": "The sampling rate at which the model processes audio. 16,000 Hz is typical for high-quality audio transcription.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "12": {
+                "name": "chunk_size",
+                "description": "Size of each audio chunk in bytes when processing long audio files. A larger chunk size can handle longer audio segments but requires more memory.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "13": {
+                "name": "overlap_size",
+                "description": "Size of overlap between chunks in bytes, ensuring continuity in transcription of segmented audio. A value of 1600 helps to maintain context between chunks.",
+                "type": "integer",
+                "default": 1600,
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "Whisper Medium English",
+        "inputs": [
+            {
+                "type": "audio",
+                "name": "input"
+            }
+        ],
+        "description": "This model, based on the Whisper Medium architecture, is adept at transcribing audio files into text. It's versatile in handling different audio formats and contents, making it suitable for various applications like transcribing lectures, podcasts, meetings, and more.",
+        "model_name": "openai/whisper-medium.en",
+        "apiClass": "AudioTranscriptionAPI",
+        "bulkMethod": "transcribe",
+        "endpoint": "/api/v1/transcribe",
+        "bulk_formats": ["huggingface", "wav", "mp3", "flac", "aac", "ogg", "m4a"],
+        "examples": [
+            "Transcribing audio from different languages",
+            "Creating text transcripts of podcasts and interviews",
+            "Documenting speeches and lectures for accessibility",
+            "Converting audio books into readable text",
+            "Transcribing meetings and conferences for record-keeping"
+        ],
+        "input_examples": ["Base64 encoded audio file content here"],
+        "usecases": ["Educational transcription", "Media production", "Business meeting documentation"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Class of the Whisper model for audio transcription.",
+                "type": "string",
+                "default": "WhisperForConditionalGeneration",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Class of the processor for handling audio inputs.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Enables CUDA for GPU acceleration.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Precision level for calculations (e.g., float16, float32).",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Model size and inference speed optimization via quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Allocation of model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Max memory usage by the model in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Conversion to TorchScript for better performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "compile",
+                "description": "Compilation of the model for optimized performance.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "9": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "10": {
+                "name": "port",
+                "description": "Port number for API deployment.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "11": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "12": {
+                "name": "username",
+                "description": "Username for API authentication.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "13": {
+                "name": "password",
+                "description": "Password for API authentication.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            }
+        },
+        "api": {
+            "audio_file": "Base64 encoded audio content here",
+            "model_sampling_rate": 16000
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status, enabling monitoring and alerts.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for speech-to-text purposes. Impacts transcription capabilities and performance.",
+                "type": "string",
+                "default": "Wav2Vec2ForCTC",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for handling audio input, ensuring compatibility and efficient processing.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Sets precision level for calculations, affecting performance and resource usage.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Configuration for model optimization. Zero quantization prioritizes quality over size and speed.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for distributed computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes, managing resource usage.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance and deployment. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "10": {
+                "name": "batch_size",
+                "description": "Determines the number of audio files processed simultaneously. A higher batch size can increase throughput but requires more memory.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "11": {
+                "name": "model_sampling_rate",
+                "description": "The sampling rate at which the model processes audio. 16,000 Hz is typical for high-quality audio transcription.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "12": {
+                "name": "chunk_size",
+                "description": "Size of each audio chunk in bytes when processing long audio files. A larger chunk size can handle longer audio segments but requires more memory.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "13": {
+                "name": "overlap_size",
+                "description": "Size of overlap between chunks in bytes, ensuring continuity in transcription of segmented audio. A value of 1600 helps to maintain context between chunks.",
+                "type": "integer",
+                "default": 1600,
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "Whisper Tiny English",
+        "inputs": [
+            {
+                "type": "audio",
+                "name": "input"
+            }
+        ],
+        "description": "This model, based on the Whisper Tiny architecture, is adept at transcribing audio files into text. It's versatile in handling different audio formats and contents, making it suitable for various applications like transcribing lectures, podcasts, meetings, and more.",
+        "model_name": "openai/whisper-tiny.en",
+        "apiClass": "AudioTranscriptionAPI",
+        "bulkMethod": "transcribe",
+        "endpoint": "/api/v1/transcribe",
+        "bulk_formats": ["huggingface", "wav", "mp3", "flac", "aac", "ogg", "m4a"],
+        "examples": [
+            "Transcribing audio from different languages",
+            "Creating text transcripts of podcasts and interviews",
+            "Documenting speeches and lectures for accessibility",
+            "Converting audio books into readable text",
+            "Transcribing meetings and conferences for record-keeping"
+        ],
+        "input_examples": ["Base64 encoded audio file content here"],
+        "usecases": ["Educational transcription", "Media production", "Business meeting documentation"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Class of the Whisper model for audio transcription.",
+                "type": "string",
+                "default": "WhisperForConditionalGeneration",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Class of the processor for handling audio inputs.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Enables CUDA for GPU acceleration.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "precision",
+                "description": "Precision level for calculations (e.g., float16, float32).",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16"]
+            },
+            "4": {
+                "name": "quantization",
+                "description": "Model size and inference speed optimization via quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "5": {
+                "name": "device_map",
+                "description": "Allocation of model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "6": {
+                "name": "max_memory",
+                "description": "Max memory usage by the model in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "7": {
+                "name": "torchscript",
+                "description": "Conversion to TorchScript for better performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "compile",
+                "description": "Compilation of the model for optimized performance.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "9": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "10": {
+                "name": "port",
+                "description": "Port number for API deployment.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "11": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "12": {
+                "name": "username",
+                "description": "Username for API authentication.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "13": {
+                "name": "password",
+                "description": "Password for API authentication.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            }
+        },
+        "api": {
+            "audio_file": "Base64 encoded audio content here",
+            "model_sampling_rate": 16000
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status, enabling monitoring and alerts.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for speech-to-text purposes. Impacts transcription capabilities and performance.",
+                "type": "string",
+                "default": "Wav2Vec2ForCTC",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for handling audio input, ensuring compatibility and efficient processing.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "precision",
+                "description": "Sets precision level for calculations, affecting performance and resource usage.",
+                "type": "string",
+                "default": "float32",
+                "possible": ["float32", "float16", "bfloat16"]
+            },
+            "5": {
+                "name": "quantization",
+                "description": "Configuration for model optimization. Zero quantization prioritizes quality over size and speed.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "6": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for distributed computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "7": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes, managing resource usage.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "8": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance and deployment. False indicates no conversion.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "9": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance. False indicates no compilation.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "10": {
+                "name": "batch_size",
+                "description": "Determines the number of audio files processed simultaneously. A higher batch size can increase throughput but requires more memory.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "11": {
+                "name": "model_sampling_rate",
+                "description": "The sampling rate at which the model processes audio. 16,000 Hz is typical for high-quality audio transcription.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "12": {
+                "name": "chunk_size",
+                "description": "Size of each audio chunk in bytes when processing long audio files. A larger chunk size can handle longer audio segments but requires more memory.",
+                "type": "integer",
+                "default": 16000,
+                "possible": null
+            },
+            "13": {
+                "name": "overlap_size",
+                "description": "Size of overlap between chunks in bytes, ensuring continuity in transcription of segmented audio. A value of 1600 helps to maintain context between chunks.",
+                "type": "integer",
+                "default": 1600,
+                "possible": null
+            }
+        }
+    }
+]

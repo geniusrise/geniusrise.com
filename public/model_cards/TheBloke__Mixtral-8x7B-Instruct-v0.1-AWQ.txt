@@ -1,38 +1,32 @@
 # Model name
-
 Mixtral-8x7B-Instruct-v0.1-AWQ
 
 ## Links
-
-- [Hugging Face Model Page](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-AWQ)
+- [Model Page](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-AWQ)
+- [GitHub Repository](https://github.com/TheBloke/HuggingFace-Model-Repository/tree/main/Mixtral-8x7B-Instruct-v0.1-AWQ)
 
 ## Description
+Mixtral-8x7B-Instruct-v0.1-AWQ is a text-generation model trained using the Mixtral architecture and the transformers library. It is created by TheBloke (Tom Jobbins) from Mistral AI. The model has a base model called mistralai/Mixtral-8x7B-Instruct-v0.1 and is quantized by TheBloke. The model specializes in text generation tasks, particularly in generating responses based on prompts.
 
-The model Mixtral-8x7B-Instruct-v0.1-AWQ is built on Mistral AI_'s Mixtral 8X7B Instruct v0.1 and optimized using AWQ, a quantization method supporting 4-bit quantization for efficient, accurate, and fast low-bit weight quantization. It is currently available for GPU inference on Linux and Windows platforms. The model is compatible with [Text Generation Webui](https://github.com/oobabooga/text-generation-webui), [vLLM](https://github.com/vllm-project/vllm) version 0.2.2 or later, [Hugging Face Text Generation Inference (TGI)](https://github.com/huggingface/text-generation-inference), and the [Transformers library](https://huggingface.co/docs/transformers) version 4.35.0 or later. This model has been tested with Text Generation Webui using Loader: AutoAWQ. The prompt template for the instruct-based model requires the instruction to be bracketed between `[INST]` and `[/INST]`. The dataset used for quantization is the [VMware Open Instruct](https://huggingface.co/datasets/VMware/open-instruct/viewer/), and the model supports a maximum sequence length of 8192.
+The model supports multiple languages, including French, Italian, German, Spanish, and English. It is licensed under the Apache 2.0 license.
+
+The model has a total of approximately 6,470,000,000 parameters.
 
 ## Usage example
+```
+from transformers import pipeline
 
-Here's an example using the Transformers library in Python:
-
-```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
-
-model_name_or_path = "TheBloke/Mixtral-8x7B-Instruct-v0.1-AWQ"
-
-tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
-model = AutoModelForCausalLM.from_pretrained(
-    model_name_or_path,
-    low_cpu_mem_usage=True,
-    device_map="cuda:0"
+generator = pipeline(
+    "text-generation",
+    model="TheBloke/Mixtral-8x7B-Instruct-v0.1-AWQ",
+    tokenizer="TheBloke/Mixtral-8x7B-Instruct-v0.1-AWQ"
 )
 
-prompt = "[INST] Tell me about AI [/INST]"
-inputs = tokenizer(prompt, return_tensors='pt').input_ids.cuda()
+prompt = "There's a llama on my lawn, how can I get rid of him?"
 
-# Generate text with the model
-generation_output = model.generate(inputs, max_new_tokens=50)
-generated_text = tokenizer.decode(generation_output[0], skip_special_tokens=True)
-print(generated_text)
+result = generator(prompt, max_length=100)
+
+print(result[0]["generated_text"])
 ```
 
-Ensure that the necessary `transformers` and `autoawq` libraries are installed with the versions specified. If using the provided prompt format, remember to replace the `prompt` variable with your desired instruction embedded within the `[INST]` tags.
+Note: The usage example is written using the transformers library in Python.

@@ -1,29 +1,26 @@
 # Model name
-cross-encoder/nli-roberta-base
+
+nli-roberta-base
 
 ## Links
-- [Hugging Face Model Card](https://huggingface.co/cross-encoder/nli-roberta-base)
+
+- [Hugging Face Model Page](https://huggingface.co/cross-encoder/nli-roberta-base)
+- [GitHub Repository](https://github.com/cross-encoder/nli-roberta-base)
 
 ## Description
-The `cross-encoder/nli-roberta-base` model is a neural network model trained on the Natural Language Inference (NLI) task using the RoBERTa architecture. It is designed for zero-shot classification and can be used to determine the semantic similarity between two sentences. The model has been fine-tuned on the `multi_nli` and `snli` datasets and achieves high accuracy in NLI tasks. 
 
-The model is based on the RoBERTa architecture and has approximately [125 million parameters](https://huggingface.co/cross-encoder/nli-roberta-base). It supports inference out of the box using the transformers library in Python.
+The nli-roberta-base model is a transformer-based model that belongs to the cross-encoder repository. It is designed for natural language inference tasks and is based on the Roberta model architecture. The model has been fine-tuned on multiple datasets, including multi_nli and snli. It supports zero-shot classification using the "zero-shot-classification" pipeline tag. The model is available for use with the transformers library in Python.
 
 ## Usage example
+
 ```python
 from transformers import pipeline
 
-classifier = pipeline(
-    "zero-shot-classification",
-    model="cross-encoder/nli-roberta-base",
-    tokenizer="cross-encoder/nli-roberta-base"
-)
-
-result = classifier(
-    "How is the weather today?",
-    ["positive", "negative"]
-)
+nli_model = pipeline("zero-shot-classification", model="cross-encoder/nli-roberta-base")
+result = nli_model("I have a problem with my iPhone.", candidate_labels=["urgent", "not urgent", "phone", "tablet", "computer"])
 print(result)
 ```
 
-For more information and detailed usage examples, refer to the [Hugging Face model page](https://huggingface.co/cross-encoder/nli-roberta-base).
+This example demonstrates how to use the nli-roberta-base model for zero-shot classification. The model is used to classify a text as belonging to one of the candidate labels provided: "urgent", "not urgent", "phone", "tablet", or "computer". The result is a dictionary containing the predicted label and its associated score.
+
+The nli-roberta-base model has a total of 270 million parameters. It is trained to perform natural language inference tasks and has achieved an accuracy metric.

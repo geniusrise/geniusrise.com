@@ -5,38 +5,42 @@ tapas-small-finetuned-wikisql-supervised
 ## Links
 
 - [Hugging Face Model Page](https://huggingface.co/google/tapas-small-finetuned-wikisql-supervised)
+- [GitHub Repository](https://github.com/google-research/tapas)
 
 ## Description
 
-The `tapas-small-finetuned-wikisql-supervised` model is a fine-tuned version of the Tapas model trained on the WikiSQL dataset. It is part of the Google models. The model is based on the Transformers library and is available for both PyTorch and TensorFlow. It is designed for table question-answering tasks and can process tabular data with natural language queries.
+The tapas-small-finetuned-wikisql-supervised model is a table question answering model that has been fine-tuned on the Wikisql dataset. It is implemented using the transformers library in Python. The model is based on the TAPAS (Table-based Question Answering) architecture.
 
-The model has been trained with a supervised learning approach, where it learns from examples that include both table content and corresponding SQL queries. It has achieved good performance on the WikiSQL dataset, which is a commonly used benchmark for table question-answering tasks.
+The model has been trained to answer questions based on tables. It can understand and extract information from tabular data, making it suitable for tasks such as answering questions related to data in tables.
 
-The model has a small size and a moderate number of parameters. It can be used for a wide range of table question-answering tasks, such as answering questions about tabular data or generating SQL queries based on natural language queries.
+The tapas-small-finetuned-wikisql-supervised model has a small architecture and has been trained with a supervised learning approach using the Wikisql dataset.
+
+The model has a total of X parameters.
 
 ## Usage example
 
-Here is an example of how to use the `tapas-small-finetuned-wikisql-supervised` model with the Transformers library in Python:
-
 ```python
-from transformers import AutoTokenizer, AutoModelForTableQuestionAnswering
+from transformers import TapasTokenizer, TapasForQuestionAnswering
 
-tokenizer = AutoTokenizer.from_pretrained("google/tapas-small-finetuned-wikisql-supervised")
-model = AutoModelForTableQuestionAnswering.from_pretrained("google/tapas-small-finetuned-wikisql-supervised")
+tokenizer = TapasTokenizer.from_pretrained("google/tapas-small-finetuned-wikisql-supervised")
+model = TapasForQuestionAnswering.from_pretrained("google/tapas-small-finetuned-wikisql-supervised")
 
-table = [["Col1", "Col2"], ["Value1", "Value2"]] # Example table
-queries = ["What is the value in Col1?", "What is the value in Col2?"] # Example queries
+table = [
+    ["Name", "Age", "City"],
+    ["John", "25", "New York"],
+    ["Sarah", "30", "London"],
+    ["Michael", "35", "Paris"],
+]
 
-inputs = tokenizer(table=table, queries=queries, padding="longest", truncation=True, return_tensors="pt")
-outputs = model(**inputs)
+queries = [
+    "What is the age of Sarah?",
+    "Where does Michael live?"
+]
 
-# Access the predicted answer for each query
-answer_start = outputs.answer_start.tolist()
-answer_end = outputs.answer_end.tolist()
-answers = [tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(input_ids[s:e+1])) if e >= s else "" for s, e in zip(answer_start, answer_end)]
-
-print(answers) # Print the predicted answers
+encoded_inputs = tokenizer(table=table, queries=queries, padding="max_length", truncation=True, return_tensors="pt")
+outputs = model(**encoded_inputs)
+answer = tokenizer.decode(outputs[0].argmax().item())
+print(answer)
 ```
 
-Please refer to the [Transformers documentation](https://huggingface.co/transformers/) for more information on how to use the Transformers library with Python.
-
+This example demonstrates how to use the tapas-small-finetuned-wikisql-supervised model for table question answering. It uses the TapasTokenizer and TapasForQuestionAnswering classes from the transformers library to tokenize the table and queries, encode the inputs, and generate predictions. The model is fine-tuned on the Wikisql dataset and can provide answers to questions based on the provided table.

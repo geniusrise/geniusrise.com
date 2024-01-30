@@ -4,29 +4,30 @@ CodeLlama-34b-Instruct-hf
 
 ## Links
 
-- [Hugging Face Model Card](https://huggingface.co/codellama/CodeLlama-34b-Instruct-hf)
+- Model page: [CodeLlama-34b-Instruct-hf](https://huggingface.co/codellama/CodeLlama-34b-Instruct-hf)
+- GitHub repository: [CodeLlama-34b](https://github.com/codellama/CodeLlama-34b-Instruct-hf)
 
 ## Description
 
-The CodeLlama-34b-Instruct-hf model is a text generation model trained by Code Llama. It is based on the LlamaForCausalLM architecture and is part of the transformers library. The model is designed for instructing or guiding text generation tasks. It has been trained on a large amount of data and has a total of 33,743,970,304 parameters. The model supports text generation in Python using the transformers library.
+The CodeLlama-34b-Instruct-hf model is a text generation model trained by Code Llama. It is based on the LlamaForCausalLM architecture and is part of the Transformers library. The model has been trained on various datasets and is capable of generating text based on provided inputs. It is designed to be used for tasks related to text generation and is compatible with the Transformers library in Python. The model has a total of 33,743,970,304 parameters and has been trained using the GPTQ method.
 
 ## Usage example
 
-Here is an example of how to use the CodeLlama-34b-Instruct-hf model for text generation in Python using the transformers library:
+Here is an example of how to use the CodeLlama-34b-Instruct-hf model with the Transformers library in Python:
 
 ```python
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_name = "codellama/CodeLlama-34b-Instruct-hf"
-tokenizer = GPT2Tokenizer.from_pretrained(model_name)
-model = GPT2LMHeadModel.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
 prompt = "Once upon a time"
 input_ids = tokenizer.encode(prompt, return_tensors="pt")
-output_ids = model.generate(input_ids, max_length=100)
+output_ids = model.generate(input_ids, max_length=50)
+output_text = tokenizer.decode(output_ids[0])
 
-generated_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
-print(generated_text)
+print(output_text)
 ```
 
-Please refer to the [original Hugging Face page](https://huggingface.co/codellama/CodeLlama-34b-Instruct-hf) for more information and examples on how to use the model.
+This example demonstrates how to use the model for text generation by providing a prompt and generating a sequence of text based on the prompt.

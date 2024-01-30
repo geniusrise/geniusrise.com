@@ -1,37 +1,27 @@
 # Model name
+
 Llama-2-7B-Chat-GPTQ
 
 ## Links
-- [Hugging Face Model Card](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GPTQ)
+
+- Model page: [Llama-2-7B-Chat-GPTQ](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GPTQ)
+- GitHub repo: N/A
 
 ## Description
-The Llama-2-7B-Chat-GPTQ model is a text generation model created by TheBloke. It is built using the Transformers library and is based on the Llama-2-7B-Chat model provided by Meta Llama 2. The model is trained on a large dataset and has been fine-tuned for chat-based text generation.
 
-This model is particularly useful for generating informative and helpful responses while maintaining safety and ethical considerations. It has been trained to avoid generating harmful, unethical, or illegal content.
+The Llama-2-7B-Chat-GPTQ model is a text generation model based on the Llama-2 architecture. It is designed to generate helpful and respectful responses while ensuring safety. The model's prompt template includes guidelines for generating responses that are socially unbiased and positive. The model utilizes the transformers library in Python and has a quantization configuration of 4-bit precision.
 
-The model's architecture is LlamaForCausalLM and it falls under the pipeline tag of text generation. It has a prompt template that can be used to guide its responses.
-
-The model is quantized using the GPTQ (GPT Quantization) method, with 4-bit precision and a group size of 128. The quantization has been done by TheBloke.
-
-The model has been downloaded 126,254 times and has received 213 likes.
+The model is licensed under Llama 2 and is suitable for builders and developers looking to generate helpful and safe text responses.
 
 ## Usage example
-Here's an example of how to use the Llama-2-7B-Chat-GPTQ model with the Transformers library in Python:
 
 ```python
-from transformers import LlamaForCausalLM, LlamaTokenizer
+from transformers import pipeline
 
-model_name = "TheBloke/Llama-2-7B-Chat-GPTQ"
-model = LlamaForCausalLM.from_pretrained(model_name)
-tokenizer = LlamaTokenizer.from_pretrained(model_name)
-
-input_prompt = "Hello, how can I help you today?"
-
-input_ids = tokenizer.encode(input_prompt, return_tensors="pt")
-outputs = model.generate(input_ids)
-
-generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
-print(generated_text)
+generator = pipeline("text-generation", model="TheBloke/Llama-2-7B-Chat-GPTQ")
+prompt = "My name is John and I need help with"
+response = generator(prompt, max_length=100)[0]["generated_text"]
+print(response)
 ```
 
-For more usage details, please refer to the [original Hugging Face page](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GPTQ).
+Please note that the example above uses the transformers library in Python to interact with the Llama-2-7B-Chat-GPTQ model for text generation.

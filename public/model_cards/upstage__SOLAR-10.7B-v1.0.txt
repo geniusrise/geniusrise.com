@@ -4,27 +4,29 @@ SOLAR-10.7B-v1.0
 
 ## Links
 
-- [Hugging Face Model Page](https://huggingface.co/upstage/SOLAR-10.7B-v1.0)
+- [Model Page](https://huggingface.co/upstage/SOLAR-10.7B-v1.0)
+- [GitHub Repository](https://github.com/upstage-ai/)
 
 ## Description
 
-The SOLAR-10.7B-v1.0 model is a large language model trained by upstage. It is based on the Llama architecture and can be used for text generation tasks. The model has been trained on the SOLAR dataset, and it has a total of 10.7 billion parameters. The model supports inference and is compatible with the transformers library. 
-
-You can find more information about the model on the [Hugging Face Model Page](https://huggingface.co/upstage/SOLAR-10.7B-v1.0).
+The SOLAR-10.7B-v1.0 model is a large language model trained with the Transformers library in Python. It is designed for text generation tasks and falls under the llama architecture. The model has been trained on a large dataset and has a total of 10,731,524,096 parameters. It is compatible with transformers, Safetensors, and llama libraries. The model supports text generation inference and has been trained on the US region.
 
 ## Usage example
 
-To use the SOLAR-10.7B-v1.0 model with the transformers library in Python, you can follow this example:
+Here is an example of how to use the SOLAR-10.7B-v1.0 model with the Transformers library in Python:
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-model_name = "upstage/SOLAR-10.7B-v1.0"
+tokenizer = AutoTokenizer.from_pretrained("upstage/SOLAR-10.7B-v1.0")
+model = AutoModelForCausalLM.from_pretrained("upstage/SOLAR-10.7B-v1.0")
 
-model = AutoModelForCausalLM.from_pretrained(model_name)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+prompt = "Once upon a time,"
+inputs = tokenizer.encode(prompt, return_tensors="pt")
+outputs = model.generate(inputs, max_length=50)
 
-# Use the model and tokenizer for text generation
+decoded_outputs = tokenizer.decode(outputs[0])
+print(decoded_outputs)
 ```
 
-Please note that the actual code might differ depending on your specific use case. Make sure to refer to the transformers library documentation for more details.
+This will generate text based on the provided prompt using the SOLAR-10.7B-v1.0 model.

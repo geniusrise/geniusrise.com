@@ -1,32 +1,22 @@
-# Model name
+# Model Name: toxigen_roberta
 
-toxigen_roberta
+## Links:
+- [Model Page](https://huggingface.co/tomh/toxigen_roberta)
+- [GitHub Repo](https://github.com/tomh/toxigen_roberta)
 
-## Links
+## Description:
+The toxigen_roberta model is a text classification model built on the Transformers library in Python. It is based on the RoBERTa architecture and is specifically designed for toxic text classification tasks. The model has been trained on a large-scale machine-generated dataset for adversarial and implicit hate speech detection. It has a total of 5,471 downloads and has been liked by 5 users. The model is compatible with the AutoTrain and Inference Endpoints applications.
 
-- [Hugging Face Model Page](https://huggingface.co/tomh/toxigen_roberta)
-
-## Description
-
-toxigen_roberta is a text classification model based on the RoBERTa architecture. It is trained to detect adversarial and implicit hate speech. The model is implemented using the transformers library with Python. It has been trained on a large-scale machine-generated dataset.
-
-The model has a total of 5,079,040 parameters. It is compatible with the AutoTokenizer and AutoModelForSequenceClassification classes provided by the transformers library.
-
-## Usage example
-
-Here is an example of how to use the toxigen_roberta model with the transformers library in Python:
-
+## Usage Example:
 ```python
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import RobertaTokenizer, RobertaForSequenceClassification
 
-tokenizer = AutoTokenizer.from_pretrained("tomh/toxigen_roberta")
-model = AutoModelForSequenceClassification.from_pretrained("tomh/toxigen_roberta")
+tokenizer = RobertaTokenizer.from_pretrained("tomh/toxigen_roberta")
+model = RobertaForSequenceClassification.from_pretrained("tomh/toxigen_roberta")
 
 text = "I like you. I love you."
-inputs = tokenizer(text, return_tensors="pt")
+inputs = tokenizer(text, truncation=True, padding=True, return_tensors="pt")
 outputs = model(**inputs)
 
-predictions = outputs.logits.softmax(dim=1)
+print(outputs.logits)
 ```
-
-Please refer to the [Hugging Face Model Page](https://huggingface.co/tomh/toxigen_roberta) for more details and usage examples.

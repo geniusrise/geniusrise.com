@@ -1,34 +1,32 @@
 # Model name
-
 Llama-2-70b-hf
 
 ## Links
-
-- Hugging Face Model Page: [meta-llama/Llama-2-70b-hf](https://huggingface.co/meta-llama/Llama-2-70b-hf)
+- [Hugging Face Model Page](https://huggingface.co/meta-llama/Llama-2-70b-hf)
+- [GitHub Repository](https://github.com/meta-llama/Llama-2-70b-hf)
 
 ## Description
+Llama-2-70b-hf is a language model developed by Meta Llama 2. It is designed for text generation tasks and is based on the Llama architecture. The model has been fine-tuned using the transformers library with Python. 
 
-Llama-2-70b-hf is a text generation model developed by Meta Llama 2. It is a variant of the Llama model for text generation tasks. The model is built using the transformers library in Python.
+The model has a total of 69,766,533,312 parameters. It supports text generation in English and is compatible with the AutoTokenizer and AutoModelForCausalLM classes in the transformers library.
 
-This model has been trained on a large amount of data and has a total of 68,976,653,312 parameters. It belongs to the GPTQ (Generalized Pre-trained Transformer for Question-answering) or AWQ (Advanced Question-answering with Transformers) family of models.
+Llama-2-70b-hf is a powerful model for generating text and can be used in various natural language processing applications.
 
 ## Usage example
-
 Here is an example of how to use the Llama-2-70b-hf model with the transformers library in Python:
 
 ```python
-from transformers import LlamaForCausalLM, AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
-model_name = "meta-llama/Llama-2-70b-hf"
-model = LlamaForCausalLM.from_pretrained(model_name)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-70b-hf")
+model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-70b-hf")
 
-text_input = "Once upon a time,"
-input_ids = tokenizer.encode(text_input, return_tensors="pt")
+input_text = "Once upon a time,"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids, max_length=50)
 
-output = model.generate(input_ids)
-generated_text = tokenizer.decode(output[0])
-print(generated_text)
+decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
+print(decoded_output)
 ```
 
-For more details and options for using the Llama-2-70b-hf model, please refer to the official Hugging Face Model Page.
+This will generate a text continuation based on the provided input text using the Llama-2-70b-hf model.

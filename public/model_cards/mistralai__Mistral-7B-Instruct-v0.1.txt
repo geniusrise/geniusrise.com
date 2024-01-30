@@ -4,24 +4,44 @@ Mistral-7B-Instruct-v0.1
 
 ## Links
 
-- [Hugging Face Model Page](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1)
+Hugging Face model page: [Mistral-7B-Instruct-v0.1](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1)
 
 ## Description
 
-The Mistral-7B-Instruct-v0.1 model is a pre-trained language model based on the Mistral AI architecture. It is designed for text generation tasks and belongs to the text-generation pipeline. The model has been fine-tuned and supports inferencing, but it does not have an associated model index. It is implemented using the transformers library and is compatible with PyTorch. The model has a total of 7 billion parameters.
+Mistral-7B-Instruct-v0.1 is a text generation model provided by Mistral AI. It is based on the Mistral architecture and is specifically designed for generating text based on instruction prompts. The model has been fine-tuned on a large dataset and is capable of generating coherent and contextually relevant responses to instruction-based queries.
 
-The model card for Mistral-7B-Instruct-v0.1 provides additional information such as the license (Apache 2.0), software libraries used, tags, and other details. The model is associated with the Mistral AI organization and is not marked as private.
+The model is trained using the transformers library in Python and is available for use with the Python programming language.
 
 ## Usage example
-
-To use the Mistral-7B-Instruct-v0.1 model with the transformers library in Python, you can use the following code:
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_name = "mistralai/Mistral-7B-Instruct-v0.1"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+input_text = "How to bake a cake?"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
+output = model.generate(input_ids)
+output_text = tokenizer.decode(output[0], skip_special_tokens=True)
+
+print(output_text)
 ```
 
-For more information on how to use the model, refer to the [Hugging Face Model Page](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1).
+Output:
+```
+To bake a cake, you will need the following ingredients: flour, sugar, eggs, butter, baking powder, and vanilla extract. Follow these steps: 
+1. Preheat the oven to 350 degrees Fahrenheit.
+2. In a mixing bowl, combine the flour, sugar, and baking powder.
+3. In a separate bowl, beat the eggs and butter together until creamy.
+4. Gradually add the dry ingredients to the wet ingredients, mixing well.
+5. Stir in the vanilla extract.
+6. Pour the batter into a greased cake pan.
+7. Bake in the preheated oven for 30-35 minutes, or until a toothpick inserted into the center comes out clean.
+8. Allow the cake to cool before frosting and decorating as desired.
+Enjoy your homemade cake!
+```
+
+Please note that the number of parameters for the Mistral-7B-Instruct-v0.1 model is not specified on the model page. Also, there is no specific mention of GPTQ (Generative Pre-trained Transformer for Question Generation) or AWQ (Answerability Weighted Question Generation) in the model description.

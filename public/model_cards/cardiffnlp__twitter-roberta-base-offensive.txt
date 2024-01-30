@@ -1,33 +1,38 @@
 # Model name
-
 cardiffnlp/twitter-roberta-base-offensive
 
 ## Links
-
-- [Hugging Face Model Card](https://huggingface.co/cardiffnlp/twitter-roberta-base-offensive)
-- [GitHub Repository](https://github.com/cardiffnlp/twitter-roberta-base-offensive)
+- [Model page](https://huggingface.co/cardiffnlp/twitter-roberta-base-offensive)
+- [GitHub repository](https://github.com/cardiffnlp/tweeteval)
 
 ## Description
+The `cardiffnlp/twitter-roberta-base-offensive` model is a RoBERTa-based model trained for offensive language detection on Twitter. It is designed to classify offensive tweets into two categories: offensive and not offensive. This model is part of the `tweeteval` project.
 
-The cardiffnlp/twitter-roberta-base-offensive model is a language model trained by Cardiff NLP using the RoBERTa architecture. It is specifically designed for offensive language detection in tweets. The model is trained on a large dataset and can be used to classify whether a given tweet contains offensive language or not.
-
-This model is implemented using the Transformers library in Python and is available for fine-tuning and inference.
+The model is built using the transformers library with Python and is available in the Hugging Face model hub.
 
 ## Usage example
+Here is an example of how to use this model with the transformers library in Python:
 
 ```python
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-roberta-base-offensive")
-model = AutoModelForSequenceClassification.from_pretrained("cardiffnlp/twitter-roberta-base-offensive")
+model_name = "cardiffnlp/twitter-roberta-base-offensive"
+model = AutoModelForSequenceClassification.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-tweet = "This is a tweet containing offensive language."
-inputs = tokenizer(tweet, truncation=True, padding=True, return_tensors="pt")
-outputs = model(**inputs)
-predictions = torch.argmax(outputs.logits)
-label = tokenizer.decode(predictions)
+text = "I can't believe you said that!"
+encoded_input = tokenizer(text, truncation=True, padding=True, return_tensors="pt")
+output = model(**encoded_input)
+predicted_label = output.logits.argmax().item()
 
-print(f"Predicted label: {label}")
+if predicted_label == 0:
+    print("The tweet is not offensive.")
+else:
+    print("The tweet is offensive.")
+
 ```
+Please note that the results may vary depending on the input and context.
 
-Note: Make sure to install the `transformers` library to use this model.
+The model has been trained on offensive language detection using a Twitter dataset. It has a total of 436,130 downloads and is compatible with the `transformers` library. The model's architecture is based on `RobertaForSequenceClassification`.
+
+For more information, please refer to the [model page](https://huggingface.co/cardiffnlp/twitter-roberta-base-offensive) and [GitHub repository](https://github.com/cardiffnlp/tweeteval).

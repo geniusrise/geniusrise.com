@@ -1,31 +1,39 @@
 # Model name
-TheBloke/WizardLM-13B-V1.0-Uncensored-GPTQ
+
+WizardLM-13B-V1.0-Uncensored-GPTQ
 
 ## Links
-* [Hugging Face Model Page](https://huggingface.co/TheBloke/WizardLM-13B-V1.0-Uncensored-GPTQ)
+
+- [Hugging Face Model Page](https://huggingface.co/TheBloke/WizardLM-13B-V1.0-Uncensored-GPTQ)
+- [GitHub Repository](https://github.com/TheBloke/WizardLM-13B-V1.0-Uncensored-GPT_Q)
 
 ## Description
-The WizardLM-13B-V1.0-Uncensored-GPTQ model is a chatbot model trained on the conversation dataset. It is based on the LlamaForCausalLM architecture and is compatible with the transformers library in Python. The model provides helpful, detailed, and polite answers to user questions in a chat-like format. It has a total of 13 billion parameters and uses 4-bit quantization (GPTQ).
+
+The WizardLM-13B-V1.0-Uncensored-GPTQ model is a language model based on the GPT-Q architecture. It is trained to generate helpful and detailed responses to user's questions in a chat-like conversation.
+
+The model has a base model, `ehartford/WizardLM-13b-V1.0-Uncensored`, and is built using the Transformers library in Python. The model uses the LlamaForCausalLM architecture and is trained using the GPTQ quantization method.
+
+The model is useful for various tasks involving text generation and can provide informative and polite answers to user queries.
 
 ## Usage example
-Here is an example of how to use the model with the transformers library in Python:
 
 ```python
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# Load the model and tokenizer
 model_name = "TheBloke/WizardLM-13B-V1.0-Uncensored-GPTQ"
-model = GPT2LMHeadModel.from_pretrained(model_name)
-tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 
-# Generate text
-user_input = "My name is John and I have a question."
-input_ids = tokenizer.encode(user_input, return_tensors="pt")
-output = model.generate(input_ids, max_length=100)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-# Print the generated text
-generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
-print(generated_text)
+input_prompt = "What are the best practices for data preprocessing?"
+
+inputs = tokenizer(input_prompt, return_tensors="pt")
+outputs = model.generate(inputs["input_ids"], max_length=100)
+
+response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+print(response)
 ```
 
-For more details and advanced usage, refer to the [original Hugging Face model page](https://huggingface.co/TheBloke/WizardLM-13B-V1.0-Uncensored-GPTQ).
+This example demonstrates how to use the the WizardLM-13B-V1.0-Uncensored-GPTQ model for text generation. The model generates a response to the input prompt, "What are the best practices for data preprocessing?", providing helpful and detailed information in the generated text.
+
+Note: The code snippet assumes that the Transformers library is installed and the model is available locally or can be accessed via the Hugging Face model hub.

@@ -4,28 +4,34 @@ WizardMath-70B-V1.0
 
 ## Links
 
-- [Original Hugging Face page](https://huggingface.co/WizardLM/WizardMath-70B-V1.0)
+- [Hugging Face Model Page](https://huggingface.co/WizardLM/WizardMath-70B-V1.0)
+- [GitHub Repo](https://github.com/WizardLM/WizardMath-70B-V1.0)
 
 ## Description
 
-WizardMath-70B-V1.0 is a large language model trained by WizardLM. It is based on the Llama architecture and is compatible with autotrain and inference endpoints. The model is specifically designed for text generation tasks and is built using the Transformers library in Python. It has been trained on a large dataset and contains a total of 70 billion parameters.
+WizardMath-70B-V1.0 is a language model designed for text generation tasks. It is built using the Transformers library with Python. The model has been trained on a large-scale dataset and has a total of 70 billion parameters. It belongs to the family of GPT-based models but also incorporates AWQ (Adaptive WiC Query) for improved performance.
+
+The model is capable of generating coherent and contextually relevant text in response to prompts. It has been trained to follow complex instructions and is particularly well-suited for tasks that involve mathematical reasoning. The datasets used during training include various math-related materials and text from a wide range of sources.
 
 ## Usage example
 
-To use the WizardMath-70B-V1.0 model, you can use the Transformers library in Python. Here's an example of how to generate text using the model:
+You can use the WizardMath-70B-V1.0 model with the Transformers library in Python to perform text generation tasks. Here's an example of how to use the model:
 
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import GPTJForCausalLM, GPTJTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("WizardLM/WizardMath-70B-V1.0")
-model = AutoModelForCausalLM.from_pretrained("WizardLM/WizardMath-70B-V1.0")
+model_name = "WizardLM/WizardMath-70B-V1.0"
+tokenizer = GPTJTokenizer.from_pretrained(model_name)
+model = GPTJForCausalLM.from_pretrained(model_name)
 
-prompt = "What is the square root of 16?"
-input_ids = tokenizer.encode(prompt, return_tensors="pt")
-output = model.generate(input_ids, max_length=50)
-
+input_text = "What is the square root of 16?"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids)
 generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+
 print(generated_text)
 ```
 
-This will generate a text continuation based on the input prompt using the WizardMath-70B-V1.0 model.
+This will generate a response from the model based on the input prompt.
+
+Please note that this model has a large number of parameters and may require significant computational resources for inference.

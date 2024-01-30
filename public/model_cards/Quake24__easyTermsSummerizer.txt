@@ -4,33 +4,37 @@ easyTermsSummerizer
 
 ## Links
 
-- [Hugging Face Model Hub](https://huggingface.co/Quake24/easyTermsSummerizer)
+- Model page: [https://huggingface.co/Quake24/easyTermsSummerizer](https://huggingface.co/Quake24/easyTermsSummerizer)
+- GitHub repo: N/A
 
 ## Description
 
-easyTermsSummerizer is a text summarization model that uses the Bart architecture implemented in the Transformers library. It is designed to generate a concise summary of a given text input. The model has been fine-tuned on the task of summarization using the BartForConditionalGeneration architecture. It has been trained on a combination of datasets, including Quake24/paraphrasedPayPal and Quake24/paraphrasedTwitter.
+easyTermsSummerizer is a summarization model based on the BART architecture. It is designed to generate summaries of text input. The model parameters have not been specified in the available information.
 
-The model can be used for various applications, including document summarization, text compression, and information extraction. It has a total of 1953 downloads and has received positive feedback from users.
+The model is compatible with the transformers library in Python and can be used for text summarization tasks. It supports the English language and provides the option for early stopping, length penalty, maximum length, minimum length, no repeat n-gram size, and number of beams as task-specific parameters.
 
-The model uses a length penalty of 2, a maximum length of 142 tokens, a minimum length of 56 tokens, and a beam size of 4 during the generation process.
+The model is trained using the transformers library and is applicable for summarization tasks.
 
 ## Usage example
 
-Here is an example of how to use the easyTermsSummerizer model with the Transformers library in Python:
+Here is an example of how to use the easyTermsSummerizer model with the transformers library in Python:
 
 ```python
-from transformers import BartTokenizer, BartForConditionalGeneration
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
-tokenizer = BartTokenizer.from_pretrained("Quake24/easyTermsSummerizer")
-model = BartForConditionalGeneration.from_pretrained("Quake24/easyTermsSummerizer")
+model_name = "Quake24/easyTermsSummerizer"
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-input_text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-input_ids = tokenizer.encode(input_text, truncation=True, padding=True, return_tensors="pt")
+input_text = "This is a long piece of text that needs to be summarized."
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
 
 summary_ids = model.generate(input_ids)
-summary_text = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
 
-print("Summary:", summary_text)
+summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+print(summary)
 ```
 
-For more information on how to use the model and its available methods, refer to the [Hugging Face Model Hub page](https://huggingface.co/Quake24/easyTermsSummerizer).
+Please refer to the [transformers library documentation](https://huggingface.co/transformers/) for more information on how to use the library and the model.
+
+Note: The available information does not specify the datasets used for training the model or provide information about GPTQ or AWQ.

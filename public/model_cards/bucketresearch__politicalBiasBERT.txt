@@ -5,27 +5,27 @@ politicalBiasBERT
 ## Links
 
 - [Hugging Face Model Page](https://huggingface.co/bucketresearch/politicalBiasBERT)
+- [GitHub Repository](https://github.com/bucketresearch/politicalBiasBERT)
 
 ## Description
 
-politicalBiasBERT is a model developed by Bucket Research. It is a BERT-based model for text classification tasks, specifically designed for detecting political bias in text. The model is trained to classify text into different political bias categories. It is built using the transformers library in Python and is compatible with the AutoModelForSequenceClassification and AutoTokenizer classes.
-
-The model has been trained on datasets specific to political bias detection and has a total of 108,313,091 parameters. It is a BERT model and utilizes the transformers library for training and inference. The model's architecture is based on BertForSequenceClassification.
+politicalBiasBERT is a text classification model that is part of the Transformers library. It is based on the BERT architecture and is designed to classify the political bias of text data. The model has been trained on specific datasets and has a total of 108,313,091 parameters. It can be used for tasks such as political sentiment analysis and bias detection in social media posts, news articles, and other text sources.
 
 ## Usage example
 
-Using the transformers library in Python, you can load and use the politicalBiasBERT model for text classification tasks. Here is an example:
-
 ```python
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
-model_name = "bucketresearch/politicalBiasBERT"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForSequenceClassification.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained("bucketresearch/politicalBiasBERT")
+model = AutoModelForSequenceClassification.from_pretrained("bucketresearch/politicalBiasBERT")
 
-text = "This article is clearly biased towards a particular political ideology."
+text = "I like you. I love you."
+
 inputs = tokenizer(text, return_tensors="pt")
 outputs = model(**inputs)
+
+predictions = outputs.logits.argmax(dim=1)
+print(predictions)
 ```
 
-For more information and example code, refer to the [Hugging Face Model Page](https://huggingface.co/bucketresearch/politicalBiasBERT).
+In the example above, the politicalBiasBERT model is used to classify the political bias of the given text. The model's tokenizer is used to process the text, and the model itself is used to generate predictions. The predicted label is printed to the console.

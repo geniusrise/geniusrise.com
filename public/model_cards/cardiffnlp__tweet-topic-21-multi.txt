@@ -1,18 +1,20 @@
-# Model name
-
-tweet-topic-21-multi
+# Model Name
+cardiffnlp/tweet-topic-21-multi
 
 ## Links
 
-- [Hugging Face Model Card](https://huggingface.co/cardiffnlp/tweet-topic-21-multi)
+- Hugging Face Model Page: [cardiffnlp/tweet-topic-21-multi](https://huggingface.co/cardiffnlp/tweet-topic-21-multi)
+- GitHub Repo: [cardiffnlp/tweet-topic-21-multi](https://github.com/cardiffnlp/tweet-topic-21-multi)
 
 ## Description
 
-The tweet-topic-21-multi model is a text classification model that can classify tweets into multiple topics. It is based on the RobertaForSequenceClassification architecture and uses the transformers library in Python. The model has been fine-tuned on the tweet_topic_multi dataset. It has a total of 1076144 downloads and is currently liked by 51 users.
+The cardiffnlp/tweet-topic-21-multi model is a text classification model trained on the tweet_topic_multi dataset. It is based on the RobertaForSequenceClassification architecture and is part of the Transformers library. The model is designed specifically for multi-topic classification of tweets. It has been trained to identify the topics of different tweets.
 
-## Usage example
+## Usage Example
 
-```
+To use the cardiffnlp/tweet-topic-21-multi model, you can use the Transformers library in Python. Here is a simple example:
+
+```python
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/tweet-topic-21-multi")
@@ -21,10 +23,9 @@ model = AutoModelForSequenceClassification.from_pretrained("cardiffnlp/tweet-top
 text = "It is great to see athletes promoting awareness for climate change."
 inputs = tokenizer(text, return_tensors="pt")
 outputs = model(**inputs)
+predictions = outputs.logits.argmax(dim=1)
 
-predictions = outputs.logits.argmax(axis=1)
-classes = [tokenizer.decode(i.item()) for i in predictions]
-print(classes)
+print(predictions)
 ```
 
-For more details and alternative model names, please refer to the [Hugging Face Model Card](https://huggingface.co/cardiffnlp/tweet-topic-21-multi).
+Please note that the model requires the Transformers library and Python to be installed in your environment.

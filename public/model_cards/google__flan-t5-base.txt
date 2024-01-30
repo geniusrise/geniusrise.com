@@ -4,28 +4,32 @@ flan-t5-base
 
 ## Links
 
-- [Original Hugging Face Page](https://huggingface.co/google/flan-t5-base)
+**Model page**: [flan-t5-base](https://huggingface.co/google/flan-t5-base)
 
 ## Description
 
-flan-t5-base is a T5-based model developed by Google. T5, or Text-To-Text Transfer Transformer, is a versatile language model that can be fine-tuned for various natural language processing tasks, including text generation, translation, question answering, and logical reasoning. flan-t5-base supports multiple languages (English, French, Romanian, German, and multilingual) and is trained on a combination of datasets such as QRECC, Taskmaster2, Wiki_dialog, Code_contests, Lambada, GSM8k, Aqua_rat, and others. It has a total of 247,577,856 parameters. The model is compatible with the transformers library in Python.
+flan-t5-base is a T5-based model developed by Google. It is designed for text-to-text generation tasks and supports multiple languages, including English, French, German, Romanian, and multilingual tasks. This model is trained using the T5 architecture and is available for use with the Transformers library in Python.
+
+The model has been trained on several datasets, including svakulenk0/qrecc, taskmaster2, djaym7/wiki_dialog, deepmind/code_contests, lambada, gsm8k, aqua_rat, esnli, quasc, and qed.
+
+With a total of 247,577,856 parameters, flan-t5-base can be used for various tasks, such as summarization, translation, question answering, logical reasoning, scientific knowledge, boolean expressions, math reasoning, and premise and hypothesis tasks.
 
 ## Usage example
 
+Here is an example of how to use the flan-t5-base model with the Transformers library in Python:
+
 ```python
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+from transformers import T5Tokenizer, T5ForConditionalGeneration
 
-model_name = "google/flan-t5-base"
-model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-base")
+model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-base")
 
-sequence = "Translate to German: My name is Arthur"
-input_ids = tokenizer.encode(sequence, return_tensors="pt")
+input_text = "Translate to German: My name is Arthur"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
 output = model.generate(input_ids)
-translated_text = tokenizer.decode(output[0], skip_special_tokens=True)
 
+translated_text = tokenizer.decode(output[0], skip_special_tokens=True)
 print(translated_text)
-# Output: Mein Name ist Arthur
 ```
 
-Please note that the above code is a simplified example. Make sure to install the transformers library and adjust the code according to your specific use case.
+This example demonstrates how to use the translation capability of the flan-t5-base model to translate the input English text to German.

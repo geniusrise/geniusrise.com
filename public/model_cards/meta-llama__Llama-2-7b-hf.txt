@@ -1,29 +1,30 @@
 # Model name
+
 Llama-2-7b-hf
 
 ## Links
-- [Hugging Face Model Page](https://huggingface.co/meta-llama/Llama-2-7b-hf)
+
+- [Model Page](https://huggingface.co/meta-llama/Llama-2-7b-hf)
+- [GitHub Repo](https://github.com/meta-llama/Llama-2)
 
 ## Description
-Llama-2-7b-hf is a text generation model that is part of the Llama model family. It is based on the LlamaForCausalLM architecture and is implemented using the Transformers library in Python. This model is specifically designed for text generation tasks and has been fine-tuned using a large amount of data. It belongs to the text-generation pipeline and is built with the Transformers library.
 
-Some key details about this model:
-- Number of parameters: Not specified.
-- Uses the LlamaForCausalLM architecture.
-- Pipeline tag: text-generation.
-- Tags: transformers, pytorch, safetensors, llama, text-generation, facebook, meta, llama-2, en.
+The Llama-2-7b-hf model is a text generation model available in the Transformers library with Python. It is developed by Meta Llama 2 and is designed to enable advanced text generation tasks. The model is based on the Llama architecture and is specifically tailored for text generation applications.
+
+The Llama-2-7b-hf model can be used for various natural language processing tasks such as chat generation, summarization, and question answering. It has been trained on a large dataset and includes a total of 6,738,417,664 parameters, making it suitable for complex text generation tasks.
+
+The model is built using the Transformers library and is compatible with the PyTorch framework. It supports both automatic and manual training methods, allowing developers to easily integrate it into their own projects. The model also includes features like safetensors and autotrain compatibility.
 
 ## Usage example
-To use the Llama-2-7b-hf model, you can follow the example code below using the Transformers library in Python:
 
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import LlamaForCausalLM, LlamaTokenizer
 
 model_name = "meta-llama/Llama-2-7b-hf"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = LlamaTokenizer.from_pretrained(model_name)
+model = LlamaForCausalLM.from_pretrained(model_name)
 
-input_text = "Hello, how are you?"
+input_text = "Once upon a time,"
 input_ids = tokenizer.encode(input_text, return_tensors="pt")
 
 output = model.generate(input_ids)
@@ -32,4 +33,6 @@ output_text = tokenizer.decode(output[0], skip_special_tokens=True)
 print(output_text)
 ```
 
-For more information and examples, please visit the [Hugging Face Model Page](https://huggingface.co/meta-llama/Llama-2-7b-hf).
+This example demonstrates how to use the Llama-2-7b-hf model for text generation tasks. It first initializes the model and tokenizer using the model name. Then, it encodes the input text and generates the output using the `generate` method. Finally, it decodes the output to obtain the generated text and prints it.
+
+Note: The Llama-2-7b-hf model requires the Transformers library and Python for the examples provided.

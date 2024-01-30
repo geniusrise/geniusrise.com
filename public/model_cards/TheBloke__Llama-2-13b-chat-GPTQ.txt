@@ -4,30 +4,26 @@ Llama-2-13B-chat-GPTQ
 
 ## Links
 
-- [Hugging Face Model Page](https://huggingface.co/TheBloke/Llama-2-13B-chat-GPTQ)
+- [Model Page](https://huggingface.co/TheBloke/Llama-2-13B-chat-GPTQ)
+- [GitHub Repo](https://github.com/TheBloke/Llama-2-13B-chat-GPTQ)
 
 ## Description
 
-Llama-2-13B-chat-GPTQ is a language model trained by TheBloke. It is based on the Llama 2 13B Chat model. The model is trained using the Transformers library with Python. It has been trained on various datasets and has a total of 2,029,493,760 parameters. The model is designed for text generation tasks and is suitable for generating helpful and respectful responses. It follows certain guidelines to ensure that the responses are safe, unbiased, and positive in nature. The model is quantized with 4-bit precision and can be used with the Safetensors framework.
+Llama-2-13B-chat-GPTQ is a text generation model based on the Llama-2 architecture. It is built using the transformers library in Python. The model is designed to generate helpful and respectful responses. It follows a prompt template that encourages positive and socially unbiased answers. The model has a base model called meta-llama/Llama-2-13b-chat-hf and uses GPTQ (GPT Quantization) for its quantization configuration. The model is suitable for builders and developers looking for a large-scale text generation model.
 
 ## Usage example
 
-Here is an example of how to use the Llama-2-13B-chat-GPTQ model with the Transformers library in Python:
+Here's an example of how to use the Llama-2-13B-chat-GPTQ model with the transformers library in Python:
 
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import pipeline
 
-model_name = "TheBloke/Llama-2-13B-chat-GPTQ"
-model = AutoModelForCausalLM.from_pretrained(model_name)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+generator = pipeline("text-generation", model="TheBloke/Llama-2-13B-chat-GPTQ")
 
-# Generate a response
-input_text = "Can you help me with my homework?"
-input_ids = tokenizer.encode(input_text, return_tensors="pt")
-output_ids = model.generate(input_ids, max_length=100)
-output_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+prompt = "Question: What is the capital of France?"
+response = generator(prompt, max_length=100)
 
-print(output_text)
+print(response[0]['generated_text'])
 ```
 
-This will generate a response from the Llama-2-13B-chat-GPTQ model based on the input text "Can you help me with my homework?".
+This will generate a response to the given prompt using the Llama-2-13B-chat-GPTQ model.

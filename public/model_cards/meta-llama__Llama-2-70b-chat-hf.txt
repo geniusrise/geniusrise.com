@@ -3,32 +3,30 @@
 Llama-2-70b-chat-hf
 
 ## Links
-
 - [Hugging Face Model Page](https://huggingface.co/meta-llama/Llama-2-70b-chat-hf)
+- [GitHub Repository](https://github.com/meta-llama/llama-2)
 
 ## Description
+Llama-2-70b-chat-hf is a text generation model that is part of the Llama project. Llama stands for "Language Models for Relevance, Retrieval & Generation in MetaCUbotic Applications" and aims to advance and democratize artificial intelligence. This model is built using the transformers library with Python and is specifically designed for chat-based applications. It has been fine-tuned for text generation tasks using the LlamaForCausalLM architecture. The model is available for download and usage through the Hugging Face model page.
 
-Llama-2-70b-chat-hf is a text generation model trained on the Llama dataset. It is based on the transformers library in Python. The model has been fine-tuned for chat-based tasks and offers a pipeline for text generation.
-
-The model has 147,207 downloads and 1,874 likes. It is tagged with labels such as "text-generation," "transformers," "pytorch," "llama," and "facebook."
-
-Please note that access to this model requires approval from Meta, and users are required to accept Meta's license terms and acceptable use policy before using the model.
+The Llama project is a collaboration between Meta and Hugging Face.
 
 ## Usage example
+Here is an example of how to use the Llama-2-70b-chat-hf model with the transformers library in Python:
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-model_name = "meta-llama/Llama-2-70b-chat-hf"
-model = AutoModelForCausalLM.from_pretrained(model_name)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-70b-chat-hf")
+model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-70b-chat-hf")
 
 input_text = "Hello, how are you?"
 input_ids = tokenizer.encode(input_text, return_tensors="pt")
-output = model.generate(input_ids)
 
-generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
-print(generated_text)
+output = model.generate(input_ids)
+output_text = tokenizer.decode(output[0], skip_special_tokens=True)
+
+print(output_text)
 ```
 
-For more examples and details, please visit the [Hugging Face Model Page](https://huggingface.co/meta-llama/Llama-2-70b-chat-hf).
+Please note that the exact code for using the model may vary based on your specific use case and requirements.

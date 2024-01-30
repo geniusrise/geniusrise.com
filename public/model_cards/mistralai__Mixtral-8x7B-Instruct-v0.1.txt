@@ -1,45 +1,38 @@
-```markdown
 # Model name
 
 Mixtral-8x7B-Instruct-v0.1
 
 ## Links
 
-- Hugging Face Model Page: [mistralai/Mixtral-8x7B-Instruct-v0.1](https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1)
+- [Hugging Face Model Page](https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1)
+- GitHub Repository: Not mentioned
 
 ## Description
 
-The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts (MoE). It has shown superior performance compared to the Llama 2 70B on multiple benchmarks. The model is compatible with the vLLM serving model as well as the Hugging Face transformers library.
+The Mixtral-8x7B-Instruct-v0.1 is a Transformers model for text generation. It is built with the Mixtral architecture and is compatible with the Transformers library. The model has been trained on various languages including French, Italian, German, Spanish, and English. It can be used for text generation tasks with a focus on instruction-based text.
 
-### Instruction Format
-
-The correct prompt format for instructions must be strictly followed, which is:
-
-```
-<s> [INST] Instruction [/INST] Model answer</s> [INST] Follow-up instruction [/INST]
-```
-Special tokens `<s>` and `</s>` represent the beginning and end of a string. `[INST]` and `[/INST]` are regular strings encapsulating the instruction provided by the user.
+The model has a total of 46,702,792 parameters and is licensed under Apache 2.0. It supports inference but does not provide any information on GPTQ or AWQ.
 
 ## Usage example
 
-Using the transformers library in Python:
+To use the Mixtral-8x7B-Instruct-v0.1 model with Python and the Transformers library:
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-model_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
-tokenizer = AutoTokenizer.from_pretrained(model_id)
-model = AutoModelForCausalLM.from_pretrained(model_id)
+model_name = "mistralai/Mixtral-8x7B-Instruct-v0.1"
+model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-text = "Hello my name is"
-inputs = tokenizer(text, return_tensors="pt")
-outputs = model.generate(**inputs, max_new_tokens=20)
-print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+# Generate text
+input_text = "Input text here"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids)
+
+# Decode generated text
+output_text = tokenizer.decode(output[0])
+
+print(output_text)
 ```
 
-Note that the model is in full precision by default, but adjustments can be made for half-precision or lower precision using `bitsandbytes`.
-
-## Limitations
-
-The Mixtral-8x7B Instruct does not have moderation mechanisms. The Mistral AI team is open to working with the community to develop moderated outputs for environments requiring them.
-```
+Note: This example assumes you have already installed the Transformers library.

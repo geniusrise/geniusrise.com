@@ -1,30 +1,27 @@
 # Model name
-
-Mistral-7B-Code-16K-qlora-GPTQ
+TheBloke/Mistral-7B-Code-16K-qlora-GPTQ
 
 ## Links
-
 - [Model Page](https://huggingface.co/TheBloke/Mistral-7B-Code-16K-qlora-GPTQ)
+- [GitHub Repo](https://github.com/TheBloke/Mistral-7B-Code-16K-qlora-GPTQ)
 
 ## Description
-
-Mistral-7B-Code-16K-qlora-GPTQ is a GPT-style language model pretrained on code, specifically for Python. It has 7 billion parameters and uses a tokenization method known as qLoRA (Quantized Layers of Representative Activation) with 4-bit precision. This model is based on the Mistral architecture and is trained on a dataset of 16K Python files.
+The Mistral-7B-Code-16K-qlora-GPTQ model is a text generation model trained using the Mistral architecture. It is fine-tuned on a code completion task with a vocabulary of 16,000 tokens. The model provides instructions and prompts for text generation tasks. It has been quantized using the GPTQ method by TheBloke. The model is available for usage with the transformers library in Python.
 
 ## Usage example
-
 ```python
-from transformers import TFGPT2LMHeadModel, GPT2Tokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-tokenizer = GPT2Tokenizer.from_pretrained("TheBloke/Mistral-7B-Code-16K-qlora-GPTQ")
-model = TFGPT2LMHeadModel.from_pretrained("TheBloke/Mistral-7B-Code-16K-qlora-GPTQ")
+model_name = "TheBloke/Mistral-7B-Code-16K-qlora-GPTQ"
+model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-input_text = "def calculate_sum(a, b):\n    return a + b\n\nprint(calculate_sum(2, 3))"
+prompt = "Write a Python function to calculate the factorial of a number."
+input_ids = tokenizer.encode(prompt, return_tensors="pt")
+output = model.generate(input_ids, max_length=100)
 
-input_ids = tokenizer.encode(input_text, return_tensors="tf")
-output = model.generate(input_ids)
-
-output_text = tokenizer.decode(output[0])
-print(output_text)
+generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+print(generated_text)
 ```
 
-For more details and examples, please refer to the [original huggingface page](https://huggingface.co/TheBloke/Mistral-7B-Code-16K-qlora-GPTQ).
+Please note that the model has approximately 880,476,160 parameters.

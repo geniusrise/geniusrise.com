@@ -4,32 +4,39 @@ pszemraj/led-large-book-summary
 
 ## Links
 
-- [Huggingface Model Page](https://huggingface.co/pszemraj/led-large-book-summary)
+- Hugging Face model page: [pszemraj/led-large-book-summary](https://huggingface.co/pszemraj/led-large-book-summary)
 
 ## Description
 
-The pszemraj/led-large-book-summary model is a transformer-based model that is designed for long-form narrative summarization tasks. It addresses the limitations of transformer models in handling long sequences by using block sparse attention instead of normal attention. This allows the model to handle sequences up to a length of 4096 with lower computational cost compared to traditional transformer models. The model has achieved state-of-the-art performance on tasks involving long sequences, such as long document summarization and question-answering with long contexts. It is trained and evaluated on the BookSum dataset, which includes long-form source documents from the literature domain.
+The `pszemraj/led-large-book-summary` model is a transformer-based model that is designed for long-form narrative summarization. It is trained on the BookSum dataset, which consists of source documents from the literature domain, such as novels, plays, and stories. The dataset includes highly abstractive, human-written summaries at three different levels of granularity: paragraph, chapter, and book. The model addresses the challenges of processing very long documents, handling non-trivial causal and temporal dependencies, and understanding rich discourse structures.
+
+The model utilizes block sparse attention instead of normal attention to handle sequences up to a length of 4096, reducing the computational cost compared to models like BERT. It has achieved state-of-the-art performance on tasks involving summarization of long documents, such as long documents summarization and question-answering with long contexts.
+
+The model is available for use with the 🤗Transformers library in Python.
 
 ## Usage example
 
+Here is an example of how to use the `pszemraj/led-large-book-summary` model with the Transformers library in Python:
+
 ```python
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import pipeline
 
-# Load the tokenizer and model
-tokenizer = AutoTokenizer.from_pretrained("pszemraj/led-large-book-summary")
-model = AutoModelForSeq2SeqLM.from_pretrained("pszemraj/led-large-book-summary")
+summarizer = pipeline(
+    "summarization",
+    model="pszemraj/led-large-book-summary",
+    tokenizer="pszemraj/led-large-book-summary"
+)
 
-# Example input
-input_text = "A typical feed-forward neural field algorithm. Spatiotemporal coordinates are fed into a neural network that predicts values in the reconstructed domain."
-
-# Tokenize the input
-inputs = tokenizer(input_text, return_tensors="pt")
-
-# Generate the summary
-summary_ids = model.generate(inputs.input_ids, num_beams=4, max_length=64, length_penalty=0.3, early_stopping=True)
-summary = tokenizer.decode(summary_ids[0])
+text = "Your input text goes here"
+summary = summarizer(text)[0]['summary_text']
 
 print(summary)
 ```
 
-Note: The above example demonstrates how to use the model with the Python `transformers` library.
+The example demonstrates how to create a summarization pipeline using the `pszemraj/led-large-book-summary` model and tokenizer, and then summarize an input text. The resulting summary is printed.
+
+Please note that the model has a maximum sequence length of 4096 and requires the use of a compatible tokenizer to ensure proper tokenization.
+
+For more information and additional examples, refer to the [model page](https://huggingface.co/pszemraj/led-large-book-summary).
+
+**Disclaimer**: The model's performance may vary depending on the specific task and dataset. It is recommended to evaluate the model's performance on your specific use case before deploying it in a production environment.

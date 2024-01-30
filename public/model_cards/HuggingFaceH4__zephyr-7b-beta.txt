@@ -1,36 +1,26 @@
 # Model name
-
-zephyr-7b-beta
+HuggingFaceH4/zephyr-7b-beta
 
 ## Links
-
-[Original Huggingface page](https://huggingface.co/HuggingFaceH4/zephyr-7b-beta)
+- [Model Page](https://huggingface.co/HuggingFaceH4/zephyr-7b-beta)
+- [GitHub Repository](https://github.com/HuggingFaceH4/zephyr-7b-beta)
 
 ## Description
-
-- This model is based on the Mistral-7B-v0.1 base model.
-- It is suitable for text generation tasks.
-- It uses the transformers library with Python.
-- The model has been fine-tuned and optimized for efficiency.
-- It has a total of 220,989 downloads.
+The HuggingFaceH4/zephyr-7b-beta model is a text generation model based on the Mistral-7B-v0.1 base model. It is built using the Transformers library in Python. The model has been trained on various datasets, including HuggingFaceH4/ultrachat_200k and HuggingFaceH4/ultrafeedback_binarized. It supports the GPTQ or AWQ model framework.
 
 ## Usage example
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
+model = AutoModelForCausalLM.from_pretrained("HuggingFaceH4/zephyr-7b-beta")
+tokenizer = AutoTokenizer.from_pretrained("HuggingFaceH4/zephyr-7b-beta")
+
+input_text = "<|user|>\nThere's a llama on my lawn, how can I get rid of him?</s>"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids)
+
+decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
+print(decoded_output)
 ```
-from transformers import pipeline
 
-model = "HuggingFaceH4/zephyr-7b-beta"
-text_generator = pipeline("text-generation", model=model)
-
-prompt = "There's a llama on my lawn, how can I get rid of him?"
-output = text_generator(prompt)
-
-for response in output:
-    print(response['generated_text'])
-```
-
-## Model details
-
-- **Datasets:** The model has been trained on the following datasets: HuggingFaceH4/ultrachat_200k and HuggingFaceH4/ultrafeedback_binarized.
-- **Number of parameters:** The exact number of parameters is not specified.
-- **GPTQ and AWQ:** There is no mention of GPTQ or AWQ in the model description.
+Note: The example above uses the Transformers library and Python to generate text using the HuggingFaceH4/zephyr-7b-beta model. The `input_text` variable contains the user's input, and the model generates a response based on that input.

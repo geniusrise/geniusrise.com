@@ -3,32 +3,27 @@
 WizardCoder-Python-13B-V1.0
 
 ## Links
-
-- [Hugging Face Model Page](https://huggingface.co/WizardLM/WizardCoder-Python-13B-V1.0)
+- [Model Page](https://huggingface.co/WizardLM/WizardCoder-Python-13B-V1.0)
+- [GitHub Repo](https://github.com/WizardLP/WizardCoder)
 
 ## Description
-
-WizardCoder-Python-13B-V1.0 is a language model trained by WizardLM. It is based on the `transformers` library and is specifically designed for generating Python code. The model has been trained on a large dataset and has approximately 13 billion parameters. It belongs to the text generation pipeline tag and is compatible with the AutoModelForCausalLM architecture. The model has been evaluated on the OpenAI HumanEval dataset, achieving a "pass@1" metric value of 0.64.
+WizardCoder-Python-13B-V1.0 is a large language model trained on Python code. It is based on the Llama architecture and is part of the transformers library. The model has been fine-tuned for text generation tasks and is particularly suited for code generation tasks in Python. It has been evaluated on the HumanEval dataset using the "pass@1" metric, achieving a value of 0.64. The model is publicly available and can be used with the transformers library in Python.
 
 ## Usage example
-
-To use the model with Python, you can utilize the `transformers` library. Here is an example of how to generate Python code using the WizardCoder-Python-13B-V1.0 model:
-
 ```python
-import torch
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_name = "WizardLM/WizardCoder-Python-13B-V1.0"
-model = GPT2LMHeadModel.from_pretrained(model_name)
-tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-input_text = "def add_numbers(a, b):\n"
-input_ids = tokenizer.encode(input_text, return_tensors="pt")
+input_code = "def multiply(x, y):\n    return x * y\n"
+input_tokenized = tokenizer.encode(input_code, return_tensors="pt")
 
-output = model.generate(input_ids, max_length=100)
-decoded_output = tokenizer.decode(output[0])
+output = model.generate(input_tokenized, max_length=100)
 
-print(decoded_output)
+output_code = tokenizer.decode(output[0], skip_special_tokens=True)
+print(output_code)
 ```
 
-Make sure to install the `transformers` library before running the code.
+This example demonstrates how to use the WizardCoder-Python-13B-V1.0 model from the transformers library to generate Python code. The model takes a code snippet as input and generates a continuation of the code.

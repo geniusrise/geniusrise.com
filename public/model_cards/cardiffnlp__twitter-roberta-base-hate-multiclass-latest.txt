@@ -1,30 +1,23 @@
 # Model name
-
 cardiffnlp/twitter-roberta-base-hate-multiclass-latest
 
 ## Links
-
 - [Hugging Face Model Page](https://huggingface.co/cardiffnlp/twitter-roberta-base-hate-multiclass-latest)
+- [GitHub Repository](https://huggingface.co/cardiffnlp/twitter-roberta-base-hate-multiclass-latest)
 
 ## Description
-
-The cardiffnlp/twitter-roberta-base-hate-multiclass-latest model is a text classification model trained on Twitter data to detect hate speech with multiple classes. It uses the Roberta architecture and is fine-tuned for hate speech classification. The model is based on the Transformers library and is available in the Hugging Face model hub.
-
-This model has been pre-trained on a large corpus of Twitter data and can be used to classify text into different categories related to hate speech. It provides high-quality predictions and can be used for applications such as content moderation, sentiment analysis, and hate speech detection.
-
-The model is available for download and can be used with the Transformers library in Python. It has a relatively large number of parameters and can be fine-tuned with additional labeled data for specific tasks.
+The cardiffnlp/twitter-roberta-base-hate-multiclass-latest model is a text classification model based on the RoBERTa architecture. It is trained on a multiclass hate speech detection task using Twitter data. The model is compatible with the transformers library in Python. It is part of the transformers library and can be used for hate speech classification in text applications.
 
 ## Usage example
-
+Here is an example of using the cardiffnlp/twitter-roberta-base-hate-multiclass-latest model with the transformers library in Python:
 ```python
 from transformers import pipeline
 
-classifier = pipeline("text-classification", model="cardiffnlp/twitter-roberta-base-hate-multiclass-latest", tokenizer="cardiffnlp/twitter-roberta-base-hate-multiclass-latest")
+classifier = pipeline('text-classification', model='cardiffnlp/twitter-roberta-base-hate-multiclass-latest', tokenizer='cardiffnlp/twitter-roberta-base-hate-multiclass-latest')
 
-text = "I hate you!"
+text = "I hate this movie."
 result = classifier(text)
-
 print(result)
 ```
 
-This example shows how to load the model using the Transformers library and use it to classify the text "I hate you!" into the appropriate hate speech category. The output will be a dictionary containing the predicted label and the associated score for the given text.
+Please note that this model has a total of 118M parameters. The model's performance and capabilities are not mentioned on the page.

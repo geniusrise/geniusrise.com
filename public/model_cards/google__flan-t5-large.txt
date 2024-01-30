@@ -1,42 +1,28 @@
 # Model name
-
-flan-t5-large
+Flan-T5-Large
 
 ## Links
-
-- [Hugging Face Model Page](https://huggingface.co/google/flan-t5-large)
+[Hugging Face Model Page](https://huggingface.co/google/flan-t5-large)  
+[GitHub Repository](https://github.com/google/flan)
 
 ## Description
-
-flan-t5-large is a T5 model developed by Google. It is designed for text-to-text generation tasks and belongs to the transformers library. The model has been fine-tuned on various datasets, including svakulenk0/qrecc, taskmaster2, djaym7/wiki_dialog, deepmind/code_contests, lambada, gsm8k, aqua_rat, esnli, quasc, and qed. It supports multiple languages, including English, French, Romanian, and German. The model is licensed under Apache-2.0.
+Flan-T5-Large is a T5 language model developed by Google. It is trained on various datasets and is particularly suited for text-to-text generation tasks. It is based on the T5 architecture and supports multiple languages including English, French, Romanian, German, and multilingual. Flan-T5-Large has a large number of parameters and can be used for a wide range of applications such as translation, question answering, logical reasoning, scientific knowledge, and more.
 
 ## Usage example
-
-Here is an example of using the flan-t5-large model with the transformers library in Python:
+To use Flan-T5-Large with Python, you can utilize the transformers library. Here is an example of how to generate text using the model:
 
 ```python
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+from transformers import T5Tokenizer, T5ForConditionalGeneration
 
-model_name = "google/flan-t5-large"
-model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-large")
+model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-large")
 
-inputs = tokenizer.encode_plus(
-    "Translate to German: My name is Arthur",
-    return_tensors="pt",
-    padding="max_length",
-    max_length=128,
-)
+input_text = "Translate to German: My name is Arthur"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output_ids = model.generate(input_ids)
+output_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
 
-outputs = model.generate(
-    inputs["input_ids"],
-    attention_mask=inputs["attention_mask"],
-    num_beams=4,
-    max_length=128,
-)
-
-translated_text = tokenizer.decode(outputs[0])
-print(translated_text)
+print(output_text)
 ```
 
-This example demonstrates using the model for translation from English to German. The generated output represents the translated text.
+This model requires the `transformers` library and can be easily integrated into your text generation pipelines.

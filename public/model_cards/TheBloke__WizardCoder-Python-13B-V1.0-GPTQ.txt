@@ -4,40 +4,28 @@ WizardCoder-Python-13B-V1.0-GPTQ
 
 ## Links
 
-- Original Hugging Face page: [WizardCoder-Python-13B-V1.0-GPTQ](https://huggingface.co/TheBloke/WizardCoder-Python-13B-V1.0-GPTQ)
+- Hugging Face model page: [WizardCoder-Python-13B-V1.0-GPTQ](https://huggingface.co/TheBloke/WizardCoder-Python-13B-V1.0-GPTQ)
+- GitHub repository: N/A
 
 ## Description
 
-The WizardCoder-Python-13B-V1.0-GPTQ model is a text generation model trained using the `transformers` library. It is part of the WizardLM project and belongs to the Llama architecture. The model has been fine-tuned for text-generation tasks and specifically tailored to generate Python code. It is built upon the base model WizardLM/WizardCoder-Python-13B-V1.0 and includes quantization using the GPTQ method.
-
-Key details about the model:
-
-- Library name: transformers
-- Number of parameters: 13 billion
-- Model type: GPTQ (Quantized GPT)
-- Base model: WizardLM/WizardCoder-Python-13B-V1.0
-- Inference type: ExplicitOptOut
-
-The model has been evaluated on the HumanEval dataset, and its performance is measured using the "pass@1" metric. It achieved a pass rate of 0.64 on this metric.
+The WizardCoder-Python-13B-V1.0-GPTQ model is a text generation model trained on the Python programming language. It is based on the LlamaForCausalLM architecture from the transformers library. The model is capable of generating Python code based on given prompts and instructions. It has 13 billion parameters and has been quantized by TheBloke. The model has been evaluated on the HumanEval dataset, achieving a pass@1 score of 0.64.
 
 ## Usage example
 
-Here's how you can use the WizardCoder-Python-13B-V1.0-GPTQ model with the Transformers library in Python:
-
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("TheBloke/WizardCoder-Python-13B-V1.0-GPTQ")
-model = AutoModelForCausalLM.from_pretrained("TheBloke/WizardCoder-Python-13B-V1.0-GPTQ")
+model_name = "TheBloke/WizardCoder-Python-13B-V1.0-GPTQ"
+model = GPT2LMHeadModel.from_pretrained(model_name)
+tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 
-input_prompt = "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\n{prompt}\n\n### Response:\n"
-input_text = f"{input_prompt}Write a Python function that calculates the sum of two numbers."
-
-input_ids = tokenizer.encode(input_text, add_special_tokens=True, truncation=True, padding="longest", max_length=512, return_tensors="pt")
+prompt = "Write a function that reverses a string"
+input_ids = tokenizer.encode(prompt, return_tensors="pt")
 output = model.generate(input_ids)
 
 decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
 print(decoded_output)
 ```
 
-Please note that you will need to install the `transformers` library in order to run this example.
+Note: The above example demonstrates how to use the model with the transformers library in Python.

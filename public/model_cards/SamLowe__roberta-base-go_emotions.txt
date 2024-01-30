@@ -1,32 +1,44 @@
 # Model name
-
 roberta-base-go_emotions
 
-
 ## Links
-- Repository: [SamLowe/roberta-base-go_emotions](https://huggingface.co/SamLowe/roberta-base-go_emotions)
-- Model Card: [Model Card](https://huggingface.co/SamLowe/roberta-base-go_emotions/blob/main/modelcard.md)
 
+- [Hugging Face Model Page](https://huggingface.co/SamLowe/roberta-base-go_emotions)
+- [GitHub Repo](https://github.com/SamLowe/roberta-base-go_emotions)
 
 ## Description
-The `roberta-base-go_emotions` is a text classification model based on the RoBERTa architecture. It has been fine-tuned on the go_emotions dataset and can predict the emotion associated with a given text. The model is trained using the transformers library with Python. It is primarily designed for multiclass classification tasks and supports emotion classification for a range of emotions.
 
+The roberta-base-go_emotions model is a text classification model based on the RoBERTa architecture. It has been fine-tuned on the go_emotions dataset. The model can classify text into multiple emotions, making it suitable for multi-class classification tasks. It is implemented using the transformers library in Python.
+
+Some key details about the model:
+- Architecture: RobertaForSequenceClassification
+- Model type: RoBERTa
+- Library name: transformers
+- License: MIT
+- Pipeline tag: Text Classification
+- Datasets used: go_emotions
 
 ## Usage example
-Here is an example of how to use the `roberta-base-go_emotions` model with the transformers library in Python:
 
 ```python
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("SamLowe/roberta-base-go_emotions")
-model = AutoModelForSequenceClassification.from_pretrained("SamLowe/roberta-base-go_emotions")
+model_name = "SamLowe/roberta-base-go_emotions"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(model_name)
 
 text = "I am not having a great day."
-inputs = tokenizer(text, return_tensors="pt")
-outputs = model(**inputs)
-predicted_emotion = tokenizer.decode(outputs.logits.argmax())
+input_ids = tokenizer.encode(text, return_tensors="pt")
+outputs = model(input_ids)
+predictions = outputs.logits.argmax(dim=1)
 
-print(predicted_emotion)
+emotion_labels = ["admiration", "amusement", "anger", "annoyance", "approval", "caring", "confusion", "curiosity", "desire",
+                  "disappointment", "disapproval", "disgust", "embarrassment", "excitement", "fear", "gratitude",
+                  "grief", "joy", "love", "nervousness", "optimism", "pride", "realization", "relief", "remorse",
+                  "sadness", "surprise", "neutral"]
+emotion = emotion_labels[predictions.item()]
+
+print(f"The predicted emotion is: {emotion}")
 ```
 
-This example demonstrates how to tokenize a text and make predictions using the `roberta-base-go_emotions` model. The predicted emotion is then decoded using the tokenizer.
+Note: The example code above demonstrates the usage of the model for text classification.

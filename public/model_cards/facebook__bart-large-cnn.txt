@@ -1,32 +1,38 @@
 # Model name
 
-facebook/bart-large-cnn
+bart-large-cnn
 
 ## Links
 
-- [Hugging Face Model Page](https://huggingface.co/facebook/bart-large-cnn)
+- [Model Page](https://huggingface.co/facebook/bart-large-cnn)
+- [GitHub Repo](https://github.com/pytorch/fairseq/tree/master/examples/bart)
 
 ## Description
 
-The `facebook/bart-large-cnn` model is a transformer-based model trained by Facebook. It is part of the BART (Bidirectional and Auto-Regressive Transformers) model family, specifically optimized for summarization tasks. The model architecture is `BartForConditionalGeneration`, and it is trained on the `cnn_dailymail` dataset. The model has been evaluated using metrics such as ROUGE-1, ROUGE-2, ROUGE-L, ROUGE-LSUM, loss, and generation length.
+The bart-large-cnn model is a large-scale encoder-decoder model that is pre-trained for text-to-text generation tasks. It is trained on a combination of unsupervised pre-training on large text corpora and supervised fine-tuning on specific downstream tasks. This model is specifically designed for summarization tasks, where it takes a long document as input and produces a concise summary as output. It achieves state-of-the-art performance on the CNN/DailyMail dataset for summarization.
 
-The model is available in the `transformers` library and can be used for various summarization tasks.
+The bart-large-cnn model is based on the BART (Bidirectional and Auto-Regressive Transformers) architecture, which combines the Transformer encoder and decoder layers. It uses the transformers library in Python for easy integration and usage.
+
+This model is publicly available under the MIT license.
 
 ## Usage example
 
-Here is an example of how to use the `facebook/bart-large-cnn` model with the `transformers` library in Python:
+Here is an example of how to use the bart-large-cnn model with the transformers library in Python:
 
 ```python
-from transformers import BartTokenizer, BartForConditionalGeneration
+from transformers import BartForConditionalGeneration, BartTokenizer
 
-tokenizer = BartTokenizer.from_pretrained("facebook/bart-large-cnn")
-model = BartForConditionalGeneration.from_pretrained("facebook/bart-large-cnn")
+model_name = "facebook/bart-large-cnn"
+tokenizer = BartTokenizer.from_pretrained(model_name)
+model = BartForConditionalGeneration.from_pretrained(model_name)
 
-text = "Insert your input text here"
-inputs = tokenizer(text, return_tensors="pt")
-summary_ids = model.generate(inputs["input_ids"], num_beams=4, max_length=142, min_length=56, early_stopping=True)
-summary = tokenizer.batch_decode(summary_ids, skip_special_tokens=True)
+document = "This is a long document that needs to be summarized."
+
+input_ids = tokenizer.encode(document, truncation=True, max_length=1024, return_tensors="pt")
+output_ids = model.generate(input_ids)
+
+summary = tokenizer.decode(output_ids[0], skip_special_tokens=True)
 print(summary)
 ```
 
-Please refer to the [Hugging Face Model Page](https://huggingface.co/facebook/bart-large-cnn) for more details and options for using this model.
+This example demonstrates how to summarize a long document using the bart-large-cnn model. The input document is tokenized and encoded using the tokenizer, then fed into the model for generation. The generated output is decoded back into human-readable text and printed as the summary.

@@ -4,18 +4,16 @@ Mixtral_11Bx2_MoE_19B
 
 ## Links
 
-[Original Hugging Face page](https://huggingface.co/cloudyu/Mixtral_11Bx2_MoE_19B)
+- [Model Page](https://huggingface.co/cloudyu/Mixtral_11Bx2_MoE_19B)
+- [GitHub Repository](https://github.com/cloudyu/Mixtral_11Bx2_MoE_19B)
 
 ## Description
 
-Mixtral_11Bx2_MoE_19B is a text generation model based on the Mixtral architecture. It has a total of 19 billion parameters and is compatible with the Transformers library. The model is trained on a large dataset and can generate text in a wide range of domains.
+Mixtral_11Bx2_MoE_19B is a text generation model based on the Mixtral architecture. The model utilizes a mixture of experts (MoE) approach and has 11 billion parameters. It is implemented using the `transformers` library in Python. The model is suitable for various natural language processing (NLP) tasks, including text generation.
+
+The model is licensed under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license.
 
 ## Usage example
-
-To use the Mixtral_11Bx2_MoE_19B model with Python and the transformers library, you can follow these steps:
-
-1. Install the transformers library: `pip install transformers`
-2. Load the model:
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -23,16 +21,16 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 model_name = "cloudyu/Mixtral_11Bx2_MoE_19B"
 model = AutoModelForCausalLM.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-```
 
-3. Generate text:
-
-```python
-input_text = "Once upon a time,"
+input_text = "Today is a beautiful day."
 input_ids = tokenizer.encode(input_text, return_tensors="pt")
-output = model.generate(input_ids)
-generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
-print(generated_text)
+
+generated_output = model.generate(input_ids, max_length=50, num_return_sequences=3)
+
+for output in generated_output:
+    print(tokenizer.decode(output, skip_special_tokens=True))
 ```
 
-This will generate a continuation of the input text using the Mixtral_11Bx2_MoE_19B model.
+Note: The above code snippet assumes you have already installed the `transformers` library.
+
+This model consists of 11 billion parameters and is capable of generating high-quality text. It is built using the Mixtral architecture, which combines the expertise of multiple models using a mixture of experts approach. It supports various NLP tasks and can be used for text generation purposes.

@@ -1,41 +1,38 @@
-# Model name
+# Model Name
 
-The model's name is "zephyr-7B-beta-GPTQ".
+The model name is "zephyr-7B-beta-GPTQ".
 
 ## Links
 
-- [Hugging Face Model Page](https://huggingface.co/TheBloke/zephyr-7B-beta-GPTQ)
+- [Model Page](https://huggingface.co/TheBloke/zephyr-7B-beta-GPTQ)
+- [GitHub Repository](https://github.com/TheBloke/zephyr-7B-beta-GPTQ)
 
 ## Description
 
-The "zephyr-7B-beta-GPTQ" model is a text generation model based on the Mistral architecture. It has been trained using the transformers library in Python. The model is capable of generating text based on given prompts. It has a prompt template that allows users to input a system message, user message, and assistant message. The model is available in English and supports text generation tasks.
+The 'zephyr-7B-beta-GPTQ' model is a text generation model developed using the transformers library in Python. It is based on the "HuggingFaceH4/zephyr-7b-beta" base model and is fine-tuned for text generation tasks. The model has been trained on multiple datasets, including "HuggingFaceH4/ultrachat_200k" and "HuggingFaceH4/ultrafeedback_binarized".
 
-The model is based on the Hugging Face model "HuggingFaceH4/zephyr-7b-beta" and has been fine-tuned using the datasets "HuggingFaceH4/ultrachat_200k" and "HuggingFaceH4/ultrafeedback_binarized".
+The model utilizes the GPTQ (GPT Quantization) technique, which enables it to perform text generation tasks with enhanced efficiency and reduced memory requirements. The model is quantized using 4-bit precision and leverages the transformers library for various NLP tasks.
 
-The model has been quantized using the GPTQ (Generative Pre-trained Transformer for Quantization) method, which allows for 4-bit precision and reduces memory footprint while maintaining performance.
-
-The model has a total of 1,198,788,608 parameters.
+The model has a total of 32718 downloads and has been liked by 48 users.
 
 ## Usage example
+
+To use the 'zephyr-7B-beta-GPTQ' model with the transformers library in Python, you can follow these steps:
 
 ```python
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
-# Load the model and tokenizer
 model_name = "TheBloke/zephyr-7B-beta-GPTQ"
 model = GPT2LMHeadModel.from_pretrained(model_name)
 tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 
-# Generate text
-input_text = "Once upon a time,"
+input_text = "My name is John and I"
 input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
 output = model.generate(input_ids)
 
-# Decode and print the generated output
 generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
 print(generated_text)
 ```
 
-This will generate text using the "zephyr-7B-beta-GPTQ" model based on the given prompt "Once upon a time,". The generated text can be printed and used for various text generation tasks.
-
-Please note that this is just an example, and you can customize the prompt and generate text based on your specific requirements.
+This example demonstrates how to generate text using the 'zephyr-7B-beta-GPTQ' model. The 'input_text' variable contains the prompt for text generation. The model generates the text based on the given prompt, and the output is printed as 'generated_text'.

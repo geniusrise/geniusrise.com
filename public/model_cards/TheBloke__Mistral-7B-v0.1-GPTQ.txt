@@ -1,34 +1,36 @@
-# Model Name
+﻿# Model name
 
-TheBloke/Mistral-7B-v0.1-GPTQ
+Mistral-7B-v0.1-GPTQ
 
 ## Links
 
 - [Hugging Face Model Page](https://huggingface.co/TheBloke/Mistral-7B-v0.1-GPTQ)
+- [GitHub Repository](https://github.com/TheBloke/Mistral-7B-v0.1-GPTQ)
 
 ## Description
 
-The Mistral-7B-v0.1-GPTQ model is a pretrained GPT-like model trained by Mistral AI. It is based on the MistralForCausalLM architecture and is primarily designed for text generation tasks. The model has been quantized using the GPTQ technique by TheBloke.
+The Mistral-7B-v0.1-GPTQ model is a text generation model based on the Mistral AI architecture and is part of the transformers library. It is trained to generate text using the GPTQ method, which utilizes 4-bit precision and other techniques to optimize the model. It has been pretrained on a large dataset and is suitable for various natural language processing tasks.
 
-The model has been trained on a large amount of data and consists of approximately X number of parameters. It is a powerful tool for various natural language processing tasks, including text generation.
+The model has been created by TheBloke and its parameters include a total of 1,198,788,608 trainable parameters. It belongs to the mistral pipeline and is licensed under the Apache 2.0 license.
 
 ## Usage example
 
-You can use the Mistral-7B-v0.1-GPTQ model with the transformers library in Python. Here is an example of how to use the model:
+To use the Mistral-7B-v0.1-GPTQ model with the transformers library in Python, you can follow the example code below:
 
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("TheBloke/Mistral-7B-v0.1-GPTQ")
-model = AutoModelForCausalLM.from_pretrained("TheBloke/Mistral-7B-v0.1-GPTQ")
+model_name = "TheBloke/Mistral-7B-v0.1-GPTQ"
+model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-input_text = "Once upon a time,"
+input_text = "My name is Julien and I like to"
 input_ids = tokenizer.encode(input_text, return_tensors="pt")
 
-output = model.generate(input_ids, max_length=100)
+output = model.generate(input_ids)
+output_text = tokenizer.decode(output[0], skip_special_tokens=True)
 
-decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
-print(decoded_output)
+print(output_text)
 ```
 
-This code snippet uses the Mistral-7B-v0.1-GPTQ model to generate text based on the input prompt "Once upon a time,". The generated text is then decoded and printed to the console.
+This will generate text based on the given input using the Mistral-7B-v0.1-GPTQ model.

@@ -1,33 +1,31 @@
 # Model name
-
 CodeLlama-7B-Instruct-GPTQ
 
 ## Links
-
-[Original Hugging Face Page](https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GPTQ)
+- [Model Page](https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GPTQ)
+- [GitHub Repo](https://github.com/TheBloke/CodeLlama-7B-Instruct-GPTQ)
 
 ## Description
+CodeLlama-7B-Instruct-GPTQ is a language model trained to generate code solutions for coding problems. It provides an interface for developers to write code that solves a given problem and passes example test cases. The model is based on the GPTQ architecture and is part of the CodeLlama project.
 
-CodeLlama-7B-Instruct-GPTQ is a text generation model based on the GPT architecture. It has been fine-tuned on the CodeLlama dataset and is designed to generate code that solves specific coding problems. The model takes a prompt in the form of a coding problem and generates code that meets the specified constraints and passes example test cases.
-
-The model has been implemented using the Transformers library with Python. It has a total of 1,131,458,560 parameters. The model is part of the Llama family of models and is specifically built for text generation tasks.
+The model is trained on a large dataset of coding problems and their solutions. It has undergone quantization to reduce its memory footprint and improve efficiency. The model has a total of 816,963,584 parameters.
 
 ## Usage example
+To use the CodeLlama-7B-Instruct-GPTQ model, you can use the Transformers library in Python. Here is an example code snippet:
 
 ```python
-from transformers import GPTForCausalLM, GPTTokenizer
+from transformers import GPT2LMTokenizer, GPT2LMHeadModel
 
-tokenizer = GPTTokenizer.from_pretrained("TheBloke/CodeLlama-7B-Instruct-GPTQ")
-model = GPTForCausalLM.from_pretrained("TheBloke/CodeLlama-7B-Instruct-GPTQ")
+tokenizer = GPT2LMTokenizer.from_pretrained("TheBloke/CodeLlama-7B-Instruct-GPTQ")
+model = GPT2LMHeadModel.from_pretrained("TheBloke/CodeLlama-7B-Instruct-GPTQ")
 
-prompt = "[INST] Write code to solve the following coding problem that obeys the constraints and passes the example test cases. Please wrap your code answer using ```:\n"
-input_text = prompt + "Problem: [add problem description here]\nExample: [add example here]"
-input_ids = tokenizer.encode(input_text, return_tensors="pt")
+# Generate code for a coding problem
+prompt = "Write code to solve the following coding problem: ...."
+inputs = tokenizer.encode(prompt, return_tensors="pt")
+outputs = model.generate(inputs, max_length=100)
 
-output = model.generate(input_ids, max_length=100)
-
-decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
-print(decoded_output)
+generated_code = tokenizer.decode(outputs[0])
+print(generated_code)
 ```
 
-Note: The code example above assumes that you have already installed the Transformers library and have access to the model's pre-trained weights.
+Please refer to the [model page](https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GPTQ) for more information on how to use the model and its limitations.

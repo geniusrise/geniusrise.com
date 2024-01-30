@@ -1,40 +1,34 @@
 # Model name
 
-microsoft/tapex-base-finetuned-wikisql
+tapex-base-finetuned-wikisql
 
 ## Links
 
-[Model page on Hugging Face](https://huggingface.co/microsoft/tapex-base-finetuned-wikisql)
+- Hugging Face Model Page: [tapex-base-finetuned-wikisql](https://huggingface.co/microsoft/tapex-base-finetuned-wikisql)
+- GitHub Repo: No GitHub repo available
 
 ## Description
 
-The `microsoft/tapex-base-finetuned-wikisql` model is a table question-answering model based on the BART architecture. It has been fine-tuned on the WikiSQL dataset. This model is part of the TAPeX project, which focuses on table pre-training.
+The tapex-base-finetuned-wikisql model is a transformer-based model finetuned on the WikiSQL dataset. It is part of the Microsoft organization on the Hugging Face Model Hub. The model is based on the BART architecture and is specifically designed for table question answering tasks. It utilizes the transformers library and is implemented in Python.
 
-The model can be used for various NLP tasks related to table question answering, such as summarization and generation.
-
-Key features of the model include:
-- Language: English
-- Tags: transformers, pytorch, bart, text2text-generation, tapex, table-question-answering, en, dataset:wikisql, arxiv:2107.07653, license:mit
-- Datasets: WikiSQL
-- Number of parameters: Not specified
-
-The model can be accessed and used through the transformers library in Python.
+The model has a specific focus on table question answering tasks and exhibits good performance on the WikiSQL dataset.
 
 ## Usage example
 
+You can use the tapex-base-finetuned-wikisql model using the transformers library in Python. Here's an example:
+
 ```python
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
-model_name = "microsoft/tapex-base-finetuned-wikisql"
-model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained("microsoft/tapex-base-finetuned-wikisql")
+model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/tapex-base-finetuned-wikisql")
 
-text = "How many stars does the transformers repository have?"
+text = "How many stars does the Transformers repository have?"
 inputs = tokenizer(text, return_tensors="pt")
-outputs = model.generate(inputs["input_ids"])
+output = model.generate(inputs["input_ids"])
 
-generated_text = tokenizer.decode(outputs[0])
-print(generated_text)
+decoded_output = tokenizer.decode(output[0])
+print(decoded_output)
 ```
 
-This example demonstrates how to use the `microsoft/tapex-base-finetuned-wikisql` model for table question answering. The model is loaded using `AutoModelForSeq2SeqLM`, and the text to be answered is tokenized using `AutoTokenizer`. The generated answer is then decoded and printed.
+Please note that you need to have the transformers library installed in order to use this model.

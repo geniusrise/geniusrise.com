@@ -1,33 +1,40 @@
-# Model name
-mbart-large-50-many-to-many-mmt
+# Model Name
+
+facebook/mbart-large-50-many-to-many-mmt
 
 ## Links
-- [Original Hugging Face page](https://huggingface.co/facebook/mbart-large-50-many-to-many-mmt)
-- [Documentation](https://huggingface.co/facebook/mbart-large-50-many-to-many-mmt/docs)
+
+- Model Page: [https://huggingface.co/facebook/mbart-large-50-many-to-many-mmt](https://huggingface.co/facebook/mbart-large-50-many-to-many-mmt)
+- GitHub Repo: N/A
 
 ## Description
-The mbart-large-50-many-to-many-mmt model is a many-to-many translation model based on the mBART architecture. It is a large-scale multilingual pre-trained model that supports translation between multiple languages. The model has been trained on a wide range of languages and can perform translation tasks for various language pairs. It is implemented in the transformers library and can be easily used with Python.
 
-## Usage example
-To use the model for translation tasks, you can use the transformers library in Python. Here's an example of how to perform translation using the mbart-large-50-many-to-many-mmt model:
+The `facebook/mbart-large-50-many-to-many-mmt` model is a multilingual sequence-to-sequence model pretrained with mBART on a range of languages. It is designed for many-to-many multilingual machine translation tasks. The model supports translation between multiple languages and can handle a large number of languages. It is implemented using the transformers library in Python.
+
+Some key features and details include:
+
+- Language support: multilingual, Arabic, Czech, German, English, Spanish, Estonian, Finnish, French, Gujarati, Hindi, Italian, Japanese, Kazakh, Korean, Lithuanian, Latvian, Burmese, Nepali, Dutch, Romanian, Russian, Sinhala, Turkish, Vietnamese, Chinese, Afrikaans, Azerbaijani, Bengali, Persian, Hebrew, Croatian, Indonesian, Georgian, Khmer, Macedonian, Malayalam, Mongolian, Marathi, Polish, Pashto, Portuguese, Swedish, Swahili, Tamil, Telugu, Thai, Tagalog, Ukrainian, Urdu, Xhosa, Galician, Slovenian.
+- Model type: mbart.
+- Architecture: MBartForConditionalGeneration.
+- Training data: mBART training data.
+- Inference: Yes.
+
+## Usage Example
+
+Here is an example of how to use the model with the transformers library in Python:
 
 ```python
-from transformers import MBartForConditionalGeneration, MBartTokenizer
+from transformers import pipeline
 
-model_name = "facebook/mbart-large-50-many-to-many-mmt"
-tokenizer = MBartTokenizer.from_pretrained(model_name)
-model = MBartForConditionalGeneration.from_pretrained(model_name)
+translator = pipeline("translation", model="facebook/mbart-large-50-many-to-many-mmt", tokenizer="facebook/mbart-large-50-many-to-many-mmt")
 
-input_text = "Translate this sentence from English to French."
-input_ids = tokenizer.encode(input_text, return_tensors="pt")
-translated_ids = model.generate(input_ids)
-translated_text = tokenizer.decode(translated_ids[0], skip_special_tokens=True)
+result = translator("Hello, how are you?", src="en", tgt="fr")
 
-print(translated_text)
+print(result)
 ```
 
-This example demonstrates how to translate a sentence from English to French using the mbart-large-50-many-to-many-mmt model and the transformers library.
+This example translates the input text "Hello, how are you?" from English (src="en") to French (tgt="fr"). The output is printed to the console.
 
-The model has a large number of parameters and is capable of translating between multiple languages. It supports a wide range of datasets and is suitable for various translation tasks.
+Note: The example assumes you have already installed the transformers library and have the necessary dependencies.
 
-Note: The usage example provided here assumes that the transformers library is already installed. You can install it using `pip install transformers`.
+Please refer to the [model page](https://huggingface.co/facebook/mbart-large-50-many-to-many-mmt) for more information on how to use this model and for additional examples.

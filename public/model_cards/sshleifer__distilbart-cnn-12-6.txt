@@ -1,29 +1,39 @@
 # Model name
 
-DistilBART-CNN-12-6
+distilbart-cnn-12-6
 
 ## Links
 
-- [Hugging Face Model Page](https://huggingface.co/sshleifer/distilbart-cnn-12-6)
+- [Model page](https://huggingface.co/sshleifer/distilbart-cnn-12-6)
+- [GitHub repo](https://github.com/huggingface/transformers)
 
 ## Description
 
-DistilBART-CNN-12-6 is a pretrained language model based on the BART architecture, fine-tuned for the task of summarization. It is trained on two datasets: CNN/Daily Mail and XSum. The model has been distilled to reduce its size while maintaining its performance. It is compatible with the transformers library in Python.
+distilbart-cnn-12-6 is a model for text summarization. It is based on the BART architecture and is trained on the cnn_dailymail and xsum datasets. The model has been fine-tuned for summarization tasks and has specific task parameters configured for this purpose. It is compatible with the transformers library in Python. 
 
-The model has a total of approximately 138 million parameters.
+Key features and specifications:
+- Architecture: BARTForConditionalGeneration
+- Model type: bart
+- Task-specific parameters: early stopping, length penalty, max length, min length, no repeat n-gram size, and number of beams
+- Datasets used: cnn_dailymail, xsum
+- Inference capabilities: Yes
+
+The model is created by Sam Shleifer and has been downloaded 815,571 times. It has received 204 likes from users.
 
 ## Usage example
 
-Here is an example of how to use the DistilBART-CNN-12-6 model with the transformers library in Python:
-
 ```python
-from transformers import pipeline
+from transformers import BartTokenizer, BartForConditionalGeneration
 
-summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
-text = "The tower is 324 metres tall, about the same height as an 81-storey building, and the tallest structure in Paris."
-summary = summarizer(text, max_length=50, min_length=10, do_sample=True)[0]['summary_text']
+tokenizer = BartTokenizer.from_pretrained("sshleifer/distilbart-cnn-12-6")
+model = BartForConditionalGeneration.from_pretrained("sshleifer/distilbart-cnn-12-6")
 
+article = "Input article text"
+inputs = tokenizer.encode(article, return_tensors="pt")
+summary_ids = model.generate(inputs)
+
+summary = tokenizer.decode(summary_ids[0])
 print(summary)
 ```
 
-This will output a summary of the input text using the DistilBART-CNN-12-6 model.
+Please refer to the [model page](https://huggingface.co/sshleifer/distilbart-cnn-12-6) for more information and usage details.

@@ -4,40 +4,40 @@ microsoft/tapex-base-finetuned-wtq
 
 ## Links
 
-- [Hugging Face model page](https://huggingface.co/microsoft/tapex-base-finetuned-wtq)
+- [Model page](https://huggingface.co/microsoft/tapex-base-finetuned-wtq)
+- [GitHub repo](https://github.com/microsoft/tapex-base-finetuned-wtq)
 
 ## Description
 
-The `microsoft/tapex-base-finetuned-wtq` model is a finetuned version of the TAPeX (Table Pre-training via Learning a Neural SQL Executor) model from Microsoft. It is specifically trained for table question answering tasks. It is based on the BART architecture and fine-tuned using the WikiTableQuestions dataset.
+The microsoft/tapex-base-finetuned-wtq model is a table question-answering model based on the BART architecture from the transformers library. It has been fine-tuned on the WikitableQuestions dataset. The model is suitable for performing table question-answering tasks and can generate answers to questions based on tables.
 
-The model can be used for table question answering tasks where the input is a question related to a table and the output is the answer to the question.
+Key details:
 
-This model can be accessed using the [transformers](https://huggingface.co/transformers) library in Python.
+- Architecture: BARTForConditionalGeneration
+- Model type: BART
+- Language: English
+- Tags: transformers, pytorch, safetensors, bart, text2text-generation, tapex, table-question-answering
+- Datasets: WikitableQuestions
+- Number of parameters: Not specified
 
 ## Usage example
+
+Here is an example of how to use the model with the transformers library in Python:
 
 ```python
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
-# Load the tokenizer and model
 tokenizer = AutoTokenizer.from_pretrained("microsoft/tapex-base-finetuned-wtq")
 model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/tapex-base-finetuned-wtq")
 
-# Prepare input
-question = "How many stars does the Hugging Face repository have?"
-input_text = f"question: {question} table: <table here>"
+input_text = "What is the population of New York City?"
+encoded_input = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(encoded_input)
 
-# Tokenize input
-inputs = tokenizer(input_text, truncation=True, padding="longest", return_tensors="pt")
-
-# Generate output
-outputs = model.generate(inputs.input_ids)
-
-# Decode output
-decoded_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
+decoded_output = tokenizer.decode(output[0])
 print(decoded_output)
 ```
 
-Please note that `<table here>` in the code above should be replaced with the actual table to be used for the question answering task.
+This example uses the model to answer the question "What is the population of New York City?" The input text is tokenized using the tokenizer, and the encoded input is passed to the model for generation. The generated output is then decoded using the tokenizer, and the answer is printed out.
 
-For more details and usage examples, refer to the [Hugging Face model page](https://huggingface.co/microsoft/tapex-base-finetuned-wtq).
+Please note that the number of parameters for the model is not specified on the model page.

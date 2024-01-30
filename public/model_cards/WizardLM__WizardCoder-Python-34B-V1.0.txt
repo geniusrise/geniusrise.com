@@ -1,36 +1,29 @@
 # Model name
-
 WizardCoder-Python-34B-V1.0
 
 ## Links
-
-- [Hugging Face Model Page](https://huggingface.co/WizardLM/WizardCoder-Python-34B-V1.0)
+- Model page: [WizardCoder-Python-34B-V1.0](https://huggingface.co/WizardLM/WizardCoder-Python-34B-V1.0)
+- GitHub repo: [WizardLM/WizardCoder-Python-34B-V1.0](https://github.com/WizardLM/WizardCoder-Python-34B-V1.0)
 
 ## Description
-
-The WizardCoder-Python-34B-V1.0 is a model designed for text generation, specifically for generating Python code. It is part of the WizardLM collection and is based on the LLAMA architecture. The model has been trained on a large amount of Python code data and is capable of generating high-quality Python code snippets.
-
-The model utilizes the transformers library and can be used with Python. It has a total of 34 billion parameters and supports the GPTQ format.
-
-The model has been evaluated on the HumanEval dataset, achieving a pass@1 metric of 0.732.
-
-For more information, please refer to the [original Hugging Face model page](https://huggingface.co/WizardLM/WizardCoder-Python-34B-V1.0).
+The WizardCoder-Python-34B-V1.0 is a language model based on the llama architecture and is trained to perform code generation and text generation tasks in Python. It has been fine-tuned using the transformers library in Python. The model has a large number of parameters, specifically 34 billion parameters. It has been evaluated using the HumanEval dataset and achieved a pass@1 metric score of 0.732.
 
 ## Usage example
+Here is an example of how to use the WizardCoder-Python-34B-V1.0 model with the transformers library in Python:
 
 ```python
-from transformers import GPT2LMTokenizer, GPT2LMHeadModel
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-tokenizer = GPT2LMTokenizer.from_pretrained("WizardLM/WizardCoder-Python-34B-V1.0")
-model = GPT2LMHeadModel.from_pretrained("WizardLM/WizardCoder-Python-34B-V1.0")
+model_name = "WizardLM/WizardCoder-Python-34B-V1.0"
+model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-prompt = "print('Hello, world!')"
-
-input_ids = tokenizer.encode(prompt, return_tensors="pt")
+input_text = "Here is some Python code: print('Hello, world!')"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
 output_ids = model.generate(input_ids)
 
-generated_code = tokenizer.decode(output_ids[0], skip_special_tokens=True)
-print(generated_code)
+output_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+print(output_text)
 ```
 
-Please note that due to the large number of parameters, using this model may require substantial computational resources.
+This example demonstrates how to generate code in Python using the WizardCoder-Python-34B-V1.0 model. The input text is encoded using the tokenizer, and then the model generates the output code. The resulting code is then decoded using the tokenizer and printed.

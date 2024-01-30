@@ -1,29 +1,44 @@
 # Model name
-The model is called 'Llama-2-70B-GPTQ'
+
+Llama-2-70B-GPTQ
 
 ## Links
-You can find the original model page [here](https://huggingface.co/TheBloke/Llama-2-70B-GPTQ).
+
+- [Hugging Face Model Page](https://huggingface.co/TheBloke/Llama-2-70B-GPTQ)
+- [GitHub Repository](https://github.com/TheBloke/llama-2-70b-gptq)
 
 ## Description
-The 'Llama-2-70B-GPTQ' model is a text generation model that is part of the Llama-2 family. It has been trained on large amounts of text data and has a total of 7,560,000,000 parameters. It is based on the 'meta-llama/Llama-2-70b-hf' base model and is capable of generating text in multiple languages. The model is built using the transformers library in Python.
+
+Llama-2-70B-GPTQ is a large-scale generative language model based on the Llama-2 architecture. It has been fine-tuned for text generation tasks using the GPTQ method. The model comes with a predefined prompt template that can be used for generating text.
+
+The model has a total of 9,102,492,672 parameters and supports English language. It is compatible with the transformers library in Python.
 
 ## Usage example
-Here is an example of how to use the 'Llama-2-70B-GPTQ' model with the transformers library in Python:
+
+Here's an example of how to use the Llama-2-70B-GPTQ model with the transformers library in Python:
 
 ```python
+
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_name = "TheBloke/Llama-2-70B-GPTQ"
-model = AutoModelForCausalLM.from_pretrained(model_name)
+
 tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
-prompt = "Once upon a time,"
-input_ids = tokenizer.encode(prompt, return_tensors="pt")
+prompt = "My name is John and"
 
-output_ids = model.generate(input_ids, max_length=50)
-output_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+inputs = tokenizer(prompt, return_tensors="pt")
+outputs = model.generate(inputs.input_ids)
 
-print(output_text)
+generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
+print(generated_text)
 ```
 
-Make sure to install the transformers library first using `pip install transformers`.
+Remember to install the transformers library if you haven't already:
+
+```shell
+pip install transformers
+```
+
+Please note that the example above is just a basic illustration of how to use the model and may require additional preprocessing and postprocessing depending on your specific use case.
