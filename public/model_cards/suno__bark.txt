@@ -1,0 +1,75 @@
+# Model name
+
+Bark
+
+## Links
+
+- Hugging Face Model Page: [Bark](https://huggingface.co/suno/bark)
+- GitHub Repository: [Bark](https://github.com/suno-bark)
+
+## Description
+
+Bark is a transformer-based text-to-audio model created by Suno. It is capable of generating highly realistic, multilingual speech as well as other audio types such as music, background noise, and simple sound effects. The model can also produce nonverbal communications like laughing, sighing, and crying. Two pretrained model checkpoints are available: "small" and "large". The model is intended for research purposes only and the generated content is not censored.
+
+## Usage example
+
+Try out Bark yourself! Below are code snippets showcasing how to use Bark with the 🤗 Transformers library from version 4.31.0 onwards.
+
+### Text-to-Speech (TTS) Pipeline Example
+
+```python
+from transformers import pipeline
+import scipy
+
+synthesiser = pipeline("text-to-speech", "suno/bark")
+
+speech = synthesiser("Hello, my dog is cooler than you!", forward_params={"do_sample": True})
+
+scipy.io.wavfile.write("bark_out.wav", rate=speech["sampling_rate"], data=speech["audio"])
+```
+
+### Transformers Modelling Code Example
+
+```python
+from transformers import AutoProcessor, AutoModel
+
+processor = AutoProcessor.from_pretrained("suno/bark")
+model = AutoModel.from_pretrained("suno/bark")
+
+inputs = processor(
+    text=[
+        "Hello, my name is Suno. And, uh — and I like pizza. [laughs] But I also have other interests such as playing tic tac toe."
+    ],
+    return_tensors="pt",
+)
+
+speech_values = model.generate(**inputs, do_sample=True)
+```
+
+For more details on using the Bark model for inference using the 🤗 Transformers library, refer to the [Bark documentation](https://huggingface.co/suno/bark).
+
+## Model Details
+
+Bark consists of three transformer models that convert text into audio:
+
+1. Text to semantic tokens
+   - Input: text tokenized with the BERT tokenizer from Hugging Face
+   - Output: semantic tokens encoding the audio to be generated
+
+2. Semantic to coarse tokens
+   - Input: semantic tokens
+   - Output: tokens from the first two codebooks of the EnCodec Codec from Facebook
+
+3. Coarse to fine tokens
+   - Input: the first two codebooks from EnCodec
+   - Output: 8 codebooks from EnCodec
+
+The models have parameters ranging from 80 to 300 million, utilize causal and non-causal attention, and have varying output vocabulary sizes.
+
+## Business Use Cases
+
+- Accessibility Tools: Bark's text-to-audio capabilities can be used to improve accessibility tools in a variety of languages, allowing users with visual impairments to access written content through audio.
+- Media Production: Bark can be utilized in media production for generating synthetic speech, music, background noise, and sound effects.
+- Virtual Assistants and Chatbots: Bark can be integrated into virtual assistants and chatbots to give them a more human-like, natural-sounding voice.
+
+These use cases demonstrate the versatility and potential applications of Bark in different industries.

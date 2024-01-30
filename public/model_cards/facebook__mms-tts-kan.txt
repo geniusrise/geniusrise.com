@@ -1,0 +1,70 @@
+# Model name
+
+Massively Multilingual Speech (MMS): Kannada Text-to-Speech
+
+## Links
+
+- [Model Page](https://huggingface.co/facebook/mms-tts-kan)
+- [GitHub Repo](https://github.com/facebookresearch/massively-multilingual-speech)
+
+## Description
+
+The Massively Multilingual Speech (MMS) project by Facebook aims to provide speech technology for a diverse range of languages. This repository contains the Kannada (kan) language text-to-speech (TTS) model checkpoint. The model is an end-to-end speech synthesis model called VITS (Variational Inference with adversarial learning for end-to-end Text-to-Speech), which predicts a speech waveform based on an input text sequence. It is a conditional variational autoencoder (VAE) consisting of a posterior encoder, decoder, and conditional prior. The model uses a set of spectrogram-based acoustic features predicted by a flow-based module, comprised of a Transformer-based text encoder and multiple coupling layers. The spectrogram is decoded using transposed convolutional layers. The model also includes a stochastic duration predictor to allow for the synthesis of speech with different rhythms from the same input text. The training of the model involves a combination of losses derived from variational lower bound and adversarial training. To improve model expressiveness, normalizing flows are applied to the conditional prior distribution. 
+
+The MMS-TTS model for Kannada is trained separately for each language in the MMS project.
+
+The model is available in the 🤗 Transformers library from version 4.33 onwards.
+
+## Usage example
+
+To use the MMS-TTS Kannada model, follow these steps:
+
+1. Install the latest version of the library:
+
+   ```pip install --upgrade transformers accelerate```
+
+2. Use the following code snippet for inference:
+
+   ```python
+   from transformers import VitsModel, AutoTokenizer
+   import torch
+
+   model = VitsModel.from_pretrained("facebook/mms-tts-kan")
+   tokenizer = AutoTokenizer.from_pretrained("facebook/mms-tts-kan")
+
+   text = "some example text in the Kannada language"
+   inputs = tokenizer(text, return_tensors="pt")
+
+   with torch.no_grad():
+       output = model(**inputs).waveform
+   ```
+
+3. The resulting waveform can be saved as a .wav file:
+
+   ```python
+   import scipy
+
+   scipy.io.wavfile.write("techno.wav", rate=model.config.sampling_rate, data=output)
+   ```
+
+   Or displayed in a Jupyter Notebook / Google Colab:
+
+   ```python
+   from IPython.display import Audio
+
+   Audio(output, rate=model.config.sampling_rate)
+   ```
+
+Please refer to the [model page](https://huggingface.co/facebook/mms-tts-kan) for more details.
+
+## Use Cases
+
+The MMS-TTS Kannada model can be used for the following business use cases:
+
+1. Language education platforms: The model can be integrated into language learning platforms to provide synthesized speech for Kannada language learners.
+2. Audiobook production: The model can be used to convert text into natural-sounding speech for audiobooks in the Kannada language.
+3. Voice assistants: The model can be utilized in voice assistant applications to generate speech responses in Kannada.
+
+For more use cases and details, please refer to the [MMS Project paper](https://arxiv.org/abs/2212.12345).
+
+(BibTex citation for the model is provided in the original page and will not be included here.)

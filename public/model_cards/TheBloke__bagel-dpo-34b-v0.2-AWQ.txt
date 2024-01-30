@@ -1,35 +1,45 @@
-# Model name
-
-TheBloke/bagel-dpo-34b-v0.2-AWQ
+# Bagel DPO 34B v0.2 - AWQ
 
 ## Links
-
-- [Hugging Face Model Page](https://huggingface.co/TheBloke/bagel-dpo-34b-v0.2-AWQ)
-- [GitHub Repo](https://github.com/TheBloke/models)
+[HuggingFace Model Page](https://huggingface.co/TheBloke/bagel-dpo-34b-v0.2-AWQ)
 
 ## Description
+This model is a fine-tuned version of Bagel DPO 34B v0.2 by Jon Durbin, and it has been quantised using the AWQ method. It offers efficient and fast inference for Transformers models, supporting 4-bit quantization. This model is significantly faster than those using GPTQ quantization, without a compromise in quality. 
 
-The model, **TheBloke/bagel-dpo-34b-v0.2-AWQ**, is a text generation model trained on various datasets such as ai2_arc, unalignment/spicy-3.1, codeparrot/apps, Facebook/belebele, and more. 
-
-It is based on the LlamaForCausalLM architecture and has been quantized with 4-bit precision using the AWQ (AnyWeighQuantization) method. The model has approximately 4,216,504,320 parameters.
+The model is trained on multiple data sets, delivering robust performances across various tasks. It can be used for GPU inference. The model leverages the prompt template Bagel-Alpaca to generate task-completing responses to particular instructions.
 
 ## Usage example
-
-You can use the model with the [transformers](https://huggingface.co/transformers) library in Python. Here's an example of how to generate text using the model:
+Using `transformers` library in Python:
 
 ```python
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, TextStreamer
 
-model_name = "TheBloke/bagel-dpo-34b-v0.2-AWQ"
-tokenizer = GPT2Tokenizer.from_pretrained(model_name)
-model = GPT2LMHeadModel.from_pretrained(model_name)
+model_name_or_path = "TheBloke/bagel-dpo-34b-v0.2-AWQ"
 
-prompt = "Once upon a time,"
-input_ids = tokenizer.encode(prompt, return_tensors="pt")
+tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
+model = AutoModelForCausalLM.from_pretrained(
+    model_name_or_path,
+    low_cpu_mem_usage=True,
+    device_map="cuda:0"
+)
 
-output = model.generate(input_ids, max_length=100)
-generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
-print(generated_text)
+# Generate text
+prompt = "Tell me about AI"
+tokens = tokenizer(prompt, return_tensors='pt').input_ids.cuda()
+generation_params = {
+    "do_sample": True,
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "top_k": 40,
+    "max_new_tokens": 512,
+    "repetition_penalty": 1.1
+}
+generation_output = model.generate(tokens, **generation_params)
+
+# Decode the generated text
+token_output = generation_output[0]
+text_output = tokenizer.decode(token_output)
+print("Generated text: ", text_output)
 ```
 
-Please note that this model is under the "Other" license. For more information, refer to the [license](https://huggingface.co/01-ai/Yi-34B-200K/blob/main/LICENSE) on the model page.
+Note: The Bagel DPO 34B v0.2 - AWQ model can be employed for chatbots, task-oriented dialogue generation, automated customer service, content generation and many other applications.

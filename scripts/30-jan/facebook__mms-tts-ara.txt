@@ -1,0 +1,48 @@
+# Model name
+Massively Multilingual Speech (MMS): Arabic Text-to-Speech
+
+## Links
+- Hugging Face Model Page: [MMS-TTS Arabic](https://huggingface.co/facebook/mms-tts-ara)
+- GitHub Repository: [Massively Multilingual Speech](https://github.com/facebookresearch/massively-multilingual-speech)
+
+## Description
+The MMS-TTS Arabic model is part of Facebook's Massively Multilingual Speech project, which aims to provide speech technology in a diverse range of languages. This model is based on the VITS (Variational Inference with adversarial learning for end-to-end Text-to-Speech) architecture, an end-to-end speech synthesis model that predicts speech waveforms based on input text. It uses a combination of a posterior encoder, decoder, and conditional prior, along with a Transformer-based text encoder and multiple coupling layers to predict spectrogram-based acoustic features. The model also includes a stochastic duration predictor to enable synthesis of speech with different rhythms from the same input text. The MMS-TTS model is trained using variational lower bound and adversarial training methods.
+
+## Usage example
+To use the MMS-TTS Arabic model, first install the latest version of the Transformers library using the following command:
+```python
+pip install --upgrade transformers accelerate
+```
+Then, run the inference code snippet provided below:
+```python
+from transformers import VitsModel, AutoTokenizer
+import torch
+
+model = VitsModel.from_pretrained("facebook/mms-tts-ara")
+tokenizer = AutoTokenizer.from_pretrained("facebook/mms-tts-ara")
+
+text = "some example text in the Arabic language"
+inputs = tokenizer(text, return_tensors="pt")
+
+with torch.no_grad():
+    output = model(**inputs).waveform
+```
+
+The resulting waveform can be saved as a .wav file:
+```python
+import scipy
+
+scipy.io.wavfile.write("techno.wav", rate=model.config.sampling_rate, data=output)
+```
+
+Or displayed in a Jupyter Notebook / Google Colab:
+```python
+from IPython.display import Audio
+
+Audio(output, rate=model.config.sampling_rate)
+```
+
+## Use Cases
+1. Text-to-speech applications: This model can be used to convert Arabic text into synthesized speech, making it useful for creating voice assistants, audiobooks, and other applications that require text-to-speech capabilities in Arabic.
+2. Multilingual communication: The MMS-TTS Arabic model is part of a larger project focused on providing speech technology for multiple languages. It can be used to enable multilingual communication by synthesizing speech in Arabic for applications such as language translation and language learning platforms.
+3. Accessibility: By converting text into speech, this model can help improve accessibility for individuals who may have difficulty reading or comprehending written Arabic. It can be integrated into assistive technology solutions, audiobooks, and other applications aimed at improving accessibility for people with visual impairments or reading difficulties.

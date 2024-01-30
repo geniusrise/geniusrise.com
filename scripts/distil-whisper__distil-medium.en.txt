@@ -1,0 +1,63 @@
+# Model name
+
+Distil-Whisper: distil-medium.en
+
+## Links
+
+Model page: [Distil-Whisper: distil-medium.en](https://huggingface.co/distil-whisper/distil-medium.en)
+
+GitHub repository: [Distil-Whisper](https://github.com/huggingface/distil-whisper/tree/main/training)
+
+## Description
+
+Distil-Whisper is a distilled version of the Whisper model that is 6 times faster, 49% smaller, and performs within 1% WER (Word Error Rate) on out-of-distribution evaluation sets. It is trained on 22,000 hours of audio data from 9 open-source, permissively licensed speech datasets. The model uses an encoder-decoder architecture and is based on the Whisper model.
+
+## Usage example
+
+```python
+import torch
+from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
+from datasets import load_dataset
+
+device = "cuda:0" if torch.cuda.is_available() else "cpu"
+torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
+
+model_id = "distil-whisper/distil-medium.en"
+
+model = AutoModelForSpeechSeq2Seq.from_pretrained(
+    model_id, torch_dtype=torch_dtype, low_cpu_mem_usage=True, use_safetensors=True
+)
+model.to(device)
+
+processor = AutoProcessor.from_pretrained(model_id)
+
+pipe = pipeline(
+    "automatic-speech-recognition",
+    model=model,
+    tokenizer=processor.tokenizer,
+    feature_extractor=processor.feature_extractor,
+    max_new_tokens=128,
+    torch_dtype=torch_dtype,
+    device=device,
+)
+
+dataset = load_dataset("hf-internal-testing/librispeech_asr_dummy", "clean", split="validation")
+sample = dataset[0]["audio"]
+
+result = pipe(sample)
+print(result["text"])
+```
+
+## Business Use Cases
+
+Distil-Whisper can be used for the following business use cases:
+
+1. Automatic Speech Recognition (ASR) in call centers: The model can transcribe audio recordings of customer calls to text, helping businesses analyze and extract valuable insights from customer interactions.
+
+2. Voice assistants: Distil-Whisper can power voice assistants in various applications, such as smart speakers, virtual assistants, or chatbots. It can convert spoken commands or queries into text, enabling users to interact with devices or applications through voice commands.
+
+3. Transcription services: The model can be used by transcription service providers to automatically transcribe large volumes of audio content, such as interviews, podcasts, or webinars. This can significantly speed up the transcription process and improve productivity.
+
+4. Accessibility tools: Distil-Whisper can be integrated into accessibility tools to assist individuals with hearing impairments. It can convert spoken content, such as videos or live events, into subtitles or captions, making the content accessible to a wider audience.
+
+5. Voice-controlled applications: Distil-Whisper can enable voice control in various applications, such as home automation systems, automotive infotainment systems, or mobile applications. Users can control these applications and perform actions using voice commands, providing a more intuitive and hands-free user experience.

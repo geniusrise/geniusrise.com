@@ -1,0 +1,84 @@
+# Model name
+
+Wav2Vec2-Base-960h
+
+## Links
+
+Model Page: [Wav2Vec2-Base-960h](https://huggingface.co/facebook/wav2vec2-base-960h)
+
+GitHub Repo: [PyTorch Fairseq](https://github.com/pytorch/fairseq/tree/master/examples/wav2vec#wav2vec-20)
+
+## Description
+
+Wav2Vec2-Base-960h is a model pretrained and fine-tuned on 960 hours of Librispeech, a speech dataset. It is designed to learn powerful representations from speech audio alone and can outperform semi-supervised methods while being conceptually simpler. The model utilizes a contrastive task defined over latent representations, which are jointly learned. It achieves competitive Word Error Rates (WER) even with limited amounts of labeled data. The model works best with speech input sampled at 16kHz.
+
+## Usage example
+
+To transcribe audio files using Wav2Vec2-Base-960h, you can use the following code:
+
+```python
+from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC
+from datasets import load_dataset
+import torch
+
+# load model and tokenizer
+processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-base-960h")
+model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-base-960h")
+
+# load dummy dataset and read soundfiles
+ds = load_dataset("patrickvonplaten/librispeech_asr_dummy", "clean", split="validation")
+
+# tokenize
+input_values = processor(ds[0]["audio"]["array"], return_tensors="pt", padding="longest").input_values  # Batch size 1
+
+# retrieve logits
+logits = model(input_values).logits
+
+# take argmax and decode
+predicted_ids = torch.argmax(logits, dim=-1)
+transcription = processor.batch_decode(predicted_ids)
+```
+
+## Evaluation
+
+To evaluate Wav2Vec2-Base-960h on LibriSpeech's "clean" and "other" test data, you can use the following code:
+
+```python
+from datasets import load_dataset
+from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
+import torch
+from jiwer import wer
+
+librispeech_eval = load_dataset("librispeech_asr", "clean", split="test")
+
+model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-base-960h").to("cuda")
+processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-base-960h")
+
+def map_to_pred(batch):
+    input_values = processor(batch["audio"]["array"], return_tensors="pt", padding="longest").input_values
+    with torch.no_grad():
+        logits = model(input_values.to("cuda")).logits
+
+    predicted_ids = torch.argmax(logits, dim=-1)
+    transcription = processor.batch_decode(predicted_ids)
+    batch["transcription"] = transcription
+    return batch
+
+result = librispeech_eval.map(map_to_pred, batched=True, batch_size=1, remove_columns=["audio"])
+
+print("WER:", wer(result["text"], result["transcription"]))
+```
+
+## Use cases
+
+Wav2Vec2-Base-960h can be used for various business use cases, including:
+
+1. Speech transcription and captioning: The model can be used to accurately transcribe speech audio into text, enabling automatic captioning for videos or facilitating the creation of written transcripts from voice recordings.
+
+2. Voice assistants and chatbots: Wav2Vec2-Base-960h can be incorporated into voice assistants and chatbots to enable natural language understanding from spoken input. This allows users to interact with voice-based interfaces more efficiently.
+
+3. Call center analytics: By transcribing recorded phone calls, Wav2Vec2-Base-960h can help analyze customer interactions, identify sentiment trends, and extract useful information for improving customer service and sales strategies.
+
+4. Language learning tools: The model can be used in language learning applications to provide real-time transcription and pronunciation feedback, helping learners improve their speaking skills and pronunciation accuracy.
+
+5. Accessibility tools: Wav2Vec2-Base-960h can be used to develop accessibility tools for individuals with hearing impairments, providing real-time transcription of spoken content and enhancing their ability to communicate and understand spoken language.

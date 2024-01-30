@@ -1,36 +1,67 @@
-# Model name
-
-SauerkrautLM-UNA-SOLAR-Instruct-AWQ
+# SauerkrautLM Una SOLAR Instruct - AWQ
 
 ## Links
-
-- [Hugging Face Model Page](https://huggingface.co/TheBloke/SauerkrautLM-UNA-SOLAR-Instruct-AWQ)
-- No GitHub repository available
+- [Huggingface Model Page](https://huggingface.co/TheBloke/SauerkrautLM-UNA-SOLAR-Instruct-AWQ)
+- [TheBloke's Patreon page](https://patreon.com/TheBlokeAI)
+- [TheBloke's Discord server](https://discord.gg/TheBloke)
+- [Model Creator: Yağız Çalık](https://huggingface.co/Yağız)
 
 ## Description
 
-SauerkrautLM-UNA-SOLAR-Instruct-AWQ is a fine-tuned language model based on the LlamaForCausalLM architecture. It is trained using the Transformers library in Python. The model is specifically designed for text generation tasks and falls under the text-generation and transformers tags. The model provides a prompt template for user-assistant interactions.
+The SauerkrautLM Una SOLAR Instruct - AWQ is a language model created by Yağız Çalık and adapted for low-bit weight quantization by TheBloke using the AWQ method. AWQ is an accurate and CPU-efficient 4-bit quantization method providing faster inference speed compared to most popular GPTQ settings.
 
-The model is licensed under the Apache-2.0 license. It has been quantized using the AWQ (Approximately Weight Quantization) method with 4-bit precision. The model has a total of 1,668,317,704 parameters. The author of the model is Tom Jobbins (TheBloke), and it is not listed on the Hugging Face model index. The model has a base model called Weyaxi/SauerkrautLM-UNA-SOLAR-Instruct. The model supports autotrain and is compatible with the AutoModelForCausalLM processor.
+The model has been further merged using the MergeKit method, combining models to get the best performance from their features. The SauerkrautLM-UNA-SOLAR-Instruct version of this model is quantized using AWQ, making it an optimized transformer model for GPU inference on Linux and Windows systems.
 
-The model has been downloaded 394 times and has received 1 like.
+## Usage Example
 
-## Usage example
+Using Transformers library:
 
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, TextStreamer
 
-model_name = "TheBloke/SauerkrautLM-UNA-SOLAR-Instruct-AWQ"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+model_name_or_path = "TheBloke/SauerkrautLM-UNA-SOLAR-Instruct-AWQ"
 
-prompt = "My name is John and I"
-input_ids = tokenizer.encode(prompt, return_tensors="pt")
-output = model.generate(input_ids, max_length=50, num_return_sequences=5)
+tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
 
-for sequence in output:
-    generated_text = tokenizer.decode(sequence, skip_special_tokens=True)
-    print(generated_text)
+model = AutoModelForCausalLM.from_pretrained(
+    model_name_or_path,
+    low_cpu_mem_usage=True,
+    device_map="cuda:0"
+)
+
+# Apply text streaming for generating output token by token
+streamer = TextStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True)
+
+prompt = "Tell me about AI"
+prompt_template=f'''### User:
+{prompt}
+
+### Assistant:
+''' 
+
+tokens = tokenizer(prompt_template, return_tensors='pt').input_ids.cuda()
+
+generation_params = {
+    "do_sample": True,
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "top_k": 40,
+    "max_new_tokens": 512,
+    "repetition_penalty": 1.1
+}
+
+# Generate responses with the model
+generation_output = model.generate(tokens, streamer=streamer, **generation_params)
+
+token_output = generation_output[0]
+text_output = tokenizer.decode(token_output)
+print("model.generate output: ", text_output)
 ```
 
-Please note that the above example assumes that you have already installed the Transformers library in your Python environment.
+Potential business use-cases of the model could be:
+
+1. Advanced text generation for content creation in media or marketing purposes.
+2. Automating customer service responses.
+3. AI assistance in generating code, emails, reports or other professional documents.
+4. Enhancing applications with more human-like or natural language interfaces.
+5. Developing sophisticated chatbots for user interaction.

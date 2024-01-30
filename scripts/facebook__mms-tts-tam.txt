@@ -1,0 +1,40 @@
+# Model name
+
+Massively Multilingual Speech (MMS): Tamil Text-to-Speech
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/facebook/mms-tts-tam)
+- [GitHub Repo](https://github.com/huggingface/transformers)
+
+## Description
+
+The MMS-TTS (Massively Multilingual Speech: Tamil Text-to-Speech) model is an end-to-end text-to-speech synthesis model that predicts a speech waveform based on an input text sequence. It is a conditional variational autoencoder (VAE) comprised of a posterior encoder, decoder, and conditional prior. The model utilizes a set of spectrogram-based acoustic features predicted by a flow-based module, which consists of a Transformer-based text encoder and multiple coupling layers. The spectrogram is decoded using transposed convolutional layers similar to the HiFi-GAN vocoder. The model also includes a stochastic duration predictor to synthesize speech with different rhythms from the same input text. It is trained with a combination of losses derived from variational lower bound and adversarial training and utilizes normalizing flows to improve its expressiveness. The MMS project trains a separate VITS (Variational Inference with adversarial learning for end-to-end Text-to-Speech) checkpoint for each language, including Tamil.
+
+## Usage example
+
+The MMS-TTS model can be used with the 🤗 Transformers library (version 4.33 onwards) in Python. To use the model checkpoint, install the latest version of the library and run the following code snippet:
+
+```python
+from transformers import VitsModel, AutoTokenizer
+import torch
+
+model = VitsModel.from_pretrained("facebook/mms-tts-tam")
+tokenizer = AutoTokenizer.from_pretrained("facebook/mms-tts-tam")
+
+text = "some example text in the Tamil language"
+inputs = tokenizer(text, return_tensors="pt")
+
+with torch.no_grad():
+    output = model(**inputs).waveform
+```
+
+The resulting waveform can be saved as a .wav file or displayed in a Jupyter Notebook or Google Colab.
+
+## Business Use Cases
+
+1. **Multilingual Voice Assistants**: The MMS-TTS model allows for the generation of high-quality Tamil speech, making it suitable for building multilingual voice assistants that can understand and respond to user queries in Tamil.
+2. **Multilingual Audiobook Narration**: With the MMS-TTS model, audiobooks can be narrated in Tamil, expanding the reach of such content and providing access to literature for Tamil-speaking individuals.
+3. **Language Learning Applications**: The MMS-TTS model can be used in language learning applications to provide accurate pronunciation of Tamil words and sentences, aiding learners in improving their speaking skills.
+4. **Automated Voice Systems**: The model can be used to generate Tamil speech for automated voice systems, such as customer service and IVR (Interactive Voice Response) systems, enhancing the user experience for Tamil-speaking customers.
+5. **Media and Entertainment**: The MMS-TTS model can be used in media and entertainment industries to create Tamil voice-overs for videos, films, and advertisements, enabling localized content for Tamil-speaking audiences.

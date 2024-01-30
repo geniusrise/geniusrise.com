@@ -1,0 +1,61 @@
+# Model name
+
+Whisper
+
+## Links
+
+[Hugging Face Model Page](https://huggingface.co/openai/whisper-tiny.en)
+
+[Github Repo](https://github.com/openai/whisper)
+
+## Description
+
+Whisper is a pre-trained model for automatic speech recognition (ASR) and speech translation. It is a Transformer-based encoder-decoder model trained on 680k hours of labelled speech data. Whisper models demonstrate a strong ability to generalize to many datasets and domains without the need for fine-tuning. The model was proposed in the paper "Robust Speech Recognition via Large-Scale Weak Supervision" by Alec Radford et al. from OpenAI.
+
+## Usage example
+
+```python
+from transformers import WhisperProcessor, WhisperForConditionalGeneration
+from datasets import load_dataset
+
+# load model and processor
+processor = WhisperProcessor.from_pretrained("openai/whisper-tiny.en")
+model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-tiny.en")
+
+# load dummy dataset and read audio files
+ds = load_dataset("hf-internal-testing/librispeech_asr_dummy", "clean", split="validation")
+sample = ds[0]["audio"]
+input_features = processor(sample["array"], sampling_rate=sample["sampling_rate"], return_tensors="pt").input_features
+
+# generate token ids
+predicted_ids = model.generate(input_features)
+# decode token ids to text
+transcription = processor.batch_decode(predicted_ids, skip_special_tokens=False)
+```
+
+## Model Details
+
+Whisper is a Transformer-based encoder-decoder model, also known as a sequence-to-sequence model. It was trained on 680k hours of labelled speech data annotated using large-scale weak supervision. The models were trained on either English-only data or multilingual data. The English-only models were trained for speech recognition, while the multilingual models were trained for both speech recognition and speech translation. Whisper checkpoints come in five configurations of varying model sizes, from "tiny" to "large-v2".
+
+## Use Cases
+
+1. Automatic Speech Recognition (ASR): Whisper can be used to transcribe audio recordings into text, making it useful for tasks such as transcription services, voice assistants, and voice-controlled applications.
+2. Speech Translation: Whisper can also be used to translate speech from one language to another, enabling applications like real-time language translation services or multilingual communication tools.
+3. Accessibility Tools: The transcription capabilities of Whisper can improve accessibility tools, allowing for near-real-time speech recognition and translation for people with hearing difficulties.
+
+Please note that the model's performance may vary across languages, accents, and dialects. It is recommended to perform robust evaluations in specific contexts and domains before deploying the model. The model should not be used for subjective classification or in high-risk decision-making contexts.
+
+The model has been trained on 680,000 hours of audio and transcripts collected from the internet, with a focus on English-language audio. It exhibits improved robustness to accents, background noise, and technical language. However, it may generate texts that are not actually spoken in the audio input (hallucination). The model's performance may be lower on low-resource or low-discoverability languages and languages with less training data.
+
+## Model Parameters
+
+- Tiny: 39M parameters
+- Base: 74M parameters
+- Small: 244M parameters
+- Medium: 769M parameters
+- Large: 1550M parameters (multilingual only)
+- Large-v2: 1550M parameters (multilingual only)
+
+Please refer to the model page on Hugging Face for more details on each checkpoint.
+
+Note: The model card content has been partly written by the Hugging Face team and includes some content copied from the original model card.

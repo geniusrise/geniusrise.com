@@ -1,0 +1,47 @@
+# Model name
+
+Massively Multilingual Speech (MMS): Punjabi, Eastern Text-to-Speech
+
+## Links
+
+[Hugging Face Model Page](https://huggingface.co/facebook/mms-tts-pan)
+
+[GitHub Repo](https://github.com/microsoft/nlp-recipes/tree/master/recipes/MultilinguaST)
+
+## Description
+
+The Massively Multilingual Speech (MMS): Punjabi, Eastern Text-to-Speech (TTS) model is part of Facebook's Massively Multilingual Speech project, which aims to provide speech technology across a diverse range of languages. This specific model is trained on the Punjabi, Eastern language. It is an end-to-end speech synthesis model that predicts a speech waveform based on an input text sequence. The model consists of a posterior encoder, decoder, and conditional prior, and uses a set of spectrogram-based acoustic features predicted by a flow-based module. The model also includes a stochastic duration predictor to allow for varied speech rhythms from the same input text. It is trained using a combination of variational lower bound and adversarial training losses.
+
+The MMS-TTS model is available in the 🤗 Transformers library from version 4.33 onwards. It can be used to generate synthetic speech in the Punjabi, Eastern language.
+
+## Usage example
+
+```python
+from transformers import VitsModel, AutoTokenizer
+import torch
+
+model = VitsModel.from_pretrained("facebook/mms-tts-pan")
+tokenizer = AutoTokenizer.from_pretrained("facebook/mms-tts-pan")
+
+text = "some example text in the Punjabi, Eastern language"
+inputs = tokenizer(text, return_tensors="pt")
+
+with torch.no_grad():
+    output = model(**inputs).waveform
+```
+
+The resulting waveform can be saved as a .wav file or displayed in a Jupyter Notebook / Google Colab.
+
+## Use Cases
+
+1. Multilingual Voice Assistants: The MMS-TTS model can be used to generate speech for voice assistants that support the Punjabi, Eastern language. This can enable users to interact with the voice assistant in their native language.
+
+2. Audiobook Production: The model can be used to convert written content into spoken audio for audiobook production in the Punjabi, Eastern language. This can help make literature more accessible to individuals who prefer auditory content.
+
+3. Language Education: The MMS-TTS model can be used for language education purposes, such as pronunciation practice or interactive language learning applications. It can generate spoken examples and exercises for learners of the Punjabi, Eastern language.
+
+4. Accessibility Tools: The model can be integrated into accessibility tools, such as screen readers or voice-based navigation systems, to provide support for individuals with visual impairments who use the Punjabi, Eastern language.
+
+5. Speech Synthesis Research: Researchers working on speech synthesis methods can use the MMS-TTS model as a reference or baseline for their experiments and comparisons, especially in the context of the Punjabi, Eastern language.
+
+Please note that the number of parameters for this specific model checkpoint is not mentioned in the provided information.

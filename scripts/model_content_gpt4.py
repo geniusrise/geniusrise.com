@@ -71,7 +71,7 @@ models = [
     "TheBloke/SOLAR-10.7B-Instruct-v1.0-AWQ",
     "TheBloke/SOLARC-MOE-10.7Bx4-AWQ",
     "TheBloke/Yi-34B-AWQ",
-    "TheBloke/mixtral-8x7b-v0.1-AWQ",
+    "TheBloke/Mixtral-8x7B-v0.1-AWQ",
     "TheBloke/SOLAR-10.7B-v1.0-AWQ",
     "TheBloke/meditron-70b-AWQ",
     "cloudyu/Mixtral_11Bx2_MoE_19B",
@@ -181,6 +181,32 @@ models = [
     "deepset/deberta-v3-base-squad2",
     "deepset/electra-base-squad2",
     "deepset/deberta-v3-large-squad2",
+    "facebook/mms-tts-hin",
+    "facebook/mms-tts-guj",
+    "facebook/mms-tts-ben",
+    "facebook/mms-tts-pan",
+    "facebook/mms-tts-mar",
+    "facebook/mms-tts-tam",
+    "facebook/mms-tts-kan",
+    "facebook/mms-tts-tel",
+    "facebook/mms-tts-mal",
+    "facebook/mms-tts-urd-script_latin",
+    "facebook/mms-tts-ara",
+    "facebook/mms-tts-fas",
+    "facebook/seamless-m4t-v2-large",
+    "microsoft/speecht5_tts",
+    "suno/bark",
+    "distil-whisper/distil-large-v2",
+    "distil-whisper/distil-small.en",
+    "distil-whisper/distil-medium.en",
+    "facebook/seamless-m4t-v2-large",
+    "facebook/wav2vec2-base-960h",
+    "facebook/wav2vec2-large-960h-lv60-self",
+    "openai/whisper-large-v3",
+    "openai/whisper-large-v2",
+    "openai/whisper-base.en",
+    "openai/whisper-medium.en",
+    "openai/whisper-tiny.en",
 ]
 
 
@@ -197,17 +223,20 @@ def generate_model_summary_with_search(model_name: str) -> str:
 
     prompt = (
         f"\n\nRead the page below and create an executive summary of the model description in markdown, with the following sections: ```# Model name\n\n## Links\n\n## Description\n\n## Usage example```\n\n"
-        f"Use transformers library with python for the examples\n\n"
-        f"dont include license info anywhere\n\n"
+        f"Use transformers library with python for the examples.\n\n"
         f"Highlight the datasets, number of parameters if possible, also mention a bit about GPTQ or AWQ if applicable\n\n"
-        f"Include links to the original huggingface page\n\n"
-        f"Here is the page for 'https://huggingface.co/{model_name}': \n\n {response.text}.\n\n"
+        f"Include links to the huggingface model page and github repo if it exists\n\n"
+        f"Talk about what the model could be used for, stick to business usecases, at least 3 - 5 of them\n\n"
+        f"Do not mention frivolous metrics like number of downloads, likes etc, try to tailor for builders and developers as intended audience\n\n"
+        f"dont include license info anywhere, also no disclaimers, no excuses, be objective and professional\n\n"
+        f"dont mention compatibility with various software like VLLM etc\n"
+        f"Here is the page for 'https://huggingface.co/{model_name}': \n\n {text[:1000]}.\n\n"
     )
 
     response = client.chat.completions.create(
-        model="gpt-4-1106-preview",
+        model="gpt-4",
         messages=[{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": prompt}],
-        max_tokens=4000,
+        max_tokens=3000,
     )
     print(len(prompt))
     print(response.choices[0].message.content)
