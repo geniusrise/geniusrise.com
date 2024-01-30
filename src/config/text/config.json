@@ -367,5 +367,85 @@
             "output_config": {},
             "deployment_type": "k8s"
         }
+    },
+    "speak": {
+        "short_name": "speak",
+        "fine_tune_formats": ["huggingface", "jsonl", "csv", "parquet", "json", "xml", "yaml", "tsv", "xls", "xlsx", "sqlite", "feather"],
+        "long_name": "Text-to-Speech Synthesis",
+        "description": "Text-to-Speech (TTS) Synthesis involves converting written text into spoken words. This process employs various technologies and algorithms to generate human-like speech from text, enabling applications like voice assistants, audio content creation, and accessibility features for visually impaired users. TTS systems must handle aspects such as intonation, stress, rhythm, and prosody to produce natural-sounding speech. The performance of TTS systems is evaluated on their ability to produce clear, understandable, and natural-sounding speech.",
+        "examples": [
+            "Voice Assistants",
+            "Audio Book Narration",
+            "Accessibility Tools for Visually Impaired",
+            "Public Announcement Systems",
+            "Voiceovers for Videos",
+            "Automated Customer Service",
+            "Language Learning Applications",
+            "Reading Assistance for Dyslexic Users",
+            "Interactive Voice Response (IVR) Systems",
+            "Gaming and Virtual Reality Narration"
+        ],
+        "usecases": [
+            "Converting text-based content into speech for voice assistants",
+            "Narrating books or articles to create audio content",
+            "Providing spoken output for accessibility tools",
+            "Announcing information in public spaces or transportation systems",
+            "Creating voiceovers for educational or promotional videos",
+            "Handling customer queries through automated voice systems",
+            "Assisting in language learning by providing pronunciation examples",
+            "Reading text for users with reading difficulties like dyslexia",
+            "Guiding users through menu options in IVR systems",
+            "Adding narration or dialogue to games and VR experiences"
+        ],
+        "endpoint": "/api/v1/synthesize",
+        "config": {
+            "cloud": "AWS",
+            "input_type": "batch",
+            "input_config": {},
+            "output_type": "batch",
+            "output_config": {},
+            "deployment_type": "k8s"
+        }
+    },
+    "speech": {
+        "short_name": "speech",
+        "fine_tune_formats": ["mp3", "ogg", "wav", "flac", "amr"],
+        "long_name": "Speech-to-Text Transcription",
+        "description": "Speech-to-Text (STT) Transcription is the process of converting spoken words into written text. This technology is crucial in various applications such as voice commands, dictation, and automated subtitling. STT involves complex processes of signal processing and language modeling to accurately convert speech into text, considering factors like accents, speech speed, and background noise. The efficacy of STT systems is measured by their accuracy, speed, and ability to handle different speech nuances.",
+        "examples": [
+            "Voice Command Recognition",
+            "Automated Meeting Transcription",
+            "Voice Typing and Dictation",
+            "Real-time Subtitling",
+            "Accessibility Features for Hearing Impaired",
+            "Audio Content Analysis",
+            "Voice-based Search Systems",
+            "Language Learning Tools",
+            "Automated Interview Transcription",
+            "Podcast Transcription",
+            "Legal and Medical Dictation"
+        ],
+        "usecases": [
+            "Interpreting voice commands in smart devices or applications",
+            "Transcribing meetings or lectures for documentation",
+            "Converting spoken words into text for typing or dictation",
+            "Providing real-time subtitles for videos or live events",
+            "Offering transcription services for users with hearing impairment",
+            "Analyzing audio content for insights or content categorization",
+            "Enabling voice-based search functionalities in applications",
+            "Assisting language learners with speech understanding and transcription",
+            "Automating transcription of interviews for journalistic or research purposes",
+            "Transcribing podcasts for accessibility or content indexing",
+            "Facilitating dictation in legal or medical professions"
+        ],
+        "endpoint": "/api/v1/transcribe",
+        "config": {
+            "cloud": "AWS",
+            "input_type": "batch",
+            "input_config": {},
+            "output_type": "batch",
+            "output_config": {},
+            "deployment_type": "k8s"
+        }
     }
 }

@@ -162,14 +162,14 @@ export const functions: any = {
     audio: [
         {
             function_name: "SPEECH",
-            enabled: false,
+            enabled: true,
             name: "Speech Transcription",
             description: "Converting spoken language into text. Used in voice assistants, transcription services, etc. Requires audio input.",
             link: "/SPEECH",
         },
         {
             function_name: "SPEAK",
-            enabled: false,
+            enabled: true,
             name: "Text to Speech",
             description: "Converting text to spoken language. Useful in accessibility, voice response systems, etc. Provides audio output.",
             link: "/SPEAK",

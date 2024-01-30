@@ -10,6 +10,9 @@ import txtqaConfig from "./text/txtqa/config.json"
 import emotionConfig from "./text/emotion/config.json"
 import fineTuningConfig from "./text/fine_tuning_config.json"
 
+import textToSpeechConfig from "./audio/speech/config.json"
+import speechToTextConfig from "./audio/speak/config.json"
+
 import api from "./tasks/api.json"
 import bulk from "./tasks/bulk.json"
 import fineTune from "./tasks/fine_tune.json"
@@ -61,6 +64,8 @@ const config = {
     TXTCLASS: { models: txtclassConfig, ..._config.txtclass } as Config,
     TXTQA: { models: txtqaConfig, ..._config.txtqa } as Config,
     EMOTION: { models: emotionConfig, ..._config.emotion } as Config,
+    SPEECH: { models: speechToTextConfig, ..._config.speech } as Config,
+    SPEAK: { models: textToSpeechConfig, ..._config.speak } as Config,
 }
 
 globalThis.config = config
