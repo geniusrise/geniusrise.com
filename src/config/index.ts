@@ -64,8 +64,8 @@ const config = {
     TXTCLASS: { models: txtclassConfig, ..._config.txtclass } as Config,
     TXTQA: { models: txtqaConfig, ..._config.txtqa } as Config,
     EMOTION: { models: emotionConfig, ..._config.emotion } as Config,
-    SPEECH: { models: speechToTextConfig, ..._config.speech } as Config,
-    SPEAK: { models: textToSpeechConfig, ..._config.speak } as Config,
+    SPEECH: { models: textToSpeechConfig, ..._config.speech } as Config,
+    SPEAK: { models: speechToTextConfig, ..._config.speak } as Config,
 }
 
 globalThis.config = config
