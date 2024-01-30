@@ -1,0 +1,40 @@
+# Model name
+
+easyTermsSummerizer
+
+## Links
+
+- Model page: [https://huggingface.co/Quake24/easyTermsSummerizer](https://huggingface.co/Quake24/easyTermsSummerizer)
+- GitHub repo: N/A
+
+## Description
+
+easyTermsSummerizer is a summarization model based on the BART architecture. It is designed to generate summaries of text input. The model parameters have not been specified in the available information.
+
+The model is compatible with the transformers library in Python and can be used for text summarization tasks. It supports the English language and provides the option for early stopping, length penalty, maximum length, minimum length, no repeat n-gram size, and number of beams as task-specific parameters.
+
+The model is trained using the transformers library and is applicable for summarization tasks.
+
+## Usage example
+
+Here is an example of how to use the easyTermsSummerizer model with the transformers library in Python:
+
+```python
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+
+model_name = "Quake24/easyTermsSummerizer"
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+input_text = "This is a long piece of text that needs to be summarized."
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
+summary_ids = model.generate(input_ids)
+
+summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+print(summary)
+```
+
+Please refer to the [transformers library documentation](https://huggingface.co/transformers/) for more information on how to use the library and the model.
+
+Note: The available information does not specify the datasets used for training the model or provide information about GPTQ or AWQ.

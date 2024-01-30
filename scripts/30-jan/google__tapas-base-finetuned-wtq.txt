@@ -1,0 +1,58 @@
+# Model name
+
+`google/tapas-base-finetuned-wtq`
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/google/tapas-base-finetuned-wtq)
+- [GitHub Repo](https://github.com/google-research/tapas)
+
+## Description
+
+The `google/tapas-base-finetuned-wtq` model is a finetuned version of the TAPAS (TAble PArSing) model for table question answering. It is trained on the WikiTableQuestions (WTQ) dataset. This model is based on the `transformers` library in Python.
+
+The model has the following features:
+- Architecture: TAPAS (TapasForQuestionAnswering)
+- Model type: TAPAS
+- Pipeline tag: Table Question Answering
+- Language: English
+- License: Apache-2.0
+
+The model has been trained and finetuned by Google and has been downloaded 10,968 times. It has received 170 likes.
+
+## Usage example
+
+Here is an example of how to use the `google/tapas-base-finetuned-wtq` model with the `transformers` library in Python:
+
+```python
+from transformers import TapasTokenizer, TapasForQuestionAnswering
+
+tokenizer = TapasTokenizer.from_pretrained("google/tapas-base-finetuned-wtq")
+model = TapasForQuestionAnswering.from_pretrained("google/tapas-base-finetuned-wtq")
+
+input_table = [
+    ["City", "Population", "Country"],
+    ["Paris", "2.141 million", "France"],
+    ["Berlin", "3.769 million", "Germany"],
+    ["London", "8.982 million", "United Kingdom"],
+]
+
+input_queries = [
+    "What is the population of Paris?",
+    "Which country is Berlin located in?",
+]
+
+input_encodings = tokenizer(input_table=input_table, queries=input_queries, padding="max_length", truncation=True, return_tensors="pt")
+outputs = model(**input_encodings)
+
+predictions = tokenizer.convert_logits_to_predictions(outputs.logits, input_encodings)
+
+for query, answer in zip(input_queries, predictions):
+    print(f"Question: {query}")
+    print(f"Answer: {answer}")
+    print()
+```
+
+This will use the `google/tapas-base-finetuned-wtq` model to answer specific questions based on a given table.
+
+Please note that this is just a code example, and you may need to adapt it to your specific use case.

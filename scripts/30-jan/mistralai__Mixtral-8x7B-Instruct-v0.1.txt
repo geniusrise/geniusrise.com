@@ -1,0 +1,38 @@
+# Model name
+
+Mixtral-8x7B-Instruct-v0.1
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1)
+- GitHub Repository: Not mentioned
+
+## Description
+
+The Mixtral-8x7B-Instruct-v0.1 is a Transformers model for text generation. It is built with the Mixtral architecture and is compatible with the Transformers library. The model has been trained on various languages including French, Italian, German, Spanish, and English. It can be used for text generation tasks with a focus on instruction-based text.
+
+The model has a total of 46,702,792 parameters and is licensed under Apache 2.0. It supports inference but does not provide any information on GPTQ or AWQ.
+
+## Usage example
+
+To use the Mixtral-8x7B-Instruct-v0.1 model with Python and the Transformers library:
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "mistralai/Mixtral-8x7B-Instruct-v0.1"
+model = AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+# Generate text
+input_text = "Input text here"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids)
+
+# Decode generated text
+output_text = tokenizer.decode(output[0])
+
+print(output_text)
+```
+
+Note: This example assumes you have already installed the Transformers library.

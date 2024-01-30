@@ -1,0 +1,36 @@
+# Model name
+
+CodeLlama-34B-GPTQ
+
+## Links
+
+- [Model Page](https://huggingface.co/TheBloke/CodeLlama-34B-GPTQ)
+- [GitHub Repo](https://github.com/TheBloke/CodeLlama-34B-GPTQ)
+
+## Description
+
+The CodeLlama-34B-GPTQ is a text generation model built using the llama architecture. It is primarily designed for code generation tasks and is based on the CodeLlama-34B base model. The model has been quantized using GPTQ (Generative Pre-trained Transformer with Quantization) techniques.
+
+The model offers advanced capabilities for code generation and can be fine-tuned for specific use cases. It has a large number of parameters and can generate high-quality code outputs.
+
+## Usage example
+
+Here is an example of how to use the CodeLlama-34B-GPTQ model with the Transformers library in Python:
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "TheBloke/CodeLlama-34B-GPTQ"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+
+input_text = "def greet():\n    print('Hello, world!')\n"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
+output = model.generate(input_ids)
+output_text = tokenizer.decode(output[0])
+
+print(output_text)
+```
+
+Please note that this example assumes you have already installed the Transformers library and have a compatible GPU for running the model efficiently.

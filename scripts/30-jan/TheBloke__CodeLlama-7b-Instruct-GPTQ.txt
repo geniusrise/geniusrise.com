@@ -1,0 +1,31 @@
+# Model name
+CodeLlama-7B-Instruct-GPTQ
+
+## Links
+- [Model Page](https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GPTQ)
+- [GitHub Repo](https://github.com/TheBloke/CodeLlama-7B-Instruct-GPTQ)
+
+## Description
+CodeLlama-7B-Instruct-GPTQ is a language model trained to generate code solutions for coding problems. It provides an interface for developers to write code that solves a given problem and passes example test cases. The model is based on the GPTQ architecture and is part of the CodeLlama project.
+
+The model is trained on a large dataset of coding problems and their solutions. It has undergone quantization to reduce its memory footprint and improve efficiency. The model has a total of 816,963,584 parameters.
+
+## Usage example
+To use the CodeLlama-7B-Instruct-GPTQ model, you can use the Transformers library in Python. Here is an example code snippet:
+
+```python
+from transformers import GPT2LMTokenizer, GPT2LMHeadModel
+
+tokenizer = GPT2LMTokenizer.from_pretrained("TheBloke/CodeLlama-7B-Instruct-GPTQ")
+model = GPT2LMHeadModel.from_pretrained("TheBloke/CodeLlama-7B-Instruct-GPTQ")
+
+# Generate code for a coding problem
+prompt = "Write code to solve the following coding problem: ...."
+inputs = tokenizer.encode(prompt, return_tensors="pt")
+outputs = model.generate(inputs, max_length=100)
+
+generated_code = tokenizer.decode(outputs[0])
+print(generated_code)
+```
+
+Please refer to the [model page](https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GPTQ) for more information on how to use the model and its limitations.

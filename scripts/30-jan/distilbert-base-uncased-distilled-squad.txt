@@ -1,0 +1,46 @@
+# Model name
+
+distilbert-base-uncased-distilled-squad
+
+## Links
+
+- Hugging Face Model Page: [distilbert-base-uncased-distilled-squad](https://huggingface.co/distilbert-base-uncased-distilled-squad)
+- GitHub Repo: Not found
+
+## Description
+
+The distilbert-base-uncased-distilled-squad model is a smaller and faster version of the BERT model that is specifically fine-tuned for question answering tasks. It is based on the DistilBERT architecture and is trained on the SQuAD (Stanford Question Answering Dataset) dataset. 
+
+The model can be accessed and used through the [transformers](https://huggingface.co/transformers/) library with Python. It has been released under the Apache-2.0 license.
+
+The distilbert-base-uncased-distilled-squad model is suitable for developers and builders who are looking for a pre-trained question answering model that is optimized for efficiency and performance.
+
+
+## Usage example
+
+Here's an example of how to use the distilbert-base-uncased-distilled-squad model with the Transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForQuestionAnswering
+
+# Load tokenizer and model
+tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased-distilled-squad")
+model = AutoModelForQuestionAnswering.from_pretrained("distilbert-base-uncased-distilled-squad")
+
+# Prepare input
+question = "Which name is also used to describe the Amazon rainforest in English?"
+context = "The Amazon rainforest (Portuguese: Floresta Amazônica or Amazônia... species."
+inputs = tokenizer.encode_plus(question, context, add_special_tokens=True, return_tensors="pt")
+
+# Perform question answering
+outputs = model(**inputs)
+start_logits = outputs.start_logits
+end_logits = outputs.end_logits
+
+# Decode the predicted answer
+start_index = torch.argmax(start_logits)
+end_index = torch.argmax(end_logits) + 1
+answer = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(inputs["input_ids"][0][start_index:end_index]))
+```
+
+It is recommended to refer to the official documentation of the Transformers library for further details on how to use the distilbert-base-uncased-distilled-squad model and customize it for specific use cases.

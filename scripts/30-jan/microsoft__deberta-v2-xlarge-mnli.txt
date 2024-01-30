@@ -1,0 +1,31 @@
+# Model name
+
+deberta-v2-xlarge-mnli
+
+## Links
+
+- Model Page: [deberta-v2-xlarge-mnli](https://huggingface.co/microsoft/deberta-v2-xlarge-mnli)
+- GitHub Repo: Not available
+
+## Description
+
+The deberta-v2-xlarge-mnli model is a text classification model based on the DeBERTa-v2 architecture. It is specifically trained on the MNLI (Multi-Genre Natural Language Inference) dataset. The model is designed for tasks related to text classification, particularly in the English language. 
+
+The model is part of the Transformers library, a popular library for natural language processing tasks. It contains approximately 732 downloads and has been liked by 5 users. It has a pipeline tag of "text-classification" and is compatible with AutoTrain and Inference Endpoints.
+
+## Usage example
+
+```python
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+tokenizer = AutoTokenizer.from_pretrained("microsoft/deberta-v2-xlarge-mnli")
+model = AutoModelForSequenceClassification.from_pretrained("microsoft/deberta-v2-xlarge-mnli")
+
+inputs = tokenizer.encode_plus("I love you.", "I like you.", return_tensors="pt", padding="longest", truncation=True)
+outputs = model(**inputs)
+
+predictions = outputs.logits.argmax(dim=1)
+print(predictions)
+```
+
+Make sure to install the `transformers` library in order to run the example above.

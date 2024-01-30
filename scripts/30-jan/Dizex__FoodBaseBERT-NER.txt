@@ -1,0 +1,35 @@
+# Model name
+
+FoodBaseBERT-NER
+
+## Links
+
+- [Model Page](https://huggingface.co/Dizex/FoodBaseBERT-NER)
+- [GitHub Repo](https://github.com/Dizex06/FoodBaseBERT-NER)
+
+## Description
+
+FoodBaseBERT-NER is a token classification model based on the BERT architecture. It is trained to perform Named Entity Recognition (NER) specifically for food-related entities. The model utilizes the FoodBase dataset and is suitable for tasks such as extracting food entities from text. It is implemented using the Transformers library in Python.
+
+Key Features:
+- Architecture: BERT
+- Token Classification: The model is trained to classify tokens into different categories, with a focus on food-related entities.
+- Dataset: FoodBase
+- Number of Parameters: Not specified
+
+## Usage example
+
+```python
+from transformers import pipeline
+
+# Load the NER pipeline
+ner = pipeline("ner", model="Dizex/FoodBaseBERT-NER", tokenizer="Dizex/FoodBaseBERT-NER")
+
+# Perform named entity recognition
+sequence = "Today's meal: Fresh olive poké bowl topped with chia seeds. Very delicious!"
+ner(sequence)
+```
+
+This example demonstrates how to use the FoodBaseBERT-NER model to perform named entity recognition on a text sequence. The output will include the identified food entities with their corresponding labels.
+
+Note: The usage code provided assumes that the Transformers library is installed and the FoodBaseBERT-NER model is available from the Hugging Face model hub.

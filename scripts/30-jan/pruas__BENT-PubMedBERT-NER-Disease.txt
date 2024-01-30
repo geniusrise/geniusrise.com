@@ -1,0 +1,26 @@
+# Model name
+BENT-PubMedBERT-NER-Disease
+
+## Links
+- Model Page: [BENT-PubMedBERT-NER-Disease](https://huggingface.co/pruas/BENT-PubMedBERT-NER-Disease)
+- GitHub Repo: N/A
+
+## Description
+BENT-PubMedBERT-NER-Disease is a pre-trained model for named entity recognition (NER) of diseases in biomedical text. It is based on the PubMedBERT architecture and is compatible with the transformers library in Python. The model has been trained on specific datasets and has a total of 430 downloads. It uses the token classification pipeline and the BERT architecture. The model is available in English and is compatible with autotrain and inference endpoints.
+
+## Usage example
+To use the BENT-PubMedBERT-NER-Disease model with the transformers library in Python, you can follow the code snippet below:
+
+```python
+from transformers import AutoModelForTokenClassification, AutoTokenizer
+
+model_name = "pruas/BENT-PubMedBERT-NER-Disease"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForTokenClassification.from_pretrained(model_name)
+
+text = "Example sentence for disease recognition."
+inputs = tokenizer(text, return_tensors="pt")
+outputs = model(**inputs)
+```
+
+Please note that you need to install the transformers library and have the necessary dependencies to use the model.

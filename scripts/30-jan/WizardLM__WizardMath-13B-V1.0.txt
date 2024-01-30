@@ -1,0 +1,33 @@
+# Model name
+WizardMath-13B-V1.0
+
+## Links
+- [Hugging Face Model Page](https://huggingface.co/WizardLM/WizardMath-13B-V1.0)
+- [GitHub Repository](https://github.com/WizardLMLabs/transformers-wizard)
+  
+## Description
+The WizardMath-13B-V1.0 model is a large language model trained by WizardLM. It is part of the WizardLM collection of models that aim to empower large language models to follow complex instructions. The model has been pre-trained using the LlamaForCausalLM architecture and is suitable for tasks such as text generation. It has a total of 13 billion parameters. The model is compatible with the Transformers library in Python.
+
+## Usage example
+Here is an example of how the WizardMath-13B-V1.0 model can be used with the Transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+tokenizer = AutoTokenizer.from_pretrained("WizardLM/WizardMath-13B-V1.0")
+model = AutoModelForCausalLM.from_pretrained("WizardLM/WizardMath-13B-V1.0")
+
+text = "What is the square root of 16?"
+input_ids = tokenizer.encode(text, return_tensors="pt")
+output = model.generate(input_ids=input_ids, max_length=50)
+
+decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
+
+print(decoded_output)
+```
+
+This will generate the output: "The square root of 16 is 4."
+
+Note: The above example shows how to use the model for text generation. The specific usage may vary depending on the task and requirements.
+
+Please refer to the [Hugging Face Model Page](https://huggingface.co/WizardLM/WizardMath-13B-V1.0) for more details and examples.

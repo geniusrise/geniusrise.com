@@ -1,0 +1,35 @@
+# Model name
+
+TheBloke/bagel-dpo-34b-v0.2-AWQ
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/TheBloke/bagel-dpo-34b-v0.2-AWQ)
+- [GitHub Repo](https://github.com/TheBloke/models)
+
+## Description
+
+The model, **TheBloke/bagel-dpo-34b-v0.2-AWQ**, is a text generation model trained on various datasets such as ai2_arc, unalignment/spicy-3.1, codeparrot/apps, Facebook/belebele, and more. 
+
+It is based on the LlamaForCausalLM architecture and has been quantized with 4-bit precision using the AWQ (AnyWeighQuantization) method. The model has approximately 4,216,504,320 parameters.
+
+## Usage example
+
+You can use the model with the [transformers](https://huggingface.co/transformers) library in Python. Here's an example of how to generate text using the model:
+
+```python
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+model_name = "TheBloke/bagel-dpo-34b-v0.2-AWQ"
+tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+model = GPT2LMHeadModel.from_pretrained(model_name)
+
+prompt = "Once upon a time,"
+input_ids = tokenizer.encode(prompt, return_tensors="pt")
+
+output = model.generate(input_ids, max_length=100)
+generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+print(generated_text)
+```
+
+Please note that this model is under the "Other" license. For more information, refer to the [license](https://huggingface.co/01-ai/Yi-34B-200K/blob/main/LICENSE) on the model page.

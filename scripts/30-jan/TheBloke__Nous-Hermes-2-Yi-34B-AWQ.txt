@@ -1,0 +1,36 @@
+# Model name
+
+The model is called Nous-Hermes-2-Yi-34B-AWQ.
+
+## Links
+
+- Model page: [Nous-Hermes-2-Yi-34B-AWQ](https://huggingface.co/TheBloke/Nous-Hermes-2-Yi-34B-AWQ)
+- GitHub repo: [TheBloke/Nous-Hermes-2-Yi-34B-AWQ](https://github.com/TheBloke/Nous-Hermes-2-Yi-34B-AWQ)
+
+## Description
+
+The Nous-Hermes-2-Yi-34B-AWQ model is a text generation model. It is based on the Llama architecture and is trained on the Nous-Hermes-2-Yi-34B base model. The model is fine-tuned using the AWQ (Asymmetric Weight Quantization) method.
+
+The model supports text generation in English and is compatible with the transformers library in Python. It has a total of 4-bit parameters and is quantized by TheBloke. The model is trained with synthetic data and uses distillation techniques.
+
+## Usage example
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "TheBloke/Nous-Hermes-2-Yi-34B-AWQ"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+
+input_text = "My name is John and I like to"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
+output = model.generate(input_ids, max_length=50)
+
+decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
+print(decoded_output)
+```
+
+Make sure to install the `transformers` library using pip before running the code.
+
+Please note that the usage example is a generic example for text generation using the transformers library with Python and may need to be adapted to specific use cases.

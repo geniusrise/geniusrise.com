@@ -1,0 +1,29 @@
+# Model name
+
+CodeLlama-7b-Instruct-hf
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/codellama/CodeLlama-7b-Instruct-hf)
+- [GitHub Repo](https://github.com/codellama/CodeLlama-7b-Instruct-hf)
+
+## Description
+
+CodeLlama-7b-Instruct-hf is a text generation model that is part of the Code Llama project. It utilizes the transformers library with Python for its implementation. The model is built for the purpose of generating educational coding instructions. It has a total of 5,1499 downloads and 138 likes. The model is trained on the transformers library for natural language processing tasks, specifically in the area of text generation.
+
+## Usage example
+
+```python
+from transformers import pipeline
+
+generator = pipeline("text-generation", model="codellama/CodeLlama-7b-Instruct-hf")
+input_text = "Write a function that calculates the factorial of a given number."
+output_text = generator(input_text, max_length=50, num_return_sequences=5)
+
+for text in output_text:
+    print(text["generated_text"])
+```
+
+In the example above, the CodeLlama-7b-Instruct-hf model is used to generate instructions for calculating the factorial of a given number. The `generator` pipeline is initialized with the model, and the desired input text is provided. The generated instructions are then printed for further use.
+
+Please note that the model requires the transformers library and Python to be installed in order to be used.

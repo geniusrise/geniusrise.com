@@ -1,0 +1,32 @@
+# Model name
+Mixtral-8x7B-Instruct-v0.1-AWQ
+
+## Links
+- [Model Page](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-AWQ)
+- [GitHub Repository](https://github.com/TheBloke/HuggingFace-Model-Repository/tree/main/Mixtral-8x7B-Instruct-v0.1-AWQ)
+
+## Description
+Mixtral-8x7B-Instruct-v0.1-AWQ is a text-generation model trained using the Mixtral architecture and the transformers library. It is created by TheBloke (Tom Jobbins) from Mistral AI. The model has a base model called mistralai/Mixtral-8x7B-Instruct-v0.1 and is quantized by TheBloke. The model specializes in text generation tasks, particularly in generating responses based on prompts.
+
+The model supports multiple languages, including French, Italian, German, Spanish, and English. It is licensed under the Apache 2.0 license.
+
+The model has a total of approximately 6,470,000,000 parameters.
+
+## Usage example
+```
+from transformers import pipeline
+
+generator = pipeline(
+    "text-generation",
+    model="TheBloke/Mixtral-8x7B-Instruct-v0.1-AWQ",
+    tokenizer="TheBloke/Mixtral-8x7B-Instruct-v0.1-AWQ"
+)
+
+prompt = "There's a llama on my lawn, how can I get rid of him?"
+
+result = generator(prompt, max_length=100)
+
+print(result[0]["generated_text"])
+```
+
+Note: The usage example is written using the transformers library in Python.

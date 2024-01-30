@@ -1,0 +1,35 @@
+# Model name
+tapas-tiny-finetuned-wtq
+
+## Links
+- Model page: [tapas-tiny-finetuned-wtq](https://huggingface.co/google/tapas-tiny-finetuned-wtq)
+- GitHub repo: N/A
+
+## Description
+tapas-tiny-finetuned-wtq is a Table Question Answering (tapas) model finetuned on the WTQ dataset. It is part of the Transformers library and is compatible with both PyTorch and TensorFlow. The model has an architecture of TapasForQuestionAnswering. It is designed for answering questions based on tables.
+
+The model is provided by Google and is licensed under Apache License 2.0.
+
+## Usage example
+You can use the tapas-tiny-finetuned-wtq model with the Transformers library in Python. Here's an example:
+
+```python
+from transformers import TapasTokenizer, TapasForQuestionAnswering
+
+tokenizer = TapasTokenizer.from_pretrained('google/tapas-tiny-finetuned-wtq')
+model = TapasForQuestionAnswering.from_pretrained('google/tapas-tiny-finetuned-wtq')
+
+table = [["City", "Population"], ["New York", "8.5 million"], ["Los Angeles", "3.9 million"]]
+queries = ["What is the population of New York?", "How many people live in Los Angeles?"]
+
+inputs = tokenizer(table=table, queries=queries, padding="max_length", truncation=True, return_tensors="pt")
+outputs = model(**inputs)
+
+for query, answer in zip(queries, outputs.answer):
+    print(f"Question: {query}")
+    print(f"Answer: {answer}")
+```
+
+Note: The Tapas models use a custom tokenizer, so make sure to use the TapasTokenizer for tokenization.
+
+Please refer to the documentation and code examples provided by Hugging Face for more information on using the tapas-tiny-finetuned-wtq model.

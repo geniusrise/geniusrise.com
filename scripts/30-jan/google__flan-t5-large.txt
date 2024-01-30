@@ -1,0 +1,28 @@
+# Model name
+Flan-T5-Large
+
+## Links
+[Hugging Face Model Page](https://huggingface.co/google/flan-t5-large)  
+[GitHub Repository](https://github.com/google/flan)
+
+## Description
+Flan-T5-Large is a T5 language model developed by Google. It is trained on various datasets and is particularly suited for text-to-text generation tasks. It is based on the T5 architecture and supports multiple languages including English, French, Romanian, German, and multilingual. Flan-T5-Large has a large number of parameters and can be used for a wide range of applications such as translation, question answering, logical reasoning, scientific knowledge, and more.
+
+## Usage example
+To use Flan-T5-Large with Python, you can utilize the transformers library. Here is an example of how to generate text using the model:
+
+```python
+from transformers import T5Tokenizer, T5ForConditionalGeneration
+
+tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-large")
+model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-large")
+
+input_text = "Translate to German: My name is Arthur"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output_ids = model.generate(input_ids)
+output_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+
+print(output_text)
+```
+
+This model requires the `transformers` library and can be easily integrated into your text generation pipelines.

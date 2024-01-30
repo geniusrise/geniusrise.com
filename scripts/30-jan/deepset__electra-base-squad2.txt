@@ -1,0 +1,45 @@
+# Model name
+
+deepset/electra-base-squad2
+
+## Links
+
+- [Model Page](https://huggingface.co/deepset/electra-base-squad2)
+- [GitHub Repo](https://github.com/deepset-ai/electra-base-squad2)
+
+## Description
+
+The deepset/electra-base-squad2 model is based on the Electra architecture and is fine-tuned for the Question Answering task. The model achieves a performance of 77.6074% Exact Match and 81.7181% F1 score on the SQuAD v2 validation dataset. It is built using the transformers library in Python and has been trained using the squad_v2 dataset.
+
+## Usage example
+
+To use the deepset/electra-base-squad2 model for Question Answering, you can follow the example code below using the transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForQuestionAnswering
+
+tokenizer = AutoTokenizer.from_pretrained("deepset/electra-base-squad2")
+model = AutoModelForQuestionAnswering.from_pretrained("deepset/electra-base-squad2")
+
+question = "What is the capital of France?"
+context = "Paris is the capital and largest city of France."
+
+inputs = tokenizer.encode_plus(question, context, return_tensors="pt", truncation=True)
+input_ids = inputs["input_ids"].tolist()[0]
+
+outputs = model(**inputs)
+start_scores = outputs.start_logits
+end_scores = outputs.end_logits
+
+start_index = torch.argmax(start_scores)
+end_index = torch.argmax(end_scores)
+
+answer = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(input_ids[start_index:end_index+1]))
+
+print("Question: ", question)
+print("Answer: ", answer)
+```
+
+Please note that this is just a basic usage example and you may need to modify the code based on your specific use case.
+
+The deepset/electra-base-squad2 model has a total of 110M parameters and supports Question Answering tasks. It has been trained on the squad_v2 dataset and achieves competitive performance on various evaluation metrics.

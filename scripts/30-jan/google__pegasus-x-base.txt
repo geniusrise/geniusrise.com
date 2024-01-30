@@ -1,0 +1,35 @@
+# Model name
+
+google/pegasus-x-base
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/google/pegasus-x-base)
+- [GitHub Repository](https://github.com/huggingface/transformers)
+
+## Description
+
+The google/pegasus-x-base model is a variant of Pegasus, a state-of-the-art model for text-to-text generation. It is available in the Transformers library with Python. This model is designed to generate abstractive summaries of text inputs. It utilizes the Pegasus architecture and is trained on a large amount of data.
+
+## Usage example
+
+Here's an example of how to use the model with the Transformers library in Python:
+
+```python
+from transformers import PegasusForConditionalGeneration, PegasusTokenizer
+
+model_name = "google/pegasus-x-base"
+tokenizer = PegasusTokenizer.from_pretrained(model_name)
+model = PegasusForConditionalGeneration.from_pretrained(model_name)
+
+input_text = "This is an example input for text summarization"
+input_ids = tokenizer.encode(input_text, truncation=True, padding=True, return_tensors="pt")
+
+summary_ids = model.generate(input_ids)
+summary_text = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+
+print("Input text:", input_text)
+print("Generated summary:", summary_text)
+```
+
+Please note that this example assumes you have already installed the Transformers library and have the necessary dependencies.

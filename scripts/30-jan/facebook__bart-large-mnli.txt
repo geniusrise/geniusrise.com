@@ -1,0 +1,34 @@
+# Model name
+
+facebook/bart-large-mnli
+
+## Links
+
+- [Model page](https://huggingface.co/facebook/bart-large-mnli)
+- [GitHub repository](https://github.com/huggingface/transformers)
+
+## Description
+
+The facebook/bart-large-mnli model is a variant of the BART (Bidirectional and Auto-Regressive Transformers) model. It is trained on the Multi-Genre Natural Language Inference (MNLI) dataset and is fine-tuned for sequence classification tasks.
+
+The model uses the transformers library in Python. It has a total of 407,344,133 parameters.
+
+The BART model is suitable for tasks such as text generation, text summarization, text classification, and machine translation.
+
+## Usage example
+
+```python
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
+model_name = "facebook/bart-large-mnli"
+model = AutoModelForSequenceClassification.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+# Example usage for text classification
+text = "This is an example sentence."
+inputs = tokenizer(text, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+```
+
+Please refer to the [model page](https://huggingface.co/facebook/bart-large-mnli) for more details and code examples.

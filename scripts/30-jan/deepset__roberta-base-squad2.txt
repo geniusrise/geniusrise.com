@@ -1,0 +1,41 @@
+# Model name
+
+deepset/roberta-base-squad2
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/deepset/roberta-base-squad2)
+- [GitHub Repository](https://github.com/deepset-ai/haystack)
+
+## Description
+
+The deepset/roberta-base-squad2 model is a RoBERTa-based model fine-tuned for the task of question answering. It achieves state-of-the-art performance on the SQuAD v2.0 dataset, with an exact match score of 79.93% and an F1 score of 82.95%. The model is trained on the SQuAD v2.0 dataset and supports question answering in English. It is implemented in the transformers library in Python.
+
+The model has 124 million parameters and can be used for various question answering tasks using the transformers library.
+
+## Usage example
+
+Here is an example of using the deepset/roberta-base-squad2 model for question answering using the transformers library in Python:
+
+```python
+from transformers import AutoModelForQuestionAnswering, AutoTokenizer
+
+model_name = "deepset/roberta-base-squad2"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForQuestionAnswering.from_pretrained(model_name)
+
+context = "The quick brown fox jumps over the lazy dog."
+question = "What is the color of the fox?"
+
+encoding = tokenizer.encode_plus(question, context, return_tensors="pt")
+input_ids = encoding["input_ids"].tolist()
+start_scores, end_scores = model(**encoding).logits[0]
+
+answer_start = torch.argmax(start_scores)
+answer_end = torch.argmax(end_scores) + 1
+answer = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(input_ids[0][answer_start:answer_end]))
+
+print(answer)
+```
+
+Please refer to the [Hugging Face Model Page](https://huggingface.co/deepset/roberta-base-squad2) for more information on using this model.

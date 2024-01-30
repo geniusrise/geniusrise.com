@@ -1,0 +1,50 @@
+# Model name
+
+tapas-small-finetuned-sqa
+
+## Links
+
+- [Model Page](https://huggingface.co/google/tapas-small-finetuned-sqa)
+- [GitHub Repository](https://github.com/google-research/tapas)
+
+## Description
+
+The tapas-small-finetuned-sqa model is a table question-answering model fine-tuned on the msr_sqa dataset. It is based on the TapasForQuestionAnswering architecture and is compatible with the transformers library in Python. The model is trained to answer questions based on tabular data and is particularly suited for table question-answering tasks.
+
+The model has been trained using the `tapas-small` base model and further fine-tuned on the `msr_sqa` dataset.
+
+## Usage example
+
+Here is an example of how to use the tapas-small-finetuned-sqa model with the transformers library in Python:
+
+```python
+from transformers import TapasForQuestionAnswering, TapasTokenizer
+
+model_name = "google/tapas-small-finetuned-sqa"
+tokenizer = TapasTokenizer.from_pretrained(model_name)
+model = TapasForQuestionAnswering.from_pretrained(model_name)
+
+table = [
+    ["City", "Country", "Population"],
+    ["New York", "USA", "8.4 million"],
+    ["London", "UK", "8.9 million"],
+    ["Tokyo", "Japan", "13.9 million"],
+]
+
+queries = ["What is the population of London?", "Which country is Tokyo located in?"]
+
+inputs = tokenizer(table=table, queries=queries, padding="max_length", truncation=True, return_tensors="pt")
+outputs = model(**inputs)
+
+answer_coordinates = outputs.answer_coordinates.tolist()
+answer_texts = [table[coord[0] + 1][coord[1]] for coord in answer_coordinates]
+
+for query, answer in zip(queries, answer_texts):
+    print(f"Q: {query}")
+    print(f"A: {answer}")
+    print()
+```
+
+In this example, the tapas-small-finetuned-sqa model is used to answer questions about a table containing city information. The model is first initialized, and then the table and queries are tokenized using the TapasTokenizer. The inputs are passed to the model, and the outputs include the answer coordinates. The answer texts are extracted from the table using the answer coordinates.
+
+Please refer to the [model documentation](https://huggingface.co/google/tapas-small-finetuned-sqa) for more details on how to use the model and the transformers library.

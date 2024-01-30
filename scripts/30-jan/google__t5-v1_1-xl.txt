@@ -1,0 +1,35 @@
+# Model name
+
+google/t5-v1_1-xl
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/google/t5-v1_1-xl)
+- GitHub Repo: N/A
+
+## Description
+
+The google/t5-v1_1-xl model is part of the T5 (Text-to-Text Transfer Transformer) family of models. It is based on the T5ForConditionalGeneration architecture and can be used for text generation tasks. The model has been trained using the transformers library with Python. The model supports inference and is compatible with the AutoModelForSeq2SeqLM processor in the transformers library. It has been trained using the c4 dataset and has a total of 72253 downloads.
+
+## Usage example
+
+Here's an example of how to use the google/t5-v1_1-xl model with the transformers library in Python:
+
+```python
+from transformers import T5ForConditionalGeneration, T5Tokenizer
+
+model_name = "google/t5-v1_1-xl"
+tokenizer = T5Tokenizer.from_pretrained(model_name)
+model = T5ForConditionalGeneration.from_pretrained(model_name)
+
+input_text = "Translate this English sentence to French: 'Hello, how are you?'"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output_ids = model.generate(input_ids)
+
+output_text = tokenizer.batch_decode(output_ids, skip_special_tokens=True)
+print(output_text)
+```
+
+This example demonstrates how to use the model for translation. You can modify the input text and task according to your specific use case.
+
+Please note that the model is licensed under Apache License 2.0.

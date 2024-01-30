@@ -1,0 +1,35 @@
+# Model name
+
+WizardCoder-Python-34B-V1.0-GPTQ
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/TheBloke/WizardCoder-Python-34B-V1.0-GPTQ)
+- [GitHub Repo](https://github.com/TheBloke/)
+
+## Description
+
+The WizardCoder-Python model is a large-scale language model trained on Python code. It has a vocabulary size of 34 billion and is based on the GPTQ architecture. The model is designed for text generation tasks, particularly in the domain of Python coding. It can be used to generate code snippets, complete code templates, and assist with programming-related tasks.
+
+The model performs well on text generation tasks, with a pass@1 metric value of 0.732 on the HumanEval dataset. The model is implemented using the transformers library in Python.
+
+## Usage example
+
+Here is an example of how to use the WizardCoder-Python model in Python with the transformers library:
+
+```python
+from transformers import pipeline
+
+model = pipeline(
+    "text-generation",
+    model="TheBloke/WizardCoder-Python-34B-V1.0-GPTQ",
+    tokenizer="TheBloke/WizardCoder-Python-34B-V1.0-GPTQ"
+)
+
+prompt = "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nWrite a function that computes the factorial of a given number.\n\n### Response:"
+output = model(prompt, max_length=100)
+
+print(output[0]['generated_text'])
+```
+
+This example demonstrates how to use the model to generate a code snippet in response to an instruction.

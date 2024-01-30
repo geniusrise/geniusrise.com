@@ -1,0 +1,40 @@
+# Model name
+
+financial-roberta-large-sentiment
+
+## Links
+
+- [Model page](https://huggingface.co/soleimanian/financial-roberta-large-sentiment)
+- [GitHub repo](https://github.com/soleimanian/financial-roberta-large-sentiment)
+
+## Description
+
+The financial-roberta-large-sentiment model is a text classification model based on the RoBERTa architecture. It is trained to analyze sentiment in financial text data, such as financial statements, accounting documents, financial news, earnings call transcripts, and reports on ESG (Environmental, Social, and Governance) and CSR (Corporate Social Responsibility) matters. The model is capable of inferring sentiment labels for given texts.
+
+Key features and characteristics of the model include:
+- Architecture: RoBERTaForSequenceClassification
+- Model type: RoBERTa
+- Language: English
+- Tags: text-classification, Sentiment, RoBERTa, Financial Statements, Accounting, Finance, Business, ESG, CSR Reports, Financial News, Earnings Call Transcripts, Sustainability, Corporate governance
+
+The financial-roberta-large-sentiment model is compatible with the transformers library in Python.
+
+## Usage example
+
+```python
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+tokenizer = AutoTokenizer.from_pretrained("soleimanian/financial-roberta-large-sentiment")
+model = AutoModelForSequenceClassification.from_pretrained("soleimanian/financial-roberta-large-sentiment")
+
+text = "This is a positive financial news article."
+inputs = tokenizer.encode_plus(text, return_tensors="pt", truncation=True, padding=True)
+
+outputs = model(**inputs)
+predictions = outputs.logits.argmax(dim=-1)
+sentiment_label = tokenizer.decode(predictions[0])
+
+print("Sentiment label:", sentiment_label)
+```
+
+Please note that the financial-roberta-large-sentiment model has 57425 downloads and 32 likes.

@@ -1,0 +1,37 @@
+# Model name
+
+cross-encoder/nli-deberta-v3-large
+
+## Links
+
+- [Model Page](https://huggingface.co/cross-encoder/nli-deberta-v3-large)
+- [GitHub Repository](https://github.com/cross-encoder/nli-deberta-v3-large)
+
+## Description
+
+This model, nli-deberta-v3-large, is a cross-encoder model trained on the Natural Language Inference (NLI) task using the DeBERTa V3 Large architecture. It belongs to the Sentence Transformers - Cross-Encoders organization. The model is designed for zero-shot classification and is particularly useful for text classification tasks. It has been fine-tuned on the multi_nli and snli datasets. The model is based on the DeBERTa V2 architecture and is available for use in the transformers library with Python.
+
+## Usage example
+
+```python
+from transformers import pipeline
+
+nli_classifier = pipeline(
+    "zero-shot-classification",
+    model="cross-encoder/nli-deberta-v3-large",
+    tokenizer="cross-encoder/nli-deberta-v3-large"
+)
+
+sentences = [
+    "I have a problem with my iPhone that needs to be resolved ASAP!",
+    "Last week I upgraded my iOS version and ever since then my phone has been overheating whenever I use your app.",
+    "A new model offers an explanation for how the Galilean satellites formed around the solar system’s largest world."
+]
+
+candidate_labels = ["urgent", "not urgent", "phone", "tablet", "computer"]
+
+results = nli_classifier(sentences, candidate_labels)
+print(results)
+```
+
+In this example, the `nli_classifier` pipeline is created using the `zero-shot-classification` task and the `nli-deberta-v3-large` model. The tokenizer for this model is also specified. The pipeline is then used to classify a list of `sentences` using the `candidate_labels`. The results are printed, showing the predicted labels for each sentence.

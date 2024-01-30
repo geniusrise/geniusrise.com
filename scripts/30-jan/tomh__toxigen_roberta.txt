@@ -1,0 +1,22 @@
+# Model Name: toxigen_roberta
+
+## Links:
+- [Model Page](https://huggingface.co/tomh/toxigen_roberta)
+- [GitHub Repo](https://github.com/tomh/toxigen_roberta)
+
+## Description:
+The toxigen_roberta model is a text classification model built on the Transformers library in Python. It is based on the RoBERTa architecture and is specifically designed for toxic text classification tasks. The model has been trained on a large-scale machine-generated dataset for adversarial and implicit hate speech detection. It has a total of 5,471 downloads and has been liked by 5 users. The model is compatible with the AutoTrain and Inference Endpoints applications.
+
+## Usage Example:
+```python
+from transformers import RobertaTokenizer, RobertaForSequenceClassification
+
+tokenizer = RobertaTokenizer.from_pretrained("tomh/toxigen_roberta")
+model = RobertaForSequenceClassification.from_pretrained("tomh/toxigen_roberta")
+
+text = "I like you. I love you."
+inputs = tokenizer(text, truncation=True, padding=True, return_tensors="pt")
+outputs = model(**inputs)
+
+print(outputs.logits)
+```

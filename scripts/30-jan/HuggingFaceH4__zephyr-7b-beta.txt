@@ -1,0 +1,26 @@
+# Model name
+HuggingFaceH4/zephyr-7b-beta
+
+## Links
+- [Model Page](https://huggingface.co/HuggingFaceH4/zephyr-7b-beta)
+- [GitHub Repository](https://github.com/HuggingFaceH4/zephyr-7b-beta)
+
+## Description
+The HuggingFaceH4/zephyr-7b-beta model is a text generation model based on the Mistral-7B-v0.1 base model. It is built using the Transformers library in Python. The model has been trained on various datasets, including HuggingFaceH4/ultrachat_200k and HuggingFaceH4/ultrafeedback_binarized. It supports the GPTQ or AWQ model framework.
+
+## Usage example
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model = AutoModelForCausalLM.from_pretrained("HuggingFaceH4/zephyr-7b-beta")
+tokenizer = AutoTokenizer.from_pretrained("HuggingFaceH4/zephyr-7b-beta")
+
+input_text = "<|user|>\nThere's a llama on my lawn, how can I get rid of him?</s>"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output = model.generate(input_ids)
+
+decoded_output = tokenizer.decode(output[0], skip_special_tokens=True)
+print(decoded_output)
+```
+
+Note: The example above uses the Transformers library and Python to generate text using the HuggingFaceH4/zephyr-7b-beta model. The `input_text` variable contains the user's input, and the model generates a response based on that input.
