@@ -1,0 +1,119 @@
+{
+    "imgclass": {
+        "short_name": "imgclass",
+        "fine_tune_formats": ["jpeg", "png", "bmp", "tiff"],
+        "long_name": "Image Classification",
+        "description": "Image Classification involves assigning a label or class to an image from a predefined set of categories. This task is fundamental in computer vision, enabling the automated categorization of images into distinct groups. Image classification models are trained on large datasets of labeled images, learning to recognize patterns, textures, shapes, and other features that define each category. These models are applied in various domains, from facial recognition and object detection in security systems to categorizing content in digital media libraries.",
+        "examples": [
+            "Facial Recognition",
+            "Object Detection",
+            "Medical Image Analysis",
+            "Agricultural Crop Disease Identification",
+            "Wildlife Monitoring",
+            "Retail Product Categorization",
+            "Industrial Quality Control",
+            "Autonomous Vehicle Navigation",
+            "Content Filtering",
+            "Geographical Image Analysis"
+        ],
+        "usecases": [
+            "Identifying individuals in security footage",
+            "Detecting objects within images for inventory management",
+            "Analyzing medical scans for diagnostic purposes",
+            "Identifying disease in crops for precision agriculture",
+            "Monitoring wildlife populations for conservation efforts",
+            "Categorizing products for online retail platforms",
+            "Ensuring quality of manufactured products through visual inspection",
+            "Navigating autonomous vehicles using road sign recognition",
+            "Filtering inappropriate content in digital platforms",
+            "Analyzing satellite imagery for land use and urban planning"
+        ],
+        "endpoint": "",
+        "config": {
+            "cloud": "AWS",
+            "input_type": "batch",
+            "input_config": {},
+            "output_type": "batch",
+            "output_config": {},
+            "deployment_type": "k8s"
+        }
+    },
+    "segment": {
+        "short_name": "segment",
+        "fine_tune_formats": ["jpeg", "png", "bmp", "tiff"],
+        "long_name": "Image Segmentation",
+        "description": "Image Segmentation is the process of partitioning an image into multiple segments or pixels to simplify its representation. This task is crucial in computer vision for identifying and locating objects within images by distinguishing them from the background or other objects. Image segmentation models are trained to recognize boundaries and structures, facilitating tasks such as medical imaging, autonomous vehicle navigation, and object tracking in video surveillance.",
+        "examples": [
+            "Tumor Detection in Medical Imaging",
+            "Self-Driving Car Navigation",
+            "Precision Agriculture",
+            "Object Tracking in Video Surveillance",
+            "Robotics and Automation",
+            "Photo Editing and Manipulation",
+            "Augmented Reality Applications",
+            "Industrial Inspection",
+            "Environmental Monitoring",
+            "Cultural Heritage Preservation"
+        ],
+        "usecases": [
+            "Identifying and measuring tumors in medical scans",
+            "Navigating and identifying obstacles for autonomous vehicles",
+            "Monitoring crop health and weed detection in agriculture",
+            "Tracking individuals or objects in security footage",
+            "Guiding robots for picking and assembly tasks",
+            "Enhancing or removing elements in digital photography",
+            "Overlaying digital content onto the real world in AR apps",
+            "Inspecting products for defects in manufacturing",
+            "Mapping deforestation or urban expansion from satellite imagery",
+            "Digitally restoring or preserving historic sites and artifacts"
+        ],
+        "endpoint": "",
+        "config": {
+            "cloud": "AWS",
+            "input_type": "batch",
+            "input_config": {},
+            "output_type": "batch",
+            "output_config": {},
+            "deployment_type": "k8s"
+        }
+    },
+    "ocr": {
+        "short_name": "ocr",
+        "fine_tune_formats": ["jpeg", "png", "bmp", "tiff", "pdf"],
+        "long_name": "Optical Character Recognition",
+        "description": "Optical Character Recognition involves converting different types of documents, such as scanned paper documents, PDF files, or images captured by a digital camera, into editable and searchable data. OCR technology is essential for digitizing printed texts, thus enabling efficient information retrieval, editing, and processing. It finds applications in numerous fields such as automating data entry, digitizing historical documents, processing passports, and extracting text from images for content management systems.",
+        "examples": [
+            "Document Digitization",
+            "Automated Invoice Processing",
+            "Passport Recognition",
+            "Business Card Digitization",
+            "Automated License Plate Recognition",
+            "Text Extraction from Images",
+            "Historical Document Archiving",
+            "Legal Document Analysis",
+            "Bank Check Processing",
+            "Educational Material Conversion"
+        ],
+        "usecases": [
+            "Converting paper documents into editable formats for digital archives",
+            "Automating the extraction of data from invoices for accounting software",
+            "Recognizing and verifying passport information in border control systems",
+            "Digitizing business cards for contact management systems",
+            "Automating data collection from vehicle license plates for parking or toll systems",
+            "Extracting textual content from social media images for analysis",
+            "Preserving historical texts by converting them into digital formats",
+            "Analyzing legal documents for relevant information extraction",
+            "Processing bank checks automatically in financial institutions",
+            "Converting printed educational resources into digital formats for e-learning platforms"
+        ],
+        "endpoint": "",
+        "config": {
+            "cloud": "AWS",
+            "input_type": "batch",
+            "input_config": {},
+            "output_type": "batch",
+            "output_config": {},
+            "deployment_type": "k8s"
+        }
+    }
+}
