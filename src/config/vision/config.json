@@ -28,7 +28,7 @@
             "Filtering inappropriate content in digital platforms",
             "Analyzing satellite imagery for land use and urban planning"
         ],
-        "endpoint": "",
+        "endpoint": "/api/v1/classify_image",
         "config": {
             "cloud": "AWS",
             "input_type": "batch",
@@ -67,7 +67,7 @@
             "Mapping deforestation or urban expansion from satellite imagery",
             "Digitally restoring or preserving historic sites and artifacts"
         ],
-        "endpoint": "",
+        "endpoint": "/api/v1/segment_image",
         "config": {
             "cloud": "AWS",
             "input_type": "batch",
@@ -106,7 +106,7 @@
             "Processing bank checks automatically in financial institutions",
             "Converting printed educational resources into digital formats for e-learning platforms"
         ],
-        "endpoint": "",
+        "endpoint": "/api/v1/ocr",
         "config": {
             "cloud": "AWS",
             "input_type": "batch",
