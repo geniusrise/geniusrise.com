@@ -1,0 +1,2589 @@
+[
+    {
+        "name": "BEiT",
+        "inputs": [
+            {
+                "type": "image",
+                "name": "input"
+            }
+        ],
+        "description": "BEiT (Bidirectional Encoder Representations from Transformers) is a state-of-the-art model for image segmentation, utilizing a transformer-based architecture fine-tuned on the ADE-640x640 dataset. It excels in semantic segmentation, offering precise delineation of objects and scenes across various categories. This model is highly effective in tasks requiring detailed image analysis and segmentation, such as autonomous driving, medical image analysis, and satellite image interpretation, providing nuanced insights into visual data.",
+        "model_name": "microsoft/beit-base-finetuned-ade-640-640",
+        "apiClass": "VisionSegmentationAPI",
+        "bulkMethod": "segment",
+        "endpoint": "/api/v1/segment_image",
+        "bulk_formats": ["jpeg", "png", "bmp", "tiff","tif","gif","jpg"],
+        "examples": [
+            "Segmenting objects in urban scenes for autonomous driving",
+            "Delineating different tissues in medical images",
+            "Analyzing satellite imagery for land use classification",
+            "Identifying items in retail environments for inventory management",
+            "Enhancing photo editing software with accurate segmentation tools"
+        ],
+        "input_examples": [
+            "A street scene with vehicles and pedestrians",
+            "A medical scan showing various tissues",
+            "An aerial view of a landscape with different land covers",
+            "A store shelf with various products",
+            "A group photo with individual people"
+        ],
+        "usecases": ["Autonomous driving", "Medical image analysis", "Retail inventory management"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for image segmentation.",
+                "type": "string",
+                "default": "AutoModelForSemanticSegmentation",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for handling image inputs, ensuring images are correctly formatted and scaled for the model.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for distributed computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "4": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "5": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for enhanced performance and deployment flexibility.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "6": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "8": {
+                "name": "port",
+                "description": "Port number for API deployment. Default set to 3000.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "9": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "10": {
+                "name": "username",
+                "description": "Username for API authentication, enhancing security.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "11": {
+                "name": "password",
+                "description": "Password for API security.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            },
+            "12": {
+                "name": "subtask",
+                "description": "Specifies the segmentation task type to be performed by the model, allowing for flexibility across different segmentation needs.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        },
+        "api": {
+            "text": "Upload your image here",
+            "output_type": "png"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for image segmentation.",
+                "type": "string",
+                "default": "AutoModelForSemanticSegmentation",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for handling image inputs.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "5": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "6": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "batch_size",
+                "description": "Determines the number of images processed simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "9": {
+                "name": "subtask",
+                "description": "Specifies the segmentation task type to be performed by the model.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "Data2Vec",
+        "inputs": [
+            {
+                "type": "image",
+                "name": "input"
+            }
+        ],
+        "description": "Data2Vec is a versatile model developed by Facebook, capable of handling various types of data including vision, by learning universal representations. The 'data2vec-vision-base' model is specifically fine-tuned for vision tasks, particularly semantic segmentation. It utilizes self-supervised learning to understand and segment images based on the context within the visual data itself, without relying on labeled datasets. This makes it highly effective for tasks where precise understanding and segmentation of visual elements are crucial, such as in autonomous vehicle navigation, medical image analysis, and environmental monitoring.",
+        "model_name": "facebook/data2vec-vision-base",
+        "apiClass": "VisionSegmentationAPI",
+        "bulkMethod": "segment",
+        "endpoint": "/api/v1/segment_image",
+        "bulk_formats": ["jpeg", "png", "bmp", "tiff", "tif", "gif", "jpg"],
+        "examples": [
+            "Semantic segmentation for autonomous driving applications",
+            "Segmentation of medical imagery for diagnostic purposes",
+            "Land cover segmentation in satellite images",
+            "Scene parsing for robotics and navigation",
+            "Image segmentation for environmental monitoring"
+        ],
+        "input_examples": [
+            "Urban street scenes with various vehicles and pedestrians",
+            "CT scans or MRI images for medical analysis",
+            "Satellite images showing different terrains and land uses",
+            "Images of indoor scenes for robot navigation",
+            "Forest areas for monitoring tree species and health"
+        ],
+        "usecases": ["Autonomous driving", "Medical image analysis", "Environmental monitoring"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for semantic image segmentation.",
+                "type": "string",
+                "default": "AutoModelForSemanticSegmentation",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for preprocessing image inputs suitable for the model.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "4": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "5": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "6": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "8": {
+                "name": "port",
+                "description": "Port number for API deployment, set to a default for ease of use.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "9": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "10": {
+                "name": "username",
+                "description": "Username for API authentication, ensuring secure access.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "11": {
+                "name": "password",
+                "description": "Password for API security, protecting access.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            },
+            "12": {
+                "name": "subtask",
+                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        },
+        "api": {
+            "image": "Upload your image here for segmentation",
+            "output_type": "png"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for semantic image segmentation.",
+                "type": "string",
+                "default": "AutoModelForSemanticSegmentation",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for preprocessing images.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "5": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "6": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "batch_size",
+                "description": "Determines the number of images processed simultaneously.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "9": {
+                "name": "subtask",
+                "description": "Specifies the segmentation task type to be performed by the model.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "DPT",
+        "inputs": [
+            {
+                "type": "image",
+                "name": "input"
+            }
+        ],
+        "description": "DPT (Dense Prediction Transformer) is an advanced model developed by Intel, designed for high-quality semantic segmentation. Utilizing the 'dpt-large-ade' variant, it is fine-tuned on the ADE20K dataset, making it highly effective for detailed and accurate segmentation of a wide variety of scenes and objects. The model leverages transformer architectures to capture rich, contextual relationships within images, enabling precise segmentation even in complex visual environments. It is particularly useful in applications such as autonomous driving, detailed land use and land cover mapping, urban planning, and environmental monitoring, where accurate segmentation can provide critical insights.",
+        "model_name": "Intel/dpt-large-ade",
+        "apiClass": "VisionSegmentationAPI",
+        "bulkMethod": "segment",
+        "endpoint": "/api/v1/segment_image",
+        "bulk_formats": ["jpeg", "png", "bmp", "tiff", "tif", "gif", "jpg"],
+        "examples": [
+            "High-resolution segmentation for detailed scene understanding",
+            "Segmentation of road scenes for autonomous vehicle navigation",
+            "Accurate mapping of urban and rural land use from satellite imagery",
+            "Detailed segmentation in medical imaging for diagnostic purposes",
+            "Environmental monitoring through precise segmentation of natural features"
+        ],
+        "input_examples": [
+            "Complex urban street scenes with multiple objects",
+            "Satellite images showing urban, agricultural, and forested areas",
+            "High-resolution medical images for tissue segmentation",
+            "Underwater imagery for marine biodiversity studies",
+            "Images of crowded areas for people and object tracking"
+        ],
+        "usecases": ["Land use mapping", "Medical image analysis", "Environmental monitoring"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for semantic image segmentation.",
+                "type": "string",
+                "default": "AutoModelForSemanticSegmentation",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for preprocessing image inputs suitable for the model.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "4": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "5": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "6": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "8": {
+                "name": "port",
+                "description": "Port number for API deployment, set to a default for ease of use.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "9": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "10": {
+                "name": "username",
+                "description": "Username for API authentication, ensuring secure access.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "11": {
+                "name": "password",
+                "description": "Password for API security, protecting access.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            },
+            "12": {
+                "name": "subtask",
+                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        },
+        "api": {
+            "image": "Upload your image here for segmentation",
+            "output_type": "png"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for semantic image segmentation.",
+                "type": "string",
+                "default": "AutoModelForSemanticSegmentation",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for preprocessing images.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "5": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "6": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "batch_size",
+                "description": "Determines the number of images processed simultaneously.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "9": {
+                "name": "subtask",
+                "description": "Specifies the segmentation task type to be performed by the model.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "MobileNetV2",
+        "inputs": [
+            {
+                "type": "image",
+                "name": "input"
+            }
+        ],
+        "description": "MobileNetV2, when combined with DeepLabV3, offers a lightweight yet powerful architecture for semantic segmentation, leveraging the efficiency of MobileNetV2 and the accuracy of DeepLabV3. This specific configuration utilizes 'google/deeplabv3_mobilenet_v2_1.0_513', optimized for speed and performance on a wide array of devices including mobiles. It's particularly suited for real-time applications and can operate on various scenes and objects for tasks like autonomous driving, real-time video analysis, and mobile applications requiring instant segmentation insights.",
+        "model_name": "google/deeplabv3_mobilenet_v2_1.0_513",
+        "apiClass": "VisionSegmentationAPI",
+        "bulkMethod": "segment",
+        "endpoint": "/api/v1/segment_image",
+        "bulk_formats": ["jpeg", "png", "bmp", "tiff", "tif", "gif", "jpg"],
+        "examples": [
+            "Real-time segmentation in mobile applications",
+            "Road scene analysis for autonomous vehicles",
+            "Interactive photo editing and visual effects",
+            "Segmentation for augmented reality experiences",
+            "Environmental monitoring with low-power devices"
+        ],
+        "input_examples": [
+            "Street view images for navigation assistance",
+            "Live camera feed for augmented reality overlays",
+            "Photos for instant object separation and manipulation",
+            "Drone imagery for quick environmental assessment",
+            "Sports videos for player and object tracking"
+        ],
+        "usecases": ["Mobile vision applications", "Augmented reality", "Environmental monitoring"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for semantic image segmentation.",
+                "type": "string",
+                "default": "AutoModelForSemanticSegmentation",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for preprocessing image inputs suitable for the model.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "4": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "5": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "6": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "8": {
+                "name": "port",
+                "description": "Port number for API deployment, set to a default for ease of use.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "9": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "10": {
+                "name": "username",
+                "description": "Username for API authentication, ensuring secure access.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "11": {
+                "name": "password",
+                "description": "Password for API security, protecting access.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            },
+            "12": {
+                "name": "subtask",
+                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        },
+        "api": {
+            "image": "Upload your image here for segmentation",
+            "output_type": "png"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for semantic image segmentation.",
+                "type": "string",
+                "default": "AutoModelForSemanticSegmentation",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for preprocessing images.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "5": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "6": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "batch_size",
+                "description": "Determines the number of images processed simultaneously.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "9": {
+                "name": "subtask",
+                "description": "Specifies the segmentation task type to be performed by the model.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "MobileViT",
+        "inputs": [
+            {
+                "type": "image",
+                "name": "input"
+            }
+        ],
+        "description": "MobileViT, integrated with DeepLabV3, represents a cutting-edge approach combining the strengths of Vision Transformers (ViT) with the efficiency suited for mobile devices. The 'apple/deeplabv3-mobilevit-small' model is engineered for high-performance semantic segmentation with an emphasis on balancing accuracy and computational efficiency. This makes it ideal for real-time applications on mobile platforms, capable of understanding and segmenting complex scenes with precision. Its applications span across various domains, including augmented reality, autonomous navigation, and environmental monitoring, where rapid and reliable image analysis is required directly on-device.",
+        "model_name": "apple/deeplabv3-mobilevit-small",
+        "apiClass": "VisionSegmentationAPI",
+        "bulkMethod": "segment",
+        "endpoint": "/api/v1/segment_image",
+        "bulk_formats": ["jpeg", "png", "bmp", "tiff", "tif", "gif", "jpg"],
+        "examples": [
+            "Augmented reality overlays on live camera feed",
+            "Navigation assistance for autonomous vehicles",
+            "Instant segmentation for interactive photo and video editing",
+            "Real-time environmental monitoring with mobile devices",
+            "Facilitating mobile-based augmented reality games and applications"
+        ],
+        "input_examples": [
+            "Urban landscapes for enhancing navigation apps",
+            "People and objects for interactive AR experiences",
+            "Natural scenes for educational and environmental apps",
+            "Indoor environments for home decoration and renovation apps",
+            "Sporting events for live statistics and player tracking"
+        ],
+        "usecases": ["Augmented reality", "Autonomous navigation", "Mobile photo and video editing"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for semantic image segmentation.",
+                "type": "string",
+                "default": "AutoModelForSemanticSegmentation",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for preprocessing image inputs suitable for the model.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "4": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "5": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "6": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "8": {
+                "name": "port",
+                "description": "Port number for API deployment, set to a default for ease of use.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "9": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "10": {
+                "name": "username",
+                "description": "Username for API authentication, ensuring secure access.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "11": {
+                "name": "password",
+                "description": "Password for API security, protecting access.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            },
+            "12": {
+                "name": "subtask",
+                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        },
+        "api": {
+            "image": "Upload your image here for segmentation",
+            "output_type": "png"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for semantic image segmentation.",
+                "type": "string",
+                "default": "AutoModelForSemanticSegmentation",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for preprocessing images.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "5": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "6": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "batch_size",
+                "description": "Determines the number of images processed simultaneously.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "9": {
+                "name": "subtask",
+                "description": "Specifies the segmentation task type to be performed by the model.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "MobileViT2",
+        "inputs": [
+            {
+                "type": "image",
+                "name": "input"
+            }
+        ],
+        "description": "MobileViT2 represents an evolution in the MobileViT series, optimized for efficient and powerful image understanding on mobile devices. The 'mobilevitv2-1.0-imagenet1k-256' model, pre-trained on the ImageNet-1K dataset, is fine-tuned for semantic segmentation, offering an exceptional balance between accuracy and computational efficiency. Engineered for deployment on CPU, this model is ideal for applications in environments where GPU resources are scarce or for applications requiring on-device processing without the need for specialized hardware. Its applications include real-time image analysis, augmented reality, environmental monitoring, and more, across various devices.",
+        "model_name": "apple/mobilevitv2-1.0-imagenet1k-256",
+        "apiClass": "VisionSegmentationAPI",
+        "bulkMethod": "segment",
+        "endpoint": "/api/v1/segment_image",
+        "bulk_formats": ["jpeg", "png", "bmp", "tiff", "tif", "gif", "jpg"],
+        "examples": [
+            "On-device real-time segmentation for augmented reality apps",
+            "Environmental monitoring with mobile or IoT devices",
+            "Interactive features in mobile photography and video apps",
+            "Educational applications for real-world object identification",
+            "Navigation and map enhancement through instant scene analysis"
+        ],
+        "input_examples": [
+            "Live camera feeds for augmented reality overlays",
+            "Outdoor scenes for biodiversity tracking and analysis",
+            "Urban landscapes for smart city applications",
+            "Classroom educational tools for interactive learning",
+            "Consumer apps for instant information on products and landmarks"
+        ],
+        "usecases": ["Augmented reality", "Smart city applications", "Educational tools"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for semantic image segmentation.",
+                "type": "string",
+                "default": "AutoModelForSemanticSegmentation",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for preprocessing image inputs suitable for the model.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment. For MobileViT2, the deployment is optimized for CPU.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "3": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "4": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes. This setting helps manage resource use on devices with limited memory.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "5": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms, particularly beneficial for CPU-based deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "6": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance, especially relevant for running efficiently on CPUs.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "7": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "8": {
+                "name": "port",
+                "description": "Port number for API deployment, set to a default for ease of use.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "9": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "10": {
+                "name": "username",
+                "description": "Username for API authentication, ensuring secure access.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "11": {
+                "name": "password",
+                "description": "Password for API security, protecting access.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            },
+            "12": {
+                "name": "subtask",
+                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        },
+        "api": {
+            "image": "Upload your image here for segmentation",
+            "output_type": "png"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for semantic image segmentation.",
+                "type": "string",
+                "default": "AutoModelForSemanticSegmentation",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for preprocessing images.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "For MobileViT2, indicates the model is optimized for CPU usage, negating the need for CUDA.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "4": {
+                "name": "device_map",
+                "description": "Specifies the device on which the model runs, emphasizing CPU optimization.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "5": {
+                "name": "max_memory",
+                "description": "Configures the maximum memory usage, optimizing for devices with limited resources.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "6": {
+                "name": "torchscript",
+                "description": "Optimizes the model for cross-platform performance, beneficial in CPU-centric deployments.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "7": {
+                "name": "compile",
+                "description": "Enhances model performance on CPUs, ensuring efficient execution.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "8": {
+                "name": "batch_size",
+                "description": "Adjusts the number of images processed in parallel, tailored to the processing capabilities of CPUs.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "9": {
+                "name": "subtask",
+                "description": "Clarifies the model's focus on semantic segmentation, providing a streamlined application process.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        }
+    },    
+    {
+        "name": "SegFormer",
+        "inputs": [
+            {
+                "type": "image",
+                "name": "input"
+            }
+        ],
+        "description": "SegFormer is a state-of-the-art transformer-based model for semantic segmentation, known for its efficiency and effectiveness in parsing various scenes. Utilizing the 'segformer-b0-finetuned-ade-512-512' variant, it is specially fine-tuned on the ADE20K dataset for a wide range of segmentation tasks. This model combines the advantages of transformers with a hierarchical structure, enabling it to understand and segment images at different scales. It's particularly well-suited for applications requiring detailed image understanding, such as autonomous driving, aerial image analysis, and urban planning, offering both high accuracy and computational efficiency.",
+        "model_name": "nvidia/segformer-b0-finetuned-ade-512-512",
+        "apiClass": "VisionSegmentationAPI",
+        "bulkMethod": "segment",
+        "endpoint": "/api/v1/segment_image",
+        "bulk_formats": ["jpeg", "png", "bmp", "tiff", "tif", "gif", "jpg"],
+        "examples": [
+            "Detailed segmentation of urban scenes for smart city applications",
+            "Land cover classification in satellite imagery for environmental monitoring",
+            "Road and lane detection for autonomous vehicle navigation",
+            "Segmentation of medical images for automated diagnosis",
+            "Analysis of agricultural fields to support precision farming"
+        ],
+        "input_examples": [
+            "High-resolution cityscape photos for urban planning",
+            "Satellite images for land use and coverage analysis",
+            "Dashcam footage for real-time traffic management systems",
+            "Microscopic images for pathology",
+            "Drone imagery of farms for crop health assessment"
+        ],
+        "usecases": ["Smart city development", "Environmental monitoring", "Autonomous driving", "Healthcare", "Agriculture"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for semantic image segmentation.",
+                "type": "string",
+                "default": "AutoModelForSemanticSegmentation",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for preprocessing image inputs suitable for the model.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "4": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "5": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "6": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "8": {
+                "name": "port",
+                "description": "Port number for API deployment, set to a default for ease of use.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "9": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "10": {
+                "name": "username",
+                "description": "Username for API authentication, ensuring secure access.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "11": {
+                "name": "password",
+                "description": "Password for API security, protecting access.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            },
+            "12": {
+                "name": "subtask",
+                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        },
+        "api": {
+            "image": "Upload your image here for segmentation",
+            "output_type": "png"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for semantic image segmentation.",
+                "type": "string",
+                "default": "AutoModelForSemanticSegmentation",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for preprocessing images.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "5": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "6": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "batch_size",
+                "description": "Determines the number of images processed simultaneously.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "9": {
+                "name": "subtask",
+                "description": "Clarifies the model's focus on semantic segmentation, providing a streamlined application process.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "Mask2FormerSemantic",
+        "inputs": [
+            {
+                "type": "image",
+                "name": "input"
+            }
+        ],
+        "description": "Mask2FormerSemantic leverages the Mask2Former architecture with a Swin Transformer backbone, fine-tuned on the ADE20K dataset for semantic segmentation. This model represents a significant advancement in segmentation technology, capable of understanding complex scenes and delineating them with high precision. It's particularly adept at handling diverse segmentation tasks, making it suitable for a wide range of applications such as autonomous driving, detailed land cover mapping, and urban planning. The Mask2Former model excels in its ability to segment images into meaningful parts, recognizing and differentiating between various objects and features within a single frame.",
+        "model_name": "facebook/mask2former-swin-small-ade-semantic",
+        "apiClass": "Mask2FormerForUniversalSegmentation",
+        "bulkMethod": "segment",
+        "endpoint": "/api/v1/segment_image",
+        "bulk_formats": ["jpeg", "png", "bmp", "tiff", "tif", "gif", "jpg"],
+        "examples": [
+            "Semantic segmentation for detailed environmental analysis",
+            "Automated segmentation in urban planning and development projects",
+            "Segmentation for enhancing autonomous vehicle navigation systems",
+            "High-precision mapping for geospatial analysis",
+            "Real-time segmentation for interactive applications and AR"
+        ],
+        "input_examples": [
+            "Complex urban environments with multiple object categories",
+            "Natural landscapes for environmental conservation studies",
+            "Road scenes with various vehicles, pedestrians, and signage",
+            "Industrial settings for safety and monitoring applications",
+            "Retail and public spaces for layout optimization and analysis"
+        ],
+        "usecases": ["Environmental conservation", "Urban planning", "Geospatial analysis"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for universal image segmentation.",
+                "type": "string",
+                "default": "Mask2FormerForUniversalSegmentation",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for preprocessing image inputs suitable for the model.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "4": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "5": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "6": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "8": {
+                "name": "port",
+                "description": "Port number for API deployment, set to a default for ease of use.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "9": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "10": {
+                "name": "username",
+                "description": "Username for API authentication, ensuring secure access.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "11": {
+                "name": "password",
+                "description": "Password for API security, protecting access.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            },
+            "12": {
+                "name": "subtask",
+                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        },
+        "api": {
+            "image": "Upload your image here for segmentation",
+            "output_type": "png"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for universal image segmentation.",
+                "type": "string",
+                "default": "Mask2FormerForUniversalSegmentation",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for preprocessing images.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "5": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "6": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "batch_size",
+                "description": "Determines the number of images processed simultaneously.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "9": {
+                "name": "subtask",
+                "description": "Clarifies the model's focus on semantic segmentation, providing a streamlined application process.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        }
+    },    
+    {
+        "name": "Mask2FormerPanoptic",
+        "inputs": [
+            {
+                "type": "image",
+                "name": "input"
+            }
+        ],
+        "description": "Mask2FormerPanoptic utilizes the Mask2Former architecture integrated with a Swin Transformer backbone, specifically fine-tuned on the Cityscapes dataset for panoptic segmentation. Panoptic segmentation unifies the concepts of semantic segmentation (understanding 'what' is in the image) and instance segmentation (identifying 'which' object instance each pixel belongs to), providing a comprehensive understanding of both the scene and individual objects within it. This model is adept at detailed urban scene analysis, making it ideal for applications in autonomous driving, urban planning, and smart city initiatives. It combines the effectiveness of transformers with advanced segmentation techniques to interpret complex urban landscapes accurately.",
+        "model_name": "facebook/mask2former-swin-small-cityscapes-panoptic",
+        "apiClass": "Mask2FormerForUniversalSegmentation",
+        "bulkMethod": "segment",
+        "endpoint": "/api/v1/segment_image",
+        "bulk_formats": ["jpeg", "png", "bmp", "tiff", "tif", "gif", "jpg"],
+        "examples": [
+            "Comprehensive scene understanding for autonomous vehicle systems",
+            "Detailed urban landscape analysis for smart city development",
+            "Accurate monitoring and management of urban infrastructure",
+            "Enhanced mapping services integrating detailed object and scene segmentation",
+            "Real-time surveillance and monitoring applications in urban environments"
+        ],
+        "input_examples": [
+            "City street scenes capturing vehicles, pedestrians, and infrastructure",
+            "Aerial views of urban areas for planning and management",
+            "Images from autonomous vehicles for navigation and safety systems",
+            "Public spaces for security and crowd management",
+            "Construction sites for monitoring and management of materials and progress"
+        ],
+        "usecases": ["Urban planning", "Smart city management", "Security and surveillance"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for panoptic image segmentation.",
+                "type": "string",
+                "default": "Mask2FormerForUniversalSegmentation",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for preprocessing image inputs suitable for the model.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "4": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "5": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "6": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "8": {
+                "name": "port",
+                "description": "Port number for API deployment, set to a default for ease of use.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "9": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "10": {
+                "name": "username",
+                "description": "Username for API authentication, ensuring secure access.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "11": {
+                "name": "password",
+                "description": "Password for API security, protecting access.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            },
+            "12": {
+                "name": "subtask",
+                "description": "Specifies the specific segmentation task, such as panoptic segmentation, that the model is optimized for.",
+                "type": "string",
+                "default": "panoptic",
+                "possible": null
+            }
+        },
+        "api": {
+            "image": "Upload your image here for segmentation",
+            "output_type": "png"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for panoptic image segmentation.",
+                "type": "string",
+                "default": "Mask2FormerForUniversalSegmentation",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for preprocessing images.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "5": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "6": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "batch_size",
+                "description": "Determines the number of images processed simultaneously.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "9": {
+                "name": "subtask",
+                "description": "Clarifies the model's focus on panoptic segmentation, providing a streamlined application process.",
+                "type": "string",
+                "default": "panoptic",
+                "possible": null
+            }
+        }
+    },    
+    {
+        "name": "Mask2FormerInstance",
+        "inputs": [
+            {
+                "type": "image",
+                "name": "input"
+            }
+        ],
+        "description": "Mask2FormerInstance leverages the Mask2Former architecture with a Swin Transformer backbone, fine-tuned on the COCO dataset for instance segmentation. This model excels in identifying and delineating each object instance within an image, making it highly suitable for applications requiring precise object recognition and differentiation. It's particularly effective in complex scenes where multiple objects overlap or occur in close proximity. Applications range from retail and inventory management, through medical image analysis, to real-time surveillance and activity recognition, offering advanced capabilities for detailed and accurate object instance segmentation.",
+        "model_name": "facebook/mask2former-swin-small-coco-instance",
+        "apiClass": "Mask2FormerForUniversalSegmentation",
+        "bulkMethod": "segment",
+        "endpoint": "/api/v1/segment_image",
+        "bulk_formats": ["jpeg", "png", "bmp", "tiff", "tif", "gif", "jpg"],
+        "examples": [
+            "Inventory management through precise object counting and recognition",
+            "Medical imaging for tumor detection and segmentation",
+            "Surveillance systems for individual person or object tracking",
+            "Quality control in manufacturing through defect detection",
+            "Autonomous driving systems for obstacle and pedestrian identification"
+        ],
+        "input_examples": [
+            "Retail shelves for stock level assessment",
+            "MRI or CT scans highlighting specific pathologies",
+            "Urban scenes for monitoring traffic and pedestrian flow",
+            "Manufacturing lines for identifying defective products",
+            "Road scenes capturing vehicles, pedestrians, and signage"
+        ],
+        "usecases": ["Retail and inventory", "Security and surveillance", "Manufacturing and quality control"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for instance image segmentation.",
+                "type": "string",
+                "default": "Mask2FormerForUniversalSegmentation",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for preprocessing image inputs suitable for the model.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "4": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "5": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "6": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "8": {
+                "name": "port",
+                "description": "Port number for API deployment, set to a default for ease of use.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "9": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "10": {
+                "name": "username",
+                "description": "Username for API authentication, ensuring secure access.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "11": {
+                "name": "password",
+                "description": "Password for API security, protecting access.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            },
+            "12": {
+                "name": "subtask",
+                "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
+                "type": "string",
+                "default": "instance",
+                "possible": null
+            }
+        },
+        "api": {
+            "image": "Upload your image here for segmentation",
+            "output_type": "png"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for instance image segmentation.",
+                "type": "string",
+                "default": "Mask2FormerForUniversalSegmentation",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for preprocessing images.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "5": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "6": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "batch_size",
+                "description": "Determines the number of images processed simultaneously.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "9": {
+                "name": "subtask",
+                "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
+                "type": "string",
+                "default": "instance",
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "MaskFormerSemantic",
+        "inputs": [
+            {
+                "type": "image",
+                "name": "input"
+            }
+        ],
+        "description": "MaskFormerSemantic utilizes the innovative MaskFormer architecture combined with a Swin Transformer base, specifically optimized for the ADE dataset focusing on semantic segmentation. This model excels in parsing and understanding complex scenes by categorizing each pixel into a set of semantic categories, without differentiating between object instances. It's ideal for broad applications requiring detailed scene understanding, from urban planning and environmental monitoring to augmented reality and content creation, providing precise segmentation for enhanced analysis and decision-making.",
+        "model_name": "facebook/maskformer-swin-base-ade",
+        "apiClass": "MaskFormerForInstanceSegmentation",
+        "bulkMethod": "segment",
+        "endpoint": "/api/v1/segment_image",
+        "bulk_formats": ["jpeg", "png", "bmp", "tiff", "tif", "gif", "jpg"],
+        "examples": [
+            "Urban and rural land use segmentation for environmental studies",
+            "Interior space understanding for smart home applications",
+            "Augmented reality applications requiring real-time background and object separation",
+            "Automated content creation tools for media and entertainment",
+            "Geospatial analysis for agricultural and forestry management"
+        ],
+        "input_examples": [
+            "Detailed urban scenes highlighting diverse architectural elements",
+            "Natural landscapes for environmental impact studies",
+            "Interior designs for virtual furniture placement",
+            "Outdoor festivals for crowd and activity analysis",
+            "Agricultural fields for crop type classification"
+        ],
+        "usecases": [ "Smart home and AR", "Media and entertainment", "Agriculture and forestry"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for semantic image segmentation.",
+                "type": "string",
+                "default": "MaskFormerForInstanceSegmentation",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for preprocessing image inputs suitable for the model.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "4": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "5": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "6": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "8": {
+                "name": "port",
+                "description": "Port number for API deployment, set to a default for ease of use.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "9": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "10": {
+                "name": "username",
+                "description": "Username for API authentication, ensuring secure access.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "11": {
+                "name": "password",
+                "description": "Password for API security, protecting access.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            },
+            "12": {
+                "name": "subtask",
+                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        },
+        "api": {
+            "image": "Upload your image here for segmentation",
+            "output_type": "png"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for semantic image segmentation.",
+                "type": "string",
+                "default": "MaskFormerForInstanceSegmentation",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for preprocessing images.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "5": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "6": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "batch_size",
+                "description": "Determines the number of images processed simultaneously.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "9": {
+                "name": "subtask",
+                "description": "Clarifies the model's focus on semantic segmentation, providing a streamlined application process.",
+                "type": "string",
+                "default": "semantic",
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "MaskFormerPanoptic",
+        "inputs": [
+            {
+                "type": "image",
+                "name": "input"
+            }
+        ],
+        "description": "MaskFormerPanoptic, powered by the MaskFormer architecture with a Swin Transformer base, is optimized for panoptic segmentation on the COCO dataset. Panoptic segmentation combines the tasks of semantic segmentation (classifying each pixel into categories) and instance segmentation (identifying individual object instances), offering a comprehensive understanding of both the scene and the objects within. This model is particularly effective for complex scene analysis across various domains, including autonomous driving, urban planning, and augmented reality, where a detailed and holistic understanding of the visual scene is crucial.",
+        "model_name": "facebook/maskformer-swin-base-coco",
+        "apiClass": "MaskFormerForInstanceSegmentation",
+        "bulkMethod": "segment",
+        "endpoint": "/api/v1/segment_image",
+        "bulk_formats": ["jpeg", "png", "bmp", "tiff", "tif", "gif", "jpg"],
+        "examples": [
+            "Comprehensive scene analysis for autonomous vehicle navigation",
+            "Detailed urban and environmental planning using aerial and satellite imagery",
+            "Interactive experiences in augmented reality applications",
+            "Surveillance and monitoring for security and crowd management",
+            "Analysis and management of natural resources and wildlife habitats"
+        ],
+        "input_examples": [
+            "Urban streetscapes with pedestrians, vehicles, and infrastructure",
+            "Mixed-use landscapes for land cover classification",
+            "Retail environments for customer behavior analysis",
+            "Public events for security and operational planning",
+            "Natural scenes for conservation and research studies"
+        ],
+        "usecases": ["Urban and environmental planning", "Security and surveillance", "Conservation and research"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for panoptic image segmentation.",
+                "type": "string",
+                "default": "MaskFormerForInstanceSegmentation",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for preprocessing image inputs suitable for the model.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "4": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "5": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "6": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "8": {
+                "name": "port",
+                "description": "Port number for API deployment, set to a default for ease of use.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "9": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "10": {
+                "name": "username",
+                "description": "Username for API authentication, ensuring secure access.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "11": {
+                "name": "password",
+                "description": "Password for API security, protecting access.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            },
+            "12": {
+                "name": "subtask",
+                "description": "Specifies the specific segmentation task, such as panoptic segmentation, that the model is optimized for.",
+                "type": "string",
+                "default": "panoptic",
+                "possible": null
+            }
+        },
+        "api": {
+            "image": "Upload your image here for segmentation",
+            "output_type": "png"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for panoptic image segmentation.",
+                "type": "string",
+                "default": "MaskFormerForInstanceSegmentation",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for preprocessing images.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "5": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "6": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "batch_size",
+                "description": "Determines the number of images processed simultaneously.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "9": {
+                "name": "subtask",
+                "description": "Clarifies the model's focus on panoptic segmentation, providing a streamlined application process.",
+                "type": "string",
+                "default": "panoptic",
+                "possible": null
+            }
+        }
+    },    
+    {
+        "name": "MaskFormerInstance",
+        "inputs": [
+            {
+                "type": "image",
+                "name": "input"
+            }
+        ],
+        "description": "MaskFormerInstance employs the MaskFormer architecture with a Swin Transformer base, fine-tuned on the COCO dataset for instance segmentation. This model excels at identifying and segmenting individual object instances within an image, making it highly suitable for detailed scene analysis where the distinction between different objects is crucial. Its application is broad, ranging from autonomous driving and surveillance to retail and medical imaging, where precise object detection and segmentation can significantly enhance understanding and decision-making.",
+        "model_name": "facebook/maskformer-swin-base-coco",
+        "apiClass": "MaskFormerForInstanceSegmentation",
+        "bulkMethod": "segment",
+        "endpoint": "/api/v1/segment_image",
+        "bulk_formats": ["jpeg", "png", "bmp", "tiff", "tif", "gif", "jpg"],
+        "examples": [
+            "Object detection and tracking in video surveillance for security applications",
+            "Precise product identification and inventory management in retail environments",
+            "Segmentation of anatomical structures in medical images for diagnostic purposes",
+            "Detection and analysis of obstacles and road participants in autonomous vehicle systems",
+            "Quality inspection in manufacturing to identify defects or irregularities in products"
+        ],
+        "input_examples": [
+            "Surveillance footage with multiple individuals and objects of interest",
+            "Retail shelves stocked with various products for inventory checks",
+            "CT scans or MRI images with detailed anatomical features",
+            "Street views featuring vehicles, pedestrians, and signage for autonomous navigation",
+            "Assembly lines with components undergoing quality inspection"
+        ],
+        "usecases": ["Security and surveillance", "Retail and inventory management", "Manufacturing quality control"],
+        "apiDeploy": {
+            "0": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for instance image segmentation.",
+                "type": "string",
+                "default": "MaskFormerForInstanceSegmentation",
+                "possible": null
+            },
+            "1": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for preprocessing image inputs suitable for the model.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "2": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "4": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "5": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "6": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "8": {
+                "name": "port",
+                "description": "Port number for API deployment, set to a default for ease of use.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "9": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "10": {
+                "name": "username",
+                "description": "Username for API authentication, ensuring secure access.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "11": {
+                "name": "password",
+                "description": "Password for API security, protecting access.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            },
+            "12": {
+                "name": "subtask",
+                "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
+                "type": "string",
+                "default": "instance",
+                "possible": null
+            }
+        },
+        "api": {
+            "image": "Upload your image here for segmentation",
+            "output_type": "png"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status.",
+                "type": "string",
+                "default": "russi@geniusrise.ai",
+                "possible": null
+            },
+            "1": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for instance image segmentation.",
+                "type": "string",
+                "default": "MaskFormerForInstanceSegmentation",
+                "possible": null
+            },
+            "2": {
+                "name": "processor_class",
+                "description": "Determines the processor class for preprocessing images.",
+                "type": "string",
+                "default": "AutoImageProcessor",
+                "possible": null
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA should be used for model deployment.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "4": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices for computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "5": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance in megabytes.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "6": {
+                "name": "torchscript",
+                "description": "Determines TorchScript conversion for performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "compile",
+                "description": "Specifies model compilation for optimized performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "8": {
+                "name": "batch_size",
+                "description": "Determines the number of images processed simultaneously.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "9": {
+                "name": "subtask",
+                "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
+                "type": "string",
+                "default": "instance",
+                "possible": null
+            }
+        }
+    }    
+]
