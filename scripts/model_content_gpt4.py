@@ -249,8 +249,7 @@ models = [
     "facebook/mask2former-swin-small-cityscapes-panoptic", 
     "facebook/mask2former-swin-small-coco-instance", 
     "facebook/maskformer-swin-base-ade", 
-    "facebook/maskformer-swin-base-coco", 
-    "facebook/maskformer-swin-base-coco", 
+    "facebook/maskformer-swin-base-coco",
 ]
 
 

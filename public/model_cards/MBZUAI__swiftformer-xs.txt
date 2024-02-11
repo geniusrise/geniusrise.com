@@ -1,0 +1,50 @@
+# Model name
+
+SwiftFormer (swiftformer-xs)
+
+## Links
+
+- [Model Page](https://huggingface.co/MBZUAI/swiftformer-xs)
+- [GitHub Repository](https://github.com/MBZUAI/SwiftFormer)
+
+## Description
+
+The SwiftFormer model is a series of models based on a novel efficient additive attention mechanism introduced in the paper "SwiftFormer: Efficient Additive Attention for Transformer-based Real-time Mobile Vision Applications" by Abdelrahman Shaker, Muhammad Maaz, Hanoona Rasheed, Salman Khan, Ming-Hsuan Yang, Fahad Shahbaz Khan. This mechanism replaces the quadratic matrix multiplication operations in the self-attention computation with linear element-wise multiplications. The models achieve state-of-the-art performance in terms of both accuracy and mobile inference speed. Even the small variant of SwiftFormer achieves 78.5% top-1 ImageNet1K accuracy with only 0.8 ms latency on iPhone 14, making it more accurate and 2× faster compared to MobileViT-v2.
+
+## Usage example
+
+To use the SwiftFormer model with Python and the transformers library, you can follow these steps:
+
+```python
+import requests
+from PIL import Image
+from transformers import ViTImageProcessor, SwiftFormerForImageClassification
+
+# Load image
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+
+# Process image
+processor = ViTImageProcessor.from_pretrained('shehan97/swiftformer-xs')
+inputs = processor(images=image, return_tensors="pt")
+
+# Load SwiftFormer model
+new_model = SwiftFormerForImageClassification.from_pretrained('shehan97/swiftformer-xs')
+
+# Perform prediction
+output = new_model(inputs['pixel_values'], output_hidden_states=True)
+logits = output.logits
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", new_model.config.id2label[predicted_class_idx])
+```
+
+## Intended uses
+
+The SwiftFormer model can be used for various business use cases, including:
+
+1. Image classification for e-commerce platforms: The model can accurately classify product images, enabling better search functionality and personalized recommendations.
+2. Object recognition for autonomous vehicles: SwiftFormer can help autonomous vehicles detect and classify objects in real-time, improving safety and navigation.
+3. Visual quality control in manufacturing: By analyzing images of products during the manufacturing process, SwiftFormer can detect defects, ensuring higher product quality.
+
+Please note that these are just a few examples, and the SwiftFormer model has the potential to be used in other domains as well.
+

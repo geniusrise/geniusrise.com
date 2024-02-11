@@ -1,0 +1,41 @@
+# Model name
+LeViT
+
+## Links
+Hugging Face model page: [LeViT](https://huggingface.co/facebook/levit-128S)
+GitHub repository: [LeViT GitHub Repo](https://github.com/facebookresearch/LeViT)
+
+## Description
+LeViT-128S is a Vision Transformer model that has been pre-trained on the ImageNet-1k dataset at a resolution of 224x224. It was introduced in the paper "LeViT: a Vision Transformer in ConvNet's Clothing for Faster Inference" by Graham et al. This model does not have an official model card, so the model description is provided by the Hugging Face team.
+
+## Usage example
+To classify an image from the COCO 2017 dataset into one of the 1,000 ImageNet classes using the LeViT-128S model, you can use the following Python code:
+
+```python
+from transformers import LevitFeatureExtractor, LevitForImageClassificationWithTeacher
+from PIL import Image
+import requests
+
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+
+feature_extractor = LevitFeatureExtractor.from_pretrained('facebook/levit-128S')
+model = LevitForImageClassificationWithTeacher.from_pretrained('facebook/levit-128S')
+
+inputs = feature_extractor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+## Use Cases
+The LeViT-128S model can be used in various business applications, including:
+
+1. Image Classification: The model can classify images into one of the 1,000 predefined ImageNet classes, making it useful for tasks such as object recognition, product categorization, and content moderation.
+
+2. Transfer Learning: As a pre-trained vision model, LeViT-128S can be fine-tuned on specific image datasets to solve custom image classification problems in domains such as retail, healthcare, or manufacturing.
+
+3. Feature Extraction: The feature extraction capabilities of LeViT-128S allow developers to extract meaningful visual features from images. These features can be used for tasks such as image similarity search, image retrieval, or visual recommendation systems.
+
+Please note that the model's parameters and compatibility with other software libraries are not mentioned in the available information.

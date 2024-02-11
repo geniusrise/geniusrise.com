@@ -1,0 +1,44 @@
+# Model name
+
+RegNet
+
+## Links
+
+- [Model Page](https://huggingface.co/facebook/regnet-y-040)
+- [GitHub Repository](https://github.com/facebookresearch/pycls)
+
+## Description
+
+The RegNet model is trained on the ImageNet-1k dataset and is introduced in the paper "Designing Network Design Spaces." It is a Neural Architecture Search (NAS) model that utilizes a high-dimensional search space. The search space is iteratively reduced by applying constraints based on the best-performing models sampled by the current search space.
+
+## Usage example
+
+To use the RegNet model for image classification, you can refer to the following code example:
+
+```python
+from transformers import AutoFeatureExtractor, RegNetForImageClassification
+import torch
+from datasets import load_dataset
+
+# Load dataset
+dataset = load_dataset("huggingface/cats-image")
+image = dataset["test"]["image"][0]
+
+# Load feature extractor and model
+feature_extractor = AutoFeatureExtractor.from_pretrained("facebook/regnet-y-040")
+model = RegNetForImageClassification.from_pretrained("facebook/regnet-y-040")
+
+# Preprocess inputs
+inputs = feature_extractor(image, return_tensors="pt")
+
+# Inference
+with torch.no_grad():
+    logits = model(**inputs).logits
+
+# Get predicted label
+predicted_label = logits.argmax(-1).item()
+print(model.config.id2label[predicted_label])
+# Output: 'tabby, tabby cat'
+```
+
+For more code examples, please refer to the documentation.

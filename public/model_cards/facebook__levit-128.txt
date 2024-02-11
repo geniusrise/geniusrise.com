@@ -1,0 +1,38 @@
+# LeViT
+
+## Links:
+- [Model Page](https://huggingface.co/facebook/levit-128)
+- [GitHub Repo](https://github.com/facebookresearch/LeViT)
+
+## Description:
+LeViT-128 is a model pre-trained on the ImageNet-1k dataset at a resolution of 224x224. It is based on the paper "LeViT: a Vision Transformer in ConvNet's Clothing for Faster Inference" by Graham et al. This model is designed to provide faster inference on image classification tasks.
+
+LeViT-128 does not have an official model card, so this model card has been written by the Hugging Face team.
+
+## Usage example:
+To classify an image from the COCO 2017 dataset into one of the 1,000 ImageNet classes, you can use the following code:
+
+```python
+from transformers import LevitFeatureExtractor, LevitForImageClassificationWithTeacher
+from PIL import Image
+import requests
+
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+
+feature_extractor = LevitFeatureExtractor.from_pretrained('facebook/levit-128')
+model = LevitForImageClassificationWithTeacher.from_pretrained('facebook/levit-128')
+
+inputs = feature_extractor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+## Business Use Cases:
+- Image Classification: LeViT-128 can be used to classify images into 1,000 different classes, making it suitable for applications such as automatic image tagging or content moderation.
+- Object Recognition: With its ability to classify images, LeViT-128 can also be used for object recognition tasks, allowing systems to identify specific objects within images.
+- Visual Search: LeViT-128 can be used to power visual search engines, enabling users to search for products or similar images based on visual content.
+
+Note: The LeViT-128 model has a significant number of parameters, but the exact number is not specified.

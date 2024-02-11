@@ -1,0 +1,62 @@
+# Model name
+
+ResNet-50 v1.5
+
+## Links
+
+- [Model Page](https://huggingface.co/microsoft/resnet-50)
+- [GitHub Repo](https://github.com/huggingface/transformers)
+
+## Description
+
+ResNet-50 v1.5 is a deep Residual Network (ResNet) model that is pre-trained on the ImageNet-1k dataset at a resolution of 224x224. It is an improved version of the original ResNet model, introduced in the paper "Deep Residual Learning for Image Recognition" by He et al. 
+
+ResNet is a convolutional neural network that incorporates residual learning and skip connections, allowing for training of much deeper models. ResNet-50 v1.5 differs from the original model in the bottleneck blocks, with a stride of 2 in the 3x3 convolution instead of the 1x1 convolution. This variation results in a slightly higher accuracy (~0.5% top1) compared to v1, but with a small performance drawback (~5% imgs/sec) according to Nvidia.
+
+The Hugging Face team has written this model card since the team releasing ResNet did not provide one.
+
+## Usage example
+
+To use ResNet-50 v1.5 for image classification, you can follow this example using the transformers library in Python:
+
+```python
+from transformers import AutoImageProcessor, ResNetForImageClassification
+import torch
+from datasets import load_dataset
+
+dataset = load_dataset("huggingface/cats-image")
+image = dataset["test"]["image"][0]
+
+processor = AutoImageProcessor.from_pretrained("microsoft/resnet-50")
+model = ResNetForImageClassification.from_pretrained("microsoft/resnet-50")
+
+inputs = processor(image, return_tensors="pt")
+
+with torch.no_grad():
+    logits = model(**inputs).logits
+
+# Model predicts one of the 1000 ImageNet classes
+predicted_label = logits.argmax(-1).item()
+print(model.config.id2label[predicted_label])
+```
+
+For more code examples, please refer to the documentation.
+
+## Intended uses
+
+- Image Classification: The raw model can be used for classifying images into one of the 1,000 ImageNet classes.
+- Fine-tuned versions: Explore the model hub to find fine-tuned versions of ResNet-50 v1.5 on specific tasks that interest you.
+
+Please refer to the documentation for more information and further details on fine-tuning and other use cases.
+
+Please find the BibTeX entry for the original paper below:
+
+```BibTeX
+@inproceedings{he2016deep,
+  title={Deep residual learning for image recognition},
+  author={He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  booktitle={Proceedings of the IEEE conference on computer vision and pattern recognition},
+  pages={770--778},
+  year={2016}
+}
+```

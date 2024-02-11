@@ -1,0 +1,44 @@
+# Model name
+
+LeViT-256
+
+## Links
+
+- Model page: [LeViT-256](https://huggingface.co/facebook/levit-256)
+- GitHub repo: [LeViT](https://github.com/facebookresearch/LeViT)
+
+## Description
+
+LeViT-256 is a vision transformer model pre-trained on the ImageNet-1k dataset at a resolution of 224x224. It was introduced in the paper "LeViT: a Vision Transformer in ConvNet's Clothing for Faster Inference" by Graham et al. This model is trained to classify images into one of the 1,000 ImageNet classes.
+
+## Usage example
+
+To use this model for image classification, you can follow the code snippet below:
+
+```python
+from transformers import LevitFeatureExtractor, LevitForImageClassificationWithTeacher
+from PIL import Image
+import requests
+
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+
+feature_extractor = LevitFeatureExtractor.from_pretrained('facebook/levit-256')
+model = LevitForImageClassificationWithTeacher.from_pretrained('facebook/levit-256')
+
+inputs = feature_extractor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+Please note that the `LevitFeatureExtractor` is used to preprocess the image, and the `LevitForImageClassificationWithTeacher` model is used for classification. The model predicts one of the 1,000 ImageNet classes.
+
+## Business usecases
+
+- Image classification in e-commerce: LeViT-256 can be used to classify product images into relevant categories, allowing for better search results and personalized recommendations.
+- Content moderation: This model can assist in identifying inappropriate or sensitive content in images, helping to enforce community guidelines and ensure a safe online environment.
+- Quality control in manufacturing: LeViT-256 can be applied to visually inspect products during the manufacturing process, ensuring that they meet quality standards and detecting any defects.
+
+Note: Additional business use cases can be explored by leveraging the image classification capabilities of LeViT-256.

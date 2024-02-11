@@ -1,0 +1,40 @@
+# Model name
+
+Vision Transformer (small-sized model) trained using DINOv2
+
+## Links
+
+- Huggingface model page: [Vision Transformer (small-sized model) trained using DINOv2](https://huggingface.co/facebook/dinov2-small-imagenet1k-1-layer)
+- GitHub repo: [https://github.com/facebookresearch/dino](https://github.com/facebookresearch/dino)
+
+## Description
+
+The Vision Transformer (ViT) model is a transformer encoder model pretrained on a large collection of images using the DINOv2 method. It follows the DINOv2: Learning Robust Visual Features without Supervision approach proposed by Oquab et al. The model is designed to learn inner representations of images without supervision, which can be useful for downstream tasks. It is based on a BERT-like architecture and processes images as sequences of fixed-size patches. Absolute position embeddings are added to the sequence before passing it through the transformer encoder layers. It's important to note that this model does not include any fine-tuned heads.
+
+## Usage example
+
+To use this model, you can follow the example below using the `transformers` library in Python:
+
+```python
+from transformers import AutoImageProcessor, AutoModelForImageClassification
+from PIL import Image
+import requests
+
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+
+processor = AutoImageProcessor.from_pretrained('facebook/dinov2-small-imagenet1k-1-layer')
+model = AutoModelForImageClassification.from_pretrained('facebook/dinov2-small-imagenet1k-1-layer')
+
+inputs = processor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+## Intended uses & limitations
+
+This model can be used for classifying an image among the 1000 ImageNet labels. If you have a dataset of labeled images, you can train a standard classifier by adding a linear layer on top of the pretrained encoder. It is recommended to check the model hub for other fine-tuned versions of this model that may be suited for specific tasks.
+
+Please note that this executive summary is based on the available information and does not provide license information or disclaimers.

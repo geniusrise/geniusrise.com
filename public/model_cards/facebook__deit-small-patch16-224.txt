@@ -1,0 +1,66 @@
+# Model name
+
+Data-efficient Image Transformer (small-sized model)
+
+## Links
+
+- Model page: [facebook/deit-small-patch16-224](https://huggingface.co/facebook/deit-small-patch16-224)
+- Repository: [GitHub](https://github.com/facebookresearch/deit)
+
+## Description
+
+The Data-efficient Image Transformer (DeiT) is a vision transformer model that has been pre-trained and fine-tuned on the ImageNet-1k dataset with a resolution of 224x224 pixels. It is a more efficiently trained version of the Vision Transformer (ViT) model. The model treats images as sequences of fixed-size patches and uses a transformer encoder to learn an inner representation of the images. This representation can be used for downstream tasks such as image classification.
+
+## Usage example
+
+```python
+from transformers import AutoFeatureExtractor, ViTForImageClassification
+from PIL import Image
+import requests
+
+# Load and preprocess the image
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+feature_extractor = AutoFeatureExtractor.from_pretrained('facebook/deit-small-patch16-224')
+inputs = feature_extractor(images=image, return_tensors="pt")
+
+# Load the model and classify the image
+model = ViTForImageClassification.from_pretrained('facebook/deit-small-patch16-224')
+outputs = model(**inputs)
+logits = outputs.logits
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+Note that the DeiT model expects the data to be prepared using the DeiTFeatureExtractor. The feature extractor and model currently support PyTorch, with TensorFlow and JAX/FLAX support coming soon.
+
+## Intended uses & limitations
+
+The DeiT model can be used for image classification tasks. It can extract features from images that can be used for downstream tasks. Fine-tuned versions of the model can be found in the model hub for specific tasks of interest.
+
+## Training data
+
+The DeiT model was pre-trained on ImageNet-1k, which consists of 1 million images and 1,000 classes.
+
+## Evaluation results
+
+Here are the evaluation results for different versions of the DeiT model:
+
+| Model                | ImageNet top-1 accuracy | ImageNet top-5 accuracy | # params | URL                                                         |
+| -------------------- | ----------------------- | ----------------------- | -------- | ----------------------------------------------------------- |
+| DeiT-tiny            | 72.2                    | 91.1                    | 5M       | [Link](https://huggingface.co/facebook/deit-tiny-patch16-224) |
+| DeiT-small           | 79.9                    | 95.0                    | 22M      | [Link](https://huggingface.co/facebook/deit-small-patch16-224) |
+| DeiT-base            | 81.8                    | 95.6                    | 86M      | [Link](https://huggingface.co/facebook/deit-base-patch16-224) |
+| DeiT-tiny distilled  | 74.5                    | 91.9                    | 6M       | [Link](https://huggingface.co/facebook/deit-tiny-distilled-patch16-224) |
+| DeiT-small distilled | 81.2                    | 95.4                    | 22M      | [Link](https://huggingface.co/facebook/deit-small-distilled-patch16-224) |
+| DeiT-base distilled  | 83.4                    | 96.5                    | 87M      | [Link](https://huggingface.co/facebook/deit-base-distilled-patch16-224) |
+| DeiT-base 384        | 82.9                    | 96.2                    | 87M      | [Link](https://huggingface.co/facebook/deit-base-patch16-384) |
+| DeiT-base distilled 384 (1000 epochs)   | 85.2     | 97.2                    | 88M      | [Link](https://huggingface.co/facebook/deit-base-distilled-patch16-384) |
+
+For fine-tuning, higher resolution (384x384) can lead to better performance.
+
+## References
+
+- Touvron, H., Cord, M., Douze, M., Massa, F., Sablayrolles, A., & Jégou, H. (2021). Training data-efficient image transformers & distillation through attention. arXiv preprint [arXiv:2012.12877](https://arxiv.org/abs/2012.12877).
+- Wu, B., Xu, C., Dai, X., Wan, A., Zhang, P., Yan, Z., ... & Vajda, P. (2020). Visual Transformers: Token-based Image Representation and Processing for Computer Vision. arXiv preprint [arXiv:2006.03677](https://arxiv.org/abs/2006.03677).
+- Deng, J., Dong, W., Socher, R., Li, L. J., Li, K., & Fei-Fei, L. (2009). Imagenet: A large-scale hierarchical image database. IEEE conference on computer vision and pattern recognition.

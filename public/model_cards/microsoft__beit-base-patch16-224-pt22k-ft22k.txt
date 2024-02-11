@@ -1,0 +1,61 @@
+# Model name
+
+BEiT (base-sized model, fine-tuned on ImageNet-22k)
+
+## Links
+
+- Hugging Face Model Page: [microsoft/beit-base-patch16-224-pt22k-ft22k](https://huggingface.co/microsoft/beit-base-patch16-224-pt22k-ft22k)
+- GitHub Repo: [N/A]
+
+## Description
+
+The BEiT (BERT Pre-Training of Image Transformers) model is a Vision Transformer (ViT) that has been pre-trained in a self-supervised fashion on the ImageNet-21k dataset. It has also been fine-tuned on the same dataset. The model is based on the paper "BEIT: BERT Pre-Training of Image Transformers" by Hangbo Bao, Li Dong, and Furu Wei. 
+
+The BEiT model is pre-trained to predict visual tokens from the encoder of OpenAI's DALL-E's VQ-VAE, based on masked patches. It uses a resolution of 224x224 pixels and employs relative position embeddings (similar to T5) instead of absolute position embeddings. The classification of images is performed by mean-pooling the final hidden states of the patches.
+
+By using the BEiT model, developers can train standard classifiers or extract features useful for downstream tasks from a dataset of labeled images.
+
+## Usage example
+
+To classify an image from the COCO 2017 dataset into one of the 1,000 ImageNet classes using the 'microsoft/beit-base-patch16-224-pt22k-ft22k' model, you can use the following code:
+
+```python
+from transformers import BeitImageProcessor, BeitForImageClassification
+from PIL import Image
+import requests
+
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+
+processor = BeitImageProcessor.from_pretrained('microsoft/beit-base-patch16-224-pt22k-ft22k')
+model = BeitForImageClassification.from_pretrained('microsoft/beit-base-patch16-224-pt22k-ft22k')
+
+inputs = processor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+Note that both the feature extractor and model support PyTorch.
+
+## Intended uses & limitations
+
+The BEiT model can be used for image classification tasks. Developers can explore the model hub for fine-tuned versions on specific tasks of interest.
+
+## Training data
+
+The BEiT model was pre-trained on the ImageNet-21k dataset, which consists of 14 million images and 21,841 classes. It was also fine-tuned on the same dataset.
+
+## Evaluation results
+
+For evaluation results on several image classification benchmarks, please refer to tables 1 and 2 in the original paper. Keep in mind that fine-tuning the model with a higher resolution and increasing the model size can lead to better performance.
+
+## BibTeX entry and citation info
+
+**Title:** BEiT: BERT Pre-Training of Image Transformers
+**Authors:** Hangbo Bao, Li Dong, Furu Wei
+**Year:** 2021
+**Journal:** CoRR
+**Volume:** abs/2106.08254
+**URL:** [https://arxiv.org/abs/2106.08254](https://arxiv.org/abs/2106.08254)

@@ -1,0 +1,38 @@
+# Model name
+
+LeViT
+
+## Links
+
+Hugging Face Model Page: [LeViT-384](https://huggingface.co/facebook/levit-384)
+
+## Description
+
+LeViT-384 is a vision transformer model that has been pre-trained on the ImageNet-1k dataset at a resolution of 224x224. It was introduced in the paper "LeViT: a Vision Transformer in ConvNet's Clothing for Faster Inference" by Graham et al. This model is designed to perform faster inference in convolutional neural network (ConvNet) scenarios. The model was first released in the Hugging Face repository. Note that the team behind LeViT did not write a model card for this model, so the information provided here has been created by the Hugging Face team.
+
+The model can be used for various image classification tasks.
+
+## Usage example
+
+To use this model for classifying an image from the COCO 2017 dataset into one of the 1,000 ImageNet classes, you can follow the example below:
+
+```python
+from transformers import LevitFeatureExtractor, LevitForImageClassificationWithTeacher
+from PIL import Image
+import requests
+
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+
+feature_extractor = LevitFeatureExtractor.from_pretrained('facebook/levit-384')
+model = LevitForImageClassificationWithTeacher.from_pretrained('facebook/levit-384')
+
+inputs = feature_extractor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+# model predicts one of the 1000 ImageNet classes
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+Please note that the example code uses the `transformers` library in Python to work with the LeViT model. The code demonstrates how to load the pre-trained LeViT model and use it to classify an input image.

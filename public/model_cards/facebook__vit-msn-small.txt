@@ -1,0 +1,70 @@
+# Model name
+
+Vision Transformer (small-sized model) pre-trained with MSN
+
+## Links
+
+[Hugging Face Model Page](https://huggingface.co/facebook/vit-msn-small)
+
+## Description
+
+The Vision Transformer (ViT) model pre-trained with the MSN (Masked Siamese Networks) method is a transformer encoder model that accepts images as a sequence of fixed-size patches. The model has been pre-trained on a large dataset using the MSN method, which involves matching the prototypes of masked patches with unmasked patches. This approach has shown excellent performance in low-shot and extreme low-shot regimes. By pre-training the model, it learns an inner representation of images that can be used to extract useful features for downstream tasks, such as image classification. This model is particularly beneficial when you have only a few labeled samples in your training set.
+
+## Usage example
+
+To use this model for image classification or feature extraction, you can follow the code snippet below:
+
+```python
+from transformers import AutoFeatureExtractor, ViTMSNModel
+import torch
+from PIL import Image
+import requests
+
+url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+
+feature_extractor = AutoFeatureExtractor.from_pretrained("facebook/vit-msn-small")
+model = ViTMSNModel.from_pretrained("facebook/vit-msn-small")
+inputs = feature_extractor(images=image, return_tensors="pt")
+with torch.no_grad():
+    outputs = model(**inputs)
+last_hidden_states = outputs.last_hidden_state
+```
+
+For fine-tuning on image classification, you can use the `ViTMSNForImageClassification` class:
+
+```python
+from transformers import AutoFeatureExtractor, ViTMSNForImageClassification
+import torch
+from PIL import Image
+import requests
+
+url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+
+feature_extractor = AutoFeatureExtractor.from_pretrained("facebook/vit-msn-small")
+model = ViTMSNForImageClassification.from_pretrained("facebook/vit-msn-small")
+
+# ...
+```
+
+## Intended uses & limitations
+
+The Vision Transformer (small-sized model) pre-trained with MSN can be used for downstream tasks such as image classification, where having a few labeled samples is a common scenario. This model provides a strong backbone for extracting features from images, which can be used for various applications in the business domain. Some potential use cases include:
+
+- Product categorization: Classify products based on their images for inventory management and recommendation systems.
+- Visual search: Use the model to extract features from images and enable search functionality based on visual similarity.
+- Object recognition: Detect and classify objects in images for tasks like quality control in manufacturing or object detection in surveillance systems.
+
+Please note that this model's performance may vary depending on the specific task and dataset. It is recommended to experiment and fine-tune the model according to the requirements of your application.
+
+## Citation
+
+```
+@article{assran2022masked,
+  title={Masked Siamese Networks for Label-Efficient Learning}, 
+  author={Assran, Mahmoud and Caron, Mathilde and Misra, Ishan and Bojanowski, Piotr and Bordes, Florian and Vincent, Pascal and Joulin, Armand and Rabbat, Michael and Ballas, Nicolas},
+  journal={arXiv preprint arXiv:2204.07141},
+  year={2022}
+}
+```

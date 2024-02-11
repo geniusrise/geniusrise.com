@@ -1,0 +1,39 @@
+# Model name
+Mask2Former
+
+## Links
+- [Model Page](https://huggingface.co/facebook/mask2former-swin-small-coco-instance)
+- [GitHub Repo](https://github.com/huggingface/transformers/tree/master/examples/pytorch/image-segmentation)
+
+## Description
+Mask2Former is a model trained on COCO instance segmentation using the small-sized version of the Swin backbone. It addresses instance, semantic, and panoptic segmentation by predicting a set of masks and corresponding labels. The model outperforms the previous state-of-the-art model, MaskFormer, in terms of performance and efficiency. It achieves this by utilizing a more advanced multi-scale deformable attention Transformer for the pixel decoder, adopting a Transformer decoder with masked attention, and improving training efficiency by calculating the loss on subsampled points instead of the entire masks.
+
+## Usage example
+```python
+import requests
+import torch
+from PIL import Image
+from transformers import AutoImageProcessor, Mask2FormerForUniversalSegmentation
+
+# Load Mask2Former fine-tuned on COCO instance segmentation
+processor = AutoImageProcessor.from_pretrained("facebook/mask2former-swin-small-coco-instance")
+model = Mask2FormerForUniversalSegmentation.from_pretrained("facebook/mask2former-swin-small-coco-instance")
+
+url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+inputs = processor(images=image, return_tensors="pt")
+
+with torch.no_grad():
+    outputs = model(**inputs)
+
+# Model outputs class_queries_logits of shape `(batch_size, num_queries)`
+# and masks_queries_logits of shape `(batch_size, num_queries, height, width)`
+class_queries_logits = outputs.class_queries_logits
+masks_queries_logits = outputs.masks_queries_logits
+
+# Postprocess the outputs using the processor
+result = processor.post_process_instance_segmentation(outputs, target_sizes=[image.size[::-1]])[0]
+predicted_instance_map = result["segmentation"]
+```
+
+Please refer to the [documentation](https://huggingface.co/facebook/mask2former-swin-small-coco-instance) for more code examples.

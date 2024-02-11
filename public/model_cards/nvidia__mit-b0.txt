@@ -1,0 +1,62 @@
+# Model name
+SegFormer (b0-sized) encoder pre-trained-only
+
+## Links
+- [Model Page](https://huggingface.co/nvidia/mit-b0)
+- [GitHub Repo](https://github.com/NVIDIA/SegFormer)
+
+## Description
+SegFormer is a hierarchical Transformer encoder that has been fine-tuned on the Imagenet-1k dataset. It is designed for semantic segmentation tasks and achieves excellent results on benchmarks such as ADE20K and Cityscapes. The model consists of a pre-trained hierarchical Transformer encoder, which can be used for fine-tuning purposes. 
+
+## Usage example
+```python
+from transformers import SegformerImageProcessor, SegformerForImageClassification
+from PIL import Image
+import requests
+
+# Load and preprocess the image
+url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+image_processor = SegformerImageProcessor.from_pretrained("nvidia/mit-b0")
+inputs = image_processor(images=image, return_tensors="pt")
+
+# Load the pre-trained SegFormer model
+model = SegformerForImageClassification.from_pretrained("nvidia/mit-b0")
+
+# Make predictions
+outputs = model(**inputs)
+logits = outputs.logits
+predicted_class_idx = logits.argmax(-1).item()
+predicted_class = model.config.id2label[predicted_class_idx]
+print("Predicted class:", predicted_class)
+```
+
+For more code examples, please refer to the documentation.
+
+## Intended uses & limitations
+The SegFormer model is primarily intended for fine-tuning in semantic segmentation tasks. You can explore the model hub to find fine-tuned versions of the model for specific tasks that might interest you.
+
+Note: The Hugging Face team has written this model card as the original developers of SegFormer did not provide one.
+
+*BibTeX entry and citation info:*
+```
+@article{DBLP:journals/corr/abs-2105-15203,
+  author    = {Enze Xie and
+               Wenhai Wang and
+               Zhiding Yu and
+               Anima Anandkumar and
+               Jose M. Alvarez and
+               Ping Luo},
+  title     = {SegFormer: Simple and Efficient Design for Semantic Segmentation with
+               Transformers},
+  journal   = {CoRR},
+  volume    = {abs/2105.15203},
+  year      = {2021},
+  url       = {https://arxiv.org/abs/2105.15203},
+  eprinttype = {arXiv},
+  eprint    = {2105.15203},
+  timestamp = {Wed, 02 Jun 2021 11:46:42 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2105-15203.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+```

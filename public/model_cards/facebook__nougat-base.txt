@@ -1,0 +1,34 @@
+# Model name
+
+Nougat Base-Sized Model
+
+## Links
+
+- [Model Page](https://huggingface.co/facebook/nougat-base)
+- [GitHub Repo](https://github.com/huggingface/nougat-base)
+
+## Description
+
+The Nougat Base-Sized Model is a neural model trained on PDF-to-markdown conversion. It is based on the Nougat: Neural Optical Understanding for Academic Documents paper by Blecher et al. and was first released in the Hugging Face repository. The model utilizes a vision encoder based on the Swin Transformer architecture and a text decoder based on the mBART model. Nougat is designed to autoregressively predict the markdown format from the pixels of a PDF image.
+
+## Usage example
+
+```python
+from transformers import NougatForImageToMarkdown
+
+nougat = NougatForImageToMarkdown.from_pretrained("facebook/nougat-base")
+# Pass the PDF image to the model for conversion to markdown
+markdown = nougat.predict(image)
+```
+
+Highlighted datasets and other details such as the number of parameters are not provided in the available information.
+
+Nougat Base-Sized Model can be used for the following business use cases:
+
+1. Document Processing: The model can be used to automatically convert PDF documents into a structured markdown format, making it easier to extract relevant information and enable further analysis.
+
+2. Academic Research: Researchers can utilize Nougat to quickly convert academic papers in PDF format into markdown, facilitating easier collaboration, sharing, and integration with other tools for data analysis.
+
+3. Content Generation: Content creators can leverage the model to convert scanned or handwritten documents, such as lecture notes or brainstorming ideas, into digital markdown format, enabling easy editing, organization, and publishing.
+
+Please note that this executive summary does not include license information, disclaimers, or compatibility with specific software. For more detailed information and instructions on using the model, please refer to the official documentation.

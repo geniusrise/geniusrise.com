@@ -1,0 +1,47 @@
+# Model name
+
+PoolFormer (S12 model)
+
+## Links
+
+- [Huggingface Model Page](https://huggingface.co/sail/poolformer_s12)
+- [GitHub Repository](https://github.com/sailab-code/PoolFormer)
+
+## Description
+
+PoolFormer is a model that replaces the attention token mixer in transformers with an extremely simple operator called pooling. The model is based on the concept of MetaFormer, which abstracts the general architecture of transformers instead of focusing on the specific token mixer module. PoolFormer achieves competitive performance on multiple computer vision tasks and outperforms other models with fewer parameters and computational costs. It has been trained on the ImageNet-1k dataset, which consists of 1 million images and 1,000 classes.
+
+## Usage example
+
+```python
+from transformers import PoolFormerFeatureExtractor, PoolFormerForImageClassification
+from PIL import Image
+import requests
+
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+
+feature_extractor = PoolFormerFeatureExtractor.from_pretrained('sail/poolformer_s12')
+model = PoolFormerForImageClassification.from_pretrained('sail/poolformer_s12')
+
+inputs = feature_extractor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+predicted_class_idx = logits.argmax(-1).item()
+
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+Currently, both the feature extractor and model support PyTorch.
+
+## Intended uses
+
+PoolFormer can be used for the following business use cases:
+
+1. Image Classification: The model can classify images into one of the 1,000 ImageNet classes.
+2. Object Recognition: PoolFormer can identify objects in images, enabling applications in object detection and tracking.
+3. Visual Search: The model can be used to build visual search engines that can find similar images based on their content.
+
+Please refer to the [Huggingface Model Page](https://huggingface.co/sail/poolformer_s12) for more information on fine-tuned versions of PoolFormer for specific tasks.
+
+Please note that the PoolFormer model is not compatible with VLLM or other software mentioned.

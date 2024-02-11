@@ -1,0 +1,54 @@
+# Model name
+
+Google Vision Transformer - Base-sized model
+
+## Links
+
+- [Model Page](https://huggingface.co/google/vit-base-patch16-224)
+- [GitHub Repo](https://github.com/google-research/vision_transformer)
+
+## Description
+
+The Google Vision Transformer (ViT) is a transformer encoder model pretrained on ImageNet-21k (14 million images, 21,843 classes) at a resolution of 224x224 pixels, and fine-tuned on ImageNet 2012 (1 million images, 1,000 classes) at the same resolution. It is a BERT-like model that learns an inner representation of images, which can be used for downstream tasks like image classification. The model treats images as sequences of fixed-size patches, with an added [CLS] token for classification. Absolute position embeddings are also added before feeding the sequence to the Transformer encoder.
+
+## Usage example
+
+```python
+from transformers import ViTImageProcessor, ViTForImageClassification
+from PIL import Image
+import requests
+
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+
+processor = ViTImageProcessor.from_pretrained('google/vit-base-patch16-224')
+model = ViTForImageClassification.from_pretrained('google/vit-base-patch16-224')
+
+inputs = processor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+For more code examples, refer to the documentation.
+
+## Intended uses & limitations
+
+The Google Vision Transformer can be used for image classification tasks. Fine-tuned versions of the model can be found on the model hub for specific tasks of interest.
+
+## Training data
+
+The ViT model was pretrained on ImageNet-21k, a dataset with 14 million images and 21k classes. It was then fine-tuned on ImageNet, a dataset with 1 million images and 1k classes.
+
+## Training procedure
+
+The model was trained on TPUv3 hardware with a batch size of 4096 and learning rate warmup of 10k steps. Gradient clipping at a global norm of 1 was applied during training. Training resolution was set to 224.
+
+## Preprocessing
+
+During training and validation, images are resized/rescaled to a resolution of 224x224 and normalized across the RGB channels with a mean of (0.5, 0.5, 0.5) and standard deviation of (0.5, 0.5, 0.5).
+
+## Evaluation results
+
+For evaluation results, refer to tables 2 and 5 of the original paper. Note that fine-tuning with a higher resolution (384x384) produces better performance.

@@ -1,0 +1,52 @@
+# Model name
+Pyramid Vision Transformer (PVT) (tiny-sized model)
+
+## Links
+- [Model Page](https://huggingface.co/Zetatech/pvt-tiny-224)
+- [GitHub Repo](https://github.com/rinatko/PVT) 
+
+## Description
+The Pyramid Vision Transformer (PVT) is a transformer encoder model pretrained on the ImageNet-1k dataset, which consists of 1 million images and 1,000 classes, at a resolution of 224x224. PVT utilizes a progressive shrinking pyramid to reduce computations of large feature maps and adds absolute position embeddings before feeding the sequence to the layers of the Transformer encoder. By pre-training the model, it learns a representation of images that can be used for downstream tasks such as image classification.
+
+## Usage example
+Here is an example of how to use this model to classify an image from the COCO 2017 dataset into one of the 1,000 ImageNet classes using the transformers library in Python:
+
+```python
+from transformers import PvtImageProcessor, PvtForImageClassification
+from PIL import Image
+import requests
+
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+
+processor = PvtImageProcessor.from_pretrained('Zetatech/pvt-tiny-224')
+model = PvtForImageClassification.from_pretrained('Zetatech/pvt-tiny-224')
+
+inputs = processor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+For more code examples, refer to the documentation.
+
+## Intended uses & limitations
+The PVT model can be used for image classification tasks. Fine-tuned versions of the model for specific tasks can be found on the model hub. 
+
+## Training data
+The PVT model was pretrained on the ImageNet-1k dataset, which consists of 1 million images and 1k classes.
+
+## Training procedure
+The exact details of the training procedure, including preprocessing, can be found in the documentation and the associated paper.
+
+## BibTeX entry and citation info
+```
+@inproceedings{wang2021pyramid,
+  title={Pyramid vision transformer: A versatile backbone for dense prediction without convolutions},
+  author={Wang, Wenhai and Xie, Enze and Li, Xiang and Fan, Deng-Ping and Song, Kaitao and Liang, Ding and Lu, Tong and Luo, Ping and Shao, Ling},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={568--578},
+  year={2021}
+}
+```

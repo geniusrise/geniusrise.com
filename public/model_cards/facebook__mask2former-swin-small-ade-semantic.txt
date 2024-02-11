@@ -1,0 +1,54 @@
+# Model name
+
+Mask2Former - Swin Small ADE Semantic
+
+## Links
+
+- Hugging Face Model Page: [Mask2Former - Swin Small ADE Semantic](https://huggingface.co/facebook/mask2former-swin-small-ade-semantic)
+- GitHub Repository: [Mask2Former](https://github.com/huggingface/transformers/tree/master/examples/research_projects/mask2former)
+
+## Description
+
+Mask2Former is a model trained on the ADE20k semantic segmentation dataset. It addresses instance, semantic, and panoptic segmentation by predicting a set of masks and corresponding labels. The model outperforms the previous state-of-the-art model, MaskFormer, in terms of performance and efficiency. It achieves this by using a multi-scale deformable attention Transformer in the pixel decoder, adopting a Transformer decoder with masked attention, and improving training efficiency by calculating loss on subsampled points.
+
+## Usage example
+
+Here is an example of how to use the Mask2Former model using the Transformers library in Python:
+
+```python
+import requests
+import torch
+from PIL import Image
+from transformers import AutoImageProcessor, Mask2FormerForUniversalSegmentation
+
+# Load Mask2Former fine-tuned on ADE20k semantic segmentation
+processor = AutoImageProcessor.from_pretrained("facebook/mask2former-swin-small-ade-semantic")
+model = Mask2FormerForUniversalSegmentation.from_pretrained("facebook/mask2former-swin-small-ade-semantic")
+
+url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+inputs = processor(images=image, return_tensors="pt")
+
+with torch.no_grad():
+    outputs = model(**inputs)
+
+# The model predicts class_queries_logits of shape `(batch_size, num_queries)`
+# and masks_queries_logits of shape `(batch_size, num_queries, height, width)`
+class_queries_logits = outputs.class_queries_logits
+masks_queries_logits = outputs.masks_queries_logits
+
+# Post-process the predictions using the processor
+predicted_semantic_map = processor.post_process_semantic_segmentation(outputs, target_sizes=[image.size[::-1]])[0]
+```
+
+For more code examples, refer to the documentation.
+
+## Intended uses
+
+- Panoptic segmentation
+
+## Limitations
+
+- Additional fine-tuned versions for specific tasks are available in the model hub.
+
+Note: This model card has been written by the Hugging Face team as the original team did not provide one.

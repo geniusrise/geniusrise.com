@@ -205,8 +205,8 @@ models = [
     # "openai/whisper-large-v3",
     # "openai/whisper-large-v2",
     # "openai/whisper-base.en",
-    "openai/whisper-medium.en",
-    "openai/whisper-tiny.en",
+    # "openai/whisper-medium.en",
+    # "openai/whisper-tiny.en",
     "microsoft/resnet-50",
     "nateraw/vit-age-classifier",
     "microsoft/beit-base-patch16-224-pt22k-ft22k",
@@ -249,8 +249,7 @@ models = [
     "facebook/mask2former-swin-small-cityscapes-panoptic", 
     "facebook/mask2former-swin-small-coco-instance", 
     "facebook/maskformer-swin-base-ade", 
-    "facebook/maskformer-swin-base-coco", 
-    "facebook/maskformer-swin-base-coco", 
+    "facebook/maskformer-swin-base-coco",  
 ]
 
 

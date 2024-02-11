@@ -1,0 +1,37 @@
+# Model name
+
+EfficientNet (b7 model)
+
+## Links
+
+- [Huggingface model page](https://huggingface.co/google/efficientnet-b7)
+- [GitHub repo](https://github.com/huggingface/transformers)
+
+## Description
+
+EfficientNet is a mobile-friendly pure convolutional model (ConvNet) that was introduced in the paper "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks" by Mingxing Tan and Quoc V. Le. The b7 model is trained on the ImageNet-1k dataset at a resolution of 600x600. It follows a new scaling method that uniformly scales all dimensions of depth, width, and resolution using a compound coefficient.
+
+## Usage example
+
+```python
+import torch
+from datasets import load_dataset
+from transformers import EfficientNetImageProcessor, EfficientNetForImageClassification
+
+dataset = load_dataset("huggingface/cats-image")
+image = dataset["test"]["image"][0]
+
+preprocessor = EfficientNetImageProcessor.from_pretrained("google/efficientnet-b7")
+model = EfficientNetForImageClassification.from_pretrained("google/efficientnet-b7")
+
+inputs = preprocessor(image, return_tensors="pt")
+
+with torch.no_grad():
+    logits = model(**inputs).logits
+
+# Model predicts one of the 1,000 ImageNet classes
+predicted_label = logits.argmax(-1).item()
+print(model.config.id2label[predicted_label])
+```
+
+For more code examples, please refer to the [documentation](https://huggingface.co/docs/transformers/).

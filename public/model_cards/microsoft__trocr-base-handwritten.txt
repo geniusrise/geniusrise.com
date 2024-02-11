@@ -1,0 +1,44 @@
+# Model name
+
+TrOCR (base-sized model, fine-tuned on IAM)
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/microsoft/trocr-base-handwritten)
+- [GitHub Repository](https://github.com/huggingface/transformers)
+
+## Description
+
+The TrOCR model is an encoder-decoder model that was introduced in the paper "TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models" by Li et al. It consists of an image Transformer as the encoder and a text Transformer as the decoder. The model is fine-tuned on the IAM dataset. The image encoder is initialized from the weights of BEiT, while the text decoder is initialized from the weights of RoBERTa. The model can be used for optical character recognition (OCR) on single text-line images.
+
+## Usage example
+
+Here is an example of how to use this model in Python with the transformers library:
+
+```python
+from transformers import TrOCRProcessor, VisionEncoderDecoderModel
+from PIL import Image
+import requests
+
+# Load image from the IAM database
+url = 'https://fki.tic.heia-fr.ch/static/img/a01-122-02-00.jpg'
+image = Image.open(requests.get(url, stream=True).raw).convert("RGB")
+
+processor = TrOCRProcessor.from_pretrained('microsoft/trocr-base-handwritten')
+model = VisionEncoderDecoderModel.from_pretrained('microsoft/trocr-base-handwritten')
+pixel_values = processor(images=image, return_tensors="pt").pixel_values
+
+generated_ids = model.generate(pixel_values)
+generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)[0]
+```
+
+Please refer to the [Hugging Face Model Page](https://huggingface.co/microsoft/trocr-base-handwritten) for more details.
+
+## Intended uses & limitations
+
+The TrOCR model can be used for optical character recognition (OCR) on single text-line images. It can be used for tasks such as digitizing handwritten documents, extracting text from images, and automating data entry processes. It is important to note that the model has been fine-tuned on the IAM dataset and may have limitations when applied to different datasets or tasks.
+
+## Bibliographic Information
+
+Li, M., Lv, T., Cui, L., Lu, Y., Florencio, D., Zhang, C., Li, Z., & Wei, F. (2021). TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models. arXiv preprint arXiv:2109.10282.
+

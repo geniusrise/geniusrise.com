@@ -1,0 +1,42 @@
+# Model name
+Data-efficient Image Transformer (DeiT) - Tiny-sized model
+
+## Links
+- [Hugging Face Model Page](https://huggingface.co/facebook/deit-tiny-patch16-224)
+- [GitHub Repo](https://github.com/facebookresearch/deit)
+
+## Description
+The Data-efficient Image Transformer (DeiT) model is a more efficiently trained Vision Transformer (ViT). It is pre-trained and fine-tuned on the ImageNet-1k dataset, which consists of 1 million images and 1,000 classes, at a resolution of 224x224 pixels. The model learns an inner representation of images that can be used for downstream tasks such as image classification. The images are presented to the model as a sequence of fixed-size patches and are linearly embedded. Absolute position embeddings are also added before feeding the sequence to the layers of the Transformer encoder.
+
+## Usage example
+Here is an example of how to use this model to classify an image into one of the 1,000 ImageNet classes using the transformers library in Python:
+```python
+from transformers import AutoFeatureExtractor, ViTForImageClassification
+from PIL import Image
+import requests
+
+# Load and preprocess the image
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+
+# Load the feature extractor and model
+feature_extractor = AutoFeatureExtractor.from_pretrained('facebook/deit-tiny-patch16-224')
+model = ViTForImageClassification.from_pretrained('facebook/deit-tiny-patch16-224')
+
+# Prepare the inputs and make predictions
+inputs = feature_extractor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+
+# Get the predicted class
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+## Intended uses & limitations
+The raw model can be used for image classification tasks. It can also be fine-tuned on specific tasks of interest. Some business use cases for this model include:
+1. Image classification for e-commerce platforms: Classify product images into different categories for improved search and recommendation systems.
+2. Content moderation: Identify and filter out inappropriate or potentially harmful images from user-generated content.
+3. Medical image analysis: Classify medical images to assist in diagnosis and treatment recommendation.
+
+Note: The feature extractor and model currently support PyTorch, and support for TensorFlow and JAX/FLAX is coming soon.
