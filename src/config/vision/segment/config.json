@@ -47,75 +47,115 @@
                 "name": "use_cuda",
                 "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "3": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices (GPUs) for distributed computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "4": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "5": {
-                "name": "torchscript",
-                "description": "Determines if the model should be converted to TorchScript for enhanced performance and deployment flexibility.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
-                "name": "compile",
-                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "7": {
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "8": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "9": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "10": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "12": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "13": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "14": {
                 "name": "endpoint",
                 "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
                 "type": "string",
                 "default": "*",
                 "possible": null
             },
-            "8": {
+            "15": {
                 "name": "port",
                 "description": "Port number for API deployment. Default set to 3000.",
                 "type": "integer",
                 "default": 3000,
                 "possible": null
             },
-            "9": {
+            "16": {
                 "name": "cors_domain",
                 "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
                 "type": "string",
                 "default": "http://localhost:3000",
                 "possible": null
             },
-            "10": {
+            "17": {
                 "name": "username",
                 "description": "Username for API authentication, enhancing security.",
                 "type": "string",
                 "default": "user",
                 "possible": null
             },
-            "11": {
+            "18": {
                 "name": "password",
                 "description": "Password for API security.",
                 "type": "string",
                 "default": "password",
                 "possible": null
             },
-            "12": {
+            "19": {
                 "name": "subtask",
-                "description": "Specifies the segmentation task type to be performed by the model, allowing for flexibility across different segmentation needs.",
+                "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -149,49 +189,82 @@
             },
             "3": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "4": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "5": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "6": {
-                "name": "torchscript",
-                "description": "Determines TorchScript conversion for performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
-                "name": "compile",
-                "description": "Specifies model compilation for optimized performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "8": {
-                "name": "batch_size",
-                "description": "Determines the number of images processed simultaneously, optimizing throughput and efficiency.",
-                "type": "integer",
-                "default": 8,
-                "possible": null
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
             },
             "9": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "10": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "12": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "13": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "14": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "15": {
                 "name": "subtask",
-                "description": "Specifies the segmentation task type to be performed by the model.",
+                "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -244,77 +317,117 @@
             },
             "2": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "3": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "4": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance for the model in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "5": {
-                "name": "torchscript",
-                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
-                "name": "compile",
-                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "7": {
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "8": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "9": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "10": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "12": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "13": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "14": {
                 "name": "endpoint",
-                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API.",
+                "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
                 "type": "string",
                 "default": "*",
                 "possible": null
             },
-            "8": {
+            "15": {
                 "name": "port",
-                "description": "Port number for API deployment, set to a default for ease of use.",
+                "description": "Port number for API deployment. Default set to 3000.",
                 "type": "integer",
                 "default": 3000,
                 "possible": null
             },
-            "9": {
+            "16": {
                 "name": "cors_domain",
-                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
                 "type": "string",
                 "default": "http://localhost:3000",
                 "possible": null
             },
-            "10": {
+            "17": {
                 "name": "username",
-                "description": "Username for API authentication, ensuring secure access.",
+                "description": "Username for API authentication, enhancing security.",
                 "type": "string",
                 "default": "user",
                 "possible": null
             },
-            "11": {
+            "18": {
                 "name": "password",
-                "description": "Password for API security, protecting access.",
+                "description": "Password for API security.",
                 "type": "string",
                 "default": "password",
                 "possible": null
             },
-            "12": {
+            "19": {
                 "name": "subtask",
-                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -348,49 +461,82 @@
             },
             "3": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "4": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices for computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "5": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "6": {
-                "name": "torchscript",
-                "description": "Determines TorchScript conversion for performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
-                "name": "compile",
-                "description": "Specifies model compilation for optimized performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "8": {
-                "name": "batch_size",
-                "description": "Determines the number of images processed simultaneously.",
-                "type": "integer",
-                "default": 8,
-                "possible": null
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
             },
             "9": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "10": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "12": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "13": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "14": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "15": {
                 "name": "subtask",
-                "description": "Specifies the segmentation task type to be performed by the model.",
+                "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -443,77 +589,117 @@
             },
             "2": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "3": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "4": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance for the model in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "5": {
-                "name": "torchscript",
-                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
-                "name": "compile",
-                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "7": {
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "8": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "9": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "10": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "12": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "13": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "14": {
                 "name": "endpoint",
-                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API.",
+                "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
                 "type": "string",
                 "default": "*",
                 "possible": null
             },
-            "8": {
+            "15": {
                 "name": "port",
-                "description": "Port number for API deployment, set to a default for ease of use.",
+                "description": "Port number for API deployment. Default set to 3000.",
                 "type": "integer",
                 "default": 3000,
                 "possible": null
             },
-            "9": {
+            "16": {
                 "name": "cors_domain",
-                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
                 "type": "string",
                 "default": "http://localhost:3000",
                 "possible": null
             },
-            "10": {
+            "17": {
                 "name": "username",
-                "description": "Username for API authentication, ensuring secure access.",
+                "description": "Username for API authentication, enhancing security.",
                 "type": "string",
                 "default": "user",
                 "possible": null
             },
-            "11": {
+            "18": {
                 "name": "password",
-                "description": "Password for API security, protecting access.",
+                "description": "Password for API security.",
                 "type": "string",
                 "default": "password",
                 "possible": null
             },
-            "12": {
+            "19": {
                 "name": "subtask",
-                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -547,49 +733,82 @@
             },
             "3": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "4": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices for computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "5": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "6": {
-                "name": "torchscript",
-                "description": "Determines TorchScript conversion for performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
-                "name": "compile",
-                "description": "Specifies model compilation for optimized performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "8": {
-                "name": "batch_size",
-                "description": "Determines the number of images processed simultaneously.",
-                "type": "integer",
-                "default": 8,
-                "possible": null
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
             },
             "9": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "10": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "12": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "13": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "14": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "15": {
                 "name": "subtask",
-                "description": "Specifies the segmentation task type to be performed by the model.",
+                "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -642,77 +861,117 @@
             },
             "2": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "3": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "4": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance for the model in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "5": {
-                "name": "torchscript",
-                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
-                "name": "compile",
-                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "7": {
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "8": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "9": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "10": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "12": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "13": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "14": {
                 "name": "endpoint",
-                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API.",
+                "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
                 "type": "string",
                 "default": "*",
                 "possible": null
             },
-            "8": {
+            "15": {
                 "name": "port",
-                "description": "Port number for API deployment, set to a default for ease of use.",
+                "description": "Port number for API deployment. Default set to 3000.",
                 "type": "integer",
                 "default": 3000,
                 "possible": null
             },
-            "9": {
+            "16": {
                 "name": "cors_domain",
-                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
                 "type": "string",
                 "default": "http://localhost:3000",
                 "possible": null
             },
-            "10": {
+            "17": {
                 "name": "username",
-                "description": "Username for API authentication, ensuring secure access.",
+                "description": "Username for API authentication, enhancing security.",
                 "type": "string",
                 "default": "user",
                 "possible": null
             },
-            "11": {
+            "18": {
                 "name": "password",
-                "description": "Password for API security, protecting access.",
+                "description": "Password for API security.",
                 "type": "string",
                 "default": "password",
                 "possible": null
             },
-            "12": {
+            "19": {
                 "name": "subtask",
-                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -746,49 +1005,82 @@
             },
             "3": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "4": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices for computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "5": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "6": {
-                "name": "torchscript",
-                "description": "Determines TorchScript conversion for performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
-                "name": "compile",
-                "description": "Specifies model compilation for optimized performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "8": {
-                "name": "batch_size",
-                "description": "Determines the number of images processed simultaneously.",
-                "type": "integer",
-                "default": 8,
-                "possible": null
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
             },
             "9": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "10": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "12": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "13": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "14": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "15": {
                 "name": "subtask",
-                "description": "Specifies the segmentation task type to be performed by the model.",
+                "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -841,77 +1133,117 @@
             },
             "2": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "3": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "4": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance for the model in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "5": {
-                "name": "torchscript",
-                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
-                "name": "compile",
-                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "7": {
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "8": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "9": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "10": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "12": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "13": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "14": {
                 "name": "endpoint",
-                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API.",
+                "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
                 "type": "string",
                 "default": "*",
                 "possible": null
             },
-            "8": {
+            "15": {
                 "name": "port",
-                "description": "Port number for API deployment, set to a default for ease of use.",
+                "description": "Port number for API deployment. Default set to 3000.",
                 "type": "integer",
                 "default": 3000,
                 "possible": null
             },
-            "9": {
+            "16": {
                 "name": "cors_domain",
-                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
                 "type": "string",
                 "default": "http://localhost:3000",
                 "possible": null
             },
-            "10": {
+            "17": {
                 "name": "username",
-                "description": "Username for API authentication, ensuring secure access.",
+                "description": "Username for API authentication, enhancing security.",
                 "type": "string",
                 "default": "user",
                 "possible": null
             },
-            "11": {
+            "18": {
                 "name": "password",
-                "description": "Password for API security, protecting access.",
+                "description": "Password for API security.",
                 "type": "string",
                 "default": "password",
                 "possible": null
             },
-            "12": {
+            "19": {
                 "name": "subtask",
-                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -945,49 +1277,82 @@
             },
             "3": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "4": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices for computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "5": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "6": {
-                "name": "torchscript",
-                "description": "Determines TorchScript conversion for performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
-                "name": "compile",
-                "description": "Specifies model compilation for optimized performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "8": {
-                "name": "batch_size",
-                "description": "Determines the number of images processed simultaneously.",
-                "type": "integer",
-                "default": 8,
-                "possible": null
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
             },
             "9": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "10": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "12": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "13": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "14": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "15": {
                 "name": "subtask",
-                "description": "Specifies the segmentation task type to be performed by the model.",
+                "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -1040,77 +1405,117 @@
             },
             "2": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment. For MobileViT2, the deployment is optimized for CPU.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": false,
-                "possible": null
+                "default": false
             },
             "3": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices for computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "4": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance for the model in megabytes. This setting helps manage resource use on devices with limited memory.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "5": {
-                "name": "torchscript",
-                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms, particularly beneficial for CPU-based deployment.",
-                "type": "boolean",
-                "default": true,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
-                "name": "compile",
-                "description": "Specifies whether the model should be compiled for optimized performance, especially relevant for running efficiently on CPUs.",
-                "type": "boolean",
-                "default": true,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "7": {
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "8": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "9": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "10": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "12": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "13": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "14": {
                 "name": "endpoint",
-                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
                 "type": "string",
                 "default": "*",
                 "possible": null
             },
-            "8": {
+            "15": {
                 "name": "port",
-                "description": "Port number for API deployment, set to a default for ease of use.",
+                "description": "Port number for API deployment. Default set to 3000.",
                 "type": "integer",
                 "default": 3000,
                 "possible": null
             },
-            "9": {
+            "16": {
                 "name": "cors_domain",
-                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
                 "type": "string",
                 "default": "http://localhost:3000",
                 "possible": null
             },
-            "10": {
+            "17": {
                 "name": "username",
-                "description": "Username for API authentication, ensuring secure access.",
+                "description": "Username for API authentication, enhancing security.",
                 "type": "string",
                 "default": "user",
                 "possible": null
             },
-            "11": {
+            "18": {
                 "name": "password",
-                "description": "Password for API security, protecting access.",
+                "description": "Password for API security.",
                 "type": "string",
                 "default": "password",
                 "possible": null
             },
-            "12": {
+            "19": {
                 "name": "subtask",
-                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -1144,49 +1549,82 @@
             },
             "3": {
                 "name": "use_cuda",
-                "description": "For MobileViT2, indicates the model is optimized for CPU usage, negating the need for CUDA.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": false,
-                "possible": null
+                "default": false
             },
             "4": {
-                "name": "device_map",
-                "description": "Specifies the device on which the model runs, emphasizing CPU optimization.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "5": {
-                "name": "max_memory",
-                "description": "Configures the maximum memory usage, optimizing for devices with limited resources.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "6": {
-                "name": "torchscript",
-                "description": "Optimizes the model for cross-platform performance, beneficial in CPU-centric deployments.",
-                "type": "boolean",
-                "default": true,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
-                "name": "compile",
-                "description": "Enhances model performance on CPUs, ensuring efficient execution.",
-                "type": "boolean",
-                "default": true,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "8": {
-                "name": "batch_size",
-                "description": "Adjusts the number of images processed in parallel, tailored to the processing capabilities of CPUs.",
-                "type": "integer",
-                "default": 8,
-                "possible": null
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
             },
             "9": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "10": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "12": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "13": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "14": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "15": {
                 "name": "subtask",
-                "description": "Clarifies the model's focus on semantic segmentation, providing a streamlined application process.",
+                "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -1241,75 +1679,115 @@
                 "name": "use_cuda",
                 "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "3": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "4": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "5": {
-                "name": "torchscript",
-                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
-                "name": "compile",
-                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "7": {
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "8": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "9": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "10": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "12": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "13": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "14": {
                 "name": "endpoint",
-                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
                 "type": "string",
                 "default": "*",
                 "possible": null
             },
-            "8": {
+            "15": {
                 "name": "port",
-                "description": "Port number for API deployment, set to a default for ease of use.",
+                "description": "Port number for API deployment. Default set to 3000.",
                 "type": "integer",
                 "default": 3000,
                 "possible": null
             },
-            "9": {
+            "16": {
                 "name": "cors_domain",
-                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
                 "type": "string",
                 "default": "http://localhost:3000",
                 "possible": null
             },
-            "10": {
+            "17": {
                 "name": "username",
-                "description": "Username for API authentication, ensuring secure access.",
+                "description": "Username for API authentication, enhancing security.",
                 "type": "string",
                 "default": "user",
                 "possible": null
             },
-            "11": {
+            "18": {
                 "name": "password",
-                "description": "Password for API security, protecting access.",
+                "description": "Password for API security.",
                 "type": "string",
                 "default": "password",
                 "possible": null
             },
-            "12": {
+            "19": {
                 "name": "subtask",
-                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -1343,49 +1821,82 @@
             },
             "3": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "4": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices for computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "5": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "6": {
-                "name": "torchscript",
-                "description": "Determines TorchScript conversion for performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
-                "name": "compile",
-                "description": "Specifies model compilation for optimized performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "8": {
-                "name": "batch_size",
-                "description": "Determines the number of images processed simultaneously.",
-                "type": "integer",
-                "default": 8,
-                "possible": null
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
             },
             "9": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "10": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "12": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "13": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "14": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "15": {
                 "name": "subtask",
-                "description": "Clarifies the model's focus on semantic segmentation, providing a streamlined application process.",
+                "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -1440,75 +1951,115 @@
                 "name": "use_cuda",
                 "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "3": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "4": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "5": {
-                "name": "torchscript",
-                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
-                "name": "compile",
-                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "7": {
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "8": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "9": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "10": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "12": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "13": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "14": {
                 "name": "endpoint",
-                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
                 "type": "string",
                 "default": "*",
                 "possible": null
             },
-            "8": {
+            "15": {
                 "name": "port",
-                "description": "Port number for API deployment, set to a default for ease of use.",
+                "description": "Port number for API deployment. Default set to 3000.",
                 "type": "integer",
                 "default": 3000,
                 "possible": null
             },
-            "9": {
+            "16": {
                 "name": "cors_domain",
-                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
                 "type": "string",
                 "default": "http://localhost:3000",
                 "possible": null
             },
-            "10": {
+            "17": {
                 "name": "username",
-                "description": "Username for API authentication, ensuring secure access.",
+                "description": "Username for API authentication, enhancing security.",
                 "type": "string",
                 "default": "user",
                 "possible": null
             },
-            "11": {
+            "18": {
                 "name": "password",
-                "description": "Password for API security, protecting access.",
+                "description": "Password for API security.",
                 "type": "string",
                 "default": "password",
                 "possible": null
             },
-            "12": {
+            "19": {
                 "name": "subtask",
-                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -1542,49 +2093,82 @@
             },
             "3": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "4": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices for computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "5": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "6": {
-                "name": "torchscript",
-                "description": "Determines TorchScript conversion for performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
-                "name": "compile",
-                "description": "Specifies model compilation for optimized performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "8": {
-                "name": "batch_size",
-                "description": "Determines the number of images processed simultaneously.",
-                "type": "integer",
-                "default": 8,
-                "possible": null
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
             },
             "9": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "10": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "12": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "13": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "14": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "15": {
                 "name": "subtask",
-                "description": "Clarifies the model's focus on semantic segmentation, providing a streamlined application process.",
+                "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -1639,75 +2223,115 @@
                 "name": "use_cuda",
                 "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "3": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "4": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "5": {
-                "name": "torchscript",
-                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
-                "name": "compile",
-                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "7": {
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "8": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "9": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "10": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "12": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "13": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "14": {
                 "name": "endpoint",
-                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
                 "type": "string",
                 "default": "*",
                 "possible": null
             },
-            "8": {
+            "15": {
                 "name": "port",
-                "description": "Port number for API deployment, set to a default for ease of use.",
+                "description": "Port number for API deployment. Default set to 3000.",
                 "type": "integer",
                 "default": 3000,
                 "possible": null
             },
-            "9": {
+            "16": {
                 "name": "cors_domain",
-                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
                 "type": "string",
                 "default": "http://localhost:3000",
                 "possible": null
             },
-            "10": {
+            "17": {
                 "name": "username",
-                "description": "Username for API authentication, ensuring secure access.",
+                "description": "Username for API authentication, enhancing security.",
                 "type": "string",
                 "default": "user",
                 "possible": null
             },
-            "11": {
+            "18": {
                 "name": "password",
-                "description": "Password for API security, protecting access.",
+                "description": "Password for API security.",
                 "type": "string",
                 "default": "password",
                 "possible": null
             },
-            "12": {
+            "19": {
                 "name": "subtask",
-                "description": "Specifies the specific segmentation task, such as panoptic segmentation, that the model is optimized for.",
+                "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
                 "type": "string",
                 "default": "panoptic",
                 "possible": null
@@ -1741,49 +2365,82 @@
             },
             "3": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "4": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices for computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "5": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "6": {
-                "name": "torchscript",
-                "description": "Determines TorchScript conversion for performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
-                "name": "compile",
-                "description": "Specifies model compilation for optimized performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "8": {
-                "name": "batch_size",
-                "description": "Determines the number of images processed simultaneously.",
-                "type": "integer",
-                "default": 8,
-                "possible": null
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
             },
             "9": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "10": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "12": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "13": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "14": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "15": {
                 "name": "subtask",
-                "description": "Clarifies the model's focus on panoptic segmentation, providing a streamlined application process.",
+                "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
                 "type": "string",
                 "default": "panoptic",
                 "possible": null
@@ -1838,73 +2495,113 @@
                 "name": "use_cuda",
                 "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "3": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "4": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "5": {
-                "name": "torchscript",
-                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
-                "name": "compile",
-                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "7": {
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "8": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "9": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "10": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "12": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "13": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "14": {
                 "name": "endpoint",
-                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
                 "type": "string",
                 "default": "*",
                 "possible": null
             },
-            "8": {
+            "15": {
                 "name": "port",
-                "description": "Port number for API deployment, set to a default for ease of use.",
+                "description": "Port number for API deployment. Default set to 3000.",
                 "type": "integer",
                 "default": 3000,
                 "possible": null
             },
-            "9": {
+            "16": {
                 "name": "cors_domain",
-                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
                 "type": "string",
                 "default": "http://localhost:3000",
                 "possible": null
             },
-            "10": {
+            "17": {
                 "name": "username",
-                "description": "Username for API authentication, ensuring secure access.",
+                "description": "Username for API authentication, enhancing security.",
                 "type": "string",
                 "default": "user",
                 "possible": null
             },
-            "11": {
+            "18": {
                 "name": "password",
-                "description": "Password for API security, protecting access.",
+                "description": "Password for API security.",
                 "type": "string",
                 "default": "password",
                 "possible": null
             },
-            "12": {
+            "19": {
                 "name": "subtask",
                 "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
                 "type": "string",
@@ -1940,47 +2637,80 @@
             },
             "3": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "4": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices for computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "5": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "6": {
-                "name": "torchscript",
-                "description": "Determines TorchScript conversion for performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
-                "name": "compile",
-                "description": "Specifies model compilation for optimized performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "8": {
-                "name": "batch_size",
-                "description": "Determines the number of images processed simultaneously.",
-                "type": "integer",
-                "default": 8,
-                "possible": null
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
             },
             "9": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "10": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "12": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "13": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "14": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "15": {
                 "name": "subtask",
                 "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
                 "type": "string",
@@ -2037,75 +2767,115 @@
                 "name": "use_cuda",
                 "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "3": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "4": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "5": {
-                "name": "torchscript",
-                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
-                "name": "compile",
-                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "7": {
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "8": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "9": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "10": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "12": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "13": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "14": {
                 "name": "endpoint",
-                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
                 "type": "string",
                 "default": "*",
                 "possible": null
             },
-            "8": {
+            "15": {
                 "name": "port",
-                "description": "Port number for API deployment, set to a default for ease of use.",
+                "description": "Port number for API deployment. Default set to 3000.",
                 "type": "integer",
                 "default": 3000,
                 "possible": null
             },
-            "9": {
+            "16": {
                 "name": "cors_domain",
-                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
                 "type": "string",
                 "default": "http://localhost:3000",
                 "possible": null
             },
-            "10": {
+            "17": {
                 "name": "username",
-                "description": "Username for API authentication, ensuring secure access.",
+                "description": "Username for API authentication, enhancing security.",
                 "type": "string",
                 "default": "user",
                 "possible": null
             },
-            "11": {
+            "18": {
                 "name": "password",
-                "description": "Password for API security, protecting access.",
+                "description": "Password for API security.",
                 "type": "string",
                 "default": "password",
                 "possible": null
             },
-            "12": {
+            "19": {
                 "name": "subtask",
-                "description": "Specifies the specific segmentation task, such as semantic segmentation, that the model is optimized for.",
+                "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -2139,49 +2909,82 @@
             },
             "3": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "4": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices for computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "5": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "6": {
-                "name": "torchscript",
-                "description": "Determines TorchScript conversion for performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
-                "name": "compile",
-                "description": "Specifies model compilation for optimized performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "8": {
-                "name": "batch_size",
-                "description": "Determines the number of images processed simultaneously.",
-                "type": "integer",
-                "default": 8,
-                "possible": null
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
             },
             "9": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "10": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "12": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "13": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "14": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "15": {
                 "name": "subtask",
-                "description": "Clarifies the model's focus on semantic segmentation, providing a streamlined application process.",
+                "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
                 "type": "string",
                 "default": "semantic",
                 "possible": null
@@ -2236,75 +3039,115 @@
                 "name": "use_cuda",
                 "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "3": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "4": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "5": {
-                "name": "torchscript",
-                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
-                "name": "compile",
-                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "7": {
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "8": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "9": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "10": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "12": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "13": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "14": {
                 "name": "endpoint",
-                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
                 "type": "string",
                 "default": "*",
                 "possible": null
             },
-            "8": {
+            "15": {
                 "name": "port",
-                "description": "Port number for API deployment, set to a default for ease of use.",
+                "description": "Port number for API deployment. Default set to 3000.",
                 "type": "integer",
                 "default": 3000,
                 "possible": null
             },
-            "9": {
+            "16": {
                 "name": "cors_domain",
-                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
                 "type": "string",
                 "default": "http://localhost:3000",
                 "possible": null
             },
-            "10": {
+            "17": {
                 "name": "username",
-                "description": "Username for API authentication, ensuring secure access.",
+                "description": "Username for API authentication, enhancing security.",
                 "type": "string",
                 "default": "user",
                 "possible": null
             },
-            "11": {
+            "18": {
                 "name": "password",
-                "description": "Password for API security, protecting access.",
+                "description": "Password for API security.",
                 "type": "string",
                 "default": "password",
                 "possible": null
             },
-            "12": {
+            "19": {
                 "name": "subtask",
-                "description": "Specifies the specific segmentation task, such as panoptic segmentation, that the model is optimized for.",
+                "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
                 "type": "string",
                 "default": "panoptic",
                 "possible": null
@@ -2338,49 +3181,82 @@
             },
             "3": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "4": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices for computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "5": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "6": {
-                "name": "torchscript",
-                "description": "Determines TorchScript conversion for performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
-                "name": "compile",
-                "description": "Specifies model compilation for optimized performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "8": {
-                "name": "batch_size",
-                "description": "Determines the number of images processed simultaneously.",
-                "type": "integer",
-                "default": 8,
-                "possible": null
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
             },
             "9": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "10": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "12": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "13": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "14": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "15": {
                 "name": "subtask",
-                "description": "Clarifies the model's focus on panoptic segmentation, providing a streamlined application process.",
+                "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
                 "type": "string",
                 "default": "panoptic",
                 "possible": null
@@ -2435,73 +3311,113 @@
                 "name": "use_cuda",
                 "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "3": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices (GPUs) for optimized computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "4": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "5": {
-                "name": "torchscript",
-                "description": "Determines if the model should be converted to TorchScript for improved performance across platforms.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "6": {
-                "name": "compile",
-                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "7": {
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "8": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "9": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "10": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "12": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "13": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "14": {
                 "name": "endpoint",
-                "description": "Endpoint URL for API deployment. Suggests flexibility in accessing the API, accommodating various deployment environments.",
+                "description": "Endpoint URL for API deployment. The '*' symbol suggests that any endpoint can be used for accessing the API.",
                 "type": "string",
                 "default": "*",
                 "possible": null
             },
-            "8": {
+            "15": {
                 "name": "port",
-                "description": "Port number for API deployment, set to a default for ease of use.",
+                "description": "Port number for API deployment. Default set to 3000.",
                 "type": "integer",
                 "default": 3000,
                 "possible": null
             },
-            "9": {
+            "16": {
                 "name": "cors_domain",
-                "description": "Domain allowed for Cross-Origin Resource Sharing, facilitating web application integration.",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
                 "type": "string",
                 "default": "http://localhost:3000",
                 "possible": null
             },
-            "10": {
+            "17": {
                 "name": "username",
-                "description": "Username for API authentication, ensuring secure access.",
+                "description": "Username for API authentication, enhancing security.",
                 "type": "string",
                 "default": "user",
                 "possible": null
             },
-            "11": {
+            "18": {
                 "name": "password",
-                "description": "Password for API security, protecting access.",
+                "description": "Password for API security.",
                 "type": "string",
                 "default": "password",
                 "possible": null
             },
-            "12": {
+            "19": {
                 "name": "subtask",
                 "description": "Specifies the specific segmentation task, such as instance segmentation, that the model is optimized for.",
                 "type": "string",
@@ -2537,47 +3453,80 @@
             },
             "3": {
                 "name": "use_cuda",
-                "description": "Indicates if CUDA should be used for model deployment.",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
                 "type": "boolean",
-                "default": true,
-                "possible": null
+                "default": false
             },
             "4": {
-                "name": "device_map",
-                "description": "Allocates model layers to specific devices for computation.",
+                "name": "precision",
+                "description": "Precision for model computation, affecting performance and accuracy.",
                 "type": "string",
-                "default": "cuda:0",
-                "possible": ["auto", "cuda:0", "cpu"]
+                "default": "float16",
+                "possible": ["float32", "float16"]
             },
             "5": {
-                "name": "max_memory",
-                "description": "Maximum memory allowance in megabytes.",
-                "type": "integer or null",
-                "default": null,
-                "possible": null
+                "name": "quantization",
+                "description": "Level of quantization for optimizing model size and speed, with 0 indicating no quantization.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
             },
             "6": {
-                "name": "torchscript",
-                "description": "Determines TorchScript conversion for performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "device_map",
+                "description": "Specific device to use for computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "auto",
+                "possible": ["auto", "cuda:0", "cpu"]
             },
             "7": {
-                "name": "compile",
-                "description": "Specifies model compilation for optimized performance.",
-                "type": "boolean",
-                "default": false,
-                "possible": null
+                "name": "max_memory",
+                "description": "Maximum memory configuration for devices, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
             },
             "8": {
-                "name": "batch_size",
-                "description": "Determines the number of images processed simultaneously.",
-                "type": "integer",
-                "default": 8,
-                "possible": null
+                "name": "torchscript",
+                "description": "Whether to use a TorchScript-optimized version of the model for enhanced performance.",
+                "type": "boolean",
+                "default": false
             },
             "9": {
+                "name": "compile",
+                "description": "Whether to compile the model before deployment for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": true
+            },
+            "10": {
+                "name": "flash_attention",
+                "description": "Whether to use flash attention optimization for faster processing, applicable if supported.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "12": {
+                "name": "batch_size",
+                "description": "Number of classifications to process simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 32
+            },
+            "13": {
+                "name": "use_huggingface_dataset",
+                "description": "Whether to load a dataset from Hugging Face hub for classification tasks.",
+                "type": "boolean",
+                "default": false
+            },
+            "14": {
+                "name": "huggingface_dataset",
+                "description": "The Hugging Face dataset to use for image classification, applicable if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": ""
+            },
+            "15": {
                 "name": "subtask",
                 "description": "Clarifies the model's focus on instance segmentation, providing a streamlined application process.",
                 "type": "string",
