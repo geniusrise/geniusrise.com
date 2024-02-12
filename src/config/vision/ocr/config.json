@@ -1168,34 +1168,326 @@
         }
     },
     {
-        "name": "TrOCR",
+        "name": "TrOCR-Handwritten",
         "inputs": [
             {
                 "type": "image",
                 "name": "input"
             }
         ],
-        "description": "TrOCR combines the power of Transformers with OCR to provide state-of-the-art performance in reading textual content from images. Developed by Microsoft and hosted on Hugging Face, TrOCR is fine-tuned for both handwritten and printed text recognition, making it highly effective for a wide array of OCR tasks including document digitization, automated form processing, and real-time translation services.",
-        "model_name": "microsoft/trocr-large",
+        "description": "TrOCR-Handwritten is specialized in interpreting handwritten text from images, combining Transformer and OCR technologies for exceptional accuracy. Developed by Microsoft, this model excels in various handwritten text recognition tasks, making it ideal for digitizing handwritten notes, forms processing, and historical document conversion.",
+        "model_name": "microsoft/trocr-large-handwritten",
         "apiClass": "ImageOCRAPI",
         "bulkMethod": "process",
         "endpoint": "/api/v1/ocr",
         "bulk_formats": ["jpeg", "png", "bmp", "tiff", "tif", "gif", "jpg"],
         "examples": [
-            "Translating handwritten notes into digitized text",
-            "Extracting text from images for accessibility purposes",
-            "Processing scanned documents for searchable archives",
-            "Real-time OCR for live translation apps",
-            "Extracting information from business cards and forms"
+            "Digitizing handwritten notes into editable text",
+            "Converting handwritten forms into digital format",
+            "Transcribing historical manuscripts for digital archiving",
+            "Extracting handwritten annotations from images",
+            "Automated processing of handwritten customer feedback"
         ],
         "input_examples": [
-            "Handwritten letter with cursive script",
-            "Printed report with tables and figures",
-            "Historical manuscript for digital archiving",
-            "Business card for contact management",
-            "Street sign for navigation assistance"
+            "Handwritten memo on a whiteboard",
+            "Annotated manuscript in cursive writing",
+            "Handwritten form filled out by a customer",
+            "Notebook page with personal notes",
+            "Historical letter for archival purposes"
         ],
-        "usecases": ["Handwritten text recognition", "Printed text extraction", "Document digitization"],
+        "usecases": ["Handwritten note digitization", "Form processing", "Historical document transcription"],
+        "apiDeploy": {
+            "0": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "1": {
+                "name": "model_type",
+                "description": "Specifies if it's a 'hf' (Hugging Face) model or 'other' for non-Hugging Face models.",
+                "type": "string",
+                "default": "hf",
+                "possible": ["hf", "other"]
+            },
+            "2": {
+                "name": "use_easyocr_bbox",
+                "description": "Indicates whether to use EasyOCR's built-in bounding box detection for text localization.",
+                "type": "boolean",
+                "default": true,
+                "possible": null
+            },
+            "3": {
+                "name": "device_map",
+                "description": "Allocates model layers to specific devices (GPUs) for distributed computation.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "4": {
+                "name": "max_memory",
+                "description": "Maximum memory allowance for the model in megabytes, providing a control over resource utilization.",
+                "type": "integer or null",
+                "default": null,
+                "possible": null
+            },
+            "5": {
+                "name": "torchscript",
+                "description": "Determines if the model should be converted to TorchScript for enhanced performance and deployment flexibility.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "6": {
+                "name": "compile",
+                "description": "Specifies whether the model should be compiled for optimized performance on specific hardware.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "7": {
+                "name": "precision",
+                "description": "Sets the precision level for calculations, affecting performance and accuracy.",
+                "type": "string",
+                "default": "float16",
+                "possible": ["float32", "float16"]
+            },
+            "8": {
+                "name": "quantization",
+                "description": "Applies model quantization to reduce size and improve inference speed with minimal accuracy loss.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "9": {
+                "name": "flash_attention",
+                "description": "Enables Flash Attention optimizations for faster inference, applicable if supported.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "10": {
+                "name": "better_transformers",
+                "description": "Activates optimizations within transformer models for improved performance.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "11": {
+                "name": "use_huggingface_dataset",
+                "description": "Indicates whether a dataset from Hugging Face's hub is to be used, facilitating easy integration.",
+                "type": "boolean",
+                "default": false,
+                "possible": null
+            },
+            "12": {
+                "name": "huggingface_dataset",
+                "description": "The specific Hugging Face dataset to use, if 'use_huggingface_dataset' is true.",
+                "type": "string",
+                "default": "",
+                "possible": null
+            },
+            "13": {
+                "name": "endpoint",
+                "description": "Endpoint URL for API deployment, indicating flexibility in API access.",
+                "type": "string",
+                "default": "*",
+                "possible": null
+            },
+            "14": {
+                "name": "port",
+                "description": "Port number for API deployment, standardized for accessibility.",
+                "type": "integer",
+                "default": 3000,
+                "possible": null
+            },
+            "15": {
+                "name": "cors_domain",
+                "description": "Domain allowed for Cross-Origin Resource Sharing, managing access in web applications.",
+                "type": "string",
+                "default": "http://localhost:3000",
+                "possible": null
+            },
+            "16": {
+                "name": "username",
+                "description": "Username for API authentication, enhancing security.",
+                "type": "string",
+                "default": "user",
+                "possible": null
+            },
+            "17": {
+                "name": "password",
+                "description": "Password for API security.",
+                "type": "string",
+                "default": "password",
+                "possible": null
+            },
+            "18": {
+                "name": "batch_size",
+                "description": "Determines the number of images processed simultaneously, optimizing throughput and efficiency.",
+                "type": "integer",
+                "default": 8,
+                "possible": null
+            },
+            "19": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for OCR tasks",
+                "type": "string",
+                "default": "AutoModelForVision2Seq",
+                "possible": null
+            },
+            "20": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for handling image inputs, ensuring images are correctly formatted and scaled for the model.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            }
+        },
+        "api": {
+            "text": "Upload your image here for OCR processing"
+        },
+        "bulkDeploy": {
+            "0": {
+                "name": "notification_email",
+                "description": "Email for receiving notifications about model serving status.",
+                "type": "string",
+                "default": "russi@geniusrise.ai"
+            },
+            "1": {
+                "name": "model_type",
+                "description": "Specifies if the model is 'hf' for Hugging Face-hosted models or 'other' for models not hosted on Hugging Face.",
+                "type": "string",
+                "default": "other",
+                "possible": ["hf", "other"]
+            },
+            "2": {
+                "name": "use_easyocr_bbox",
+                "description": "Indicates whether to utilize EasyOCR's bounding box detection for text localization.",
+                "type": "boolean",
+                "default": true
+            },
+            "3": {
+                "name": "use_cuda",
+                "description": "Indicates if CUDA (GPU acceleration) should be used for model deployment, enhancing processing speed.",
+                "type": "boolean",
+                "default": true
+            },
+            "4": {
+                "name": "device_map",
+                "description": "Specifies the device allocation for model computation, optimizing performance across available hardware.",
+                "type": "string",
+                "default": "cuda:0",
+                "possible": ["auto", "cuda:0", "cpu"]
+            },
+            "5": {
+                "name": "max_memory",
+                "description": "Sets the maximum memory usage limit for the model, aiding in resource management.",
+                "type": "integer or null",
+                "default": null
+            },
+            "6": {
+                "name": "torchscript",
+                "description": "Determines whether the model should be converted to TorchScript, enhancing cross-platform deployment.",
+                "type": "boolean",
+                "default": false
+            },
+            "7": {
+                "name": "compile",
+                "description": "Indicates if the model should be compiled for improved performance on specific hardware types.",
+                "type": "boolean",
+                "default": false
+            },
+            "8": {
+                "name": "precision",
+                "description": "Sets the computational precision level, such as 'float16', balancing between speed and accuracy.",
+                "type": "string",
+                "default": "float16",
+                "possible": ["float32", "float16"]
+            },
+            "9": {
+                "name": "quantization",
+                "description": "Applies model quantization to enhance inference speed and reduce size with minimal impact on accuracy.",
+                "type": "integer",
+                "default": 0,
+                "possible": [0, 2, 4, 8]
+            },
+            "10": {
+                "name": "flash_attention",
+                "description": "Enables the use of Flash Attention mechanisms for faster inference, if supported by the model.",
+                "type": "boolean",
+                "default": false
+            },
+            "11": {
+                "name": "better_transformers",
+                "description": "Activates enhanced transformer model optimizations for superior performance.",
+                "type": "boolean",
+                "default": false
+            },
+            "12": {
+                "name": "use_huggingface_dataset",
+                "description": "Specifies whether a dataset from the Hugging Face Hub should be utilized for the model.",
+                "type": "boolean",
+                "default": false
+            },
+            "13": {
+                "name": "huggingface_dataset",
+                "description": "Defines the specific Hugging Face dataset to be used, contingent on 'use_huggingface_dataset' being true.",
+                "type": "string",
+                "default": ""
+            },
+            "14": {
+                "name": "batch_size",
+                "description": "Configures the volume of images processed concurrently, optimizing operational efficiency.",
+                "type": "integer",
+                "default": 8
+            },
+            "15": {
+                "name": "model_class",
+                "description": "Specifies the class of the model for OCR tasks",
+                "type": "string",
+                "default": "AutoModelForVision2Seq",
+                "possible": null
+            },
+            "16": {
+                "name": "processor_class",
+                "description": "Specifies the processor class for handling image inputs, ensuring images are correctly formatted and scaled for the model.",
+                "type": "string",
+                "default": "AutoProcessor",
+                "possible": null
+            }
+        }
+    },
+    {
+        "name": "TrOCR-Printed",
+        "inputs": [
+            {
+                "type": "image",
+                "name": "input"
+            }
+        ],
+        "description": "TrOCR-Printed leverages the synergy of Transformers and OCR technology to accurately read printed text from images. This Microsoft-developed model is adept at processing various printed text documents, from book pages to business cards, making it a versatile tool for digitizing printed materials, extracting text for content management systems, and enabling accessible content.",
+        "model_name": "microsoft/trocr-large-printed",
+        "apiClass": "ImageOCRAPI",
+        "bulkMethod": "process",
+        "endpoint": "/api/v1/ocr",
+        "bulk_formats": ["jpeg", "png", "bmp", "tiff", "tif", "gif", "jpg"],
+        "examples": [
+            "Extracting text from printed documents for digital archiving",
+            "Reading printed material for accessibility apps",
+            "Processing business cards to digital contacts",
+            "Digitizing printed books and articles for e-readers",
+            "Extracting product labels and information for inventory management"
+        ],
+        "input_examples": [
+            "Printed book page for digital library inclusion",
+            "Business card for CRM integration",
+            "Printed report for content analysis",
+            "Product packaging for online cataloging",
+            "Street sign for urban mapping projects"
+        ],
+        "usecases": ["Printed document digitization", "Business card scanning", "Product label extraction"],
         "apiDeploy": {
             "0": {
                 "name": "use_cuda",
