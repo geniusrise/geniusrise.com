@@ -1,0 +1,38 @@
+# EasyOCR
+Model Name: EasyOCR
+
+## Links:
+- GitHub repo: https://github.com/JaidedAI/EasyOCR
+
+# Description:
+
+EasyOCR is a powerful, open-source Optical Character Recognition (OCR) library, designed to extract text from images and documents effortlessly. It supports more than 80 languages and various scripts, including but not limited to Latin, Chinese, Arabic, and Cyrillic. Developed in Python, EasyOCR is part of the JaidedAI project and is known for its ease of use and flexibility. The library is built on top of PyTorch, leveraging deep learning models to achieve high accuracy in text recognition tasks across diverse languages and writing systems.
+
+# Key Features:
+
+1. Multilingual Support: Ready-to-use OCR in over 80 languages.
+2. Multiple Scripts: Supports popular writing scripts such as Latin, Chinese, Arabic, Devanagari, Cyrillic, etc.
+3. Flexible and Easy to Use: Offers a simple Python API for OCR tasks, requiring minimal setup and coding effort.
+4. Integration with Huggingface Spaces: Utilizes Gradio for easy web demos and testing.
+5. Continuous Updates: Regularly updated with new features, language support, and performance improvements.
+
+# Usage Example:
+
+```python
+# import easyocr
+# Initialize the reader with the desired language(s)
+reader = easyocr.Reader(['en', 'ko'])  # Example: English and Korean
+
+# Read text from an image
+result = reader.readtext('image_path.jpg')
+
+# Print the detected text and their bounding boxes
+for detection in result:
+    bbox, text, confidence = detection
+    print(f"Detected text: {text} with confidence: {confidence}")
+This example demonstrates how to use EasyOCR to detect text in an image file, supporting multiple languages. The output includes the bounding boxes, the detected text, and the confidence level for each detected text instance. EasyOCR's flexibility and ease of use make it suitable for a wide range of applications, from document digitization to real-time text recognition in multimedia content.
+```
+
+# Installation:
+
+EasyOCR can be installed via pip with the command pip install easyocr. For Windows users, it's recommended to install PyTorch and TorchVision first, following the official PyTorch instructions to ensure compatibility with your system's CUDA version or to opt for CPU-only execution if necessary.

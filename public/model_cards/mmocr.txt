@@ -1,0 +1,47 @@
+# MMOCR
+Model Name: MMOCR
+
+## Links:
+- GitHub repo: https://github.com/open-mmlab/mmocr
+
+# Description:
+MMOCR is an open-source toolbox designed for text detection, recognition, and key information extraction, developed as part of the OpenMMLab project. It is built on PyTorch and incorporates the functionalities of mmdetection, aiming to provide a comprehensive solution for OCR tasks. The latest version, 1.0.0, was released on April 6, 2023, introducing support for new datasets like SCUT-CTW1500, SynthText, and MJSynth, along with updated FAQs, documentation, and the addition of a new tutorial notebook.
+
+MMOCR includes a variety of algorithms for different aspects of OCR:
+
+1. Text Detection: Models like DBNet, PSENet, and FCENet.
+2. Text Recognition: Models like CRNN, ABINet, and SAR.
+3. Key Information Extraction: Models like SDMG-R.
+4. Text Spotting: Models like ABCNet and SPTS.
+
+
+# Key Features:
+1. Comprehensive Pipeline: Supports a wide range of OCR-related tasks including text detection, recognition, and key information extraction.
+2. Multiple Models: Offers support for various state-of-the-art models in text detection (e.g., DBNet, PSENet, TextSnake), text recognition (e.g., CRNN, ABINet, SAR), and key information extraction.
+3. Modular Design: Allows for the customization of different components such as optimizers, data preprocessors, and model components (backbones, necks, heads, losses).
+4. Numerous Utilities: Includes visualizers for image, ground truths, and predicted bounding boxes visualization, a validation tool for model evaluation, and data converters for annotation file conversion.
+
+
+# Usage Example:
+
+```python
+>>> from mmocr.apis import MMOCRInferencer
+>>> # Load models into memory
+>>> ocr = MMOCRInferencer(det='DBNet', rec='SAR')
+>>> # Perform inference
+>>> ocr('demo/demo_text_ocr.jpg', show=True)
+```
+
+# Installation:
+
+```bash
+
+conda create -n open-mmlab python=3.8 pytorch=1.10 cudatoolkit=11.3 torchvision -c pytorch -y
+conda activate open-mmlab
+pip3 install openmim
+git clone https://github.com/open-mmlab/mmocr.git
+cd mmocr
+mim install -e .
+
+```
+

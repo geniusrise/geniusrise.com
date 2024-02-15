@@ -1,0 +1,40 @@
+# PaddleOCR
+Model Name: PaddleOCR
+
+## Links:
+- GitHub repo: https://github.com/PaddlePaddle/PaddleOCR
+
+# Description:
+PaddleOCR is an open-source Optical Character Recognition (OCR) library developed by PaddlePaddle. It's designed to provide an easy and efficient way to implement OCR functionalities, offering support for multiple languages including a specialized model for Chinese and English text detection and recognition, along with support for over 80 other languages.
+
+
+# Key Features:
+1. Versatile Language Support: While it provides a specialized model for Chinese and English, PaddleOCR also supports up to 80 different languages, making it highly versatile for global applications.
+2. Comprehensive OCR Solutions: PaddleOCR includes functionalities for text detection, recognition, and even key information extraction, covering a wide range of OCR use cases.
+3. Easy Integration: It offers straightforward command-line tools and Python code examples for quick integration into projects, requiring minimal setup to get started.
+4. High Performance: Utilizing the PP-OCR series models, PaddleOCR delivers high accuracy in text detection and recognition tasks.
+
+# Usage Example:
+
+```python
+
+from paddleocr import PaddleOCR, draw_ocr
+ocr = PaddleOCR(use_angle_cls=True, lang='en')  # Initialize once
+img_path = './imgs_en/img_12.jpg'
+result = ocr.ocr(img_path, cls=True)
+for line in result:
+    print(line)
+
+```
+
+# Installation:
+
+PaddleOCR's installation involves setting up PaddlePaddle and then installing the PaddleOCR package itself.
+
+Install PaddlePaddle:
+
+For GPU support: python -m pip install paddlepaddle-gpu -i https://pypi.tuna.tsinghua.edu.cn/simple
+For CPU-only: python -m pip install paddlepaddle -i https://pypi.tuna.tsinghua.edu.cn/simple
+Install PaddleOCR:
+
+pip install "paddleocr>=2.0.1" to install the recommended version of PaddleOCR.

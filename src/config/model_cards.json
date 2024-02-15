@@ -238,6 +238,8 @@
     "facebook/mask2former-swin-small-coco-instance": "facebook__mask2former-swin-small-coco-instance.txt",
     "facebook/maskformer-swin-base-ade": "facebook__maskformer-swin-base-ade.txt",
     "facebook/maskformer-swin-base-coco_1": "facebook__maskformer-swin-base-coco.txt",
-    "facebook/maskformer-swin-base-coco_2": "facebook__maskformer-swin-base-coco.txt"
-
+    "facebook/maskformer-swin-base-coco_2": "facebook__maskformer-swin-base-coco.txt",
+    "easyocr": "easyocr.txt",
+    "paddleocr": "paddleocr.txt",
+    "mmocr": "mmocr.txt"
 }
