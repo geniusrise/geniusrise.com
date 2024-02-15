@@ -1,0 +1,45 @@
+# Model name
+
+MaskFormer
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/facebook/maskformer-swin-base-ade)
+- [GitHub Repository](https://github.com/huggingface/transformers)
+
+## Description
+
+MaskFormer is a model trained on the ADE20k semantic segmentation dataset. It addresses instance, semantic, and panoptic segmentation by predicting a set of masks and corresponding labels. All three tasks are treated as if they were instance segmentation.
+
+## Usage example
+
+You can use this model for semantic segmentation. Here's how to use it with the Transformers library in Python:
+
+```python
+from transformers import MaskFormerFeatureExtractor, MaskFormerForInstanceSegmentation
+from PIL import Image
+import requests
+
+# Load and preprocess the image
+url = "https://huggingface.co/datasets/hf-internal-testing/fixtures_ade20k/resolve/main/ADE_val_00000001.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+feature_extractor = MaskFormerFeatureExtractor.from_pretrained("facebook/maskformer-swin-base-ade")
+inputs = feature_extractor(images=image, return_tensors="pt")
+
+# Instantiate and run the model
+model = MaskFormerForInstanceSegmentation.from_pretrained("facebook/maskformer-swin-base-ade")
+outputs = model(**inputs)
+
+# Access the predictions
+class_queries_logits = outputs.class_queries_logits
+masks_queries_logits = outputs.masks_queries_logits
+
+# Perform post-processing for visualization
+predicted_semantic_map = feature_extractor.post_process_semantic_segmentation(outputs, target_sizes=[image.size[::-1]])[0]
+
+# Additional code examples can be found in the documentation.
+```
+
+## Intended uses & limitations
+
+This model is particularly useful for semantic segmentation tasks. You can explore other fine-tuned versions on the Hugging Face Model Hub for tasks that interest you.

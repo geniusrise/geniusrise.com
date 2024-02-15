@@ -82,7 +82,7 @@ export const functions: any = {
     vision: [
         {
             function_name: "OCR",
-            enabled: false,
+            enabled: true,
             name: "Optical Character Recognition",
             description:
                 "Extracting text from images. Useful in digitizing documents, license plate recognition, etc. Converts image text to digital text.",
@@ -121,7 +121,7 @@ export const functions: any = {
         },
         {
             function_name: "IMGCLASS",
-            enabled: false,
+            enabled: true,
             name: "Image Classification",
             description:
                 "Categorizing images into predefined classes. Useful in object recognition, filtering, etc. Requires labeled data for training.",
@@ -137,7 +137,7 @@ export const functions: any = {
         },
         {
             function_name: "SEGMENT",
-            enabled: false,
+            enabled: true,
             name: "Image Segmentation",
             description:
                 "Dividing images into multiple segments. Useful in medical imaging, autonomous vehicles, etc. Provides pixel-wise categorization.",

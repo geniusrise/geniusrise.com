@@ -1,0 +1,69 @@
+# Model name
+
+MobileViT (small-sized model)
+
+## Links
+
+- Hugging Face model page: [MobileViT (small-sized model)](https://huggingface.co/apple/mobilevit-small)
+- GitHub repository: N/A
+
+## Description
+
+MobileViT is a light-weight, low latency convolutional neural network model that combines MobileNetV2-style layers with a new block that replaces local processing in convolutions with global processing using transformers. Similar to ViT (Vision Transformer), MobileViT converts image data into flattened patches before processing them with transformer layers. Afterwards, the patches are "unflattened" back into feature maps. Unlike ViT, MobileViT does not require positional embeddings. The MobileViT (small-sized model) is pre-trained on ImageNet-1k at a resolution of 256x256.
+
+## Usage example
+
+Here is an example of how to use the MobileViT (small-sized model) for image classification:
+
+```python
+from transformers import MobileViTFeatureExtractor, MobileViTForImageClassification
+from PIL import Image
+import requests
+
+url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+
+feature_extractor = MobileViTFeatureExtractor.from_pretrained("apple/mobilevit-small")
+model = MobileViTForImageClassification.from_pretrained("apple/mobilevit-small")
+
+inputs = feature_extractor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+
+# Model predicts one of the 1000 ImageNet classes
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+Please note that both the feature extractor and the model are compatible with PyTorch.
+
+## Intended uses & limitations
+
+The MobileViT (small-sized model) can be used for image classification tasks. It can be fine-tuned on specific tasks using the fine-tuning feature in the model hub. The model is lightweight and has low latency, making it suitable for mobile applications and scenarios where resources are limited.
+
+## Training data
+
+The MobileViT model was pre-trained on ImageNet-1k, which consists of 1 million images and 1,000 classes.
+
+## Training procedure
+
+The MobileViT networks were trained from scratch for 300 epochs on ImageNet-1k using 8 NVIDIA GPUs. The training utilized basic data augmentation techniques like random resized cropping and horizontal flipping. A multi-scale sampler was used during training, with image sizes randomly sampled from (160, 160), (192, 192), (256, 256), (288, 288), and (320, 320). At inference time, images are resized or rescaled to the same resolution (288x288) and center-cropped at 256x256. The pixels are normalized to the range [0, 1], and the images are expected to be in BGR pixel order.
+
+## Evaluation results
+
+The MobileViT (small-sized model) achieves the following accuracy results on ImageNet:
+- ImageNet top-1 accuracy: 78.4%
+- ImageNet top-5 accuracy: 94.1%
+
+The model has approximately 5.6 million parameters.
+
+## BibTeX entry and citation info
+
+```
+@inproceedings{vision-transformer,
+title = {MobileViT: Light-weight, General-purpose, and Mobile-friendly Vision Transformer},
+author = {Sachin Mehta and Mohammad Rastegari},
+year = {2022},
+URL = {https://arxiv.org/abs/2110.02178}
+}
+```

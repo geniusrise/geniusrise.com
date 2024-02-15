@@ -1,0 +1,55 @@
+# Model name
+
+Data-efficient Image Transformer (DeiT)
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/facebook/deit-base-patch16-224)
+- [GitHub Repository](https://github.com/facebookresearch/deit)
+
+## Description
+
+The Data-efficient Image Transformer (DeiT) model is a transformer encoder model that has been pre-trained and fine-tuned on the ImageNet-1k dataset, which consists of 1 million images across 1,000 classes, at a resolution of 224x224 pixels. It is a more efficiently trained version of the Vision Transformer (ViT) model, which is a BERT-like transformer model designed for image classification tasks. The model processes images as sequences of fixed-size patches and uses absolute position embeddings to represent the spatial information. By pre-training and fine-tuning the model, it learns an inner representation of images that can be used for downstream tasks, such as image classification.
+
+The DeiT model is available as a base-sized model, and it has been converted from the timm repository by Ross Wightman.
+
+## Usage example
+
+To use the DeiT model for image classification, you can use the transformers library in Python. Here is an example of how to classify an image from the COCO 2017 dataset using the DeiT model:
+
+```python
+from transformers import AutoFeatureExtractor, ViTForImageClassification
+from PIL import Image
+import requests
+
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+
+feature_extractor = AutoFeatureExtractor.from_pretrained('facebook/deit-base-patch16-224')
+model = ViTForImageClassification.from_pretrained('facebook/deit-base-patch16-224')
+
+inputs = feature_extractor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+Please note that both the feature extractor and model currently support PyTorch, while support for Tensorflow and JAX/FLAX is coming soon.
+
+## Intended uses & limitations
+
+The DeiT model can be used for image classification tasks. It can be fine-tuned on specific datasets for more targeted classification tasks. 
+
+The model's performance depends on the size of the model and the resolution of the images being processed. Increasing the model size and using higher resolution images can result in better performance.
+
+## Business use cases
+
+1. Image classification in e-commerce: The DeiT model can be used to classify product images in e-commerce platforms, allowing for better search and categorization of products.
+2. Augmented reality (AR) applications: By using the DeiT model, AR applications can identify and classify objects in real-time, enabling interactive and immersive experiences.
+3. Content moderation: The model can be used to automatically identify and classify potentially inappropriate or harmful content in user-generated images, helping enforce content moderation policies on social media platforms.
+4. Medical imaging analysis: The DeiT model can be fine-tuned on medical imaging datasets to assist in analyzing and diagnosing medical conditions, improving the accuracy and efficiency of diagnostics.
+5. Quality control in manufacturing: By employing the DeiT model, manufacturers can automatically classify and identify defective or subpar products based on images, streamlining quality control processes.
+
+These are just a few examples of how the DeiT model can be utilized in various business contexts. Its versatility and ability to extract useful features from images make it a valuable tool for a wide range of applications.

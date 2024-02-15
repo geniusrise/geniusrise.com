@@ -1,0 +1,59 @@
+# Model name
+
+DPT (large-sized model) fine-tuned on ADE20k
+
+## Links
+
+- Hugging Face Model Page: [DPT (large-sized model)](https://huggingface.co/Intel/dpt-large-ade)
+- GitHub Repository: N/A
+
+## Description
+
+DPT (Dense Prediction Transformer) is a model trained on the ADE20k dataset for semantic segmentation. It is based on the Vision Transformer (ViT) architecture and was introduced in the research paper "Vision Transformers for Dense Prediction" by Ranftl et al. This model uses the ViT backbone and adds a neck and head on top for semantic segmentation.
+
+## Usage example
+
+To use this model for semantic segmentation, you can follow the code below:
+
+```python
+from transformers import DPTFeatureExtractor, DPTForSemanticSegmentation
+from PIL import Image
+import requests
+
+url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+
+feature_extractor = DPTFeatureExtractor.from_pretrained("Intel/dpt-large-ade")
+model = DPTForSemanticSegmentation.from_pretrained("Intel/dpt-large-ade")
+
+inputs = feature_extractor(images=image, return_tensors="pt")
+
+outputs = model(**inputs)
+logits = outputs.logits
+```
+
+For more code examples, refer to the documentation.
+
+## Intended uses & limitations
+
+The DPT model can be used for semantic segmentation tasks. It can provide accurate predictions for segmenting objects in images. For specific tasks of interest, you can explore fine-tuned versions of the model available on the model hub.
+
+## BibTeX entry and citation info
+
+```bibtex
+@article{DBLP:journals/corr/abs-2103-13413,
+  author    = {Ren{\'{e}} Ranftl and
+               Alexey Bochkovskiy and
+               Vladlen Koltun},
+  title     = {Vision Transformers for Dense Prediction},
+  journal   = {CoRR},
+  volume    = {abs/2103.13413},
+  year      = {2021},
+  url       = {https://arxiv.org/abs/2103.13413},
+  eprinttype = {arXiv},
+  eprint    = {2103.13413},
+  timestamp = {Wed, 07 Apr 2021 15:31:46 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2103-13413.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+```

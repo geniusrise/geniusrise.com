@@ -1,0 +1,52 @@
+# Model name
+
+Vision Transformer Age Classifier
+
+## Links
+
+- Hugging Face Model Page: [Vision Transformer Age Classifier](https://huggingface.co/nateraw/vit-age-classifier)
+- GitHub Repository: [Vision-Transformer-Age-Classifier](https://github.com/nateraw/Vision-Transformer-Age-Classifier)
+
+## Description
+
+The Vision Transformer Age Classifier is a model based on the Vision Transformer architecture that has been finetuned to classify the age of a given person's face. It uses a combination of deep learning techniques and pre-trained models to achieve accurate age classification.
+
+The model can be accessed and used via the Hugging Face Transformers library in Python. It requires the `transformers` package to be installed. The example code provided demonstrates how to use the model to classify the age of a given face image.
+
+The Vision Transformer Age Classifier model is pre-trained on a large dataset containing images of faces with corresponding age labels. It leverages the power of self-attention mechanisms to learn and capture meaningful visual features for age classification. The number of parameters for the model is not mentioned in the provided information.
+
+## Usage example
+
+```python
+import requests
+from PIL import Image
+from io import BytesIO
+
+from transformers import ViTFeatureExtractor, ViTForImageClassification
+
+# Get example image from official fairface repo + read it in as an image
+r = requests.get('https://github.com/dchen236/FairFace/blob/master/detected_faces/race_Asian_face0.jpg?raw=true')
+im = Image.open(BytesIO(r.content))
+
+# Init model, transforms
+model = ViTForImageClassification.from_pretrained('nateraw/vit-age-classifier')
+transforms = ViTFeatureExtractor.from_pretrained('nateraw/vit-age-classifier')
+
+# Transform our image and pass it through the model
+inputs = transforms(im, return_tensors='pt')
+output = model(**inputs)
+
+# Predicted Class probabilities
+proba = output.logits.softmax(1)
+
+# Predicted Classes
+preds = proba.argmax(1)
+```
+
+## Use Cases
+
+1. Age Verification: The model can be used in applications where age verification is required, such as age-restricted content platforms, online gambling sites, and age-restricted purchases.
+2. Advertising Targeting: The model can be leveraged to estimate the age group of users based on their profile pictures or uploaded images, enabling targeted advertising campaigns to specific age demographics.
+3. Market Research: By analyzing the age distribution of customers through the model, businesses can gain insights into the preferences and behaviors of different age groups, helping them make informed marketing strategies.
+
+These are just a few examples of the potential applications of the Vision Transformer Age Classifier model. Its ability to accurately classify the age of a person's face opens up possibilities for various business use cases in industries like e-commerce, social media, and customer analytics.

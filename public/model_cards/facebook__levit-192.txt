@@ -1,0 +1,46 @@
+# Model name
+
+LeViT
+
+## Links
+
+[Hugging Face Model Page](https://huggingface.co/facebook/levit-192)
+
+## Description
+
+LeViT-192 is a vision transformer model that has been pre-trained on the ImageNet-1k dataset at a resolution of 224x224. It was introduced in the paper "LeViT: a Vision Transformer in ConvNet's Clothing for Faster Inference" by Graham et al. This model is designed for faster inference and is available for use through the Hugging Face library.
+
+## Usage example
+
+To use the LeViT-192 model for image classification, you can follow the example code below:
+
+```python
+from transformers import LevitFeatureExtractor, LevitForImageClassificationWithTeacher
+from PIL import Image
+import requests
+
+url = 'http://images.cocodataset.org/val2017/000000039769.jpg'
+image = Image.open(requests.get(url, stream=True).raw)
+
+feature_extractor = LevitFeatureExtractor.from_pretrained('facebook/levit-192')
+model = LevitForImageClassificationWithTeacher.from_pretrained('facebook/levit-192')
+
+inputs = feature_extractor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+# model predicts one of the 1000 ImageNet classes
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+Note: The example code uses the `transformers` library in Python and requires the PIL and requests packages to be installed. The code downloads an image from the COCO 2017 dataset and uses the LeViT-192 model to classify it into one of the 1,000 ImageNet classes.
+
+This model can be used for various business use cases, including:
+
+1. Image classification: LeViT-192 can be used to classify images into different categories, making it useful for tasks such as object recognition or content filtering.
+
+2. Recommendation systems: With its ability to understand visual content, LeViT-192 can enhance recommendation systems by analyzing images and providing personalized recommendations based on users' preferences.
+
+3. Visual search: LeViT-192 can be used to power visual search engines that allow users to search for products or images using images as input, enabling more intuitive and accurate search results.
+
+These are just a few examples of how the LeViT-192 model can be applied in a business context. Its versatility and powerful image classification capabilities make it a valuable tool for developers and builders in various industries.

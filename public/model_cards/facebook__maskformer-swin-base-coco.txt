@@ -1,0 +1,48 @@
+# Model Name
+
+MaskFormer
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/facebook/maskformer-swin-base-coco)
+- [GitHub Repository](https://github.com/huggingface/transformers)
+
+## Description
+
+MaskFormer is a model trained on COCO panoptic segmentation with a Swin backbone. It addresses instance, semantic, and panoptic segmentation by predicting a set of masks and corresponding labels. The model treats all three tasks as if they were instance segmentation.
+
+## Usage Example
+
+You can use this model for semantic segmentation. To load and use the model:
+
+```python
+from transformers import MaskFormerFeatureExtractor, MaskFormerForInstanceSegmentation
+from PIL import Image
+import requests
+
+# Load MaskFormer fine-tuned on COCO panoptic segmentation
+feature_extractor = MaskFormerFeatureExtractor.from_pretrained("facebook/maskformer-swin-base-coco")
+model = MaskFormerForInstanceSegmentation.from_pretrained("facebook/maskformer-swin-base-coco")
+
+url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+inputs = feature_extractor(images=image, return_tensors="pt")
+
+outputs = model(**inputs)
+class_queries_logits = outputs.class_queries_logits
+masks_queries_logits = outputs.masks_queries_logits
+
+# Pass them to feature_extractor for postprocessing
+result = feature_extractor.post_process_panoptic_segmentation(outputs, target_sizes=[image.size[::-1]])[0]
+predicted_panoptic_map = result["segmentation"]
+```
+
+For more code examples, refer to the documentation.
+
+## Intended Uses
+
+1. Semantic Segmentation: The model can be used for segmenting objects and scenes in images.
+2. Object Detection: By using the predicted masks and labels, the model can be used for object detection tasks.
+3. Panoptic Segmentation: The model can produce panoptic segmentation maps that combine instance and semantic segmentation.
+
+Note: Check the model hub for other fine-tuned versions on specific tasks that may interest you.

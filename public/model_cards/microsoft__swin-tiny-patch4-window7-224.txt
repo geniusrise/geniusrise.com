@@ -1,0 +1,60 @@
+# Model name
+
+Swin Transformer (tiny-sized model)
+
+## Links
+
+- [Model Page](https://huggingface.co/microsoft/swin-tiny-patch4-window7-224)
+- [GitHub Repo](https://github.com/microsoft/Swin-Transformer)
+
+## Description
+
+The Swin Transformer is a vision transformer model trained on the ImageNet-1k dataset at a resolution of 224x224. It is based on the Swin Transformer: Hierarchical Vision Transformer using Shifted Windows paper by Liu et al. The model builds hierarchical feature maps by merging image patches in deeper layers and has linear computation complexity to the input image size. It can be used as a general-purpose backbone for both image classification and dense recognition tasks.
+
+## Usage example
+
+You can use the Swin Transformer model to classify an image from the COCO 2017 dataset into one of the 1,000 ImageNet classes. Here is an example using the transformers library in Python:
+
+```python
+from transformers import AutoImageProcessor, AutoModelForImageClassification
+from PIL import Image
+import requests
+
+url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+
+processor = AutoImageProcessor.from_pretrained("microsoft/swin-tiny-patch4-window7-224")
+model = AutoModelForImageClassification.from_pretrained("microsoft/swin-tiny-patch4-window7-224")
+
+inputs = processor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+logits = outputs.logits
+
+# Model predicts one of the 1000 ImageNet classes
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+For more code examples, please refer to the documentation.
+
+## Intended uses & limitations
+
+The raw model can be used for image classification tasks. Developers can also explore fine-tuned versions of the model on specific tasks in the model hub.
+
+## BibTeX entry and citation info
+
+```bibtex
+@article{DBLP:journals/corr/abs-2103-14030,
+  author    = {Ze Liu and Yutong Lin and Yue Cao and Han Hu and Yixuan Wei and Zheng Zhang and Stephen Lin and Baining Guo},
+  title     = {Swin Transformer: Hierarchical Vision Transformer using Shifted Windows},
+  journal   = {CoRR},
+  volume    = {abs/2103.14030},
+  year      = {2021},
+  url       = {https://arxiv.org/abs/2103.14030},
+  eprinttype = {arXiv},
+  eprint    = {2103.14030},
+  timestamp = {Thu, 08 Apr 2021 07:53:26 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2103-14030.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+```

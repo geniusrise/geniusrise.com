@@ -1,0 +1,61 @@
+# Model name
+
+MobileViT + DeepLabV3 (small-sized model)
+
+## Links
+
+Model page: [https://huggingface.co/apple/deeplabv3-mobilevit-small](https://huggingface.co/apple/deeplabv3-mobilevit-small)
+
+Github repo: Not available
+
+## Description
+
+MobileViT + DeepLabV3 (small-sized model) is a light-weight, low latency convolutional neural network that combines MobileNetV2-style layers with a new block that replaces local processing in convolutions with global processing using transformers. It is a semantic segmentation model that adds a DeepLabV3 head to the MobileViT backbone. The model is pre-trained on PASCAL VOC at a resolution of 512x512.
+
+## Usage example
+
+```python
+from transformers import MobileViTFeatureExtractor, MobileViTForSemanticSegmentation
+from PIL import Image
+import requests
+
+url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+
+feature_extractor = MobileViTFeatureExtractor.from_pretrained("apple/deeplabv3-mobilevit-small")
+model = MobileViTForSemanticSegmentation.from_pretrained("apple/deeplabv3-mobilevit-small")
+
+inputs = feature_extractor(images=image, return_tensors="pt")
+
+outputs = model(**inputs)
+logits = outputs.logits
+predicted_mask = logits.argmax(1).squeeze(0)
+```
+
+Currently, both the feature extractor and model support PyTorch.
+
+## Intended uses & limitations
+
+- Semantic segmentation
+- Fine-tuning on specific tasks
+
+## Training data
+
+The MobileViT + DeepLabV3 model was pretrained on ImageNet-1k, a dataset consisting of 1 million images and 1,000 classes, and then fine-tuned on the PASCAL VOC2012 dataset.
+
+## Evaluation results
+
+- MobileViT-XXS: PASCAL VOC mIOU 73.6 with 1.9 M parameters ([model page](https://huggingface.co/apple/deeplabv3-mobilevit-xx-small))
+- MobileViT-XS: PASCAL VOC mIOU 77.1 with 2.9 M parameters ([model page](https://huggingface.co/apple/deeplabv3-mobilevit-x-small))
+- MobileViT-S: PASCAL VOC mIOU 79.1 with 6.4 M parameters ([model page](https://huggingface.co/apple/deeplabv3-mobilevit-small))
+
+## Citation
+
+```
+@inproceedings{vision-transformer,
+title = {MobileViT: Light-weight, General-purpose, and Mobile-friendly Vision Transformer},
+author = {Sachin Mehta and Mohammad Rastegari},
+year = {2022},
+URL = {https://arxiv.org/abs/2110.02178}
+}
+```

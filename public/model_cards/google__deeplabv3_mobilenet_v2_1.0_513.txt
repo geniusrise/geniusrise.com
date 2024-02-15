@@ -1,0 +1,55 @@
+# Model name
+
+MobileNetV2 with DeepLabV3+
+
+## Links
+
+[Hugging Face Model Page](https://huggingface.co/google/deeplabv3_mobilenet_v2_1.0_513)
+
+## Description
+
+MobileNet V2 is a small, low-latency, low-power model that can be used for various tasks such as classification, detection, embeddings, and segmentation. It was introduced in the paper "MobileNetV2: Inverted Residuals and Linear Bottlenecks" by Mark Sandler, Andrew Howard, Menglong Zhu, Andrey Zhmoginov, Liang-Chieh Chen. This specific model is pre-trained on the PASCAL VOC dataset at a resolution of 513x513 and includes a DeepLabV3+ head for semantic segmentation. The model combines the efficiency of MobileNetV2 with the accuracy of DeepLabV3+ to perform semantic segmentation tasks.
+
+## Usage example
+
+To use this model, you can follow these steps using the transformers library in Python:
+
+```python
+from transformers import AutoImageProcessor, AutoModelForSemanticSegmentation
+from PIL import Image
+import requests
+
+url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+
+preprocessor = AutoImageProcessor.from_pretrained("google/deeplabv3_mobilenet_v2_1.0_513")
+model = AutoModelForSemanticSegmentation.from_pretrained("google/deeplabv3_mobilenet_v2_1.0_513")
+
+inputs = preprocessor(images=image, return_tensors="pt")
+
+outputs = model(**inputs)
+predicted_mask = preprocessor.post_process_semantic_segmentation(outputs)
+```
+
+Currently, both the feature extractor and model support PyTorch.
+
+## Intended uses & limitations
+
+This model can be used for semantic segmentation tasks. It is particularly useful for tasks that require real-time performance and low computational resources, such as mobile applications. It can be applied to a variety of use cases, including:
+
+1. Object detection and segmentation in images or videos.
+2. Background removal for image editing or virtual backgrounds in video conferencing.
+3. Environmental monitoring, such as identifying road conditions, land use, or vegetation changes from satellite or drone images.
+
+Please note that while this model provides a solid foundation for semantic segmentation, fine-tuned versions for specific tasks may be available in the model hub.
+
+## BibTeX entry and citation info
+
+```
+@inproceedings{deeplabv3plus2018,
+  title={Encoder-Decoder with Atrous Separable Convolution for Semantic Image Segmentation},
+  author={Liang-Chieh Chen and Yukun Zhu and George Papandreou and Florian Schroff and Hartwig Adam},
+  booktitle={ECCV},
+  year={2018}
+}
+```

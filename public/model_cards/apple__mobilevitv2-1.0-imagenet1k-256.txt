@@ -1,0 +1,62 @@
+# Model name
+
+MobileViTv2 (mobilevitv2-1.0-imagenet1k-256)
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/apple/mobilevitv2-1.0-imagenet1k-256)
+- [GitHub Repository](https://github.com/huggingface/transformers)
+
+## Description
+
+MobileViTv2 is the second version of MobileViT, proposed in the paper "Separable Self-attention for Mobile Vision Transformers" by Sachin Mehta and Mohammad Rastegari. It is designed as a lightweight vision transformer model and is suitable for image classification tasks. The model is constructed by replacing the multi-headed self-attention in MobileViT with separable self-attention.
+
+## Usage example
+
+Using the transformers library in Python, here is an example of how to use the MobileViTv2 model to classify an image from the COCO 2017 dataset into one of the 1,000 ImageNet classes:
+
+```python
+from transformers import MobileViTImageProcessor, MobileViTV2ForImageClassification
+from PIL import Image
+import requests
+
+url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+image = Image.open(requests.get(url, stream=True).raw)
+
+feature_extractor = MobileViTImageProcessor.from_pretrained("shehan97/mobilevitv2-1.0-imagenet1k-256")
+model = MobileViTV2ForImageClassification.from_pretrained("shehan97/mobilevitv2-1.0-imagenet1k-256")
+
+inputs = feature_extractor(images=image, return_tensors="pt")
+
+outputs = model(**inputs)
+logits = outputs.logits
+
+# model predicts one of the 1000 ImageNet classes
+predicted_class_idx = logits.argmax(-1).item()
+print("Predicted class:", model.config.id2label[predicted_class_idx])
+```
+
+Please note that both the feature extractor and model support PyTorch.
+
+## Intended uses
+
+1. Image Classification: MobileViTv2 can be used for classifying images into one of the 1,000 ImageNet classes.
+2. Fine-tuning: The model can be fine-tuned on specific image classification tasks of interest.
+3. Mobile Applications: Due to its lightweight design, MobileViTv2 is suitable for deployment on mobile devices for real-time image classification tasks.
+
+## Training data
+
+The MobileViTv2 model was pretrained on ImageNet-1k, a dataset consisting of 1 million images and 1,000 classes.
+
+## Citation
+
+If you use the MobileViTv2 model in your research work, please cite the following paper:
+
+```
+@inproceedings{vision-transformer,
+title = {Separable Self-attention for Mobile Vision Transformers},
+author = {Sachin Mehta and Mohammad Rastegari},
+year = {2022},
+URL = {https://arxiv.org/abs/2206.02680}
+}
+```

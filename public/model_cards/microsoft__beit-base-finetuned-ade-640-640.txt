@@ -1,0 +1,69 @@
+# Model name
+
+BEiT (base-sized model, fine-tuned on ADE20k)
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/microsoft/beit-base-finetuned-ade-640-640)
+- [GitHub Repository](https://github.com/microsoft/beit)
+
+## Description
+
+The BEiT model is a Vision Transformer (ViT) that has been pre-trained on a large collection of images in a self-supervised fashion and fine-tuned on the ADE20k dataset for semantic segmentation. It uses a pre-training objective to predict visual tokens from the encoder of OpenAI's DALL-E's VQ-VAE, based on masked patches. The model utilizes relative position embeddings and performs classification of images by mean-pooling the final hidden states of the patches. By extracting features from the pre-trained model, it can be used for downstream tasks such as semantic segmentation.
+
+## Usage example
+
+To use this model for semantic segmentation, you can follow these steps using the transformers library in Python:
+
+```python
+from transformers import BeitFeatureExtractor, BeitForSemanticSegmentation
+from datasets import load_dataset
+from PIL import Image
+
+# Load ADE20k image
+ds = load_dataset("hf-internal-testing/fixtures_ade20k", split="test")
+image = Image.open(ds[0]['file'])
+
+feature_extractor = BeitFeatureExtractor.from_pretrained('microsoft/beit-base-finetuned-ade-640-640')
+model = BeitForSemanticSegmentation.from_pretrained('microsoft/beit-base-finetuned-ade-640-640')
+
+inputs = feature_extractor(images=image, return_tensors="pt")
+outputs = model(**inputs)
+# Logits are of shape (batch_size, num_labels, height/4, width/4)
+logits = outputs.logits
+```
+
+Please note that both the feature extractor and the model currently support PyTorch.
+
+## Intended uses & limitations
+
+The BEiT model can be used for semantic segmentation of images. Developers can fine-tune the model on specific tasks of interest by exploring fine-tuned versions in the model hub. 
+
+## Training data
+
+The BEiT model was pretrained on the ImageNet-21k dataset, which consists of 14 million images and 21,841 classes. It was then fine-tuned on the ADE20k dataset, which comprises thousands of annotated images and 150 classes.
+
+## Training procedure
+
+The pretraining details and hyperparameters can be found in the original paper.
+
+## Preprocessing
+
+During training and validation, images are cropped and padded to a resolution of 640x640 and normalized across the RGB channels using the ImageNet mean and standard deviation.
+
+## Evaluation results
+
+Evaluation results on various image classification benchmarks can be found in the original paper. It should be noted that the best results for fine-tuning are obtained with a higher resolution (384x384). Increasing the model size can lead to improved performance.
+
+## BibTeX entry and citation info
+
+```plaintext
+@article{bao2021beit,
+  title={BEiT: BERT Pre-Training of Image Transformers},
+  author={Bao, Hangbo and Dong, Li and Wei, Furu},
+  journal={arXiv},
+  volume={abs/2106.08254},
+  year={2021},
+  url={https://arxiv.org/abs/2106.08254}
+}
+```
