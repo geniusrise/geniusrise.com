@@ -1,0 +1,39 @@
+# Model name
+
+meditron-70B-AWQ
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/TheBloke/meditron-70B-AWQ)
+- [GitHub Repository](https://github.com/TheBloke/meditron-70B-AWQ)
+
+## Description
+
+The meditron-70B-AWQ model is a Large Language Model (LLM) fine-tuned for text generation tasks, specifically in the medical domain. It is built using the transformers library in Python. The model is based on the base model `epfl-llm/meditron-70b` and has been quantized using the AWQ (Approximation-Winograd Quantization) method. 
+
+The model has been trained on several medical datasets, including `bigbio/med_qa`, `medmcqa`, `bigbio/pubmed_qa`, and `epfl-llm/guidelines`. It is designed for text generation pipelines and supports English language text generation.
+
+This model has a total of approximately 8.6 billion parameters.
+
+## Usage example
+
+Here is an example of how to use the `meditron-70B-AWQ` model with the transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+tokenizer = AutoTokenizer.from_pretrained("TheBloke/meditron-70B-AWQ")
+model = AutoModelForCausalLM.from_pretrained("TheBloke/meditron-70B-AWQ")
+
+input_text = "My name is John and I"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+output_ids = model.generate(input_ids)
+
+output_text = tokenizer.decode(output_ids[0])
+
+print(output_text)
+```
+
+This will generate text based on the input prompt "My name is John and I" using the `meditron-70B-AWQ` model.
+
+Please refer to the [Hugging Face Model Page](https://huggingface.co/TheBloke/meditron-70B-AWQ) for more information and examples.

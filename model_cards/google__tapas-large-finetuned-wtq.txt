@@ -1,0 +1,38 @@
+# Model name
+tapas-large-finetuned-wtq
+
+## Links
+- [Hugging Face Model Page](https://huggingface.co/google/tapas-large-finetuned-wtq)
+- [GitHub Repository](https://github.com/google-research/tapas)
+
+## Description
+The tapas-large-finetuned-wtq model is a large version of the TAPAS (Table-based Question Answering) model that has been fine-tuned on the WikiTableQuestions dataset. It is designed for table-based question answering tasks and utilizes the transformers library with Python. The model has been trained with a cross-entropy loss and achieves accurate results in table question answering. It has a significant number of parameters and is suitable for various table-based QA applications.
+
+The model is built on top of the TapasForQuestionAnswering architecture and is compatible with the Transformers library. It is trained using the WikiTableQuestions dataset and has been fine-tuned specifically for table question answering tasks.
+
+## Usage example
+Here is an example of using the tapas-large-finetuned-wtq model with the transformers library in Python:
+
+```python
+from transformers import TapasTokenizer, TapasForQuestionAnswering
+
+tokenizer = TapasTokenizer.from_pretrained("google/tapas-large-finetuned-wtq")
+model = TapasForQuestionAnswering.from_pretrained("google/tapas-large-finetuned-wtq")
+
+table = [["Column 1", "Column 2", "Column 3"],
+         ["Value 1", "Value 2", "Value 3"],
+         ["Value 4", "Value 5", "Value 6"]]
+
+queries = ["What is the value in Column 2?",
+           "What is the value in Row 2?"]
+
+inputs = tokenizer(table=table, queries=queries, padding="longest", return_tensors="pt")
+outputs = model(**inputs)
+
+answer_coordinates = outputs[0]
+answer = tokenizer.decode(answer_coordinates, skip_special_tokens=True)
+
+print(answer)
+```
+
+This example demonstrates how to use the tapas-large-finetuned-wtq model to answer questions based on a table. It utilizes the TapasTokenizer and TapasForQuestionAnswering classes from the transformers library to tokenize the input, pass it through the model, and decode the predicted answer coordinates. The answer is then printed out for each query.

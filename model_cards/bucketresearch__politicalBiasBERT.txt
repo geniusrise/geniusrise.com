@@ -1,0 +1,31 @@
+# Model name
+
+politicalBiasBERT
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/bucketresearch/politicalBiasBERT)
+- [GitHub Repository](https://github.com/bucketresearch/politicalBiasBERT)
+
+## Description
+
+politicalBiasBERT is a text classification model that is part of the Transformers library. It is based on the BERT architecture and is designed to classify the political bias of text data. The model has been trained on specific datasets and has a total of 108,313,091 parameters. It can be used for tasks such as political sentiment analysis and bias detection in social media posts, news articles, and other text sources.
+
+## Usage example
+
+```python
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+tokenizer = AutoTokenizer.from_pretrained("bucketresearch/politicalBiasBERT")
+model = AutoModelForSequenceClassification.from_pretrained("bucketresearch/politicalBiasBERT")
+
+text = "I like you. I love you."
+
+inputs = tokenizer(text, return_tensors="pt")
+outputs = model(**inputs)
+
+predictions = outputs.logits.argmax(dim=1)
+print(predictions)
+```
+
+In the example above, the politicalBiasBERT model is used to classify the political bias of the given text. The model's tokenizer is used to process the text, and the model itself is used to generate predictions. The predicted label is printed to the console.

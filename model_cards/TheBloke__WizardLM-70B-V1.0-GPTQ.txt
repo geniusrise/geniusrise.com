@@ -1,0 +1,43 @@
+# Model name
+
+WizardLM-70B-V1.0-GPTQ
+
+## Links
+
+- Hugging Face model page: [WizardLM-70B-V1.0-GPTQ](https://huggingface.co/TheBloke/WizardLM-70B-V1.0-GPTQ)
+- GitHub repository: N/A
+
+## Description
+
+The WizardLM-70B-V1.0-GPTQ model is a large language model based on the GPT architecture. It is trained on a diverse range of data and has been fine-tuned to provide helpful, detailed, and polite answers in a chat-based dialogue setting. The model is designed to engage in conversations with users, providing responses to their queries.
+
+The model has been quantized using GPTQ, a quantization method that uses 4-bit precision with group sparsity. This enables efficient deployment on edge devices and reduces memory requirements without significantly sacrificing performance.
+
+The model is trained using the transformers library in Python. It is equipped with a prompt template that allows users to initiate conversations with a specific prompt, to which the model responds accordingly.
+
+## Usage example
+
+```python
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+model_name = "TheBloke/WizardLM-70B-V1.0-GPTQ"
+tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+model = GPT2LMHeadModel.from_pretrained(model_name)
+
+# Define user input
+user_input = "My name is John. Can you tell me about the weather today?"
+
+# Encode user input
+encoded_input = tokenizer.encode(user_input, return_tensors="pt")
+
+# Generate model output
+model_output = model.generate(encoded_input)
+
+# Decode and print response
+response = tokenizer.decode(model_output[0], skip_special_tokens=True)
+print("Model response:", response)
+```
+
+Note: Make sure you have the `transformers` library installed before running the code.
+
+Please refer to the [Hugging Face model page](https://huggingface.co/TheBloke/WizardLM-70B-V1.0-GPTQ) for more information and examples.

@@ -1,0 +1,41 @@
+# Model name
+
+tapex-large-finetuned-wikisql
+
+## Links
+
+- [Model Page](https://huggingface.co/microsoft/tapex-large-finetuned-wikisql)
+- [GitHub Repo](https://github.com/microsoft/tapex)
+
+## Description
+
+Tapex-large-finetuned-wikisql is a language model that has been fine-tuned on the WikiSQL dataset for table question answering tasks. It is based on the BART architecture and can be used for text-to-text generation, specifically in the context of table question answering. The model has been developed by Microsoft.
+
+## Usage example
+
+Here is an example of how to use the tapex-large-finetuned-wikisql model with the Transformers library in Python:
+
+```python
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+
+# Load the model and tokenizer
+model_name = "microsoft/tapex-large-finetuned-wikisql"
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+# Define the input text
+input_text = "How many stars does the transformers repository have?"
+
+# Tokenize the input text
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
+# Generate the response
+output_ids = model.generate(input_ids)
+output_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+
+print(output_text)
+```
+
+Please note that the tapex-large-finetuned-wikisql model has a total of 406,341,721 parameters, and it is compatible with AutoTrain and inference endpoints. It is also licensed under MIT.
+
+The model page and the GitHub repository contain additional information and resources for building and using this model.

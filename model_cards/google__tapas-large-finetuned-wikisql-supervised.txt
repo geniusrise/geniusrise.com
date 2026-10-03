@@ -1,0 +1,48 @@
+# Model name
+
+tapas-large-finetuned-wikisql-supervised
+
+## Links
+
+- [Model Card](https://huggingface.co/google/tapas-large-finetuned-wikisql-supervised)
+- [GitHub Repo](https://github.com/google-research/tapas)
+
+## Description
+
+The `tapas-large-finetuned-wikisql-supervised` model is a large-scale fine-tuned version of Tapas (Table-type Question Answering System). Tapas is a BERT-based model specifically designed for table-based question answering. This model has been fine-tuned on the WikiSQL dataset using a supervised approach.
+
+The Tapas model is trained to understand and answer questions based on the information present in a table. It can handle complex multi-step questions that require reasoning over the table data. With its pre-trained language understanding capabilities, Tapas is able to process natural language questions and generate corresponding SQL queries to extract relevant information from the table.
+
+This model can be used to perform table-based question answering tasks. It can be particularly useful in scenarios where structured data in tables needs to be queried and analyzed using natural language questions.
+
+The `tapas-large-finetuned-wikisql-supervised` model can be accessed using the transformers library in Python.
+
+## Usage example
+
+Here's an example of how to use the `tapas-large-finetuned-wikisql-supervised` model with the transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForTableQuestionAnswering
+
+tokenizer = AutoTokenizer.from_pretrained("google/tapas-large-finetuned-wikisql-supervised")
+model = AutoModelForTableQuestionAnswering.from_pretrained("google/tapas-large-finetuned-wikisql-supervised")
+
+question = "How many stars does the transformers repository have?"
+table = {
+    "Repository": ["Transformers", "Datasets", "Tokenizers"],
+    "Stars": [36542, 4512, 3934],
+    "Contributors": [651, 77, 34],
+    "Programming language": ["Python", "Python", "Rust, Python and NodeJS"]
+}
+
+inputs = tokenizer(table=table, queries=question, padding="max_length", truncation=True, return_tensors="pt")
+outputs = model(**inputs)
+
+answer = tokenizer.decode(outputs.logits.argmax(dim=-1)[0]).strip()
+
+print("Answer:", answer)
+```
+
+Make sure to install the `transformers` library before running the code.
+
+Please note that this model has a large number of parameters.

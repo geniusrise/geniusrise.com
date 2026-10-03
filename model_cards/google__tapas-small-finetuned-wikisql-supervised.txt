@@ -1,0 +1,46 @@
+# Model name
+
+tapas-small-finetuned-wikisql-supervised
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/google/tapas-small-finetuned-wikisql-supervised)
+- [GitHub Repository](https://github.com/google-research/tapas)
+
+## Description
+
+The tapas-small-finetuned-wikisql-supervised model is a table question answering model that has been fine-tuned on the Wikisql dataset. It is implemented using the transformers library in Python. The model is based on the TAPAS (Table-based Question Answering) architecture.
+
+The model has been trained to answer questions based on tables. It can understand and extract information from tabular data, making it suitable for tasks such as answering questions related to data in tables.
+
+The tapas-small-finetuned-wikisql-supervised model has a small architecture and has been trained with a supervised learning approach using the Wikisql dataset.
+
+The model has a total of X parameters.
+
+## Usage example
+
+```python
+from transformers import TapasTokenizer, TapasForQuestionAnswering
+
+tokenizer = TapasTokenizer.from_pretrained("google/tapas-small-finetuned-wikisql-supervised")
+model = TapasForQuestionAnswering.from_pretrained("google/tapas-small-finetuned-wikisql-supervised")
+
+table = [
+    ["Name", "Age", "City"],
+    ["John", "25", "New York"],
+    ["Sarah", "30", "London"],
+    ["Michael", "35", "Paris"],
+]
+
+queries = [
+    "What is the age of Sarah?",
+    "Where does Michael live?"
+]
+
+encoded_inputs = tokenizer(table=table, queries=queries, padding="max_length", truncation=True, return_tensors="pt")
+outputs = model(**encoded_inputs)
+answer = tokenizer.decode(outputs[0].argmax().item())
+print(answer)
+```
+
+This example demonstrates how to use the tapas-small-finetuned-wikisql-supervised model for table question answering. It uses the TapasTokenizer and TapasForQuestionAnswering classes from the transformers library to tokenize the table and queries, encode the inputs, and generate predictions. The model is fine-tuned on the Wikisql dataset and can provide answers to questions based on the provided table.

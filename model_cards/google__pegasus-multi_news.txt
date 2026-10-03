@@ -1,0 +1,37 @@
+# Model name
+
+google/pegasus-multi_news
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/google/pegasus-multi_news)
+- [GitHub Repository](https://github.com/google-research/pegasus)
+
+## Description
+
+The `google/pegasus-multi_news` model is a variant of the Pegasus model trained for summarization tasks. It is available in the Transformers library with Python. The model is trained to generate abstractive summaries for multiple news articles.
+
+Key features of `google/pegasus-multi_news`:
+- Architecture: PegasusForConditionalGeneration
+- Model type: Pegasus
+- Libraries: Transformers
+- Languages: English
+- Tags: Transformations, PyTorch, Pegasus, Text2Text Generation, Summarization, English, arxiv:1912.08777, AutoTrain Compatible, Inference Endpoints, Has a Space, Region: US
+
+## Usage example
+
+```python
+from transformers import PegasusForConditionalGeneration, PegasusTokenizer
+
+model_name = "google/pegasus-multi_news"
+tokenizer = PegasusTokenizer.from_pretrained(model_name)
+model = PegasusForConditionalGeneration.from_pretrained(model_name)
+
+text = "Input text containing multiple news articles..."
+encoded_input = tokenizer.encode(text, return_tensors="pt")
+output = model.generate(encoded_input)
+summary = tokenizer.decode(output[0], skip_special_tokens=True)
+print(summary)
+```
+
+For more details and usage examples, refer to the [Hugging Face Model Page](https://huggingface.co/google/pegasus-multi_news) and [GitHub Repository](https://github.com/google-research/pegasus) for the model.

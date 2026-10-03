@@ -1,0 +1,35 @@
+# Model name
+
+Yi-34B-AWQ
+
+## Links
+
+**Hugging Face Model Card**: [Yi-34B-AWQ](https://huggingface.co/TheBloke/Yi-34B-AWQ)
+
+**GitHub Repository**: N/A
+
+## Description
+
+The Yi-34B-AWQ model is a text generation model developed by TheBloke. It is based on the Yi architecture and is trained using the transformers library with Python. The model is designed for text generation tasks and falls under the pipeline tag of "text-generation". It uses a prompt template of "Human: {prompt} Assistant:\n" to generate responses. The model's license is "other" and can be found in the LICENSE file.
+
+The Yi-34B-AWQ model is a quantized model, with 4-bit precision and uses the AWQ (Adaptive Weight Quantization) quantization method. It has a total of 5,396,364,288 parameters. The model is optimized for safety with the use of the Safetensors library.
+
+## Usage example
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "TheBloke/Yi-34B-AWQ"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+
+prompt = "There's a place where time stands still. A place of breathtaking wonder, but also"
+input_ids = tokenizer.encode(prompt, return_tensors="pt")
+
+output = model.generate(input_ids, max_length=100)
+
+generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+print(generated_text)
+```
+
+This will generate text using the Yi-34B-AWQ model based on the provided prompt.

@@ -1,0 +1,62 @@
+# Model name
+
+Massively Multilingual Speech (MMS): Malayalam Text-to-Speech
+
+## Links
+
+- [Model Page](https://huggingface.co/facebook/mms-tts-mal)
+- [GitHub Repo](https://github.com/huggingface/transformers)
+
+## Description
+
+This repository contains the Malayalam (mal) language text-to-speech (TTS) model checkpoint. The model, VITS (Variational Inference with adversarial learning for end-to-end Text-to-Speech), is an end-to-end speech synthesis model that predicts a speech waveform based on an input text sequence. It is a conditional variational autoencoder (VAE) that includes a posterior encoder, decoder, and conditional prior. The model also includes a spectrogram-based acoustic feature prediction module and a stochastic duration predictor to allow for synthesizing speech with different rhythms from the same input text. The model is trained using a combination of variational lower bound and adversarial training.
+
+MMS-TTS is available in the 🤗 Transformers library from version 4.33 onwards.
+
+## Usage example
+
+To use this checkpoint, first install the latest version of the library:
+
+```python
+pip install --upgrade transformers accelerate
+```
+
+Then, run inference with the following code snippet:
+
+```python
+from transformers import VitsModel, AutoTokenizer
+import torch
+
+model = VitsModel.from_pretrained("facebook/mms-tts-mal")
+tokenizer = AutoTokenizer.from_pretrained("facebook/mms-tts-mal")
+
+text = "some example text in the Malayalam language"
+inputs = tokenizer(text, return_tensors="pt")
+
+with torch.no_grad():
+    output = model(**inputs).waveform
+```
+
+The resulting waveform can be saved as a .wav file:
+
+```python
+import scipy
+
+scipy.io.wavfile.write("techno.wav", rate=model.config.sampling_rate, data=output)
+```
+
+Or displayed in a Jupyter Notebook / Google Colab:
+
+```python
+from IPython.display import Audio
+
+Audio(output, rate=model.config.sampling_rate)
+```
+
+The MMS-TTS model can be used for business use cases such as:
+
+1. Call center automation: Generate speech for automated voice systems used in call centers to provide information or guide customers through self-service options.
+2. Language learning: Create audio resources for language learning platforms to improve pronunciation and provide example sentences.
+3. Audiobooks: Convert written content into spoken words for audiobook production companies to create immersive listening experiences.
+4. Accessibility tools: Develop assistive technologies that convert written text into speech for individuals with visual impairments.
+5. Voice assistants: Enhance the capabilities of voice assistant applications by generating more natural and expressive speech for interactions with users.

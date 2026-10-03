@@ -1,0 +1,43 @@
+# Model name
+
+rubert-tiny-toxicity
+
+## Links
+
+- [Model page](https://huggingface.co/cointegrated/rubert-tiny-toxicity)
+- [GitHub repo](https://github.com/cointegrated/rubert-tiny-toxicity)
+
+## Description
+
+The rubert-tiny-toxicity model is a Russian BERT-based model trained for toxicity detection. It is built using the transformers library with Python. The model has been trained on a multilabel text classification task to identify toxic content in Russian text. The model is based on the BERT architecture and is fine-tuned for text classification using a toxic/non-toxic label. The model can be used for various applications, such as content moderation, detecting inappropriate messages, and protecting a company's reputation.
+
+The model is pretrained on a large corpus of Russian text and can be fine-tuned on specific downstream tasks. It has a smaller size compared to larger BERT models, which makes it more efficient for deployment and inference.
+
+The rubert-tiny-toxicity model can be used with the transformers library in Python. It provides an easy-to-use interface for performing inference on Russian text for toxicity detection tasks.
+
+## Usage example
+
+```python
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+# Load the tokenizer and model
+tokenizer = AutoTokenizer.from_pretrained("cointegrated/rubert-tiny-toxicity")
+model = AutoModelForSequenceClassification.from_pretrained("cointegrated/rubert-tiny-toxicity")
+
+# Example text
+text = "Иди ты нафиг!"
+
+# Tokenize the text
+inputs = tokenizer.encode_plus(text, return_tensors="pt")
+
+# Make predictions
+outputs = model(**inputs)
+predictions = outputs.logits.argmax(dim=1)
+
+# Print the predicted label
+print(predictions.item())
+```
+
+This example demonstrates how to use the rubert-tiny-toxicity model to classify the toxicity of a Russian text. The model is loaded using the AutoTokenizer and AutoModelForSequenceClassification classes from the transformers library. The input text is tokenized using the tokenizer, and then the model is used to make predictions on the tokenized input. The predicted label is printed to indicate whether the text is toxic or non-toxic.
+
+Note: The code snippet assumes that the transformers library is installed. You can install it using `pip install transformers`.

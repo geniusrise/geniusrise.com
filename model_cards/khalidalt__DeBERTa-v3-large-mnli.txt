@@ -1,0 +1,34 @@
+# Model name
+DeBERTa-v3-large-mnli
+
+## Links
+
+- [Model Page](https://huggingface.co/khalidalt/DeBERTa-v3-large-mnli)
+- [GitHub Repo](https://github.com/khalidalt/DeBERTa-v3-large-mnli)
+
+## Description
+
+DeBERTa-v3-large-mnli is a text classification model based on the DeBERTa-v3 architecture. It has been fine-tuned on the MNLI dataset and is suitable for performing zero-shot text and sentence classification tasks. The model has been implemented using the Transformers library in Python.
+
+The DeBERTa-v3 architecture is an enhanced version of the BERT model, incorporating disentangled attention mechanisms for improved language understanding and representation.
+
+## Usage example
+
+```python
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+model_name = "khalidalt/DeBERTa-v3-large-mnli"
+
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(model_name)
+
+sequence = "The movie has received mixed reviews. I personally enjoyed it."
+encoded_inputs = tokenizer(sequence, truncation=True, padding=True, return_tensors="pt")
+outputs = model(**encoded_inputs)
+logits = outputs.logits
+predicted_label = logits.argmax().item()
+```
+
+Note: Replace `sequence` with the input text you want to classify.
+
+The model can be loaded using the `AutoModelForSequenceClassification` class from the Transformers library. The input text is tokenized using the model's tokenizer, and the encoded inputs are passed to the model for classification. The output logits represent the predicted probabilities for each class, and the predicted label can be obtained by taking the argmax of the logits.

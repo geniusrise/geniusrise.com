@@ -1,0 +1,32 @@
+# Model name
+Babelscape/wikineural-multilingual-ner
+
+## Links
+- Hugging Face Model Page: [Babelscape/wikineural-multilingual-ner](https://huggingface.co/Babelscape/wikineural-multilingual-ner)
+- GitHub Repository: N/A
+
+## Description
+The Babelscape/wikineural-multilingual-ner model is a multilingual named entity recognition (NER) model. It is based on the BERT architecture and is implemented using the Transformers library in Python. The model is trained on the wikineural dataset and supports multiple languages, including German, English, Spanish, French, Italian, Dutch, Polish, Portuguese, and Russian. The model has a total of 177,270,281 parameters and is available under the CC-BY-NC-SA-4.0 license.
+
+## Usage example
+Here is an example of how to use the Babelscape/wikineural-multilingual-ner model with the Transformers library in Python:
+
+```python
+from transformers import pipeline
+
+ner = pipeline("ner", model="Babelscape/wikineural-multilingual-ner")
+
+text = "My name is Wolfgang and I live in Berlin."
+results = ner(text)
+
+for entity in results:
+    print(entity)
+```
+
+This will output the named entities detected in the input text:
+
+```
+{'word': 'Wolfgang', 'score': 0.9997510318756104, 'entity': 'B-PER', 'index': 5, 'start': 11, 'end': 19}
+{'word': 'Berlin', 'score': 0.9997302293777466, 'entity': 'B-LOC', 'index': 10, 'start': 31, 'end': 37}
+```
+Please note that the above example is just a demonstration of how to use the model and the results may vary depending on the input text.

@@ -1,0 +1,30 @@
+# Model name
+cardiffnlp/twitter-roberta-base-hate-latest
+
+## Links
+- Model page: [cardiffnlp/twitter-roberta-base-hate-latest](https://huggingface.co/cardiffnlp/twitter-roberta-base-hate-latest)
+- GitHub repository: N/A
+
+## Description
+The cardiffnlp/twitter-roberta-base-hate-latest model is a text classification model based on the RoBERTa architecture. It is trained on Twitter data and is specifically designed to detect hate speech. The model is compatible with the transformers library in Python.
+
+- Pipeline tag: Text Classification
+- Language: English
+
+## Usage example
+Here is an example of how to use the model with the transformers library in Python:
+
+```python
+from transformers import pipeline
+
+classifier = pipeline("text-classification", model="cardiffnlp/twitter-roberta-base-hate-latest")
+
+result = classifier("I hate you.")
+print(result)
+```
+
+This will output the predicted label and confidence score for the input text.
+
+Please note that the model has 4793 downloads and 11 likes.
+
+For more details, please visit the [model page](https://huggingface.co/cardiffnlp/twitter-roberta-base-hate-latest).

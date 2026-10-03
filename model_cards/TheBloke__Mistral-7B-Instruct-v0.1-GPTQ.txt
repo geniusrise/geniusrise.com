@@ -1,0 +1,28 @@
+# Model name
+TheBloke/Mistral-7B-Instruct-v0.1-GPTQ
+
+## Links
+- [Model Page](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GPTQ)
+- GitHub Repo: N/A
+
+## Description
+The `Mistral-7B-Instruct-v0.1-GPTQ` model is a text generation model based on the Mistral AI architecture. It is specifically designed for generating text based on instructions given in the prompt. It has been fine-tuned for text generation tasks and falls under the text-generation pipeline. The model utilizes the transformers library in Python.
+
+## Usage example
+```python
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+model_name = "TheBloke/Mistral-7B-Instruct-v0.1-GPTQ"
+model = GPT2LMHeadModel.from_pretrained(model_name)
+tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+
+# Example usage
+prompt = "Write a story about a princess who"
+input_ids = tokenizer.encode(prompt, return_tensors="pt")
+output = model.generate(input_ids, max_length=50)
+decoded_output = tokenizer.decode(output[0])
+
+print(decoded_output)
+```
+
+Please note that the example code assumes the transformers library is installed and the model and tokenizer are properly imported.

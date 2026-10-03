@@ -1,0 +1,46 @@
+# Model name
+
+tapas-base-finetuned-sqa
+
+## Links
+
+- [Model page](https://huggingface.co/google/tapas-base-finetuned-sqa)
+- [GitHub Repo](https://github.com/google-research/tapas)
+
+## Description
+
+The tapas-base-finetuned-sqa model is a fine-tuned version of the TAPAS (Table Processing via Self-Attention) model for table question-answering tasks. It is trained on the msr_sqa dataset. The model utilizes the transformers library and is available for both PyTorch and TensorFlow.
+
+The model has been trained to perform question answering on tables and provides accurate results for various types of questions asked about the data in a table. It uses pre-training on a large corpus of tables and text before fine-tuning on the specific task.
+
+The tapas-base-finetuned-sqa model has a total of 173 million parameters.
+
+## Usage example
+
+Here is an example of how to use the tapas-base-finetuned-sqa model with the transformers library in Python:
+
+```python
+from transformers import TapasForQuestionAnswering, TapasTokenizer
+
+tokenizer = TapasTokenizer.from_pretrained("google/tapas-base-finetuned-sqa")
+model = TapasForQuestionAnswering.from_pretrained("google/tapas-base-finetuned-sqa")
+
+table = [
+    ["City", "Population", "Area"],
+    ["New York", "8.4 million", "783.8 square miles"],
+    ["Los Angeles", "3.8 million", "468.7 square miles"]
+]
+
+questions = ["What is the population of New York?", "How big is Los Angeles in square miles?"]
+
+encoded_inputs = tokenizer(table=table, queries=questions, padding="max_length", truncation=True, return_tensors="pt")
+outputs = model(**encoded_inputs)
+
+answer_idx, answer_coordinates = (outputs[0], outputs[1])
+
+for i, (idx, coordinates) in enumerate(zip(answer_idx, answer_coordinates)):
+    answer = table[coordinates[0]][coordinates[1]]
+    print(f"Answer to question {i+1}: {answer}")
+```
+
+This example demonstrates how to use the tapas-base-finetuned-sqa model to answer questions about a table. The model is fine-tuned on the SQA (Stanford Question Answering) dataset.

@@ -1,0 +1,48 @@
+# Model name
+
+MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7
+
+## Links
+
+- [Model Page](https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7)
+- [GitHub Repo](https://github.com/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7)
+
+## Description
+
+mDeBERTa-v3-base-xnli-multilingual-nli-2mil7 is a multilingual model based on mDeBERTa-v3 base. It is trained on a multilingual Natural Language Inference (NLI) dataset and supports zero-shot classification and text classification tasks. The model has been fine-tuned on various datasets and achieves competitive accuracy results.
+
+The model supports multiple languages including Chinese, Japanese, Arabic, Korean, German, French, Spanish, Portuguese, Hindi, Indonesian, Italian, Turkish, Russian, Bengali, Urdu, Marathi, Tamil, Vietnamese, Persian, Polish, Ukrainian, Dutch, Swedish, Hebrew, Swahili, and Pashto.
+
+The model is compatible with the transformers library and can be used with Python.
+
+## Usage example
+
+Here's an example of how to use mDeBERTa-v3-base-xnli-multilingual-nli-2mil7 with the transformers library in Python:
+
+```python
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+# Load the tokenizer and model
+tokenizer = AutoTokenizer.from_pretrained("MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7")
+model = AutoModelForSequenceClassification.from_pretrained("MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7")
+
+# Example input sentence
+input_sentence = "Angela Merkel ist eine Politikerin in Deutschland und Vorsitzende der CDU"
+
+# Tokenize the input sentence
+inputs = tokenizer(input_sentence, return_tensors="pt")
+
+# Perform inference
+outputs = model(**inputs)
+
+# Get the predicted label
+predicted_label = tokenizer.decode(outputs.logits.argmax(), skip_special_tokens=True)
+```
+
+Note: Make sure you have the transformers library installed before running the code.
+
+The model has been trained on various datasets, including MoritzLaurer/multilingual-NLI-26lang-2mil7, xnli, multi_nli, anli, fever, lingnli, and alisawuffles/WANLI.
+
+It is licensed under the MIT license.
+
+Please refer to the [Model Page](https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7) and [GitHub Repo](https://github.com/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7) for more details.

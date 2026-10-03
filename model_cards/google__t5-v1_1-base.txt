@@ -1,0 +1,46 @@
+# Model name
+
+google/t5-v1_1-base
+
+## Links
+
+- [Model Page](https://huggingface.co/google/t5-v1_1-base)
+- [GitHub Repo](https://github.com/google-research/text-to-text-transfer-transformer)
+
+## Description
+
+The google/t5-v1_1-base model is a text-to-text generation model based on the T5 architecture. It is part of the T5 model series developed by Google, and it is trained using a large amount of data, including the C4 dataset. The model has 220 million parameters and supports various text generation tasks.
+
+Some notable features and characteristics of the model include:
+- Architecture: T5ForConditionalGeneration
+- Language: English (en)
+- Supported libraries: Transformers (Python)
+- Model type: Text-to-text generation
+- Inference: Yes
+- Dataset: C4
+
+For more details, please visit the [Model Page](https://huggingface.co/google/t5-v1_1-base).
+
+## Usage example
+
+You can use the google/t5-v1_1-base model for text generation tasks using the Transformers library in Python. Here's an example showing how to generate text with the model:
+
+```python
+from transformers import T5ForConditionalGeneration, T5Tokenizer
+
+model_name = "google/t5-v1_1-base"
+model = T5ForConditionalGeneration.from_pretrained(model_name)
+tokenizer = T5Tokenizer.from_pretrained(model_name)
+
+input_text = "Translate this English sentence to French: 'Hello, how are you?'"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
+generated_ids = model.generate(input_ids)
+output_text = tokenizer.decode(generated_ids[0], skip_special_tokens=True)
+
+print(output_text)
+```
+
+This example demonstrates how to use the T5 model for translation from English to French. Replace the `input_text` variable with your desired input text, and the generated translation will be printed.
+
+For more usage examples and details, please refer to the [Transformers library documentation](https://huggingface.co/transformers/).

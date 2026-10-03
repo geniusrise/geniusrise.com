@@ -1,0 +1,40 @@
+# Model Name
+
+facebook/mbart-large-50-many-to-many-mmt
+
+## Links
+
+- Model Page: [https://huggingface.co/facebook/mbart-large-50-many-to-many-mmt](https://huggingface.co/facebook/mbart-large-50-many-to-many-mmt)
+- GitHub Repo: N/A
+
+## Description
+
+The `facebook/mbart-large-50-many-to-many-mmt` model is a multilingual sequence-to-sequence model pretrained with mBART on a range of languages. It is designed for many-to-many multilingual machine translation tasks. The model supports translation between multiple languages and can handle a large number of languages. It is implemented using the transformers library in Python.
+
+Some key features and details include:
+
+- Language support: multilingual, Arabic, Czech, German, English, Spanish, Estonian, Finnish, French, Gujarati, Hindi, Italian, Japanese, Kazakh, Korean, Lithuanian, Latvian, Burmese, Nepali, Dutch, Romanian, Russian, Sinhala, Turkish, Vietnamese, Chinese, Afrikaans, Azerbaijani, Bengali, Persian, Hebrew, Croatian, Indonesian, Georgian, Khmer, Macedonian, Malayalam, Mongolian, Marathi, Polish, Pashto, Portuguese, Swedish, Swahili, Tamil, Telugu, Thai, Tagalog, Ukrainian, Urdu, Xhosa, Galician, Slovenian.
+- Model type: mbart.
+- Architecture: MBartForConditionalGeneration.
+- Training data: mBART training data.
+- Inference: Yes.
+
+## Usage Example
+
+Here is an example of how to use the model with the transformers library in Python:
+
+```python
+from transformers import pipeline
+
+translator = pipeline("translation", model="facebook/mbart-large-50-many-to-many-mmt", tokenizer="facebook/mbart-large-50-many-to-many-mmt")
+
+result = translator("Hello, how are you?", src="en", tgt="fr")
+
+print(result)
+```
+
+This example translates the input text "Hello, how are you?" from English (src="en") to French (tgt="fr"). The output is printed to the console.
+
+Note: The example assumes you have already installed the transformers library and have the necessary dependencies.
+
+Please refer to the [model page](https://huggingface.co/facebook/mbart-large-50-many-to-many-mmt) for more information on how to use this model and for additional examples.

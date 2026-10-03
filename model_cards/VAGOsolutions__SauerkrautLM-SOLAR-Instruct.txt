@@ -1,0 +1,32 @@
+# Model name
+
+SauerkrautLM-SOLAR-Instruct
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/VAGOsolutions/SauerkrautLM-SOLAR-Instruct)
+- [GitHub Repo](https://github.com/VAGOsolutions/SauerkrautLM-SOLAR-Instruct)
+
+## Description
+
+The SauerkrautLM-SOLAR-Instruct model is a text generation model specifically designed for instructions. It is part of the transformers library in Python. The model is based on the Llama architecture and is trained on a dataset that includes German and English instructions. It is suitable for tasks such as text generation, finetuning, domain-specific augmentation, and German language processing. The model has a total of 10,731,524,096 parameters.
+
+## Usage example
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "VAGOsolutions/SauerkrautLM-SOLAR-Instruct"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+
+input_text = "How to make a sandwich:"
+input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
+output = model.generate(input_ids, max_length=50, num_return_sequences=5)
+
+for i, generated in enumerate(output):
+    print(f"Generated {i+1}: {tokenizer.decode(generated, skip_special_tokens=True)}")
+```
+
+Please note that the above example assumes you have already installed the transformers library and have the necessary dependencies available.

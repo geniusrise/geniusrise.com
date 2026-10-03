@@ -1,0 +1,34 @@
+# Model name
+
+Google BigBird Pegasus Large BigPatent
+
+## Links
+
+- [Model page](https://huggingface.co/google/bigbird-pegasus-large-bigpatent)
+- [GitHub repository](https://github.com/google-research/bigbird)
+
+## Description
+
+The Google BigBird Pegasus Large BigPatent model is a language generation model based on the BigBird-PEGASUS architecture. It is designed for text summarization tasks and is trained on the BigPatent dataset. The model is implemented using the transformers library in Python. 
+
+The BigBird-PEGASUS architecture is a variant of the PEGASUS model that incorporates the BigBird attention mechanism, allowing it to handle longer sequences more efficiently. The model has a total of approximately X parameters.
+
+## Usage example
+
+```python
+from transformers import BigBirdPegasusForConditionalGeneration, BigBirdTokenizer
+
+tokenizer = BigBirdTokenizer.from_pretrained("google/bigbird-pegasus-large-bigpatent")
+model = BigBirdPegasusForConditionalGeneration.from_pretrained("google/bigbird-pegasus-large-bigpatent")
+
+input_text = "Input text for summarization"
+inputs = tokenizer(input_text, truncation=True, padding="longest", return_tensors="pt")
+input_ids = inputs.input_ids.to(model.device)
+attention_mask = inputs.attention_mask.to(model.device)
+
+outputs = model.generate(input_ids, attention_mask=attention_mask, max_length=100)
+summary = tokenizer.decode(outputs[0], skip_special_tokens=True)
+print(summary)
+```
+
+Please note that the example above assumes you have already installed the Transformers library and have a GPU available for faster inference.

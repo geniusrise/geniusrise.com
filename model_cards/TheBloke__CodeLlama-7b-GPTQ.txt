@@ -1,0 +1,26 @@
+# Model name
+
+CodeLlama-7B-GPTQ
+
+## Links
+
+- [Hugging Face Model Page](https://huggingface.co/TheBloke/CodeLlama-7B-GPTQ)
+- No GitHub repo available
+
+## Description
+
+The CodeLlama-7B-GPTQ model is a language model trained on code data. It is based on the CodeLlama-7B base model and has been fine-tuned to perform code generation tasks. The model uses the GPTQ method for quantization.
+
+The model is designed for text generation tasks related to code and programming languages. It has been trained on code datasets and contains a total of 816,963,584 parameters. The model is compatible with the Transformers library in Python.
+
+## Usage example
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "TheBloke/CodeLlama-7B-GPTQ"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+```
+
+Note: The code example uses the Transformers library in Python to instantiate the model and tokenizer.

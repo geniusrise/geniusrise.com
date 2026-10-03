@@ -1,0 +1,38 @@
+# Model name
+Tapas-Large-Finetuned-SQA
+
+## Links
+- [Model Page](https://huggingface.co/google/tapas-large-finetuned-sqa)
+- [GitHub Repo](https://github.com/google-research/tapas)
+
+## Description
+Tapas-Large-Finetuned-SQA is a large version of the TAPAS (TAble PArSing) model that is fine-tuned on the SQA (Sequential Question Answering) dataset. It is a transformer-based model designed for table question answering tasks and is compatible with the Transformers library in Python. The model has been trained with a large number of parameters and is specifically optimized for table-based question answering.
+
+The model is based on the TAPAS architecture and can handle table-based questions by predicting the answer from the table. It has pre-trained weights that provide excellent performance on table question answering tasks. The model can be used to perform question answering on various tables and is particularly useful in applications that require understanding and extracting information from structured data.
+
+The model is enabled for inference and can be used to generate predictions on table-based question answering tasks. It is fine-tuned on the SQA dataset, which is a sequential question answering dataset specifically designed for table-based queries. The model achieves state-of-the-art performance on this dataset and can be easily used to tackle similar tasks in production environments.
+
+## Usage example
+```python
+from transformers import TapasForQuestionAnswering, TapasTokenizer
+
+model_name = "google/tapas-large-finetuned-sqa"
+tokenizer = TapasTokenizer.from_pretrained(model_name)
+model = TapasForQuestionAnswering.from_pretrained(model_name)
+
+# Example input table and question
+table = [["Column 1", "Column 2"], ["Value 1", "Value 2"], ["Value 3", "Value 4"]]
+question = "What is the value in column 2?"
+
+# Tokenize input
+inputs = tokenizer(table=table, queries=question, padding="max_length", truncation=True, return_tensors="pt")
+
+# Perform inference
+outputs = model(**inputs)
+answer = outputs.answer
+
+# Print answer
+print(answer)
+```
+
+Please note that the code example above assumes you have installed the Transformers library.

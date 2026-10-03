@@ -1,0 +1,29 @@
+# Model name
+
+Llama-2-13B-chat-GPTQ
+
+## Links
+
+- [Model Page](https://huggingface.co/TheBloke/Llama-2-13B-chat-GPTQ)
+- [GitHub Repo](https://github.com/TheBloke/Llama-2-13B-chat-GPTQ)
+
+## Description
+
+Llama-2-13B-chat-GPTQ is a text generation model based on the Llama-2 architecture. It is built using the transformers library in Python. The model is designed to generate helpful and respectful responses. It follows a prompt template that encourages positive and socially unbiased answers. The model has a base model called meta-llama/Llama-2-13b-chat-hf and uses GPTQ (GPT Quantization) for its quantization configuration. The model is suitable for builders and developers looking for a large-scale text generation model.
+
+## Usage example
+
+Here's an example of how to use the Llama-2-13B-chat-GPTQ model with the transformers library in Python:
+
+```python
+from transformers import pipeline
+
+generator = pipeline("text-generation", model="TheBloke/Llama-2-13B-chat-GPTQ")
+
+prompt = "Question: What is the capital of France?"
+response = generator(prompt, max_length=100)
+
+print(response[0]['generated_text'])
+```
+
+This will generate a response to the given prompt using the Llama-2-13B-chat-GPTQ model.

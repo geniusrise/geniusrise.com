@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/static/css/main.35875631.css",
+    "main.js": "/static/js/main.ec477a79.js",
+    "static/js/787.fecf2837.chunk.js": "/static/js/787.fecf2837.chunk.js",
+    "static/media/login7.jpg": "/static/media/login7.db50f3afe35fb1c340b1.jpg",
+    "static/media/banner5.jpg": "/static/media/banner5.e97292d52b9e21248c37.jpg",
+    "static/media/logo.png": "/static/media/logo.f93d8166f2222cc253ab.png",
+    "static/media/logo1.png": "/static/media/logo1.66bcefb6ea32083b23de.png",
+    "static/media/lol-20020e97-e56d-4ce9-b370-d0583dac0885.jpg": "/static/media/lol-20020e97-e56d-4ce9-b370-d0583dac0885.e373692755bf6f5cb7fb.jpg",
+    "static/media/lol-de9e79c5-2e9b-4742-9b7b-afa97c21f881.jpg": "/static/media/lol-de9e79c5-2e9b-4742-9b7b-afa97c21f881.499ca22e36424fcb9d9b.jpg",
+    "static/media/lol-416b4249-8575-4513-a025-e4eddac32f2d.jpg": "/static/media/lol-416b4249-8575-4513-a025-e4eddac32f2d.c5f1e19e436ecde5c8ba.jpg",
+    "static/media/lol-90cb26c2-6e30-4b68-a69b-aa969f7bd022.jpg": "/static/media/lol-90cb26c2-6e30-4b68-a69b-aa969f7bd022.fc9ee46f895189a279a1.jpg",
+    "static/media/geniusrise_text_dark.png": "/static/media/geniusrise_text_dark.842110fb6462d3f8df8a.png",
+    "static/media/fira-sans-latin-ext-400-normal.woff2": "/static/media/fira-sans-latin-ext-400-normal.de53e7e7580bf5bc0690.woff2",
+    "static/media/fira-sans-latin-ext-400-normal.woff": "/static/media/fira-sans-latin-ext-400-normal.5c5465f5a71c5db70a1e.woff",
+    "static/media/fira-sans-latin-400-normal.woff2": "/static/media/fira-sans-latin-400-normal.684226288210a40c6acc.woff2",
+    "static/media/fira-sans-latin-400-normal.woff": "/static/media/fira-sans-latin-400-normal.d2c59270625191820966.woff",
+    "static/media/fira-sans-cyrillic-ext-400-normal.woff2": "/static/media/fira-sans-cyrillic-ext-400-normal.d68444561f969b0ec505.woff2",
+    "static/media/fira-sans-cyrillic-ext-400-normal.woff": "/static/media/fira-sans-cyrillic-ext-400-normal.46475bbb3ac88834c6f2.woff",
+    "static/media/fira-sans-greek-400-normal.woff2": "/static/media/fira-sans-greek-400-normal.fc6dfdfac47f5b7efb29.woff2",
+    "static/media/fira-sans-greek-400-normal.woff": "/static/media/fira-sans-greek-400-normal.154fd1895fd754efadbd.woff",
+    "static/media/fira-sans-cyrillic-400-normal.woff2": "/static/media/fira-sans-cyrillic-400-normal.9bfda67e3f43aa0ea53d.woff2",
+    "static/media/fira-sans-cyrillic-400-normal.woff": "/static/media/fira-sans-cyrillic-400-normal.29afd32b39156f3b73f8.woff",
+    "static/media/fira-sans-greek-ext-400-normal.woff2": "/static/media/fira-sans-greek-ext-400-normal.2a7a57f95a4f314a9945.woff2",
+    "static/media/fira-sans-vietnamese-400-normal.woff2": "/static/media/fira-sans-vietnamese-400-normal.fe7c1b42f70ca2c9ae55.woff2",
+    "static/media/fira-sans-greek-ext-400-normal.woff": "/static/media/fira-sans-greek-ext-400-normal.6b47ce752a20db9bcf65.woff",
+    "static/media/fira-sans-vietnamese-400-normal.woff": "/static/media/fira-sans-vietnamese-400-normal.35786a1075b07b5ef41a.woff",
+    "index.html": "/index.html",
+    "main.35875631.css.map": "/static/css/main.35875631.css.map",
+    "main.ec477a79.js.map": "/static/js/main.ec477a79.js.map",
+    "787.fecf2837.chunk.js.map": "/static/js/787.fecf2837.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.35875631.css",
+    "static/js/main.ec477a79.js"
+  ]
+}
