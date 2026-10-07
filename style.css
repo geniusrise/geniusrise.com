@@ -1,0 +1,24 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; background: #14161a; color: #d7dce3; line-height: 1.6; }
+a { color: #8ab4f8; }
+.wrap { max-width: 62rem; margin: 0 auto; padding: 0 1.2rem; }
+header { border-bottom: 1px solid #2a3038; background: #1b1f26; }
+header .wrap { display: flex; justify-content: space-between; align-items: center; padding-top: 0.9rem; padding-bottom: 0.9rem; }
+.brand { font-weight: 800; letter-spacing: 0.04em; }
+nav { display: flex; gap: 1.2rem; }
+.hero { padding: 4rem 0 3rem; text-align: center; }
+.hero h1 { font-size: clamp(1.6rem, 4vw, 2.6rem); margin: 0 0 1rem; }
+.lead { max-width: 42rem; margin: 0 auto 1.6rem; color: #9aa4b1; }
+pre { background: #10131a; border: 1px solid #2a3038; padding: 1rem; text-align: left; max-width: 34rem; margin: 0 auto; overflow-x: auto; font-size: 0.85rem; }
+.fine { color: #5c6672; font-size: 0.85rem; margin-top: 0.8rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; padding-bottom: 3rem; }
+.card { background: #1b1f26; border: 1px solid #2a3038; padding: 1.1rem 1.2rem; }
+.card h2 { font-size: 1rem; margin: 0 0 0.5rem; color: #8ab4f8; }
+.card p { margin: 0; font-size: 0.85rem; color: #b7bfc9; }
+.cta { text-align: center; padding-bottom: 4rem; }
+.cta pre { margin-bottom: 1.4rem; }
+.btn { display: inline-block; background: #8ab4f8; color: #10131a !important; padding: 0.55rem 1.2rem; text-decoration: none; font-weight: 700; margin: 0 0.3rem; }
+.btn.ghost { background: transparent; color: #8ab4f8 !important; border: 1px solid #8ab4f8; }
+footer { border-top: 1px solid #2a3038; padding: 1.4rem 0; color: #5c6672; font-size: 0.8rem; text-align: center; }
+code { color: #9ee6a0; }
